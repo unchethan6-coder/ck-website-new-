@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
@@ -6,10 +7,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <span className="text-sm font-bold text-primary-foreground">FP</span>
-          </div>
-          <span className="text-xl font-bold text-foreground">FundingPips</span>
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo%20%281%29-JWcpaOMEVX6Hecl5M4TBpcD9OYZN3C.png"
+            alt="CK Capital Logo"
+            width={120}
+            height={40}
+            className="h-auto w-auto"
+          />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

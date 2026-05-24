@@ -7,15 +7,15 @@ export default function Hero() {
       <div className="container mx-auto max-w-4xl">
         <div className="text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-secondary/20 px-4 py-2">
-            <span className="text-sm font-medium text-primary">✨ Join 50,000+ Traders Worldwide</span>
+            <span className="text-sm font-medium text-primary">✨ Join 50,000+ Traders Globally</span>
           </div>
 
           <h1 className="text-balance mb-6 text-4xl font-bold md:text-6xl text-foreground">
-            Instant Funding for Professional Traders
+            Transforming Traders into Winners
           </h1>
 
           <p className="text-balance mb-8 text-lg text-muted-foreground md:text-xl leading-relaxed">
-            Get funded up to $300k with our 1-step or 2-step evaluation. Trade Forex and Crypto with up to 80-100% profit splits and weekly payouts.
+            Get funded with up to $1.2M. Enjoy up to 100% profit splits, flexible payouts, and access to 50+ trading instruments including Forex, Crypto, and more.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -30,7 +30,7 @@ export default function Hero() {
 
           <div className="mt-16 grid grid-cols-3 gap-4 md:gap-8 pt-8 border-t border-border">
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-bold text-primary">$300k</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">$1.2M</p>
               <p className="text-sm text-muted-foreground mt-1">Max Account Size</p>
             </div>
             <div className="text-center">
@@ -38,8 +38,8 @@ export default function Hero() {
               <p className="text-sm text-muted-foreground mt-1">Profit Split</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-bold text-primary">Weekly</p>
-              <p className="text-sm text-muted-foreground mt-1">Fast Payouts</p>
+              <p className="text-2xl md:text-3xl font-bold text-primary">Flexible</p>
+              <p className="text-sm text-muted-foreground mt-1">Payouts</p>
             </div>
           </div>
         </div>

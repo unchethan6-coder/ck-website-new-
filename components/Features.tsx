@@ -4,33 +4,33 @@ import { TrendingUp, Shield, Zap, BarChart3, Wallet, Clock } from 'lucide-react'
 const features = [
   {
     icon: TrendingUp,
-    title: 'High Profit Splits',
-    description: 'Earn 80-100% of your profits. Keep what you make with transparent profit sharing.',
+    title: 'Up to 100% Profit Split',
+    description: 'Keep more of your profits with up to 100% profit split on your trading success.',
   },
   {
     icon: Shield,
-    title: 'Risk Management',
-    description: 'Strict risk limits protect your capital. Trade with peace of mind and clear rules.',
+    title: 'Reset & Top-Up',
+    description: 'Get back on track with the reset or top-up option, regardless of rule violations.',
   },
   {
     icon: Zap,
-    title: 'Fast Funding',
-    description: 'Get funded within 24 hours after passing evaluation. No lengthy approval process.',
+    title: 'News Trading',
+    description: 'Profit swiftly by navigating large market movements sparked by high-impact news.',
   },
   {
     icon: BarChart3,
-    title: 'Real Trading',
-    description: 'Trade real markets with real leverage. Use your preferred platforms like MT5 and cTrader.',
+    title: 'Competitive Spreads',
+    description: 'With spreads starting from 0.0 pips, traders have a competitive edge in the markets.',
   },
   {
     icon: Wallet,
     title: 'Flexible Payouts',
-    description: 'Withdraw profits weekly. Scale your account up to $300k with consistent performance.',
+    description: 'Get paid on your schedule with flexible payouts suitable for all traders.',
   },
   {
     icon: Clock,
     title: '24/7 Support',
-    description: 'Expert support team available round the clock to help with any questions.',
+    description: 'Peace of mind with 24/7 support Mon-Fri, always available to assist you.',
   },
 ];
 
@@ -40,10 +40,10 @@ export default function Features() {
       <div className="container mx-auto">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-            Why Choose FundingPips?
+            Why Choose CK Capital?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to succeed as a professional trader, all in one platform.
+            Supercharge your trading with CK Capital and maximize profits with our comprehensive features.
           </p>
         </div>
 

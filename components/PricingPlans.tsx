@@ -5,50 +5,51 @@ import { Check } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Starter',
-    description: 'Perfect for beginners',
-    price: '$99',
-    period: 'One-time',
+    name: 'Standard',
+    description: 'Perfect for starters',
+    price: '$13-$88',
+    period: 'Challenge fee',
     popular: false,
     features: [
-      'Up to $50,000 account size',
-      '1-step evaluation',
-      '80% profit split',
-      'cTrader platform',
-      'Email support',
-      'No replay trading',
+      'Up to $100,000 account size',
+      '1-step or 2-step evaluation',
+      'Profit target: $500-$250',
+      'Daily loss limit: $200',
+      'Max loss: $400',
+      'TradeLocker & MT5',
     ],
   },
   {
-    name: 'Professional',
+    name: 'CK Trader',
     description: 'Most popular choice',
-    price: '$299',
-    period: 'One-time',
+    price: 'Funded Account',
+    period: 'After evaluation',
     popular: true,
     features: [
-      'Up to $200,000 account size',
-      '2-step evaluation',
-      '90% profit split',
-      'MT5 & cTrader platforms',
-      'Priority support',
-      'Scaling opportunity',
-      'Advanced analytics',
+      'Up to $1,200,000 total capital',
+      'Verified trading account',
+      'Up to 100% profit split',
+      'News trading allowed',
+      'Flexible payouts',
+      'Daily loss: $750',
+      'Max loss: $1,250',
+      '24/7 support',
     ],
   },
   {
-    name: 'Elite',
-    description: 'For experienced traders',
-    price: '$599',
-    period: 'One-time',
+    name: 'Instant Funding',
+    description: 'Quick account access',
+    price: '$20-$180',
+    period: 'Funding fee',
     popular: false,
     features: [
-      'Up to $300,000 account size',
-      '1-step evaluation',
-      '100% profit split',
-      'All platforms available',
-      '24/7 VIP support',
-      'Unlimited scaling',
-      'White glove service',
+      'Up to $100,000+ account',
+      'Fast approval process',
+      'News trading restricted',
+      '20% consistency rule',
+      'Daily loss: $750',
+      'Max loss: $1,250',
+      'Weekly payouts',
     ],
   },
 ];
@@ -59,10 +60,10 @@ export default function PricingPlans() {
       <div className="container mx-auto">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-            Simple, Transparent Pricing
+            Trading Objectives & Pricing
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your trading style. All plans include instant funding and weekly payouts.
+            Choose your path to become a CK Trader. Multiple evaluation options to match your trading style.
           </p>
         </div>
 
@@ -115,7 +116,7 @@ export default function PricingPlans() {
 
         <div className="mt-12 text-center">
           <p className="text-muted-foreground">
-            All plans include: Real trading, Live support, Performance tracking, Scaling opportunities
+            All plans include: Live market access, TradeLocker & MT5 platforms, Performance tracking, Reset/Top-up options
           </p>
         </div>
       </div>

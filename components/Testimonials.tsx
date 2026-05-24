@@ -3,39 +3,39 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Alex Chen',
+    name: 'Sarah K.',
     role: 'Forex Trader',
-    content: 'FundingPips changed my trading career. Got funded within 24 hours and I love the 90% profit split. The support team is incredibly responsive.',
+    content: 'Their service and response towards their users is so great, if I&apos;m to choose again I&apos;d still choose CK Capital.',
     rating: 5,
   },
   {
-    name: 'Maria Rodriguez',
+    name: 'Michael T.',
     role: 'Crypto Trader',
-    content: 'The evaluation process was fair and straightforward. I appreciated the transparent rules and no hidden fees. Already scaling my account to $200k!',
+    content: 'You can have fun playing games like Friday Night Rumble on their Discord server and win challenge accounts. I will try my best to pass the challenge.',
     rating: 5,
   },
   {
-    name: 'James Wilson',
+    name: 'James L.',
     role: 'Day Trader',
-    content: 'Best prop trading platform I\'ve used. The risk management tools are excellent, and withdrawals are always on time. Highly recommended!',
+    content: 'Highly responsive customer service. CK has one of the most responsive and vibrant customer care services I&apos;ve experienced.',
     rating: 5,
   },
   {
-    name: 'Lisa Thompson',
-    role: 'Algorithmic Trader',
-    content: 'The platform supports all my trading strategies. MT5 integration is seamless, and the analytics dashboard is very detailed. Loving it!',
-    rating: 5,
-  },
-  {
-    name: 'David Park',
+    name: 'Emma D.',
     role: 'Swing Trader',
-    content: 'Started with $50k account and scaled to $300k in 3 months. The profit split motivated me to trade better. This is the real deal.',
+    content: 'I recently joined CK, and they&apos;re wonderful and great with fast support. Their community looks healthy and friendly. I&apos;m so excited!',
     rating: 5,
   },
   {
-    name: 'Emma Harris',
+    name: 'David M.',
+    role: 'Algorithmic Trader',
+    content: 'Amazing service, support, and plans. The evaluation process is fair and transparent. Great job by the CK Capital team!',
+    rating: 5,
+  },
+  {
+    name: 'Lisa C.',
     role: 'Options Trader',
-    content: 'Finally, a prop firm that treats traders fairly. No drawdown resets, consistent payouts, and genuine support. 10/10 would recommend.',
+    content: 'The 24/7 support and flexible payouts make trading stress-free. Scaled my account to $1.2M and withdrawals are always smooth.',
     rating: 5,
   },
 ];
@@ -46,10 +46,10 @@ export default function Testimonials() {
       <div className="container mx-auto">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-            Loved by Traders Worldwide
+            Trader Reviews
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See what successful traders are saying about their experience with FundingPips.
+            See what successful traders are saying about their experience with CK Capital.
           </p>
         </div>
 

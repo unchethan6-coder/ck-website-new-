@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'FundingPips - Best Prop Trading Firm 2026 | Funded Accounts',
-  description: 'Get instant funded trading accounts with up to $300k capital. 1-step or 2-step evaluation. Trade Forex & Crypto with 80-100% profit splits.',
+  title: 'CK Capital – Prop Firm | Instant Funded Accounts Up to $1.2M',
+  description: 'Get instant funded trading accounts with up to $1.2M capital. Enjoy 100% profit splits, flexible payouts, and 24/7 support. Trade Forex, Crypto & Commodities with CK Capital.',
   generator: 'v0.app',
   icons: {
     icon: [

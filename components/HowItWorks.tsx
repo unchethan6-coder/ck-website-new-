@@ -4,33 +4,33 @@ import { Badge } from '@/components/ui/badge';
 const steps = [
   {
     number: '01',
-    title: 'Create Your Account',
-    description: 'Sign up and complete your profile in just 5 minutes. Verify your email and set trading preferences.',
+    title: 'Evaluation Stage',
+    description: 'Complete the CK Capital Challenge to display trading competency. Follow trading objectives and demonstrate consistency in a demo environment.',
   },
   {
     number: '02',
-    title: 'Complete Evaluation',
-    description: 'Pass our 1-step or 2-step evaluation with minimal drawdown. Show us your trading skills.',
+    title: 'Verification Step',
+    description: 'Simplified objectives allow you to verify your skills and demonstrate consistency in abilities. Access demo environment with multiple account sizes.',
   },
   {
     number: '03',
-    title: 'Get Funded Instantly',
-    description: 'Upon passing, receive your funded account within 24 hours with real capital to trade.',
+    title: 'Qualified Analyst',
+    description: 'Upon completion, get access to a Qualified Analyst Account. Monetize your talent with up to $1.2M in simulated funds.',
   },
   {
     number: '04',
-    title: 'Start Trading',
-    description: 'Trade forex, crypto, and other assets with professional platforms like MT5 and cTrader.',
+    title: 'Real Trading Access',
+    description: 'Trade across 50+ instruments including Forex, Crypto, Commodities, and Indices with real market conditions.',
   },
   {
     number: '05',
     title: 'Earn Profits',
-    description: 'Keep 80-100% of your profits. No commissions, no hidden fees, pure profit splits.',
+    description: 'Keep up to 100% of your profits. Flexible payouts with no restrictions on how frequently you withdraw.',
   },
   {
     number: '06',
-    title: 'Weekly Payouts',
-    description: 'Withdraw your earnings every week. Scale your account as you grow your trading skills.',
+    title: 'Scale & Grow',
+    description: 'Scale your account up to $1.2M total capital. Enjoy reset and top-up options regardless of rule violations.',
   },
 ];
 
@@ -40,10 +40,10 @@ export default function HowItWorks() {
       <div className="container mx-auto">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-            How It Works
+            Unleash Your Skills & Get Rewarded
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get funded in 6 simple steps. From signup to trading profits, all streamlined for your success.
+            CK Capital&apos;s trading guidelines focus on fostering disciplined risk management and sustainable trading habits.
           </p>
         </div>
 
@@ -64,13 +64,27 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-12 p-6 bg-secondary/10 rounded-lg border border-border">
-          <h3 className="text-xl font-semibold text-foreground mb-3">Evaluation Rules</h3>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>• <span className="font-medium">Daily Loss Limit:</span> Cannot exceed 5% of account balance per day</li>
-            <li>• <span className="font-medium">Overall Drawdown:</span> Maximum 10% drawdown allowed during evaluation</li>
-            <li>• <span className="font-medium">Minimum Trading:</span> No minimum daily trading requirement</li>
-            <li>• <span className="font-medium">Platform:</span> Choose between MT5, cTrader, or Match Trader</li>
-          </ul>
+          <h3 className="text-xl font-semibold text-foreground mb-3">Standard Challenge Rules</h3>
+          <div className="grid md:grid-cols-2 gap-6 text-muted-foreground">
+            <div>
+              <p className="font-medium text-foreground mb-2">Step 1: Challenge</p>
+              <ul className="space-y-1 text-sm">
+                <li>• Profit Target: $500</li>
+                <li>• Max Daily Loss: $200</li>
+                <li>• Max Loss: $400</li>
+                <li>• Fee: $13-$88</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-medium text-foreground mb-2">Step 2: Verification</p>
+              <ul className="space-y-1 text-sm">
+                <li>• Profit Target: $250</li>
+                <li>• Max Daily Loss: $200</li>
+                <li>• Max Loss: $400</li>
+                <li>• Consistency: 40% required</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

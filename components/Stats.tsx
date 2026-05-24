@@ -5,19 +5,19 @@ export default function Stats() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-primary">50K+</p>
-            <p className="text-sm text-muted-foreground mt-2">Active Traders</p>
+            <p className="text-sm text-muted-foreground mt-2">Traders Globally</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-primary">$2B+</p>
-            <p className="text-sm text-muted-foreground mt-2">Monthly Volume</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary">$1.2M</p>
+            <p className="text-sm text-muted-foreground mt-2">Max Account Size</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-primary">98%</p>
-            <p className="text-sm text-muted-foreground mt-2">Approval Rate</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary">100%</p>
+            <p className="text-sm text-muted-foreground mt-2">Profit Split</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-primary">24hrs</p>
-            <p className="text-sm text-muted-foreground mt-2">Funding Time</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary">24/7</p>
+            <p className="text-sm text-muted-foreground mt-2">Support Available</p>
           </div>
         </div>
       </div>
