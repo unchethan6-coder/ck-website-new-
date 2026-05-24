@@ -1,4 +1,3 @@
-import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -42,40 +41,38 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 px-4 md:py-32 bg-background">
+    <section id="testimonials" className="py-20 px-4 md:py-32 bg-white">
       <div className="container mx-auto">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-            Trader Reviews
+          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-gray-900">
+            What Traders Say
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See what successful traders are saying about their experience with CK Capital.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Join thousands of successful traders on their journey with CK Capital
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-border hover:border-primary/50 transition-all">
-              <CardContent className="pt-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-accent text-accent"
-                    />
-                  ))}
-                </div>
-                
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  "{testimonial.content}"
-                </p>
-                
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+              
+              <p className="text-gray-700 leading-relaxed mb-4">
+                "{testimonial.content}"
+              </p>
+              
+              <div className="border-t border-gray-200 pt-4">
+                <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                <p className="text-sm text-gray-600">{testimonial.role}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

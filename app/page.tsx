@@ -2,25 +2,27 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import PricingPlans from '@/components/PricingPlans';
+import AboutSection from '@/components/AboutSection';
+import PricingCalculator from '@/components/PricingCalculator';
+import WhyChooseUs from '@/components/WhyChooseUs';
 import HowItWorks from '@/components/HowItWorks';
-import Stats from '@/components/Stats';
+import TradingRules from '@/components/TradingRules';
 import Testimonials from '@/components/Testimonials';
-import CTA from '@/components/CTA';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       <Hero />
-      <Features />
-      <Stats />
-      <PricingPlans />
+      <AboutSection />
+      <PricingCalculator />
+      <WhyChooseUs />
       <HowItWorks />
+      <TradingRules />
       <Testimonials />
-      <CTA />
+      <FAQ />
       <Footer />
     </div>
   );
