@@ -76,17 +76,27 @@ export default function Footer() {
             <h3 className="font-semibold text-[#1a1a1a] mb-4 text-sm uppercase tracking-wider">Legal</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
-                  Privacy
+                <Link href="/privacy-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
-                  Terms
+                <Link href="/terms-conditions" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                  Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                <Link href="/return-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                  Return Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
                   Disclaimer
                 </Link>
               </li>
