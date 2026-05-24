@@ -10,8 +10,8 @@ export default function Header() {
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
             alt="CK Capital Logo"
-            width={10}
-            height={16}
+            width={35}
+            height={12}
             className="h-auto w-auto"
             priority
           />
