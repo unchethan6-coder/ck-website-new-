@@ -8,10 +8,10 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         <Link href="/" className="flex items-center">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rN5LVNvUVWE1dB37jCqttzLYZxqoRk.png"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo%20%281%29-JWcpaOMEVX6Hecl5M4TBpcD9OYZN3C.png"
             alt="CK Capital Logo"
-            width={120}
-            height={30}
+            width={60}
+            height={20}
             className="h-auto w-auto"
             priority
           />
