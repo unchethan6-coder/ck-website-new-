@@ -100,8 +100,8 @@ export default function Footer() {
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo%20%281%29-JWcpaOMEVX6Hecl5M4TBpcD9OYZN3C.png"
                 alt="CK Capital Logo"
-                width={120}
-                height={40}
+                width={90}
+                height={28}
                 className="h-auto w-auto"
               />
             </div>
