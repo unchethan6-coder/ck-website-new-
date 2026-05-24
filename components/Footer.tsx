@@ -98,7 +98,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo%20%281%29-JWcpaOMEVX6Hecl5M4TBpcD9OYZN3C.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
                 alt="CK Capital Logo"
                 width={50}
                 height={16}

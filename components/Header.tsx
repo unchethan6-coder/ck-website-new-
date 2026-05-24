@@ -8,7 +8,7 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         <Link href="/" className="flex items-center">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo%20%281%29-JWcpaOMEVX6Hecl5M4TBpcD9OYZN3C.png"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
             alt="CK Capital Logo"
             width={60}
             height={20}
