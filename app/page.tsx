@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import ScrollingPromos from '@/components/ScrollingPromos';
 import AboutSection from '@/components/AboutSection';
 import PricingCalculator from '@/components/PricingCalculator';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -16,6 +17,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <ScrollingPromos />
       <AboutSection />
       <PricingCalculator />
       <WhyChooseUs />
