@@ -328,8 +328,13 @@ export default function PricingCalculator() {
 
           {/* Checkout Button */}
           <div className="text-center">
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base transition-all duration-200 shadow-card hover:shadow-elevated">
-              Checkout
+            <Button 
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base transition-all duration-200 shadow-card hover:shadow-elevated"
+              asChild
+            >
+              <a href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer">
+                Checkout
+              </a>
             </Button>
           </div>
         </div>

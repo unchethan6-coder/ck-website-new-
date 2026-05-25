@@ -39,13 +39,13 @@ export default function Header() {
             className="hidden sm:inline-flex text-xs sm:text-sm text-[#1a1a1a] border-[#E8E8E8] hover:bg-[#F5F5F5] px-3 sm:px-4 py-1.5 h-8 sm:h-10"
             asChild
           >
-            <a href="#">Log In</a>
+            <a href="https://app.ckcapital.co.uk/signin">Log In</a>
           </Button>
           <Button 
             className="bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 h-8 sm:h-10 transition-colors duration-150"
             asChild
           >
-            <a href="#">Sign Up</a>
+            <a href="https://app.ckcapital.co.uk/signup">Sign Up</a>
           </Button>
         </div>
       </nav>
