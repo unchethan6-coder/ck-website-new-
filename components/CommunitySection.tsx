@@ -59,7 +59,7 @@ export default function CommunitySection() {
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/50 text-sm sm:text-base"
                 asChild
               >
-                <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/ckcapitaluk_?s=21" target="_blank" rel="noopener noreferrer">
                   <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Join Our X</span>
                 </a>
