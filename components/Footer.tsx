@@ -12,38 +12,38 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Product</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="/payment-methods" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Payment Methods</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Pricing</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Features</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">How It Works</a></li>
+              <li><a href="/payment-methods" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Payment Methods</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Pricing</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Features</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">How It Works</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Community</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Discord</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Blog</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Guides</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Discord</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Blog</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Guides</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Company</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">About</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Support</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Contact</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">About</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Support</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Contact</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Legal & Compliance</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="/privacy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Terms of Service</a></li>
-              <li><a href="/risk-disclosure" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Risk Disclosure</a></li>
-              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Disclaimer</a></li>
+              <li><a href="/privacy" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Privacy Policy</a></li>
+              <li><a href="/terms" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Terms of Service</a></li>
+              <li><a href="/risk-disclosure" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Risk Disclosure</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#F4D957] transition-colors text-xs sm:text-sm">Disclaimer</a></li>
             </ul>
           </div>
         </div>

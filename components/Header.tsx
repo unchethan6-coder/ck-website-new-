@@ -42,7 +42,7 @@ export default function Header() {
             <a href="https://app.ckcapital.co.uk/signin">Log In</a>
           </Button>
           <Button 
-            className="bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 h-8 sm:h-10 transition-colors duration-150"
+            className="bg-[#F4D957] hover:bg-[#F0C738] text-[#1a1a1a] text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 h-8 sm:h-10 transition-colors duration-150"
             asChild
           >
             <a href="https://app.ckcapital.co.uk/signup">Sign Up</a>

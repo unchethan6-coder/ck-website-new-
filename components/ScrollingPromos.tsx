@@ -19,7 +19,7 @@ export default function ScrollingPromos() {
   ];
 
   return (
-    <div className="relative w-full bg-[#E8C547] overflow-hidden py-1.5 sm:py-2 border-t border-b border-[#1a1a1a]">
+    <div className="relative w-full bg-[#F4D957] overflow-hidden py-1.5 sm:py-2 border-t border-b border-[#1a1a1a]">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
