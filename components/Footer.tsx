@@ -13,6 +13,11 @@ export default function Footer() {
             <h3 className="font-semibold text-[#1a1a1a] mb-4 text-sm uppercase tracking-wider">Product</h3>
             <ul className="space-y-3">
               <li>
+                <Link href="/payment-methods" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
+                  Payment Methods
+                </Link>
+              </li>
+              <li>
                 <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-sm">
                   Pricing
                 </Link>
