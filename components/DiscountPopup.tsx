@@ -53,12 +53,12 @@ export default function DiscountPopup() {
         </DialogClose>
 
         {/* Main Content */}
-        <div className="bg-gradient-to-b from-[#E8C547] to-[#D4AF37] p-6 sm:p-8">
+        <div className="bg-gradient-to-b from-[#F4D957] to-[#F0C738] p-6 sm:p-8">
           {!submitted ? (
             <div className="space-y-4 sm:space-y-6 text-center">
               {/* Discount Badge */}
               <div className="inline-block">
-                <div className="bg-white bg-opacity-30 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white border-opacity-40">
+                <div className="bg-white bg-opacity-40 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white border-opacity-50">
                   <p className="text-sm sm:text-base font-bold text-gray-900">
                     EXCLUSIVE OFFER
                   </p>
@@ -70,13 +70,13 @@ export default function DiscountPopup() {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight text-balance">
                   85% OFF
                 </h2>
-                <p className="text-base sm:text-lg text-gray-800 font-semibold mt-2">
+                <p className="text-base sm:text-lg text-gray-900 font-semibold mt-2">
                   Your First Evaluation
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-gray-800 leading-relaxed max-w-xs mx-auto">
+              <p className="text-sm sm:text-base text-gray-900 leading-relaxed max-w-xs mx-auto">
                 Join thousands of traders evaluating their skills on our platform. Limited time offer!
               </p>
 
@@ -103,14 +103,14 @@ export default function DiscountPopup() {
               </form>
 
               {/* Footer Text */}
-              <p className="text-xs sm:text-sm text-gray-700">
+              <p className="text-xs sm:text-sm text-gray-800">
                 No spam, unsubscribe anytime
               </p>
             </div>
           ) : (
             // Success Message
             <div className="space-y-4 text-center py-8 sm:py-12">
-              <div className="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-white bg-opacity-30 backdrop-blur-sm">
+              <div className="inline-flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-white bg-opacity-40 backdrop-blur-sm">
                 <svg
                   className="h-6 w-6 sm:h-8 sm:w-8 text-gray-900"
                   fill="none"
@@ -129,7 +129,7 @@ export default function DiscountPopup() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
                   Success!
                 </h3>
-                <p className="text-sm sm:text-base text-gray-800 mt-2">
+                <p className="text-sm sm:text-base text-gray-900 mt-2">
                   Check your email for your exclusive 85% discount code.
                 </p>
               </div>
