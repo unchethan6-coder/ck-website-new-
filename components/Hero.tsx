@@ -55,11 +55,11 @@ export default function Hero() {
             </span>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight text-balance">
-              Transforming Traders Into Winners
+              Instant Funded Trading Accounts for Professional Traders
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg text-[#666666] leading-relaxed">
-              Get funded with up to $1.2M capital. Enjoy up to 100% profit splits, flexible payouts, and trade 50+ instruments with CK Capital.
+              Join the best prop trading firm. Get instant funded accounts up to $1.2M capital with 100% profit splits. Trade Forex, Cryptocurrencies, Commodities, and Indices with flexible risk management rules. No commissions, no hidden fees.
             </p>
 
             {/* Stats Grid */}

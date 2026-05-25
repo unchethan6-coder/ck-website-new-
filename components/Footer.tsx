@@ -38,13 +38,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Legal</h3>
+            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Legal & Compliance</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="/privacy-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Privacy</a></li>
-              <li><a href="/terms-conditions" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Terms</a></li>
-              <li><a href="/return-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Returns</a></li>
-              <li><a href="/cookie-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Cookies</a></li>
-              <li><a href="/disclaimer" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Disclaimer</a></li>
+              <li><a href="/privacy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Privacy Policy</a></li>
+              <li><a href="/terms" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Terms of Service</a></li>
+              <li><a href="/risk-disclosure" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Risk Disclosure</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Disclaimer</a></li>
             </ul>
           </div>
         </div>

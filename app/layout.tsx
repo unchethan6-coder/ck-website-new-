@@ -16,9 +16,47 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ckcapital.co.uk'),
-  title: 'CK Capital – Prop Firm | Instant Funded Trading Accounts Up to $1.2M',
-  description: 'Get instant funded trading accounts with up to $1.2M capital. 100% profit splits, flexible payouts, 24/7 support. Trade Forex, Crypto & Commodities risk-free with CK Capital prop trading firm.',
-  keywords: ['prop trading', 'funded trading', 'trading firm', 'forex trading', 'crypto trading', 'prop firm', 'instant funding', 'trading capital'],
+  title: 'CK Capital – Best Prop Trading Firm 2025 | Funded Trading Accounts Up to $1.2M | Risk-Free Forex & Crypto Trading',
+  description: 'CK Capital is a leading prop trading firm offering instant funded trading accounts up to $1.2M. Get 100% profit splits, flexible payouts, 24/7 support. Trade Forex, Cryptocurrencies, Commodities & Indices risk-free. Join 50,000+ successful traders today.',
+  keywords: [
+    'prop trading',
+    'prop firm',
+    'funded trading',
+    'trading firm',
+    'forex trading',
+    'crypto trading',
+    'instant funding',
+    'trading capital',
+    'funded trading accounts',
+    'proprietary trading',
+    'prop trading firm UK',
+    'forex prop firm',
+    'cryptocurrency trading',
+    'trading challenge',
+    'trading evaluation',
+    'funded trader',
+    'trading account',
+    'profitable trading',
+    'day trading',
+    'swing trading',
+    'algorithmic trading',
+    'forex broker',
+    'trading platform',
+    'trading rules',
+    'profit split',
+    'trading education',
+    'trading signals',
+    'technical analysis',
+    'risk management',
+    'money management',
+    'trading psychology',
+    'trader evaluation',
+    'trading verification',
+    'instant trading account',
+    'risk-free trading',
+    'simulated trading',
+    'demo trading account',
+  ],
   authors: [{ name: 'CK Capital Group' }],
   creator: 'CK Capital Group',
   publisher: 'CK Capital Group Ltd',
@@ -38,22 +76,22 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: 'https://ckcapital.co.uk',
     siteName: 'CK Capital',
-    title: 'CK Capital – Prop Firm | Instant Funded Trading Accounts Up to $1.2M',
-    description: 'Get instant funded trading accounts with up to $1.2M capital. 100% profit splits, flexible payouts, 24/7 support. Trade Forex, Crypto & Commodities.',
+    title: 'CK Capital – Best Prop Trading Firm | Funded Trading Accounts Up to $1.2M',
+    description: 'Join CK Capital, the leading prop trading firm. Get instant funded trading accounts with 100% profit splits, 24/7 support, and no restrictions on trading styles. Trade Forex, Crypto & Commodities.',
     images: [
       {
         url: 'https://ckcapital.co.uk/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'CK Capital - Prop Trading Firm',
+        alt: 'CK Capital - Leading Prop Trading Firm with Funded Accounts',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CK Capital – Prop Firm | Instant Funded Trading Accounts',
-    description: 'Get instant funded trading accounts with up to $1.2M capital and 100% profit splits.',
+    title: 'CK Capital – Best Prop Trading Firm | Funded Trading Accounts Up to $1.2M',
+    description: 'Join 50,000+ traders at CK Capital. Get instant funded trading accounts with 100% profit splits and 24/7 support. Start your prop trading journey today.',
     creator: '@ckcapital',
     images: ['https://ckcapital.co.uk/twitter-image.png'],
   },
@@ -101,6 +139,153 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+
+        {/* Google Ads Conversion Tracking */}
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
+          />
+        )}
+
+        {/* Meta Pixel */}
+        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
+                fbq('track', 'PageView');
+              `,
+            }}
+          />
+        )}
+
+        {/* Structured Data - Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'CK Capital',
+              alternateName: 'CK Capital Group',
+              url: 'https://ckcapital.co.uk',
+              logo: 'https://ckcapital.co.uk/logo.png',
+              description: 'CK Capital is a leading prop trading firm offering funded trading accounts with up to 100% profit splits and 24/7 support.',
+              sameAs: [
+                'https://twitter.com/ckcapital',
+                'https://linkedin.com/company/ckcapital',
+                'https://discord.gg/ckcapital',
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+44-xxx-xxx-xxxx',
+                contactType: 'Customer Support',
+                contactOption: 'TollFree',
+              },
+            }),
+          }}
+        />
+
+        {/* Structured Data - Service Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              name: 'Prop Trading Account',
+              provider: {
+                '@type': 'Organization',
+                name: 'CK Capital',
+              },
+              description: 'Funded trading accounts with up to $1.2M capital and flexible profit splits for professional traders.',
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'GBP',
+                price: '13',
+                pricingUnit: 'CHALLENGE_FEE',
+              },
+              areaServed: 'Worldwide',
+            }),
+          }}
+        />
+
+        {/* Structured Data - FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'What is CK Capital?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'CK Capital is a proprietary trading firm that provides qualified traders with funded trading accounts up to $1.2M in capital with flexible profit splits.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'How much is the challenge fee?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Challenge fees range from $13 to $88 depending on the account size and challenge type selected.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What is the profit split percentage?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'CK Capital traders receive up to 100% of their profits. There are no commissions or hidden fees.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Can I trade the news?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes, news trading is allowed on CK Capital accounts. We encourage traders to capitalize on market-moving events with proper risk management.',
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         {children}
