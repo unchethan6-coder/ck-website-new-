@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import CandlestickChart from '@/components/CandlestickChart';
 import ScrollingPromos from '@/components/ScrollingPromos';
 import AboutSection from '@/components/AboutSection';
 import PricingCalculator from '@/components/PricingCalculator';
@@ -20,6 +21,7 @@ export default function Home() {
       <DiscountPopup />
       <Header />
       <Hero />
+      <CandlestickChart />
       <ScrollingPromos />
       <AboutSection />
       <PricingCalculator />
