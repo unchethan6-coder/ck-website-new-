@@ -125,30 +125,80 @@
 }
 
 @layer components {
+  /* Card Hover & Animation Effects */
   .card-hover {
     @apply transition-all duration-200 hover:shadow-lg hover:scale-105;
   }
   
+  .card-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .card-glow {
+    @apply transition-all duration-200 hover:shadow-[0_8px_24px_rgba(232,197,71,0.15)];
+  }
+  
+  /* Button Styles */
   .button-primary {
     @apply bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-semibold transition-colors duration-150;
   }
   
+  .button-premium {
+    @apply bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95;
+  }
+
+  /* Shadow Styles */
   .shadow-premium {
     @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)];
   }
+
+  .shadow-card {
+    @apply shadow-[0_2px_12px_rgba(0,0,0,0.06)];
+  }
+
+  .shadow-elevated {
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.12)];
+  }
   
+  /* Gradient Styles */
   .gradient-gold {
     @apply bg-gradient-to-r from-[#E8C547] to-[#D4AF37];
   }
 
-  /* Smooth 3D effect for cards */
+  .gradient-subtle {
+    @apply bg-gradient-to-br from-white to-[#FAFAFA];
+  }
+
+  /* 3D Effects */
   .card-3d {
     @apply transition-transform duration-300 hover:translate-y-[-2px];
   }
 
-  /* Friendly accent style */
+  /* Accent & Text Styles */
   .accent-friendly {
     @apply text-[#E8C547] font-semibold;
+  }
+
+  .text-premium {
+    @apply text-[#1a1a1a] font-bold tracking-tight;
+  }
+
+  .text-muted-premium {
+    @apply text-[#666666] font-medium;
+  }
+
+  /* Border Styles */
+  .border-premium {
+    @apply border border-[#E0E0E0] hover:border-[#E8C547] transition-colors duration-200;
+  }
+
+  /* Utility Classes for Premium Layout */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
 

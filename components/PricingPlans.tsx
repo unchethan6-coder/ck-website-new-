@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, TrendingUp, Zap } from 'lucide-react';
 
 const plans = [
   {
@@ -10,6 +10,7 @@ const plans = [
     price: '$13-$88',
     period: 'Challenge fee',
     popular: false,
+    icon: TrendingUp,
     features: [
       'Up to $100,000 account size',
       '1-step or 2-step evaluation',
@@ -25,6 +26,7 @@ const plans = [
     price: 'Funded Account',
     period: 'After evaluation',
     popular: true,
+    icon: Zap,
     features: [
       'Up to $1,200,000 total capital',
       'Verified trading account',
@@ -42,6 +44,7 @@ const plans = [
     price: '$20-$180',
     period: 'Funding fee',
     popular: false,
+    icon: Zap,
     features: [
       'Up to $100,000+ account',
       'Fast approval process',
@@ -56,66 +59,81 @@ const plans = [
 
 export default function PricingPlans() {
   return (
-    <section id="pricing" className="py-20 px-4 md:py-32 bg-background">
+    <section id="pricing" className="py-12 sm:py-16 md:py-20 px-4 bg-white">
       <div className="container mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
+        <div className="mb-8 sm:mb-12 md:mb-16 text-center space-y-2 sm:space-y-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-balance">
             Trading Objectives & Pricing
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Choose your path to become a CK Trader. Multiple evaluation options to match your trading style.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <Card
-              key={index}
-              className={`relative border-border overflow-hidden transition-all ${
-                plan.popular ? 'ring-2 ring-primary md:scale-105' : ''
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
-              )}
-              
-              <CardHeader className="pb-4">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8 sm:mb-12">
+          {plans.map((plan, index) => {
+            const IconComponent = plan.icon;
+            return (
+              <Card
+                key={index}
+                className={`relative border-border overflow-hidden transition-all duration-300 h-full flex flex-col ${
+                  plan.popular 
+                    ? 'ring-2 ring-primary shadow-elevated md:scale-105 border-primary' 
+                    : 'card-lift shadow-card hover:shadow-elevated'
+                }`}
+              >
+                {/* Top accent bar for popular */}
                 {plan.popular && (
-                  <Badge className="w-fit mb-3 bg-primary text-white">Most Popular</Badge>
+                  <div className="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
                 )}
-                <CardTitle className="text-2xl text-foreground">{plan.name}</CardTitle>
-                <CardDescription className="text-muted-foreground">{plan.description}</CardDescription>
-              </CardHeader>
-
-              <CardContent className="space-y-6">
-                <div>
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground ml-2">{plan.period}</span>
-                </div>
-
-                <Button className={`w-full ${
-                  plan.popular
-                    ? 'bg-primary hover:bg-primary/90 text-white'
-                    : 'bg-secondary hover:bg-secondary/90 text-secondary-foreground'
-                }`}>
-                  Get Started
-                </Button>
-
-                <div className="space-y-3 pt-4 border-t border-border">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{feature}</span>
+                
+                <CardHeader className="pb-3 sm:pb-4">
+                  <div className="flex items-start justify-between gap-2 mb-3 sm:mb-4">
+                    <div>
+                      {plan.popular && (
+                        <Badge className="mb-2 sm:mb-3 bg-primary text-foreground text-xs sm:text-sm font-bold">
+                          Most Popular
+                        </Badge>
+                      )}
+                      <CardTitle className="text-xl sm:text-2xl text-foreground">{plan.name}</CardTitle>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                  </div>
+                  <CardDescription className="text-xs sm:text-sm text-muted-foreground">{plan.description}</CardDescription>
+                </CardHeader>
+
+                <CardContent className="space-y-4 sm:space-y-6 flex-grow flex flex-col">
+                  <div className="bg-secondary/50 p-3 sm:p-4 rounded-lg">
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground ml-2">{plan.period}</span>
+                  </div>
+
+                  <Button className={`w-full font-bold text-sm sm:text-base py-2 sm:py-3 transition-all duration-200 ${
+                    plan.popular
+                      ? 'bg-primary hover:bg-primary/90 text-foreground shadow-card hover:shadow-elevated'
+                      : 'border-2 border-primary text-foreground hover:bg-primary/5'
+                  }`}>
+                    Get Started
+                  </Button>
+
+                  <div className="space-y-2 sm:space-y-3 pt-4 sm:pt-6 border-t border-border flex-grow">
+                    {plan.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-2 sm:gap-3">
+                        <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm md:text-base text-foreground leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground">
+        <div className="bg-secondary/50 rounded-lg p-4 sm:p-6 md:p-8 text-center border border-border">
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
             All plans include: Live market access, TradeLocker & MT5 platforms, Performance tracking, Reset/Top-up options
           </p>
         </div>
