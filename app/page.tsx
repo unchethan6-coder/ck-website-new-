@@ -12,10 +12,12 @@ import Testimonials from '@/components/Testimonials';
 import CommunitySection from '@/components/CommunitySection';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
+import DiscountPopup from '@/components/DiscountPopup';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
+      <DiscountPopup />
       <Header />
       <Hero />
       <ScrollingPromos />
