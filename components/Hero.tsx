@@ -101,12 +101,6 @@ export default function Hero() {
             <Button size="lg" className="bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-bold rounded-lg transition-colors duration-150 w-full sm:w-auto">
               Start Evaluation
             </Button>
-
-            <div className="border-t border-[#E8E8E8] pt-3 sm:pt-4">
-              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
-                <strong>Risk Disclaimer:</strong> All challenge and evaluation accounts operate in a simulated environment only. Performance during evaluation does not guarantee future results or earnings. Trading CFDs carries a high level of risk and may not be suitable for all individuals.
-              </p>
-            </div>
           </div>
 
           {/* Right Column - Chart Visualization */}

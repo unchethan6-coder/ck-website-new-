@@ -82,8 +82,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="text-xs text-[#999999] text-center leading-relaxed">
-            Disclaimer: Trading involves substantial risk. Past performance is not indicative of future results.
+          <p className="text-xs text-[#999999] leading-relaxed">
+            <strong>Risk Disclaimer:</strong> All challenge and evaluation accounts operate in a simulated environment only. Performance during evaluation does not guarantee future results or earnings. Trading CFDs carries a high level of risk and may not be suitable for all individuals. CK Capital does not provide investment advice, financial services, or brokerage services. Past performance is not indicative of future results.
           </p>
         </div>
       </div>
