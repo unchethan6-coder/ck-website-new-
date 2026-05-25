@@ -140,6 +140,16 @@
   .gradient-gold {
     @apply bg-gradient-to-r from-[#E8C547] to-[#D4AF37];
   }
+
+  /* Smooth 3D effect for cards */
+  .card-3d {
+    @apply transition-transform duration-300 hover:translate-y-[-2px];
+  }
+
+  /* Friendly accent style */
+  .accent-friendly {
+    @apply text-[#E8C547] font-semibold;
+  }
 }
 
 @keyframes slideInLeft {
