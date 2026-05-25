@@ -9,6 +9,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import HowItWorks from '@/components/HowItWorks';
 import TradingRules from '@/components/TradingRules';
 import Testimonials from '@/components/Testimonials';
+import CommunitySection from '@/components/CommunitySection';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
@@ -24,6 +25,7 @@ export default function Home() {
       <HowItWorks />
       <TradingRules />
       <Testimonials />
+      <CommunitySection />
       <FAQ />
       <Footer />
     </div>
