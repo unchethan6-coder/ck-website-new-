@@ -1,150 +1,90 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Separator } from '@/components/ui/separator';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white border-t border-[#E8E8E8]">
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-12">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16 md:px-8">
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
           <div>
-            <h3 className="font-semibold text-[#1a1a1a] mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">Product</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="/payment-methods" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Payment Methods
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  How It Works
-                </Link>
-              </li>
+            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Product</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
+              <li><a href="/payment-methods" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Payment Methods</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Pricing</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Features</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">How It Works</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-[#1a1a1a] mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">Community</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Discord
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Guides
-                </Link>
-              </li>
+            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Community</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Discord</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Blog</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Guides</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-[#1a1a1a] mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">Company</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Contact
-                </Link>
-              </li>
+            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Company</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">About</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Support</a></li>
+              <li><a href="#" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Contact</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-[#1a1a1a] mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">Legal</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="/privacy-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-conditions" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/return-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Return Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookie-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/disclaimer" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">
-                  Disclaimer
-                </Link>
-              </li>
+            <h3 className="font-semibold text-[#1a1a1a] mb-2 sm:mb-3 text-xs uppercase tracking-wide">Legal</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
+              <li><a href="/privacy-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Privacy</a></li>
+              <li><a href="/terms-conditions" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Terms</a></li>
+              <li><a href="/return-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Returns</a></li>
+              <li><a href="/cookie-policy" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Cookies</a></li>
+              <li><a href="/disclaimer" className="text-[#666666] hover:text-[#E8C547] transition-colors text-xs sm:text-sm">Disclaimer</a></li>
             </ul>
           </div>
         </div>
 
+        {/* Divider */}
         <div className="border-t border-[#E8E8E8] py-6 sm:py-8 mb-6 sm:mb-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <div className="group">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
-                alt="CK Capital Logo"
-                width={60}
-                height={20}
-                className="h-4 sm:h-5 w-auto group-hover:opacity-70 transition-opacity"
-              />
-            </div>
-
-            <p className="text-xs sm:text-sm text-[#999999] text-center md:text-right">
-              © {currentYear} CK Capital Group Ltd. All rights reserved.
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
+              alt="CK Capital"
+              width={60}
+              height={20}
+              className="h-4 w-auto"
+              loading="lazy"
+            />
+            <p className="text-xs sm:text-sm text-[#999999] text-center">
+              © {currentYear} CK Capital Group Ltd.
             </p>
           </div>
         </div>
 
+        {/* Contact Info */}
         <div className="pt-6 sm:pt-8 border-t border-[#E8E8E8]">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
             <div>
-              <p className="font-semibold text-[#1a1a1a] mb-1 sm:mb-2 text-xs sm:text-sm">Hours</p>
-              <p className="text-xs sm:text-sm text-[#666666]">Mon – Fri: 8am – 8pm (GMT)</p>
+              <p className="font-semibold text-[#1a1a1a] mb-1 text-xs uppercase">Hours</p>
+              <p className="text-xs text-[#666666]">Mon – Fri: 8am – 8pm GMT</p>
             </div>
             <div>
-              <p className="font-semibold text-[#1a1a1a] mb-1 sm:mb-2 text-xs sm:text-sm">Address</p>
-              <p className="text-xs sm:text-sm text-[#666666]">6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+              <p className="font-semibold text-[#1a1a1a] mb-1 text-xs uppercase">Address</p>
+              <p className="text-xs text-[#666666]">6-7 Waterside Station Road, Harpenden, AL5 4US</p>
             </div>
             <div>
-              <p className="font-semibold text-[#1a1a1a] mb-1 sm:mb-2 text-xs sm:text-sm">Support</p>
-              <p className="text-xs sm:text-sm text-[#666666]">24/7 Support Available Mon-Fri</p>
+              <p className="font-semibold text-[#1a1a1a] mb-1 text-xs uppercase">Support</p>
+              <p className="text-xs text-[#666666]">24/7 Support Mon-Fri</p>
             </div>
           </div>
 
           <p className="text-xs text-[#999999] text-center leading-relaxed">
-            Disclaimer: Forex, cryptocurrency, and commodities trading involve substantial risk of loss. Not all investors are suitable for such trading. Past performance is not indicative of future results. CK Capital is a proprietary trading firm providing trading capital to qualified traders. Trading with leverage carries risk of substantial loss.
+            Disclaimer: Trading involves substantial risk. Past performance is not indicative of future results.
           </p>
         </div>
       </div>
