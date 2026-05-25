@@ -19,7 +19,7 @@ export default function ScrollingPromos() {
   ];
 
   return (
-    <div className="relative w-full bg-[#E8C547] overflow-hidden py-2 border-t-2 border-b-2 border-[#1a1a1a]">
+    <div className="relative w-full bg-[#E8C547] overflow-hidden py-1.5 sm:py-2 border-t border-b border-[#1a1a1a]">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -39,22 +39,22 @@ export default function ScrollingPromos() {
         {promos.map((promo, index) => (
           <div
             key={index}
-            className="px-6 md:px-8 py-2 text-xs md:text-sm font-bold text-[#1a1a1a] whitespace-nowrap flex items-center"
+            className="px-3 sm:px-6 md:px-8 py-1 sm:py-2 text-xs sm:text-sm font-bold text-[#1a1a1a] whitespace-nowrap flex items-center"
           >
             {promo}
             {index < promos.length - 1 && (
-              <span className="mx-4 text-[#1a1a1a]">•</span>
+              <span className="mx-2 sm:mx-4 text-[#1a1a1a]">•</span>
             )}
           </div>
         ))}
         {promos.map((promo, index) => (
           <div
             key={`duplicate-${index}`}
-            className="px-6 md:px-8 py-2 text-xs md:text-sm font-bold text-[#1a1a1a] whitespace-nowrap flex items-center"
+            className="px-3 sm:px-6 md:px-8 py-1 sm:py-2 text-xs sm:text-sm font-bold text-[#1a1a1a] whitespace-nowrap flex items-center"
           >
             {promo}
             {index < promos.length - 1 && (
-              <span className="mx-4 text-[#1a1a1a]">•</span>
+              <span className="mx-2 sm:mx-4 text-[#1a1a1a]">•</span>
             )}
           </div>
         ))}

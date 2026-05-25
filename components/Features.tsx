@@ -36,30 +36,30 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 px-4 md:py-32">
+    <section id="features" className="py-12 sm:py-20 px-4 md:py-32">
       <div className="container mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
+        <div className="mb-8 sm:mb-16 text-center space-y-2 sm:space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-balance">
             Why Choose CK Capital?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Supercharge your trading with CK Capital and maximize profits with our comprehensive features.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card key={index} className="border-border hover:border-primary/50 transition-all">
-                <CardHeader>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <Icon className="h-6 w-6 text-primary" />
+              <Card key={index} className="border-border hover:border-primary/50 transition-all duration-200 h-full flex flex-col">
+                <CardHeader className="pb-3 sm:pb-4">
+                  <div className="mb-3 sm:mb-4 flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-lg bg-primary/10 flex-shrink-0">
+                    <Icon className="h-5 sm:h-6 w-5 sm:w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl text-foreground">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl text-foreground">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
