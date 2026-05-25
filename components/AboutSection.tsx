@@ -4,10 +4,10 @@ export default function AboutSection() {
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-8 sm:mb-12 space-y-2 sm:space-y-3">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-balance">
-            Built For Disciplined Traders
+            Why Traders Choose CK Capital
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600">
-            CK Capital provides funded accounts to professional and aspiring traders who demonstrate discipline and consistency
+            Simulated evaluation programs designed to assess trading discipline, consistency, and risk management skills
           </p>
         </div>
 
@@ -22,8 +22,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Up to 100% Profit Split</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Keep more of your profits with our competitive profit sharing model</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Transparent Evaluation Rules</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">Clear objectives, risk parameters, and account conditions with no hidden requirements</p>
               </div>
             </div>
 
@@ -36,8 +36,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Flexible Payouts</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Withdraw your profits on your schedule, whenever you need</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Simulated Trading Environment</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">Practice and demonstrate trading performance in real-time simulated market conditions</p>
               </div>
             </div>
 
@@ -50,8 +50,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">News Trading Allowed</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Capitalize on major market-moving news events without restrictions</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Scalable Evaluation Path</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">Eligible traders may scale simulated accounts up to $1.2M based on consistent performance</p>
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Competitive Spreads</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Trade with spreads as low as 0.0 pips on major currency pairs</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Flexible Trading Conditions</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">News trading, multiple strategies, and flexible payout schedules supported under program rules</p>
               </div>
             </div>
 
@@ -80,8 +80,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Reset & Top-Up</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Get back on track with reset or top-up options available</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Advanced Trading Platforms</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">Access institutional-style trading infrastructure through MT5 and TradeLocker</p>
               </div>
             </div>
 
@@ -94,8 +94,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="min-w-0">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">24/7 Support</h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600">Expert support team available Mon-Fri to assist you</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">Global Trading Community</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600">Join thousands of traders participating in simulated evaluations worldwide</p>
               </div>
             </div>
           </div>

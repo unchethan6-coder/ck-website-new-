@@ -4,18 +4,18 @@ import { Badge } from '@/components/ui/badge';
 const steps = [
   {
     number: '01',
-    title: 'Start Your Challenge',
-    description: 'Select your challenge type, account size, and preferred platform. Pay the challenge fee and begin trading in our simulated environment.',
+    title: 'Purchase Evaluation Program',
+    description: 'Choose your preferred simulated evaluation model, account size, and trading platform.',
   },
   {
     number: '02',
-    title: 'Meet Your Objectives',
-    description: 'Hit your profit targets while managing risk according to our clear trading rules. Demonstrate discipline and consistency in your trading approach.',
+    title: 'Demonstrate Trading Skill',
+    description: 'Meet profit objectives while following the program\'s risk management parameters.',
   },
   {
     number: '03',
-    title: 'Become a CK Trader',
-    description: 'After passing all steps, upgrade to a CK Trader account with funded capital up to $1.2M and start earning real profits.',
+    title: 'Qualify For CK Trader Status',
+    description: 'Successful participants may become eligible for a simulated trader account with performance-based payout opportunities.',
   },
 ];
 
@@ -25,10 +25,10 @@ export default function HowItWorks() {
       <div className="container mx-auto">
         <div className="mb-8 sm:mb-16 text-center space-y-2 sm:space-y-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-balance">
-            Your Path to Funded Trading
+            Your Journey With CK Capital
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Three simple steps to transform from evaluating trader to profitable CK Trader
+            Three simple steps to transform from evaluating trader to qualified CK Trader
           </p>
         </div>
 
@@ -59,25 +59,25 @@ export default function HowItWorks() {
             <div className="bg-white p-4 sm:p-5 md:p-6 rounded-lg border border-gray-200">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <span className="text-yellow-500 font-bold text-lg sm:text-xl">★</span>
-                <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">Challenge Phase</h4>
+                <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">1-Step Evaluation</h4>
               </div>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li>• Simulated trading environment</li>
-                <li>• Clear profit targets to hit</li>
-                <li>• Daily/max loss limits apply</li>
-                <li>• Platform choice available</li>
-                <li>• Challenge fee: $13-$88</li>
+                <li>• Simulated trading only</li>
+                <li>• Clear profit targets</li>
+                <li>• Daily/max loss limits</li>
+                <li>• Platform choice</li>
+                <li>• Fee: $13-$88</li>
               </ul>
             </div>
 
             <div className="bg-white p-4 sm:p-5 md:p-6 rounded-lg border border-gray-200">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <span className="text-yellow-500 font-bold text-lg sm:text-xl">★</span>
-                <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">Verification Phase</h4>
+                <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">2-Step Evaluation</h4>
               </div>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600">
                 <li>• Simplified profit targets</li>
-                <li>• Same risk management rules</li>
+                <li>• Same risk management</li>
                 <li>• Demonstrate consistency</li>
                 <li>• Still simulated trading</li>
                 <li>• Final qualification step</li>
@@ -90,10 +90,10 @@ export default function HowItWorks() {
                 <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">CK Trader Account</h4>
               </div>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li>• Funded with real capital</li>
+                <li>• Simulated payout model</li>
                 <li>• Up to 100% profit split</li>
                 <li>• Scale up to $1.2M</li>
-                <li>• Flexible withdrawals</li>
+                <li>• Performance-based rewards</li>
                 <li>• 50+ trading instruments</li>
               </ul>
             </div>

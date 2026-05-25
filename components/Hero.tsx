@@ -55,12 +55,23 @@ export default function Hero() {
             </span>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight text-balance">
-              Instant Funded Trading Accounts for Professional Traders
+              Trade Simulated Funded Accounts With CK Capital
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg text-[#666666] leading-relaxed">
-              Join the best prop trading firm. Get instant funded accounts up to $1.2M capital with 100% profit splits. Trade Forex, Cryptocurrencies, Commodities, and Indices with flexible risk management rules. No commissions, no hidden fees.
+              Join a proprietary trading evaluation platform designed for traders who can demonstrate discipline, consistency, and responsible risk management in a simulated trading environment.
             </p>
+
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#666666]">
+              <p className="leading-relaxed">Access simulated account sizes up to $1.2M with scalable evaluation programs, flexible trading conditions, and performance-based payout structures.</p>
+              <ul className="space-y-1 pl-4">
+                <li>• Simulated Trading Environment</li>
+                <li>• Up To 100% Simulated Profit Split</li>
+                <li>• Up To $1.2M Simulated Scaling</li>
+                <li>• Forex, Indices, Commodities & Crypto CFDs</li>
+                <li>• No Investment Services Provided</li>
+              </ul>
+            </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-2 sm:pt-4">
@@ -88,8 +99,14 @@ export default function Hero() {
             </div>
 
             <Button size="lg" className="bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-bold rounded-lg transition-colors duration-150 w-full sm:w-auto">
-              Start Your Evaluation
+              Start Evaluation
             </Button>
+
+            <div className="border-t border-[#E8E8E8] pt-3 sm:pt-4">
+              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
+                <strong>Risk Disclaimer:</strong> All challenge and evaluation accounts operate in a simulated environment only. Performance during evaluation does not guarantee future results or earnings. Trading CFDs carries a high level of risk and may not be suitable for all individuals.
+              </p>
+            </div>
           </div>
 
           {/* Right Column - Chart Visualization */}
