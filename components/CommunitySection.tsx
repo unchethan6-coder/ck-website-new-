@@ -50,7 +50,7 @@ export default function CommunitySection() {
                 className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/50 text-sm sm:text-base"
                 asChild
               >
-                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+                <a href="https://bit.ly/dc-ckcapital" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Join Our Discord</span>
                 </a>
