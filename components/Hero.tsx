@@ -54,7 +54,7 @@ export default function Hero() {
               CK CAPITAL
             </span>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1628] leading-tight text-balance">
               Trade Simulated Funded Accounts With CK Capital
             </h1>
 
