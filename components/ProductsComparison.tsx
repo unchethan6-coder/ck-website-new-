@@ -609,46 +609,42 @@ export default function ProductsComparison() {
 
         {/* Cards Container - Horizontal Scroll on Mobile */}
         <div className="overflow-x-auto -mx-4 sm:mx-0 pb-4 sm:pb-0">
-          <div className="flex gap-4 sm:gap-6 px-4 sm:px-0 min-w-min sm:min-w-full">
+          <div className="flex gap-3 sm:gap-6 px-4 sm:px-0 min-w-min sm:min-w-full">
             {currentChallenge.accounts.map((account, index) => (
               <div
                 key={index}
-                className={`flex-shrink-0 w-72 sm:w-1/3 lg:flex-1 rounded-2xl overflow-hidden transition-all duration-300 ${
+                className={`flex-shrink-0 w-64 sm:w-1/3 lg:flex-1 rounded-lg sm:rounded-2xl overflow-hidden transition-all duration-300 ${
                   account.popular
-                    ? 'bg-[#0A1628] text-white shadow-2xl ring-2 ring-[#F4D957] scale-105 sm:scale-100'
+                    ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957] scale-100 sm:scale-100'
                     : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF] hover:shadow-lg'
                 }`}
               >
                 {/* Popular Badge */}
                 {account.popular && (
-                  <div className="bg-[#F4D957] text-[#0A1628] py-1.5 px-4 text-center font-bold text-xs sm:text-sm uppercase tracking-wider">
+                  <div className="bg-[#F4D957] text-[#0A1628] py-1 px-3 sm:py-1.5 sm:px-4 text-center font-bold text-xs uppercase tracking-wider">
                     Most Popular
                   </div>
                 )}
 
                 {/* Card Content */}
-                <div className="p-6 sm:p-8">
+                <div className="p-4 sm:p-8">
                   {/* Account Size & Price */}
-                  <div className="mb-6">
+                  <div className="mb-5 sm:mb-6">
                     <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-1">Account Size</div>
-                    <div className="flex items-baseline justify-between mb-2">
-                      <span className="text-2xl sm:text-3xl font-bold">{account.size}</span>
-                      <span className="text-sm text-[#8A94A6]">Price</span>
+                    <div className="mb-2">
+                      <span className="text-xl sm:text-3xl font-bold">{account.size}</span>
                     </div>
-                    <div className="flex items-baseline justify-between gap-2">
-                      <span></span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-[#8A94A6] line-through">{account.originalPrice}</span>
-                        <span className={`text-xl sm:text-2xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
-                          {account.price}
-                        </span>
-                      </div>
+                    <div className="flex items-center gap-2 justify-end">
+                      <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
+                      <span className={`text-lg sm:text-2xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                        {account.price}
+                      </span>
                     </div>
                   </div>
 
                   {/* Button */}
                   <Button
-                    className={`w-full mb-6 font-bold py-2.5 sm:py-3 rounded-lg transition-all ${
+                    className={`w-full mb-5 sm:mb-6 font-bold py-2 sm:py-3 text-sm sm:text-base rounded-lg transition-all ${
                       account.popular
                         ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
                         : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
@@ -659,11 +655,11 @@ export default function ProductsComparison() {
                   </Button>
 
                   {/* Features List */}
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {Object.entries(account.features).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-start text-xs sm:text-sm">
-                        <span className={account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}>{key}</span>
-                        <span className={`font-semibold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <div key={key} className="flex justify-between items-start text-xs sm:text-sm gap-2">
+                        <span className={`flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
+                        <span className={`font-semibold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                           {value}
                         </span>
                       </div>
