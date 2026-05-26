@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column */}
           <div className="animate-slide-left space-y-4 sm:space-y-6">
-            <span className="inline-block text-xs font-bold text-[#1a1a1a] bg-[#F9D834] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+            <span className="inline-block text-xs font-bold text-[#000000] bg-[#F9D834] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               CK CAPITAL
             </span>
             
@@ -58,7 +58,7 @@ export default function Hero() {
               Trade Simulated Funded Accounts With CK Capital
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#78716C] leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#000000] leading-relaxed">
               Join a proprietary trading evaluation platform designed for traders who can demonstrate discipline, consistency, and responsible risk management in a simulated trading environment.
             </p>
 
