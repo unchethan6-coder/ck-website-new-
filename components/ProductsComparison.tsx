@@ -408,12 +408,7 @@ export default function ProductsComparison() {
                     ))}
                   </div>
 
-                  {/* Earnings Info */}
-                  <div className={`mt-6 pt-6 border-t ${account.popular ? 'border-[#1F2D42]' : 'border-[#E8EAEF]'}`}>
-                    <p className={`text-xs ${account.popular ? 'text-[#B0BCC9]' : 'text-[#8A94A6]'}`}>
-                      Traders earn <span className={`font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>${(parseInt(account.price) * 100).toLocaleString()}</span> per first month
-                    </p>
-                  </div>
+
                 </div>
               </div>
             ))}
