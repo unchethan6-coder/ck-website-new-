@@ -76,17 +76,17 @@ export default function WhyChooseCK() {
               <div key={idx} className="space-y-4 sm:space-y-6">
                 {/* Number Badge */}
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl sm:text-3xl font-bold text-[#D4AF37]">{feature.number}</span>
-                  <div className="h-[1px] flex-1 bg-gradient-to-r from-[#D4AF37] to-transparent"></div>
+                  <span className="text-2xl sm:text-3xl font-bold text-[#F9D834]">{feature.number}</span>
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-[#F9D834] to-transparent"></div>
                 </div>
 
                 {/* Content Card */}
-                <div className="card-glass rounded-xl p-5 sm:p-6 md:p-8 border border-[rgba(212,175,55,0.1)] hover:border-[rgba(212,175,55,0.3)] transition-all duration-300 h-full flex flex-col">
+                <div className="card-glass rounded-xl p-5 sm:p-6 md:p-8 border border-[rgba(249,216,52,0.1)] hover:border-[rgba(249,216,52,0.3)] transition-all duration-300 h-full flex flex-col">
                   <div className="flex items-start gap-3 mb-3 sm:mb-4">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-[#D4AF37] flex-shrink-0 mt-1" />
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-[#F9D834] flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold text-white">{feature.title}</h3>
-                      <p className="text-sm text-[#D4AF37] font-semibold">{feature.subtitle}</p>
+                      <p className="text-sm text-[#F9D834] font-semibold">{feature.subtitle}</p>
                     </div>
                   </div>
 
@@ -99,14 +99,14 @@ export default function WhyChooseCK() {
                     <div className="space-y-2 sm:space-y-2.5">
                       {feature.checklist.map((item, i) => (
                         <div key={i} className="flex items-center gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-[#D4AF37] flex-shrink-0" />
+                          <CheckCircle2 className="h-4 w-4 text-[#F9D834] flex-shrink-0" />
                           <span className="text-xs sm:text-sm text-[#A1A1AA]">{item}</span>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-gradient-to-br from-[rgba(212,175,55,0.1)] to-[rgba(212,175,55,0.05)] rounded-lg p-4 sm:p-5 border border-[rgba(212,175,55,0.1)]">
-                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D4AF37] mb-1">
+                    <div className="bg-gradient-to-br from-[rgba(249,216,52,0.1)] to-[rgba(249,216,52,0.05)] rounded-lg p-4 sm:p-5 border border-[rgba(249,216,52,0.1)]">
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F9D834] mb-1">
                         {feature.stat}
                       </div>
                       <p className="text-xs sm:text-sm text-[#A1A1AA]">{feature.statLabel}</p>
@@ -115,13 +115,13 @@ export default function WhyChooseCK() {
                 </div>
 
                 {/* Testimonial */}
-                <div className="pt-2 sm:pt-4 border-t border-[rgba(212,175,55,0.1)]">
+                <div className="pt-2 sm:pt-4 border-t border-[rgba(249,216,52,0.1)]">
                   <p className="text-xs sm:text-sm text-[#A1A1AA] italic mb-2 sm:mb-3 leading-relaxed">
                     &quot;{testimonials[idx].quote}&quot;
                   </p>
                   <div>
                     <p className="font-semibold text-white text-sm">{testimonials[idx].author}</p>
-                    <p className="text-xs text-[#D4AF37]">{testimonials[idx].location}</p>
+                    <p className="text-xs text-[#F9D834]">{testimonials[idx].location}</p>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function WhyChooseCK() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center pt-8 sm:pt-12 border-t border-[rgba(212,175,55,0.1)]">
+        <div className="text-center pt-8 sm:pt-12 border-t border-[rgba(249,216,52,0.1)]">
           <p className="text-sm sm:text-base text-[#A1A1AA] max-w-2xl mx-auto">
             Join thousands of traders who have successfully scaled from evaluation to $2M funded accounts with CK Capital.
           </p>

@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Faint 3D Chart Lines Background */}
         <svg className="absolute -top-40 -right-40 w-96 h-96 opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <g strokeWidth="1" stroke="#D4AF37" fill="none">
+          <g strokeWidth="1" stroke="#F9D834" fill="none">
             <line x1="20" y1="150" x2="180" y2="50" />
             <line x1="20" y1="160" x2="180" y2="60" />
             <line x1="30" y1="150" x2="190" y2="50" />
@@ -19,7 +19,7 @@ export default function Hero() {
 
         {/* Faint 3D Cube - Trading Symbol */}
         <svg className="absolute -bottom-32 -left-32 w-80 h-80 opacity-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#D4AF37" fill="none" strokeWidth="0.5">
+          <g stroke="#F9D834" fill="none" strokeWidth="0.5">
             {/* Cube */}
             <line x1="30" y1="30" x2="70" y2="30" />
             <line x1="70" y1="30" x2="70" y2="70" />
@@ -38,7 +38,7 @@ export default function Hero() {
 
         {/* Faint Upward Arrow - Success Symbol */}
         <svg className="absolute top-1/3 left-10 w-32 h-32 opacity-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#D4AF37" fill="none" strokeWidth="1">
+          <g stroke="#F9D834" fill="none" strokeWidth="1">
             <line x1="50" y1="80" x2="50" y2="20" strokeLinecap="round" />
             <polyline points="30,40 50,20 70,40" strokeLinecap="round" strokeLinejoin="round" />
           </g>
@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column */}
           <div className="animate-slide-left space-y-4 sm:space-y-6">
-            <span className="inline-block text-xs font-bold text-[#050505] bg-[#D4AF37] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+            <span className="inline-block text-xs font-bold text-[#050505] bg-[#F9D834] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               CK CAPITAL
             </span>
             
@@ -75,43 +75,43 @@ export default function Hero() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-2 sm:pt-4">
-              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#D4AF37] transition-all duration-200">
+              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#D4AF37] flex-shrink-0" />
+                  <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">100%</span>
                 </div>
                 <p className="text-xs text-[#A1A1AA] leading-tight">Profit Split</p>
               </div>
-              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#D4AF37] transition-all duration-200">
+              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#D4AF37] flex-shrink-0" />
+                  <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">$1.2M</span>
                 </div>
                 <p className="text-xs text-[#A1A1AA] leading-tight">Max Funded</p>
               </div>
-              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#D4AF37] transition-all duration-200">
+              <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#D4AF37] flex-shrink-0" />
+                  <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">50+</span>
                 </div>
                 <p className="text-xs text-[#A1A1AA] leading-tight">Instruments</p>
               </div>
             </div>
 
-            <Button size="lg" className="bg-[#D4AF37] hover:bg-[#C49A27] text-[#050505] font-bold rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] w-full sm:w-auto">
+            <Button size="lg" className="bg-[#F9D834] hover:bg-[#F4D04F] text-[#050505] font-bold rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(249,216,52,0.3)] w-full sm:w-auto">
               Start Evaluation
             </Button>
           </div>
 
           {/* Right Column - Chart Visualization */}
           <div className="animate-slide-right hidden md:block">
-            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-[#0F0F0F] to-[#050505] rounded-xl p-6 sm:p-8 border border-[rgba(212,175,55,0.1)]">
+            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-[#0F0F0F] to-[#050505] rounded-xl p-6 sm:p-8 border border-[rgba(249,216,52,0.1)]">
               <div className="absolute inset-0 flex items-end justify-around gap-2 sm:gap-3 p-6 sm:p-8">
-                <div className="w-10 sm:w-12 h-20 bg-gradient-to-t from-[#D4AF37] to-[#8B6B1F] rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-200"></div>
-                <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#D4AF37] to-[#8B6B1F] rounded-lg opacity-85 hover:opacity-100 transition-opacity duration-200"></div>
-                <div className="w-10 sm:w-12 h-24 bg-gradient-to-t from-[#D4AF37] to-[#8B6B1F] rounded-lg opacity-75 hover:opacity-100 transition-opacity duration-200"></div>
-                <div className="w-10 sm:w-12 h-36 bg-gradient-to-t from-[#D4AF37] to-[#8B6B1F] rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-200"></div>
-                <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#D4AF37] to-[#8B6B1F] rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="w-10 sm:w-12 h-20 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-85 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="w-10 sm:w-12 h-24 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-75 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="w-10 sm:w-12 h-36 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-200"></div>
               </div>
               <div className="absolute bottom-4 left-0 right-0 flex justify-around px-4 sm:px-8 text-xs text-[#A1A1AA] font-medium">
                 <span>Jan</span>
