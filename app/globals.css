@@ -11,7 +11,7 @@
   --popover: f1d606;
   --popover-foreground: #FFFFFF;
   --primary: #F9D834;
-  --primary-foreground: #050505;
+  --primary-foreground: #f1d606;
   --secondary: #1F1F1F;
   --secondary-foreground: #FFFFFF;
   --muted: #2A2A2A;
@@ -40,7 +40,7 @@
 }
 
 .dark {
-  --background: #f1d606;
+  --background: #050505;
   --foreground: #FFFFFF;
   --card: #0F0F0F;
   --card-foreground: #FFFFFF;
