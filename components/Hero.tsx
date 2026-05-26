@@ -3,7 +3,7 @@ import { TrendingUp, DollarSign, BarChart3 } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#050505] px-4 sm:px-6 py-12 sm:py-16 md:py-32 lg:py-40">
+    <section className="relative overflow-hidden bg-white px-4 sm:px-6 py-12 sm:py-16 md:py-32 lg:py-40">
       {/* Subtle 3D Trading Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Faint 3D Chart Lines Background */}
@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column */}
           <div className="animate-slide-left space-y-4 sm:space-y-6">
-            <span className="inline-block text-xs font-bold text-[#050505] bg-[#F9D834] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+            <span className="inline-block text-xs font-bold text-[#1a1a1a] bg-[#F9D834] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               CK CAPITAL
             </span>
             
@@ -58,11 +58,11 @@ export default function Hero() {
               Trade Simulated Funded Accounts With CK Capital
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#A1A1AA] leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#78716C] leading-relaxed">
               Join a proprietary trading evaluation platform designed for traders who can demonstrate discipline, consistency, and responsible risk management in a simulated trading environment.
             </p>
 
-            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#A1A1AA]">
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#78716C]">
               <p className="leading-relaxed">Access simulated account sizes up to $1.2M with scalable evaluation programs, flexible trading conditions, and performance-based payout structures.</p>
               <ul className="space-y-1 pl-4">
                 <li>• Simulated Trading Environment</li>
@@ -80,32 +80,32 @@ export default function Hero() {
                   <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">100%</span>
                 </div>
-                <p className="text-xs text-[#A1A1AA] leading-tight">Profit Split</p>
+                <p className="text-xs text-[#78716C] leading-tight">Profit Split</p>
               </div>
               <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
                   <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">$1.2M</span>
                 </div>
-                <p className="text-xs text-[#A1A1AA] leading-tight">Max Funded</p>
+                <p className="text-xs text-[#78716C] leading-tight">Max Funded</p>
               </div>
               <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
                   <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-lg md:text-xl text-white">50+</span>
                 </div>
-                <p className="text-xs text-[#A1A1AA] leading-tight">Instruments</p>
+                <p className="text-xs text-[#78716C] leading-tight">Instruments</p>
               </div>
             </div>
 
-            <Button size="lg" className="bg-[#F9D834] hover:bg-[#F4D04F] text-[#050505] font-bold rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(249,216,52,0.3)] w-full sm:w-auto">
+            <Button size="lg" className="bg-[#F9D834] hover:bg-[#F4D04F] text-[#1a1a1a] font-bold rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(249,216,52,0.25)] w-full sm:w-auto">
               Start Evaluation
             </Button>
           </div>
 
           {/* Right Column - Chart Visualization */}
           <div className="animate-slide-right hidden md:block">
-            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-[#0F0F0F] to-[#050505] rounded-xl p-6 sm:p-8 border border-[rgba(249,216,52,0.1)]">
+            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-[#0F0F0F] to-[#050505] rounded-xl p-6 sm:p-8 border border-[rgba(249,216,52,0.08)]">
               <div className="absolute inset-0 flex items-end justify-around gap-2 sm:gap-3 p-6 sm:p-8">
                 <div className="w-10 sm:w-12 h-20 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-200"></div>
                 <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-85 hover:opacity-100 transition-opacity duration-200"></div>
@@ -113,7 +113,7 @@ export default function Hero() {
                 <div className="w-10 sm:w-12 h-36 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-200"></div>
                 <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F9D834] to-[#C5A018] rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-200"></div>
               </div>
-              <div className="absolute bottom-4 left-0 right-0 flex justify-around px-4 sm:px-8 text-xs text-[#A1A1AA] font-medium">
+              <div className="absolute bottom-4 left-0 right-0 flex justify-around px-4 sm:px-8 text-xs text-[#78716C] font-medium">
                 <span>Jan</span>
                 <span>Feb</span>
                 <span>Mar</span>

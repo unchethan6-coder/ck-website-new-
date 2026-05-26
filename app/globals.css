@@ -4,24 +4,24 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f1d606;
-  --foreground: #FFFFFF;
-  --card: #0F0F0F;
-  --card-foreground: #FFFFFF;
-  --popover: f1d606;
-  --popover-foreground: #FFFFFF;
+  --background: #FFFFFF;
+  --foreground: #1a1a1a;
+  --card: #FAFAF9;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
   --primary: #F9D834;
-  --primary-foreground: #f1d606;
-  --secondary: #1F1F1F;
-  --secondary-foreground: #FFFFFF;
-  --muted: #2A2A2A;
-  --muted-foreground: #A1A1AA;
+  --primary-foreground: #1a1a1a;
+  --secondary: #F5F5F4;
+  --secondary-foreground: #1a1a1a;
+  --muted: #E7E5E4;
+  --muted-foreground: #78716C;
   --accent: #F9D834;
-  --accent-foreground: #050505;
+  --accent-foreground: #1a1a1a;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: #2A2A2A;
-  --input: #1A1A1A;
+  --border: #E7E5E4;
+  --input: #FFFFFF;
   --ring: #F9D834;
   --chart-1: #F9D834;
   --chart-2: #22C55E;
@@ -29,48 +29,48 @@
   --chart-4: #F59E0B;
   --chart-5: #EC4899;
   --radius: 0.625rem;
-  --sidebar: #0F0F0F;
-  --sidebar-foreground: #FFFFFF;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #F9D834;
-  --sidebar-primary-foreground: #050505;
+  --sidebar-primary-foreground: #1a1a1a;
   --sidebar-accent: #F9D834;
-  --sidebar-accent-foreground: #050505;
-  --sidebar-border: #2A2A2A;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #E7E5E4;
   --sidebar-ring: #F9D834;
 }
 
 .dark {
-  --background: #050505;
-  --foreground: #FFFFFF;
-  --card: #0F0F0F;
-  --card-foreground: #FFFFFF;
-  --popover: #1A1A1A;
-  --popover-foreground: #FFFFFF;
+  --background: #FFFFFF;
+  --foreground: #1a1a1a;
+  --card: #FAFAF9;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
   --primary: #F9D834;
-  --primary-foreground: #050505;
-  --secondary: #1F1F1F;
-  --secondary-foreground: #FFFFFF;
-  --muted: #2A2A2A;
-  --muted-foreground: #A1A1AA;
+  --primary-foreground: #1a1a1a;
+  --secondary: #F5F5F4;
+  --secondary-foreground: #1a1a1a;
+  --muted: #E7E5E4;
+  --muted-foreground: #78716C;
   --accent: #F9D834;
-  --accent-foreground: #050505;
+  --accent-foreground: #1a1a1a;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: #2A2A2A;
-  --input: #1A1A1A;
+  --border: #E7E5E4;
+  --input: #FFFFFF;
   --ring: #F9D834;
   --chart-1: #F9D834;
   --chart-2: #22C55E;
   --chart-3: #3B82F6;
   --chart-4: #F59E0B;
   --chart-5: #EC4899;
-  --sidebar: #0F0F0F;
-  --sidebar-foreground: #FFFFFF;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #F9D834;
-  --sidebar-primary-foreground: #050505;
+  --sidebar-primary-foreground: #1a1a1a;
   --sidebar-accent: #F9D834;
-  --sidebar-accent-foreground: #050505;
-  --sidebar-border: #2A2A2A;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #E7E5E4;
   --sidebar-ring: #F9D834;
 }
 
@@ -148,20 +148,20 @@
   
   /* Glassmorphic Cards */
   .card-glass {
-    @apply bg-[rgba(15,15,15,0.4)] backdrop-blur-md border border-[rgba(249,216,52,0.1)] hover:border-[rgba(249,216,52,0.3)] transition-all duration-300;
+    @apply bg-white/70 backdrop-blur-md border border-[#F9D834]/20 hover:border-[#F9D834]/40 transition-all duration-300 shadow-sm;
   }
 
   .card-glass-dark {
-    @apply bg-[rgba(5,5,5,0.6)] backdrop-blur-xl border border-[rgba(249,216,52,0.15)] hover:border-[rgba(249,216,52,0.4)];
+    @apply bg-white/80 backdrop-blur-xl border border-[#F9D834]/25 hover:border-[#F9D834]/50 shadow-sm;
   }
   
   /* Button Styles */
   .button-primary {
-    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#050505] font-semibold transition-colors duration-150;
+    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#1a1a1a] font-semibold transition-colors duration-150;
   }
   
   .button-premium {
-    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#050505] font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(249,216,52,0.4)] active:scale-95;
+    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#1a1a1a] font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(249,216,52,0.25)] active:scale-95;
   }
 
   .button-outline {
@@ -205,16 +205,16 @@
   }
 
   .text-premium {
-    @apply text-[#FFFFFF] font-bold tracking-tight;
+    @apply text-[#1a1a1a] font-bold tracking-tight;
   }
 
   .text-muted-premium {
-    @apply text-[#A1A1AA] font-medium;
+    @apply text-[#78716C] font-medium;
   }
 
   /* Border Styles */
   .border-premium {
-    @apply border border-[#2A2A2A] hover:border-[#F9D834] transition-colors duration-200;
+    @apply border border-[#E7E5E4] hover:border-[#F9D834] transition-colors duration-200;
   }
 
   .border-gold-glow {

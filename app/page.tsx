@@ -13,7 +13,7 @@ import DiscountPopup from '@/components/DiscountPopup';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f1d606]">
+    <div className="min-h-screen bg-white">
       <DiscountPopup />
       <Header />
       <Hero />

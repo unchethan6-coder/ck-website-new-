@@ -56,14 +56,14 @@ export default function WhyChooseCK() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 md:py-32 px-4 bg-[#050505]">
+    <section className="py-16 sm:py-24 md:py-32 px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 space-y-2 sm:space-y-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-balance">
             How It Works
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-[#A1A1AA] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-[#78716C] max-w-2xl mx-auto">
             No fluff, no fine print. Here&apos;s exactly how it works.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function WhyChooseCK() {
                 </div>
 
                 {/* Content Card */}
-                <div className="card-glass rounded-xl p-5 sm:p-6 md:p-8 border border-[rgba(249,216,52,0.1)] hover:border-[rgba(249,216,52,0.3)] transition-all duration-300 h-full flex flex-col">
+                <div className="card-glass rounded-xl p-5 sm:p-6 md:p-8 border border-[rgba(249,216,52,0.08)] hover:border-[rgba(249,216,52,0.25)] transition-all duration-300 h-full flex flex-col">
                   <div className="flex items-start gap-3 mb-3 sm:mb-4">
                     <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-[#F9D834] flex-shrink-0 mt-1" />
                     <div>
@@ -90,7 +90,7 @@ export default function WhyChooseCK() {
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm md:text-base text-[#A1A1AA] leading-relaxed mb-4 sm:mb-6 flex-grow">
+                  <p className="text-xs sm:text-sm md:text-base text-[#78716C] leading-relaxed mb-4 sm:mb-6 flex-grow">
                     {feature.description}
                   </p>
 
@@ -100,23 +100,23 @@ export default function WhyChooseCK() {
                       {feature.checklist.map((item, i) => (
                         <div key={i} className="flex items-center gap-2">
                           <CheckCircle2 className="h-4 w-4 text-[#F9D834] flex-shrink-0" />
-                          <span className="text-xs sm:text-sm text-[#A1A1AA]">{item}</span>
+                          <span className="text-xs sm:text-sm text-[#78716C]">{item}</span>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-gradient-to-br from-[rgba(249,216,52,0.1)] to-[rgba(249,216,52,0.05)] rounded-lg p-4 sm:p-5 border border-[rgba(249,216,52,0.1)]">
+                    <div className="bg-gradient-to-br from-[rgba(249,216,52,0.08)] to-[rgba(249,216,52,0.05)] rounded-lg p-4 sm:p-5 border border-[rgba(249,216,52,0.08)]">
                       <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F9D834] mb-1">
                         {feature.stat}
                       </div>
-                      <p className="text-xs sm:text-sm text-[#A1A1AA]">{feature.statLabel}</p>
+                      <p className="text-xs sm:text-sm text-[#78716C]">{feature.statLabel}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Testimonial */}
-                <div className="pt-2 sm:pt-4 border-t border-[rgba(249,216,52,0.1)]">
-                  <p className="text-xs sm:text-sm text-[#A1A1AA] italic mb-2 sm:mb-3 leading-relaxed">
+                <div className="pt-2 sm:pt-4 border-t border-[rgba(249,216,52,0.08)]">
+                  <p className="text-xs sm:text-sm text-[#78716C] italic mb-2 sm:mb-3 leading-relaxed">
                     &quot;{testimonials[idx].quote}&quot;
                   </p>
                   <div>
@@ -130,8 +130,8 @@ export default function WhyChooseCK() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center pt-8 sm:pt-12 border-t border-[rgba(249,216,52,0.1)]">
-          <p className="text-sm sm:text-base text-[#A1A1AA] max-w-2xl mx-auto">
+        <div className="text-center pt-8 sm:pt-12 border-t border-[rgba(249,216,52,0.08)]">
+          <p className="text-sm sm:text-base text-[#78716C] max-w-2xl mx-auto">
             Join thousands of traders who have successfully scaled from evaluation to $2M funded accounts with CK Capital.
           </p>
         </div>
