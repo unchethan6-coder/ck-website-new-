@@ -54,7 +54,7 @@ export default function Hero() {
               CK CAPITAL
             </span>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F9D834] leading-tight text-balance">
               Trade Simulated Funded Accounts With CK Capital
             </h1>
 
@@ -78,21 +78,21 @@ export default function Hero() {
               <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
                   <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-white">100%</span>
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#F9D834]">100%</span>
                 </div>
                 <p className="text-xs text-[#78716C] leading-tight">Profit Split</p>
               </div>
               <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
                   <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-white">$1.2M</span>
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#F9D834]">$1.2M</span>
                 </div>
                 <p className="text-xs text-[#78716C] leading-tight">Max Funded</p>
               </div>
               <div className="card-glass p-2 sm:p-3 md:p-4 rounded-lg hover:border-[#F9D834] transition-all duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
                   <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F9D834] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-white">50+</span>
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#F9D834]">50+</span>
                 </div>
                 <p className="text-xs text-[#78716C] leading-tight">Instruments</p>
               </div>
