@@ -15,6 +15,7 @@ export default function ProductsComparison() {
         {
           size: '$2.5K',
           price: '$9',
+          originalPrice: '$68',
           popular: false,
           features: {
             'Phase 1 Target': '$250',
@@ -29,6 +30,7 @@ export default function ProductsComparison() {
         {
           size: '$5K',
           price: '$13',
+          originalPrice: '$88',
           popular: false,
           features: {
             'Phase 1 Target': '$500',
@@ -43,6 +45,7 @@ export default function ProductsComparison() {
         {
           size: '$10K',
           price: '$19',
+          originalPrice: '$128',
           popular: true,
           features: {
             'Phase 1 Target': '$1,000',
@@ -57,6 +60,7 @@ export default function ProductsComparison() {
         {
           size: '$25K',
           price: '$68.40',
+          originalPrice: '$228',
           popular: false,
           features: {
             'Phase 1 Target': '$2,500',
@@ -71,6 +75,7 @@ export default function ProductsComparison() {
         {
           size: '$50K',
           price: '$98.40',
+          originalPrice: '$328',
           popular: false,
           features: {
             'Phase 1 Target': '$5,000',
@@ -85,6 +90,7 @@ export default function ProductsComparison() {
         {
           size: '$100K',
           price: '$176.40',
+          originalPrice: '$588',
           popular: false,
           features: {
             'Phase 1 Target': '$10,000',
@@ -156,16 +162,85 @@ export default function ProductsComparison() {
         {
           size: '$2.5K',
           price: '$9',
+          originalPrice: '$68',
           popular: false,
           features: {
-            'Phase 1 Target': '$150',
-            'Phase 2 Target': '$150',
+            'Phase 1 Target': '$250',
+            'Phase 2 Target': '$250',
+            'Consistency Rule': '50%',
             'Max Daily Loss': '$80',
             'Max Loss': '$200',
             'Trading Period': 'Unlimited',
-            'Min Trading Days': '1',
-            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          originalPrice: '$88',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$500',
+            'Phase 2 Target': '$500',
             'Consistency Rule': '50%',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$400',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          originalPrice: '$128',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$1,000',
+            'Phase 2 Target': '$1,000',
+            'Consistency Rule': '50%',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$800',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$68.40',
+          originalPrice: '$228',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$2,500',
+            'Phase 2 Target': '$2,500',
+            'Consistency Rule': '50%',
+            'Max Daily Loss': '$1,000',
+            'Max Loss': '$2,000',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$98.40',
+          originalPrice: '$328',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$5,000',
+            'Phase 2 Target': '$5,000',
+            'Consistency Rule': '50%',
+            'Max Daily Loss': '$2,000',
+            'Max Loss': '$4,000',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$100K',
+          price: '$158.40',
+          originalPrice: '$528',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$10,000',
+            'Phase 2 Target': '$10,000',
+            'Consistency Rule': '50%',
+            'Max Daily Loss': '$4,000',
+            'Max Loss': '$8,000',
+            'Trading Period': 'Unlimited',
           },
         },
         {
@@ -207,15 +282,85 @@ export default function ProductsComparison() {
         {
           size: '$2.5K',
           price: '$9',
+          originalPrice: '$68',
           popular: false,
           features: {
             'Phase 1 Target': '$250',
-            'Phases': 'No Phase 2',
+            'Phase 2 Target': '$125',
+            'Consistency Rule': '30%',
             'Max Daily Loss': '$80',
-            'Max Loss': '$150',
+            'Max Loss': '$200',
             'Trading Period': 'Unlimited',
-            'Min Trading Days': '1',
-            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          originalPrice: '$88',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$500',
+            'Phase 2 Target': '$250',
+            'Consistency Rule': '30%',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$400',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          originalPrice: '$128',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$1,000',
+            'Phase 2 Target': '$500',
+            'Consistency Rule': '30%',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$800',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$68.40',
+          originalPrice: '$228',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$2,500',
+            'Phase 2 Target': '$1,250',
+            'Consistency Rule': '30%',
+            'Max Daily Loss': '$1,000',
+            'Max Loss': '$2,000',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$98.40',
+          originalPrice: '$328',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$5,000',
+            'Phase 2 Target': '$2,500',
+            'Consistency Rule': '30%',
+            'Max Daily Loss': '$2,000',
+            'Max Loss': '$4,000',
+            'Trading Period': 'Unlimited',
+          },
+        },
+        {
+          size: '$100K',
+          price: '$158.40',
+          originalPrice: '$528',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$10,000',
+            'Phase 2 Target': '$5,000',
+            'Consistency Rule': '30%',
+            'Max Daily Loss': '$4,000',
+            'Max Loss': '$8,000',
+            'Trading Period': 'Unlimited',
           },
         },
         {
@@ -255,15 +400,57 @@ export default function ProductsComparison() {
         {
           size: '$5K',
           price: '$20',
+          originalPrice: '$180',
           popular: false,
           features: {
-            'Account Type': 'Instant Funded',
-            'Evaluation': 'No Phases',
-            'Max Daily Loss': '$150',
-            'Max Loss': '$250',
+            'Account Size': '$5,000',
+            'No Evaluation': 'Start Trading Immediately',
+            'Max Daily Loss': '$250',
+            'Max Loss': '$500',
             'Trading Period': 'Unlimited',
-            'Profit Split': 'Bi-Weekly 50%',
-            'Consistency Rule': '20%',
+            'Profit Split': 'Up to 80%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$37',
+          originalPrice: '$247',
+          popular: false,
+          features: {
+            'Account Size': '$10,000',
+            'No Evaluation': 'Start Trading Immediately',
+            'Max Daily Loss': '$500',
+            'Max Loss': '$1,000',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Up to 80%',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$129',
+          originalPrice: '$430',
+          popular: true,
+          features: {
+            'Account Size': '$25,000',
+            'No Evaluation': 'Start Trading Immediately',
+            'Max Daily Loss': '$1,250',
+            'Max Loss': '$2,500',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Up to 80%',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$274.50',
+          originalPrice: '$915',
+          popular: false,
+          features: {
+            'Account Size': '$50,000',
+            'No Evaluation': 'Start Trading Immediately',
+            'Max Daily Loss': '$2,500',
+            'Max Loss': '$5,000',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Up to 80%',
           },
         },
         {
@@ -281,17 +468,87 @@ export default function ProductsComparison() {
           },
         },
         {
-          size: '$25K',
-          price: '$129',
+          size: '$2.5K',
+          price: '$9',
+          originalPrice: '$68',
           popular: false,
           features: {
-            'Account Type': 'Instant Funded',
-            'Evaluation': 'No Phases',
-            'Max Daily Loss': '$750',
-            'Max Loss': '$1,250',
+            'Profit Target': '$250',
+            'Max Daily Loss': '$80',
+            'Max Loss': '$200',
             'Trading Period': 'Unlimited',
-            'Profit Split': 'Bi-Weekly 50%',
-            'Consistency Rule': '20%',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          originalPrice: '$88',
+          popular: false,
+          features: {
+            'Profit Target': '$500',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$400',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          originalPrice: '$128',
+          popular: true,
+          features: {
+            'Profit Target': '$1,000',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$800',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$68.40',
+          originalPrice: '$228',
+          popular: false,
+          features: {
+            'Profit Target': '$2,500',
+            'Max Daily Loss': '$1,000',
+            'Max Loss': '$2,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$98.40',
+          originalPrice: '$328',
+          popular: false,
+          features: {
+            'Profit Target': '$5,000',
+            'Max Daily Loss': '$2,000',
+            'Max Loss': '$4,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$100K',
+          price: '$176.40',
+          originalPrice: '$588',
+          popular: false,
+          features: {
+            'Profit Target': '$10,000',
+            'Max Daily Loss': '$4,000',
+            'Max Loss': '$8,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
           },
         },
         {
@@ -378,9 +635,14 @@ export default function ProductsComparison() {
                       <span className="text-2xl sm:text-3xl font-bold">{account.size}</span>
                       <span className="text-sm text-[#8A94A6]">Price</span>
                     </div>
-                    <div className="flex items-baseline justify-between">
+                    <div className="flex items-baseline justify-between gap-2">
                       <span></span>
-                      <span className="text-xl sm:text-2xl font-bold">${account.price}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-[#8A94A6] line-through">{account.originalPrice}</span>
+                        <span className={`text-xl sm:text-2xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                          {account.price}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
