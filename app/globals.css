@@ -6,24 +6,24 @@
 :root {
   --background: #FFFFFF;
   --foreground: #1a1a1a;
-  --card: #FAFAF9;
+  --card: #F9F9F9;
   --card-foreground: #1a1a1a;
   --popover: #FFFFFF;
   --popover-foreground: #1a1a1a;
-  --primary: #F9D834;
+  --primary: #E8C547;
   --primary-foreground: #1a1a1a;
-  --secondary: #F5F5F4;
+  --secondary: #F5F5F5;
   --secondary-foreground: #1a1a1a;
-  --muted: #E7E5E4;
-  --muted-foreground: #78716C;
-  --accent: #F9D834;
+  --muted: #E8E8E8;
+  --muted-foreground: #666666;
+  --accent: #E8C547;
   --accent-foreground: #1a1a1a;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: #E7E5E4;
+  --border: #E8E8E8;
   --input: #FFFFFF;
-  --ring: #F9D834;
-  --chart-1: #F9D834;
+  --ring: #E8C547;
+  --chart-1: #E8C547;
   --chart-2: #22C55E;
   --chart-3: #3B82F6;
   --chart-4: #F59E0B;
@@ -31,47 +31,47 @@
   --radius: 0.625rem;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #F9D834;
+  --sidebar-primary: #E8C547;
   --sidebar-primary-foreground: #1a1a1a;
-  --sidebar-accent: #F9D834;
+  --sidebar-accent: #E8C547;
   --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #E7E5E4;
-  --sidebar-ring: #F9D834;
+  --sidebar-border: #E8E8E8;
+  --sidebar-ring: #E8C547;
 }
 
 .dark {
   --background: #FFFFFF;
   --foreground: #1a1a1a;
-  --card: #FAFAF9;
+  --card: #F9F9F9;
   --card-foreground: #1a1a1a;
   --popover: #FFFFFF;
   --popover-foreground: #1a1a1a;
-  --primary: #F9D834;
+  --primary: #E8C547;
   --primary-foreground: #1a1a1a;
-  --secondary: #F5F5F4;
+  --secondary: #F5F5F5;
   --secondary-foreground: #1a1a1a;
-  --muted: #E7E5E4;
-  --muted-foreground: #78716C;
-  --accent: #F9D834;
+  --muted: #E8E8E8;
+  --muted-foreground: #666666;
+  --accent: #E8C547;
   --accent-foreground: #1a1a1a;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: #E7E5E4;
+  --border: #E8E8E8;
   --input: #FFFFFF;
-  --ring: #F9D834;
-  --chart-1: #F9D834;
+  --ring: #E8C547;
+  --chart-1: #E8C547;
   --chart-2: #22C55E;
   --chart-3: #3B82F6;
   --chart-4: #F59E0B;
   --chart-5: #EC4899;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #F9D834;
+  --sidebar-primary: #E8C547;
   --sidebar-primary-foreground: #1a1a1a;
-  --sidebar-accent: #F9D834;
+  --sidebar-accent: #E8C547;
   --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #E7E5E4;
-  --sidebar-ring: #F9D834;
+  --sidebar-border: #E8E8E8;
+  --sidebar-ring: #E8C547;
 }
 
 @theme inline {
@@ -125,15 +125,7 @@
 }
 
 @layer components {
-  /* Premium Yellow Glow Effects */
-  .gold-glow {
-    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,216,52,0.4)] hover:border-[#F9D834];
-  }
-  
-  .gold-glow-subtle {
-    @apply transition-all duration-200 hover:shadow-[0_0_12px_rgba(249,216,52,0.2)];
-  }
-
+  /* Card Hover & Animation Effects */
   .card-hover {
     @apply transition-all duration-200 hover:shadow-lg hover:scale-105;
   }
@@ -143,55 +135,38 @@
   }
 
   .card-glow {
-    @apply transition-all duration-200 hover:shadow-[0_8px_24px_rgba(249,216,52,0.15)];
-  }
-  
-  /* Glassmorphic Cards */
-  .card-glass {
-    @apply bg-white/70 backdrop-blur-md border border-[#F9D834]/20 hover:border-[#F9D834]/40 transition-all duration-300 shadow-sm;
-  }
-
-  .card-glass-dark {
-    @apply bg-white/80 backdrop-blur-xl border border-[#F9D834]/25 hover:border-[#F9D834]/50 shadow-sm;
+    @apply transition-all duration-200 hover:shadow-[0_8px_24px_rgba(232,197,71,0.15)];
   }
   
   /* Button Styles */
   .button-primary {
-    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#1a1a1a] font-semibold transition-colors duration-150;
+    @apply bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-semibold transition-colors duration-150;
   }
   
   .button-premium {
-    @apply bg-[#F9D834] hover:bg-[#F4D04F] text-[#1a1a1a] font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(249,216,52,0.25)] active:scale-95;
-  }
-
-  .button-outline {
-    @apply border border-[#F9D834] text-[#F9D834] hover:bg-[rgba(249,216,52,0.1)] transition-all duration-200;
+    @apply bg-[#E8C547] hover:bg-[#D4AF37] text-[#1a1a1a] font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95;
   }
 
   /* Shadow Styles */
   .shadow-premium {
-    @apply shadow-[0_4px_20px_rgba(0,0,0,0.3)];
+    @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)];
   }
 
   .shadow-card {
-    @apply shadow-[0_2px_12px_rgba(0,0,0,0.2)];
+    @apply shadow-[0_2px_12px_rgba(0,0,0,0.06)];
   }
 
   .shadow-elevated {
-    @apply shadow-[0_8px_32px_rgba(249,216,52,0.1)];
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.12)];
   }
   
   /* Gradient Styles */
   .gradient-gold {
-    @apply bg-gradient-to-r from-[#F9D834] to-[#F4D04F];
+    @apply bg-gradient-to-r from-[#E8C547] to-[#D4AF37];
   }
 
   .gradient-subtle {
-    @apply bg-gradient-to-br from-[#0F0F0F] to-[#050505];
-  }
-
-  .gradient-gold-text {
-    @apply bg-gradient-to-r from-[#F9D834] to-[#F4D04F] bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-white to-[#FAFAFA];
   }
 
   /* 3D Effects */
@@ -200,8 +175,8 @@
   }
 
   /* Accent & Text Styles */
-  .accent-gold {
-    @apply text-[#F9D834] font-semibold;
+  .accent-friendly {
+    @apply text-[#E8C547] font-semibold;
   }
 
   .text-premium {
@@ -209,16 +184,12 @@
   }
 
   .text-muted-premium {
-    @apply text-[#78716C] font-medium;
+    @apply text-[#666666] font-medium;
   }
 
   /* Border Styles */
   .border-premium {
-    @apply border border-[#E7E5E4] hover:border-[#F9D834] transition-colors duration-200;
-  }
-
-  .border-gold-glow {
-    @apply border border-[rgba(249,216,52,0.2)] hover:border-[rgba(249,216,52,0.6)] transition-all duration-300;
+    @apply border border-[#E0E0E0] hover:border-[#E8C547] transition-colors duration-200;
   }
 
   /* Utility Classes for Premium Layout */
@@ -228,20 +199,6 @@
 
   .text-balance {
     text-wrap: balance;
-  }
-
-  /* Premium Background Effects */
-  .bg-premium {
-    @apply bg-[#050505];
-  }
-
-  .bg-premium-card {
-    @apply bg-[#0F0F0F];
-  }
-
-  /* Yellow Divider */
-  .divider-gold {
-    @apply h-[1px] bg-gradient-to-r from-transparent via-[#F9D834] to-transparent;
   }
 }
 
