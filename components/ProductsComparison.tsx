@@ -1,188 +1,435 @@
 'use client';
 
-import { Check } from 'lucide-react';
+import { useState } from 'react';
+import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ProductsComparison() {
-  const products = [
-    {
-      name: '1-Step Challenge',
-      price: '$99',
-      description: 'Perfect for beginners',
-      features: [
-        { name: 'Account Size', value: '$10K' },
-        { name: 'Profit Target', value: '10%' },
-        { name: 'Max Daily Loss', value: '5%' },
-        { name: 'Max Overall Loss', value: '10%' },
-        { name: 'Scaling Plan', included: true },
-        { name: '50% Profit Split', included: true },
-        { name: 'Lifetime Account', included: true },
-        { name: 'Instant Funding', included: false },
+  const [activeTab, setActiveTab] = useState('standard');
+
+  const challengeData = {
+    standard: {
+      name: 'Standard',
+      description: 'Classic 2-step evaluation',
+      accounts: [
+        {
+          size: '$2.5K',
+          price: '$9',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$250',
+            'Phase 2 Target': '$125',
+            'Max Daily Loss': '$80',
+            'Max Loss': '$200',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$500',
+            'Phase 2 Target': '$250',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$400',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$1,000',
+            'Phase 2 Target': '$500',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$800',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$68.40',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$2,500',
+            'Phase 2 Target': '$1,250',
+            'Max Daily Loss': '$1,000',
+            'Max Loss': '$2,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$98.40',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$5,000',
+            'Phase 2 Target': '$2,500',
+            'Max Daily Loss': '$2,000',
+            'Max Loss': '$4,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$100K',
+          price: '$176.40',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$10,000',
+            'Phase 2 Target': '$5,000',
+            'Max Daily Loss': '$4,000',
+            'Max Loss': '$8,000',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
       ],
-      popular: false,
     },
-    {
-      name: '2-Step Challenge',
-      price: '$199',
-      description: 'Verify your skills further',
-      features: [
-        { name: 'Account Size', value: '$10K' },
-        { name: 'Profit Target', value: '10% per step' },
-        { name: 'Max Daily Loss', value: '5%' },
-        { name: 'Max Overall Loss', value: '10%' },
-        { name: 'Scaling Plan', included: true },
-        { name: '50% Profit Split', included: true },
-        { name: 'Lifetime Account', included: true },
-        { name: 'Instant Funding', included: false },
+    middleweight: {
+      name: 'Middleweight',
+      description: 'Balanced 2-step evaluation with consistency rule',
+      accounts: [
+        {
+          size: '$2.5K',
+          price: '$9',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$200',
+            'Phase 2 Target': '$125',
+            'Max Daily Loss': '$80',
+            'Max Loss': '$300',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '30%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$400',
+            'Phase 2 Target': '$250',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$600',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '30%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$800',
+            'Phase 2 Target': '$500',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$1,200',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '30%',
+          },
+        },
       ],
-      popular: true,
     },
-    {
-      name: 'Instant Funded',
-      price: '$799',
-      description: 'Get funded immediately',
-      features: [
-        { name: 'Account Size', value: '$50K' },
-        { name: 'Profit Target', value: 'Unlimited' },
-        { name: 'Max Daily Loss', value: '5%' },
-        { name: 'Max Overall Loss', value: '10%' },
-        { name: 'Scaling Plan', included: true },
-        { name: '60% Profit Split', included: true },
-        { name: 'Lifetime Account', included: true },
-        { name: 'Instant Funding', included: true },
+    lightweight: {
+      name: 'Lightweight',
+      description: 'Equal phases with 50% consistency rule',
+      accounts: [
+        {
+          size: '$2.5K',
+          price: '$9',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$150',
+            'Phase 2 Target': '$150',
+            'Max Daily Loss': '$80',
+            'Max Loss': '$200',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '50%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$300',
+            'Phase 2 Target': '$300',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$400',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '50%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$600',
+            'Phase 2 Target': '$600',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$800',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+            'Consistency Rule': '50%',
+          },
+        },
       ],
-      popular: false,
     },
-  ];
+    oneStep: {
+      name: '1-Step Standard',
+      description: 'Single-phase evaluation',
+      accounts: [
+        {
+          size: '$2.5K',
+          price: '$9',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$250',
+            'Phases': 'No Phase 2',
+            'Max Daily Loss': '$80',
+            'Max Loss': '$150',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$5K',
+          price: '$13',
+          popular: true,
+          features: {
+            'Phase 1 Target': '$500',
+            'Phases': 'No Phase 2',
+            'Max Daily Loss': '$200',
+            'Max Loss': '$300',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$19',
+          popular: false,
+          features: {
+            'Phase 1 Target': '$1,000',
+            'Phases': 'No Phase 2',
+            'Max Daily Loss': '$400',
+            'Max Loss': '$600',
+            'Trading Period': 'Unlimited',
+            'Min Trading Days': '1',
+            'Profit Split': 'Up to 100%',
+          },
+        },
+      ],
+    },
+    instant: {
+      name: 'Instant Funding',
+      description: 'Get funded immediately without phases',
+      accounts: [
+        {
+          size: '$5K',
+          price: '$20',
+          popular: false,
+          features: {
+            'Account Type': 'Instant Funded',
+            'Evaluation': 'No Phases',
+            'Max Daily Loss': '$150',
+            'Max Loss': '$250',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Bi-Weekly 50%',
+            'Consistency Rule': '20%',
+          },
+        },
+        {
+          size: '$10K',
+          price: '$37',
+          popular: true,
+          features: {
+            'Account Type': 'Instant Funded',
+            'Evaluation': 'No Phases',
+            'Max Daily Loss': '$300',
+            'Max Loss': '$500',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Bi-Weekly 50%',
+            'Consistency Rule': '20%',
+          },
+        },
+        {
+          size: '$25K',
+          price: '$129',
+          popular: false,
+          features: {
+            'Account Type': 'Instant Funded',
+            'Evaluation': 'No Phases',
+            'Max Daily Loss': '$750',
+            'Max Loss': '$1,250',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Bi-Weekly 50%',
+            'Consistency Rule': '20%',
+          },
+        },
+        {
+          size: '$50K',
+          price: '$274.50',
+          popular: false,
+          features: {
+            'Account Type': 'Instant Funded',
+            'Evaluation': 'No Phases',
+            'Max Daily Loss': '$1,500',
+            'Max Loss': '$2,500',
+            'Trading Period': 'Unlimited',
+            'Profit Split': 'Bi-Weekly 50%',
+            'Consistency Rule': '20%',
+          },
+        },
+      ],
+    },
+  };
+
+  const currentChallenge = challengeData[activeTab as keyof typeof challengeData];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#F5F7FA] to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4 text-balance">
-            Our Trading Challenges
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1628] mb-3 sm:mb-4 text-balance">
+            Buckle Up, Your Journey Starts Here!
           </h2>
-          <p className="text-lg text-[#4B5563] max-w-2xl mx-auto">
-            Choose the challenge that fits your trading style and experience level. Start small and scale up to earn real profits.
+          <p className="text-base sm:text-lg text-[#4B5563] max-w-2xl mx-auto">
+            1-Step, 2-Step, or Zero. Multiple routes to match your trading style and budget.
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          {products.map((product, idx) => (
-            <div
-              key={idx}
-              className={`relative rounded-xl overflow-hidden transition-all duration-300 ${
-                product.popular
-                  ? 'border-2 border-[#F4D957] shadow-xl scale-105 md:scale-110'
-                  : 'border border-[#E0E6F0] shadow-md hover:shadow-lg'
-              } ${product.popular ? 'bg-white' : 'bg-white'}`}
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+          {[
+            { key: 'standard', label: 'Standard' },
+            { key: 'middleweight', label: 'Middleweight' },
+            { key: 'lightweight', label: 'Lightweight' },
+            { key: 'oneStep', label: '1 Step' },
+            { key: 'instant', label: 'Instant Funding' },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
+                activeTab === tab.key
+                  ? 'bg-[#0A1628] text-white'
+                  : 'bg-[#F0F2F7] text-[#4B5563] hover:bg-[#E8EAEF]'
+              }`}
             >
-              {/* Popular Badge */}
-              {product.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-[#F4D957] text-[#0A1628] text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              {/* Card Content */}
-              <div className={`p-6 sm:p-8 ${product.popular ? 'pt-10 sm:pt-12' : ''}`}>
-                {/* Title & Price */}
-                <div className="mb-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-[#4B5563] mb-4">{product.description}</p>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-[#0A1628]">
-                      {product.price}
-                    </span>
-                    <span className="text-[#4B5563] text-sm">one-time</span>
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <Button
-                  className={`w-full font-semibold py-3 rounded-lg transition-all mb-8 ${
-                    product.popular
-                      ? 'bg-[#F4D957] hover:bg-[#F0C738] text-[#0A1628]'
-                      : 'bg-[#0A2463] hover:bg-[#051A41] text-white'
-                  }`}
-                  asChild
-                >
-                  <a href="https://app.ckcapital.co.uk/signup">Start Challenge</a>
-                </Button>
-
-                {/* Features List */}
-                <div className="space-y-3">
-                  {product.features.map((feature, fidx) => (
-                    <div key={fidx} className="flex items-start gap-3 pb-3 border-b border-[#E0E6F0] last:border-b-0 last:pb-0">
-                      <div className="flex-shrink-0 mt-1">
-                        {feature.included ? (
-                          <Check className="w-5 h-5 text-[#F4D957]" />
-                        ) : (
-                          <div className="w-5 h-5 rounded-full border-2 border-[#D0D8E2]" />
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-[#0A1628]">{feature.name}</p>
-                        {feature.value && (
-                          <p className="text-xs text-[#4B5563]">{feature.value}</p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+              {tab.label}
+            </button>
           ))}
         </div>
 
-        {/* Comparison Table */}
-        <div className="mt-16 sm:mt-20 overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b-2 border-[#D0D8E2]">
-                <th className="text-left py-4 px-4 font-semibold text-[#0A1628]">Feature</th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628]">1-Step</th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628] bg-[#FFF9E6] rounded-t-lg">2-Step</th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628]">Instant</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { label: 'Account Sizes', oneStep: '10K-100K', twoStep: '10K-100K', instant: '50K-500K' },
-                { label: 'Max Daily Loss', oneStep: '5%', twoStep: '5%', instant: '5%' },
-                { label: 'Max Overall Loss', oneStep: '10%', twoStep: '10%', instant: '10%' },
-                { label: 'Scaling Plan', oneStep: '✓', twoStep: '✓', instant: '✓' },
-                { label: 'Profit Split', oneStep: '50%', twoStep: '50%', instant: '60%' },
-                { label: 'Trading Days', oneStep: 'Unlimited', twoStep: 'Unlimited', instant: 'Unlimited' },
-                { label: 'Lifetime Access', oneStep: '✓', twoStep: '✓', instant: '✓' },
-              ].map((row, idx) => (
-                <tr key={idx} className="border-b border-[#E0E6F0]">
-                  <td className="py-4 px-4 font-medium text-[#0A1628]">{row.label}</td>
-                  <td className="text-center py-4 px-4 text-[#4B5563]">{row.oneStep}</td>
-                  <td className="text-center py-4 px-4 text-[#4B5563] bg-[#FFFCF0]">{row.twoStep}</td>
-                  <td className="text-center py-4 px-4 text-[#4B5563]">{row.instant}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Cards Container - Horizontal Scroll on Mobile */}
+        <div className="overflow-x-auto -mx-4 sm:mx-0 pb-4 sm:pb-0">
+          <div className="flex gap-4 sm:gap-6 px-4 sm:px-0 min-w-min sm:min-w-full">
+            {currentChallenge.accounts.map((account, index) => (
+              <div
+                key={index}
+                className={`flex-shrink-0 w-72 sm:w-1/3 lg:flex-1 rounded-2xl overflow-hidden transition-all duration-300 ${
+                  account.popular
+                    ? 'bg-[#0A1628] text-white shadow-2xl ring-2 ring-[#F4D957] scale-105 sm:scale-100'
+                    : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF] hover:shadow-lg'
+                }`}
+              >
+                {/* Popular Badge */}
+                {account.popular && (
+                  <div className="bg-[#F4D957] text-[#0A1628] py-1.5 px-4 text-center font-bold text-xs sm:text-sm uppercase tracking-wider">
+                    Most Popular
+                  </div>
+                )}
+
+                {/* Card Content */}
+                <div className="p-6 sm:p-8">
+                  {/* Account Size & Price */}
+                  <div className="mb-6">
+                    <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-1">Account Size</div>
+                    <div className="flex items-baseline justify-between mb-2">
+                      <span className="text-2xl sm:text-3xl font-bold">{account.size}</span>
+                      <span className="text-sm text-[#8A94A6]">Price</span>
+                    </div>
+                    <div className="flex items-baseline justify-between">
+                      <span></span>
+                      <span className="text-xl sm:text-2xl font-bold">${account.price}</span>
+                    </div>
+                  </div>
+
+                  {/* Button */}
+                  <Button
+                    className={`w-full mb-6 font-bold py-2.5 sm:py-3 rounded-lg transition-all ${
+                      account.popular
+                        ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
+                        : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
+                    }`}
+                    asChild
+                  >
+                    <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                  </Button>
+
+                  {/* Features List */}
+                  <div className="space-y-3">
+                    {Object.entries(account.features).map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-start text-xs sm:text-sm">
+                        <span className={account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}>{key}</span>
+                        <span className={`font-semibold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                          {value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Earnings Info */}
+                  <div className={`mt-6 pt-6 border-t ${account.popular ? 'border-[#1F2D42]' : 'border-[#E8EAEF]'}`}>
+                    <p className={`text-xs ${account.popular ? 'text-[#B0BCC9]' : 'text-[#8A94A6]'}`}>
+                      Traders earn <span className={`font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>${(parseInt(account.price) * 100).toLocaleString()}</span> per first month
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12 sm:mt-16">
-          <p className="text-[#4B5563] mb-6">
+        {/* Bottom Text */}
+        <div className="text-center mt-10 sm:mt-14">
+          <p className="text-sm sm:text-base text-[#4B5563]">
             All challenges include live market trading on real instruments during simulated evaluation periods.
           </p>
           <Button
-            className="bg-[#0A2463] hover:bg-[#051A41] text-white font-semibold px-8 py-3 text-lg rounded-lg transition-all"
+            className="mt-6 sm:mt-8 bg-[#0A1628] hover:bg-[#051A41] text-white font-bold px-8 py-2.5 rounded-lg transition-colors"
             asChild
           >
-            <a href="https://app.ckcapital.co.uk/signup">View All Products</a>
+            <a href="https://app.ckcapital.co.uk/all-products">View All Products</a>
           </Button>
         </div>
       </div>
