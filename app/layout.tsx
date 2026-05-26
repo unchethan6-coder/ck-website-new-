@@ -11,7 +11,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#E8C547',
+  themeColor: '#D4AF37',
 }
 
 export const metadata: Metadata = {
@@ -119,7 +119,7 @@ export const metadata: Metadata = {
       {
         rel: 'mask-icon',
         url: '/mask-icon.svg',
-        color: '#E8C547',
+        color: '#D4AF37',
       },
     ],
   },
