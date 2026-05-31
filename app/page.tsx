@@ -3,6 +3,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ScrollingPromos from '@/components/ScrollingPromos';
+import TraderJourney from '@/components/TraderJourney';
 import ProductsComparison from '@/components/ProductsComparison';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
@@ -18,6 +19,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ScrollingPromos />
+      <TraderJourney />
       <ProductsComparison />
       <HowItWorks />
       <Testimonials />
