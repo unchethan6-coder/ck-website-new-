@@ -8,7 +8,6 @@ import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import CommunitySection from '@/components/CommunitySection';
 import FAQ from '@/components/FAQ';
-import DisclaimerSection from '@/components/DisclaimerSection';
 import Footer from '@/components/Footer';
 import DiscountPopup from '@/components/DiscountPopup';
 
@@ -24,7 +23,6 @@ export default function Home() {
       <Testimonials />
       <CommunitySection />
       <FAQ />
-      <DisclaimerSection />
       <Footer />
     </div>
   );

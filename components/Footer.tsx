@@ -77,16 +77,81 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-[#1F2D42] pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-xs sm:text-sm text-[#8A94A6]">
-              © {currentYear} CK Capital Group Ltd. All rights reserved.
-            </p>
-            <p className="text-xs text-[#8A94A6] text-center sm:text-right leading-relaxed max-w-lg">
-              <strong>Risk Disclaimer:</strong> All evaluation accounts operate in a simulated environment. Trading CFDs carries significant risk and may not be suitable for all individuals.
-            </p>
+        {/* Disclaimer Section */}
+        <div className="border-t border-[#1F2D42] pt-10 pb-6">
+          <h3 className="text-lg font-bold text-white mb-2">Important Information & Disclaimer</h3>
+          <p className="text-xs text-[#8A94A6] mb-6">Please read carefully before using CK Capital services</p>
+
+          <div className="space-y-6 text-xs text-[#B0BCC9] leading-relaxed">
+            {/* Simulated Trading Environment */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Simulated Trading Environment</h4>
+              <p>All accounts provided by CK Capital are demo accounts operating exclusively within a simulated trading environment. No real trades are executed on live financial markets. The services offered by CK Capital are intended solely for educational, evaluation, and skill-assessment purposes.</p>
+            </div>
+
+            {/* No Investment Services */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">No Investment Services</h4>
+              <p className="mb-3">The simulated trading services are provided by CK Capital and its related entities. All content published or distributed by the Company is provided for general informational purposes only.</p>
+              <p className="mb-2">The Company does not:</p>
+              <ul className="list-disc list-inside space-y-1 ml-2">
+                <li>Provide investment advice or financial recommendations</li>
+                <li>Solicit the purchase or sale of any financial instruments</li>
+                <li>Act as a broker, custodian, exchange, or financial intermediary</li>
+                <li>Offer live trading accounts or investment products</li>
+              </ul>
+            </div>
+
+            {/* Service Fees */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Service Fees</h4>
+              <p className="mb-3">Participation in any evaluation or simulated funding program is entirely voluntary. All fees paid to the Company are service fees only. These fees:</p>
+              <ul className="list-disc list-inside space-y-1 ml-2 mb-3">
+                <li>Are not deposits or client funds</li>
+                <li>Do not represent investments of any kind</li>
+                <li>Do not generate interest, returns, or profit-sharing</li>
+                <li>Are non-refundable except where required by applicable law</li>
+              </ul>
+              <p className="mb-2">Program fees are used to support the Company&apos;s operational and administrative expenses, including platform infrastructure, software licensing, staffing, support services, technology systems, and risk-management operations.</p>
+              <p>Payment of program fees grants access solely to simulated trading evaluations and related services in a demo environment. No fiduciary, custodial, or investment relationship is created between participants and the Company.</p>
+            </div>
+
+            {/* Financial Instruments */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Financial Instruments</h4>
+              <p className="mb-2">Nothing on this website, platform, or within any CK Capital program constitutes an offer to buy or sell forex, CFDs, futures, options, stocks, cryptocurrencies, or any other financial instruments.</p>
+              <p>All trading results, payouts, statistics, and performance figures displayed are based on simulated trading performance. Simulated results do not guarantee future outcomes, and past performance is not indicative of future performance.</p>
+            </div>
+
+            {/* Risk Warning */}
+            <div className="bg-[#1F2D42] border-l-4 border-[#F59E0B] p-4 rounded-r">
+              <h4 className="text-sm font-semibold text-[#F59E0B] mb-2 flex items-center gap-2">
+                <span>⚠️</span> General Risk Warning
+              </h4>
+              <p className="mb-2">Trading financial markets carries a high level of risk and may not be suitable for all individuals. Even in a simulated environment, leveraged trading strategies may not accurately reflect real-world market execution, slippage, liquidity conditions, or psychological pressures.</p>
+              <p>Participants should carefully assess their financial objectives, trading experience, and personal risk tolerance before participating in any simulated trading evaluation.</p>
+            </div>
+
+            {/* Corporate Information */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Corporate Information</h4>
+              <p>CK Capital operates as a proprietary trading evaluation company providing simulated trading programs only. The Company does not provide brokerage services or live investment accounts through this website.</p>
+            </div>
+
+            {/* Restrictions */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">Restrictions</h4>
+              <p className="mb-2">Services may not be available in certain jurisdictions or to individuals residing in restricted or sanctioned countries or regions, including jurisdictions subject to FATF, EU, UK, UN, or OFAC restrictions.</p>
+              <p>Participants are responsible for ensuring compliance with their local laws and regulations before accessing the Company&apos;s services.</p>
+            </div>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-[#1F2D42] pt-6">
+          <p className="text-xs text-[#8A94A6] text-center">
+            © {currentYear} CK Capital Group Ltd. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
