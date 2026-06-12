@@ -12,8 +12,9 @@ export function CandlestickBackground() {
         style={{
           backgroundImage: 'url(/candlestick-reference-bg.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 40%',
           backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
           opacity: 0.9,
           zIndex: 0,
         }}
