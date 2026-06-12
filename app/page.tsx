@@ -243,10 +243,20 @@ export default function Home() {
               </h3>
 
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <div className="px-4 py-2 rounded-full bg-primary/20 border border-primary/40 text-black font-bold">
+                <div 
+                  className="px-4 py-2 rounded-full border border-transparent text-black font-bold"
+                  style={{
+                    background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
+                  }}
+                >
                   <span className="line-through text-black/50">$88</span> → $13
                 </div>
-                <div className="px-4 py-2 rounded-full bg-card border border-border text-black font-semibold">
+                <div 
+                  className="px-4 py-2 rounded-full border border-transparent text-black font-semibold"
+                  style={{
+                    background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
+                  }}
+                >
                   Code: LAUNCH2025
                 </div>
               </div>
