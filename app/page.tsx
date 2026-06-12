@@ -128,15 +128,10 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
-      <section className="py-16" style={{
-        background: `
-          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
-          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
-        `
-      }}>
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-balance text-center">
-            Why Choose <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">CK Capital?</span>
+          <h2 className="section-title text-white mb-12 text-balance text-center">
+            Why Choose <span className="gradient-text">CK Capital?</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -166,11 +161,11 @@ export default function Home() {
                 description: 'Expert support team available Mon-Fri to help you succeed in your journey.'
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/70 backdrop-blur rounded-2xl p-6 border border-[#FDE990]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-[#FDE990]/60 group">
-                <h3 className="text-lg font-bold text-black mb-2 group-hover:text-[#FDE990] transition-colors">
+              <div key={idx} className="glow-card group">
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-black/70 text-sm leading-relaxed">
+                <p className="text-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -250,15 +245,10 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 7: PRICING / TRADING OBJECTIVES ===== */}
-      <section id="start-challenge" className="py-16 scroll-mt-20" style={{
-        background: `
-          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
-          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
-        `
-      }}>
+      <section id="start-challenge" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-center">
-            Trading <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">Objectives</span>
+          <h2 className="section-title text-white mb-12 text-center">
+            Trading <span className="gradient-text">Objectives</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -304,21 +294,21 @@ export default function Home() {
                 ],
               },
             ].map((plan, idx) => (
-              <div key={idx} className="bg-white/70 backdrop-blur rounded-2xl p-6 border border-[#FDE990]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-[#FDE990]/60 relative">
+              <div key={idx} className="glow-card relative">
                 {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-[#FDE990] to-[#FDE77B] text-black text-xs font-bold">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
                     {plan.badge}
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-black mb-3">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{plan.name}</h3>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-3xl font-bold text-[#FDE990]">{plan.price}</span>
-                  <span className="text-sm text-black/50 line-through">{plan.oldPrice}</span>
+                  <span className="text-3xl font-bold text-primary">{plan.price}</span>
+                  <span className="text-sm text-muted-foreground line-through">{plan.oldPrice}</span>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-black/70 flex items-start gap-2">
-                      <span className="text-[#FDE990] mt-1">✓</span>
+                    <li key={i} className="text-sm text-foreground flex items-start gap-2">
+                      <span className="text-primary mt-1">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -327,7 +317,7 @@ export default function Home() {
                   href="https://app.ckcapital.co.uk/signup"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-[#FDE990] to-[#FDE77B] text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_24px_rgba(253,233,144,0.4)] active:scale-95 w-full text-center block"
+                  className="button-primary w-full text-center"
                 >
                   Get Started
                 </Link>
@@ -338,15 +328,10 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 8: TRADER REVIEWS ===== */}
-      <section className="py-16" style={{
-        background: `
-          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
-          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
-        `
-      }}>
+      <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-center">
-            Our Traders <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">Love Us</span>
+          <h2 className="section-title text-white mb-12 text-center">
+            Our Traders <span className="gradient-text">Love Us</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -358,13 +343,13 @@ export default function Home() {
               'Amazing service, support, and plans. Great job guys!',
               'The best prop firm I\'ve used. The team is incredibly responsive and helpful. Highly recommend!',
             ].map((review, idx) => (
-              <div key={idx} className="bg-white/70 backdrop-blur rounded-2xl p-6 border border-[#FDE990]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-[#FDE990]/60">
-                <div className="flex gap-1 mb-3 text-[#FDE990]">
+              <div key={idx} className="glow-card">
+                <div className="flex gap-1 mb-3 text-primary">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-black/70 text-sm leading-relaxed italic">
+                <p className="text-foreground text-sm leading-relaxed italic">
                   &ldquo;{review}&rdquo;
                 </p>
               </div>
@@ -374,15 +359,10 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 9: TRADER JOURNEY / PHASE STEPPER ===== */}
-      <section className="py-16" style={{
-        background: `
-          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
-          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
-        `
-      }}>
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-center">
-            Your Path to <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">Success</span>
+          <h2 className="section-title text-white mb-12 text-center">
+            Your Path to <span className="gradient-text">Success</span>
           </h2>
 
           <div className="space-y-8">
@@ -404,17 +384,17 @@ export default function Home() {
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#FDE990] to-[#FDE77B] flex items-center justify-center text-black font-bold text-lg">
-                    {item.step}
-                  </div>
-                  {idx < 2 && (
-                    <div className="w-1 h-12 bg-gradient-to-b from-[#FDE990] to-transparent my-2" />
-                  )}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">
+                  {item.step}
+                </div>
+                {idx < 2 && (
+                  <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />
+                )}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
-                  <p className="text-black/70">{item.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-foreground">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -463,18 +443,13 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 11: SUPPORT SECTION ===== */}
-      <section className="py-16" style={{
-        background: `
-          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
-          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
-        `
-      }}>
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="section-title text-black mb-6 text-balance">
-            Excellent Customer <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">Support</span>
+          <h2 className="section-title text-white mb-6 text-balance">
+            Excellent Customer <span className="gradient-text">Support</span>
           </h2>
 
-          <p className="text-lg text-black/70 mb-8 leading-relaxed">
+          <p className="text-lg text-foreground mb-8 leading-relaxed">
             CK Capital has been a game changer for customer support in the prop firm industry. Traders are welcomed like family and are rewarded for their skills in our competitive demo environments.
           </p>
 
@@ -484,8 +459,8 @@ export default function Home() {
               'Community Game Nights',
               'Comprehensive Online FAQ',
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/70 backdrop-blur rounded-2xl p-6 border border-[#FDE990]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-[#FDE990]/60">
-                <p className="text-black font-semibold">{item}</p>
+              <div key={idx} className="glow-card">
+                <p className="text-white font-semibold">{item}</p>
               </div>
             ))}
           </div>
