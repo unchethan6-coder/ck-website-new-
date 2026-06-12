@@ -21,7 +21,7 @@ export function CandlestickBackground() {
         >
           <svg viewBox="0 0 100 300" className="w-full h-full drop-shadow-lg filter blur-sm">
             <defs>
-              <linearGradient id="goldGradient1" x1="0%" y1="0%" x2="100%">
+              <linearGradient id="candleGradientBack" x1="0%" y1="0%" x2="100%">
                 <stop offset="0%" stopColor="#FFD700" stopOpacity="0.6" />
                 <stop offset="50%" stopColor="#FFF44F" stopOpacity="0.4" />
                 <stop offset="100%" stopColor="#FFA500" stopOpacity="0.6" />
@@ -31,7 +31,7 @@ export function CandlestickBackground() {
             {/* Candlestick bottle shape */}
             <path
               d="M 25 80 L 25 200 Q 25 250 50 260 Q 75 250 75 200 L 75 80 Q 75 60 60 50 L 40 50 Q 25 60 25 80"
-              fill="url(#goldGradient1)"
+              fill="url(#candleGradientBack)"
               style={{
                 animation: 'stretch-body 5s ease-in-out infinite',
               }}
@@ -65,7 +65,7 @@ export function CandlestickBackground() {
         >
           <svg viewBox="0 0 100 300" className="w-full h-full drop-shadow-2xl">
             <defs>
-              <linearGradient id="goldGradient2" x1="0%" y1="0%" x2="100%">
+              <linearGradient id="candleGradientFront" x1="0%" y1="0%" x2="100%">
                 <stop offset="0%" stopColor="#FFE55C" stopOpacity="0.7" />
                 <stop offset="50%" stopColor="#FFEB3B" stopOpacity="0.5" />
                 <stop offset="100%" stopColor="#FFD700" stopOpacity="0.7" />
@@ -75,7 +75,7 @@ export function CandlestickBackground() {
             {/* Candlestick bottle shape */}
             <path
               d="M 20 70 L 20 220 Q 20 270 50 280 Q 80 270 80 220 L 80 70 Q 80 50 65 40 L 35 40 Q 20 50 20 70"
-              fill="url(#goldGradient2)"
+              fill="url(#candleGradientFront)"
               style={{
                 animation: 'stretch-body-secondary 5.5s ease-in-out infinite',
               }}
