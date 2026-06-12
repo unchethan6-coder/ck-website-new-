@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
+import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -18,6 +19,9 @@ export default function Home() {
 
       {/* ===== SECTION 1: HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12">
+        {/* Candlestick animated background */}
+        <CandlestickBackground />
+        
         {/* Background gradient - Unified dark theme */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#111111] to-[#0A0A0A]" />
         <div className="absolute inset-0" style={{
