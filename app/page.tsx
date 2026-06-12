@@ -21,10 +21,7 @@ export default function Home() {
         {/* Background gradient - Unified dark theme */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#111111] to-[#0A0A0A]" />
         <div className="absolute inset-0" style={{
-          background: `
-            radial-gradient(circle at 50% 65%, #FFF6C7 0%, #D4AF37 18%, transparent 45%),
-            linear-gradient(180deg, #D4AF37 0%, #D4AF37 50%, #F0E68C 100%)
-          `,
+          background: '#ffffff',
           opacity: 0.08,
         }} />
 
@@ -421,6 +418,10 @@ export default function Home() {
                     ? 'md:scale-105 ring-2 ring-primary'
                     : ''
                 } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
+                style={idx === 0 ? {
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                } : undefined}
               >
                 {card.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
