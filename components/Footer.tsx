@@ -1,159 +1,202 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client'
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+import Link from 'next/link'
+import { 
+  MessageCircle, 
+  Twitter, 
+  Instagram, 
+  Youtube, 
+  Facebook,
+  Send
+} from 'lucide-react'
 
+export function Footer() {
   return (
-    <footer className="bg-[#0A1628] text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
-          {/* Brand */}
-          <div>
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-SPTL8PH49B9R53gI3T5G6yqP5RluMr.png"
-              alt="CK Capital"
-              width={120}
-              height={24}
-              className="h-6 w-auto mb-4 brightness-0 invert"
-              loading="lazy"
-            />
-            <p className="text-sm text-[#B0BCC9] leading-relaxed">
-              Transforming traders into winners globally with simulated evaluation programs.
-            </p>
+    <footer className="bg-gradient-dark border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          {/* Brand & Social */}
+          <div className="space-y-4">
+            <div className="font-bold text-xl text-white">CK CAPITAL</div>
+            <div className="flex gap-4">
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <MessageCircle size={20} />
+              </a>
+              <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <Twitter size={20} />
+              </a>
+              <a href="https://instagram.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="https://youtube.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <Youtube size={20} />
+              </a>
+              <a href="https://facebook.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <Facebook size={20} />
+              </a>
+              <a href="https://t.me/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                <Send size={20} />
+              </a>
+            </div>
           </div>
 
-          {/* Product */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Product</h3>
-            <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Evaluations</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">How It Works</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Features</a></li>
+          {/* Evaluations */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-white">Evaluations</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/evaluation?type=1-step" className="text-foreground hover:text-primary transition-colors text-sm">
+                  1-Step Challenge
+                </Link>
+              </li>
+              <li>
+                <Link href="/evaluation?type=2-step" className="text-foreground hover:text-primary transition-colors text-sm">
+                  2-Step Challenge
+                </Link>
+              </li>
+              <li>
+                <Link href="/instant" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Instant Funding
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Community */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Community</h3>
-            <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Discord</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Blog</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Guides</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Support</a></li>
+          {/* FAQ & Support */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-white">Support</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/faq" className="text-foreground hover:text-primary transition-colors text-sm">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Community
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Important Links */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-white">Important</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/risk-disclosure" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Cookies
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-conditions" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Legal */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Legal</h3>
-            <ul className="space-y-2.5">
-              <li><a href="/privacy" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Privacy</a></li>
-              <li><a href="/terms" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Terms</a></li>
-              <li><a href="/disclaimer" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Disclaimer</a></li>
-              <li><a href="#" className="text-sm text-[#B0BCC9] hover:text-[#F4D957] transition-colors">Compliance</a></li>
+          <div className="space-y-3">
+            <h4 className="font-semibold text-white">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/return-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Returns Policy
+                </Link>
+              </li>
+              <li>
+                <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Reviews
+                </a>
+              </li>
+              <li>
+                <Link href="/affiliates" className="text-foreground hover:text-primary transition-colors text-sm">
+                  Affiliates
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-[#1F2D42] py-8 sm:py-10 mb-8">
-          {/* Contact Info */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-            <div>
-              <p className="font-semibold text-[#F4D957] mb-2 text-xs uppercase tracking-wider">Address</p>
-              <p className="text-sm text-[#B0BCC9]">6-7 Waterside Station Road<br />Harpenden, AL5 4US<br />United Kingdom</p>
-            </div>
-            <div>
-              <p className="font-semibold text-[#F4D957] mb-2 text-xs uppercase tracking-wider">Email</p>
-              <p className="text-sm text-[#B0BCC9]">support@ckcapital.co.uk</p>
-            </div>
-            <div>
-              <p className="font-semibold text-[#F4D957] mb-2 text-xs uppercase tracking-wider">Hours</p>
-              <p className="text-sm text-[#B0BCC9]">Mon – Fri: 8am – 8pm GMT</p>
-            </div>
+        {/* Payment Options */}
+        <div className="border-t border-white/10 py-8 mb-8">
+          <p className="text-sm text-muted-foreground mb-4 font-semibold">Accepted Payment Methods</p>
+          <div className="flex flex-wrap gap-4 text-sm text-foreground">
+            <span>Stripe</span>
+            <span>PayPal</span>
+            <span>Visa / Mastercard</span>
+            <span>Crypto (USDT)</span>
           </div>
         </div>
 
-        {/* Disclaimer Section */}
-        <div className="border-t border-[#1F2D42] pt-10 pb-6">
-          <h3 className="text-lg font-bold text-white mb-2">Important Information & Disclaimer</h3>
-          <p className="text-xs text-[#8A94A6] mb-6">Please read carefully before using CK Capital services</p>
-
-          <div className="space-y-6 text-xs text-[#B0BCC9] leading-relaxed">
-            {/* Simulated Trading Environment */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Simulated Trading Environment</h4>
-              <p>All accounts provided by CK Capital are demo accounts operating exclusively within a simulated trading environment. No real trades are executed on live financial markets. The services offered by CK Capital are intended solely for educational, evaluation, and skill-assessment purposes.</p>
+        {/* Bottom Section */}
+        <div className="border-t border-white/10 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Company Info */}
+            <div className="text-sm">
+              <p className="text-white font-semibold mb-2">CK CAPITAL GROUP LTD</p>
+              <p className="text-foreground">All Rights Reserved</p>
+              <p className="text-foreground mt-2">Mon-Fri: 8am-8pm (GMT)</p>
+              <p className="text-foreground">6-7 Waterside Station Road, Harpenden, AL5 4US</p>
             </div>
 
-            {/* No Investment Services */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">No Investment Services</h4>
-              <p className="mb-3">The simulated trading services are provided by CK Capital and its related entities. All content published or distributed by the Company is provided for general informational purposes only.</p>
-              <p className="mb-2">The Company does not:</p>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>Provide investment advice or financial recommendations</li>
-                <li>Solicit the purchase or sale of any financial instruments</li>
-                <li>Act as a broker, custodian, exchange, or financial intermediary</li>
-                <li>Offer live trading accounts or investment products</li>
-              </ul>
+            {/* Contact Info */}
+            <div className="text-sm">
+              <p className="text-white font-semibold mb-2">Support</p>
+              <p className="text-foreground">24/7 Support Available</p>
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-[#7C5CFF] transition-colors">
+                Discord Community
+              </a>
             </div>
 
-            {/* Service Fees */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Service Fees</h4>
-              <p className="mb-3">Participation in any evaluation or simulated funding program is entirely voluntary. All fees paid to the Company are service fees only. These fees:</p>
-              <ul className="list-disc list-inside space-y-1 ml-2 mb-3">
-                <li>Are not deposits or client funds</li>
-                <li>Do not represent investments of any kind</li>
-                <li>Do not generate interest, returns, or profit-sharing</li>
-                <li>Are non-refundable except where required by applicable law</li>
-              </ul>
-              <p className="mb-2">Program fees are used to support the Company&apos;s operational and administrative expenses, including platform infrastructure, software licensing, staffing, support services, technology systems, and risk-management operations.</p>
-              <p>Payment of program fees grants access solely to simulated trading evaluations and related services in a demo environment. No fiduciary, custodial, or investment relationship is created between participants and the Company.</p>
-            </div>
-
-            {/* Financial Instruments */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Financial Instruments</h4>
-              <p className="mb-2">Nothing on this website, platform, or within any CK Capital program constitutes an offer to buy or sell forex, CFDs, futures, options, stocks, cryptocurrencies, or any other financial instruments.</p>
-              <p>All trading results, payouts, statistics, and performance figures displayed are based on simulated trading performance. Simulated results do not guarantee future outcomes, and past performance is not indicative of future performance.</p>
-            </div>
-
-            {/* Risk Warning */}
-            <div className="bg-[#1F2D42] border-l-4 border-[#F59E0B] p-4 rounded-r">
-              <h4 className="text-sm font-semibold text-[#F59E0B] mb-2 flex items-center gap-2">
-                <span>⚠️</span> General Risk Warning
-              </h4>
-              <p className="mb-2">Trading financial markets carries a high level of risk and may not be suitable for all individuals. Even in a simulated environment, leveraged trading strategies may not accurately reflect real-world market execution, slippage, liquidity conditions, or psychological pressures.</p>
-              <p>Participants should carefully assess their financial objectives, trading experience, and personal risk tolerance before participating in any simulated trading evaluation.</p>
-            </div>
-
-            {/* Corporate Information */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Corporate Information</h4>
-              <p>CK Capital operates as a proprietary trading evaluation company providing simulated trading programs only. The Company does not provide brokerage services or live investment accounts through this website.</p>
-            </div>
-
-            {/* Restrictions */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-2">Restrictions</h4>
-              <p className="mb-2">Services may not be available in certain jurisdictions or to individuals residing in restricted or sanctioned countries or regions, including jurisdictions subject to FATF, EU, UK, UN, or OFAC restrictions.</p>
-              <p>Participants are responsible for ensuring compliance with their local laws and regulations before accessing the Company&apos;s services.</p>
+            {/* Quick Links */}
+            <div className="text-sm">
+              <p className="text-white font-semibold mb-2">Quick Links</p>
+              <div className="space-y-1">
+                <Link href="/" className="block text-foreground hover:text-primary transition-colors">
+                  Home
+                </Link>
+                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors">
+                  About Us
+                </Link>
+                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors">
+                  Blog
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Copyright */}
-        <div className="border-t border-[#1F2D42] pt-6">
-          <p className="text-xs text-[#8A94A6] text-center">
-            © {currentYear} CK Capital Group Ltd. All rights reserved.
-          </p>
+          {/* Legal Disclaimer */}
+          <div className="bg-card/30 border border-white/5 rounded-lg p-4 mt-8">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <strong>Risk Disclosure:</strong> CK Capital is a proprietary trading firm providing simulated trading environments and educational evaluation programmes. CK Capital does NOT provide financial advice, investment advice, or brokerage services. All accounts are simulated/demo environments using virtual funds - no real money is traded on behalf of clients.
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+              Trading financial instruments involves significant risk of loss. Past performance is not indicative of future results. All profits, certificates, and funded account values shown represent simulated trading results only and do not guarantee future profitability in live markets. All values referenced on this website (including &apos;Up to $1.2M&apos;, &apos;100% Profit Split&apos;) relate to simulated/demo trading environments. Evaluation fees are non-refundable unless stated in our Return Policy. Income or profit figures are illustrative examples only. Individual results vary based on trading skill, market conditions, and adherence to evaluation rules. CK Capital makes no guarantee of earnings or profitability.
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+              CK Capital Group Ltd - Registered in England & Wales.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
