@@ -207,23 +207,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== PAYMENT PARTNERS MARQUEE (moved before section) ===== */}
+      <div className="w-full px-4 md:px-6">
+        <LogoMarquee
+          items={[
+            'Stripe',
+            'PayPal',
+            'Visa',
+            'Mastercard',
+            'Apple Pay',
+            'Google Pay',
+            'USDT',
+            'Skrill',
+          ]}
+          duration={25}
+        />
+      </div>
+
       {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-center text-2xl font-bold text-black mb-8">Trusted Payment Partners</h2>
-          <LogoMarquee
-            items={[
-              'Stripe',
-              'PayPal',
-              'Visa',
-              'Mastercard',
-              'Apple Pay',
-              'Google Pay',
-              'USDT',
-              'Skrill',
-            ]}
-            duration={25}
-          />
         </div>
       </section>
 
