@@ -141,7 +141,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         
         {/* Google Analytics */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
+        {process.env.NEXT_PUBLIC_GA_ID ? (
           <>
             <script
               async
@@ -160,18 +160,18 @@ export default function RootLayout({
               }}
             />
           </>
-        )}
+        ) : null}
 
         {/* Google Ads Conversion Tracking */}
-        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ? (
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
           />
-        )}
+        ) : null}
 
         {/* Meta Pixel */}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ? (
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -188,7 +188,7 @@ export default function RootLayout({
               `,
             }}
           />
-        )}
+        ) : null}
 
         {/* Structured Data - Organization Schema */}
         <script
