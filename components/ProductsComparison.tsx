@@ -634,7 +634,7 @@ export default function ProductsComparison() {
                     <div className="mb-1.5 sm:mb-2">
                       <span className="text-xl sm:text-lg lg:text-2xl font-bold block">{account.size}</span>
                     </div>
-                    <div className="flex items-center gap-1 justify-center">
+                    <div className="flex flex-col items-center gap-0.5 sm:gap-1">
                       <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
                       <span className={`text-base sm:text-lg lg:text-xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                         {account.price}
@@ -696,7 +696,7 @@ export default function ProductsComparison() {
                     <div className="mb-2">
                       <span className="text-lg font-bold block">{account.size}</span>
                     </div>
-                    <div className="flex items-center gap-1 justify-center">
+                    <div className="flex flex-col items-center gap-0.5">
                       <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
                       <span className={`text-base font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                         {account.price}
