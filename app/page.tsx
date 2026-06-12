@@ -17,11 +17,15 @@ export default function Home() {
       <Navbar />
 
       {/* ===== SECTION 1: HERO ===== */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#231E00] to-[#000000]" />
-        <div className="absolute inset-0 bg-radial-gradient opacity-20" style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(216, 173, 0, 0.15) 0%, transparent 50%)',
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12">
+        {/* Background gradient - Unified dark theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#111111] to-[#0A0A0A]" />
+        <div className="absolute inset-0" style={{
+          background: `
+            radial-gradient(circle at 50% 65%, #FFF6C7 0%, #D4AF37 18%, transparent 45%),
+            linear-gradient(180deg, #D4AF37 0%, #D4AF37 50%, #F0E68C 100%)
+          `,
+          opacity: 0.08,
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
@@ -95,8 +99,8 @@ export default function Home() {
 
           {/* Count-up Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <StatCounter target={100} label="Max Profit Split" suffix="%" />
-            <StatCounter target={1200000} label="Max Simulated Capital" suffix="$" />
+            <StatCounter target={100} label="Max Profit Split" format="percent" />
+            <StatCounter target={1200000} label="Max Simulated Capital" format="currency" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text">24/7</div>
               <div className="text-sm text-muted-foreground mt-2">Support Available</div>
