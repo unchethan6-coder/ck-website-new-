@@ -441,10 +441,10 @@ export default function Home() {
                     ? 'md:scale-105 ring-2 ring-primary'
                     : ''
                 } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
-                style={idx !== 2 ? {
+                style={{
                   background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                   backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                } : undefined}
+                }}
               >
                 {card.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
