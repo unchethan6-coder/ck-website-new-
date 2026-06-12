@@ -129,7 +129,7 @@ export default function Home() {
           <div 
             className="glow-card border-primary/30 p-6 rounded-2xl"
             style={{
-              background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
+              background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
             }}
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -187,7 +187,14 @@ export default function Home() {
                 description: 'Expert support team available Mon-Fri to help you succeed in your journey.'
               },
             ].map((item, idx) => (
-              <div key={idx} className="glow-card group">
+              <div 
+                key={idx} 
+                className="glow-card group"
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
                 <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
@@ -511,7 +518,14 @@ export default function Home() {
               'Amazing service, support, and plans. Great job guys!',
               'The best prop firm I\'ve used. The team is incredibly responsive and helpful. Highly recommend!',
             ].map((review, idx) => (
-              <div key={idx} className="glow-card">
+              <div 
+                key={idx} 
+                className="glow-card"
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
                 <div className="flex gap-1 mb-3 text-primary">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
@@ -588,7 +602,14 @@ export default function Home() {
                 description: '10-year audited track record. Built 2,000+ algorithmic trading bots with proven success.',
               },
             ].map((trader, idx) => (
-              <div key={idx} className="glow-card flex flex-col">
+              <div 
+                key={idx} 
+                className="glow-card flex flex-col"
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-black mb-2">{trader.name}</h3>
                   <p className="text-black/70 mb-6">{trader.description}</p>
@@ -622,7 +643,14 @@ export default function Home() {
               'Community Game Nights',
               'Comprehensive Online FAQ',
             ].map((item, idx) => (
-              <div key={idx} className="glow-card">
+              <div 
+                key={idx} 
+                className="glow-card"
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
                 <p className="text-black font-semibold">{item}</p>
               </div>
             ))}
