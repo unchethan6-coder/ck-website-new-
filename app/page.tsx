@@ -223,7 +223,13 @@ export default function Home() {
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <div className="glow-card border-2 border-primary/60 shadow-glow">
+          <div 
+            className="glow-card border-2 border-primary/60 shadow-glow"
+            style={{
+              background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+              backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+            }}
+          >
             <div className="text-center">
               <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
                 Your First Challenge<br className="hidden md:block" /> - Up to 85% Off
@@ -418,7 +424,7 @@ export default function Home() {
                     ? 'md:scale-105 ring-2 ring-primary'
                     : ''
                 } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
-                style={idx === 0 || idx === 1 ? {
+                style={idx !== 2 ? {
                   background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                   backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                 } : undefined}
