@@ -103,9 +103,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 2: RECENT CERTIFICATES MARQUEE ===== */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-center text-2xl font-bold text-black mb-8">Recent Trader Payouts</h2>
+          <h2 className="text-center text-2xl font-bold text-white mb-8">Recent Trader Payouts</h2>
           <LogoMarquee
             items={[
               'Alex K. - $45,230',
