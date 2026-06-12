@@ -403,10 +403,15 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 10: FEATURED TRADERS ===== */}
-      <section className="py-16 bg-card/20">
+      <section className="py-16" style={{
+        background: `
+          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
+          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
+        `
+      }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">
-            Featured <span className="gradient-text">Traders</span>
+          <h2 className="section-title text-black mb-12 text-center">
+            Featured <span className="bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent">Traders</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -420,14 +425,14 @@ export default function Home() {
                 description: '10-year audited track record. Built 2,000+ algorithmic trading bots with proven success.',
               },
             ].map((trader, idx) => (
-              <div key={idx} className="glow-card flex flex-col">
+              <div key={idx} className="bg-white/80 backdrop-blur rounded-2xl p-6 border border-[#FDE990]/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-[#FDE990]/60 flex flex-col">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">{trader.name}</h3>
-                  <p className="text-foreground mb-6">{trader.description}</p>
+                  <h3 className="text-2xl font-bold text-black mb-2">{trader.name}</h3>
+                  <p className="text-black/70 mb-6">{trader.description}</p>
                 </div>
                 <Link
                   href="#"
-                  className="button-secondary text-center"
+                  className="bg-gradient-to-r from-[#FDE990] to-[#FDE77B] text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_24px_rgba(253,233,144,0.4)] active:scale-95 text-center"
                 >
                   Watch Full Podcast →
                 </Link>
