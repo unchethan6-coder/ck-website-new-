@@ -22,21 +22,18 @@ export default function Home() {
         {/* Candlestick animated background */}
         <CandlestickBackground />
 
-        <div 
-          className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center"
-          style={{ paddingTop: '-11px', paddingBottom: '-10px' }}
-        >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Eyebrow */}
           <div className="inline-block mb-6">
-            <div className="px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-semibold">
+            <div className="px-4 py-2 rounded-full bg-[#111111]/80 border border-[#D4AF37]/50 text-[#F0E68C] text-sm font-semibold">
               CK CAPITAL
             </div>
           </div>
 
           {/* Main Heading */}
           <h1 
-            className="hero-title text-white mb-6 text-balance"
-            style={{ letterSpacing: '-0.016em', marginBottom: '-7px', paddingBottom: '9px' }}
+            className="hero-title text-[#111111] mb-6 text-balance"
+            style={{ letterSpacing: '-0.016em' }}
           >
             Transforming Traders into{' '}
             <span className="gradient-text">Winners</span> Globally
@@ -71,7 +68,7 @@ export default function Home() {
             </Link>
             <Link
               href="#start-challenge"
-              className="button-secondary"
+              className="button-secondary-dark"
             >
               View Trading Objectives
             </Link>
@@ -79,7 +76,7 @@ export default function Home() {
 
           {/* Trustpilot Widget */}
           <div className="flex justify-center mb-12">
-            <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <div className="flex items-center gap-3 text-sm text-[#4B5563]">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-primary">★</span>
@@ -103,7 +100,7 @@ export default function Home() {
             <StatCounter target={1200000} label="Max Simulated Capital" format="currency" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text">24/7</div>
-              <div className="text-sm text-muted-foreground mt-2">Support Available</div>
+              <div className="text-sm text-[#4B5563] mt-2">Support Available</div>
             </div>
           </div>
         </div>
@@ -459,7 +456,7 @@ export default function Home() {
                 <div className="text-xs text-black/50 uppercase tracking-wide mb-2">Account Size</div>
                 <h3 className="text-3xl font-bold text-black mb-1">{card.size}</h3>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-2xl font-bold text-primary">{card.price}</span>
+                  <span className="text-2xl font-bold text-[#A87B0B]">{card.price}</span>
                   <span className="text-xs text-black/40 line-through">{card.oldPrice}</span>
                 </div>
                 
@@ -467,7 +464,8 @@ export default function Home() {
                   href="https://app.ckcapital.co.uk/signup"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-primary w-full text-center mb-6"
+                  className="button-primary block w-full text-center mb-6"
+                  aria-label={`Buy ${card.size} challenge for ${card.price}`}
                 >
                   Buy Challenge
                 </Link>
@@ -499,7 +497,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between">
                     <span>Profit Split</span>
-                    <span className="font-semibold text-primary">{card.features.profitSplit}</span>
+                    <span className="font-semibold text-[#A87B0B]">{card.features.profitSplit}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Consistency Rule</span>

@@ -124,7 +124,7 @@ export default function EvaluationPage() {
                   href="https://app.ckcapital.co.uk/signup"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-primary w-full text-center"
+                  className="button-primary block w-full text-center"
                 >
                   Get Started
                 </Link>
