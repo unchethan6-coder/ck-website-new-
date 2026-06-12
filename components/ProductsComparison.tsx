@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ProductsComparison() {
@@ -572,11 +571,18 @@ export default function ProductsComparison() {
   const currentChallenge = challengeData[activeTab as keyof typeof challengeData];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      id="challenges"
+      aria-labelledby="challenges-heading"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1628] mb-3 sm:mb-4 text-balance">
+          <h2
+            id="challenges-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1628] mb-3 sm:mb-4 text-balance"
+          >
             Buckle Up, Your Journey Starts Here!
           </h2>
           <p className="text-base sm:text-lg text-[#4B5563] max-w-2xl mx-auto">
@@ -585,7 +591,11 @@ export default function ProductsComparison() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+        <div
+          role="tablist"
+          aria-label="Challenge types"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
+        >
           {[
             { key: 'standard', label: 'Standard' },
             { key: 'middleweight', label: 'Middleweight' },
@@ -595,6 +605,8 @@ export default function ProductsComparison() {
           ].map((tab) => (
             <button
               key={tab.key}
+              role="tab"
+              aria-selected={activeTab === tab.key}
               onClick={() => setActiveTab(tab.key)}
               className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
                 activeTab === tab.key
@@ -609,14 +621,14 @@ export default function ProductsComparison() {
 
         {/* Cards Container - Grid on Desktop, Horizontal Scroll on Mobile */}
         <div className="overflow-x-auto -mx-4 sm:mx-0 pb-4 sm:pb-0">
-          <div className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 px-4 sm:px-0 min-w-min sm:min-w-full">
+          <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6 px-4 sm:px-0 min-w-min sm:min-w-full">
             {currentChallenge.accounts.map((account, index) => (
               <div
                 key={index}
-                className={`flex-shrink-0 rounded-lg sm:rounded-2xl overflow-hidden transition-all duration-300 ${
+                className={`flex-shrink-0 rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden transition-all duration-300 h-full flex flex-col ${
                   account.popular
-                    ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957] sm:col-span-1 lg:col-span-1'
-                    : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF] hover:shadow-lg'
+                    ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957]'
+                    : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF] hover:shadow-lg hover:border-[#D8DADF]'
                 }`}
               >
                 {/* Popular Badge */}
@@ -627,16 +639,16 @@ export default function ProductsComparison() {
                 )}
 
                 {/* Card Content */}
-                <div className="p-4 sm:p-6">
+                <div className="p-3 sm:p-4 lg:p-5 flex flex-col h-full">
                   {/* Account Size & Price */}
-                  <div className="mb-4 sm:mb-5">
-                    <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-1">Account Size</div>
-                    <div className="mb-2">
-                      <span className="text-2xl sm:text-2xl lg:text-3xl font-bold">{account.size}</span>
+                  <div className="mb-3 sm:mb-4">
+                    <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-0.5 sm:mb-1">Account Size</div>
+                    <div className="mb-1.5 sm:mb-2">
+                      <span className="text-lg sm:text-xl lg:text-2xl font-bold block">{account.size}</span>
                     </div>
-                    <div className="flex items-center gap-1 justify-center">
+                    <div className="flex flex-col items-center gap-0.5 sm:gap-1">
                       <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
-                      <span className={`text-lg sm:text-xl lg:text-2xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <span className={`text-base sm:text-lg lg:text-xl font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                         {account.price}
                       </span>
                     </div>
@@ -644,22 +656,27 @@ export default function ProductsComparison() {
 
                   {/* Button */}
                   <Button
-                    className={`w-full mb-4 sm:mb-5 font-bold py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg transition-all ${
+                    className={`w-full mb-5 sm:mb-6 font-bold py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg transition-all flex-shrink-0 ${
                       account.popular
-                        ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
+              ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
                         : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
                     }`}
                     asChild
                   >
-                    <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                    <a
+                      href="https://app.ckcapital.co.uk/buy-challenge"
+                      aria-label={`Buy ${account.size} ${currentChallenge.name} challenge for ${account.price}`}
+                    >
+                      Buy Challenge
+                    </a>
                   </Button>
 
-                  {/* Features List */}
-                  <div className="space-y-1.5 sm:space-y-2">
+                  {/* Features List - Horizontal Layout */}
+                  <div className="space-y-2 sm:space-y-2.5 flex-grow">
                     {Object.entries(account.features).map(([key, value]) => (
-                      <div key={key} className="flex flex-col text-xs sm:text-sm gap-0.5">
-                        <span className={`font-semibold ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
-                        <span className={`${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <div key={key} className="flex justify-between items-center text-xs gap-2">
+                        <span className={`font-semibold flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
+                        <span className={`font-bold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                           {value}
                         </span>
                       </div>
@@ -670,12 +687,12 @@ export default function ProductsComparison() {
             ))}
           </div>
 
-          {/* Mobile Horizontal Scroll - 6 Cards visible */}
+          {/* Mobile Horizontal Scroll - Cards visible */}
           <div className="flex sm:hidden gap-3 px-4 min-w-min">
             {currentChallenge.accounts.map((account, index) => (
               <div
                 key={index}
-                className={`flex-shrink-0 w-64 rounded-lg overflow-hidden transition-all duration-300 ${
+                className={`flex-shrink-0 w-72 rounded-lg overflow-hidden transition-all duration-300 flex flex-col ${
                   account.popular
                     ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957]'
                     : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF]'
@@ -689,16 +706,16 @@ export default function ProductsComparison() {
                 )}
 
                 {/* Card Content */}
-                <div className="p-4">
+                <div className="p-4 flex flex-col flex-grow">
                   {/* Account Size & Price */}
                   <div className="mb-4">
                     <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-1">Account Size</div>
                     <div className="mb-2">
-                      <span className="text-xl font-bold">{account.size}</span>
+                      <span className="text-lg font-bold block">{account.size}</span>
                     </div>
-                    <div className="flex items-center gap-2 justify-end">
+                    <div className="flex flex-col items-center gap-0.5">
                       <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
-                      <span className={`text-lg font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <span className={`text-base font-bold ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                         {account.price}
                       </span>
                     </div>
@@ -706,22 +723,27 @@ export default function ProductsComparison() {
 
                   {/* Button */}
                   <Button
-                    className={`w-full mb-4 font-bold py-2 text-sm rounded-lg transition-all ${
+                    className={`w-full mb-5 font-bold py-2.5 text-xs rounded-lg transition-all flex-shrink-0 ${
                       account.popular
                         ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
                         : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
                     }`}
                     asChild
                   >
-                    <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                    <a
+                      href="https://app.ckcapital.co.uk/buy-challenge"
+                      aria-label={`Buy ${account.size} ${currentChallenge.name} challenge for ${account.price}`}
+                    >
+                      Buy Challenge
+                    </a>
                   </Button>
 
-                  {/* Features List */}
-                  <div className="space-y-2">
+                  {/* Features List - Horizontal Layout */}
+                  <div className="space-y-2.5 flex-grow">
                     {Object.entries(account.features).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-start text-xs gap-2">
-                        <span className={`flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
-                        <span className={`font-semibold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <div key={key} className="flex justify-between items-center text-xs gap-2">
+                        <span className={`font-semibold flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
+                        <span className={`font-bold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                           {value}
                         </span>
                       </div>

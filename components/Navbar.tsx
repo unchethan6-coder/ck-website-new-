@@ -123,7 +123,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-card/50 backdrop-blur border-t border-border px-4 py-4">
+        <div className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-md border-t border-border px-4 py-4">
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-primary">Evaluations</p>

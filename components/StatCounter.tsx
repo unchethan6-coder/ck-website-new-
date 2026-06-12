@@ -65,7 +65,7 @@ export function StatCounter({ target, label, format = 'default' }: CounterProps)
       <div className="text-3xl md:text-4xl font-bold gradient-text">
         {formatValue()}
       </div>
-      <div className="text-sm text-muted-foreground mt-2">{label}</div>
+      <div className="text-sm text-[#4B5563] mt-2">{label}</div>
     </div>
   )
 }

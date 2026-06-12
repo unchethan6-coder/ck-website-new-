@@ -140,22 +140,27 @@
     @apply shadow-[0_0_40px_rgba(240,230,140,0.15)];
   }
 
-  /* Gradient Text */
+  /* Gradient Text - dark enough gold to stay readable on white/light backgrounds */
   .gradient-text {
-    @apply bg-gradient-to-r from-[#D4AF37] via-[#F0E68C] to-[#D4AF37] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#A87B0B] via-[#D4AF37] to-[#A87B0B] bg-clip-text text-transparent;
   }
 
   .gradient-text-gold {
-    @apply bg-gradient-to-r from-[#D4AF37] to-[#F0E68C] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#A87B0B] to-[#D4AF37] bg-clip-text text-transparent;
   }
 
   /* Button Styles */
   .button-primary {
-    @apply bg-gradient-to-r from-[#D4AF37] to-[#F0E68C] text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_32px_rgba(212,175,55,0.4)] active:scale-95;
+    @apply bg-gradient-to-r from-[#D4AF37] to-[#F0E68C] text-black font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_32px_rgba(212,175,55,0.4)] active:scale-95 text-sm sm:text-base;
   }
 
   .button-secondary {
-    @apply border border-white/30 text-white px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/50;
+    @apply border border-white/30 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/50 text-sm sm:text-base;
+  }
+
+  /* Secondary button for light backgrounds */
+  .button-secondary-dark {
+    @apply border border-[#111111]/40 text-[#111111] px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-200 hover:bg-black/5 hover:border-[#111111]/70 text-sm sm:text-base;
   }
 
   .button-ghost {
@@ -182,7 +187,7 @@
 
   /* Typography Styles */
   .hero-title {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight;
   }
 
   .section-title {
@@ -222,7 +227,7 @@
 
   /* Blurred Navbar */
   .navbar-blur {
-    @apply bg-background/30 backdrop-blur-md border-b border-[#FDE990]/15;
+  @apply bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#FDE990]/15;
   }
 
   /* Count-up Effect */
