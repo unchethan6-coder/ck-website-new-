@@ -102,23 +102,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 2: RECENT CERTIFICATES MARQUEE ===== */}
-      <section className="py-12 bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-center text-2xl font-bold text-white mb-8">Recent Trader Payouts</h2>
-          <LogoMarquee
-            items={[
-              'Alex K. - $45,230',
-              'Jordan M. - $67,890',
-              'Sam L. - $34,560',
-              'Casey R. - $78,920',
-              'Morgan T. - $52,340',
-            ]}
-            duration={20}
-          />
-        </div>
-      </section>
-
       {/* ===== SECTION 3: INSTANT FUNDING ANNOUNCEMENT ===== */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -480,12 +463,17 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 12: FINAL CTA ===== */}
-      <section className="py-16 bg-card/20">
+      <section className="py-16" style={{
+        background: `
+          radial-gradient(circle at 50% 50%, #FFFAF0 0%, #FFF6C7 25%, #FDE990 50%, transparent 70%),
+          linear-gradient(180deg, #FFFEF8 0%, #FFFBF0 50%, #FFF8E8 100%)
+        `
+      }}>
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="section-title text-white mb-4 text-balance">
+          <h2 className="section-title text-black mb-4 text-balance">
             Let&apos;s Win Together
           </h2>
-          <p className="text-lg text-foreground mb-12">
+          <p className="text-lg text-black/80 mb-12">
             Join thousands of traders who are already earning with CK Capital
           </p>
 
@@ -494,7 +482,7 @@ export default function Home() {
               href="https://discord.gg/ckcapital"
               target="_blank"
               rel="noopener noreferrer"
-              className="button-secondary flex items-center justify-center gap-2"
+              className="bg-black text-[#FDE990] border border-black px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-black/90 hover:border-black/90 flex items-center justify-center gap-2"
             >
               Join Discord
             </Link>
@@ -502,7 +490,7 @@ export default function Home() {
               href="https://app.ckcapital.co.uk/signup"
               target="_blank"
               rel="noopener noreferrer"
-              className="button-primary flex items-center justify-center gap-2"
+              className="bg-gradient-to-r from-[#FDE990] to-[#FDE77B] text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg active:scale-95 flex items-center justify-center gap-2"
             >
               Start Trading Now
             </Link>
