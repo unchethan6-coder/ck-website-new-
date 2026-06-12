@@ -21,14 +21,6 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12">
         {/* Candlestick animated background */}
         <CandlestickBackground />
-        
-        {/* Subtle overlay for text readability - semi-transparent dark vignette */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%)',
-          }}
-        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Eyebrow */}
