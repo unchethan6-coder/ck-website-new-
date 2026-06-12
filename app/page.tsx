@@ -103,9 +103,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 2: RECENT CERTIFICATES MARQUEE ===== */}
-      <section className="py-12 bg-card/30">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-center text-2xl font-bold text-white mb-8">Recent Trader Payouts</h2>
+          <h2 className="text-center text-2xl font-bold text-black mb-8">Recent Trader Payouts</h2>
           <LogoMarquee
             items={[
               'Alex K. - $45,230',
@@ -120,16 +120,16 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 3: INSTANT FUNDING ANNOUNCEMENT ===== */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="glow-card border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <div className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary text-sm font-semibold">
+                <div className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-black text-sm font-semibold">
                   Newly Launched
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Instant Funding</h3>
-                <p className="text-foreground max-w-md">
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">Instant Funding</h3>
+                <p className="text-black/70 max-w-md">
                   Skip the challenge - get a funded simulated account instantly from $20. No waiting, no complex rules. Start trading immediately.
                 </p>
               </div>
@@ -145,9 +145,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-balance text-center">
+          <h2 className="section-title text-black mb-12 text-balance text-center">
             Why Choose <span className="gradient-text">CK Capital?</span>
           </h2>
 
@@ -179,7 +179,7 @@ export default function Home() {
               },
             ].map((item, idx) => (
               <div key={idx} className="glow-card group">
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-foreground text-sm leading-relaxed">
@@ -192,9 +192,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
-      <section className="py-16 bg-card/20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-center text-2xl font-bold text-white mb-8">Trusted Payment Partners</h2>
+          <h2 className="text-center text-2xl font-bold text-black mb-8">Trusted Payment Partners</h2>
           <LogoMarquee
             items={[
               'Stripe',
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
           <div className="glow-card border-2 border-primary/60 shadow-glow">
             <div className="text-center">
@@ -221,10 +221,10 @@ export default function Home() {
               </h3>
 
               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                <div className="px-4 py-2 rounded-full bg-primary/20 border border-primary/40 text-white font-bold">
-                  <span className="line-through text-muted-foreground">$88</span> → $13
+                <div className="px-4 py-2 rounded-full bg-primary/20 border border-primary/40 text-black font-bold">
+                  <span className="line-through text-black/50">$88</span> → $13
                 </div>
-                <div className="px-4 py-2 rounded-full bg-card border border-border text-white font-semibold">
+                <div className="px-4 py-2 rounded-full bg-card border border-border text-black font-semibold">
                   Code: LAUNCH2025
                 </div>
               </div>
@@ -236,15 +236,15 @@ export default function Home() {
               <div className="space-y-3 mb-8 text-left max-w-md mx-auto">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground text-sm">For new traders only</span>
+                  <span className="text-black/70 text-sm">For new traders only</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground text-sm">Valid until end of month</span>
+                  <span className="text-black/70 text-sm">Valid until end of month</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground text-sm">Applies to all account sizes</span>
+                  <span className="text-black/70 text-sm">Applies to all account sizes</span>
                 </div>
               </div>
 
@@ -262,9 +262,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 7: PRICING / TRADING OBJECTIVES ===== */}
-      <section id="start-challenge" className="py-16 scroll-mt-20">
+      <section id="start-challenge" className="py-16 scroll-mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">
+          <h2 className="section-title text-black mb-12 text-center">
             Trading <span className="gradient-text">Objectives</span>
           </h2>
 
@@ -317,14 +317,14 @@ export default function Home() {
                     {plan.badge}
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-white mb-3">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-black mb-3">{plan.name}</h3>
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-3xl font-bold text-primary">{plan.price}</span>
-                  <span className="text-sm text-muted-foreground line-through">{plan.oldPrice}</span>
+                  <span className="text-sm text-black/50 line-through">{plan.oldPrice}</span>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-foreground flex items-start gap-2">
+                    <li key={i} className="text-sm text-black/70 flex items-start gap-2">
                       <span className="text-primary mt-1">✓</span>
                       <span>{feature}</span>
                     </li>
@@ -345,9 +345,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 8: TRADER REVIEWS ===== */}
-      <section className="py-16 bg-card/20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">
+          <h2 className="section-title text-black mb-12 text-center">
             Our Traders <span className="gradient-text">Love Us</span>
           </h2>
 
@@ -366,7 +366,7 @@ export default function Home() {
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-foreground text-sm leading-relaxed italic">
+                <p className="text-black/70 text-sm leading-relaxed italic">
                   &ldquo;{review}&rdquo;
                 </p>
               </div>
@@ -376,9 +376,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 9: TRADER JOURNEY / PHASE STEPPER ===== */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">
+          <h2 className="section-title text-black mb-12 text-center">
             Your Path to <span className="gradient-text">Success</span>
           </h2>
 
@@ -401,17 +401,17 @@ export default function Home() {
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-6">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">
-                  {item.step}
-                </div>
-                {idx < 2 && (
-                  <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />
-                )}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">
+                    {item.step}
+                  </div>
+                  {idx < 2 && (
+                    <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />
+                  )}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-foreground">{item.description}</p>
+                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
+                  <p className="text-black/70">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -420,9 +420,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 10: FEATURED TRADERS ===== */}
-      <section className="py-16 bg-card/20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">
+          <h2 className="section-title text-black mb-12 text-center">
             Featured <span className="gradient-text">Traders</span>
           </h2>
 
@@ -439,8 +439,8 @@ export default function Home() {
             ].map((trader, idx) => (
               <div key={idx} className="glow-card flex flex-col">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">{trader.name}</h3>
-                  <p className="text-foreground mb-6">{trader.description}</p>
+                  <h3 className="text-2xl font-bold text-black mb-2">{trader.name}</h3>
+                  <p className="text-black/70 mb-6">{trader.description}</p>
                 </div>
                 <Link
                   href="#"
@@ -455,13 +455,13 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 11: SUPPORT SECTION ===== */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="section-title text-white mb-6 text-balance">
+          <h2 className="section-title text-black mb-6 text-balance">
             Excellent Customer <span className="gradient-text">Support</span>
           </h2>
 
-          <p className="text-lg text-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-black/70 mb-8 leading-relaxed">
             CK Capital has been a game changer for customer support in the prop firm industry. Traders are welcomed like family and are rewarded for their skills in our competitive demo environments.
           </p>
 
@@ -472,7 +472,7 @@ export default function Home() {
               'Comprehensive Online FAQ',
             ].map((item, idx) => (
               <div key={idx} className="glow-card">
-                <p className="text-white font-semibold">{item}</p>
+                <p className="text-black font-semibold">{item}</p>
               </div>
             ))}
           </div>
