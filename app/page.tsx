@@ -129,10 +129,15 @@ export default function Home() {
       {/* ===== SECTION 3: INSTANT FUNDING ANNOUNCEMENT ===== */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="glow-card border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
+          <div 
+            className="glow-card border-primary/30 p-6 rounded-2xl"
+            style={{
+              background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
+            }}
+          >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <div className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-black text-sm font-semibold">
+                <div className="inline-block mb-4 px-3 py-1 rounded-full bg-black/10 border border-black/20 text-black text-sm font-semibold">
                   Newly Launched
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">Instant Funding</h3>
