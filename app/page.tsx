@@ -208,21 +208,19 @@ export default function Home() {
       </section>
 
       {/* ===== PAYMENT PARTNERS MARQUEE (moved before section) ===== */}
-      <div className="w-full px-4 md:px-6">
-        <LogoMarquee
-          items={[
-            'Stripe',
-            'PayPal',
-            'Visa',
-            'Mastercard',
-            'Apple Pay',
-            'Google Pay',
-            'USDT',
-            'Skrill',
-          ]}
-          duration={25}
-        />
-      </div>
+      <LogoMarquee
+        items={[
+          'Stripe',
+          'PayPal',
+          'Visa',
+          'Mastercard',
+          'Apple Pay',
+          'Google Pay',
+          'USDT',
+          'Skrill',
+        ]}
+        duration={25}
+      />
 
       {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
       <section className="py-16 bg-white">
@@ -458,8 +456,8 @@ export default function Home() {
                 <div className="text-xs text-black/50 uppercase tracking-wide mb-2">Account Size</div>
                 <h3 className="text-3xl font-bold text-black mb-1">{card.size}</h3>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-2xl font-bold text-primary">${card.price}</span>
-                  <span className="text-xs text-black/40 line-through">${card.oldPrice}</span>
+                  <span className="text-2xl font-bold text-primary">{card.price}</span>
+                  <span className="text-xs text-black/40 line-through">{card.oldPrice}</span>
                 </div>
                 
                 <Link
