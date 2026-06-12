@@ -1,11 +1,19 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function CandlestickBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
+    // Ensure this only runs on client after hydration
+    setIsReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isReady) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -16,7 +24,7 @@ export function CandlestickBackground() {
     canvas.width = rect.width
     canvas.height = rect.height
 
-    const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1
+    const dpr = window.devicePixelRatio || 1
     canvas.width *= dpr
     canvas.height *= dpr
     ctx.scale(dpr, dpr)
@@ -98,11 +106,16 @@ export function CandlestickBackground() {
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden perspective" style={{ perspective: '1000px' }}>
+    <div 
+      className="absolute inset-0 overflow-hidden perspective" 
+      style={{ perspective: '1000px' }}
+      suppressHydrationWarning
+    >
       {/* Canvas for glowing effects and particles */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
+        suppressHydrationWarning
       />
 
       {/* 3D Candlestick Scene with CSS 3D Transforms */}
