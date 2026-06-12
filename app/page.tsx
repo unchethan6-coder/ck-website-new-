@@ -7,8 +7,11 @@ import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
 import { CheckCircle2 } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Home() {
+  const [selectedChallengeType, setSelectedChallengeType] = useState('all')
+  
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -264,83 +267,215 @@ export default function Home() {
       {/* ===== SECTION 7: PRICING / TRADING OBJECTIVES ===== */}
       <section id="start-challenge" className="py-16 scroll-mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-center">
-            Trading <span className="gradient-text">Objectives</span>
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="section-title text-black mb-2">
+              Buckle Up, Your <span className="gradient-text">Journey Starts Here!</span>
+            </h2>
+            <p className="text-black/70 mb-8">
+              1-Step, 2-Step, or Zero. Multiple routes to match your trading style and budget.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Tab Bar */}
+            <div className="flex flex-wrap gap-3 justify-center mb-8">
+              {[
+                { id: 'standard', label: 'Standard' },
+                { id: 'middleweight', label: 'Middleweight' },
+                { id: 'lightweight', label: 'Lightweight' },
+                { id: '1step', label: '1 Step' },
+                { id: 'instant', label: 'Instant Funding' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setSelectedChallengeType(tab.id)}
+                  className={`px-4 py-2 rounded-full font-medium transition-all ${
+                    selectedChallengeType === tab.id
+                      ? 'bg-black text-white border-2 border-black'
+                      : 'bg-black/5 text-black border-2 border-black/10 hover:border-black/20'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Account Size Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
               {
-                name: '1-Step Challenge',
+                size: '$2.5K',
+                price: '$9',
+                oldPrice: '$99',
+                badge: null,
+                type: 'standard',
+                features: {
+                  phase1: '$200',
+                  phase2: '$125',
+                  maxDaily: '$80',
+                  maxLoss: '$200',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$5K',
                 price: '$13',
-                oldPrice: '$88',
-                features: [
-                  'Trading Period: Unlimited',
-                  'Profit Target: $500 → $250',
-                  'Max Daily Loss: $200',
-                  'Max Loss: $400',
-                  'Min Trading Days: 1',
-                  'Consistency: None',
-                ],
+                oldPrice: '$99',
+                badge: null,
+                type: 'standard',
+                features: {
+                  phase1: '$400',
+                  phase2: '$250',
+                  maxDaily: '$200',
+                  maxLoss: '$400',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
               },
               {
-                name: '2-Step Challenge',
-                badge: 'Most Popular',
-                price: '$20',
-                oldPrice: '$150',
-                features: [
-                  'Trading Period: Unlimited',
-                  'Profit Target: $500 → $250',
-                  'Max Daily Loss: $200',
-                  'Max Loss: $400',
-                  'Min Trading Days: 1',
-                  'Consistency: 40%',
-                ],
+                size: '$10K',
+                price: '$19',
+                oldPrice: '$99',
+                badge: 'MOST POPULAR',
+                type: 'middleweight',
+                features: {
+                  phase1: '$1,000',
+                  phase2: '$500',
+                  maxDaily: '$400',
+                  maxLoss: '$800',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
               },
               {
-                name: 'Instant Funding',
-                price: '$20',
-                oldPrice: '$180',
-                features: [
-                  'Trading Period: Unlimited',
-                  'Profit Target: Unlimited',
-                  'Max Daily Loss: $750',
-                  'Max Loss: $1,250',
-                  'Min Trading Days: 1',
-                  'Consistency: 20%',
-                ],
+                size: '$25K',
+                price: '$68.40',
+                oldPrice: '$274.50',
+                badge: null,
+                type: 'lightweight',
+                features: {
+                  phase1: '$2,500',
+                  phase2: '$1,250',
+                  maxDaily: '$1,000',
+                  maxLoss: '$2,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
               },
-            ].map((plan, idx) => (
-              <div key={idx} className="glow-card relative">
-                {plan.badge && (
+              {
+                size: '$50K',
+                price: '$98.40',
+                oldPrice: '$394.00',
+                badge: null,
+                type: 'lightweight',
+                features: {
+                  phase1: '$5,000',
+                  phase2: '$2,500',
+                  maxDaily: '$2,000',
+                  maxLoss: '$4,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$100K',
+                price: '$176.40',
+                oldPrice: '$705.60',
+                badge: null,
+                type: '1step',
+                features: {
+                  phase1: '$10,000',
+                  phase2: '$5,000',
+                  maxDaily: '$4,000',
+                  maxLoss: '$8,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '20%',
+                },
+              },
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                className={`glow-card relative transition-all ${
+                  card.badge
+                    ? 'md:scale-105 ring-2 ring-primary'
+                    : ''
+                } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
+              >
+                {card.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
-                    {plan.badge}
+                    {card.badge}
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-black mb-3">{plan.name}</h3>
+                <div className="text-xs text-black/50 uppercase tracking-wide mb-2">Account Size</div>
+                <h3 className="text-3xl font-bold text-black mb-1">{card.size}</h3>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-3xl font-bold text-primary">{plan.price}</span>
-                  <span className="text-sm text-black/50 line-through">{plan.oldPrice}</span>
+                  <span className="text-2xl font-bold text-primary">${card.price}</span>
+                  <span className="text-xs text-black/40 line-through">${card.oldPrice}</span>
                 </div>
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-black/70 flex items-start gap-2">
-                      <span className="text-primary mt-1">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                
                 <Link
                   href="https://app.ckcapital.co.uk/signup"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-primary w-full text-center"
+                  className="button-primary w-full text-center mb-6"
                 >
-                  Get Started
+                  Buy Challenge
                 </Link>
+
+                <div className="space-y-2 text-sm text-black/70">
+                  <div className="flex justify-between">
+                    <span>Phase 1 Target</span>
+                    <span className="font-semibold text-black">{card.features.phase1}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Phase 2 Target</span>
+                    <span className="font-semibold text-black">{card.features.phase2}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Max Daily Loss</span>
+                    <span className="font-semibold text-black">{card.features.maxDaily}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Max Loss</span>
+                    <span className="font-semibold text-black">{card.features.maxLoss}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Trading Period</span>
+                    <span className="font-semibold text-black">{card.features.period}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Min Trading Days</span>
+                    <span className="font-semibold text-black">{card.features.minDays}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Profit Split</span>
+                    <span className="font-semibold text-primary">{card.features.profitSplit}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Consistency Rule</span>
+                    <span className="font-semibold text-black">{card.features.consistency}</span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+
+          {/* Bottom Text */}
+          <p className="text-center text-sm text-black/60 mt-12">
+            All challenges include live market trading on real instruments during simulated evaluation periods.
+          </p>
         </div>
       </section>
 
