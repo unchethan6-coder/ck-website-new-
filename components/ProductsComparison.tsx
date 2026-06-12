@@ -644,7 +644,7 @@ export default function ProductsComparison() {
 
                   {/* Button */}
                   <Button
-                    className={`w-full mb-3 sm:mb-4 font-bold py-1.5 sm:py-2 text-xs sm:text-sm rounded-lg transition-all flex-shrink-0 ${
+                    className={`w-full mb-5 sm:mb-6 font-bold py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg transition-all flex-shrink-0 ${
                       account.popular
               ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
                         : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
@@ -654,12 +654,12 @@ export default function ProductsComparison() {
                     <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
                   </Button>
 
-                  {/* Features List */}
-                  <div className="space-y-1 sm:space-y-1.5 flex-grow">
+                  {/* Features List - Horizontal Layout */}
+                  <div className="space-y-2 sm:space-y-2.5 flex-grow">
                     {Object.entries(account.features).map(([key, value]) => (
-                      <div key={key} className="flex flex-col text-xs gap-0.5">
-                        <span className={`font-semibold ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
-                        <span className={`${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <div key={key} className="flex justify-between items-center text-xs gap-2">
+                        <span className={`font-semibold flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
+                        <span className={`font-bold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                           {value}
                         </span>
                       </div>
@@ -706,7 +706,7 @@ export default function ProductsComparison() {
 
                   {/* Button */}
                   <Button
-                    className={`w-full mb-4 font-bold py-2 text-xs rounded-lg transition-all flex-shrink-0 ${
+                    className={`w-full mb-5 font-bold py-2.5 text-xs rounded-lg transition-all flex-shrink-0 ${
                       account.popular
                         ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
                         : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
@@ -716,12 +716,12 @@ export default function ProductsComparison() {
                     <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
                   </Button>
 
-                  {/* Features List */}
-                  <div className="space-y-2 flex-grow">
+                  {/* Features List - Horizontal Layout */}
+                  <div className="space-y-2.5 flex-grow">
                     {Object.entries(account.features).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-start text-xs gap-2">
-                        <span className={`flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
-                        <span className={`font-semibold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
+                      <div key={key} className="flex justify-between items-center text-xs gap-2">
+                        <span className={`font-semibold flex-shrink-0 ${account.popular ? 'text-[#B0BCC9]' : 'text-[#4B5563]'}`}>{key}</span>
+                        <span className={`font-bold text-right flex-shrink-0 ${account.popular ? 'text-[#F4D957]' : 'text-[#0A1628]'}`}>
                           {value}
                         </span>
                       </div>
