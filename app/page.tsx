@@ -24,6 +24,7 @@ export default function Home() {
 
         <div 
           className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center"
+          style={{ paddingTop: '-11px', paddingBottom: '-10px' }}
         >
           {/* Eyebrow */}
           <div className="inline-block mb-6">
@@ -33,7 +34,10 @@ export default function Home() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 
+            className="hero-title text-white mb-6 text-balance"
+            style={{ letterSpacing: '-0.016em', marginBottom: '-7px', paddingBottom: '9px' }}
+          >
             Transforming Traders into{' '}
             <span className="gradient-text">Winners</span> Globally
           </h1>
