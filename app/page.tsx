@@ -418,7 +418,7 @@ export default function Home() {
                     ? 'md:scale-105 ring-2 ring-primary'
                     : ''
                 } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
-                style={idx === 0 ? {
+                style={idx === 0 || idx === 1 ? {
                   background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                   backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                 } : undefined}
