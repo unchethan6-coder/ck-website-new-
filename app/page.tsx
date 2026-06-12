@@ -22,8 +22,13 @@ export default function Home() {
         {/* Candlestick animated background */}
         <CandlestickBackground />
         
-        {/* Background gradient - Unified dark theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#111111] to-[#0A0A0A]" />
+        {/* Subtle overlay for text readability - semi-transparent dark vignette */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%)',
+          }}
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Eyebrow */}

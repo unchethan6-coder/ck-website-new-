@@ -111,11 +111,25 @@ export function CandlestickBackground() {
       style={{ perspective: '1000px' }}
       suppressHydrationWarning
     >
+      {/* Background Reference Image - Premium candlestick render */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: 'url(/candlestick-reference-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.9,
+          zIndex: 0,
+        }}
+      />
+
       {/* Canvas for glowing effects and particles */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
         suppressHydrationWarning
+        style={{ zIndex: 1 }}
       />
 
       {/* 3D Candlestick Scene with CSS 3D Transforms */}
@@ -124,6 +138,7 @@ export function CandlestickBackground() {
         style={{
           transformStyle: 'preserve-3d',
           perspective: '1200px',
+          zIndex: 2,
         }}
       >
         {/* Scene container with breathing animation */}
