@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ProductsComparison() {
@@ -572,11 +571,18 @@ export default function ProductsComparison() {
   const currentChallenge = challengeData[activeTab as keyof typeof challengeData];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      id="challenges"
+      aria-labelledby="challenges-heading"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1628] mb-3 sm:mb-4 text-balance">
+          <h2
+            id="challenges-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1628] mb-3 sm:mb-4 text-balance"
+          >
             Buckle Up, Your Journey Starts Here!
           </h2>
           <p className="text-base sm:text-lg text-[#4B5563] max-w-2xl mx-auto">
@@ -585,7 +591,11 @@ export default function ProductsComparison() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+        <div
+          role="tablist"
+          aria-label="Challenge types"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
+        >
           {[
             { key: 'standard', label: 'Standard' },
             { key: 'middleweight', label: 'Middleweight' },
@@ -595,6 +605,8 @@ export default function ProductsComparison() {
           ].map((tab) => (
             <button
               key={tab.key}
+              role="tab"
+              aria-selected={activeTab === tab.key}
               onClick={() => setActiveTab(tab.key)}
               className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
                 activeTab === tab.key
@@ -632,7 +644,7 @@ export default function ProductsComparison() {
                   <div className="mb-3 sm:mb-4">
                     <div className="text-xs uppercase tracking-widest text-[#8A94A6] mb-0.5 sm:mb-1">Account Size</div>
                     <div className="mb-1.5 sm:mb-2">
-                      <span className="text-xl sm:text-lg lg:text-2xl font-bold block">{account.size}</span>
+                      <span className="text-lg sm:text-xl lg:text-2xl font-bold block">{account.size}</span>
                     </div>
                     <div className="flex flex-col items-center gap-0.5 sm:gap-1">
                       <span className="text-xs text-[#8A94A6] line-through">{account.originalPrice}</span>
@@ -651,7 +663,12 @@ export default function ProductsComparison() {
                     }`}
                     asChild
                   >
-                    <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                    <a
+                      href="https://app.ckcapital.co.uk/buy-challenge"
+                      aria-label={`Buy ${account.size} ${currentChallenge.name} challenge for ${account.price}`}
+                    >
+                      Buy Challenge
+                    </a>
                   </Button>
 
                   {/* Features List - Horizontal Layout */}
@@ -713,7 +730,12 @@ export default function ProductsComparison() {
                     }`}
                     asChild
                   >
-                    <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                    <a
+                      href="https://app.ckcapital.co.uk/buy-challenge"
+                      aria-label={`Buy ${account.size} ${currentChallenge.name} challenge for ${account.price}`}
+                    >
+                      Buy Challenge
+                    </a>
                   </Button>
 
                   {/* Features List - Horizontal Layout */}
