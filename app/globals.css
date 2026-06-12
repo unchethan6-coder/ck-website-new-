@@ -10,32 +10,32 @@
   --card-foreground: #FFFFFF;
   --popover: #111111;
   --popover-foreground: #FFFFFF;
-  --primary: #D8AD00;
-  --primary-foreground: #000000;
-  --secondary: #B68A00;
-  --secondary-foreground: #000000;
+  --primary: #FDE990;
+  --primary-foreground: #1a1a1a;
+  --secondary: #FDE77B;
+  --secondary-foreground: #1a1a1a;
   --muted: #463900;
   --muted-foreground: #B0B0B0;
-  --accent: #D8AD00;
-  --accent-foreground: #000000;
+  --accent: #FDE990;
+  --accent-foreground: #1a1a1a;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(216, 173, 0, 0.15);
+  --border: rgba(253, 233, 144, 0.12);
   --input: #1a1a1a;
-  --ring: #D8AD00;
-  --chart-1: #D8AD00;
-  --chart-2: #B68A00;
-  --chart-3: #907200;
-  --chart-4: #463900;
-  --chart-5: #231E00;
+  --ring: #FDE990;
+  --chart-1: #FDE990;
+  --chart-2: #FDE77B;
+  --chart-3: #FCE77C;
+  --chart-4: #FBDF6F;
+  --chart-5: #F8E37A;
   --radius: 1rem;
   --sidebar: #111111;
   --sidebar-foreground: #E5E5E5;
-  --sidebar-primary: #D8AD00;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #D8AD00;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: rgba(216, 173, 0, 0.15);
+  --sidebar-primary: #FDE990;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #FDE990;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: rgba(253, 233, 144, 0.12);
 }
 
 @theme inline {
@@ -91,7 +91,7 @@
 @layer components {
   /* Premium Luxury Cards */
   .glow-card {
-    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(216,173,0,0.2)] hover:border-primary/50;
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_40px_rgba(253,233,144,0.3)] hover:border-primary/60;
   }
 
   .glass-card {
@@ -100,38 +100,38 @@
 
   /* Glowing Effects */
   .glow-gold {
-    @apply shadow-[0_0_40px_rgba(216,173,0,0.25)];
+    @apply shadow-[0_0_50px_rgba(253,233,144,0.35)];
   }
 
   .glow-secondary {
-    @apply shadow-[0_0_40px_rgba(182,138,0,0.25)];
+    @apply shadow-[0_0_40px_rgba(253,231,123,0.3)];
   }
 
   /* Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-[#D8AD00] to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#FDE990] via-[#FDE77B] to-[#FCE77C] bg-clip-text text-transparent;
   }
 
   .gradient-text-gold {
-    @apply bg-gradient-to-r from-[#D8AD00] to-[#B68A00] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#FDE990] to-[#FDE77B] bg-clip-text text-transparent;
   }
 
   /* Button Styles */
   .button-primary {
-    @apply bg-gradient-to-r from-primary to-secondary text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_24px_rgba(216,173,0,0.5)] active:scale-95;
+    @apply bg-gradient-to-r from-[#FDE990] to-[#FDE77B] text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_32px_rgba(253,233,144,0.5)] active:scale-95;
   }
 
   .button-secondary {
-    @apply border border-primary/40 text-primary px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-primary/10 hover:border-primary/60;
+    @apply border border-[#FDE990]/50 text-[#FDE990] px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-[#FDE990]/10 hover:border-[#FDE990]/80;
   }
 
   .button-ghost {
-    @apply text-foreground border border-primary/20 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-primary/5 hover:border-primary/40;
+    @apply text-foreground border border-[#FDE990]/20 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#FDE990]/5 hover:border-[#FDE990]/50;
   }
 
   /* Shadow Styles */
   .shadow-glow {
-    @apply shadow-[0_0_32px_rgba(216,173,0,0.2)];
+    @apply shadow-[0_0_40px_rgba(253,233,144,0.25)];
   }
 
   .shadow-card {
@@ -140,11 +140,11 @@
 
   /* Gradient Backgrounds */
   .gradient-dark {
-    @apply bg-gradient-to-br from-[#000000] via-[#231E00] to-[#000000];
+    @apply bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#000000];
   }
 
   .gradient-gold-glow {
-    @apply bg-radial from-primary/15 via-transparent to-transparent;
+    @apply bg-radial from-[#FDE990]/20 via-transparent to-transparent;
   }
 
   /* Typography Styles */
@@ -189,7 +189,7 @@
 
   /* Blurred Navbar */
   .navbar-blur {
-    @apply bg-background/30 backdrop-blur-md border-b border-primary/10;
+    @apply bg-background/30 backdrop-blur-md border-b border-[#FDE990]/15;
   }
 
   /* Count-up Effect */
