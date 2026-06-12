@@ -4,38 +4,38 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #000000;
-  --foreground: #E5E5E5;
-  --card: #111111;
-  --card-foreground: #FFFFFF;
-  --popover: #111111;
-  --popover-foreground: #FFFFFF;
-  --primary: #D8AD00;
-  --primary-foreground: #000000;
-  --secondary: #B68A00;
-  --secondary-foreground: #000000;
-  --muted: #463900;
-  --muted-foreground: #B0B0B0;
-  --accent: #D8AD00;
-  --accent-foreground: #000000;
+  --background: #FDE990;
+  --foreground: #2D2D2D;
+  --card: #FFFFFF;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --primary: #D4A500;
+  --primary-foreground: #FFFFFF;
+  --secondary: #C49200;
+  --secondary-foreground: #FFFFFF;
+  --muted: #D4A500;
+  --muted-foreground: #666666;
+  --accent: #D4A500;
+  --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(216, 173, 0, 0.15);
-  --input: #1a1a1a;
-  --ring: #D8AD00;
-  --chart-1: #D8AD00;
-  --chart-2: #B68A00;
-  --chart-3: #907200;
-  --chart-4: #463900;
-  --chart-5: #231E00;
+  --border: rgba(212, 165, 0, 0.2);
+  --input: #F5F0E0;
+  --ring: #D4A500;
+  --chart-1: #D4A500;
+  --chart-2: #C49200;
+  --chart-3: #B67F00;
+  --chart-4: #A86C00;
+  --chart-5: #9A5900;
   --radius: 1rem;
-  --sidebar: #111111;
-  --sidebar-foreground: #E5E5E5;
-  --sidebar-primary: #D8AD00;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #D8AD00;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: rgba(216, 173, 0, 0.15);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #2D2D2D;
+  --sidebar-primary: #D4A500;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #D4A500;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(212, 165, 0, 0.2);
 }
 
 @theme inline {
@@ -84,76 +84,76 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-[#FDE77B] via-[#FDE98F] to-[#FBDF6F] text-foreground;
   }
 }
 
 @layer components {
-  /* Premium Luxury Cards */
+  /* Premium Light Luxury Cards */
   .glow-card {
-    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(216,173,0,0.2)] hover:border-primary/50;
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(212,165,0,0.15)] hover:border-primary/40;
   }
 
   .glass-card {
-    @apply bg-card/50 backdrop-blur border border-border rounded-2xl p-6;
+    @apply bg-card/80 backdrop-blur border border-border rounded-2xl p-6;
   }
 
   /* Glowing Effects */
   .glow-gold {
-    @apply shadow-[0_0_40px_rgba(216,173,0,0.25)];
+    @apply shadow-[0_0_40px_rgba(212,165,0,0.2)];
   }
 
   .glow-secondary {
-    @apply shadow-[0_0_40px_rgba(182,138,0,0.25)];
+    @apply shadow-[0_0_40px_rgba(196,146,0,0.2)];
   }
 
   /* Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-[#D8AD00] to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#D4A500] via-[#D4A500] to-[#C49200] bg-clip-text text-transparent;
   }
 
   .gradient-text-gold {
-    @apply bg-gradient-to-r from-[#D8AD00] to-[#B68A00] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#D4A500] to-[#C49200] bg-clip-text text-transparent;
   }
 
   /* Button Styles */
   .button-primary {
-    @apply bg-gradient-to-r from-primary to-secondary text-black font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_24px_rgba(216,173,0,0.5)] active:scale-95;
+    @apply bg-gradient-to-r from-[#D4A500] to-[#C49200] text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_24px_rgba(212,165,0,0.4)] active:scale-95;
   }
 
   .button-secondary {
-    @apply border border-primary/40 text-primary px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-primary/10 hover:border-primary/60;
+    @apply border border-[#D4A500] text-[#D4A500] px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-[#D4A500]/5 hover:border-[#D4A500];
   }
 
   .button-ghost {
-    @apply text-foreground border border-primary/20 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-primary/5 hover:border-primary/40;
+    @apply text-foreground border border-[#D4A500]/20 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#D4A500]/5 hover:border-[#D4A500]/40;
   }
 
   /* Shadow Styles */
   .shadow-glow {
-    @apply shadow-[0_0_32px_rgba(216,173,0,0.2)];
+    @apply shadow-[0_0_32px_rgba(212,165,0,0.15)];
   }
 
   .shadow-card {
-    @apply shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.08)];
   }
 
   /* Gradient Backgrounds */
   .gradient-dark {
-    @apply bg-gradient-to-br from-[#000000] via-[#231E00] to-[#000000];
+    @apply bg-gradient-to-br from-[#FDE77B] via-[#FDE98F] to-[#FBDF6F];
   }
 
   .gradient-gold-glow {
-    @apply bg-radial from-primary/15 via-transparent to-transparent;
+    @apply bg-radial from-[#D4A500]/10 via-transparent to-transparent;
   }
 
   /* Typography Styles */
   .hero-title {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-foreground;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold;
+    @apply text-4xl md:text-5xl font-bold text-foreground;
   }
 
   .stat-label {
@@ -189,7 +189,7 @@
 
   /* Blurred Navbar */
   .navbar-blur {
-    @apply bg-background/30 backdrop-blur-md border-b border-primary/10;
+    @apply bg-white/40 backdrop-blur-md border-b border-[#D4A500]/15;
   }
 
   /* Count-up Effect */
