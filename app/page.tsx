@@ -16,9 +16,9 @@ export default function Home() {
       {/* ===== SECTION 1: HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#070A18] via-[#0C1024] to-[#070A18]" />
-        <div className="absolute inset-0 bg-radial-gradient opacity-30" style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(110, 84, 255, 0.1) 0%, transparent 50%)',
+        <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#231E00] to-[#000000]" />
+        <div className="absolute inset-0 bg-radial-gradient opacity-20" style={{
+          background: 'radial-gradient(circle at 50% 50%, rgba(216, 173, 0, 0.15) 0%, transparent 50%)',
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-[#00B67A]">★</span>
+                  <span key={i} className="text-primary">★</span>
                 ))}
               </div>
               <span>Rated 4.9/5 on Trustpilot</span>
@@ -83,7 +83,7 @@ export default function Home() {
                 href="https://uk.trustpilot.com/review/ckcapital.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-[#7C5CFF] transition-colors ml-2"
+                className="text-primary hover:text-secondary transition-colors ml-2"
               >
                 View Reviews →
               </a>
@@ -214,7 +214,7 @@ export default function Home() {
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <div className="glow-card border-2 border-primary/50 shadow-glow">
+          <div className="glow-card border-2 border-primary/60 shadow-glow">
             <div className="text-center">
               <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
                 Your First Challenge<br className="hidden md:block" /> - Up to 85% Off
@@ -222,7 +222,7 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-4 justify-center mb-8">
                 <div className="px-4 py-2 rounded-full bg-primary/20 border border-primary/40 text-white font-bold">
-                  <span className="line-through text-foreground">$88</span> → $13
+                  <span className="line-through text-muted-foreground">$88</span> → $13
                 </div>
                 <div className="px-4 py-2 rounded-full bg-card border border-border text-white font-semibold">
                   Code: LAUNCH2025
@@ -235,15 +235,15 @@ export default function Home() {
 
               <div className="space-y-3 mb-8 text-left max-w-md mx-auto">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#00B67A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground text-sm">For new traders only</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#00B67A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground text-sm">Valid until end of month</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#00B67A] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground text-sm">Applies to all account sizes</span>
                 </div>
               </div>
@@ -313,7 +313,7 @@ export default function Home() {
             ].map((plan, idx) => (
               <div key={idx} className="glow-card relative">
                 {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-white text-xs font-bold">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
                     {plan.badge}
                   </div>
                 )}
@@ -361,7 +361,7 @@ export default function Home() {
               'The best prop firm I\'ve used. The team is incredibly responsive and helpful. Highly recommend!',
             ].map((review, idx) => (
               <div key={idx} className="glow-card">
-                <div className="flex gap-1 mb-3 text-[#00B67A]">
+                <div className="flex gap-1 mb-3 text-primary">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
@@ -401,13 +401,13 @@ export default function Home() {
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#7C5CFF] flex items-center justify-center text-white font-bold text-lg">
-                    {item.step}
-                  </div>
-                  {idx < 2 && (
-                    <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />
-                  )}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">
+                  {item.step}
+                </div>
+                {idx < 2 && (
+                  <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />
+                )}
                 </div>
                 <div className="pb-8">
                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
