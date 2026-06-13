@@ -3,6 +3,34 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Critical path CSS - Load first */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  /* Disable smooth scroll on mobile for better performance */
+  html {
+    scroll-behavior: auto;
+  }
+  
+  /* Optimize animations for mobile */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
 :root {
   /* Background - Light & Clean */
   --background: #FFFFFF;
@@ -225,6 +253,15 @@
 
   .marquee {
     animation: marquee var(--duration, 30s) linear infinite;
+    will-change: transform;
+  }
+
+  /* Reduce animations on mobile */
+  @media (max-width: 768px) {
+    .marquee {
+      animation: marquee var(--duration, 30s) linear infinite;
+      /* Reduced animation for better mobile performance */
+    }
   }
 
   /* Auto-scrolling Traders */

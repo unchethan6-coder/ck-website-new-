@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { PromoBar } from '@/components/PromoBar'
@@ -9,15 +10,17 @@ import { CountdownTimer } from '@/components/CountdownTimer'
 import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
-import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
-import { ObjectivesTable } from '@/components/ObjectivesTable'
-import { VideoTestimonials } from '@/components/VideoTestimonials'
-import { TopTraders } from '@/components/TopTraders'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
-import { AIInsightsSection } from '@/components/AIInsightsSection'
-import { ScalingJourney } from '@/components/ScalingJourney'
-import { ProcessSteps } from '@/components/ProcessSteps'
+
+// Dynamic imports for heavy components (lazy loading)
+const TradingPlatformsSection = dynamic(() => import('@/components/TradingPlatformsSection').then(mod => ({ default: mod.TradingPlatformsSection })), { ssr: false })
+const ObjectivesTable = dynamic(() => import('@/components/ObjectivesTable').then(mod => ({ default: mod.ObjectivesTable })), { ssr: false })
+const VideoTestimonials = dynamic(() => import('@/components/VideoTestimonials').then(mod => ({ default: mod.VideoTestimonials })), { ssr: false })
+const TopTraders = dynamic(() => import('@/components/TopTraders').then(mod => ({ default: mod.TopTraders })), { ssr: false })
+const AIInsightsSection = dynamic(() => import('@/components/AIInsightsSection').then(mod => ({ default: mod.AIInsightsSection })), { ssr: false })
+const ScalingJourney = dynamic(() => import('@/components/ScalingJourney').then(mod => ({ default: mod.ScalingJourney })), { ssr: false })
+const ProcessSteps = dynamic(() => import('@/components/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), { ssr: false })
 
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState('all')
@@ -511,11 +514,11 @@ export default function Home() {
                         borderColor: '#4CAF50',
                       }}
                       onClick={() => {
-                        navigator.clipboard.writeText(`NEW25-${card.size.replace('$', '').replace('K', '')}`);
+                        navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`);
                       }}
                       title="Click to copy code"
                     >
-                      <span className="text-white font-bold text-sm">{`NEW25-${card.size.replace('$', '').replace('K', '')}`}</span>
+                      <span className="text-white font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
@@ -612,10 +615,10 @@ export default function Home() {
                 borderColor: '#4CAF50',
               }}
               onClick={() => {
-                navigator.clipboard.writeText('NEW25');
+                navigator.clipboard.writeText('JUN70');
               }}
             >
-              <span className="text-white font-bold text-lg">NEW25</span>
+              <span className="text-white font-bold text-lg">JUN70</span>
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
@@ -792,7 +795,7 @@ export default function Home() {
           <h2 className="section-title text-white mb-4 text-balance">
             Let&apos;s Win Together
           </h2>
-          <p className="text-lg text-foreground mb-12">
+          <p className="text-lg text-foreground mb-12" style={{ color: '#ffffff' }}>
             Join thousands of traders who are already earning with CK Capital
           </p>
 

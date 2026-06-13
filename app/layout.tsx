@@ -3,11 +3,12 @@ import { Inter, DM_Sans, Karla, Rubik } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SupportChat } from '@/components/SupportChat'
+import { MetaPixel } from '@/components/MetaPixel'
 
-const _inter = Inter({ subsets: ['latin'] })
-const _dmSans = DM_Sans({ subsets: ['latin'] })
-const _karla = Karla({ subsets: ['latin'] })
-const _rubik = Rubik({ subsets: ['latin'] })
+const _inter = Inter({ subsets: ['latin'], display: 'swap' })
+const _dmSans = DM_Sans({ subsets: ['latin'], display: 'swap' })
+const _karla = Karla({ subsets: ['latin'], display: 'swap' })
+const _rubik = Rubik({ subsets: ['latin'], display: 'swap' })
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -138,6 +139,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background scroll-smooth">
       <head>
         <meta charSet="utf-8" />
+        {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -174,25 +176,48 @@ export default function RootLayout({
           />
         ) : null}
 
-        {/* Meta Pixel */}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ? (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
-                fbq('track', 'PageView');
-              `,
-            }}
+        {/* Google Tag Manager - AW-18140473298 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18140473298"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18140473298');
+            `,
+          }}
+        />
+
+        {/* Google Analytics 4 - G-TMM875YWHK */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-TMM875YWHK"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-TMM875YWHK');
+            `,
+          }}
+        />
+
+        {/* Meta Pixel Noscript - Fallback for users without JavaScript */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=1102958381163703&ev=PageView&noscript=1"
+            alt="Meta Pixel"
           />
-        ) : null}
+        </noscript>
 
         {/* Structured Data - Organization Schema */}
         <script
@@ -292,6 +317,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+        <MetaPixel />
         <SupportChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="bg-black">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#f6eeee' }}>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#e7e1e1' }}>
           {/* Brand & Social */}
           <div className="space-y-4">
             <div className="font-bold text-xl text-white">CK CAPITAL</div>
@@ -150,11 +150,11 @@ export function Footer() {
         <div className="pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Company Info */}
-            <div className="text-sm">
+            <div className="text-sm" style={{ color: '#f1eded' }}>
               <p className="text-white font-semibold mb-2">CK CAPITAL GROUP LTD</p>
-              <p style={{ color: '#f9efef' }}>All Rights Reserved</p>
-              <p className="mt-2" style={{ color: '#f7eeee' }}>Mon-Fri: 8am-8pm (GMT)</p>
-              <p style={{ color: '#fbf5f5' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+              <p style={{ color: '#f1eded' }}>All Rights Reserved</p>
+              <p className="mt-2" style={{ color: '#f1eded' }}>Mon-Fri: 8am-8pm (GMT)</p>
+              <p style={{ color: '#f1eded' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
             </div>
 
             {/* Contact Info */}
@@ -167,16 +167,16 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div className="text-sm">
+            <div className="text-sm" style={{ color: '#ffffff' }}>
               <p className="text-white font-semibold mb-2">Quick Links</p>
-              <div className="space-y-1">
-                <Link href="/" className="block text-white hover:text-white transition-colors">
+              <div className="space-y-1" style={{ color: '#ffffff' }}>
+                <Link href="/" className="block text-foreground hover:text-primary transition-colors">
                   Home
                 </Link>
-                <Link href="/about-us" className="block text-white hover:text-white transition-colors">
+                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#f8f7f6' }}>
                   About Us
                 </Link>
-                <Link href="/blog" className="block text-white hover:text-white transition-colors">
+                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#f7f6f2' }}>
                   Blog
                 </Link>
               </div>

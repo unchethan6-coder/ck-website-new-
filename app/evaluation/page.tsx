@@ -20,7 +20,7 @@ export default function EvaluationPage() {
           <h1 className="hero-title text-white mb-6 text-balance">
             Trading <span className="gradient-text">Evaluations</span>
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#ffffff' }}>
             Prove your trading skills and unlock access to funded simulated accounts with profit-sharing opportunities up to 100%.
           </p>
         </div>
