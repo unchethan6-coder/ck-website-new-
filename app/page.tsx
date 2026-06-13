@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 import { PromoBar } from '@/components/PromoBar'
 import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
-import { LogoMarquee } from '@/components/LogoMarquee'
+import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
@@ -202,19 +202,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-center text-xl md:text-2xl font-bold text-black mb-8">Trusted Payment Partners</h2>
         </div>
-        <LogoMarquee
-          items={[
-            'Stripe',
-            'PayPal',
-            'Visa',
-            'Mastercard',
-            'Apple Pay',
-            'Google Pay',
-            'USDT',
-            'Skrill',
-          ]}
-          duration={25}
-        />
+        <PaymentMarquee />
       </section>
 
       {/* ===== SECTION 5.5: TRADING PLATFORMS WITH LAPTOP ===== */}
