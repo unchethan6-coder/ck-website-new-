@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { PromoBar } from '@/components/PromoBar'
@@ -9,15 +10,17 @@ import { CountdownTimer } from '@/components/CountdownTimer'
 import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
-import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
-import { ObjectivesTable } from '@/components/ObjectivesTable'
-import { VideoTestimonials } from '@/components/VideoTestimonials'
-import { TopTraders } from '@/components/TopTraders'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
-import { AIInsightsSection } from '@/components/AIInsightsSection'
-import { ScalingJourney } from '@/components/ScalingJourney'
-import { ProcessSteps } from '@/components/ProcessSteps'
+
+// Dynamic imports for heavy components (lazy loading)
+const TradingPlatformsSection = dynamic(() => import('@/components/TradingPlatformsSection').then(mod => ({ default: mod.TradingPlatformsSection })), { ssr: false })
+const ObjectivesTable = dynamic(() => import('@/components/ObjectivesTable').then(mod => ({ default: mod.ObjectivesTable })), { ssr: false })
+const VideoTestimonials = dynamic(() => import('@/components/VideoTestimonials').then(mod => ({ default: mod.VideoTestimonials })), { ssr: false })
+const TopTraders = dynamic(() => import('@/components/TopTraders').then(mod => ({ default: mod.TopTraders })), { ssr: false })
+const AIInsightsSection = dynamic(() => import('@/components/AIInsightsSection').then(mod => ({ default: mod.AIInsightsSection })), { ssr: false })
+const ScalingJourney = dynamic(() => import('@/components/ScalingJourney').then(mod => ({ default: mod.ScalingJourney })), { ssr: false })
+const ProcessSteps = dynamic(() => import('@/components/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), { ssr: false })
 
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState('all')

@@ -5,10 +5,10 @@ import './globals.css'
 import { SupportChat } from '@/components/SupportChat'
 import { MetaPixel } from '@/components/MetaPixel'
 
-const _inter = Inter({ subsets: ['latin'] })
-const _dmSans = DM_Sans({ subsets: ['latin'] })
-const _karla = Karla({ subsets: ['latin'] })
-const _rubik = Rubik({ subsets: ['latin'] })
+const _inter = Inter({ subsets: ['latin'], display: 'swap' })
+const _dmSans = DM_Sans({ subsets: ['latin'], display: 'swap' })
+const _karla = Karla({ subsets: ['latin'], display: 'swap' })
+const _rubik = Rubik({ subsets: ['latin'], display: 'swap' })
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -139,6 +139,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background scroll-smooth">
       <head>
         <meta charSet="utf-8" />
+        {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
