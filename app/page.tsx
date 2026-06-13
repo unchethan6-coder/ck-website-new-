@@ -8,7 +8,6 @@ import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
-import { PromoBanner } from '@/components/PromoBanner'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -202,9 +201,6 @@ export default function Home() {
           duration={25}
         />
       </section>
-
-      {/* ===== PROMO BANNER SECTION ===== */}
-      <PromoBanner />
 
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
