@@ -15,23 +15,15 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-<<<<<<< HEAD
     <nav className="navbar-blur sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="font-bold text-lg text-black">
-=======
-    <nav className="navbar-blur sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-bold text-xl text-white">
->>>>>>> origin/main
           CK CAPITAL
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-<<<<<<< HEAD
           {/* Products */}
           <DropdownMenu>
             <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
@@ -45,27 +37,12 @@ export function Navbar() {
                 <Link href="/evaluation?type=2-step">2-Step Challenge</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-=======
-          {/* Evaluations */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-foreground hover:text-white transition-colors">
-              Evaluations
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card border-border">
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
-                <Link href="/evaluation?type=1-step">1-Step Challenge</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
-                <Link href="/evaluation?type=2-step">2-Step Challenge</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
->>>>>>> origin/main
                 <Link href="/instant">Instant Funding</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-<<<<<<< HEAD
+
           {/* Rewards */}
           <Link href="/rewards" className="text-black hover:text-primary transition-colors text-sm">
             Rewards
@@ -97,29 +74,6 @@ export function Navbar() {
                 <Link href="/events">Events</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-=======
-          {/* FAQ */}
-          <Link href="/faq" className="text-foreground hover:text-white transition-colors">
-            FAQ
-          </Link>
-
-          {/* About */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="text-foreground hover:text-white transition-colors">
-              About
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card border-border">
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
-                <Link href="/about-us">About Us</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
-                <Link href="/hall-of-fame">Hall of Fame</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
-                <Link href="/events">Events</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-foreground hover:text-primary cursor-pointer">
->>>>>>> origin/main
                 <Link href="/contact">Contact</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

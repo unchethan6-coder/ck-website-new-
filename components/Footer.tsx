@@ -13,15 +13,9 @@ import {
 export function Footer() {
   return (
     <footer className="bg-gradient-dark border-t border-white/5">
-<<<<<<< HEAD
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#f6eeee' }}>
-=======
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
->>>>>>> origin/main
           {/* Brand & Social */}
           <div className="space-y-4">
             <div className="font-bold text-xl text-white">CK CAPITAL</div>

@@ -7,11 +7,8 @@ import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
-<<<<<<< HEAD
 import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
-=======
->>>>>>> origin/main
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -21,10 +18,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-<<<<<<< HEAD
       <PromoPopup />
-=======
->>>>>>> origin/main
 
       {/* ===== SECTION 1: HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12">
