@@ -15,10 +15,10 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="navbar-blur sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+    <nav className="sticky top-4 z-50 px-4 md:px-6">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-bold text-lg text-black">
+        <Link href="/" className="font-bold text-lg text-black hover:text-primary transition-colors">
           CK CAPITAL
         </Link>
 
@@ -86,12 +86,12 @@ export function Navbar() {
         </div>
 
         {/* Right Side Actions */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
           <Link
             href="https://app.ckcapital.co.uk/signin"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors"
+            className="px-6 py-2 rounded-lg border-2 border-black text-black text-sm font-semibold hover:bg-black/5 transition-colors"
           >
             Sign In
           </Link>
@@ -99,7 +99,7 @@ export function Navbar() {
             href="https://app.ckcapital.co.uk/signup"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors"
+            className="px-6 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-black/90 transition-colors"
           >
             Buy Challenge
           </Link>
@@ -116,7 +116,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-black/10 px-4 py-4">
+        <div className="md:hidden bg-white rounded-2xl shadow-lg border border-black/5 mx-4 mt-2 px-6 py-4">
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-black">Products</p>
