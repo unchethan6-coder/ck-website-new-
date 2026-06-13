@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, DM_Sans, Karla, Rubik } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { SupportChat } from '@/components/SupportChat'
 
 const _inter = Inter({ subsets: ['latin'] })
 const _dmSans = DM_Sans({ subsets: ['latin'] })
@@ -291,6 +292,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+        <SupportChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
