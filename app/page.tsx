@@ -8,6 +8,7 @@ import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
+import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -201,6 +202,9 @@ export default function Home() {
           duration={25}
         />
       </section>
+
+      {/* ===== SECTION 5.5: TRADING PLATFORMS WITH LAPTOP ===== */}
+      <TradingPlatformsSection />
 
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
