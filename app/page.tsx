@@ -288,7 +288,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="section-title text-black mb-2">
-              Buckle Up,Your <span className="gradient-text">Your Journey Starts Here</span>
+              Buckle Up, <span className="gradient-text">Your Journey Starts Here</span>
             </h2>
             <p className="text-black/70 mb-8">
               1-Step, 2-Step, or Zero. Multiple routes to match your trading style and budget.
