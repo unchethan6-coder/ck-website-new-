@@ -30,9 +30,15 @@ export default function Home() {
         {/* Candlestick animated background */}
         <CandlestickBackground />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center" style={{ marginLeft: '76px' }}>
+        {/* Light scrim so the dark hero text stays readable over the gold image (esp. mobile) */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 90% 70% at center, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0) 72%)' }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Main Heading */}
-          <h1 className="hero-title text-[#111111] mb-6 text-balance" style={{ display: 'flex', flexDirection: 'column' }}>
+          <h1 className="hero-title text-[#111111] mb-6 text-balance">
             Traders Transforming Into Winners
           </h1>
 
@@ -85,8 +91,8 @@ export default function Home() {
           </div>
 
           {/* Additional Stats Bar */}
-          <div className="py-6 max-w-4xl mx-auto" style={{ paddingTop: '46px', marginBottom: '75px', paddingBottom: '11px', marginRight: '45px' }}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ marginBottom: '23px', marginTop: '-61px', marginLeft: '30px' }}>
+          <div className="py-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center md:text-left">
                 <div className="text-2xl md:text-3xl font-bold text-black">$262M+</div>
                 <div className="text-xs md:text-sm text-[#4B5563]">Rewards Distributed</div>
