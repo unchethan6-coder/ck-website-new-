@@ -13,27 +13,27 @@ export function ScalingJourney() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">
             Your Scaling Journey
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Watch your capital grow from evaluation to prime account with real rewards
           </p>
         </div>
 
         {/* Desktop Scaling Path */}
         <div className="hidden md:block">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-2">
             {milestones.map((milestone, idx) => (
               <React.Fragment key={idx}>
                 <div className="flex-1 text-center">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 mb-4">
+                  <div className="bg-gray-50 rounded-2xl p-6 mb-4 border border-gray-200">
                     <div className="text-3xl font-bold text-blue-600 mb-2">{milestone.capital}</div>
                     <div className="text-sm font-semibold text-gray-700 mb-2">{milestone.label}</div>
-                    <div className="flex items-center justify-center gap-1 text-green-600 font-bold">
+                    <div className="flex items-center justify-center gap-1 text-green-600 font-bold text-sm">
                       <ArrowRight className="w-4 h-4" />
                       {milestone.profit}
                     </div>
@@ -42,7 +42,7 @@ export function ScalingJourney() {
                 </div>
                 {idx < milestones.length - 1 && (
                   <div className="flex-shrink-0 mb-8">
-                    <ArrowRight className="w-6 h-6 text-blue-600 transform rotate-0" />
+                    <ArrowRight className="w-6 h-6 text-blue-600" />
                   </div>
                 )}
               </React.Fragment>
@@ -51,16 +51,16 @@ export function ScalingJourney() {
         </div>
 
         {/* Mobile Scaling Path */}
-        <div className="md:hidden space-y-4">
+        <div className="md:hidden space-y-3">
           {milestones.map((milestone, idx) => (
-            <div key={idx} className="flex gap-4 items-start">
-              <div className="flex-shrink-0">
-                <CheckCircle2 className="w-6 h-6 text-blue-600 mt-2" />
+            <div key={idx} className="flex gap-3 items-start">
+              <div className="flex-shrink-0 mt-1">
+                <CheckCircle2 className="w-5 h-5 text-blue-600" />
               </div>
-              <div className="flex-1 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4">
-                <div className="text-2xl font-bold text-blue-600">{milestone.capital}</div>
-                <div className="text-sm font-semibold text-gray-700">{milestone.label}</div>
-                <div className="text-green-600 font-bold mt-2">{milestone.profit} Growth</div>
+              <div className="flex-1 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="text-xl font-bold text-blue-600">{milestone.capital}</div>
+                <div className="text-xs font-semibold text-gray-700 mt-1">{milestone.label}</div>
+                <div className="text-green-600 font-bold text-sm mt-2">{milestone.profit} Growth</div>
               </div>
             </div>
           ))}

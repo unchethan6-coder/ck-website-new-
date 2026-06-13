@@ -29,31 +29,34 @@ export function ProcessSteps() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Three simple steps to trading profits and scaling capital
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
-              <div className="absolute -top-6 left-0 text-6xl font-bold text-blue-100 opacity-50">
+              <div className="hidden md:block absolute -top-6 left-0 text-6xl font-bold text-blue-100 opacity-40">
                 {step.number}
               </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full">
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-black mb-3">{step.title}</h3>
-                  <p className="text-gray-600 mb-6">{step.description}</p>
+              <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-200 hover:shadow-md transition-all h-full">
+                <div className="md:hidden mb-3">
+                  <span className="text-3xl font-bold text-blue-100">{step.number}</span>
+                </div>
+                <div className="mb-4 md:mb-6">
+                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 md:mb-3">{step.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">{step.description}</p>
                 </div>
 
-                <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-600">
-                  <p className="text-sm text-gray-700 italic mb-2">&quot;{step.testimonial}&quot;</p>
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <p className="text-xs md:text-sm text-gray-700 italic mb-2 leading-relaxed">&quot;{step.testimonial}&quot;</p>
                   <p className="text-xs font-semibold text-gray-500">— {step.author}</p>
                 </div>
 
