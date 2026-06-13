@@ -10,7 +10,7 @@ const VIDEOS = [
 export function VideoTestimonials() {
   const loop = [...VIDEOS, ...VIDEOS]
   return (
-    <section className='py-16 md:py-24 bg-[#070708] overflow-hidden'>
+    <section className='pt-7 pb-[22px] bg-[#070708] overflow-hidden'>
       <style>{`@keyframes ck-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ck-marquee{animation:ck-marquee 45s linear infinite}.ck-marquee:hover{animation-play-state:paused}`}</style>
 
       <div className='max-w-7xl mx-auto px-4 md:px-6 text-center mb-12'>
