@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -19,15 +18,8 @@ export function Navbar() {
     <nav className="navbar-blur sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CKLogo-1-dvEFc1CvRnxzyT6IO9cKcyRAmURexO.png"
-            alt="CK Capital Logo"
-            width={120}
-            height={40}
-            priority
-            className="h-10 w-auto"
-          />
+        <Link href="/" className="font-bold text-lg text-black">
+          CK CAPITAL
         </Link>
 
         {/* Desktop Menu */}
