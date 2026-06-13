@@ -510,11 +510,11 @@ export default function Home() {
                         borderColor: '#4CAF50',
                       }}
                       onClick={() => {
-                        navigator.clipboard.writeText(`NEW25-${card.size.replace('$', '').replace('K', '')}`);
+                        navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`);
                       }}
                       title="Click to copy code"
                     >
-                      <span className="text-white font-bold text-sm">{`NEW25-${card.size.replace('$', '').replace('K', '')}`}</span>
+                      <span className="text-white font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
@@ -605,10 +605,10 @@ export default function Home() {
                 borderColor: '#4CAF50',
               }}
               onClick={() => {
-                navigator.clipboard.writeText('NEW25');
+                navigator.clipboard.writeText('JUN70');
               }}
             >
-              <span className="text-white font-bold text-lg">NEW25</span>
+              <span className="text-white font-bold text-lg">JUN70</span>
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
