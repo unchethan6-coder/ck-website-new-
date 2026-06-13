@@ -15,18 +15,18 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="navbar-blur sticky top-0 z-50 bg-gradient-to-r from-black via-black/95 to-black/90 border-b-4 border-[#f4c430] shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+    <nav className="navbar-blur sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-bold text-xl text-white tracking-wider">
-          CK <span className="text-[#f4c430]">CAPITAL</span>
+        <Link href="/" className="font-bold text-lg text-black">
+          CK CAPITAL
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {/* Products */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+            <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
               Products
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-white border-black/10">
@@ -44,23 +44,23 @@ export function Navbar() {
 
 
           {/* Rewards */}
-          <Link href="/rewards" className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+          <Link href="/rewards" className="text-black hover:text-primary transition-colors text-sm">
             Rewards
           </Link>
 
           {/* Trading Objectives */}
-          <Link href="/trading-objectives" className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+          <Link href="/trading-objectives" className="text-black hover:text-primary transition-colors text-sm">
             Trading Objectives
           </Link>
 
           {/* Prime */}
-          <Link href="/prime" className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+          <Link href="/prime" className="text-black hover:text-primary transition-colors text-sm">
             Prime
           </Link>
 
           {/* Trading */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+            <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
               Trading
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-white border-black/10">
@@ -80,18 +80,18 @@ export function Navbar() {
           </DropdownMenu>
 
           {/* FAQs */}
-          <Link href="/faq" className="text-white hover:text-[#f4c430] transition-colors text-sm font-medium">
+          <Link href="/faq" className="text-black hover:text-primary transition-colors text-sm">
             FAQs
           </Link>
         </div>
 
         {/* Right Side Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <Link
             href="https://app.ckcapital.co.uk/signin"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 rounded-full border-2 border-[#f4c430] text-[#f4c430] text-sm font-bold hover:bg-[#f4c430] hover:text-black transition-colors duration-200"
+            className="px-5 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors"
           >
             Sign In
           </Link>
@@ -99,7 +99,7 @@ export function Navbar() {
             href="https://app.ckcapital.co.uk/signup"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 rounded-full bg-[#f4c430] text-black text-sm font-bold hover:bg-[#e6b820] transition-colors duration-200 shadow-lg"
+            className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors"
           >
             Buy Challenge
           </Link>
@@ -107,7 +107,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-[#f4c430]"
+          className="md:hidden text-black"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -116,32 +116,32 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-black/95 border-t-2 border-[#f4c430] px-4 py-4">
+        <div className="md:hidden bg-white border-t border-black/10 px-4 py-4">
           <div className="space-y-4">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-[#f4c430]">Products</p>
+              <p className="text-sm font-semibold text-black">Products</p>
               <div className="space-y-2 pl-4">
-                <Link href="/evaluation?type=1-step" className="block text-sm text-white hover:text-[#f4c430]">
+                <Link href="/evaluation?type=1-step" className="block text-sm text-black hover:text-primary">
                   1-Step Challenge
                 </Link>
-                <Link href="/evaluation?type=2-step" className="block text-sm text-white hover:text-[#f4c430]">
+                <Link href="/evaluation?type=2-step" className="block text-sm text-black hover:text-primary">
                   2-Step Challenge
                 </Link>
-                <Link href="/instant" className="block text-sm text-white hover:text-[#f4c430]">
+                <Link href="/instant" className="block text-sm text-black hover:text-primary">
                   Instant Funding
                 </Link>
               </div>
             </div>
-            <Link href="/rewards" className="block text-white hover:text-[#f4c430] text-sm font-medium">Rewards</Link>
-            <Link href="/trading-objectives" className="block text-white hover:text-[#f4c430] text-sm font-medium">Trading Objectives</Link>
-            <Link href="/prime" className="block text-white hover:text-[#f4c430] text-sm font-medium">Prime</Link>
-            <Link href="/faq" className="block text-white hover:text-[#f4c430] text-sm font-medium">FAQs</Link>
+            <Link href="/rewards" className="block text-black hover:text-primary text-sm">Rewards</Link>
+            <Link href="/trading-objectives" className="block text-black hover:text-primary text-sm">Trading Objectives</Link>
+            <Link href="/prime" className="block text-black hover:text-primary text-sm">Prime</Link>
+            <Link href="/faq" className="block text-black hover:text-primary text-sm">FAQs</Link>
             <div className="flex gap-2 pt-4">
               <Link
                 href="https://app.ckcapital.co.uk/signin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-full border-2 border-[#f4c430] text-[#f4c430] text-sm font-bold hover:bg-[#f4c430] hover:text-black transition-colors text-center"
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors text-center"
               >
                 Sign In
               </Link>
@@ -149,7 +149,7 @@ export function Navbar() {
                 href="https://app.ckcapital.co.uk/signup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-full bg-[#f4c430] text-black text-sm font-bold hover:bg-[#e6b820] transition-colors text-center"
+                className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center"
               >
                 Buy Challenge
               </Link>
