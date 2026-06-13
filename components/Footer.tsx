@@ -20,22 +20,22 @@ export function Footer() {
           <div className="space-y-4">
             <div className="font-bold text-xl text-white">CK CAPITAL</div>
             <div className="flex gap-4">
-              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <MessageCircle size={20} />
               </a>
-              <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="https://instagram.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://instagram.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://youtube.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <Youtube size={20} />
               </a>
-              <a href="https://facebook.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://facebook.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://t.me/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://t.me/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 <Send size={20} />
               </a>
             </div>
@@ -46,17 +46,17 @@ export function Footer() {
             <h4 className="font-semibold text-white">Evaluations</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/evaluation?type=1-step" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/evaluation?type=1-step" className="text-white hover:text-white transition-colors text-sm">
                   1-Step Challenge
                 </Link>
               </li>
               <li>
-                <Link href="/evaluation?type=2-step" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/evaluation?type=2-step" className="text-white hover:text-white transition-colors text-sm">
                   2-Step Challenge
                 </Link>
               </li>
               <li>
-                <Link href="/instant" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/instant" className="text-white hover:text-white transition-colors text-sm">
                   Instant Funding
                 </Link>
               </li>
@@ -68,17 +68,17 @@ export function Footer() {
             <h4 className="font-semibold text-white">Support</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/faq" className="text-white hover:text-white transition-colors text-sm">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/contact" className="text-white hover:text-white transition-colors text-sm">
                   Contact
                 </Link>
               </li>
               <li>
-                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">
+                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors text-sm">
                   Community
                 </a>
               </li>
@@ -90,22 +90,22 @@ export function Footer() {
             <h4 className="font-semibold text-white">Important</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/risk-disclosure" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/risk-disclosure" className="text-white hover:text-white transition-colors text-sm">
                   Disclaimer
                 </Link>
               </li>
               <li>
-                <Link href="/cookie-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/cookie-policy" className="text-white hover:text-white transition-colors text-sm">
                   Cookies
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/terms-conditions" className="text-white hover:text-white transition-colors text-sm">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/privacy-policy" className="text-white hover:text-white transition-colors text-sm">
                   Privacy Policy
                 </Link>
               </li>
@@ -117,17 +117,17 @@ export function Footer() {
             <h4 className="font-semibold text-white">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/return-policy" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/return-policy" className="text-white hover:text-white transition-colors text-sm">
                   Returns Policy
                 </Link>
               </li>
               <li>
-                <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">
+                <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors text-sm">
                   Reviews
                 </a>
               </li>
               <li>
-                <Link href="/affiliates" className="text-foreground hover:text-primary transition-colors text-sm">
+                <Link href="/affiliates" className="text-white hover:text-white transition-colors text-sm">
                   Affiliates
                 </Link>
               </li>
@@ -137,8 +137,8 @@ export function Footer() {
 
         {/* Payment Options */}
         <div className="border-t border-white/10 py-8 mb-8">
-          <p className="text-sm text-muted-foreground mb-4 font-semibold">Accepted Payment Methods</p>
-          <div className="flex flex-wrap gap-4 text-sm text-foreground" style={{ color: '#efebeb' }}>
+          <p className="text-sm text-white mb-4 font-semibold">Accepted Payment Methods</p>
+          <div className="flex flex-wrap gap-4 text-sm text-white" style={{ color: '#efebeb' }}>
             <span>Stripe</span>
             <span>PayPal</span>
             <span>Visa / Mastercard</span>
@@ -161,7 +161,7 @@ export function Footer() {
             <div className="text-sm">
               <p className="text-white font-semibold mb-2">Support</p>
               <p style={{ color: '#f7eeee' }}>24/7 Support Available</p>
-              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-[#7C5CFF] transition-colors">
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
                 Discord Community
               </a>
             </div>
@@ -170,13 +170,13 @@ export function Footer() {
             <div className="text-sm">
               <p className="text-white font-semibold mb-2">Quick Links</p>
               <div className="space-y-1">
-                <Link href="/" className="block text-foreground hover:text-primary transition-colors">
+                <Link href="/" className="block text-white hover:text-white transition-colors">
                   Home
                 </Link>
-                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors">
+                <Link href="/about-us" className="block text-white hover:text-white transition-colors">
                   About Us
                 </Link>
-                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors">
+                <Link href="/blog" className="block text-white hover:text-white transition-colors">
                   Blog
                 </Link>
               </div>
@@ -185,13 +185,13 @@ export function Footer() {
 
           {/* Legal Disclaimer */}
           <div className="bg-card/30 border border-white/5 rounded-lg p-4 mt-8">
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-xs text-white leading-relaxed">
               <strong>Risk Disclosure:</strong> CK Capital is a proprietary trading firm providing simulated trading environments and educational evaluation programmes. CK Capital does NOT provide financial advice, investment advice, or brokerage services. All accounts are simulated/demo environments using virtual funds - no real money is traded on behalf of clients.
             </p>
-            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+            <p className="text-xs text-white leading-relaxed mt-2">
               Trading financial instruments involves significant risk of loss. Past performance is not indicative of future results. All profits, certificates, and funded account values shown represent simulated trading results only and do not guarantee future profitability in live markets. All values referenced on this website (including &apos;Up to $1.2M&apos;, &apos;100% Profit Split&apos;) relate to simulated/demo trading environments. Evaluation fees are non-refundable unless stated in our Return Policy. Income or profit figures are illustrative examples only. Individual results vary based on trading skill, market conditions, and adherence to evaluation rules. CK Capital makes no guarantee of earnings or profitability.
             </p>
-            <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+            <p className="text-xs text-white leading-relaxed mt-2">
               CK Capital Group Ltd - Registered in England & Wales.
             </p>
           </div>
