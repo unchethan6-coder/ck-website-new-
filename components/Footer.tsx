@@ -184,16 +184,70 @@ export function Footer() {
           </div>
 
           {/* Legal Disclaimer */}
-          <div className="bg-white/5 rounded-lg p-4 mt-8">
-            <p className="text-xs text-white leading-relaxed">
-              <strong>Risk Disclosure:</strong> CK Capital is a proprietary trading firm providing simulated trading environments and educational evaluation programmes. CK Capital does NOT provide financial advice, investment advice, or brokerage services. All accounts are simulated/demo environments using virtual funds - no real money is traded on behalf of clients.
-            </p>
-            <p className="text-xs text-white leading-relaxed mt-2">
-              Trading financial instruments involves significant risk of loss. Past performance is not indicative of future results. All profits, certificates, and funded account values shown represent simulated trading results only and do not guarantee future profitability in live markets. All values referenced on this website (including &apos;Up to $1.2M&apos;, &apos;100% Profit Split&apos;) relate to simulated/demo trading environments. Evaluation fees are non-refundable unless stated in our Return Policy. Income or profit figures are illustrative examples only. Individual results vary based on trading skill, market conditions, and adherence to evaluation rules. CK Capital makes no guarantee of earnings or profitability.
-            </p>
-            <p className="text-xs text-white leading-relaxed mt-2">
-              CK Capital Group Ltd - Registered in England & Wales.
-            </p>
+          <div className="bg-white/5 rounded-lg p-4 mt-8" style={{ fontSize: '10px', color: '#b4acac', textAlign: 'justify' }}>
+            <h1 style={{ fontWeight: '700', fontSize: '12px', lineHeight: '0.6em' }}>Important Information & Disclaimer</h1>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Simulated Trading Environment</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>All accounts and evaluation programs provided by CK Capital operate exclusively within a simulated trading environment. No trades are executed on live financial markets, and no real capital is allocated to participants. Our services are intended solely for educational, skill assessment, and trader evaluation purposes.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>No Investment Services</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>The simulated trading services are provided by CK Capital. All content published or distributed by CK Capital and its affiliated entities (collectively, the "Company") is provided for general informational and educational purposes only.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px' }}><strong>The Company:</strong></p>
+            <ul style={{ marginLeft: '16px', marginTop: '4px', lineHeight: '0.8em' }}>
+              <li style={{ fontSize: '10px', marginBottom: '4px' }}>1) Does not provide investment, financial, legal, or tax advice.</li>
+              <li style={{ fontSize: '10px', marginBottom: '4px' }}>2) Does not recommend or solicit the purchase or sale of any financial instrument, security, or investment product.</li>
+              <li style={{ fontSize: '10px', marginBottom: '4px' }}>3) Does not act as a broker, dealer, custodian, or financial intermediary.</li>
+              <li style={{ fontSize: '10px', marginBottom: '4px' }}>4) Does not offer live trading accounts or investment management services through this website.</li>
+            </ul>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Participation in any CK Capital program is entirely voluntary. Any fees paid to the Company are service fees for access to evaluation programs, technology, educational resources, and related services. Such fees are not deposits, do not constitute investments, and should not be interpreted as client funds under any circumstances.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Program fees are generally non-refundable except where required by applicable law. These fees do not earn interest, returns, dividends, or profit-sharing rights and do not establish any investment relationship between participants and the Company.</p>
+            
+            <p style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '0.5em' }}>Fees collected by the Company are used to support business operations, including but not limited to:</p>
+            <ul style={{ marginLeft: '16px', marginTop: '4px', lineHeight: '0.8em' }}>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Technology infrastructure</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Trading platform development and maintenance</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Software licensing</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Risk management systems</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Customer support</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Administrative operations</li>
+              <li style={{ fontSize: '10px', marginBottom: '3px' }}>Staffing and business expenses</li>
+            </ul>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Payment of a program fee grants access only to simulated trading evaluations and associated services.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>No Offer or Solicitation</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>Nothing contained on this website, within our programs, or in any communication issued by CK Capital constitutes an offer or solicitation to buy or sell forex, CFDs, futures, options, stocks, cryptocurrencies, or any other financial instruments.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Any trading results, performance statistics, payout examples, or testimonials displayed are based on simulated trading activities and should not be interpreted as guarantees of future performance.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Past simulated performance is not necessarily indicative of future results.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>General Risk Warning</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>Trading financial markets involves significant risk and is not suitable for every individual. Even within a simulated environment, trading strategies may produce results that differ substantially from real-market conditions due to factors such as liquidity, execution, slippage, and market volatility.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Participants should carefully consider their objectives, experience, and risk tolerance before participating in any evaluation program.</p>
+            
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>No representation is made that any participant will achieve profits or similar results.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Intellectual Property</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>All website content, branding, educational materials, software, graphics, logos, and proprietary technologies are the exclusive property of CK Capital or its licensors and are protected by applicable intellectual property laws. Unauthorized reproduction, distribution, modification, or commercial use is strictly prohibited without prior written consent.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Jurisdiction Restrictions</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>CK Capital reserves the right to restrict or deny access to its services in jurisdictions where participation would violate applicable laws or regulations. Services may not be available to residents of certain countries or regions subject to international sanctions or regulatory restrictions. Users are responsible for ensuring compliance with their local laws before accessing or using the Company's services.</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Corporate Information</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2' }}>CK Capital provides simulated trader evaluation programs and educational services only. The Company does not provide brokerage services, investment management services, or financial advisory services through this website.</p>
+            
+            <h3 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Registered Office Address</h3>
+            <p style={{ fontSize: '10px', lineHeight: '0.9em', marginTop: '8px' }}>CK Capital Group Ltd, 1 Allied Business Centre, Coldharbour Lane, Harpenden, Hertfordshire AL5 4UT, England, United Kingdom</p>
+            
+            <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Disclaimer</h2>
+            <p style={{ fontSize: '10px', lineHeight: '1.2', marginTop: '8px' }}>By accessing this website or participating in any CK Capital program, you acknowledge that you understand the simulated nature of the services provided and agree to the applicable Terms & Conditions, Privacy Policy, and all other governing legal documents.</p>
+            
+            <p style={{ fontSize: '10px', lineHeight: '1em', marginTop: '8px' }}>Nothing contained on this website or within any CK Capital program shall be construed as financial, investment, legal, or tax advice, or as an offer or solicitation to engage in any investment activity.</p>
           </div>
         </div>
       </div>
