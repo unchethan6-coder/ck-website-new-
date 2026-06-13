@@ -30,8 +30,10 @@ export function PaymentMarquee() {
               src={`https://cdn.simpleicons.org/${m.slug}`}
               alt={m.name}
               loading='lazy'
+              onError={(e) => { e.currentTarget.style.display = 'none'; const n = e.currentTarget.nextElementSibling as HTMLElement | null; if (n) n.style.display = 'block' }}
               className='h-7 w-auto max-w-[78%] object-contain'
             />
+            <span style={{ display: 'none' }} className='text-base font-bold text-black'>{m.name}</span>
           </div>
         ))}
       </div>
