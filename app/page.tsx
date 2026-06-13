@@ -792,7 +792,7 @@ export default function Home() {
           <h2 className="section-title text-white mb-4 text-balance">
             Let&apos;s Win Together
           </h2>
-          <p className="text-lg text-foreground mb-12">
+          <p className="text-lg text-foreground mb-12" style={{ color: '#ffffff' }}>
             Join thousands of traders who are already earning with CK Capital
           </p>
 
