@@ -97,15 +97,15 @@ export default function Home() {
           {/* Additional Stats Bar */}
           <div className="py-6 max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-black">$262M+</div>
                 <div className="text-xs md:text-sm text-[#4B5563]">Rewards Distributed</div>
               </div>
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-black">     3M+</div>
                 <div className="text-xs md:text-sm text-black/70 mt-2">Traders Worldwide</div>
               </div>
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-black">           195+</div>
                 <div className="text-xs md:text-sm text-black/70 mt-2">            Countries Serviced</div>
               </div>
