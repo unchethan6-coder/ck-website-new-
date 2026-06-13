@@ -12,7 +12,7 @@ export function TradingPlatformsSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: '#0b0b0d' }}>
+    <section className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#050505' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
           {/* Left Column - Cards (40% on desktop) */}
@@ -208,7 +208,21 @@ export function TradingPlatformsSection() {
                         borderColor: '#f4c430',
                       }}
                     >
-                      <span className="text-2xl font-bold" style={{ color: '#15161a' }}>
+                      <img
+                        src={`/${platform.name.toLowerCase().replace('-', '')}.png`}
+                        alt={platform.label}
+                        className="w-10 h-10 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                          const fallback = target.nextElementSibling as HTMLElement
+                          if (fallback) fallback.style.display = 'block'
+                        }}
+                      />
+                      <span
+                        className="text-2xl font-bold hidden"
+                        style={{ color: '#15161a' }}
+                      >
                         {platform.name.charAt(0).toUpperCase()}
                       </span>
                     </div>

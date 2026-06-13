@@ -57,10 +57,10 @@ export function Navbar() {
             Prime
           </Link>
 
-          {/* Tradin */}
+          {/* Trading */}
           <DropdownMenu>
             <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
-              Tradin
+              Trading
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-white border-black/10">
               <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">

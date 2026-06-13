@@ -236,7 +236,7 @@ export default function Home() {
                     background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
                   }}
                 >
-                  Code: LAUNCH2026
+                  Code: JUN70
                 </div>
               </div>
 

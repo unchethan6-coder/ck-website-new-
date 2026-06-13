@@ -9,7 +9,7 @@ interface CounterProps {
 }
 
 export function StatCounter({ target, label, format = 'default' }: CounterProps) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(target)
   const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 

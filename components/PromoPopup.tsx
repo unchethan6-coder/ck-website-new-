@@ -105,7 +105,7 @@ export function PromoPopup() {
               className="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-black text-xs sm:text-sm"
               style={{ backgroundColor: '#FFD700' }}
             >
-              Code: LAUNCH2026
+              Code: JUN70
             </div>
           </div>
 
