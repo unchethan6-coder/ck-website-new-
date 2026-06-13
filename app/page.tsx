@@ -30,6 +30,12 @@ export default function Home() {
         {/* Candlestick animated background */}
         <CandlestickBackground />
 
+        {/* Light scrim so the dark hero text stays readable over the gold image (esp. mobile) */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 90% 70% at center, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0) 72%)' }}
+        />
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Main Heading */}
           <h1 className="hero-title text-[#111111] mb-6 text-balance">
