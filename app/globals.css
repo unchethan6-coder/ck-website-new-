@@ -4,9 +4,16 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+<<<<<<< HEAD
   /* Background */
   --background: #000000;
   --foreground: #f5f0f0;
+=======
+  /* Dark background palette */
+  --background: #0A0A0A;
+  --background-secondary: #111111;
+  --foreground: #E5E5E5;
+>>>>>>> origin/main
   
   /* Card styling */
   --card: #161616;
@@ -186,12 +193,20 @@
 
   /* Typography Styles */
   .hero-title {
+<<<<<<< HEAD
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-balance;
   }
 
   .section-title {
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
     margin-bottom: 2.5rem;
+=======
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold;
+>>>>>>> origin/main
   }
 
   .stat-label {
@@ -225,6 +240,7 @@
     animation: marquee var(--duration, 30s) linear infinite;
   }
 
+<<<<<<< HEAD
   /* Auto-scrolling Traders */
   @keyframes autoScroll {
     from {
@@ -245,6 +261,8 @@
     animation-play-state: paused;
   }
 
+=======
+>>>>>>> origin/main
   /* Blurred Navbar */
   .navbar-blur {
   @apply bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#FDE990]/15;

@@ -1,7 +1,15 @@
 {
   "search.useGlobalIgnoreFiles": true,
+<<<<<<< HEAD
   "search.useParentIgnoreFiles": true,
   "search.exclude": {
     "": true
+=======
+  "search.exclude": {
+    "": true
+  },
+  "files.exclude": {
+    "": true
+>>>>>>> origin/main
   }
 }

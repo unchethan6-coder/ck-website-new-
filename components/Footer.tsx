@@ -13,9 +13,15 @@ import {
 export function Footer() {
   return (
     <footer className="bg-gradient-dark border-t border-white/5">
+<<<<<<< HEAD
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#f6eeee' }}>
+=======
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+>>>>>>> origin/main
           {/* Brand & Social */}
           <div className="space-y-4">
             <div className="font-bold text-xl text-white">CK CAPITAL</div>
@@ -138,7 +144,11 @@ export function Footer() {
         {/* Payment Options */}
         <div className="border-t border-white/10 py-8 mb-8">
           <p className="text-sm text-muted-foreground mb-4 font-semibold">Accepted Payment Methods</p>
+<<<<<<< HEAD
           <div className="flex flex-wrap gap-4 text-sm text-foreground" style={{ color: '#efebeb' }}>
+=======
+          <div className="flex flex-wrap gap-4 text-sm text-foreground">
+>>>>>>> origin/main
             <span>Stripe</span>
             <span>PayPal</span>
             <span>Visa / Mastercard</span>
@@ -152,15 +162,25 @@ export function Footer() {
             {/* Company Info */}
             <div className="text-sm">
               <p className="text-white font-semibold mb-2">CK CAPITAL GROUP LTD</p>
+<<<<<<< HEAD
               <p style={{ color: '#f9efef' }}>All Rights Reserved</p>
               <p className="mt-2" style={{ color: '#f7eeee' }}>Mon-Fri: 8am-8pm (GMT)</p>
               <p style={{ color: '#fbf5f5' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+=======
+              <p className="text-foreground">All Rights Reserved</p>
+              <p className="text-foreground mt-2">Mon-Fri: 8am-8pm (GMT)</p>
+              <p className="text-foreground">6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+>>>>>>> origin/main
             </div>
 
             {/* Contact Info */}
             <div className="text-sm">
               <p className="text-white font-semibold mb-2">Support</p>
+<<<<<<< HEAD
               <p style={{ color: '#f7eeee' }}>24/7 Support Available</p>
+=======
+              <p className="text-foreground">24/7 Support Available</p>
+>>>>>>> origin/main
               <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-[#7C5CFF] transition-colors">
                 Discord Community
               </a>

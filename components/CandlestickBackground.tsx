@@ -15,6 +15,7 @@ export function CandlestickBackground() {
           backgroundPosition: 'center 40%',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
+<<<<<<< HEAD
           opacity: 1,
           zIndex: 0,
           flexDirection: 'column',
@@ -30,6 +31,10 @@ export function CandlestickBackground() {
           fontFamily: 'Inter, "Inter Fallback"',
           borderWidth: '0px',
           borderStyle: 'solid',
+=======
+          opacity: 0.9,
+          zIndex: 0,
+>>>>>>> origin/main
         }}
       />
     </div>

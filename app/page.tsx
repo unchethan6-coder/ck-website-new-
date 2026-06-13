@@ -7,8 +7,11 @@ import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
+<<<<<<< HEAD
 import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
+=======
+>>>>>>> origin/main
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -18,7 +21,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+<<<<<<< HEAD
       <PromoPopup />
+=======
+>>>>>>> origin/main
 
       {/* ===== SECTION 1: HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12">
@@ -26,11 +32,47 @@ export default function Home() {
         <CandlestickBackground />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
+<<<<<<< HEAD
           {/* Main Heading */}
           <h1 className="hero-title text-[#111111] mb-6 text-balance">
             Traders Transforming Into Winners
           </h1>
 
+=======
+          {/* Eyebrow */}
+          <div className="inline-block mb-6">
+            <div className="px-4 py-2 rounded-full bg-[#111111]/80 border border-[#D4AF37]/50 text-[#F0E68C] text-sm font-semibold">
+              CK CAPITAL
+            </div>
+          </div>
+
+          {/* Main Heading */}
+          <h1 
+            className="hero-title text-[#111111] mb-6 text-balance"
+            style={{ letterSpacing: '-0.016em' }}
+          >
+            Transforming Traders into{' '}
+            <span className="gradient-text">Winners</span> Globally
+          </h1>
+
+          {/* Stat Chips */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 max-w-4xl mx-auto">
+            {[
+              'Up to 100% Profit Split',
+              'Up to $1.2M Funding Accounts',
+              'Flexible Payout Cycles',
+              'No Time Limit',
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="px-4 py-3 rounded-full bg-card border border-border text-foreground text-sm font-medium"
+              >
+                {stat}
+              </div>
+            ))}
+          </div>
+
+>>>>>>> origin/main
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
@@ -51,10 +93,17 @@ export default function Home() {
 
           {/* Trustpilot Widget */}
           <div className="flex justify-center mb-12">
+<<<<<<< HEAD
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-[#4B5563]">
               <div className="flex gap-0.5 text-[#00B67A]">
                 {[...Array(5)].map((_, i) => (
                   <span key={i}>★</span>
+=======
+            <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-primary">★</span>
+>>>>>>> origin/main
                 ))}
               </div>
               <span>Rated 4.9/5 on Trustpilot</span>
@@ -62,7 +111,11 @@ export default function Home() {
                 href="https://uk.trustpilot.com/review/ckcapital.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
+<<<<<<< HEAD
                 className="text-[#00B67A] font-medium hover:underline"
+=======
+                className="text-primary hover:text-secondary transition-colors ml-2"
+>>>>>>> origin/main
               >
                 View Reviews →
               </a>
@@ -70,7 +123,11 @@ export default function Home() {
           </div>
 
           {/* Count-up Stats */}
+<<<<<<< HEAD
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12">
+=======
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+>>>>>>> origin/main
             <StatCounter target={100} label="Max Profit Split" format="percent" />
             <StatCounter target={1200000} label="Max Simulated Capital" format="currency" />
             <div className="text-center">
@@ -78,6 +135,7 @@ export default function Home() {
               <div className="text-sm text-[#4B5563] mt-2">Support Available</div>
             </div>
           </div>
+<<<<<<< HEAD
 
           {/* Additional Stats Bar */}
           <div className="py-6 max-w-4xl mx-auto">
@@ -96,11 +154,34 @@ export default function Home() {
               </div>
             </div>
           </div>
+=======
+        </div>
+      </section>
+
+      {/* ===== SECTION 2: RECENT CERTIFICATES MARQUEE ===== */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-center text-2xl font-bold text-black mb-8">Recent Trader Payouts</h2>
+          <LogoMarquee
+            items={[
+              'Alex K. - $45,230',
+              'Jordan M. - $67,890',
+              'Sam L. - $34,560',
+              'Casey R. - $78,920',
+              'Morgan T. - $52,340',
+            ]}
+            duration={20}
+          />
+>>>>>>> origin/main
         </div>
       </section>
 
       {/* ===== SECTION 3: INSTANT FUNDING ANNOUNCEMENT ===== */}
+<<<<<<< HEAD
       <section className="py-12 md:py-16 bg-white">
+=======
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div 
             className="glow-card border-primary/30 p-6 rounded-2xl"
@@ -108,6 +189,7 @@ export default function Home() {
               background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
             }}
           >
+<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <div className="inline-block mb-3 md:mb-4 px-3 py-1 rounded-full bg-black/10 border border-black/20 text-black text-xs md:text-sm font-semibold">
@@ -115,12 +197,25 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl md:text-3xl font-bold text-black mb-2">Instant Funding</h3>
                 <p className="text-sm md:text-base text-black/70 max-w-md">
+=======
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <div className="inline-block mb-4 px-3 py-1 rounded-full bg-black/10 border border-black/20 text-black text-sm font-semibold">
+                  Newly Launched
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">Instant Funding</h3>
+                <p className="text-black/70 max-w-md">
+>>>>>>> origin/main
                   Skip the challenge - get a funded simulated account instantly from $20. No waiting, no complex rules. Start trading immediately.
                 </p>
               </div>
               <Link
                 href="/instant"
+<<<<<<< HEAD
                 className="button-primary whitespace-nowrap w-full sm:w-auto text-center"
+=======
+                className="button-primary whitespace-nowrap"
+>>>>>>> origin/main
               >
                 Learn More
               </Link>
@@ -130,7 +225,11 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
+<<<<<<< HEAD
       <section className="py-12 md:py-16 bg-white">
+=======
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-balance text-center">
             Why Choose <span className="gradient-text">CK Capital?</span>
@@ -174,7 +273,11 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
+<<<<<<< HEAD
                 <p className="text-black/80 text-sm leading-relaxed">
+=======
+                <p className="text-foreground text-sm leading-relaxed">
+>>>>>>> origin/main
                   {item.description}
                 </p>
               </div>
@@ -183,6 +286,7 @@ export default function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -208,6 +312,32 @@ export default function Home() {
 
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
+=======
+      {/* ===== PAYMENT PARTNERS MARQUEE (moved before section) ===== */}
+      <LogoMarquee
+        items={[
+          'Stripe',
+          'PayPal',
+          'Visa',
+          'Mastercard',
+          'Apple Pay',
+          'Google Pay',
+          'USDT',
+          'Skrill',
+        ]}
+        duration={25}
+      />
+
+      {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-center text-2xl font-bold text-black mb-8">Trusted Payment Partners</h2>
+        </div>
+      </section>
+
+      {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-3xl mx-auto px-4 md:px-6">
           <div 
             className="glow-card border-2 border-primary/60 shadow-glow"
@@ -236,7 +366,11 @@ export default function Home() {
                     background: 'linear-gradient(90deg, #D89A2E 0%, #E8BE4C 25%, #FCE17B 50%, #E8BE4C 75%, #D79930 100%)',
                   }}
                 >
+<<<<<<< HEAD
                   Code: JUN70
+=======
+                  Code: LAUNCH2025
+>>>>>>> origin/main
                 </div>
               </div>
 
@@ -273,7 +407,11 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 7: PRICING / TRADING OBJECTIVES ===== */}
+<<<<<<< HEAD
       <section id="start-challenge" className="py-16 md:py-20 scroll-mt-20 bg-white">
+=======
+      <section id="start-challenge" className="py-16 scroll-mt-20 bg-white">
+>>>>>>> origin/main
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="section-title text-black mb-2">
@@ -307,6 +445,7 @@ export default function Home() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Account Size Cards Grid - Horizontal Scrollable */}
           <div className="overflow-x-auto pb-4 mb-8 -mx-4 sm:mx-0 px-4 sm:px-0">
             <div className="flex gap-4 md:gap-6 min-w-max pb-4">
@@ -503,12 +642,191 @@ export default function Home() {
                 </div>
               ))}
             </div>
+=======
+          {/* Account Size Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                size: '$2.5K',
+                price: '$9',
+                oldPrice: '$99',
+                badge: null,
+                type: 'standard',
+                features: {
+                  phase1: '$200',
+                  phase2: '$125',
+                  maxDaily: '$80',
+                  maxLoss: '$200',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$5K',
+                price: '$13',
+                oldPrice: '$99',
+                badge: null,
+                type: 'standard',
+                features: {
+                  phase1: '$400',
+                  phase2: '$250',
+                  maxDaily: '$200',
+                  maxLoss: '$400',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$10K',
+                price: '$19',
+                oldPrice: '$99',
+                badge: 'MOST POPULAR',
+                type: 'middleweight',
+                features: {
+                  phase1: '$1,000',
+                  phase2: '$500',
+                  maxDaily: '$400',
+                  maxLoss: '$800',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$25K',
+                price: '$68.40',
+                oldPrice: '$274.50',
+                badge: null,
+                type: 'lightweight',
+                features: {
+                  phase1: '$2,500',
+                  phase2: '$1,250',
+                  maxDaily: '$1,000',
+                  maxLoss: '$2,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$50K',
+                price: '$98.40',
+                oldPrice: '$394.00',
+                badge: null,
+                type: 'lightweight',
+                features: {
+                  phase1: '$5,000',
+                  phase2: '$2,500',
+                  maxDaily: '$2,000',
+                  maxLoss: '$4,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '30%',
+                },
+              },
+              {
+                size: '$100K',
+                price: '$176.40',
+                oldPrice: '$705.60',
+                badge: null,
+                type: '1step',
+                features: {
+                  phase1: '$10,000',
+                  phase2: '$5,000',
+                  maxDaily: '$4,000',
+                  maxLoss: '$8,000',
+                  period: 'Unlimited',
+                  minDays: '1',
+                  profitSplit: 'Up to 100%',
+                  consistency: '20%',
+                },
+              },
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                className={`glow-card relative transition-all ${
+                  card.badge
+                    ? 'md:scale-105 ring-2 ring-primary'
+                    : ''
+                } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
+                {card.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
+                    {card.badge}
+                  </div>
+                )}
+                <div className="text-xs text-black/50 uppercase tracking-wide mb-2">Account Size</div>
+                <h3 className="text-3xl font-bold text-black mb-1">{card.size}</h3>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="text-2xl font-bold text-[#A87B0B]">{card.price}</span>
+                  <span className="text-xs text-black/40 line-through">{card.oldPrice}</span>
+                </div>
+                
+                <Link
+                  href="https://app.ckcapital.co.uk/signup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button-primary block w-full text-center mb-6"
+                  aria-label={`Buy ${card.size} challenge for ${card.price}`}
+                >
+                  Buy Challenge
+                </Link>
+
+                <div className="space-y-2 text-sm text-black/70">
+                  <div className="flex justify-between">
+                    <span>Phase 1 Target</span>
+                    <span className="font-semibold text-black">{card.features.phase1}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Phase 2 Target</span>
+                    <span className="font-semibold text-black">{card.features.phase2}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Max Daily Loss</span>
+                    <span className="font-semibold text-black">{card.features.maxDaily}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Max Loss</span>
+                    <span className="font-semibold text-black">{card.features.maxLoss}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Trading Period</span>
+                    <span className="font-semibold text-black">{card.features.period}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Min Trading Days</span>
+                    <span className="font-semibold text-black">{card.features.minDays}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Profit Split</span>
+                    <span className="font-semibold text-[#A87B0B]">{card.features.profitSplit}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Consistency Rule</span>
+                    <span className="font-semibold text-black">{card.features.consistency}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+>>>>>>> origin/main
           </div>
 
           {/* Bottom Text */}
           <p className="text-center text-sm text-black/60 mt-12">
             All challenges include live market trading on real instruments during simulated evaluation periods.
           </p>
+<<<<<<< HEAD
 
           {/* Pricing Table */}
           <div className="mt-16 max-w-6xl mx-auto">
@@ -594,11 +912,17 @@ export default function Home() {
               </svg>
             </div>
           </div>
+=======
+>>>>>>> origin/main
         </div>
       </section>
 
       {/* ===== SECTION 8: TRADER REVIEWS ===== */}
+<<<<<<< HEAD
       <section className="py-12 md:py-16 bg-white">
+=======
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-center">
             Our Traders <span className="gradient-text">Love Us</span>
@@ -636,7 +960,11 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 9: TRADER JOURNEY / PHASE STEPPER ===== */}
+<<<<<<< HEAD
       <section className="py-12 md:py-16 bg-white">
+=======
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-center">
             Your Path to <span className="gradient-text">Success</span>
@@ -679,6 +1007,7 @@ export default function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* ===== SECTION 10A: TOP TRADERS LEADERBOARD ===== */}
       <section className="py-12 md:py-16 bg-[#070708]">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -788,6 +1117,10 @@ export default function Home() {
 
       {/* ===== SECTION 10: FEATURED TRADERS ===== */}
       <section className="py-12 md:py-16 bg-white">
+=======
+      {/* ===== SECTION 10: FEATURED TRADERS ===== */}
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-center">
             Featured <span className="gradient-text">Traders</span>
@@ -828,6 +1161,7 @@ export default function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* ===== SECTION 11: YOUTUBE TESTIMONIALS ===== */}
       <section className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -941,6 +1275,10 @@ export default function Home() {
 
       {/* ===== SECTION 12: SUPPORT SECTION ===== */}
       <section className="py-12 md:py-16 bg-white">
+=======
+      {/* ===== SECTION 11: SUPPORT SECTION ===== */}
+      <section className="py-16 bg-white">
+>>>>>>> origin/main
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="section-title text-black mb-6 text-balance">
             Excellent Customer <span className="gradient-text">Support</span>
@@ -972,7 +1310,11 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 12: FINAL CTA ===== */}
+<<<<<<< HEAD
       <section className="py-12 md:py-16 bg-card/20" style={{ backgroundColor: '#010015' }}>
+=======
+      <section className="py-16 bg-card/20">
+>>>>>>> origin/main
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="section-title text-white mb-4 text-balance">
             Let&apos;s Win Together
