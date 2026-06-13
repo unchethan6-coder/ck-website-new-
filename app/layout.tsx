@@ -174,6 +174,22 @@ export default function RootLayout({
           />
         ) : null}
 
+        {/* Google Tag Manager - AW-18140473298 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18140473298"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18140473298');
+            `,
+          }}
+        />
+
         {/* Meta Pixel */}
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ? (
           <script
