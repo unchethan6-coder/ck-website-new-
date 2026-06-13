@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { PromoBar } from '@/components/PromoBar'
 import { StatCounter } from '@/components/StatCounter'
 import { CountdownTimer } from '@/components/CountdownTimer'
 import { LogoMarquee } from '@/components/LogoMarquee'
@@ -17,6 +18,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-background">
+      <PromoBar />
       <Navbar />
       <PromoPopup />
 

@@ -27,6 +27,7 @@ const plans = [
     period: 'After evaluation',
     popular: true,
     icon: Zap,
+    badge: 'Most Popular',
     features: [
       'Up to $1,200,000 total capital',
       'Verified trading account',
