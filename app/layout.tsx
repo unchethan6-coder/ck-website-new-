@@ -191,6 +191,22 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Analytics 4 - G-TMM875YWHK */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-TMM875YWHK"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-TMM875YWHK');
+            `,
+          }}
+        />
+
         {/* Meta Pixel Noscript - Fallback for users without JavaScript */}
         <noscript>
           <img
