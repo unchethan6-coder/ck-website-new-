@@ -4,12 +4,18 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const SIZES = [
-  { label: '$2.5K', p1: '$200', p2: '$125', maxLoss: '$200', daily: '$80', minDays: '1 day', split: 'Up to 100%' },
-  { label: '$5K', p1: '$400', p2: '$250', maxLoss: '$400', daily: '$200', minDays: '1 day', split: 'Up to 100%' },
-  { label: '$10K', p1: '$1,000', p2: '$500', maxLoss: '$800', daily: '$400', minDays: '1 day', split: 'Up to 100%' },
-  { label: '$25K', p1: '$2,500', p2: '$1,250', maxLoss: '$2,000', daily: '$1,000', minDays: '1 day', split: 'Up to 100%' },
-  { label: '$50K', p1: '$5,000', p2: '$2,500', maxLoss: '$4,000', daily: '$2,000', minDays: '1 day', split: 'Up to 100%' },
-  { label: '$100K', p1: '$10,000', p2: '$5,000', maxLoss: '$8,000', daily: '$4,000', minDays: '1 day', split: 'Up to 100%' },
+  { size: 2500, p1: 200, p2: 125, maxLoss: 200, daily: 80, split: 'Up to 100%' },
+  { size: 5000, p1: 400, p2: 250, maxLoss: 400, daily: 200, split: 'Up to 100%' },
+  { size: 10000, p1: 1000, p2: 500, maxLoss: 800, daily: 400, split: 'Up to 100%' },
+  { size: 25000, p1: 2500, p2: 1250, maxLoss: 2000, daily: 1000, split: 'Up to 100%' },
+  { size: 50000, p1: 5000, p2: 2500, maxLoss: 4000, daily: 2000, split: 'Up to 100%' },
+  { size: 100000, p1: 10000, p2: 5000, maxLoss: 8000, daily: 4000, split: 'Up to 100%' },
+]
+
+const CURRENCIES = [
+  { code: 'USD', symbol: '$', rate: 1 },
+  { code: 'GBP', symbol: '£', rate: 0.79 },
+  { code: 'EUR', symbol: '€', rate: 0.92 },
 ]
 
 const ROWS = [
@@ -22,14 +28,23 @@ const ROWS = [
 
 export function ObjectivesTable() {
   const [i, setI] = useState(5)
+  const [ci, setCi] = useState(0)
   const s = SIZES[i]
+  const cur = CURRENCIES[ci]
+
+  const money = (v: number) => cur.symbol + Math.round(v * cur.rate).toLocaleString('en-US')
+  const sizeLabel = (sz: number) => {
+    const v = (sz * cur.rate) / 1000
+    const num = v >= 10 ? Math.round(v) : Math.round(v * 10) / 10
+    return cur.symbol + num + 'K'
+  }
 
   const cellFor = (key: string) => {
     switch (key) {
-      case 'profit': return { p1: s.p1, p2: s.p2, funded: '—' }
-      case 'maxLoss': return { p1: s.maxLoss, p2: s.maxLoss, funded: s.maxLoss }
-      case 'daily': return { p1: s.daily, p2: s.daily, funded: s.daily }
-      case 'minDays': return { p1: s.minDays, p2: s.minDays, funded: '—' }
+      case 'profit': return { p1: money(s.p1), p2: money(s.p2), funded: '—' }
+      case 'maxLoss': return { p1: money(s.maxLoss), p2: money(s.maxLoss), funded: money(s.maxLoss) }
+      case 'daily': return { p1: money(s.daily), p2: money(s.daily), funded: money(s.daily) }
+      case 'minDays': return { p1: '1 day', p2: '1 day', funded: '—' }
       case 'split': return { p1: '—', p2: '—', funded: s.split }
       default: return { p1: '—', p2: '—', funded: '—' }
     }
@@ -37,15 +52,30 @@ export function ObjectivesTable() {
 
   return (
     <div className='max-w-4xl mx-auto'>
+      {/* Currency selector */}
+      <div className='flex justify-center mb-4'>
+        <div className='inline-flex rounded-full border border-black/10 bg-black/5 p-1'>
+          {CURRENCIES.map((c, idx) => (
+            <button
+              key={c.code}
+              onClick={() => setCi(idx)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${idx === ci ? 'bg-black text-white' : 'text-black/70'}`}
+            >
+              {c.symbol} {c.code}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Account size pills */}
       <div className='flex flex-wrap gap-2 justify-center mb-8'>
         {SIZES.map((sz, idx) => (
           <button
-            key={sz.label}
+            key={idx}
             onClick={() => setI(idx)}
             className={`px-4 py-2 rounded-full text-sm font-medium border-2 transition-all ${idx === i ? 'bg-black text-white border-black' : 'bg-black/5 text-black border-black/10 hover:border-black/30'}`}
           >
-            {sz.label}
+            {sizeLabel(sz.size)}
           </button>
         ))}
       </div>
@@ -53,7 +83,6 @@ export function ObjectivesTable() {
       {/* Comparison table */}
       <div className='overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0'>
         <div className='min-w-[600px] rounded-2xl border border-black/10 overflow-hidden shadow-sm'>
-          {/* Header */}
           <div className='grid grid-cols-4'>
             <div className='bg-white px-4 py-5' />
             <div className='bg-white px-4 py-5 text-center border-l border-black/5'>
@@ -70,7 +99,6 @@ export function ObjectivesTable() {
             </div>
           </div>
 
-          {/* Rows */}
           {ROWS.map((r, ri) => {
             const c = cellFor(r.key)
             return (
@@ -89,7 +117,7 @@ export function ObjectivesTable() {
       <div className='flex flex-col sm:flex-row items-center justify-between gap-4 mt-6'>
         <p className='text-sm text-black/60'>Reward cycles: <span className='font-semibold text-black'>Bi-weekly</span> · Up to 100% split</p>
         <Link href='https://app.ckcapital.co.uk/signup' target='_blank' rel='noopener noreferrer' className='button-primary whitespace-nowrap'>
-          Buy {s.label} Challenge
+          Buy {sizeLabel(s.size)} Challenge
         </Link>
       </div>
     </div>
