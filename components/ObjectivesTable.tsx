@@ -16,6 +16,7 @@ const CURRENCIES = [
   { code: 'USD', symbol: '$', rate: 1 },
   { code: 'GBP', symbol: '£', rate: 0.79 },
   { code: 'EUR', symbol: '€', rate: 0.92 },
+  { code: 'INR', symbol: '₹', rate: 83 },
 ]
 
 const ROWS = [
@@ -34,7 +35,12 @@ export function ObjectivesTable() {
 
   const money = (v: number) => cur.symbol + Math.round(v * cur.rate).toLocaleString('en-US')
   const sizeLabel = (sz: number) => {
-    const v = (sz * cur.rate) / 1000
+    const total = sz * cur.rate
+    if (total >= 1000000) {
+      const m = total / 1000000
+      return cur.symbol + (m >= 10 ? Math.round(m) : Math.round(m * 10) / 10) + 'M'
+    }
+    const v = total / 1000
     const num = v >= 10 ? Math.round(v) : Math.round(v * 10) / 10
     return cur.symbol + num + 'K'
   }
