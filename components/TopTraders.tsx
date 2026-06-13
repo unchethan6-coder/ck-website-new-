@@ -36,7 +36,7 @@ export function TopTraders() {
   const loop = [...rest, ...rest]
 
   return (
-    <section className='relative overflow-hidden bg-[#070708] py-16 md:py-24'>
+    <section className='relative overflow-hidden bg-[#070708]' style={{ paddingTop: '28px', paddingBottom: '22px' }}>
       <style>{`@keyframes top-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.top-marquee{animation:top-marquee 32s linear infinite}.top-marquee:hover{animation-play-state:paused}`}</style>
       <div className='pointer-events-none absolute inset-0' style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(212,175,55,0.13), transparent 70%)' }} />
 
