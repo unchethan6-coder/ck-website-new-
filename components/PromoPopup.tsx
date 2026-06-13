@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export function PromoPopup() {
   const [isOpen, setIsOpen] = useState(false)
+  const [email, setEmail] = useState('')
   const [timeLeft, setTimeLeft] = useState({
     hours: 2,
     minutes: 14,
@@ -161,11 +162,24 @@ export function PromoPopup() {
             </div>
           </div>
 
+          {/* Email collection */}
+          <input
+            id="promo-email"
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email to claim"
+            className="w-full mb-3 px-4 py-3 rounded-full border-2 border-[#FFD700]/60 bg-white text-black text-base placeholder:text-gray-400 outline-none focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30"
+          />
+
           {/* CTA Button */}
           <Link
             href="https://app.ckcapital.co.uk/signup"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => { const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email); if (!ok) { e.preventDefault(); document.getElementById('promo-email')?.focus() } }}
             className="w-full block text-center py-2.5 sm:py-3 rounded-full font-bold text-black text-base sm:text-lg transition-all hover:opacity-90"
             style={{ backgroundColor: '#FFD700' }}
           >
