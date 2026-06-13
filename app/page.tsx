@@ -12,6 +12,9 @@ import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
+import { AIInsightsSection } from '@/components/AIInsightsSection'
+import { ScalingJourney } from '@/components/ScalingJourney'
+import { ProcessSteps } from '@/components/ProcessSteps'
 
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState('all')
@@ -207,6 +210,15 @@ export default function Home() {
 
       {/* ===== SECTION 5.5: TRADING PLATFORMS WITH LAPTOP ===== */}
       <TradingPlatformsSection />
+
+      {/* ===== SECTION 5.6: PROCESS STEPS ===== */}
+      <ProcessSteps />
+
+      {/* ===== SECTION 5.7: SCALING JOURNEY ===== */}
+      <ScalingJourney />
+
+      {/* ===== SECTION 5.8: AI INSIGHTS ===== */}
+      <AIInsightsSection />
 
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
