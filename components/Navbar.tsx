@@ -1,0 +1,161 @@
+'use client'
+
+import { useState } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
+export function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  return (
+    <nav className="navbar-blur sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="font-bold text-lg text-black">
+          CK CAPITAL
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {/* Products */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
+              Products
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white border-black/10">
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/evaluation?type=1-step">1-Step Challenge</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/evaluation?type=2-step">2-Step Challenge</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/instant">Instant Funding</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Rewards */}
+          <Link href="/rewards" className="text-black hover:text-primary transition-colors text-sm">
+            Rewards
+          </Link>
+
+          {/* Trading Objectives */}
+          <Link href="/trading-objectives" className="text-black hover:text-primary transition-colors text-sm">
+            Trading Objectives
+          </Link>
+
+          {/* Prime */}
+          <Link href="/prime" className="text-black hover:text-primary transition-colors text-sm">
+            Prime
+          </Link>
+
+          {/* Tradin */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
+              Tradin
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white border-black/10">
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/about-us">About Us</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/hall-of-fame">Hall of Fame</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/events">Events</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
+                <Link href="/contact">Contact</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* FAQs */}
+          <Link href="/faq" className="text-black hover:text-primary transition-colors text-sm">
+            FAQs
+          </Link>
+        </div>
+
+        {/* Right Side Actions */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            href="https://app.ckcapital.co.uk/signin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="https://app.ckcapital.co.uk/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors"
+          >
+            Buy Challenge
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t border-black/10 px-4 py-4">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-black">Products</p>
+              <div className="space-y-2 pl-4">
+                <Link href="/evaluation?type=1-step" className="block text-sm text-black hover:text-primary">
+                  1-Step Challenge
+                </Link>
+                <Link href="/evaluation?type=2-step" className="block text-sm text-black hover:text-primary">
+                  2-Step Challenge
+                </Link>
+                <Link href="/instant" className="block text-sm text-black hover:text-primary">
+                  Instant Funding
+                </Link>
+              </div>
+            </div>
+            <Link href="/rewards" className="block text-black hover:text-primary text-sm">Rewards</Link>
+            <Link href="/trading-objectives" className="block text-black hover:text-primary text-sm">Trading Objectives</Link>
+            <Link href="/prime" className="block text-black hover:text-primary text-sm">Prime</Link>
+            <Link href="/faq" className="block text-black hover:text-primary text-sm">FAQs</Link>
+            <div className="flex gap-2 pt-4">
+              <Link
+                href="https://app.ckcapital.co.uk/signin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors text-center"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="https://app.ckcapital.co.uk/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center"
+              >
+                Buy Challenge
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  )
+}

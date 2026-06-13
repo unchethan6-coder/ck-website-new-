@@ -1,23 +1,25 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, DM_Sans, Karla, Rubik } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _inter = Inter({ subsets: ['latin'] })
+const _dmSans = DM_Sans({ subsets: ['latin'] })
+const _karla = Karla({ subsets: ['latin'] })
+const _rubik = Rubik({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#E8C547',
+  themeColor: '#D4AF37',
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ckcapital.co.uk'),
-  title: 'CK Capital – Best Prop Trading Firm 2025 | Funded Trading Accounts Up to $1.2M | Risk-Free Forex & Crypto Trading',
-  description: 'CK Capital is a leading prop trading firm offering instant funded trading accounts up to $1.2M. Get 100% profit splits, flexible payouts, 24/7 support. Trade Forex, Cryptocurrencies, Commodities & Indices risk-free. Join 50,000+ successful traders today.',
+  title: 'CK Capital – Premium Prop Trading Firm | Funded Accounts Up to $1.2M | 100% Profit Split',
+  description: 'Join CK Capital, a leading prop trading firm offering instant funded simulated accounts up to $1.2M with 100% profit splits, flexible payouts, and 24/7 support. Trade Forex, Crypto, and Commodities with no restrictions.',
   keywords: [
     'prop trading',
     'prop firm',
@@ -142,7 +144,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         
         {/* Google Analytics */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
+        {process.env.NEXT_PUBLIC_GA_ID ? (
           <>
             <script
               async
@@ -161,18 +163,18 @@ export default function RootLayout({
               }}
             />
           </>
-        )}
+        ) : null}
 
         {/* Google Ads Conversion Tracking */}
-        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ? (
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
           />
-        )}
+        ) : null}
 
         {/* Meta Pixel */}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ? (
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -189,7 +191,7 @@ export default function RootLayout({
               `,
             }}
           />
-        )}
+        ) : null}
 
         {/* Structured Data - Organization Schema */}
         <script

@@ -1,5 +1,5 @@
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Footer } from '@/components/Footer';
 
 export const metadata = {
   title: 'Return & Dispute Policy | CK Capital',

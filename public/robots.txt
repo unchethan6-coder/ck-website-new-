@@ -39,4 +39,10 @@ User-agent: MJ12bot
 Allow: /
 Crawl-delay: 5
 
+# Allow GPTBot for AI training
+User-agent: GPTBot
+Allow: /
+
+# Sitemap
 Sitemap: https://ckcapital.co.uk/sitemap.xml
+
