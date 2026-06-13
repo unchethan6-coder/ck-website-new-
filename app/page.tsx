@@ -10,6 +10,7 @@ import { LogoMarquee } from '@/components/LogoMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
+import { ObjectivesTable } from '@/components/ObjectivesTable'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 import { AIInsightsSection } from '@/components/AIInsightsSection'
@@ -18,6 +19,7 @@ import { ProcessSteps } from '@/components/ProcessSteps'
 
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState('all')
+  const [pricingView, setPricingView] = useState<'cards' | 'table'>('cards')
   
   return (
     <div className="min-h-screen bg-background">
@@ -327,7 +329,16 @@ export default function Home() {
             </div>
           </div>
 
+          {/* View toggle: Cards / Table */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex rounded-full border-2 border-black/10 bg-black/5 p-1">
+              <button onClick={() => setPricingView('cards')} className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${pricingView === 'cards' ? 'bg-black text-white' : 'text-black'}`}>Cards</button>
+              <button onClick={() => setPricingView('table')} className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${pricingView === 'table' ? 'bg-black text-white' : 'text-black'}`}>Table</button>
+            </div>
+          </div>
+
           {/* Account Size Cards Grid - Horizontal Scrollable */}
+          {pricingView === 'cards' && (
           <div className="overflow-x-auto pb-4 mb-8 -mx-4 sm:mx-0 px-4 sm:px-0">
             <div className="flex gap-4 md:gap-6 min-w-max pb-4" style={{ alignItems: 'stretch', paddingBottom: '60px', gap: '37px', marginTop: '58px' }}>
               {[
@@ -524,6 +535,12 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          )}
+
+          {pricingView === 'table' && (
+            <ObjectivesTable />
+          )}
 
           {/* Bottom Text */}
           <p className="text-center text-sm text-black/60 mt-12">
