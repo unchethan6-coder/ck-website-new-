@@ -8,7 +8,6 @@ const METHODS = [
   { name: 'Apple Pay', slug: 'applepay' },
   { name: 'Google Pay', slug: 'googlepay' },
   { name: 'USDT', slug: 'tether' },
-  { name: 'Skrill', slug: 'skrill' },
 ]
 
 export function PaymentMarquee() {
