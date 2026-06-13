@@ -1,247 +1,233 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
-
-interface Platform {
-  name: string
-  icon: string
-  color: string
-}
-
-const platforms: Platform[] = [
-  { name: 'MT5', icon: '📊', color: 'bg-green-100' },
-  { name: 'MT4', icon: '📈', color: 'bg-green-100' },
-  { name: 'cTrader', icon: '🔴', color: 'bg-red-100' },
-  { name: 'Match-Trader', icon: '💧', color: 'bg-blue-100' },
-]
-
-// Generate consistent heights for candlesticks
-const generateHeights = () => {
-  const heights: number[] = []
-  for (let i = 0; i < 12; i++) {
-    heights.push(30 + Math.sin(i * 0.5) * 20 + (i % 3) * 15)
-  }
-  return heights
-}
+import { Clock } from 'lucide-react'
 
 export function TradingPlatformsSection() {
-  const laptopRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [mounted, setMounted] = useState(false)
-  const [candleHeights] = useState(generateHeights())
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!laptopRef.current || !containerRef.current) return
-
-      const container = containerRef.current
-      const rect = container.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-
-      const rotateX = (y - centerY) * 0.02
-      const rotateY = (centerX - x) * 0.02
-
-      laptopRef.current.style.transform = `
-        perspective(1200px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale(1.02)
-      `
-    }
-
-    const handleMouseLeave = () => {
-      if (laptopRef.current) {
-        laptopRef.current.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale(1)'
-      }
-    }
-
-    const container = containerRef.current
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove)
-      container.addEventListener('mouseleave', handleMouseLeave)
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove)
-        container.removeEventListener('mouseleave', handleMouseLeave)
-      }
-    }
-  }, [])
+  const platforms = [
+    { name: 'MT5', label: 'MT5' },
+    { name: 'MT4', label: 'MT4' },
+    { name: 'cTrader', label: 'cTrader' },
+    { name: 'Match-Trader', label: 'Match-Trader' },
+  ]
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24" style={{ backgroundColor: '#0b0b0d' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* Header Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Column - Cards */}
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
+          {/* Left Column - Cards (40% on desktop) */}
+          <div className="lg:col-span-2 space-y-6">
             {/* Guaranteed Rewards Card */}
             <div
-              className="rounded-3xl p-6 md:p-8 transition-all hover:shadow-lg relative overflow-hidden"
+              className="rounded-[28px] p-8 overflow-hidden relative"
               style={{
-                background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 50%, #FCD34D 100%)',
+                background: 'linear-gradient(135deg, #f5f1e8 0%, #ede9de 50%, #e8e3d2 100%)',
               }}
             >
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex-1 pr-4">
+                  <h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#15161a' }}>
                     Guaranteed<br />Rewards
                   </h3>
-                  <p className="text-black/70 text-sm md:text-base">
-                    Get rewarded in 24<br />hours or<br />we pay $1,000 extra.
-                  </p>
                 </div>
-                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl md:text-6xl">
-                  🛡️
+                {/* 3D Shield Icon */}
+                <div className="w-24 h-24 flex-shrink-0 relative">
+                  <div
+                    className="absolute inset-0 flex items-center justify-center text-4xl"
+                    style={{
+                      textShadow: '0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                      filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15))',
+                    }}
+                  >
+                    ✓
+                  </div>
+                  <svg
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 100 100"
+                    style={{
+                      filter: 'drop-shadow(0 4px 12px rgba(244, 196, 48, 0.3))',
+                    }}
+                  >
+                    <defs>
+                      <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: '#f4c430', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: '#d4a520', stopOpacity: 1 }} />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M50 10 L20 30 L20 60 Q20 85 50 95 Q80 85 80 60 L80 30 Z"
+                      fill="url(#shieldGradient)"
+                      stroke="#c4941a"
+                      strokeWidth="2"
+                    />
+                  </svg>
                 </div>
               </div>
 
-              {/* Disbursement Badge */}
-              <div className="mt-6 inline-flex items-center gap-2 bg-yellow-300 px-3 py-2 rounded-full">
-                <span className="text-black text-sm font-bold">⏱️</span>
-                <span className="text-xs md:text-sm font-bold text-black">AVG. DISBURSEMENT TIME - 5HRS</span>
+              <p className="text-base" style={{ color: '#15161a' }}>
+                Get rewarded in 24 hours or we pay $1,000 extra.
+              </p>
+
+              {/* Yellow Pill Button */}
+              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#f4c430' }}>
+                <Clock size={16} style={{ color: '#15161a' }} />
+                <span className="text-xs font-bold" style={{ color: '#15161a' }}>
+                  AVG. DISBURSEMENT TIME - 5HRS
+                </span>
               </div>
             </div>
 
             {/* Best Trading Conditions Card */}
             <div
-              className="rounded-3xl p-6 md:p-8 transition-all hover:shadow-lg"
+              className="rounded-[28px] p-8 overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 50%, #FCD34D 100%)',
+                background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%)',
               }}
             >
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex-1 pr-4">
+                  <h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#15161a' }}>
                     Best Trading<br />Conditions
                   </h3>
-                  <p className="text-black/70 text-sm md:text-base">
-                    Transforming trading<br />journeys globally through<br />industry-leading resources.
-                  </p>
                 </div>
-                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl md:text-6xl">
+                {/* Clapping Hands Icon */}
+                <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center text-5xl">
                   👏
                 </div>
               </div>
+
+              <p className="text-base" style={{ color: '#15161a' }}>
+                Transforming trading journeys globally through industry-leading resources.
+              </p>
             </div>
           </div>
 
-          {/* Right Column - Laptop Section */}
-          <div className="flex flex-col items-center">
-            {/* Section Header */}
-            <div className="text-center mb-8 w-full">
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-                Best Trading<br />Platforms
-              </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 mx-auto mb-6" />
-              <p className="text-black/70 text-sm md:text-base max-w-md mx-auto">
-                Trade on our main label MT4, MT5,<br />cTrader & Match-Trader
-              </p>
-            </div>
-
-            {/* Laptop Container with 3D Effect */}
+          {/* Right Column - Main Card (60% on desktop) */}
+          <div className="lg:col-span-3">
             <div
-              ref={containerRef}
-              className="w-full flex justify-center items-center perspective"
-              style={{ perspective: '1200px', minHeight: '300px' }}
+              className="rounded-[28px] p-8 md:p-10 overflow-hidden relative"
+              style={{
+                background: 'linear-gradient(135deg, #f5f1e8 0%, #ede9de 50%, #e8e3d2 100%)',
+              }}
             >
-              <div
-                ref={laptopRef}
-                className="transition-transform duration-300 ease-out will-change-transform"
-                style={{
-                  transformStyle: 'preserve-3d' as any,
-                }}
-              >
-                {/* Laptop Frame */}
-                <div className="relative w-full max-w-md">
-                  {/* Laptop Screen */}
-                  <div className="rounded-t-3xl bg-gray-900 p-3 shadow-2xl" style={{
-                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-                  }}>
-                    <div className="rounded-t-2xl bg-gradient-to-br from-gray-800 to-black aspect-video flex items-center justify-center overflow-hidden relative">
-                      {/* Screen Content - Trading Chart */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-                        {/* Animated candlesticks */}
-                        <div className="absolute inset-0 flex items-end justify-center gap-1 p-6">
-                          {mounted && [...Array(12)].map((_, i) => (
+              {/* Header */}
+              <div className="mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#15161a' }}>
+                  Best Trading Platforms
+                </h2>
+                <div
+                  className="w-12 h-1 mt-3 mb-6"
+                  style={{
+                    background: `linear-gradient(90deg, #f4c430 0%, #f4c430 100%)`,
+                  }}
+                />
+                <h3 className="text-lg md:text-xl font-bold mb-4" style={{ color: '#15161a' }}>
+                  Trade on our main label MT4, MT5, cTrader & Match-Trader
+                </h3>
+                <p className="text-base" style={{ color: '#666' }}>
+                  Our MQ licenses and advanced in-house technology ensure enhanced experience, security, and efficiency.
+                </p>
+              </div>
+
+              {/* MacBook Display */}
+              <div className="relative mb-8 -mx-8 -mb-8 md:-mr-10">
+                <div className="relative">
+                  {/* Laptop Container */}
+                  <div className="relative max-w-lg ml-auto">
+                    {/* Screen */}
+                    <div
+                      className="rounded-t-2xl p-2 shadow-2xl"
+                      style={{
+                        backgroundColor: '#1a1a1d',
+                        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+                      }}
+                    >
+                      {/* Screen Content */}
+                      <div className="rounded-t-lg bg-gradient-to-br from-gray-900 to-black aspect-video flex items-center justify-center overflow-hidden relative">
+                        {/* Candlestick Chart */}
+                        <div className="absolute inset-0 flex items-end justify-around p-6 gap-1">
+                          {[40, 55, 45, 65, 50, 70, 48, 62, 52, 68, 55, 60].map((height, i) => (
                             <div
                               key={i}
-                              className="flex-1 bg-gradient-to-t from-green-500/80 to-green-400/60 rounded-sm transition-all"
+                              className="flex-1 rounded-t-sm"
                               style={{
-                                height: `${candleHeights[i]}%`,
-                                animation: `pulse 2s ease-in-out infinite`,
-                                animationDelay: `${i * 0.1}s`,
+                                background: i % 3 === 0 ? '#ef4444' : '#22c55e',
+                                height: `${height}%`,
+                                animation: `pulse 3s ease-in-out infinite`,
+                                animationDelay: `${i * 0.15}s`,
                               }}
                             />
                           ))}
                         </div>
 
-                        {/* Grid overlay */}
+                        {/* Grid Overlay */}
                         <div className="absolute inset-0 opacity-10">
-                          {[...Array(5)].map((_, i) => (
+                          {[1, 2, 3, 4].map((i) => (
                             <div
                               key={`h-${i}`}
-                              className="absolute w-full h-px bg-gray-400"
-                              style={{ top: `${(i + 1) * 20}%` }}
+                              className="absolute w-full border-t border-gray-400"
+                              style={{ top: `${i * 20}%` }}
                             />
                           ))}
-                          {[...Array(7)].map((_, i) => (
+                          {[1, 2, 3, 4, 5].map((i) => (
                             <div
                               key={`v-${i}`}
-                              className="absolute h-full w-px bg-gray-400"
-                              style={{ left: `${(i + 1) * 14.28}%` }}
+                              className="absolute h-full border-l border-gray-400"
+                              style={{ left: `${i * 16.66}%` }}
                             />
                           ))}
                         </div>
+
+                        {/* Chart Labels/Info */}
+                        <div className="absolute top-4 left-4 text-white text-xs opacity-60">
+                          <div>EURUSD</div>
+                          <div>H1</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Laptop Keyboard/Base */}
-                  <div className="bg-gray-800 rounded-b-3xl h-8 flex items-center justify-center">
-                    <div className="w-4/5 h-5 bg-gray-700 rounded-b-2xl" />
+                    {/* Keyboard */}
+                    <div
+                      className="bg-gray-800 rounded-b-2xl h-6 flex items-center justify-center"
+                      style={{ backgroundColor: '#2a2a2e' }}
+                    >
+                      <div className="w-3/5 h-3 bg-gray-700 rounded-b-xl" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Platform Icons */}
-            <div className="flex gap-6 md:gap-8 mt-12 w-full justify-center flex-wrap">
-              {platforms.map((platform, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center gap-3 group cursor-pointer transition-transform hover:scale-110"
-                >
-                  <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${platform.color} flex items-center justify-center text-2xl md:text-3xl shadow-lg group-hover:shadow-xl transition-shadow`}>
-                    {platform.icon}
+              {/* Platform Badges */}
+              <div className="grid grid-cols-4 gap-4 mt-12">
+                {platforms.map((platform, idx) => (
+                  <div key={idx} className="flex flex-col items-center gap-3">
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center shadow-md border-2"
+                      style={{
+                        backgroundColor: 'white',
+                        borderColor: '#f4c430',
+                      }}
+                    >
+                      <span className="text-2xl font-bold" style={{ color: '#15161a' }}>
+                        {platform.name.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                    <span className="text-sm font-semibold text-center" style={{ color: '#15161a' }}>
+                      {platform.label}
+                    </span>
                   </div>
-                  <span className="text-black font-semibold text-sm">{platform.name}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-
-            {/* Description */}
-            <p className="text-black/70 text-sm md:text-base text-center mt-8 max-w-md">
-              Our MQ licenses and advanced in-house technology ensure enhanced experience, security, and efficiency.
-            </p>
           </div>
         </div>
       </div>
 
       <style jsx>{`
         @keyframes pulse {
-          0%, 100% {
-            opacity: 0.7;
+          0%,
+          100% {
+            opacity: 0.6;
           }
           50% {
             opacity: 1;
