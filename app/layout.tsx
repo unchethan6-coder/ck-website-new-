@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SupportChat } from '@/components/SupportChat'
 import { MetaPixel } from '@/components/MetaPixel'
-import { CenteredImagePopup } from '@/components/CenteredImagePopup'
 
 const _inter = Inter({ subsets: ['latin'] })
 const _dmSans = DM_Sans({ subsets: ['latin'] })
@@ -317,7 +316,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
-        <CenteredImagePopup />
         <MetaPixel />
         <SupportChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
