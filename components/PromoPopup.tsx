@@ -12,11 +12,14 @@ export function PromoPopup() {
     seconds: 46,
   })
 
-  // Show popup after 2 seconds
+  // Show popup once per session, after a short delay
   useEffect(() => {
+    if (typeof window !== 'undefined' && sessionStorage.getItem('promoSeen')) return
+
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 2000)
+      if (typeof window !== 'undefined') sessionStorage.setItem('promoSeen', '1')
+    }, 8000)
 
     return () => clearTimeout(timer)
   }, [])
