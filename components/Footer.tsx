@@ -12,7 +12,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-dark border-t border-white/5">
+    <footer className="bg-black">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#f6eeee' }}>
@@ -136,7 +136,7 @@ export function Footer() {
         </div>
 
         {/* Payment Options */}
-        <div className="border-t border-white/10 py-8 mb-8">
+        <div className="py-8 mb-8">
           <p className="text-sm text-white mb-4 font-semibold">Accepted Payment Methods</p>
           <div className="flex flex-wrap gap-4 text-sm text-white" style={{ color: '#efebeb' }}>
             <span>Stripe</span>
@@ -147,7 +147,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/10 pt-8">
+        <div className="pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Company Info */}
             <div className="text-sm">
@@ -184,7 +184,7 @@ export function Footer() {
           </div>
 
           {/* Legal Disclaimer */}
-          <div className="bg-card/30 border border-white/5 rounded-lg p-4 mt-8">
+          <div className="bg-white/5 rounded-lg p-4 mt-8">
             <p className="text-xs text-white leading-relaxed">
               <strong>Risk Disclosure:</strong> CK Capital is a proprietary trading firm providing simulated trading environments and educational evaluation programmes. CK Capital does NOT provide financial advice, investment advice, or brokerage services. All accounts are simulated/demo environments using virtual funds - no real money is traded on behalf of clients.
             </p>
