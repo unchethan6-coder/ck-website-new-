@@ -277,7 +277,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="section-title text-black mb-2">
-              Buckle Up, Your <span className="gradient-text">Journey Starts Here!</span>
+              Buckle Up,Your <span className="gradient-text">Your Journey Starts Here</span>
             </h2>
             <p className="text-black/70 mb-8">
               1-Step, 2-Step, or Zero. Multiple routes to match your trading style and budget.
@@ -309,7 +309,7 @@ export default function Home() {
 
           {/* Account Size Cards Grid - Horizontal Scrollable */}
           <div className="overflow-x-auto pb-4 mb-8 -mx-4 sm:mx-0 px-4 sm:px-0">
-            <div className="flex gap-4 md:gap-6 min-w-max pb-4">
+            <div className="flex gap-4 md:gap-6 min-w-max pb-4" style={{ alignItems: 'stretch', paddingBottom: '60px', gap: '37px', marginTop: '58px' }}>
               {[
                 {
                   size: '$2.5K',

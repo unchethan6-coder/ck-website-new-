@@ -8,11 +8,10 @@ export function TradingPlatformsSection() {
     { name: 'MT5', label: 'MT5' },
     { name: 'MT4', label: 'MT4' },
     { name: 'cTrader', label: 'cTrader' },
-    { name: 'Match-Trader', label: 'Match-Trader' },
   ]
 
   return (
-    <section className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#050505' }}>
+    <section className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
           {/* Left Column - Cards (40% on desktop) */}
@@ -31,37 +30,7 @@ export function TradingPlatformsSection() {
                   </h3>
                 </div>
                 {/* 3D Shield Icon */}
-                <div className="w-24 h-24 flex-shrink-0 relative">
-                  <div
-                    className="absolute inset-0 flex items-center justify-center text-4xl"
-                    style={{
-                      textShadow: '0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
-                      filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15))',
-                    }}
-                  >
-                    ✓
-                  </div>
-                  <svg
-                    className="absolute inset-0 w-full h-full"
-                    viewBox="0 0 100 100"
-                    style={{
-                      filter: 'drop-shadow(0 4px 12px rgba(244, 196, 48, 0.3))',
-                    }}
-                  >
-                    <defs>
-                      <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{ stopColor: '#f4c430', stopOpacity: 1 }} />
-                        <stop offset="100%" style={{ stopColor: '#d4a520', stopOpacity: 1 }} />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M50 10 L20 30 L20 60 Q20 85 50 95 Q80 85 80 60 L80 30 Z"
-                      fill="url(#shieldGradient)"
-                      stroke="#c4941a"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                </div>
+                <div className="w-24 h-24 flex-shrink-0 relative"></div>
               </div>
 
               <p className="text-base" style={{ color: '#15161a' }}>
@@ -211,7 +180,7 @@ export function TradingPlatformsSection() {
                       <img
                         src={`/${platform.name.toLowerCase().replace('-', '')}.png`}
                         alt={platform.label}
-                        className="w-10 h-10 object-contain"
+                        className="w-10 h-10 object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement
                           target.style.display = 'none'
