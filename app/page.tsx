@@ -12,6 +12,7 @@ import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
 import { ObjectivesTable } from '@/components/ObjectivesTable'
 import { VideoTestimonials } from '@/components/VideoTestimonials'
+import { TopTraders } from '@/components/TopTraders'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 import { AIInsightsSection } from '@/components/AIInsightsSection'
@@ -706,113 +707,9 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 10A: TOP TRADERS LEADERBOARD ===== */}
-      <section className="py-12 md:py-16 bg-[#070708]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-            Rewarding our best traders
-          </h2>
+        <TopTraders />
 
-          {/* Auto Scrolling Traders */}
-          <div className="mb-12 md:mb-16 overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-            <div className="auto-scroll">
-              {[
-                { name: 'Kyros Sofokleious', flag: '🇨🇾', earnings: '$16886.17', time: '15 hours' },
-                { name: 'Nicolai Ortving Madsen', flag: '🇩🇰', earnings: '$16428.81', time: '10 hours' },
-                { name: 'Malak Reiad', flag: '🇪🇬', earnings: '$16377.16', time: '7 hours' },
-                { name: 'Samuel Dickson', flag: '🇬🇧', earnings: '$16022.32', time: '7 hours' },
-                { name: 'Constantinos Kapelonis', flag: '🇬🇷', earnings: '$16000', time: '14 hours' },
-                { name: 'Adil Mohammed', flag: '🇺🇿', earnings: '$15397.12', time: '8 hours' },
-                { name: 'Dmitri Volkov', flag: '🇷🇺', earnings: '$15876.45', time: '12 hours' },
-                { name: 'Sofia Chen', flag: '🇨🇳', earnings: '$15654.33', time: '6 hours' },
-              ].map((trader, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-3 px-3 py-2 md:gap-4 md:px-4 md:py-3 rounded-lg md:rounded-xl border border-[#FFD700]/20 bg-gradient-to-r from-[#FFD700]/10 to-[#FFA500]/10 backdrop-blur-sm hover:from-[#FFD700]/20 hover:to-[#FFA500]/20 transition-all flex-shrink-0 w-72 md:w-80"
-                >
-                  {/* Avatar */}
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FFD700] via-[#FFA500] to-[#FF8C00] flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(255,215,0,0.5)]">
-                    <span className="text-black font-bold text-base md:text-lg">
-                      {trader.name.charAt(0)}
-                    </span>
-                  </div>
-
-                  {/* Trader Info */}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-semibold text-xs md:text-sm truncate">
-                      {trader.name} {trader.flag}
-                    </p>
-                  </div>
-
-                  {/* Earnings */}
-                  <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                    <p className="text-[#FFD700] font-bold text-xs md:text-sm">{trader.earnings}</p>
-                    <span className="px-2 py-0.5 md:py-1 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black text-xs font-semibold shadow-[0_0_12px_rgba(255,215,0,0.4)]">
-                      {trader.time}
-                    </span>
-                  </div>
-                </div>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {[
-                { name: 'Kyros Sofokleious', flag: '🇨🇾', earnings: '$16886.17', time: '15 hours' },
-                { name: 'Nicolai Ortving Madsen', flag: '🇩🇰', earnings: '$16428.81', time: '10 hours' },
-                { name: 'Malak Reiad', flag: '🇪🇬', earnings: '$16377.16', time: '7 hours' },
-                { name: 'Samuel Dickson', flag: '🇬🇧', earnings: '$16022.32', time: '7 hours' },
-                { name: 'Constantinos Kapelonis', flag: '🇬🇷', earnings: '$16000', time: '14 hours' },
-                { name: 'Adil Mohammed', flag: '🇺🇿', earnings: '$15397.12', time: '8 hours' },
-                { name: 'Dmitri Volkov', flag: '🇷🇺', earnings: '$15876.45', time: '12 hours' },
-                { name: 'Sofia Chen', flag: '🇨🇳', earnings: '$15654.33', time: '6 hours' },
-              ].map((trader, idx) => (
-                <div
-                  key={`duplicate-${idx}`}
-                  className="flex items-center gap-3 px-3 py-2 md:gap-4 md:px-4 md:py-3 rounded-lg md:rounded-xl border border-[#FFD700]/20 bg-gradient-to-r from-[#FFD700]/10 to-[#FFA500]/10 backdrop-blur-sm hover:from-[#FFD700]/20 hover:to-[#FFA500]/20 transition-all flex-shrink-0 w-72 md:w-80"
-                >
-                  {/* Avatar */}
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FFD700] via-[#FFA500] to-[#FF8C00] flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(255,215,0,0.5)]">
-                    <span className="text-black font-bold text-base md:text-lg">
-                      {trader.name.charAt(0)}
-                    </span>
-                  </div>
-
-                  {/* Trader Info */}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-semibold text-xs md:text-sm truncate">
-                      {trader.name} {trader.flag}
-                    </p>
-                  </div>
-
-                  {/* Earnings */}
-                  <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                    <p className="text-[#FFD700] font-bold text-xs md:text-sm">{trader.earnings}</p>
-                    <span className="px-2 py-0.5 md:py-1 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black text-xs font-semibold shadow-[0_0_12px_rgba(255,215,0,0.4)]">
-                      {trader.time}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Statistics - Horizontal Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2">500.9K+</p>
-              <p className="text-sm text-white/60">CK Capital Accounts</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2">122.8K+</p>
-              <p className="text-sm text-white/60">Rewarded Traders</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2">$100.1M+</p>
-              <p className="text-sm text-white/60">Total Rewarded</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 10: FEATURED TRADERS ===== */}
+        {/* ===== SECTION 10: FEATURED TRADERS ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-center">
