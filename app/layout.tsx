@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, DM_Sans, Karla, Rubik } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _inter = Inter({ subsets: ['latin'] })
+const _dmSans = DM_Sans({ subsets: ['latin'] })
+const _karla = Karla({ subsets: ['latin'] })
+const _rubik = Rubik({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
   width: 'device-width',

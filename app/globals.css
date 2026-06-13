@@ -4,49 +4,50 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark background palette */
-  --background: #0A0A0A;
-  --background-secondary: #111111;
-  --foreground: #E5E5E5;
+  /* Background - Light & Clean */
+  --background: #FFFFFF;
+  --foreground: #15161a;
+  /* Light background palette */
+  --background-secondary: #F8F8F8;
   
   /* Card styling */
-  --card: #161616;
-  --card-foreground: #FFFFFF;
-  --card-border: rgba(255, 255, 255, 0.08);
+  --card: #FFFFFF;
+  --card-foreground: #15161a;
+  --card-border: rgba(0, 0, 0, 0.08);
   
   /* Popover */
-  --popover: #1a1a1a;
-  --popover-foreground: #FFFFFF;
+  --popover: #FFFFFF;
+  --popover-foreground: #15161a;
   
   /* Primary gold accent */
-  --primary: #F0E68C;
-  --primary-foreground: #0A0A0A;
-  --primary-dark: #D4AF37;
+  --primary: #f4c430;
+  --primary-foreground: #15161a;
+  --primary-dark: #d4a830;
   
   /* Secondary gold */
-  --secondary: #D4AF37;
-  --secondary-foreground: #0A0A0A;
+  --secondary: #d4a830;
+  --secondary-foreground: #15161a;
   
   /* Muted colors */
-  --muted: #463900;
-  --muted-foreground: #9CA3AF;
+  --muted: #F0F0F0;
+  --muted-foreground: #666666;
   
   /* Accent - gold */
-  --accent: #F0E68C;
-  --accent-foreground: #0A0A0A;
+  --accent: #f4c430;
+  --accent-foreground: #15161a;
   
   /* Destructive */
   --destructive: #EF4444;
   --destructive-foreground: #ffffff;
   
-  /* Borders with subtle white */
-  --border: rgba(255, 255, 255, 0.08);
+  /* Borders with subtle black */
+  --border: rgba(0, 0, 0, 0.08);
   
   /* Input */
-  --input: #1a1a1a;
+  --input: #F8F8F8;
   
   /* Ring */
-  --ring: #F0E68C;
+  --ring: #f4c430;
   
   /* Chart colors - gold palette */
   --chart-1: #F0E68C;
@@ -187,11 +188,12 @@
 
   /* Typography Styles */
   .hero-title {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-balance;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
+    margin-bottom: 2.5rem;
   }
 
   .stat-label {
@@ -225,6 +227,25 @@
     animation: marquee var(--duration, 30s) linear infinite;
   }
 
+  /* Auto-scrolling Traders */
+  @keyframes autoScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .auto-scroll {
+    animation: autoScroll 40s linear infinite;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .auto-scroll:hover {
+    animation-play-state: paused;
+  }
   /* Blurred Navbar */
   .navbar-blur {
   @apply bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#FDE990]/15;

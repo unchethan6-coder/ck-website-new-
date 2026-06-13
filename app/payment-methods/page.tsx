@@ -1,5 +1,5 @@
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Footer } from '@/components/Footer';
 import { CreditCard, DollarSign, Bitcoin } from 'lucide-react';
 
 export default function PaymentMethods() {

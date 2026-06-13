@@ -19,11 +19,9 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   compress: true,
-  swcMinify: true,
   reactStrictMode: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  optimizeFonts: true,
 }
 
 export default nextConfig

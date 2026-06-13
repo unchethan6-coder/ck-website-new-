@@ -15,7 +15,7 @@ export function CandlestickBackground() {
           backgroundPosition: 'center 40%',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          opacity: 0.9,
+          opacity: 1,
           zIndex: 0,
         }}
       />
