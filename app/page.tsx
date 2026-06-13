@@ -11,6 +11,7 @@ import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { TradingPlatformsSection } from '@/components/TradingPlatformsSection'
 import { ObjectivesTable } from '@/components/ObjectivesTable'
+import { VideoTestimonials } from '@/components/VideoTestimonials'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 import { AIInsightsSection } from '@/components/AIInsightsSection'
@@ -865,118 +866,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 11: YOUTUBE TESTIMONIALS ===== */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 text-balance">
-              Hear It From <span className="gradient-text">Our Traders</span>
-            </h2>
-            <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto text-pretty">
-              Watch real traders share their experiences and success stories with CK Capital
-            </p>
-          </div>
+      {/* ===== SECTION 11: VIDEO TESTIMONIALS ===== */}
+        <VideoTestimonials />
 
-          {/* YouTube Videos with Right-to-Left Animation */}
-          <div className="relative overflow-hidden">
-            <style>{`
-              @keyframes float-rtl {
-                0% {
-                  transform: translateX(100%);
-                  opacity: 0;
-                }
-                10% {
-                  opacity: 1;
-                }
-                90% {
-                  opacity: 1;
-                }
-                100% {
-                  transform: translateX(-100%);
-                  opacity: 0;
-                }
-              }
-              .float-video {
-                animation: float-rtl 12s linear infinite;
-              }
-            `}</style>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {[
-                {
-                  id: '5RjtGHPcuMM',
-                  title: 'Trader Success Story #1',
-                  url: 'https://youtu.be/5RjtGHPcuMM?si=nJfDDjZwX1XTg0Ym'
-                },
-                {
-                  id: 'LNXpq8_PwxU',
-                  title: 'Trader Success Story #2',
-                  url: 'https://youtu.be/LNXpq8_PwxU?si=mxjhNZAH3pUSNeGF'
-                },
-                {
-                  id: 'bZq8jtD9acY',
-                  title: 'Trader Success Story #3',
-                  url: 'https://youtu.be/bZq8jtD9acY?si=KjqVmedBEM3XW44_'
-                },
-                {
-                  id: '8NQAWtlh_ws',
-                  title: 'Trader Success Story #4',
-                  url: 'https://youtu.be/8NQAWtlh_ws?si=NevnGKjihokzXjQU'
-                }
-              ].map((video, idx) => (
-                <div 
-                  key={idx}
-                  className="relative group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  {/* Floating animation container */}
-                  <div className="relative w-full aspect-video bg-black/90 flex items-center justify-center">
-                    {/* YouTube Embed */}
-                    <iframe
-                      className="w-full h-full"
-                      src={`https://www.youtube.com/embed/${video.id}?autoplay=0&modestbranding=1`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                  
-                  {/* Video Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-semibold">{video.title}</p>
-                    <a
-                      href={video.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-secondary transition-colors text-sm mt-2 inline-block"
-                    >
-                      Watch on YouTube →
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Additional Info */}
-            <div className="text-center mt-12">
-              <p className="text-black/70 mb-6">
-                Want to share your success story? Join our community of successful traders
-              </p>
-              <Link
-                href="https://discord.gg/ckcapital"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-primary inline-flex items-center justify-center gap-2"
-              >
-                Join Our Community
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 12: SUPPORT SECTION ===== */}
+        {/* ===== SECTION 12: SUPPORT SECTION ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="section-title text-black mb-6 text-balance">
