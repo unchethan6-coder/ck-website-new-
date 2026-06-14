@@ -21,9 +21,10 @@ const VideoTestimonials = dynamic(() => import('@/components/VideoTestimonials')
 const AIInsightsSection = dynamic(() => import('@/components/AIInsightsSection').then(mod => ({ default: mod.AIInsightsSection })), { ssr: false })
 const ScalingJourney = dynamic(() => import('@/components/ScalingJourney').then(mod => ({ default: mod.ScalingJourney })), { ssr: false })
 const ProcessSteps = dynamic(() => import('@/components/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), { ssr: false })
+const PricingPlans = dynamic(() => import('@/components/PricingPlans'), { ssr: false })
 
 export default function Home() {
-  const [selectedChallengeType, setSelectedChallengeType] = useState('all')
+  const [selectedChallengeType, setSelectedChallengeType] = useState('standard')
   const [pricingView, setPricingView] = useState<'cards' | 'table'>('cards')
   
   return (
@@ -304,7 +305,7 @@ export default function Home() {
                 { id: 'standard', label: 'Standard' },
                 { id: 'middleweight', label: 'Middleweight' },
                 { id: 'lightweight', label: 'Lightweight' },
-                { id: '1step', label: '1 Step' },
+                { id: '1step', label: '1 Step Standard' },
                 { id: 'instant', label: 'Instant Funding' },
               ].map((tab) => (
                 <button
@@ -332,206 +333,10 @@ export default function Home() {
 
           {/* Account Size Cards Grid - Horizontal Scrollable */}
           {pricingView === 'cards' && (
-          <div className="overflow-x-auto pb-4 mb-8 -mx-4 sm:mx-0 px-4 sm:px-0">
-            <div className="flex gap-4 md:gap-6 min-w-max pb-4" style={{ alignItems: 'stretch', paddingBottom: '60px', gap: '37px', marginTop: '58px' }}>
-              {[
-                {
-                  size: '$2.5K',
-                  price: '$9',
-                  oldPrice: '$99',
-                  badge: null,
-                  type: 'standard',
-                  features: {
-                    phase1: '$200',
-                    phase2: '$125',
-                    maxDaily: '$80',
-                    maxLoss: '$200',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$5K',
-                  price: '$13',
-                  oldPrice: '$99',
-                  badge: null,
-                  type: 'standard',
-                  features: {
-                    phase1: '$400',
-                    phase2: '$250',
-                    maxDaily: '$200',
-                    maxLoss: '$400',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$10K',
-                  price: '$19',
-                  oldPrice: '$99',
-                  badge: 'MOST POPULAR',
-                  type: 'middleweight',
-                  features: {
-                    phase1: '$1,000',
-                    phase2: '$500',
-                    maxDaily: '$400',
-                    maxLoss: '$800',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$25K',
-                  price: '$68.40',
-                  oldPrice: '$274.50',
-                  badge: null,
-                  type: 'lightweight',
-                  features: {
-                    phase1: '$2,500',
-                    phase2: '$1,250',
-                    maxDaily: '$1,000',
-                    maxLoss: '$2,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$50K',
-                  price: '$98.40',
-                  oldPrice: '$394.00',
-                  badge: null,
-                  type: 'lightweight',
-                  features: {
-                    phase1: '$5,000',
-                    phase2: '$2,500',
-                    maxDaily: '$2,000',
-                    maxLoss: '$4,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$100K',
-                  price: '$176.40',
-                  oldPrice: '$705.60',
-                  badge: null,
-                  type: '1step',
-                  features: {
-                    phase1: '$10,000',
-                    phase2: '$5,000',
-                    maxDaily: '$4,000',
-                    maxLoss: '$8,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '20%',
-                  },
-                },
-              ].map((card, idx) => (
-                <div
-                  key={idx}
-                  className={`glow-card relative flex-shrink-0 w-72 sm:w-80 transition-all ${
-                    card.badge
-                      ? 'ring-2 ring-primary md:scale-105'
-                      : ''
-                  } block`}
-                  style={{
-                    background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                    backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                  }}
-                >
-                  {card.badge && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-black text-xs font-bold">
-                      {card.badge}
-                    </div>
-                  )}
-                  <div className="text-xs text-black/50 uppercase tracking-wide mb-2">Account Size</div>
-                  <h3 className="text-3xl font-bold text-black mb-1">{card.size}</h3>
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="text-2xl font-bold text-[#A87B0B]">{card.price}</span>
-                    <span className="text-xs text-black/40 line-through">{card.oldPrice}</span>
-                  </div>
-                  
-                  <Link
-                    href="https://app.ckcapital.co.uk/signup"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-primary block w-full text-center mb-6"
-                    aria-label={`Buy ${card.size} challenge for ${card.price}`}
-                  >
-                    Buy Challenge
-                  </Link>
+              <PricingPlans tab={selectedChallengeType} />
+            )}
 
-                  <div className="space-y-2 text-sm text-black/70">
-                    <div className="flex justify-between">
-                      <span>Phase 1 Target</span>
-                      <span className="font-semibold text-black">{card.features.phase1}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Phase 2 Target</span>
-                      <span className="font-semibold text-black">{card.features.phase2}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Max Daily Loss</span>
-                      <span className="font-semibold text-black">{card.features.maxDaily}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Max Loss</span>
-                      <span className="font-semibold text-black">{card.features.maxLoss}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Trading Period</span>
-                      <span className="font-semibold text-black">{card.features.period}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Min Trading Days</span>
-                      <span className="font-semibold text-black">{card.features.minDays}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Profit Split</span>
-                      <span className="font-semibold text-[#A87B0B]">{card.features.profitSplit}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Consistency Rule</span>
-                      <span className="font-semibold text-black">{card.features.consistency}</span>
-                    </div>
-                    
-                    {/* Copy Code Badge */}
-                    <div 
-                      className="mt-4 px-3 py-2 rounded-lg border-2 border-dashed flex items-center gap-2 cursor-pointer hover:bg-opacity-80 transition-all justify-center"
-                      style={{
-                        backgroundColor: '#1a4d2e',
-                        borderColor: '#4CAF50',
-                      }}
-                      onClick={() => {
-                        navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`);
-                      }}
-                      title="Click to copy code"
-                    >
-                      <span className="text-white font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          )}
-
-          {pricingView === 'table' && (
+            {pricingView === 'table' && (
             <ObjectivesTable />
           )}
 
