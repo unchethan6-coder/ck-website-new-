@@ -444,7 +444,7 @@ export default function Home() {
                     card.badge
                       ? 'ring-2 ring-primary md:scale-105'
                       : ''
-                  } ${selectedChallengeType === 'all' || selectedChallengeType === card.type ? 'block' : 'hidden'}`}
+                  } block`}
                   style={{
                     background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
                     backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
