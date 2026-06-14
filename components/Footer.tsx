@@ -184,7 +184,7 @@ export function Footer() {
           </div>
 
           {/* Legal Disclaimer */}
-          <div className="bg-white/5 rounded-lg p-4 mt-8" style={{ fontSize: '10px', color: '#b4acac', textAlign: 'justify' }}>
+          <div className="bg-white/5 rounded-lg p-4 mt-8" style={{ fontSize: '10px', color: '#b4acac', textAlign: 'left', fontWeight: '300', fontFamily: '"DM Sans", sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <h1 style={{ fontWeight: '700', fontSize: '12px', lineHeight: '0.6em' }}>Important Information & Disclaimer</h1>
             
             <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>Simulated Trading Environment</h2>
@@ -206,7 +206,7 @@ export function Footer() {
             <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Program fees are generally non-refundable except where required by applicable law. These fees do not earn interest, returns, dividends, or profit-sharing rights and do not establish any investment relationship between participants and the Company.</p>
             
             <p style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '0.5em' }}>Fees collected by the Company are used to support business operations, including but not limited to:</p>
-            <ul style={{ marginLeft: '16px', marginTop: '4px', lineHeight: '0.8em' }}>
+            <ul style={{ marginLeft: '16px', marginRight: '1px', marginTop: '4px', lineHeight: '0.8em' }}>
               <li style={{ fontSize: '10px', marginBottom: '3px' }}>Technology infrastructure</li>
               <li style={{ fontSize: '10px', marginBottom: '3px' }}>Trading platform development and maintenance</li>
               <li style={{ fontSize: '10px', marginBottom: '3px' }}>Software licensing</li>
@@ -221,7 +221,7 @@ export function Footer() {
             <h2 style={{ fontWeight: '700', fontSize: '12px', marginTop: '12px', lineHeight: '1em' }}>No Offer or Solicitation</h2>
             <p style={{ fontSize: '10px', lineHeight: '1.2' }}>Nothing contained on this website, within our programs, or in any communication issued by CK Capital constitutes an offer or solicitation to buy or sell forex, CFDs, futures, options, stocks, cryptocurrencies, or any other financial instruments.</p>
             
-            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Any trading results, performance statistics, payout examples, or testimonials displayed are based on simulated trading activities and should not be interpreted as guarantees of future performance.</p>
+            <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2', fontFamily: '"Poppins", sans-serif', fontWeight: '300' }}>Any trading results, performance statistics, payout examples, or testimonials displayed are based on simulated trading activities and should not be interpreted as guarantees of future performance.</p>
             
             <p style={{ fontSize: '10px', marginTop: '8px', lineHeight: '1.2' }}>Past simulated performance is not necessarily indicative of future results.</p>
             
