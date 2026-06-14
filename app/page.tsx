@@ -176,60 +176,6 @@ export default function Home() {
       {/* ===== SECTION 3: INSTANT FUNDING (Newly Launched) ===== */}
       <InstantFundingBanner />
 
-      {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-balance text-center">
-            Why Choose <span className="gradient-text">CK Capital?</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'News Trading Allowed',
-                description: 'Profit from high-impact news events with no restrictions on news trading strategies.'
-              },
-              {
-                title: 'Flexible Payouts',
-                description: 'Get paid on your schedule with withdrawals available whenever you want.'
-              },
-              {
-                title: '100% Profit Split',
-                description: 'Keep up to 100% of your simulated profits. No hidden commissions or fees.'
-              },
-              {
-                title: 'Reset & Top-Up',
-                description: 'Get back on track with reset options regardless of rule violations.'
-              },
-              {
-                title: 'Competitive Spreads',
-                description: 'Trade with ultra-low spreads starting from 0.0 pips on major pairs.'
-              },
-              {
-                title: '24/7 Support',
-                description: 'Expert support team available Mon-Fri to help you succeed in your journey.'
-              },
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className="glow-card group"
-                style={{
-                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                }}
-              >
-                <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-black/80 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ===== SECTION 5: PAYMENT PROVIDERS ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -497,6 +443,60 @@ export default function Home() {
                 </div>
                 <p className="text-black/70 text-sm leading-relaxed italic">
                   &ldquo;{review}&rdquo;
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="section-title text-black mb-12 text-balance text-center">
+            Why Choose <span className="gradient-text">CK Capital?</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'News Trading Allowed',
+                description: 'Profit from high-impact news events with no restrictions on news trading strategies.'
+              },
+              {
+                title: 'Flexible Payouts',
+                description: 'Get paid on your schedule with withdrawals available whenever you want.'
+              },
+              {
+                title: '100% Profit Split',
+                description: 'Keep up to 100% of your simulated profits. No hidden commissions or fees.'
+              },
+              {
+                title: 'Reset & Top-Up',
+                description: 'Get back on track with reset options regardless of rule violations.'
+              },
+              {
+                title: 'Competitive Spreads',
+                description: 'Trade with ultra-low spreads starting from 0.0 pips on major pairs.'
+              },
+              {
+                title: '24/7 Support',
+                description: 'Expert support team available Mon-Fri to help you succeed in your journey.'
+              },
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="glow-card group"
+                style={{
+                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
+                }}
+              >
+                <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-black/80 text-sm leading-relaxed">
+                  {item.description}
                 </p>
               </div>
             ))}
