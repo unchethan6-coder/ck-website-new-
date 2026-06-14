@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, DM_Sans, Karla, Rubik } from 'next/font/google'
+import { Inter, DM_Sans, Karla, Rubik, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SupportChat } from '@/components/SupportChat'
@@ -9,6 +9,7 @@ const _inter = Inter({ subsets: ['latin'], display: 'swap' })
 const _dmSans = DM_Sans({ subsets: ['latin'], display: 'swap' })
 const _karla = Karla({ subsets: ['latin'], display: 'swap' })
 const _rubik = Rubik({ subsets: ['latin'], display: 'swap' })
+const _poppins = Poppins({ weight: ['300', '400', '500', '600', '700'], subsets: ['latin'], display: 'swap' })
 
 export const viewport: Viewport = {
   width: 'device-width',
