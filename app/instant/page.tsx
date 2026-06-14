@@ -126,8 +126,8 @@ export default function InstantPage() {
                 {[
                   { feature: 'Evaluation Required', instant: 'No', challenge: 'Yes' },
                   { feature: 'Time to Trade', instant: 'Minutes', challenge: 'After Evaluation' },
-                  { feature: 'Max Daily Loss', instant: '$750', challenge: '$200' },
-                  { feature: 'Max Loss', instant: '$1,250', challenge: '$400' },
+                  { feature: 'Max Daily Loss', instant: '3%', challenge: '4%' },
+                  { feature: 'Max Loss', instant: '5%', challenge: '8%' },
                   { feature: 'Consistency', instant: '20%', challenge: 'None' },
                   { feature: 'Profit Share', instant: '100%', challenge: '100%' },
                   { feature: 'Price', instant: '$20+', challenge: '$13' },
@@ -157,7 +157,7 @@ export default function InstantPage() {
               },
               {
                 q: 'What are the rules for Instant Funding?',
-                a: 'Max Daily Loss: $750, Max Loss: $1,250, Consistency: 20%. Much more relaxed than challenge evaluations.'
+                a: 'Max Daily Loss: 3%, Max Loss: 5%, Consistency: 20%. Much more relaxed than challenge evaluations.'
               },
               {
                 q: 'Can I upgrade my account size?',
