@@ -63,7 +63,7 @@ export default function Header() {
             className="bg-[#0A2463] hover:bg-[#051A41] text-white text-sm font-semibold px-4 py-2 h-10 transition-colors rounded"
             asChild
           >
-            <a href="https://app.ckcapital.co.uk/signup">Buy Challenge</a>
+            <a href="https://app.ckcapital.co.uk/signup">Start Challenge</a>
           </Button>
         </div>
       </nav>
