@@ -15,7 +15,6 @@ const CERTS = [
 export function FeaturedPayouts() {
   const rows = [
     CERTS,
-    [...CERTS.slice(3), ...CERTS.slice(0, 3)],
   ]
   return (
     <section
