@@ -13,11 +13,11 @@ import {
 export function Footer() {
   return (
     <footer className="bg-black">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#030303', color: '#f6eeee', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12" style={{ color: '#e7e1e1' }}>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8 mb-12" style={{ color: '#e7e1e1' }}>
           {/* Brand & Social */}
-          <div className="space-y-4">
+          <div className="space-y-4 col-span-2 md:col-span-1">
             <div className="font-bold text-xl text-white">CK CAPITAL</div>
             <div className="flex gap-4">
               <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors">
@@ -148,7 +148,7 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-8">
             {/* Company Info */}
             <div className="text-sm" style={{ color: '#f1eded' }}>
               <p className="text-white font-semibold mb-2">CK CAPITAL GROUP LTD</p>
