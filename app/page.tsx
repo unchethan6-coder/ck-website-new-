@@ -419,34 +419,73 @@ export default function Home() {
             Our Traders <span className="gradient-text">Love Us</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              'Their service and response towards their users is so great, if I\'m to choose again I\'d still choose CK Capital.',
-              'You can have fun playing games like Friday Night Rumble on their Discord server and win challenge accounts.',
-              'I must confess that CK has one of the most responsive and vibrant customer care services.',
-              'I recently joined CK, and they\'re wonderful and great with fast support. Their community looks healthy and friendly.',
-              'Amazing service, support, and plans. Great job guys!',
-              'The best prop firm I\'ve used. The team is incredibly responsive and helpful. Highly recommend!',
+              "Their service and response towards their users is so great, if I'm to choose again I'd still choose CK Capital.",
+              "You can have fun playing games like Friday Night Rumble on their Discord server and win challenge accounts.",
+              "I must confess that CK has one of the most responsive and vibrant customer care services.",
+              "I recently joined CK, and they're wonderful and great with fast support. Their community looks healthy and friendly.",
+              "Amazing service, support, and plans. Great job guys!",
+              "The best prop firm I've used. The team is incredibly responsive and helpful. Highly recommend!",
             ].map((review, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="glow-card"
-                style={{
-                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                }}
+                style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)', backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}
               >
                 <div className="flex gap-1 mb-3 text-primary">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-black/70 text-sm leading-relaxed italic">
-                  &ldquo;{review}&rdquo;
-                </p>
+                <p className="text-black/70 text-sm leading-relaxed italic">&ldquo;{review}&rdquo;</p>
               </div>
             ))}
           </div>
+
+          {/* Mobile: two horizontal auto-scrolling rows */}
+          <div className="md:hidden -mx-4 space-y-4 overflow-hidden">
+            {[
+              [
+                "Their service and response towards their users is so great, if I'm to choose again I'd still choose CK Capital.",
+                "You can have fun playing games like Friday Night Rumble on their Discord server and win challenge accounts.",
+                "I must confess that CK has one of the most responsive and vibrant customer care services.",
+              ],
+              [
+                "I recently joined CK, and they're wonderful and great with fast support. Their community looks healthy and friendly.",
+                "Amazing service, support, and plans. Great job guys!",
+                "The best prop firm I've used. The team is incredibly responsive and helpful. Highly recommend!",
+              ],
+            ].map((row, ri) => (
+              <div key={ri} className="tm-marquee">
+                <div className={ri === 1 ? 'tm-track tm-track-rev' : 'tm-track'}>
+                  {[...row, ...row, ...row].map((review, k) => (
+                    <div
+                      key={k}
+                      className="tm-card glow-card"
+                      style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)', backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}
+                    >
+                      <div className="flex gap-1 mb-2 text-primary">
+                        {[...Array(5)].map((_, i) => (
+                          <span key={i}>★</span>
+                        ))}
+                      </div>
+                      <p className="text-black/70 text-sm leading-relaxed italic">&ldquo;{review}&rdquo;</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <style>{`
+            .tm-track { display: flex; gap: 12px; width: max-content; padding: 0 16px; animation: tm-scroll 32s linear infinite; }
+            .tm-track-rev { animation-duration: 42s; animation-direction: reverse; }
+            .tm-card { width: 16rem; flex: 0 0 auto; }
+            @keyframes tm-scroll { from { transform: translateX(0); } to { transform: translateX(-33.3333%); } }
+            @media (prefers-reduced-motion: reduce) { .tm-track { animation: none; } }
+          `}</style>
         </div>
       </section>
 
