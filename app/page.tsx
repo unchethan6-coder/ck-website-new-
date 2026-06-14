@@ -10,6 +10,7 @@ import { CountdownTimer } from '@/components/CountdownTimer'
 import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
+import { FeaturedPayouts } from '@/components/FeaturedPayouts'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -712,49 +713,10 @@ export default function Home() {
       {/* ===== SECTION 10A: TOP TRADERS LEADERBOARD ===== */}
         <TopTraders />
 
-        {/* ===== SECTION 10: FEATURED TRADERS ===== */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-center">
-            Featured <span className="gradient-text">Traders</span>
-          </h2>
+        {/* ===== SECTION 10: FEATURED PAYOUTS ===== */}
+        <FeaturedPayouts />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                name: 'Isaac Tekeste',
-                description: 'Audited verified track record over 12 years. Trading since 2008 with consistent profitability.',
-              },
-              {
-                name: 'Komey Tetteh',
-                description: '10-year audited track record. Built 2,000+ algorithmic trading bots with proven success.',
-              },
-            ].map((trader, idx) => (
-              <div 
-                key={idx} 
-                className="glow-card flex flex-col"
-                style={{
-                  background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                  backgroundImage: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)',
-                }}
-              >
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-black mb-2">{trader.name}</h3>
-                  <p className="text-black/70 mb-6">{trader.description}</p>
-                </div>
-                <Link
-                  href="#"
-                  className="button-secondary text-center"
-                >
-                  Watch Full Podcast →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 11: VIDEO TESTIMONIALS ===== */}
+        {/* ===== SECTION 11: VIDEO TESTIMONIALS ===== */}
         <VideoTestimonials />
 
         {/* ===== SECTION 12: SUPPORT SECTION ===== */}
