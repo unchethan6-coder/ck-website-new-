@@ -106,7 +106,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="px-6 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-black/90 transition-colors"
           >
-            Buy Challenge
+            Start Challenge
           </Link>
         </div>
 
@@ -157,7 +157,7 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center"
               >
-                Buy Challenge
+                Start Challenge
               </Link>
             </div>
           </div>
