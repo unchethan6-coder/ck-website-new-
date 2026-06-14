@@ -418,7 +418,7 @@ export default function Home() {
                     className="button-primary block w-full text-center mb-6"
                     aria-label={`Buy ${card.size} challenge for ${card.price}`}
                   >
-                    Buy Challenge
+                    Start Challenge
                   </Link>
 
                   <div className="space-y-2 text-sm text-black/70">
