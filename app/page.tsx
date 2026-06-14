@@ -11,7 +11,7 @@ import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { FeaturedPayouts } from '@/components/FeaturedPayouts'
-import { InstantFundingHighlight } from '@/components/InstantFundingHighlight'
+import { InstantFundingBanner } from '@/components/InstantFundingBanner'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -174,7 +174,7 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 3: INSTANT FUNDING (Newly Launched) ===== */}
-      <InstantFundingHighlight />
+      <InstantFundingBanner />
 
       {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
       <section className="py-12 md:py-16 bg-white">
