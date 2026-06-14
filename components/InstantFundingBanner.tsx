@@ -9,7 +9,7 @@ export function InstantFundingBanner() {
     <section className="py-12 md:py-16 px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section label */}
-        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4">Available Offers</h2>
+        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>Available Offers</h2>
 
         {/* Tab pill (single active offer, matches the reference design language) */}
         <div className="flex flex-wrap gap-2 mb-4">
