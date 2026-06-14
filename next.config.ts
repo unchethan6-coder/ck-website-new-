@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
+  reactCompiler: false,
   
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -21,7 +21,6 @@ const nextConfig: NextConfig = {
   },
 
   // Optimize for Core Web Vitals
-  swcMinify: true,
 
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-*'],
