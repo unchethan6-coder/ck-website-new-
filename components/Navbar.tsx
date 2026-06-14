@@ -83,6 +83,11 @@ export function Navbar() {
           <Link href="/faq" className="text-black hover:text-primary transition-colors text-sm">
             FAQs
           </Link>
+
+          {/* Affiliates */}
+          <Link href="/affiliates" className="text-black hover:text-primary transition-colors text-sm">
+            Affiliates
+          </Link>
         </div>
 
         {/* Right Side Actions */}
@@ -136,6 +141,7 @@ export function Navbar() {
             <Link href="/trading-objectives" className="block text-black hover:text-primary text-sm">Trading Objectives</Link>
             <Link href="/prime" className="block text-black hover:text-primary text-sm">Prime</Link>
             <Link href="/faq" className="block text-black hover:text-primary text-sm">FAQs</Link>
+            <Link href="/affiliates" className="block text-black hover:text-primary text-sm">Affiliates</Link>
             <div className="flex gap-2 pt-4">
               <Link
                 href="https://app.ckcapital.co.uk/signin"
