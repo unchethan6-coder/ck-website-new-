@@ -75,11 +75,11 @@ export default function EvaluationPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { label: 'Profit Target', value: '$500 → $250' },
-              { label: 'Max Daily Loss', value: '$200' },
-              { label: 'Max Loss', value: '$400' },
+              { label: 'Profit Target', value: '10% → 5%' },
+              { label: 'Max Daily Loss', value: '4%' },
+              { label: 'Max Loss', value: '8%' },
               { label: 'Min Trading Days', value: '1 day' },
-              { label: 'Consistency', value: 'None for 1-Step' },
+              { label: 'Consistency', value: 'No' },
               { label: 'News Trading', value: 'Allowed' },
             ].map((rule, idx) => (
               <div key={idx} className="glow-card text-center">
