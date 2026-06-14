@@ -9,12 +9,12 @@ export function InstantFundingBanner() {
     <section className="py-12 md:py-16 px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section label */}
-        <h2 className="text-xl md:text-2xl font-extrabold text-[#111111] mb-4">Newly Launched</h2>
+        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>Available Offers</h2>
 
         {/* Tab pill (single active offer, matches the reference design language) */}
         <div className="flex flex-wrap gap-2 mb-4">
           <span className="rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-sm if-pill">
-            Instant Funding • From $20
+            start challenge • From $9
           </span>
         </div>
 
@@ -27,31 +27,36 @@ export function InstantFundingBanner() {
           {/* content */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1 if-rise">
-              <span className="inline-block rounded-md bg-[#22c55e]/15 px-2.5 py-1 text-xs font-bold tracking-wide text-[#34d399]">
-                NEW
+              <span className="inline-block rounded-md px-2.5 py-1 text-xs font-bold tracking-wide text-[#0b0b0b]" style={{ background: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)' }}>
+                hot offer 
               </span>
 
               <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-white">
-                Instant Funding
+                Your First Challenge, 70% Off
               </h3>
 
               <div className="my-5 h-px w-full bg-white/10" />
 
               <p className="max-w-2xl text-sm md:text-base leading-relaxed text-white/60">
-                Skip the challenge - get a funded simulated account instantly from $20. No waiting, no
-                complex rules. Start trading immediately.
+                Enjoy 70% off all Models up to $100K account sizes. New users only.
+
               </p>
             </div>
 
-            {/* green CTA (code-button style from the reference) */}
+            {/* gold CTA button */}
             <div className="flex-shrink-0 if-rise" style={{ animationDelay: '120ms' }}>
               <Link
                 href={SIGNUP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#34d399]/60 bg-[#0f3d2e] px-6 py-3 font-bold text-[#34d399] transition-all hover:bg-[#14543e] hover:shadow-[0_0_24px_rgba(52,211,153,0.35)]"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#34d399]/60 px-6 py-3 font-bold text-white transition-all text-lg"
+                style={{ 
+                  background: 'transparent',
+                  backgroundImage: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)',
+                  fontSize: '18px'
+                }}
               >
-                Start Trading
+                USECODE : JUN70
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -63,7 +68,7 @@ export function InstantFundingBanner() {
 
       <style>{`
         .if-pill {
-          background: linear-gradient(90deg, #6d5dfc 0%, #8b5cf6 100%);
+          background: linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%);
         }
         .if-card {
           background:
