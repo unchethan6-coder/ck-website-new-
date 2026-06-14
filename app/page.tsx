@@ -18,7 +18,6 @@ import { useState } from 'react'
 const TradingPlatformsSection = dynamic(() => import('@/components/TradingPlatformsSection').then(mod => ({ default: mod.TradingPlatformsSection })), { ssr: false })
 const ObjectivesTable = dynamic(() => import('@/components/ObjectivesTable').then(mod => ({ default: mod.ObjectivesTable })), { ssr: false })
 const VideoTestimonials = dynamic(() => import('@/components/VideoTestimonials').then(mod => ({ default: mod.VideoTestimonials })), { ssr: false })
-const TopTraders = dynamic(() => import('@/components/TopTraders').then(mod => ({ default: mod.TopTraders })), { ssr: false })
 const AIInsightsSection = dynamic(() => import('@/components/AIInsightsSection').then(mod => ({ default: mod.AIInsightsSection })), { ssr: false })
 const ScalingJourney = dynamic(() => import('@/components/ScalingJourney').then(mod => ({ default: mod.ScalingJourney })), { ssr: false })
 const ProcessSteps = dynamic(() => import('@/components/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), { ssr: false })
@@ -625,9 +624,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ===== SECTION 10A: TOP TRADERS LEADERBOARD ===== */}
-        <TopTraders />
 
         {/* ===== SECTION 10: FEATURED PAYOUTS ===== */}
         <FeaturedPayouts />
