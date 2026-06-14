@@ -11,6 +11,7 @@ import { PaymentMarquee } from '@/components/PaymentMarquee'
 import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { FeaturedPayouts } from '@/components/FeaturedPayouts'
+import { InstantFundingHighlight } from '@/components/InstantFundingHighlight'
 import { CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -172,66 +173,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SECTION 3: INSTANT FUNDING ANNOUNCEMENT ===== */}
-      <section className="py-12 md:py-16 bg-white">
-        <style>{`
-          @keyframes ck-rise { 0% { opacity: 0; transform: translateY(28px); } 100% { opacity: 1; transform: translateY(0); } }
-          @keyframes ck-shine { 0% { transform: translateX(-160%) skewX(-18deg); } 55%, 100% { transform: translateX(280%) skewX(-18deg); } }
-          @keyframes ck-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.8); opacity: .3; } }
-          @keyframes ck-glow { 0%, 100% { opacity: .5; } 50% { opacity: .9; } }
-        `}</style>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div
-            className="relative overflow-hidden rounded-2xl p-6 md:p-9 border border-white/10 shadow-xl"
-            style={{
-              background: 'linear-gradient(120deg, #1c1350 0%, #3a2596 52%, #5230bd 100%)',
-              animation: 'ck-rise .7s cubic-bezier(.2,.7,.2,1) both',
-            }}
-          >
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute top-0 bottom-0 w-1/3"
-              style={{
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent)',
-                animation: 'ck-shine 4s ease-in-out infinite',
-              }}
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full"
-              style={{
-                background: 'radial-gradient(circle, rgba(124,77,255,0.55), transparent 70%)',
-                animation: 'ck-glow 3.5s ease-in-out infinite',
-              }}
-            />
-            <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-              <div>
-                <div
-                  className="inline-flex items-center gap-2 mb-3 md:mb-4 px-3 py-1 rounded-full text-xs md:text-sm font-semibold"
-                  style={{ background: 'rgba(45,212,158,0.14)', color: '#34e2a8', border: '1px solid rgba(52,226,168,0.4)' }}
-                >
-                  <span
-                    className="inline-block h-2 w-2 rounded-full"
-                    style={{ background: '#34e2a8', animation: 'ck-pulse 1.6s ease-in-out infinite' }}
-                  />
-                  Newly Launched
-                </div>
-                <h3 className="text-2xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">Instant Funding</h3>
-                <p className="text-sm md:text-base text-white/75 max-w-xl leading-relaxed">
-                  Skip the challenge - get a funded simulated account instantly from $20. No waiting, no complex rules. Start trading immediately.
-                </p>
-              </div>
-              <Link
-                href="/instant"
-                className="relative z-10 whitespace-nowrap w-full sm:w-auto text-center rounded-full px-6 py-3 font-bold transition-transform hover:scale-105"
-                style={{ background: 'linear-gradient(90deg, #2dd49e, #20b07f)', color: '#06281d' }}
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ===== SECTION 3: INSTANT FUNDING (Newly Launched) ===== */}
+      <InstantFundingHighlight />
 
       {/* ===== SECTION 4: WHY CHOOSE CK CAPITAL ===== */}
       <section className="py-12 md:py-16 bg-white">
