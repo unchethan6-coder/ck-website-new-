@@ -1,222 +1,192 @@
 'use client'
 
-import Image from 'next/image'
-import { Clock } from 'lucide-react'
+function Coin({
+  symbol,
+  className = '',
+  size = 84,
+}: {
+  symbol: string
+  className?: string
+  size?: number
+}) {
+  return (
+    <div
+      className={`absolute rounded-full flex items-center justify-center text-white font-bold shadow-lg ${className}`}
+      style={{
+        width: size,
+        height: size,
+        background: 'linear-gradient(150deg, #FDE68A 0%, #F2C84B 45%, #C99700 100%)',
+        boxShadow: '0 10px 24px rgba(180,140,20,0.35), inset 0 2px 4px rgba(255,255,255,0.6)',
+        fontSize: size * 0.42,
+      }}
+    >
+      <span style={{ textShadow: '0 1px 2px rgba(120,90,10,0.5)' }}>{symbol}</span>
+    </div>
+  )
+}
+
+function CryptoArt() {
+  return (
+    <div className="relative mx-auto" style={{ width: 240, height: 200 }}>
+      <Coin symbol="Ξ" size={92} className="left-2 top-16" />
+      <Coin symbol="Ł" size={104} className="left-16 top-4" />
+      <Coin symbol="₿" size={110} className="right-2 top-14" />
+    </div>
+  )
+}
+
+function CalendarArt() {
+  return (
+    <div
+      className="relative flex-shrink-0"
+      style={{ width: 150, height: 150 }}
+      aria-hidden="true"
+    >
+      <div
+        className="absolute inset-x-2 top-6 bottom-2 rounded-2xl"
+        style={{
+          background: 'linear-gradient(160deg, #FFFFFF 0%, #FDF2C4 100%)',
+          boxShadow: '0 14px 30px rgba(180,140,20,0.28), inset 0 2px 3px rgba(255,255,255,0.7)',
+          border: '1px solid #F2E2A0',
+        }}
+      >
+        <div
+          className="h-9 rounded-t-2xl"
+          style={{ background: 'linear-gradient(90deg, #F2C84B, #E0B33A)' }}
+        />
+      </div>
+      <div
+        className="absolute rounded-full"
+        style={{ width: 16, height: 28, left: 36, top: 0, background: '#E0B33A' }}
+      />
+      <div
+        className="absolute rounded-full"
+        style={{ width: 16, height: 28, right: 36, top: 0, background: '#E0B33A' }}
+      />
+    </div>
+  )
+}
+
+function InstrumentsArt() {
+  const ring = ['$', 'Ξ', '₿', 'Ł', '€', '¥']
+  return (
+    <div className="relative mx-auto" style={{ width: 200, height: 170 }}>
+      {ring.map((s, i) => {
+        const angle = (i / ring.length) * Math.PI * 2 - Math.PI / 2
+        const x = 100 + Math.cos(angle) * 60
+        const y = 85 + Math.sin(angle) * 52
+        return (
+          <div
+            key={s}
+            className="absolute rounded-full flex items-center justify-center text-white font-bold"
+            style={{
+              width: 56,
+              height: 56,
+              left: x - 28,
+              top: y - 28,
+              background: 'linear-gradient(150deg, #FDE68A 0%, #F2C84B 45%, #C99700 100%)',
+              boxShadow: '0 8px 18px rgba(180,140,20,0.3), inset 0 2px 3px rgba(255,255,255,0.6)',
+              fontSize: 22,
+              textShadow: '0 1px 2px rgba(120,90,10,0.5)',
+            }}
+          >
+            {s}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const CARD_BG =
+  'linear-gradient(165deg, #FFFFFF 0%, #FEFAE8 55%, #FBF0C4 100%)'
 
 export function TradingPlatformsSection() {
-  const platforms = [
-    { name: 'MT5', label: 'MT5' },
-    { name: 'MT4', label: 'MT4' },
-    { name: 'cTrader', label: 'cTrader' },
-  ]
-
   return (
-    <section className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
-          {/* Left Column - Cards (40% on desktop) */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Guaranteed Rewards Card */}
-            <div
-              className="rounded-[28px] p-8 overflow-hidden relative"
-              style={{
-                background: 'linear-gradient(135deg, #f5f1e8 0%, #ede9de 50%, #e8e3d2 100%)',
-              }}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex-1 pr-4">
-                  <h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#15161a' }}>
-                    Guaranteed<br />Rewards
-                  </h3>
-                </div>
-                {/* 3D Shield Icon */}
-                <div className="w-24 h-24 flex-shrink-0 relative"></div>
-              </div>
+    <section className="relative py-16 md:py-24 px-4 md:px-6 bg-background">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+          Why Traders Love CK Capital?
+        </h2>
+        <p className="mt-4 max-w-2xl text-base md:text-lg text-[#5b5b5b] leading-relaxed">
+          Explore our simulated trading platform to acquire essential trading skills,
+          enhance your expertise, and earn rewards based on your performance.
+        </p>
 
-              <p className="text-base" style={{ color: '#15161a' }}>
-                Get rewarded in 24 hours or we pay $1,000 extra.
-              </p>
-
-              {/* Yellow Pill Button */}
-              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#f4c430' }}>
-                <Clock size={16} style={{ color: '#15161a' }} />
-                <span className="text-xs font-bold" style={{ color: '#15161a' }}>
-                  AVG. DISBURSEMENT TIME - 5HRS
-                </span>
-              </div>
+        {/* Bento grid */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 md:gap-6">
+          {/* Crypto Withdrawals — tall left card */}
+          <div
+            className="md:row-span-2 rounded-3xl border border-black/5 p-7 flex flex-col justify-between min-h-[360px] shadow-sm"
+            style={{ background: CARD_BG }}
+          >
+            <div className="flex-1 flex items-center justify-center py-4">
+              <CryptoArt />
             </div>
-
-            {/* Best Trading Conditions Card */}
-            <div
-              className="rounded-[28px] p-8 overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%)',
-              }}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex-1 pr-4">
-                  <h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#15161a' }}>
-                    Best Trading<br />Conditions
-                  </h3>
-                </div>
-                {/* Clapping Hands Icon */}
-                <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center text-5xl">
-                  👏
-                </div>
-              </div>
-
-              <p className="text-base" style={{ color: '#15161a' }}>
-                Transforming trading journeys globally through industry-leading resources.
+            <div>
+              <h3 className="text-2xl font-extrabold text-[#111111]">Crypto Withdrawals</h3>
+              <p className="mt-2 text-sm text-[#5b5b5b] leading-relaxed">
+                Easily and securely transfer your performance rewards to your chosen crypto
+                wallet, featuring lightning-fast processing and exceptional security.
               </p>
             </div>
           </div>
 
-          {/* Right Column - Main Card (60% on desktop) */}
-          <div className="lg:col-span-3">
-            <div
-              className="rounded-[28px] p-8 md:p-10 overflow-hidden relative"
-              style={{
-                background: 'linear-gradient(135deg, #f5f1e8 0%, #ede9de 50%, #e8e3d2 100%)',
-              }}
-            >
-              {/* Header */}
-              <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#15161a' }}>
-                  Best Trading Platforms
-                </h2>
-                <div
-                  className="w-12 h-1 mt-3 mb-6"
-                  style={{
-                    background: `linear-gradient(90deg, #f4c430 0%, #f4c430 100%)`,
-                  }}
-                />
-                <h3 className="text-lg md:text-xl font-bold mb-4" style={{ color: '#15161a' }}>
-                  Trade on our main label MT4, MT5, cTrader & Match-Trader
-                </h3>
-                <p className="text-base" style={{ color: '#666' }}>
-                  Our MQ licenses and advanced in-house technology ensure enhanced experience, security, and efficiency.
-                </p>
-              </div>
+          {/* Daily Payouts — wide top card */}
+          <div
+            className="md:col-span-2 rounded-3xl border border-black/5 p-7 flex flex-col sm:flex-row items-center gap-6 shadow-sm"
+            style={{ background: CARD_BG }}
+          >
+            <div className="flex-1 order-2 sm:order-1">
+              <h3 className="text-2xl font-extrabold text-[#111111]">Daily Payouts!</h3>
+              <p className="mt-3 text-sm text-[#5b5b5b] leading-relaxed max-w-md">
+                Say goodbye to waiting for your rewards! We handle payout requests every day,
+                guaranteeing that you can access your earnings whenever you need them.
+              </p>
+              <p className="mt-4 text-[11px] text-[#8a8a8a]">
+                Actual trader payout. Individual results vary. Trading involves risk.
+              </p>
+            </div>
+            <div className="order-1 sm:order-2 flex-shrink-0">
+              <CalendarArt />
+            </div>
+          </div>
 
-              {/* MacBook Display */}
-              <div className="relative mb-8 -mx-8 -mb-8 md:-mr-10">
-                <div className="relative">
-                  {/* Laptop Container */}
-                  <div className="relative max-w-lg ml-auto">
-                    {/* Screen */}
-                    <div
-                      className="rounded-t-2xl p-2 shadow-2xl"
-                      style={{
-                        backgroundColor: '#1a1a1d',
-                        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-                      }}
-                    >
-                      {/* Screen Content */}
-                      <div className="rounded-t-lg bg-gradient-to-br from-gray-900 to-black aspect-video flex items-center justify-center overflow-hidden relative">
-                        {/* Candlestick Chart */}
-                        <div className="absolute inset-0 flex items-end justify-around p-6 gap-1">
-                          {[40, 55, 45, 65, 50, 70, 48, 62, 52, 68, 55, 60].map((height, i) => (
-                            <div
-                              key={i}
-                              className="flex-1 rounded-t-sm"
-                              style={{
-                                background: i % 3 === 0 ? '#ef4444' : '#22c55e',
-                                height: `${height}%`,
-                                animation: `pulse 3s ease-in-out infinite`,
-                                animationDelay: `${i * 0.15}s`,
-                              }}
-                            />
-                          ))}
-                        </div>
+          {/* 300+ Instruments */}
+          <div
+            className="rounded-3xl border border-black/5 p-7 flex flex-col items-center text-center shadow-sm min-h-[260px]"
+            style={{ background: CARD_BG }}
+          >
+            <h3 className="text-xl font-extrabold text-[#111111]">300+ Instruments</h3>
+            <div className="flex-1 flex items-center justify-center mt-2">
+              <InstrumentsArt />
+            </div>
+          </div>
 
-                        {/* Grid Overlay */}
-                        <div className="absolute inset-0 opacity-10">
-                          {[1, 2, 3, 4].map((i) => (
-                            <div
-                              key={`h-${i}`}
-                              className="absolute w-full border-t border-gray-400"
-                              style={{ top: `${i * 20}%` }}
-                            />
-                          ))}
-                          {[1, 2, 3, 4, 5].map((i) => (
-                            <div
-                              key={`v-${i}`}
-                              className="absolute h-full border-l border-gray-400"
-                              style={{ left: `${i * 16.66}%` }}
-                            />
-                          ))}
-                        </div>
-
-                        {/* Chart Labels/Info */}
-                        <div className="absolute top-4 left-4 text-white text-xs opacity-60">
-                          <div>EURUSD</div>
-                          <div>H1</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Keyboard */}
-                    <div
-                      className="bg-gray-800 rounded-b-2xl h-6 flex items-center justify-center"
-                      style={{ backgroundColor: '#2a2a2e' }}
-                    >
-                      <div className="w-3/5 h-3 bg-gray-700 rounded-b-xl" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Platform Badges */}
-              <div className="grid grid-cols-4 gap-4 mt-12">
-                {platforms.map((platform, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-3">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center shadow-md border-2"
-                      style={{
-                        backgroundColor: 'white',
-                        borderColor: '#f4c430',
-                      }}
-                    >
-                      <img
-                        src={`/${platform.name.toLowerCase().replace('-', '')}.png`}
-                        alt={platform.label}
-                        className="w-10 h-10 object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.style.display = 'none'
-                          const fallback = target.nextElementSibling as HTMLElement
-                          if (fallback) fallback.style.display = 'block'
-                        }}
-                      />
-                      <span
-                        className="text-2xl font-bold hidden"
-                        style={{ color: '#15161a' }}
-                      >
-                        {platform.name.charAt(0).toUpperCase()}
-                      </span>
-                    </div>
-                    <span className="text-sm font-semibold text-center" style={{ color: '#15161a' }}>
-                      {platform.label}
-                    </span>
-                  </div>
-                ))}
+          {/* MT5 Platform */}
+          <div
+            className="rounded-3xl border border-black/5 p-7 flex flex-col items-center justify-between text-center shadow-sm min-h-[260px]"
+            style={{ background: CARD_BG }}
+          >
+            <div className="flex-1 flex items-center justify-center">
+              <div
+                className="rounded-full flex items-center justify-center"
+                style={{
+                  width: 120,
+                  height: 120,
+                  background: 'radial-gradient(circle at 35% 30%, #FFFFFF 0%, #FDF0BF 60%, #F2C84B 100%)',
+                  boxShadow: '0 14px 30px rgba(180,140,20,0.28), inset 0 2px 4px rgba(255,255,255,0.7)',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/mt5.png" alt="MetaTrader 5" width={70} height={70} className="object-contain" />
               </div>
             </div>
+            <h3 className="text-xl font-extrabold text-[#111111] mt-4">MT5 Platform</h3>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.6;
-          }
-          50% {
-            opacity: 1;
-          }
-        }
-      `}</style>
     </section>
   )
 }
