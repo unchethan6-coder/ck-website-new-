@@ -273,9 +273,6 @@ export default function Home() {
       {/* ===== SECTION 5.7: SCALING JOURNEY ===== */}
       <ScalingJourney />
 
-      {/* ===== SECTION 5.8: AI INSIGHTS ===== */}
-      <AIInsightsSection />
-
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
@@ -421,7 +418,7 @@ export default function Home() {
                     className="button-primary block w-full text-center mb-6"
                     aria-label={`Buy ${card.size} challenge for ${card.price}`}
                   >
-                    Buy Challenge
+                    Start Challenge
                   </Link>
 
                   <div className="space-y-2 text-sm text-black/70">

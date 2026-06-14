@@ -144,7 +144,7 @@ export default function TraderJourney() {
                 className="w-full bg-white text-[#0A1628] hover:bg-gray-100 font-bold py-3 rounded-lg transition-all"
                 asChild
               >
-                <a href="https://app.ckcapital.co.uk/buy-challenge">Buy Challenge</a>
+                <a href="https://app.ckcapital.co.uk/buy-challenge">Start Challenge</a>
               </Button>
             </div>
           </div>
