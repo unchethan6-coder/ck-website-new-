@@ -15,13 +15,11 @@ const CERTS = [
 export function FeaturedPayouts() {
   const rows = [
     CERTS,
-    [...CERTS.slice(3), ...CERTS.slice(0, 3)],
-    [...CERTS.slice(6), ...CERTS.slice(0, 6)],
   ]
   return (
     <section
-      className='relative overflow-hidden py-16 md:py-24'
-      style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #FFFBEA 42%, #FFF2C2 50%, #FFFBEA 58%, #FFFFFF 100%)' }}
+      className='relative overflow-hidden py-16'
+      style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #FFFBEA 42%, #FFF2C2 50%, #FFFBEA 58%, #FFFFFF 100%)', paddingBottom: '143px' }}
     >
       <style>{`@keyframes pay-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes pay-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}.pay-row-l{animation:pay-l 60s linear infinite}.pay-row-r{animation:pay-r 60s linear infinite}.pay-row-l:hover,.pay-row-r:hover{animation-play-state:paused}`}</style>
 
