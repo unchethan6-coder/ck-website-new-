@@ -137,7 +137,7 @@ export default function EvaluationPage() {
       {/* FAQ Accordion */}
       <section className="py-16 bg-card/20">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Frequently Asked Questions</h2>
+          <h2 className="section-title text-black mb-12 text-center">Frequently Asked Questions</h2>
 
           <div className="space-y-4">
             {[
