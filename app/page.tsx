@@ -23,8 +23,63 @@ const ScalingJourney = dynamic(() => import('@/components/ScalingJourney').then(
 const ProcessSteps = dynamic(() => import('@/components/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), { ssr: false })
 
 export default function Home() {
-  const [selectedChallengeType, setSelectedChallengeType] = useState('all')
+  const [selectedChallengeType, setSelectedChallengeType] = useState('standard')
   const [pricingView, setPricingView] = useState<'cards' | 'table'>('cards')
+
+    const SPLIT: Record<string, string> = { standard: 'Up to 100%', middleweight: 'Up to 100%', lightweight: 'Up to 100%', '1step': 'Up to 100%', instant: 'Bi-weekly 50%' }
+    const CHALLENGE_DATA: Record<string, Record<string, string[]>> = {
+      standard: {
+        '$2.5K': ['$250','$125','$80','$200','N/A'],
+        '$5K': ['$500','$250','$200','$400','N/A'],
+        '$10K': ['$1,000','$500','$400','$800','N/A'],
+        '$25K': ['$2,500','$1,250','$1,000','$2,000','N/A'],
+        '$50K': ['$5,000','$2,500','$2,000','$4,000','N/A'],
+        '$100K': ['$10,000','$5,000','$4,000','$8,000','N/A'],
+      },
+      middleweight: {
+        '$2.5K': ['$200','$125','$80','$300','30%'],
+        '$5K': ['$400','$250','$200','$600','30%'],
+        '$10K': ['$800','$500','$400','$1,200','30%'],
+        '$25K': ['$2,000','$1,250','$1,000','$3,000','30%'],
+        '$50K': ['$4,000','$2,500','$2,000','$6,000','30%'],
+        '$100K': ['$8,000','$5,000','$4,000','$12,000','30%'],
+      },
+      lightweight: {
+        '$2.5K': ['$150','$150','$80','$200','50%'],
+        '$5K': ['$300','$300','$200','$400','50%'],
+        '$10K': ['$600','$600','$400','$800','50%'],
+        '$25K': ['$1,500','$1,500','$1,000','$2,000','50%'],
+        '$50K': ['$3,000','$3,000','$2,000','$4,000','50%'],
+        '$100K': ['$6,000','$6,000','$4,000','$8,000','50%'],
+      },
+      '1step': {
+        '$2.5K': ['$250','$0','$80','$150','N/A'],
+        '$5K': ['$500','$0','$200','$300','N/A'],
+        '$10K': ['$1,000','$0','$400','$600','N/A'],
+        '$25K': ['$2,500','$0','$1,000','$1,500','N/A'],
+        '$50K': ['$5,000','$0','$2,000','$3,000','N/A'],
+        '$100K': ['$10,000','$0','$4,000','$6,000','N/A'],
+      },
+      instant: {
+        '$5K': ['$0','$0','$150','$250','20%'],
+        '$10K': ['$0','$0','$300','$500','20%'],
+        '$25K': ['$0','$0','$750','$1,250','20%'],
+        '$50K': ['$0','$0','$1,500','$2,500','20%'],
+      },
+    }
+    const activeType = CHALLENGE_DATA[selectedChallengeType] ? selectedChallengeType : 'standard'
+    const BASE_CARDS: { size: string; price: string; oldPrice: string; badge: string | null }[] = [
+      { size: '$2.5K', price: '$9', oldPrice: '$99', badge: null },
+      { size: '$5K', price: '$13', oldPrice: '$99', badge: null },
+      { size: '$10K', price: '$19', oldPrice: '$99', badge: 'MOST POPULAR' },
+      { size: '$25K', price: '$68.40', oldPrice: '$274.50', badge: null },
+      { size: '$50K', price: '$98.40', oldPrice: '$394.00', badge: null },
+      { size: '$100K', price: '$176.40', oldPrice: '$705.60', badge: null },
+    ]
+    const cards = BASE_CARDS.filter((b) => CHALLENGE_DATA[activeType][b.size]).map((b) => {
+      const f = CHALLENGE_DATA[activeType][b.size]
+      return { ...b, type: activeType, features: { phase1: f[0], phase2: f[1], maxDaily: f[2], maxLoss: f[3], period: 'Unlimited', minDays: '1', profitSplit: SPLIT[activeType], consistency: f[4] } }
+    })
   
   return (
     <div className="min-h-screen bg-background">
@@ -334,110 +389,7 @@ export default function Home() {
           {pricingView === 'cards' && (
           <div className="overflow-x-auto pb-4 mb-8 -mx-4 sm:mx-0 px-4 sm:px-0">
             <div className="flex gap-4 md:gap-6 min-w-max pb-4" style={{ alignItems: 'stretch', paddingBottom: '60px', gap: '37px', marginTop: '58px' }}>
-              {[
-                {
-                  size: '$2.5K',
-                  price: '$9',
-                  oldPrice: '$99',
-                  badge: null,
-                  type: 'standard',
-                  features: {
-                    phase1: '$200',
-                    phase2: '$125',
-                    maxDaily: '$80',
-                    maxLoss: '$200',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$5K',
-                  price: '$13',
-                  oldPrice: '$99',
-                  badge: null,
-                  type: 'standard',
-                  features: {
-                    phase1: '$400',
-                    phase2: '$250',
-                    maxDaily: '$200',
-                    maxLoss: '$400',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$10K',
-                  price: '$19',
-                  oldPrice: '$99',
-                  badge: 'MOST POPULAR',
-                  type: 'middleweight',
-                  features: {
-                    phase1: '$1,000',
-                    phase2: '$500',
-                    maxDaily: '$400',
-                    maxLoss: '$800',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$25K',
-                  price: '$68.40',
-                  oldPrice: '$274.50',
-                  badge: null,
-                  type: 'lightweight',
-                  features: {
-                    phase1: '$2,500',
-                    phase2: '$1,250',
-                    maxDaily: '$1,000',
-                    maxLoss: '$2,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$50K',
-                  price: '$98.40',
-                  oldPrice: '$394.00',
-                  badge: null,
-                  type: 'lightweight',
-                  features: {
-                    phase1: '$5,000',
-                    phase2: '$2,500',
-                    maxDaily: '$2,000',
-                    maxLoss: '$4,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '30%',
-                  },
-                },
-                {
-                  size: '$100K',
-                  price: '$176.40',
-                  oldPrice: '$705.60',
-                  badge: null,
-                  type: '1step',
-                  features: {
-                    phase1: '$10,000',
-                    phase2: '$5,000',
-                    maxDaily: '$4,000',
-                    maxLoss: '$8,000',
-                    period: 'Unlimited',
-                    minDays: '1',
-                    profitSplit: 'Up to 100%',
-                    consistency: '20%',
-                  },
-                },
-              ].map((card, idx) => (
+              {cards.map((card, idx) => (
                 <div
                   key={idx}
                   className={`glow-card relative flex-shrink-0 w-72 sm:w-80 transition-all ${
