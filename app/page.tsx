@@ -273,9 +273,6 @@ export default function Home() {
       {/* ===== SECTION 5.7: SCALING JOURNEY ===== */}
       <ScalingJourney />
 
-      {/* ===== SECTION 5.8: AI INSIGHTS ===== */}
-      <AIInsightsSection />
-
       {/* ===== SECTION 6: LIMITED-TIME OFFER ===== */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
