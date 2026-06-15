@@ -27,7 +27,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="glow-card mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Our Story</h2>
+            <h2 className="text-3xl font-bold text-white mb-4" style={{ color: '#101010' }}>Our Story</h2>
             <p className="text-foreground leading-relaxed">
               CK Capital was founded with a mission to support aspiring traders by bridging the gap between potential and achievement. Backed by a team of industry experts, we offer trader-friendly systems, in-house technology, and unparalleled support. We believe that with the right environment, education, and opportunity, traders can achieve remarkable results.
             </p>
@@ -40,13 +40,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="glow-card">
-              <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-white mb-4" style={{ color: '#0a0909' }}>Our Mission</h3>
               <p className="text-foreground">
                 We provide traders with innovative tools, structured guidance, and an evaluation process using simulated capital to develop discipline, skill, and consistent profitability. We're committed to democratizing access to prop trading opportunities for traders worldwide.
               </p>
             </div>
             <div className="glow-card">
-              <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-white mb-4" style={{ color: '#030303' }}>Our Vision</h3>
               <p className="text-foreground">
                 To empower traders to reach their full potential, redefine personal success, and cultivate a global community of consistently profitable traders. We envision a future where trading skill is rewarded fairly and everyone has equal opportunity.
               </p>
@@ -58,10 +58,10 @@ export default function AboutPage() {
       {/* Founder */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Our Leadership</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0f0e0e' }}>Our Leadership</h2>
           
           <div className="glow-card">
-            <h3 className="text-2xl font-bold text-white mb-2">Daniel Cheung - Founder</h3>
+            <h3 className="text-2xl font-bold text-white mb-2" style={{ color: '#131212' }}>Daniel Cheung - Founder</h3>
             <p className="text-sm text-primary mb-4">Seven-figure trader | FX Brokering Expert | Private Capital Specialist</p>
             <p className="text-foreground leading-relaxed">
               UK-born Daniel Cheung is a seven-figure trader with extensive experience in FX brokering, private capital management, and professional funds. He champions an &apos;us vs us&apos; mindset, emphasizing self-growth and collective improvement. Daniel&apos;s vision for CK Capital is to create an environment where traders are supported like family while being rewarded for their skills.
@@ -73,7 +73,7 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Our Values</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#191818' }}>Our Values</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -93,12 +93,15 @@ export default function AboutPage() {
                 title: 'Innovation',
                 description: 'We continuously improve our technology and services for traders.',
               },
-            ].map((value, idx) => (
-              <div key={idx} className="glow-card">
-                <h3 className="text-lg font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-foreground text-sm">{value.description}</p>
-              </div>
-            ))}
+            ].map((value, idx) => {
+              const valueColors = ['#191919', '#202020', '#060606', '#080808'];
+              return (
+                <div key={idx} className="glow-card">
+                  <h3 className="text-lg font-bold text-white mb-2" style={{ color: valueColors[idx] }}>{value.title}</h3>
+                  <p className="text-foreground text-sm">{value.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -125,7 +128,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 bg-card/20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Join the CK Capital Community</h2>
+          <h2 className="text-3xl font-bold text-white mb-6" style={{ color: '#080707' }}>Join the CK Capital Community</h2>
           <p className="text-lg text-foreground mb-8">
             Be part of a growing global community of successful traders.
           </p>
@@ -143,6 +146,7 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="button-secondary"
+              style={{ color: '#000000', background: 'linear-gradient(to right in oklab, rgb(212, 175, 55) 0%, rgb(240, 230, 140) 100%)' }}
             >
               Join Discord
             </Link>
