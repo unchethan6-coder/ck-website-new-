@@ -18,8 +18,9 @@ export function Navbar() {
     <nav className="sticky top-4 z-50 px-4 md:px-6">
       <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-bold text-lg text-black hover:text-primary transition-colors">
-          CK CAPITAL
+        <Link href="/" className="flex items-center" aria-label="CK Capital home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-8 md:h-9 w-auto" />
         </Link>
 
         {/* Desktop Menu */}
