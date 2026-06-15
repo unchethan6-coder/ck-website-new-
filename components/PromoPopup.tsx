@@ -68,10 +68,10 @@ export function PromoPopup() {
       />
 
       {/* Popup Modal */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto sm:max-h-none sm:overflow-visible">
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-2rem)] max-w-md max-h-[90vh] overflow-y-auto sm:max-h-none sm:overflow-visible">
         <div
-          className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-4 shadow-2xl"
-          style={{ borderColor: '#FFD700' }}
+          className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-4 shadow-2xl overflow-hidden"
+          style={{ borderColor: '#FFD700', backgroundColor: '#ffffff', backgroundImage: 'linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.88)), url("https://d8j0ntlcm91z4.cloudfront.net/user_3DDBO5ZLldZQZLxxyVBdiTQXCB0/hf_20260615_095616_05fe23c6-d2fc-4390-b055-ada610dfdfe7.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           {/* Close Button */}
           <button
