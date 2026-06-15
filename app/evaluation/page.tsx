@@ -11,9 +11,9 @@ export default function EvaluationPage() {
 
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#070A18] via-[#0C1024] to-[#070A18]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#13100A] via-[#13100A] to-[#13100A]" />
         <div className="absolute inset-0" style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(110, 84, 255, 0.1) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)',
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
@@ -51,7 +51,7 @@ export default function EvaluationPage() {
             ].map((item, idx) => (
               <div key={idx} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#7C5CFF] flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#D4AF37] flex items-center justify-center text-white font-bold text-lg">
                     {item.step}
                   </div>
                   {idx < 2 && (
