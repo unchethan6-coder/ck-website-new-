@@ -19,9 +19,9 @@ export default function HallOfFamePage() {
 
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#070A18] via-[#0C1024] to-[#070A18]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#13100A] via-[#13100A] to-[#13100A]" />
         <div className="absolute inset-0" style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(110, 84, 255, 0.1) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)',
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
@@ -46,7 +46,7 @@ export default function HallOfFamePage() {
               const winRateColors = ['#100f0f', '#100f0f', '#2e2929'];
               return (
                 <div key={idx} className={`glow-card relative ${idx === 0 ? 'md:scale-105' : ''}`} style={{ color: '#070707' }}>
-                  <div className="absolute -top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#7C5CFF] flex items-center justify-center text-white font-bold text-lg">
+                  <div className="absolute -top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#D4AF37] flex items-center justify-center text-white font-bold text-lg">
                     #{trader.rank}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 mt-4" style={{ color: nameColors[idx] }}>{trader.name}</h3>
