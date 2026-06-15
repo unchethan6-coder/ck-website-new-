@@ -102,7 +102,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Main Heading */}
           <h1 className="hero-title text-[#111111] mb-6 text-balance">
-            Traders Transforming Into Winners
+            Transforming Traders Into Winners Globally
           </h1>
 
           {/* CTAs */}
@@ -131,7 +131,7 @@ export default function Home() {
                   <span key={i}>★</span>
                 ))}
               </div>
-              <span>Rated 4.9/5 on Trustpilot</span>
+              <span>Rated 4.5/5 on Trustpilot</span>
               <a
                 href="https://uk.trustpilot.com/review/ckcapital.co.uk"
                 target="_blank"
@@ -145,7 +145,10 @@ export default function Home() {
 
           {/* Count-up Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12">
-            <StatCounter target={100} label="Max Profit Split" format="percent" />
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold gradient-text">Up to 100%</div>
+              <div className="text-sm text-[#4B5563] mt-2">Profit Split</div>
+            </div>
             <StatCounter target={1200000} label="Max Simulated Capital" format="currency" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text">24/7</div>
@@ -362,16 +365,16 @@ export default function Home() {
                     <div 
                       className="mt-4 px-3 py-2 rounded-lg border-2 border-dashed flex items-center gap-2 cursor-pointer hover:bg-opacity-80 transition-all justify-center"
                       style={{
-                        backgroundColor: '#1a4d2e',
-                        borderColor: '#4CAF50',
+                        background: 'linear-gradient(to right, #D4AF37 0%, #F0E68C 100%)',
+                        borderColor: '#D4AF37',
                       }}
                       onClick={() => {
                         navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`);
                       }}
                       title="Click to copy code"
                     >
-                      <span className="text-white font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <span className="text-[#3D2200] font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
+                      <svg className="w-4 h-4 text-[#3D2200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
                     </div>
