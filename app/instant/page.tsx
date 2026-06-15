@@ -24,7 +24,7 @@ export default function InstantPage() {
           <h1 className="hero-title text-white mb-6 text-balance">
             No Challenge.<br />Start <span className="gradient-text">Instantly</span>.
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#e8e9eb' }}>
             Skip the evaluation process and get funded immediately. Start trading right away with accounts from $5K to $50K.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function InstantPage() {
       {/* Benefits Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Why Choose Instant Funding?</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0a0a0a' }}>Why Choose Instant Funding?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -67,13 +67,16 @@ export default function InstantPage() {
                 title: '100% Profit Share',
                 description: 'Keep up to 100% of your simulated profits. No hidden fees.'
               },
-            ].map((item, idx) => (
-              <div key={idx} className="glow-card flex flex-col items-start">
-                <div className="mb-4">{item.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-foreground text-sm">{item.description}</p>
-              </div>
-            ))}
+            ].map((item, idx) => {
+              const titleColors = ['#0a0a0a', '#121212', '#0e0e0e', '#171717', '#0c0c0c', '#191818'];
+              return (
+                <div key={idx} className="glow-card flex flex-col items-start" style={{ color: '#0f1010' }}>
+                  <div className="mb-4">{item.icon}</div>
+                  <h3 className="text-lg font-bold text-white mb-2" style={{ color: titleColors[idx] }}>{item.title}</h3>
+                  <p className="text-foreground text-sm">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -81,7 +84,7 @@ export default function InstantPage() {
       {/* Instant Pricing */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Instant Funding Prices</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0d0c0c' }}>Instant Funding Prices</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
@@ -109,15 +112,14 @@ export default function InstantPage() {
       </section>
 
       {/* Comparison vs Challenge */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Instant vs Challenge</h2>
+      <div className="max-w-4xl mx-auto px-4 md:px-6" style={{ color: '#191a1b' }}>
+        <h2 className="section-title text-white mb-12 text-center" style={{ color: '#040404' }}>Instant vs Challenge</h2>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-white font-semibold">Feature</th>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="text-left py-3 px-4 text-white font-semibold" style={{ color: '#0c0c0c' }}>Feature</th>
                   <th className="text-center py-3 px-4 text-primary font-semibold">Instant Funding</th>
                   <th className="text-center py-3 px-4 text-foreground font-semibold">1-Step Challenge</th>
                 </tr>
@@ -141,13 +143,12 @@ export default function InstantPage() {
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
+      </div>
 
       {/* FAQ */}
       <section className="py-16 bg-card/20">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">FAQ</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0f0f0f' }}>FAQ</h2>
 
           <div className="space-y-4">
             {[
