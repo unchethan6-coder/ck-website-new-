@@ -61,14 +61,14 @@ export default function BlogPage() {
           <h1 className="hero-title text-white mb-6 text-balance">
             CK Capital <span className="gradient-text">Blog</span>
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#ffffff' }}>
             Trading insights, market analysis, and success stories from our community.
           </p>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-12">
+      <section className="py-12" style={{ color: '#000000' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             {categories.map((cat, idx) => (
@@ -92,10 +92,10 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12">
           <div className="glow-card border-primary/30 h-64 flex flex-col justify-between">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary text-xs font-semibold mb-4">
+              <span className="inline-block px-3 py-1 rounded-full text-white text-xs font-bold mb-4" style={{ background: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)' }}>
                 Featured
               </span>
-              <h2 className="text-3xl font-bold text-white mb-3">
+              <h2 className="text-3xl font-bold text-white mb-3" style={{ color: '#030303' }}>
                 {posts[0].title}
               </h2>
               <p className="text-foreground text-lg">{posts[0].excerpt}</p>
@@ -114,21 +114,25 @@ export default function BlogPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.slice(1).map((post, idx) => (
-              <div key={idx} className="glow-card flex flex-col">
-                <span className="inline-block px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary text-xs font-semibold mb-3 w-fit">
-                  {post.category}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2 flex-1">{post.title}</h3>
-                <p className="text-foreground text-sm mb-4">{post.excerpt}</p>
-                <div className="flex justify-between items-center text-sm text-muted-foreground">
-                  <span>{post.date}</span>
-                  <Link href="#" className="text-primary hover:text-[#7C5CFF] transition-colors">
-                    Read →
-                  </Link>
+            {posts.slice(1).map((post, idx) => {
+              const titleColors = ['#171717', '#0d0c0c', '#0d0d0d', '#0b0b0b', '#161515'];
+              const badgeColors = ['#f1efe9', '#f3f2ed', '#edebe6', '#f0ede7', '#f2f1ed'];
+              return (
+                <div key={idx} className="glow-card flex flex-col">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 w-fit" style={{ background: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)', color: badgeColors[idx] }}>
+                    {post.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-2 flex-1" style={{ color: titleColors[idx] }}>{post.title}</h3>
+                  <p className="text-foreground text-sm mb-4">{post.excerpt}</p>
+                  <div className="flex justify-between items-center text-sm text-muted-foreground">
+                    <span>{post.date}</span>
+                    <Link href="#" className="text-primary hover:text-[#7C5CFF] transition-colors">
+                      Read →
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
