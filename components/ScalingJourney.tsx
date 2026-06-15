@@ -41,7 +41,7 @@ export function ScalingJourney() {
                 </div>
                 {idx < milestones.length - 1 && (
                   <div className="flex-shrink-0 mb-8">
-                    <ArrowRight className="w-6 h-6 text-blue-600" />
+                    <ArrowRight className="w-6 h-6 text-white" />
                   </div>
                 )}
               </React.Fragment>
@@ -54,7 +54,7 @@ export function ScalingJourney() {
           {milestones.map((milestone, idx) => (
             <div key={idx} className="flex gap-3 items-start">
               <div className="flex-shrink-0 mt-1">
-                <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                <CheckCircle2 className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1 bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="text-xl font-bold text-black">{milestone.capital}</div>
