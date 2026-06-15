@@ -133,15 +133,15 @@ export function TradingPlatformsSection() {
             </div>
           </div>
 
-          {/* Daily Payouts — wide top card */}
+          {/* Fast Payouts — wide top card */}
           <div
             className="md:col-span-2 rounded-3xl border border-black/5 p-7 flex flex-col sm:flex-row items-center gap-6 shadow-sm"
             style={{ background: CARD_BG }}
           >
             <div className="flex-1 order-2 sm:order-1">
-              <h3 className="text-2xl font-extrabold text-[#111111]">Daily Payouts!</h3>
+              <h3 className="text-2xl font-extrabold text-[#111111]">Fast Payouts</h3>
               <p className="mt-3 text-sm text-[#5b5b5b] leading-relaxed max-w-md">
-                Say goodbye to waiting for your rewards! We handle payout requests every day,
+                Say goodbye to waiting for your rewards! Our streamlined payout process is fast and reliable,
                 guaranteeing that you can access your earnings whenever you need them.
               </p>
               <p className="mt-4 text-[11px] text-[#8a8a8a]">
