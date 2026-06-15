@@ -170,7 +170,7 @@ export function Footer() {
             <div className="text-sm" style={{ color: '#ffffff' }}>
               <p className="text-white font-semibold mb-2">Quick Links</p>
               <div className="space-y-1" style={{ color: '#ffffff' }}>
-                <Link href="/" className="block text-foreground hover:text-primary transition-colors">
+                <Link href="/" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#ffffff' }}>
                   Home
                 </Link>
                 <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#f8f7f6' }}>
