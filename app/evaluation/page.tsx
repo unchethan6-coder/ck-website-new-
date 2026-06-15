@@ -27,9 +27,9 @@ export default function EvaluationPage() {
       </section>
 
       {/* 3-Step Process */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Your Path to Success</h2>
+      <section className="py-16" style={{ color: '#1b1b1c' }}>
+        <div className="max-w-4xl mx-auto px-4 md:px-6" style={{ color: '#000000' }}>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#050505' }}>Your Path to Success</h2>
 
           <div className="space-y-8">
             {[
@@ -59,7 +59,7 @@ export default function EvaluationPage() {
                   )}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2" style={{ color: idx === 0 ? '#0e0d0d' : idx === 1 ? '#252424' : '#161414' }}>{item.title}</h3>
                   <p className="text-foreground">{item.description}</p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function EvaluationPage() {
       {/* Rules Grid */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Trading Rules</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#080808' }}>Trading Rules</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -94,7 +94,7 @@ export default function EvaluationPage() {
       {/* Pricing Table */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center">Evaluation Pricing</h2>
+          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#181717' }}>Evaluation Pricing</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -115,7 +115,7 @@ export default function EvaluationPage() {
               },
             ].map((plan, idx) => (
               <div key={idx} className="glow-card text-center">
-                <h3 className="text-xl font-bold text-white mb-3">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-3" style={{ color: idx === 0 ? '#161515' : idx === 1 ? '#070707' : '#0b0b0b' }}>{plan.name}</h3>
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-primary">{plan.price}</span>
                   <span className="text-sm text-muted-foreground line-through ml-2">{plan.oldPrice}</span>
