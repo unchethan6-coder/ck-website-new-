@@ -365,16 +365,16 @@ export default function Home() {
                     <div 
                       className="mt-4 px-3 py-2 rounded-lg border-2 border-dashed flex items-center gap-2 cursor-pointer hover:bg-opacity-80 transition-all justify-center"
                       style={{
-                        backgroundColor: '#1a4d2e',
-                        borderColor: '#4CAF50',
+                        background: 'linear-gradient(to right, #D4AF37 0%, #F0E68C 100%)',
+                        borderColor: '#D4AF37',
                       }}
                       onClick={() => {
                         navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`);
                       }}
                       title="Click to copy code"
                     >
-                      <span className="text-white font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <span className="text-[#3D2200] font-bold text-sm">{`JUN70-${card.size.replace('$', '').replace('K', '')}`}</span>
+                      <svg className="w-4 h-4 text-[#3D2200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
                     </div>
