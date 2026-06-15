@@ -107,7 +107,7 @@ export default function Disclaimer() {
           <section className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Acknowledgment</h2>
             <p className="leading-relaxed">
-              By accessing or using CK Capital services, users acknowledge and accept all associated risks and agree to the <a href="/terms" className="text-[#A87B0B] hover:underline font-medium">Terms & Conditions</a> and <a href="/privacy" className="text-[#A87B0B] hover:underline font-medium">Privacy Policy</a>.
+              By accessing or using CK Capital services, users acknowledge and accept all associated risks and agree to the <a href="/terms" className="text-blue-600 hover:underline font-medium">Terms & Conditions</a> and <a href="/privacy" className="text-blue-600 hover:underline font-medium">Privacy Policy</a>.
             </p>
           </section>
 

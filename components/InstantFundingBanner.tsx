@@ -72,7 +72,7 @@ export function InstantFundingBanner() {
         }
         .if-card {
           background:
-            radial-gradient(120% 140% at 0% 0%, #3a2f10 0%, rgba(28,24,64,0) 55%),
+            radial-gradient(120% 140% at 0% 0%, #1c1840 0%, rgba(28,24,64,0) 55%),
             linear-gradient(135deg, #13112a 0%, #0b0a1b 100%);
           border: 1px solid rgba(255,255,255,0.08);
           box-shadow: 0 24px 60px rgba(10,8,30,0.45);
@@ -90,12 +90,12 @@ export function InstantFundingBanner() {
         }
         .if-glow-1 {
           left: -10%;
-          background: radial-gradient(circle, rgba(212, 175, 55,0.85) 0%, rgba(212, 175, 55,0) 70%);
+          background: radial-gradient(circle, rgba(124,92,255,0.85) 0%, rgba(124,92,255,0) 70%);
           animation: if-sweep1 9s ease-in-out infinite;
         }
         .if-glow-2 {
           right: -10%;
-          background: radial-gradient(circle, rgba(201, 162, 39,0.7) 0%, rgba(201, 162, 39,0) 70%);
+          background: radial-gradient(circle, rgba(91,63,209,0.7) 0%, rgba(91,63,209,0) 70%);
           animation: if-sweep2 11s ease-in-out infinite;
         }
         @keyframes if-sweep1 {

@@ -12,7 +12,7 @@ export default function TradingRules() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-          <div className="bg-gradient-to-br from-[#D4AF37] to-[#F0E68C] p-4 sm:p-6 md:p-8 rounded-lg border border-[#D4AF37]">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-6 md:p-8 rounded-lg border border-blue-200">
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Evaluation Accounts</h3>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex gap-2 sm:gap-3">
@@ -53,7 +53,7 @@ export default function TradingRules() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-[#D4AF37] to-[#F0E68C] p-4 sm:p-6 md:p-8 rounded-lg border border-[#D4AF37]">
+          <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-4 sm:p-6 md:p-8 rounded-lg border border-cyan-200">
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">CK Trader Accounts</h3>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex gap-2 sm:gap-3">
