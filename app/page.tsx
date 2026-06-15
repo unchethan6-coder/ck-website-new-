@@ -102,7 +102,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
           {/* Main Heading */}
           <h1 className="hero-title text-[#111111] mb-6 text-balance">
-            Traders Transforming Into Winners
+            Transforming Traders Into Winners Globally
           </h1>
 
           {/* CTAs */}
@@ -131,7 +131,7 @@ export default function Home() {
                   <span key={i}>★</span>
                 ))}
               </div>
-              <span>Rated 4.9/5 on Trustpilot</span>
+              <span>Rated 4.5/5 on Trustpilot</span>
               <a
                 href="https://uk.trustpilot.com/review/ckcapital.co.uk"
                 target="_blank"
@@ -145,7 +145,10 @@ export default function Home() {
 
           {/* Count-up Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12">
-            <StatCounter target={100} label="Max Profit Split" format="percent" />
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold gradient-text">Up to 100%</div>
+              <div className="text-sm text-[#4B5563] mt-2">Profit Split</div>
+            </div>
             <StatCounter target={1200000} label="Max Simulated Capital" format="currency" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text">24/7</div>
