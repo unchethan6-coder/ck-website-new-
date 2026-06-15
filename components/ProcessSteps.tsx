@@ -43,12 +43,12 @@ export function ProcessSteps() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
-              <div className="hidden md:block absolute -top-6 left-0 text-6xl font-bold text-white opacity-40">
+              <div className="hidden md:block absolute -top-6 left-0 text-6xl font-bold text-blue-100 opacity-40">
                 {step.number}
               </div>
               <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-200 hover:shadow-md transition-all h-full">
                 <div className="md:hidden mb-3">
-                  <span className="text-3xl font-bold text-white">{step.number}</span>
+                  <span className="text-3xl font-bold text-blue-100">{step.number}</span>
                 </div>
                 <div className="mb-4 md:mb-6">
                   <h3 className="text-lg md:text-2xl font-bold text-black mb-2 md:mb-3">{step.title}</h3>
@@ -62,7 +62,7 @@ export function ProcessSteps() {
 
                 {idx < steps.length - 1 && (
                   <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#D4AF37] to-[#F0E68C]"></div>
+                    <div className="w-8 h-0.5 bg-blue-600"></div>
                   </div>
                 )}
               </div>
