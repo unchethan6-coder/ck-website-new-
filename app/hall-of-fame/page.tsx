@@ -28,7 +28,7 @@ export default function HallOfFamePage() {
           <h1 className="hero-title text-white mb-6 text-balance">
             Hall of <span className="gradient-text">Fame</span>
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#fbfbfe' }}>
             Celebrating our most successful traders who have achieved remarkable results.
           </p>
         </div>
@@ -37,33 +37,38 @@ export default function HallOfFamePage() {
       {/* Top Traders Carousel */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-12 text-center">Top Performers</h2>
+          <h2 className="text-2xl font-bold text-white mb-12 text-center" style={{ color: '#090909' }}>Top Performers</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {topTraders.slice(0, 3).map((trader, idx) => (
-              <div key={idx} className={`glow-card relative ${idx === 0 ? 'md:scale-105' : ''}`}>
-                <div className="absolute -top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#7C5CFF] flex items-center justify-center text-white font-bold text-lg">
-                  #{trader.rank}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4 mt-4">{trader.name}</h3>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Simulated Payout</p>
-                    <p className="text-3xl font-bold text-primary">{trader.payout}</p>
+            {topTraders.slice(0, 3).map((trader, idx) => {
+              const nameColors = ['#0f0e0e', '#100f0f', '#0c0b0b'];
+              const dayColors = ['#121212', '#0c0b0b', '#0e0d0d'];
+              const winRateColors = ['#100f0f', '#100f0f', '#2e2929'];
+              return (
+                <div key={idx} className={`glow-card relative ${idx === 0 ? 'md:scale-105' : ''}`} style={{ color: '#070707' }}>
+                  <div className="absolute -top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#7C5CFF] flex items-center justify-center text-white font-bold text-lg">
+                    #{trader.rank}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="text-2xl font-bold text-white mb-4 mt-4" style={{ color: nameColors[idx] }}>{trader.name}</h3>
+                  <div className="space-y-3">
                     <div>
-                      <p className="text-xs text-muted-foreground">Trading Days</p>
-                      <p className="text-lg font-bold text-white">{trader.days}</p>
+                      <p className="text-sm text-muted-foreground">Simulated Payout</p>
+                      <p className="text-3xl font-bold text-primary">{trader.payout}</p>
                     </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground">Win Rate</p>
-                      <p className="text-lg font-bold text-white">{trader.winRate}</p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-xs text-muted-foreground">Trading Days</p>
+                        <p className="text-lg font-bold text-white" style={{ color: dayColors[idx] }}>{trader.days}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground">Win Rate</p>
+                        <p className="text-lg font-bold text-white" style={{ color: winRateColors[idx] }}>{trader.winRate}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -71,17 +76,17 @@ export default function HallOfFamePage() {
       {/* Leaderboard */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Full Leaderboard</h2>
+          <h2 className="text-2xl font-bold text-white mb-8 text-center" style={{ color: '#161515' }}>Full Leaderboard</h2>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-white font-semibold">Rank</th>
+                  <th className="text-left py-3 px-4 text-white font-semibold" style={{ color: '#090909' }}>Rank</th>
                   <th className="text-left py-3 px-4 text-white font-semibold">Trader</th>
-                  <th className="text-right py-3 px-4 text-white font-semibold">Simulated Payout</th>
-                  <th className="text-center py-3 px-4 text-white font-semibold">Days Trading</th>
-                  <th className="text-center py-3 px-4 text-white font-semibold">Win Rate</th>
+                  <th className="text-right py-3 px-4 text-white font-semibold" style={{ color: '#232020' }}>Simulated Payout</th>
+                  <th className="text-center py-3 px-4 text-white font-semibold" style={{ color: '#070707' }}>Days Trading</th>
+                  <th className="text-center py-3 px-4 text-white font-semibold" style={{ color: '#1a1919' }}>Win Rate</th>
                 </tr>
               </thead>
               <tbody>
