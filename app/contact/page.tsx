@@ -20,7 +20,7 @@ export default function ContactPage() {
           <h1 className="hero-title text-white mb-6 text-balance">
             Get In <span className="gradient-text">Touch</span>
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Have questions? Our support team is here to help. Reach out anytime.
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function ContactPage() {
             <div className="glow-card text-center">
               <MessageCircle className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Discord Support</h3>
-              <p className="text-foreground text-sm mb-6">
+              <p className="text-white text-sm mb-6">
                 Join our Discord community for instant support and connect with fellow traders.
               </p>
               <a
@@ -51,7 +51,7 @@ export default function ContactPage() {
             <div className="glow-card text-center">
               <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Office Address</h3>
-              <p className="text-foreground text-sm">
+              <p className="text-white text-sm">
                 6-7 Waterside Station Road<br />
                 Harpenden, AL5 4US<br />
                 United Kingdom
@@ -62,7 +62,7 @@ export default function ContactPage() {
             <div className="glow-card text-center">
               <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Support Hours</h3>
-              <p className="text-foreground text-sm">
+              <p className="text-white text-sm">
                 Monday - Friday<br />
                 8am - 8pm GMT<br />
                 <span className="text-primary">24/7 Community Support</span>
