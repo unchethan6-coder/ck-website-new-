@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { CKFtmoInspiredSections } from '@/components/CKFtmoInspiredSections'
 
 const imgImage1 = 'https://www.figma.com/api/mcp/asset/31e527f8-6623-4bc3-899c-027d5f537991'
 const imgVector = 'https://www.figma.com/api/mcp/asset/f1362b7b-f662-41df-b4cf-6f98c9c5388c'
@@ -26,51 +27,54 @@ function FigmaDiscordPreview() {
 
 export function DiscordCommunitySection() {
   return (
-    <section className="relative overflow-hidden bg-[#F2F2F2] px-4 py-16 md:min-h-[760px] md:px-6 md:py-24 lg:min-h-[880px] xl:min-h-[1040px]">
-      <style jsx global>{`
-        body > div > section[style*='#010015'],
-        body > div > section[style*='rgb(1, 0, 21)'] {
-          display: none !important;
-        }
-      `}</style>
+    <>
+      <CKFtmoInspiredSections />
+      <section className="relative overflow-hidden bg-[#F2F2F2] px-4 py-16 md:min-h-[760px] md:px-6 md:py-24 lg:min-h-[880px] xl:min-h-[1040px]">
+        <style jsx global>{`
+          body > div > section[style*='#010015'],
+          body > div > section[style*='rgb(1, 0, 21)'] {
+            display: none !important;
+          }
+        `}</style>
 
-      <div className="pointer-events-none absolute left-[22%] top-[-180px] hidden h-[880px] w-[960px] -rotate-[77deg] scale-y-[-1] opacity-90 md:block lg:left-[28%] lg:top-[-220px] xl:left-[31%] xl:top-[-35px] xl:h-[836px] xl:w-[1238px]">
-        <img alt="" className="h-full w-full object-contain blur-[70px] md:blur-[95px] xl:blur-[120px]" src={imgVector} />
-      </div>
+        <div className="pointer-events-none absolute left-[22%] top-[-180px] hidden h-[880px] w-[960px] -rotate-[77deg] scale-y-[-1] opacity-90 md:block lg:left-[28%] lg:top-[-220px] xl:left-[31%] xl:top-[-35px] xl:h-[836px] xl:w-[1238px]">
+          <img alt="" className="h-full w-full object-contain blur-[70px] md:blur-[95px] xl:blur-[120px]" src={imgVector} />
+        </div>
 
-      <div className="relative z-10 mx-auto max-w-[1680px]">
-        <div className="relative z-20 max-w-[620px] md:ml-[40px] lg:ml-[72px] xl:ml-[115px] xl:pt-[72px]">
-          <div className="flex items-center gap-6 md:gap-8">
-            <img
-              alt="Discord"
-              src={imgImage1}
-              className="h-[68px] w-[90px] object-contain md:h-[90px] md:w-[118px] xl:h-[106px] xl:w-[139.6px]"
-            />
-            <h2 className="text-[64px] font-bold leading-[1.175] tracking-[-0.035em] text-black md:text-[88px] xl:text-[114px]">
-              Discord
-            </h2>
+        <div className="relative z-10 mx-auto max-w-[1680px]">
+          <div className="relative z-20 max-w-[620px] md:ml-[40px] lg:ml-[72px] xl:ml-[115px] xl:pt-[72px]">
+            <div className="flex items-center gap-6 md:gap-8">
+              <img
+                alt="Discord"
+                src={imgImage1}
+                className="h-[68px] w-[90px] object-contain md:h-[90px] md:w-[118px] xl:h-[106px] xl:w-[139.6px]"
+              />
+              <h2 className="text-[64px] font-bold leading-[1.175] tracking-[-0.035em] text-black md:text-[88px] xl:text-[114px]">
+                Discord
+              </h2>
+            </div>
+
+            <p className="mt-10 max-w-[603px] text-[26px] font-bold leading-[1.38] tracking-[0.01em] text-black/50 md:text-[34px] xl:mt-10 xl:text-[39.28px]">
+              Join the official CK Capital Discord community with support channels, announcements, payout updates, and exclusive events.
+            </p>
+
+            <Link
+              href="https://discord.gg/ckcapital"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-14 inline-flex h-[74px] w-[310px] items-center justify-center rounded-full bg-white text-[30px] font-bold leading-[1.175] tracking-[-0.035em] text-black/75 shadow-[0px_66.84px_100.26px_rgba(58,58,58,0.2)] transition-transform hover:-translate-y-1 md:mt-20 md:h-[86px] md:w-[390px] md:text-[40px] xl:mt-[190px] xl:h-[96.29px] xl:w-[446.49px] xl:text-[45.87px]"
+            >
+              JOIN DISCORD
+            </Link>
           </div>
 
-          <p className="mt-10 max-w-[603px] text-[26px] font-bold leading-[1.38] tracking-[0.01em] text-black/50 md:text-[34px] xl:mt-10 xl:text-[39.28px]">
-            Join the official CK Capital Discord community with support channels, announcements, payout updates, and exclusive events.
-          </p>
-
-          <Link
-            href="https://discord.gg/ckcapital"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-14 inline-flex h-[74px] w-[310px] items-center justify-center rounded-full bg-white text-[30px] font-bold leading-[1.175] tracking-[-0.035em] text-black/75 shadow-[0px_66.84px_100.26px_rgba(58,58,58,0.2)] transition-transform hover:-translate-y-1 md:mt-20 md:h-[86px] md:w-[390px] md:text-[40px] xl:mt-[190px] xl:h-[96.29px] xl:w-[446.49px] xl:text-[45.87px]"
-          >
-            JOIN DISCORD
-          </Link>
+          <div className="mt-12 overflow-hidden rounded-3xl bg-[#1E1F22] shadow-[4px_4px_25px_rgba(0,0,0,0.4)] md:hidden">
+            <img alt="Discord CK Capital preview" className="h-auto w-full" src={imgImage3} />
+          </div>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl bg-[#1E1F22] shadow-[4px_4px_25px_rgba(0,0,0,0.4)] md:hidden">
-          <img alt="Discord CK Capital preview" className="h-auto w-full" src={imgImage3} />
-        </div>
-      </div>
-
-      <FigmaDiscordPreview />
-    </section>
+        <FigmaDiscordPreview />
+      </section>
+    </>
   )
 }
