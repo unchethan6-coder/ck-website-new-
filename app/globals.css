@@ -32,6 +32,7 @@ html {
 }
 
 :root {
+  --ck-gold-gradient-oklab: linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%);
   /* Background - Light & Clean */
   --background: #FFFFFF;
   --foreground: #15161a;
@@ -48,12 +49,12 @@ html {
   --popover-foreground: #15161a;
   
   /* Primary gold accent */
-  --primary: #f4c430;
+  --primary: #d4af37;
   --primary-foreground: #15161a;
-  --primary-dark: #d4a830;
+  --primary-dark: #a87b0b;
   
   /* Secondary gold */
-  --secondary: #d4a830;
+  --secondary: #d4af37;
   --secondary-foreground: #15161a;
   
   /* Muted colors */
@@ -61,7 +62,7 @@ html {
   --muted-foreground: #666666;
   
   /* Accent - gold */
-  --accent: #f4c430;
+  --accent: #d4af37;
   --accent-foreground: #15161a;
   
   /* Destructive */
@@ -75,7 +76,7 @@ html {
   --input: #F8F8F8;
   
   /* Ring */
-  --ring: #f4c430;
+  --ring: #d4af37;
   
   /* Chart colors - gold palette */
   --chart-1: #F0E68C;
@@ -171,16 +172,23 @@ html {
 
   /* Gradient Text - dark enough gold to stay readable on white/light backgrounds */
   .gradient-text {
-    @apply bg-gradient-to-r from-[#A87B0B] via-[#D4AF37] to-[#A87B0B] bg-clip-text text-transparent;
+    background: var(--ck-gold-gradient-oklab);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .gradient-text-gold {
-    @apply bg-gradient-to-r from-[#A87B0B] to-[#D4AF37] bg-clip-text text-transparent;
+    background: var(--ck-gold-gradient-oklab);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Button Styles */
   .button-primary {
-    @apply bg-gradient-to-r from-[#D4AF37] to-[#F0E68C] text-black font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_32px_rgba(212,175,55,0.4)] active:scale-95 text-sm sm:text-base;
+    @apply text-black font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-200 hover:shadow-[0_0_32px_rgba(212,175,55,0.4)] active:scale-95 text-sm sm:text-base;
+    background: var(--ck-gold-gradient-oklab);
   }
 
   .button-secondary {
@@ -356,4 +364,21 @@ html {
 
 #start-challenge + section {
   display: none;
+}
+
+/* CK global gold upgrade: use OKLAB gradient for button/box backgrounds, not plain gold fills */
+a[class*="bg-[#D4AF37]"],
+button[class*="bg-[#D4AF37]"],
+div[class*="bg-[#D4AF37]"]:not([class*="/10"]):not([class*="/15"]):not([class*="/20"]),
+span[class*="bg-[#D4AF37]"]:not([class*="/10"]):not([class*="/15"]):not([class*="/20"]),
+a[class*="bg-[#D8AD00]"],
+button[class*="bg-[#D8AD00]"],
+div[class*="bg-[#D8AD00]"]:not([class*="/10"]):not([class*="/15"]):not([class*="/20"]),
+span[class*="bg-[#D8AD00]"]:not([class*="/10"]):not([class*="/15"]):not([class*="/20"]),
+a[class*="from-[#D4AF37]"],
+button[class*="from-[#D4AF37]"],
+a[class*="from-[#D8AD00]"],
+button[class*="from-[#D8AD00]"] {
+  background: var(--ck-gold-gradient-oklab) !important;
+  background-image: var(--ck-gold-gradient-oklab) !important;
 }
