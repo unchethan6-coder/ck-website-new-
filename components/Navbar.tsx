@@ -10,33 +10,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-const promoLoopItems = Array.from({ length: 10 }, (_, index) => index)
-
-function HeaderPromoLoop() {
-  return (
-    <div className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-[#f4c430] via-[#f0e68c] to-[#f4c430] py-2 text-sm font-semibold text-black shadow-md">
-      <style>{`
-        @keyframes header-promo-loop {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .header-promo-loop-track {
-          animation: header-promo-loop 24s linear infinite;
-          will-change: transform;
-        }
-      `}</style>
-      <div className="header-promo-loop-track flex w-max items-center whitespace-nowrap">
-        {[...promoLoopItems, ...promoLoopItems].map((item, index) => (
-          <div key={`${item}-${index}`} className="mx-8 flex items-center gap-2">
-            <span>🏆</span>
-            <span>Join Now &amp; Get JUN70 Code for 70% Off</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -94,8 +67,6 @@ export function Navbar() {
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
-      <HeaderPromoLoop />
 
       {mobileOpen && (
         <div className="md:hidden bg-white rounded-2xl shadow-lg border border-black/5 mx-4 mt-2 px-6 py-4">
