@@ -349,3 +349,7 @@ html {
 .animate-fade-up {
   animation: fadeInUp 0.5s ease-out;
 }
+
+#start-challenge h2 + p {
+  display: none;
+}
