@@ -1,12 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const metrics = [
-  { label: 'Accounts Given Away', value: '12,487', delta: '+17 live today' },
-  { label: 'Rewards Processed', value: '$4.82M', delta: '+$6.4k today' },
-  { label: 'Traders Rewarded', value: '3,427', delta: '+9 today' },
-  { label: 'Countries Active', value: '28', delta: 'live global feed' },
+  { label: 'Accounts Given Away', target: 12487, prefix: '', suffix: '', compact: false, delta: '+17 live today' },
+  { label: 'Rewards Processed', target: 4.82, prefix: '$', suffix: 'M', compact: true, delta: '+$6.4k today' },
+  { label: 'Traders Rewarded', target: 3427, prefix: '', suffix: '', compact: false, delta: '+9 today' },
+  { label: 'Countries Active', target: 28, prefix: '', suffix: '', compact: false, delta: 'live global feed' },
 ]
 
 const countryCards = [
@@ -32,12 +33,43 @@ const mapMarkers = [
   { left: '78%', top: '67%', color: '#40F285' },
 ]
 
-function MetricCard({ label, value, delta }: { label: string; value: string; delta: string }) {
+function AnimatedNumber({ target, prefix = '', suffix = '', compact = false }: { target: number; prefix?: string; suffix?: string; compact?: boolean }) {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    const duration = 1600
+    const startedAt = performance.now()
+    let frame = 0
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setValue(target * eased)
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick)
+      }
+    }
+
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [target])
+
+  const display = compact
+    ? value.toFixed(2)
+    : Math.round(value).toLocaleString('en-US')
+
+  return <>{prefix}{display}{suffix}</>
+}
+
+function MetricCard({ label, target, prefix, suffix, compact, delta }: typeof metrics[number]) {
   return (
     <div className="rounded-lg border border-[#D8AD00]/20 bg-[#0B0B0C] p-2.5 md:p-3">
       <p className="text-[9px] font-bold text-[#969690]">{label}</p>
       <div className="mt-1.5 flex flex-wrap items-end gap-x-2 gap-y-1">
-        <p className="text-xl font-extrabold leading-none text-[#D8AD00] md:text-[22px]">{value}</p>
+        <p className="text-xl font-extrabold leading-none text-[#D8AD00] md:text-[22px]">
+          <AnimatedNumber target={target} prefix={prefix} suffix={suffix} compact={compact} />
+        </p>
         <p className="text-[9px] font-extrabold text-[#40F285]">{delta}</p>
       </div>
     </div>
