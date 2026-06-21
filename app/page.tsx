@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { CheckCircle2 } from 'lucide-react'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { PromoBar } from '@/components/PromoBar'
@@ -13,6 +12,7 @@ import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { FeaturedPayouts } from '@/components/FeaturedPayouts'
 import { InstantFundingBanner } from '@/components/InstantFundingBanner'
+import { HomeDashboardPreview } from '@/components/home/HomeDashboardPreview'
 
 const TradingPlatformsSection = dynamic(() => import('@/components/TradingPlatformsSection').then(mod => ({ default: mod.TradingPlatformsSection })), { ssr: false })
 const ObjectivesTable = dynamic(() => import('@/components/ObjectivesTable').then(mod => ({ default: mod.ObjectivesTable })), { ssr: false })
@@ -176,20 +176,14 @@ export default function Home() {
             CK Capital provides structured simulated trading evaluations designed for disciplined traders who want flexible plans, transparent objectives, and a premium trading experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary">
-              Start Evaluation
-            </Link>
-            <Link href="#start-challenge" className="button-secondary-dark">
-              Compare Plans
-            </Link>
+            <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary">Start Evaluation</Link>
+            <Link href="#start-challenge" className="button-secondary-dark">Compare Plans</Link>
           </div>
           <div className="flex justify-center mb-12">
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl border border-black/10 bg-white/80 px-5 py-3 text-sm text-[#4B5563] shadow-sm backdrop-blur">
               <TrustStars compact />
               <span>Rated 4.9/5 on Trustpilot</span>
-              <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-[#00B67A] font-semibold hover:underline">
-                View Reviews →
-              </a>
+              <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-[#00B67A] font-semibold hover:underline">View Reviews →</a>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12">
@@ -221,26 +215,14 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <p className="mb-3 text-xs font-bold tracking-[0.28em] text-[#D4AF37]">CK CAPITAL EVALUATIONS</p>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-[-1.5px] text-white text-balance">
-              Choose your account size. Start your evaluation.
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-lg text-white/65">
-              FundedNext-style pricing experience rebuilt with CK Capital prices, rules, and simulated trading program content.
-            </p>
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-[-1.5px] text-white text-balance">Choose your account size. Start your evaluation.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-lg text-white/65">FundedNext-style pricing experience rebuilt with CK Capital prices, rules, and simulated trading program content.</p>
           </div>
 
           <div className="mb-8 overflow-x-auto pb-2">
             <div className="mx-auto flex w-max gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-2 backdrop-blur md:w-fit">
               {CHALLENGE_TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setSelectedChallengeType(tab.id)}
-                  className={`min-w-[138px] rounded-xl px-4 py-3 text-left transition-all ${
-                    selectedChallengeType === tab.id
-                      ? 'bg-white text-black shadow-[0_12px_35px_rgba(212,175,55,0.25)]'
-                      : 'text-white/70 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
+                <button key={tab.id} onClick={() => setSelectedChallengeType(tab.id)} className={`min-w-[138px] rounded-xl px-4 py-3 text-left transition-all ${selectedChallengeType === tab.id ? 'bg-white text-black shadow-[0_12px_35px_rgba(212,175,55,0.25)]' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}>
                   <span className="block text-sm font-bold">{tab.label}</span>
                   <span className="block text-[11px] opacity-70">{tab.note}</span>
                 </button>
@@ -259,31 +241,18 @@ export default function Home() {
             <div className="-mx-4 overflow-x-auto px-4 pb-6 md:mx-0 md:px-0">
               <div className="flex min-w-max gap-5 lg:grid lg:min-w-0 lg:grid-cols-3 xl:grid-cols-6">
                 {cards.map((card) => (
-                  <article
-                    key={card.size}
-                    className={`relative flex w-[292px] shrink-0 flex-col overflow-hidden rounded-3xl border p-5 transition-all duration-300 hover:-translate-y-2 lg:w-auto ${
-                      card.badge
-                        ? 'border-[#D4AF37] bg-white text-black shadow-[0_0_0_1px_rgba(212,175,55,0.25),0_30px_80px_rgba(212,175,55,0.22)]'
-                        : 'border-white/10 bg-white/[0.06] text-white hover:border-[#D4AF37]/60'
-                    }`}
-                  >
-                    {card.badge && (
-                      <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold tracking-wide text-black">
-                        {card.badge}
-                      </div>
-                    )}
+                  <article key={card.size} className={`relative flex w-[292px] shrink-0 flex-col overflow-hidden rounded-3xl border p-5 transition-all duration-300 hover:-translate-y-2 lg:w-auto ${card.badge ? 'border-[#D4AF37] bg-white text-black shadow-[0_0_0_1px_rgba(212,175,55,0.25),0_30px_80px_rgba(212,175,55,0.22)]' : 'border-white/10 bg-white/[0.06] text-white hover:border-[#D4AF37]/60'}`}>
+                    {card.badge && <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold tracking-wide text-black">{card.badge}</div>}
                     <p className={`mb-2 text-xs font-bold uppercase tracking-[0.18em] ${card.badge ? 'text-black/45' : 'text-white/45'}`}>Account Size</p>
                     <h3 className="mb-4 text-4xl font-extrabold tracking-tight">{card.size}</h3>
-                    <div className="mb-5 rounded-2xl border border-current/10 bg-current/[0.03] p-4">
+                    <div className={`mb-5 rounded-2xl border p-4 ${card.badge ? 'border-black/10 bg-black/[0.03]' : 'border-white/10 bg-white/[0.05]'}`}>
                       <div className="flex items-end gap-2">
                         <span className="text-4xl font-extrabold text-[#D4AF37]">{card.price}</span>
                         <span className={`pb-1 text-sm line-through ${card.badge ? 'text-black/40' : 'text-white/40'}`}>{card.oldPrice}</span>
                       </div>
                       <p className={`mt-1 text-xs ${card.badge ? 'text-black/55' : 'text-white/55'}`}>Limited promotional pricing</p>
                     </div>
-                    <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-black text-white hover:bg-black/85' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>
-                      Start Challenge
-                    </Link>
+                    <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-black text-white hover:bg-black/85' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>Start Challenge</Link>
                     <div className="space-y-3 text-sm">
                       {[
                         ['Phase 1 Target', card.features.phase1],
@@ -301,11 +270,7 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`)}
-                      className={`mt-5 rounded-xl border border-dashed px-3 py-3 text-xs font-extrabold transition-all ${card.badge ? 'border-black/20 bg-black/[0.04] text-black hover:bg-black/[0.08]' : 'border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#F7D774] hover:bg-[#D4AF37]/20'}`}
-                    >
+                    <button type="button" onClick={() => navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`)} className={`mt-5 rounded-xl border border-dashed px-3 py-3 text-xs font-extrabold transition-all ${card.badge ? 'border-black/20 bg-black/[0.04] text-black hover:bg-black/[0.08]' : 'border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#F7D774] hover:bg-[#D4AF37]/20'}`}>
                       Copy Code: JUN70-{card.size.replace('$', '').replace('K', '')}
                     </button>
                   </article>
@@ -314,15 +279,9 @@ export default function Home() {
             </div>
           )}
 
-          {pricingView === 'table' && (
-            <div className="rounded-3xl bg-white p-4 md:p-6">
-              <ObjectivesTable />
-            </div>
-          )}
+          {pricingView === 'table' && <div className="rounded-3xl bg-white p-4 md:p-6"><ObjectivesTable /></div>}
 
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xs md:text-sm text-white/45">
-            CK Capital programs use demo accounts with fictitious funds for simulated trading evaluation only. Program terms, rules, and eligibility apply.
-          </p>
+          <p className="mx-auto mt-8 max-w-3xl text-center text-xs md:text-sm text-white/45">CK Capital programs use demo accounts with fictitious funds for simulated trading evaluation only. Program terms, rules, and eligibility apply.</p>
         </div>
       </section>
 
@@ -336,9 +295,7 @@ export default function Home() {
               <span>4.9 based on Trustpilot reviews</span>
               <TrustStars />
             </div>
-            <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D4AF37] px-6 text-sm font-extrabold text-black transition-colors hover:bg-[#F7D774] md:h-14 md:px-10">
-              Read All Reviews on Trustpilot ↗
-            </a>
+            <a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D4AF37] px-6 text-sm font-extrabold text-black transition-colors hover:bg-[#F7D774] md:h-14 md:px-10">Read All Reviews on Trustpilot ↗</a>
           </div>
 
           <div className="mt-14 grid gap-4 md:grid-cols-4">
@@ -352,7 +309,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37] p-5 text-black md:col-span-1">
               <p className="text-5xl font-extrabold">24/7</p>
               <p className="mt-2 text-xs font-extrabold uppercase tracking-[0.2em] text-black/60">Support Available</p>
@@ -362,21 +318,11 @@ export default function Home() {
                 <div className="mt-3 h-3 w-5/6 rounded-full bg-black/20" />
               </div>
             </div>
-
-            {REVIEW_CARDS.map((review, index) => (
-              <article
-                key={review.quote}
-                className={`flex min-h-[240px] flex-col justify-between rounded-2xl border p-5 ${
-                  review.tone === 'dark'
-                    ? 'border-white/10 bg-[#111111] text-white'
-                    : review.tone === 'gold'
-                      ? 'border-[#D4AF37]/30 bg-[#F7D774] text-black'
-                      : 'border-white/10 bg-white text-black'
-                }`}
-              >
+            {REVIEW_CARDS.map((review) => (
+              <article key={review.quote} className={`flex min-h-[240px] flex-col justify-between rounded-2xl border p-5 ${review.tone === 'dark' ? 'border-white/10 bg-[#111111] text-white' : review.tone === 'gold' ? 'border-[#D4AF37]/30 bg-[#F7D774] text-black' : 'border-white/10 bg-white text-black'}`}>
                 <div>
                   <TrustStars compact />
-                  <p className={`mt-4 text-sm leading-relaxed ${review.tone === 'dark' ? 'text-white/72' : 'text-black/75'}`}>&ldquo;{review.quote}&rdquo;</p>
+                  <p className={`mt-4 text-sm leading-relaxed ${review.tone === 'dark' ? 'text-white/70' : 'text-black/75'}`}>&ldquo;{review.quote}&rdquo;</p>
                 </div>
                 <div className="mt-6 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
@@ -391,18 +337,13 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xs text-white/45">
-            Reviews reflect individual experiences and do not guarantee future results. CK Capital provides simulated trading evaluations only.
-          </p>
+          <p className="mx-auto mt-8 max-w-3xl text-center text-xs text-white/45">Reviews reflect individual experiences and do not guarantee future results. CK Capital provides simulated trading evaluations only.</p>
         </div>
       </section>
 
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-black mb-12 text-balance text-center">
-            Why Choose <span className="gradient-text">CK Capital?</span>
-          </h2>
+          <h2 className="section-title text-black mb-12 text-balance text-center">Why Choose <span className="gradient-text">CK Capital?</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: 'News Trading Allowed', description: 'Trade around high-impact market events according to CK Capital program rules.' },
@@ -448,13 +389,12 @@ export default function Home() {
 
       <FeaturedPayouts />
       <VideoTestimonials />
+      <HomeDashboardPreview />
 
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <h2 className="section-title text-black mb-6 text-balance">Excellent Customer <span className="gradient-text">Support</span></h2>
-          <p className="text-lg text-black/70 mb-8 leading-relaxed">
-            CK Capital support helps traders understand account access, evaluation rules, and platform questions throughout their simulated trading journey.
-          </p>
+          <p className="text-lg text-black/70 mb-8 leading-relaxed">CK Capital support helps traders understand account access, evaluation rules, and platform questions throughout their simulated trading journey.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {['Professional Discord Support', 'Community Game Nights', 'Comprehensive Online FAQ'].map((item) => (
               <div key={item} className="glow-card" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}>
