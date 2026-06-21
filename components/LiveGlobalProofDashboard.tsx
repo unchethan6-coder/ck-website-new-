@@ -120,7 +120,10 @@ export function LiveGlobalProofDashboard() {
 
         <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#D8AD00]">CK CAPITAL</p>
+            <div className="flex items-center gap-2.5">
+              <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-[27px] w-auto object-contain" />
+              <span className="text-[33px] font-bold leading-[40px] text-[#F7F4EA]">CK CAPITAL</span>
+            </div>
             <h2 className="mt-2 max-w-2xl text-2xl font-extrabold tracking-[-0.03em] text-[#F7F4EA] md:text-[34px] md:leading-tight">
               Live Global Proof Dashboard
             </h2>
