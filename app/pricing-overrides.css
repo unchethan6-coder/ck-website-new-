@@ -1,0 +1,40 @@
+/* Laptop-friendly pricing layout overrides
+   Keeps the current card design, but makes the pricing cards flexible and full-width like the reference layout. */
+
+@media (min-width: 1280px) {
+  #start-challenge .max-w-6xl {
+    max-width: 1680px !important;
+  }
+
+  #start-challenge .lg\:grid-cols-3 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+  }
+
+  #start-challenge .lg\:grid-cols-3 > article {
+    flex: 0 1 230px !important;
+    min-height: 520px !important;
+    padding: 20px !important;
+  }
+
+  #start-challenge .lg\:grid-cols-3 > article h3 {
+    font-size: 2.35rem !important;
+    line-height: 1 !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  #start-challenge .lg\:grid-cols-3 > article {
+    flex-basis: 255px !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  #start-challenge .lg\:grid-cols-3 > article {
+    flex-basis: 275px !important;
+  }
+}
