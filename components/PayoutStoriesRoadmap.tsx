@@ -1,4 +1,6 @@
-const jamesCarterPhoto = '/james-carter-avatar.svg'
+const ahmedPhoto = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAcABwDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAcCBAYFA//EAC0QAAEDAwIEBAcBAQAAAAAAAAECAxEABBIFITFBBhMiUWGBkaGxFDJCcfDh/8QAGQEAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAIhEAAgICAgIDAQAAAAAAAAAAAQIAAxEEEiExQRMUIlFx/9oADAMBAAIRAxEAPwBa/SrLKgLX4i2wF7lQUFDJuCnLBj78GkcemGcHVDh7l9tEmQy3o3Ui5U3JGMZ9+OtK7pJxK5k1wcGhRSvDgU3UHjTQMl25KKT28Aa3r7M0Zx6KNl+IkK7oAT15pOpw8boSErZKVyB68Yz96lWi6a2GZ74sBwZ9pCkgYBVB9c9B2pNlI0lT2IdU0bS5HcRm4ifHzbfrjRrTkHTrFKXfKj4sVLn4o5g5F6lZ1Lk9xKdQ2OqoLZB0PIrU/Zkpo7nOSNqtm2R9PjWku1ZGPV7J6Vk6s8u4QYqz9D5xFR0yW4fySVEpNwycsA65qboKeRog22/JhccV7gU65xjUTDVqe10SkT4ODkpUag+hzjPj8ip91Qt1rZ3X4WTJcVHpYcBOdfpWcfDlcSskE/dh41bqdPQY83UU6x16s3+pi9llgLqVgSD3wKfhl0xdJ2T43ffXqKOV5rC2p4Z20CkA5I8CqrXWZs7HHUUSeh4OuOMmhSl1I11O59CDx7ZpCvEFScc+okVFe2x3k6XYoqmmdrT5cZoCaL48aSZOwH1/CgYNPncNrsOQaZBBtpyRioba4ke6UG7+la1OlxzXUk7VZf/9k='
+const jamesPhoto = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAcABwDASIAAhEBAxEB/8QAGgAAAwEAAwAAAAAAAAAAAAAAAAYHBAUCA//EACoQAAICAQMCBQQCAwAAAAAAAAECAxEEABIhBTFBBhMiUWFxkSMygdHw/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAhEQACAgICAgMBAAAAAAAAAAAAAQIRAwQSIRMxQWEiMf/aAAwDAQACEQMRAD8AOkjYiAQ+CHGEjHPb+f2qnEcrd9xlv8AK+M4Km2q4rBU50k9uORr5dUuDyM1paR83eW3tcIeKu5FeI8AY2fkH1ojdtwzQmZnbP5g2F3G5bK8wVOpGpmXPrtv2/Op55u0hmbNBUb3+2McH51JejUO1yaeJBFNV2AhgqMbgf3wR9DRE5YS6iASOh4Tq94Ivf91dz5y5P3iIkkUy4IiNTptA6Z8nJx+oM5oexHBGaWWTxpLJnVXZl3E6qSe8j9TWrA3xf95+7QTIrGOzVkfOGJ2FMbbKqozFcKkKPfJ89cfvS2j2oz4S0Ucf7ITWNRZ4yCAGOmSPzq7uKDIlRBGmJwyq3vI4B1wDqn5U5FLmnuLRxTAYkuI3HlZYHFQD6n3pdpqPKTW4fYRMsWrXvmzXqjEwzNSOJFmQnnjqwG7n5HkCmMbrBk45PAyQBDg/WoJfXPyeWwuDhGYqw5nV0kKIg+KKOX0dr+dc8L6/R9WP1QzLm7NleYDnRtoUAqcAnBwfY0R4mq2nXWeY2bN/rjZlIGQhwQSOBtyo/zVxFZbFrnmd7dnGeFOpO8iNWCqjsVYD54yKv1jdlbSxJO5FQGGPQ96CW9Nnl1y0OGVIeN4K4xJIPr5GP8AYAgjiIjvL5FlRyF2Cjz2P6hpZyBI7QQQeD74NLK22R5hgF0IVUTLoSRWzsdvz4+Pr6zPxi7RLIuX/2Q=='
+const arjunPhoto = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAcABwDASIAAhEBAxEB/8QAGwABAQACAwEAAAAAAAAAAAAAAAYEBwEDBQj/xAAvEAACAQMDAgQFAwUAAAAAAAABAgMABBEFEiExBhNBUWFxIjKBkUKhFCNCwdH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EAB8RAAICAgIDAQEAAAAAAAAAAAABAhEDEiExIhNBUP/aAAwDAQACEQMRAD8AhfjXk7j9VUkDl4OC3g6TpnPyMqDprzTR3MPpaxlcj64LSPb3PmMrzq9ZdRY2NmbzbhUZyq/1DHFbJefkykLlJy+PXnuKsenVTyR3V3IkeKnkUywIUH8xn+frLBr/hNO8exw2VkqeEz4rxqOB6/rsOJqx2SbkOksuUMoWGA5I9iT+4q/Vl7qJ5ZkQAjVHLcjoP/rn5VCoUPh5dufEZePGCuqN3P1r13T4bO/vJ4/K2vZ5mR5LXzPw/aKvzQ5xAT8w4xWLx+1Gjbf7qSN/2hSCVDDdJMFBKp+66/4VAhRnI6Dba/pGmI4oeBRFBurKpBIJwOcg+tK5b1a4hY+mRokJw0SBAhVbJqna/J3N6rsD1km3UnAGa5okfVHOEv1qzTpNSCXTZBtrE6yAf3SJ5d4J0mbEsLvFDf9gzjtDPsiKf4qvFTjiqV6xK31MmStjYzv+17EzPFaZ8V9XE3pcaVbsyubdLce/wBzHzNKnE7RhxjJnsmxnoDU+IkmZ1iCHPHxj/AEDzNUmEUUL5LZdwHXng0vh4x7k+2JvMekKA2T2xjPNT3u/TXY1e5DXdNwiBGkxtIVTjUEjj8641XTnkKGx6U1KjaNNp5kRr/QCCx5n8W8jCmmPMOcnr4q7XejS23eIl3ZzLjBfYGlSfFW6PFFS9+Fxs+wOort8NyTgiUbqP51OcNhkdPupfgMQvkLfOe1c/N4mmmW/h6gEjvGxx7FJ4+V9+jQ4YCkdep9zR2YJHI9aEW9Nnd4A2OHaZ9pbRk9RSWnU7C0B+amdf2Lxjkf/9k='
 
 const payoutStories = [
   {
@@ -7,6 +9,7 @@ const payoutStories = [
     country: 'Pakistan',
     amount: '$3,200',
     tag: 'Beginner → Rewarded Trader',
+    photo: ahmedPhoto,
     story: 'I struggled with consistency for months before joining a structured evaluation. Clear rules helped me slow down, manage risk, and complete my first reward cycle with confidence.',
   },
   {
@@ -15,7 +18,7 @@ const payoutStories = [
     country: 'United Kingdom',
     amount: '$1,850',
     tag: 'Evaluation → Consistent Progress',
-    photo: jamesCarterPhoto,
+    photo: jamesPhoto,
     story: 'The biggest change was having a simple target and defined limits. Within a few weeks, I built a cleaner process and received my first approved reward request.',
   },
   {
@@ -24,6 +27,7 @@ const payoutStories = [
     country: 'India',
     amount: '$980',
     tag: 'Reset → Improved Discipline',
+    photo: arjunPhoto,
     story: 'After failing my first attempt, I used the reset option and focused on fewer trades. The second evaluation felt more controlled because the rules were easy to follow.',
   },
 ]
@@ -66,11 +70,7 @@ export function PayoutStoriesRoadmap() {
                 <div className="relative z-10">
                   <div className="mb-5 flex items-start justify-between gap-4">
                     <div className="flex items-center gap-4">
-                      {story.photo ? (
-                        <img src={story.photo} alt={story.name} className="size-20 shrink-0 rounded-full border-2 border-[#D8AD00] bg-[#D8AD00] object-cover object-center shadow-[0_0_28px_rgba(216,173,0,0.28)]" />
-                      ) : (
-                        <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-[#D8AD00] text-base font-extrabold text-black">{story.initials}</div>
-                      )}
+                      <img src={story.photo} alt={story.name} className="size-20 shrink-0 rounded-full border-2 border-[#D8AD00] bg-[#D8AD00] object-cover object-center shadow-[0_0_28px_rgba(216,173,0,0.28)]" />
                       <div>
                         <p className="text-xl font-extrabold text-white">{story.name}</p>
                         <p className="text-sm text-white/55">{story.country}</p>
