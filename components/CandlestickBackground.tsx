@@ -2,23 +2,19 @@
 
 export function CandlestickBackground() {
   return (
-    <div 
-      className="absolute inset-0 overflow-hidden"
-      suppressHydrationWarning
-    >
-      {/* Background Reference Image - Premium candlestick render */}
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: 'url(/candlestick-reference-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 40%',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
-          opacity: 1,
-          zIndex: 0,
-        }}
-      />
+    <div className="absolute inset-0 overflow-hidden" suppressHydrationWarning>
+      <picture>
+        <source media="(max-width: 767px)" srcSet="/candlestick-reference-bg-mobile.svg" />
+        <source media="(min-width: 768px)" srcSet="/candlestick-reference-bg-desktop.svg" />
+        <img
+          src="/candlestick-reference-bg-desktop.svg"
+          alt="Premium gold candlestick chart background"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
     </div>
   )
 }
