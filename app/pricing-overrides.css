@@ -39,18 +39,21 @@
   }
 }
 
-/* Desktop hero alignment like FundingPips reference */
+/* Laptop + desktop hero alignment like FundingPips reference */
 @media (min-width: 1024px) {
   body > div > section:first-of-type {
     justify-content: flex-start !important;
+    align-items: center !important;
   }
 
   body > div > section:first-of-type > div.relative.z-10 {
     width: 100% !important;
     max-width: 1280px !important;
     text-align: left !important;
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
+    padding-left: clamp(3rem, 6vw, 6rem) !important;
+    padding-right: 3rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   body > div > section:first-of-type > div.relative.z-10 > div:first-child {
@@ -62,12 +65,14 @@
     max-width: 660px !important;
     margin-left: 0 !important;
     margin-right: auto !important;
+    text-align: left !important;
   }
 
   body > div > section:first-of-type h1 + p {
     max-width: 620px !important;
     margin-left: 0 !important;
     margin-right: auto !important;
+    text-align: left !important;
   }
 
   body > div > section:first-of-type .flex.flex-col.sm\:flex-row {
@@ -85,9 +90,21 @@
   }
 }
 
-@media (min-width: 1440px) {
+/* 1440 x 900 laptop view */
+@media (min-width: 1280px) and (max-width: 1535px) {
   body > div > section:first-of-type > div.relative.z-10 {
     max-width: 1440px !important;
-    padding-left: 6rem !important;
+    padding-left: 7rem !important;
+  }
+
+  body > div > section:first-of-type h1 {
+    max-width: 700px !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  body > div > section:first-of-type > div.relative.z-10 {
+    max-width: 1540px !important;
+    padding-left: 8rem !important;
   }
 }
