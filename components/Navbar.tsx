@@ -14,8 +14,8 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="sticky top-4 z-50 px-4 md:px-6">
-      <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 -mb-[92px] bg-transparent px-4 pt-3 md:px-6 md:pt-4">
+      <div className="max-w-7xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="CK Capital home">
           <span className="font-bold leading-10 text-black text-xl md:text-[33px]">CK CAPITAL</span>
         </Link>
@@ -69,7 +69,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white rounded-2xl shadow-lg border border-black/5 mx-4 mt-2 px-6 py-4">
+        <div className="md:hidden bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-black/5 mx-4 mt-2 px-6 py-4">
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-black">Products</p>
