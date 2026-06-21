@@ -98,10 +98,7 @@ export function LiveGlobalProofDashboard() {
 
         <div className="relative z-10 flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <div className="flex items-center gap-2">
-              <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-5 w-auto object-contain" />
-              <span className="text-sm font-bold tracking-[0.12em] text-[#D8AD00]">CK CAPITAL</span>
-            </div>
+            <span className="text-sm font-bold tracking-[0.12em] text-[#D8AD00]">CK CAPITAL</span>
             <h2 className="mt-2 max-w-2xl text-xl font-extrabold tracking-[-0.03em] text-[#F7F4EA] md:text-3xl md:leading-tight">Live Global Proof Dashboard</h2>
             <p className="mt-1.5 text-xs text-[#9B9B94] md:text-sm">Track recent reward processing and account giveaway activity in real time.</p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
