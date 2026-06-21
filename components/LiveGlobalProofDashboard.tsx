@@ -24,6 +24,14 @@ const feed = [
   { flag: '🇨🇦', name: 'Noah Wilson', meta: 'Canada • reward processed', value: '$680' },
 ]
 
+const mapMarkers = [
+  { left: '18%', top: '67%', color: '#40F285' },
+  { left: '31%', top: '58%', color: '#D8AD00' },
+  { left: '52%', top: '67%', color: '#40F285' },
+  { left: '64%', top: '58%', color: '#D8AD00' },
+  { left: '78%', top: '67%', color: '#40F285' },
+]
+
 function MetricCard({ label, value, delta }: { label: string; value: string; delta: string }) {
   return (
     <div className="rounded-2xl border border-[#D8AD00]/20 bg-[#0B0B0C] p-5 md:p-6">
@@ -68,6 +76,12 @@ function FeedItem({ flag, name, meta, value }: typeof feed[number]) {
 export function LiveGlobalProofDashboard() {
   return (
     <section className="relative overflow-hidden bg-white px-4 py-16 md:px-6 md:py-24">
+      <style jsx global>{`
+        body > div > section:has(h2.section-title):has(.space-y-8) {
+          display: none !important;
+        }
+      `}</style>
+
       <div className="pointer-events-none absolute left-[-28%] top-[10%] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
       <div className="pointer-events-none absolute right-[-25%] top-[14%] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
 
@@ -112,8 +126,12 @@ export function LiveGlobalProofDashboard() {
           <div className="relative overflow-hidden rounded-[28px] border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-5 md:p-7">
             <div className="pointer-events-none absolute left-[8%] top-[47%] h-28 w-[70%] rounded-full border-2 border-dashed border-[#D8AD00]/15" />
             <div className="pointer-events-none absolute left-[16%] top-[64%] h-20 w-[55%] rounded-full border-2 border-dashed border-[#D8AD00]/10" />
-            {[18, 31, 52, 64, 78].map((left, index) => (
-              <span key={left} className={`absolute top-[${index % 2 ? '58%' : '67%'}] h-2.5 w-2.5 rounded-full ${index % 2 ? 'bg-[#D8AD00]' : 'bg-[#40F285]'} blur-[3px]`} style={{ left: `${left}%` }} />
+            {mapMarkers.map((marker) => (
+              <span
+                key={`${marker.left}-${marker.top}`}
+                className="absolute h-2.5 w-2.5 rounded-full blur-[3px]"
+                style={{ left: marker.left, top: marker.top, backgroundColor: marker.color }}
+              />
             ))}
 
             <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#D8AD00]">Global Activity Map</p>
