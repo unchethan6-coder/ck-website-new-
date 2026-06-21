@@ -46,7 +46,7 @@ function MetricCard({ label, value, delta }: { label: string; value: string; del
 
 function CountryCard({ flag, country, name, time, value, type }: typeof countryCards[number]) {
   return (
-    <div className="grid grid-cols-[32px_1fr_auto] items-center gap-2.5 rounded-xl border border-[#D8AD00]/20 bg-[#09090A] p-2.5 md:p-3">
+    <div className="country-floating-card grid grid-cols-[32px_1fr_auto] items-center gap-2.5 rounded-xl border border-[#D8AD00]/20 bg-[#09090A] p-2.5 md:p-3">
       <span className="text-xl md:text-2xl">{flag}</span>
       <div>
         <p className="text-xs font-extrabold text-[#F7F4EA] md:text-[13px]">{country}</p>
@@ -88,6 +88,11 @@ export function LiveGlobalProofDashboard() {
           to { transform: translateY(-50%); }
         }
 
+        @keyframes country-soft-float {
+          0%, 100% { transform: translate3d(0, 0, 0); }
+          50% { transform: translate3d(0, -7px, 0); }
+        }
+
         .live-feed-scroll {
           animation: live-feed-vertical 18s linear infinite;
           will-change: transform;
@@ -96,6 +101,15 @@ export function LiveGlobalProofDashboard() {
         .live-feed-scroll:hover {
           animation-play-state: paused;
         }
+
+        .country-floating-card {
+          animation: country-soft-float 6s ease-in-out infinite;
+          will-change: transform;
+        }
+
+        .country-floating-card:nth-child(2) { animation-delay: 0.6s; }
+        .country-floating-card:nth-child(3) { animation-delay: 1.2s; }
+        .country-floating-card:nth-child(4) { animation-delay: 1.8s; }
       `}</style>
 
       <div className="pointer-events-none absolute left-[-28%] top-[10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
