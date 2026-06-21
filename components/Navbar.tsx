@@ -16,8 +16,7 @@ export function Navbar() {
   return (
     <nav className="sticky top-4 z-50 px-4 md:px-6">
       <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="CK Capital home">
-          <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-[27px] w-[25px] object-contain" />
+        <Link href="/" className="flex items-center" aria-label="CK Capital home">
           <span className="font-bold leading-10 text-black text-xl md:text-[33px]">CK CAPITAL</span>
         </Link>
 
