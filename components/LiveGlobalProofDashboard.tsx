@@ -34,11 +34,11 @@ const mapMarkers = [
 
 function MetricCard({ label, value, delta }: { label: string; value: string; delta: string }) {
   return (
-    <div className="rounded-xl border border-[#D8AD00]/20 bg-[#0B0B0C] p-3.5 md:p-4">
-      <p className="text-[10px] font-bold text-[#969690] md:text-xs">{label}</p>
-      <div className="mt-2 flex flex-wrap items-end gap-x-2 gap-y-1">
-        <p className="text-2xl font-extrabold leading-none text-[#D8AD00] md:text-[28px]">{value}</p>
-        <p className="text-[10px] font-extrabold text-[#40F285] md:text-xs">{delta}</p>
+    <div className="rounded-lg border border-[#D8AD00]/20 bg-[#0B0B0C] p-2.5 md:p-3">
+      <p className="text-[9px] font-bold text-[#969690]">{label}</p>
+      <div className="mt-1.5 flex flex-wrap items-end gap-x-2 gap-y-1">
+        <p className="text-xl font-extrabold leading-none text-[#D8AD00] md:text-[22px]">{value}</p>
+        <p className="text-[9px] font-extrabold text-[#40F285]">{delta}</p>
       </div>
     </div>
   )
@@ -46,15 +46,15 @@ function MetricCard({ label, value, delta }: { label: string; value: string; del
 
 function CountryCard({ flag, country, name, time, value, type }: typeof countryCards[number]) {
   return (
-    <div className="country-floating-card grid grid-cols-[32px_1fr_auto] items-center gap-2.5 rounded-xl border border-[#D8AD00]/20 bg-[#09090A] p-2.5 md:p-3">
-      <span className="text-xl md:text-2xl">{flag}</span>
+    <div className="country-floating-card grid grid-cols-[24px_1fr_auto] items-center gap-2 rounded-lg border border-[#D8AD00]/20 bg-[#09090A] p-2">
+      <span className="text-base md:text-lg">{flag}</span>
       <div>
-        <p className="text-xs font-extrabold text-[#F7F4EA] md:text-[13px]">{country}</p>
-        <p className="mt-0.5 text-[9px] text-[#969690] md:text-[10px]">{name} • {time}</p>
+        <p className="text-[10px] font-extrabold text-[#F7F4EA] md:text-[11px]">{country}</p>
+        <p className="mt-0.5 text-[7px] text-[#969690] md:text-[8px]">{name} • {time}</p>
       </div>
       <div className="text-right">
-        <p className="text-xs font-extrabold text-[#D8AD00] md:text-sm">{value}</p>
-        <p className="mt-0.5 text-[9px] font-bold text-[#40F285] md:text-[10px]">{type}</p>
+        <p className="text-[10px] font-extrabold text-[#D8AD00] md:text-[11px]">{value}</p>
+        <p className="mt-0.5 text-[7px] font-bold text-[#40F285] md:text-[8px]">{type}</p>
       </div>
     </div>
   )
@@ -62,13 +62,13 @@ function CountryCard({ flag, country, name, time, value, type }: typeof countryC
 
 function FeedItem({ flag, name, meta, value }: typeof feed[number]) {
   return (
-    <div className="grid grid-cols-[44px_1fr_auto] items-center gap-4 rounded-full border border-[#D8AD00]/18 bg-[#080808] px-5 py-4 shadow-[inset_0_0_0_1px_rgba(216,173,0,0.04)]">
-      <span className="text-xl leading-none">{flag}</span>
+    <div className="grid grid-cols-[34px_1fr_auto] items-center gap-3 rounded-full border border-[#D8AD00]/18 bg-[#080808] px-4 py-2.5 shadow-[inset_0_0_0_1px_rgba(216,173,0,0.04)]">
+      <span className="text-base leading-none">{flag}</span>
       <div>
-        <p className="text-base font-extrabold leading-tight text-[#F7F4EA] md:text-lg">{name}</p>
-        <p className="mt-1 text-xs text-[#969690] md:text-sm">{meta}</p>
+        <p className="text-xs font-extrabold leading-tight text-[#F7F4EA] md:text-sm">{name}</p>
+        <p className="mt-0.5 text-[9px] text-[#969690] md:text-[10px]">{meta}</p>
       </div>
-      <p className="text-right text-base font-extrabold text-[#D8AD00] md:text-lg">{value}</p>
+      <p className="text-right text-xs font-extrabold text-[#D8AD00] md:text-sm">{value}</p>
     </div>
   )
 }
@@ -77,123 +77,70 @@ export function LiveGlobalProofDashboard() {
   const scrollingFeed = [...feed, ...feed]
 
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-10 md:px-6 md:py-14">
+    <section className="relative overflow-hidden bg-white px-4 py-8 md:px-6 md:py-10">
       <style jsx global>{`
-        body > div > section:has(h2.section-title):has(.space-y-8) {
-          display: none !important;
-        }
-
-        @keyframes live-feed-vertical {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
-        }
-
-        @keyframes country-soft-float {
-          0%, 100% { transform: translate3d(0, 0, 0); }
-          50% { transform: translate3d(0, -7px, 0); }
-        }
-
-        .live-feed-scroll {
-          animation: live-feed-vertical 18s linear infinite;
-          will-change: transform;
-        }
-
-        .live-feed-scroll:hover {
-          animation-play-state: paused;
-        }
-
-        .country-floating-card {
-          animation: country-soft-float 6s ease-in-out infinite;
-          will-change: transform;
-        }
-
+        body > div > section:has(h2.section-title):has(.space-y-8) { display: none !important; }
+        @keyframes live-feed-vertical { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+        @keyframes country-soft-float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -5px, 0); } }
+        .live-feed-scroll { animation: live-feed-vertical 18s linear infinite; will-change: transform; }
+        .live-feed-scroll:hover { animation-play-state: paused; }
+        .country-floating-card { animation: country-soft-float 6s ease-in-out infinite; will-change: transform; }
         .country-floating-card:nth-child(2) { animation-delay: 0.6s; }
         .country-floating-card:nth-child(3) { animation-delay: 1.2s; }
         .country-floating-card:nth-child(4) { animation-delay: 1.8s; }
       `}</style>
 
-      <div className="pointer-events-none absolute left-[-28%] top-[10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
-      <div className="pointer-events-none absolute right-[-25%] top-[14%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
+      <div className="pointer-events-none absolute left-[-28%] top-[10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
+      <div className="pointer-events-none absolute right-[-25%] top-[14%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
 
-      <div className="relative mx-auto max-w-[1080px] overflow-hidden rounded-[32px] bg-[#040404] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.20)] md:rounded-[50px] md:p-7 lg:p-9">
-        <div className="pointer-events-none absolute left-[5%] top-[-12%] h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
+      <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-[28px] bg-[#040404] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.18)] md:rounded-[42px] md:p-5 lg:p-6">
+        <div className="pointer-events-none absolute left-[5%] top-[-12%] h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(216,173,0,0.32)_0%,rgba(216,173,0,0.07)_70%,rgba(216,173,0,0)_100%)]" />
 
-        <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+        <div className="relative z-10 flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <div className="flex items-center gap-2.5">
-              <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-[27px] w-auto object-contain" />
-              <span className="text-[33px] font-bold leading-[40px] text-[#F7F4EA]">CK CAPITAL</span>
+            <div className="flex items-center gap-2">
+              <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-5 w-auto object-contain" />
+              <span className="text-sm font-bold tracking-[0.12em] text-[#D8AD00]">CK CAPITAL</span>
             </div>
-            <h2 className="mt-2 max-w-2xl text-2xl font-extrabold tracking-[-0.03em] text-[#F7F4EA] md:text-[34px] md:leading-tight">
-              Live Global Proof Dashboard
-            </h2>
-            <p className="mt-2 text-sm text-[#9B9B94] md:text-base">
-              Track recent reward processing and account giveaway activity in real time.
-            </p>
-            <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
-              <Link href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#FFF0A0_0%,#D8AD00_45%,#8A6B00_100%)] px-5 text-xs font-extrabold text-[#050505]">
-                Join Giveaway
-              </Link>
-              <Link href="#payout-certificates" className="inline-flex h-10 items-center justify-center rounded-full border border-[#D8AD00]/50 bg-[#050505] px-5 text-xs font-extrabold text-[#D8AD00]">
-                View Live Feed
-              </Link>
+            <h2 className="mt-2 max-w-2xl text-xl font-extrabold tracking-[-0.03em] text-[#F7F4EA] md:text-3xl md:leading-tight">Live Global Proof Dashboard</h2>
+            <p className="mt-1.5 text-xs text-[#9B9B94] md:text-sm">Track recent reward processing and account giveaway activity in real time.</p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <Link href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="inline-flex h-8 items-center justify-center rounded-full bg-[linear-gradient(135deg,#FFF0A0_0%,#D8AD00_45%,#8A6B00_100%)] px-4 text-[10px] font-extrabold text-[#050505]">Join Giveaway</Link>
+              <Link href="#payout-certificates" className="inline-flex h-8 items-center justify-center rounded-full border border-[#D8AD00]/50 bg-[#050505] px-4 text-[10px] font-extrabold text-[#D8AD00]">View Live Feed</Link>
             </div>
           </div>
 
-          <div className="inline-flex h-8 w-max items-center gap-2 rounded-full border border-[#40F285]/35 bg-[#0A0A0A] px-4 text-[10px] font-extrabold text-[#40F285]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#40F285] opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#40F285]" />
-            </span>
-            LIVE COUNTERS ACTIVE
-          </div>
+          <div className="inline-flex h-7 w-max items-center gap-2 rounded-full border border-[#40F285]/35 bg-[#0A0A0A] px-3 text-[9px] font-extrabold text-[#40F285]"><span className="relative flex h-1.5 w-1.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#40F285] opacity-70" /><span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#40F285]" /></span>LIVE COUNTERS ACTIVE</div>
         </div>
 
-        <div className="relative z-10 mt-7 rounded-2xl border border-[#D8AD00]/20 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-3 md:p-4">
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((item) => <MetricCard key={item.label} {...item} />)}
-          </div>
+        <div className="relative z-10 mt-5 rounded-xl border border-[#D8AD00]/20 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-2.5 md:p-3">
+          <div className="grid gap-2.5 md:grid-cols-2 lg:grid-cols-4">{metrics.map((item) => <MetricCard key={item.label} {...item} />)}</div>
         </div>
 
-        <div className="relative z-10 mt-5 grid gap-4 lg:grid-cols-[1fr_1.05fr]">
-          <div className="relative overflow-hidden rounded-2xl border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-4 md:p-5">
-            <div className="pointer-events-none absolute left-[8%] top-[47%] h-20 w-[70%] rounded-full border-2 border-dashed border-[#D8AD00]/15" />
-            <div className="pointer-events-none absolute left-[16%] top-[64%] h-14 w-[55%] rounded-full border-2 border-dashed border-[#D8AD00]/10" />
-            {mapMarkers.map((marker) => (
-              <span
-                key={`${marker.left}-${marker.top}`}
-                className="absolute h-2 w-2 rounded-full blur-[3px]"
-                style={{ left: marker.left, top: marker.top, backgroundColor: marker.color }}
-              />
-            ))}
-
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#D8AD00]">Global Activity Map</p>
-            <h3 className="mt-1.5 text-xl font-extrabold text-[#F7F4EA] md:text-2xl">Live Country Counter</h3>
-            <p className="mt-1.5 text-xs text-[#969690] md:text-sm">Live giveaway and rewards activity from traders worldwide.</p>
-
-            <div className="relative z-10 mt-5 grid gap-3 sm:grid-cols-2">
-              {countryCards.map((item) => <CountryCard key={`${item.country}-${item.name}`} {...item} />)}
-            </div>
+        <div className="relative z-10 mt-4 grid gap-3 lg:grid-cols-[1fr_1fr]">
+          <div className="relative overflow-hidden rounded-xl border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-3.5 md:p-4">
+            <div className="pointer-events-none absolute left-[8%] top-[52%] h-14 w-[70%] rounded-full border border-dashed border-[#D8AD00]/15" />
+            <div className="pointer-events-none absolute left-[16%] top-[68%] h-10 w-[55%] rounded-full border border-dashed border-[#D8AD00]/10" />
+            {mapMarkers.map((marker) => <span key={`${marker.left}-${marker.top}`} className="absolute h-1.5 w-1.5 rounded-full blur-[2px]" style={{ left: marker.left, top: marker.top, backgroundColor: marker.color }} />)}
+            <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#D8AD00]">Global Activity Map</p>
+            <h3 className="mt-1 text-lg font-extrabold text-[#F7F4EA] md:text-xl">Live Country Counter</h3>
+            <p className="mt-1 text-[10px] text-[#969690] md:text-xs">Live giveaway and rewards activity from traders worldwide.</p>
+            <div className="relative z-10 mt-4 grid gap-2.5 sm:grid-cols-2">{countryCards.map((item) => <CountryCard key={`${item.country}-${item.name}`} {...item} />)}</div>
           </div>
 
-          <div className="rounded-[28px] border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-6 md:p-7">
-            <p className="text-xs font-extrabold uppercase tracking-[0.28em] text-[#D8AD00]">Real-Time Feed</p>
-            <h3 className="mt-4 text-3xl font-extrabold leading-tight text-[#F7F4EA] md:text-4xl">Live Activity</h3>
-            <p className="mt-4 text-lg text-[#969690] md:text-xl">Live Rewards & Giveaways</p>
-
-            <div className="relative mt-7 h-[390px] overflow-hidden">
-              <div className="live-feed-scroll space-y-4 pb-4">
-                {scrollingFeed.map((item, index) => <FeedItem key={`${item.name}-${item.value}-${index}`} {...item} />)}
-              </div>
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#111111] to-transparent" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#111111] to-transparent" />
+          <div className="rounded-xl border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-4 md:p-5">
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.24em] text-[#D8AD00]">Real-Time Feed</p>
+            <h3 className="mt-2 text-2xl font-extrabold leading-tight text-[#F7F4EA] md:text-3xl">Live Activity</h3>
+            <p className="mt-2 text-sm text-[#969690] md:text-base">Live Rewards & Giveaways</p>
+            <div className="relative mt-4 h-[285px] overflow-hidden">
+              <div className="live-feed-scroll space-y-3 pb-3">{scrollingFeed.map((item, index) => <FeedItem key={`${item.name}-${item.value}-${index}`} {...item} />)}</div>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#111111] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#111111] to-transparent" />
             </div>
           </div>
         </div>
 
-        <p className="relative z-10 mt-5 text-center text-[10px] leading-relaxed text-[#969690] md:text-xs">
-          Displayed activity should be connected to verified internal data before using exact live totals publicly.
-        </p>
+        <p className="relative z-10 mt-3 text-center text-[9px] leading-relaxed text-[#969690]">Displayed activity should be connected to verified internal data before using exact live totals publicly.</p>
       </div>
     </section>
   )
