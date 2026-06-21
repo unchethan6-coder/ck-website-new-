@@ -1,0 +1,16 @@
+@keyframes ck-country-float-motion {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(0, -7px, 0); }
+  50% { transform: translate3d(5px, 0, 0); }
+  75% { transform: translate3d(-4px, 6px, 0); }
+}
+
+.country-floating-card {
+  animation: ck-country-float-motion 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.country-floating-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-4px) !important;
+}
