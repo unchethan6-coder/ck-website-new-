@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,21 +10,44 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+const promoLoopItems = Array.from({ length: 10 }, (_, index) => index)
+
+function HeaderPromoLoop() {
+  return (
+    <div className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-[#f4c430] via-[#f0e68c] to-[#f4c430] py-2 text-sm font-semibold text-black shadow-md">
+      <style>{`
+        @keyframes header-promo-loop {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .header-promo-loop-track {
+          animation: header-promo-loop 24s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
+      <div className="header-promo-loop-track flex w-max items-center whitespace-nowrap">
+        {[...promoLoopItems, ...promoLoopItems].map((item, index) => (
+          <div key={`${item}-${index}`} className="mx-8 flex items-center gap-2">
+            <span>🏆</span>
+            <span>Join Now &amp; Get JUN70 Code for 70% Off</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <nav className="sticky top-4 z-50 px-4 md:px-6">
       <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-black/5 px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center" aria-label="CK Capital home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://i.postimg.cc/0jJGVKTC/CK-CAPITAL-Logo.png" alt="CK Capital" className="h-8 md:h-9 w-auto" />
         </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {/* Products */}
           <DropdownMenu>
             <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
               Products
@@ -43,99 +65,47 @@ export function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <Link href="/rewards" className="text-black hover:text-primary transition-colors text-sm">Rewards</Link>
+          <Link href="/trading-objectives" className="text-black hover:text-primary transition-colors text-sm">Trading Objectives</Link>
+          <Link href="/prime" className="text-black hover:text-primary transition-colors text-sm">Prime</Link>
 
-          {/* Rewards */}
-          <Link href="/rewards" className="text-black hover:text-primary transition-colors text-sm">
-            Rewards
-          </Link>
-
-          {/* Trading Objectives */}
-          <Link href="/trading-objectives" className="text-black hover:text-primary transition-colors text-sm">
-            Trading Objectives
-          </Link>
-
-          {/* Prime */}
-          <Link href="/prime" className="text-black hover:text-primary transition-colors text-sm">
-            Prime
-          </Link>
-
-          {/* Trading */}
           <DropdownMenu>
             <DropdownMenuTrigger className="text-black hover:text-primary transition-colors text-sm">
               Trading
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-white border-black/10">
-              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-                <Link href="/about-us">About Us</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-                <Link href="/hall-of-fame">Hall of Fame</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-                <Link href="/events">Events</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer">
-                <Link href="/contact">Contact</Link>
-              </DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer"><Link href="/about-us">About Us</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer"><Link href="/hall-of-fame">Hall of Fame</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer"><Link href="/events">Events</Link></DropdownMenuItem>
+              <DropdownMenuItem className="text-black hover:text-primary cursor-pointer"><Link href="/contact">Contact</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* FAQs */}
-          <Link href="/faq" className="text-black hover:text-primary transition-colors text-sm">
-            FAQs
-          </Link>
-
-          {/* Affiliates */}
-          <Link href="/affiliates" className="text-black hover:text-primary transition-colors text-sm">
-            Affiliates
-          </Link>
+          <Link href="/faq" className="text-black hover:text-primary transition-colors text-sm">FAQs</Link>
+          <Link href="/affiliates" className="text-black hover:text-primary transition-colors text-sm">Affiliates</Link>
         </div>
 
-        {/* Right Side Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="https://app.ckcapital.co.uk/signin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 rounded-lg border-2 border-black text-black text-sm font-semibold hover:bg-black/5 transition-colors"
-          >
-            Sign In
-          </Link>
-          <Link
-            href="https://app.ckcapital.co.uk/signup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-black/90 transition-colors"
-          >
-            Start Challenge
-          </Link>
+          <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg border-2 border-black text-black text-sm font-semibold hover:bg-black/5 transition-colors">Sign In</Link>
+          <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-black/90 transition-colors">Start Challenge</Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-black"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
+        <button className="md:hidden text-black" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      <HeaderPromoLoop />
+
       {mobileOpen && (
         <div className="md:hidden bg-white rounded-2xl shadow-lg border border-black/5 mx-4 mt-2 px-6 py-4">
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-black">Products</p>
               <div className="space-y-2 pl-4">
-                <Link href="/evaluation?type=1-step" className="block text-sm text-black hover:text-primary">
-                  1-Step Challenge
-                </Link>
-                <Link href="/evaluation?type=2-step" className="block text-sm text-black hover:text-primary">
-                  2-Step Challenge
-                </Link>
-                <Link href="/instant" className="block text-sm text-black hover:text-primary">
-                  Instant Funding
-                </Link>
+                <Link href="/evaluation?type=1-step" className="block text-sm text-black hover:text-primary">1-Step Challenge</Link>
+                <Link href="/evaluation?type=2-step" className="block text-sm text-black hover:text-primary">2-Step Challenge</Link>
+                <Link href="/instant" className="block text-sm text-black hover:text-primary">Instant Funding</Link>
               </div>
             </div>
             <Link href="/rewards" className="block text-black hover:text-primary text-sm">Rewards</Link>
@@ -144,22 +114,8 @@ export function Navbar() {
             <Link href="/faq" className="block text-black hover:text-primary text-sm">FAQs</Link>
             <Link href="/affiliates" className="block text-black hover:text-primary text-sm">Affiliates</Link>
             <div className="flex gap-2 pt-4">
-              <Link
-                href="https://app.ckcapital.co.uk/signin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors text-center"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="https://app.ckcapital.co.uk/signup"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center"
-              >
-                Start Challenge
-              </Link>
+              <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors text-center">Sign In</Link>
+              <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center">Start Challenge</Link>
             </div>
           </div>
         </div>
