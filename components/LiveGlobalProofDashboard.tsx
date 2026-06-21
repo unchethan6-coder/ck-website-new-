@@ -62,23 +62,39 @@ function CountryCard({ flag, country, name, time, value, type }: typeof countryC
 
 function FeedItem({ flag, name, meta, value }: typeof feed[number]) {
   return (
-    <div className="grid grid-cols-[28px_1fr_auto] items-center gap-2.5 rounded-xl border border-[#D8AD00]/15 bg-[#09090A] px-3 py-2.5">
-      <span className="text-base">{flag}</span>
+    <div className="grid grid-cols-[44px_1fr_auto] items-center gap-4 rounded-full border border-[#D8AD00]/18 bg-[#080808] px-5 py-4 shadow-[inset_0_0_0_1px_rgba(216,173,0,0.04)]">
+      <span className="text-xl leading-none">{flag}</span>
       <div>
-        <p className="text-xs font-extrabold text-[#F7F4EA]">{name}</p>
-        <p className="mt-0.5 text-[9px] text-[#969690]">{meta}</p>
+        <p className="text-base font-extrabold leading-tight text-[#F7F4EA] md:text-lg">{name}</p>
+        <p className="mt-1 text-xs text-[#969690] md:text-sm">{meta}</p>
       </div>
-      <p className="text-right text-xs font-extrabold text-[#D8AD00]">{value}</p>
+      <p className="text-right text-base font-extrabold text-[#D8AD00] md:text-lg">{value}</p>
     </div>
   )
 }
 
 export function LiveGlobalProofDashboard() {
+  const scrollingFeed = [...feed, ...feed]
+
   return (
     <section className="relative overflow-hidden bg-white px-4 py-10 md:px-6 md:py-14">
       <style jsx global>{`
         body > div > section:has(h2.section-title):has(.space-y-8) {
           display: none !important;
+        }
+
+        @keyframes live-feed-vertical {
+          from { transform: translateY(0); }
+          to { transform: translateY(-50%); }
+        }
+
+        .live-feed-scroll {
+          animation: live-feed-vertical 18s linear infinite;
+          will-change: transform;
+        }
+
+        .live-feed-scroll:hover {
+          animation-play-state: paused;
         }
       `}</style>
 
@@ -122,7 +138,7 @@ export function LiveGlobalProofDashboard() {
           </div>
         </div>
 
-        <div className="relative z-10 mt-5 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative z-10 mt-5 grid gap-4 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative overflow-hidden rounded-2xl border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-4 md:p-5">
             <div className="pointer-events-none absolute left-[8%] top-[47%] h-20 w-[70%] rounded-full border-2 border-dashed border-[#D8AD00]/15" />
             <div className="pointer-events-none absolute left-[16%] top-[64%] h-14 w-[55%] rounded-full border-2 border-dashed border-[#D8AD00]/10" />
@@ -143,13 +159,17 @@ export function LiveGlobalProofDashboard() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-4 md:p-5">
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#D8AD00]">Real-Time Feed</p>
-            <h3 className="mt-1.5 text-xl font-extrabold text-[#F7F4EA] md:text-2xl">Live Activity</h3>
-            <p className="mt-1.5 text-xs text-[#969690] md:text-sm">Live Rewards & Giveaways</p>
+          <div className="rounded-[28px] border border-[#D8AD00]/25 bg-[linear-gradient(135deg,#111111_0%,#080808_55%,#020202_100%)] p-6 md:p-7">
+            <p className="text-xs font-extrabold uppercase tracking-[0.28em] text-[#D8AD00]">Real-Time Feed</p>
+            <h3 className="mt-4 text-3xl font-extrabold leading-tight text-[#F7F4EA] md:text-4xl">Live Activity</h3>
+            <p className="mt-4 text-lg text-[#969690] md:text-xl">Live Rewards & Giveaways</p>
 
-            <div className="mt-4 space-y-2.5">
-              {feed.map((item) => <FeedItem key={`${item.name}-${item.value}`} {...item} />)}
+            <div className="relative mt-7 h-[390px] overflow-hidden">
+              <div className="live-feed-scroll space-y-4 pb-4">
+                {scrollingFeed.map((item, index) => <FeedItem key={`${item.name}-${item.value}-${index}`} {...item} />)}
+              </div>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#111111] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#111111] to-transparent" />
             </div>
           </div>
         </div>
