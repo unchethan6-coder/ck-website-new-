@@ -47,7 +47,7 @@ function MiniDiscordPreview() {
           <span className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold text-black">CK Capital</span>
         </div>
         <div className="grid gap-4">
-          {cards.map((card, index) => (
+          {cards.map((card) => (
             <div key={card.title} className="rounded-2xl bg-[#2B2D31] p-4 text-white shadow-lg">
               <div className="flex items-center justify-between gap-4">
                 <p className="font-extrabold">{card.title}</p>
@@ -67,6 +67,12 @@ function MiniDiscordPreview() {
 export function DiscordCommunitySection() {
   return (
     <section className="relative overflow-hidden bg-[#F2F2F2] px-4 py-16 md:px-6 md:py-24">
+      <style jsx global>{`
+        body > div > section[style*='#010015'],
+        body > div > section[style*='rgb(1, 0, 21)'] {
+          display: none !important;
+        }
+      `}</style>
       <div className="absolute right-[-18%] top-[-32%] h-[760px] w-[760px] rotate-[-18deg] rounded-full bg-[#5865F2]/35 blur-[130px]" />
       <div className="absolute bottom-[-22%] left-[18%] h-[520px] w-[520px] rounded-full bg-[#D4AF37]/18 blur-[120px]" />
 
