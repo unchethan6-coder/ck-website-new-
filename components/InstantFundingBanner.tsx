@@ -8,55 +8,52 @@ export function InstantFundingBanner() {
   return (
     <section className="py-12 md:py-16 px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        {/* Section label */}
-        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>Available Offers</h2>
+        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>
+          Available Offers
+        </h2>
 
-        {/* Tab pill (single active offer, matches the reference design language) */}
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-sm if-pill">
+          <span className="rounded-full px-4 py-1.5 text-sm font-semibold text-black shadow-sm if-pill">
             start challenge • From $9
           </span>
         </div>
 
-        {/* Animated offer card */}
         <div className="if-card relative overflow-hidden rounded-[28px] p-6 md:p-10">
-          {/* moving purple glows */}
           <div className="if-glow if-glow-1" aria-hidden="true" />
           <div className="if-glow if-glow-2" aria-hidden="true" />
 
-          {/* content */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1 if-rise">
-              <span className="inline-block rounded-md px-2.5 py-1 text-xs font-bold tracking-wide text-[#0b0b0b]" style={{ background: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)' }}>
-                hot offer 
+              <span
+                className="inline-block rounded-md px-2.5 py-1 text-xs font-bold tracking-wide text-black"
+                style={{ background: 'linear-gradient(90deg, #FDE68A 0%, #D4AF37 55%, #A87B0B 100%)' }}
+              >
+                hot offer
               </span>
 
               <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-white">
                 Your First Challenge, 70% Off
               </h3>
 
-              <div className="my-5 h-px w-full bg-white/10" />
+              <div className="my-5 h-px w-full bg-[#D4AF37]/20" />
 
-              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-white/60">
-                Enjoy 70% off all Models up to $100K account sizes. New users only.
-
+              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-white/65">
+                Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.
               </p>
             </div>
 
-            {/* gold CTA button */}
             <div className="flex-shrink-0 if-rise" style={{ animationDelay: '120ms' }}>
               <Link
                 href={SIGNUP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#34d399]/60 px-6 py-3 font-bold text-white transition-all text-lg"
-                style={{ 
-                  background: 'transparent',
-                  backgroundImage: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)',
-                  fontSize: '18px'
+                className="inline-flex items-center gap-2 rounded-xl border border-[#D4AF37]/60 px-6 py-3 font-bold text-black transition-all text-lg shadow-[0_0_32px_rgba(212,175,55,0.35)]"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #FDE68A 0%, #D4AF37 55%, #A87B0B 100%)',
+                  fontSize: '18px',
                 }}
               >
-                USECODE : JUN70
+                USE CODE: JUN70
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -68,14 +65,15 @@ export function InstantFundingBanner() {
 
       <style>{`
         .if-pill {
-          background: linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%);
+          background: linear-gradient(90deg, #FDE68A 0%, #D4AF37 55%, #A87B0B 100%);
         }
         .if-card {
           background:
-            radial-gradient(120% 140% at 0% 0%, #1c1840 0%, rgba(28,24,64,0) 55%),
-            linear-gradient(135deg, #13112a 0%, #0b0a1b 100%);
-          border: 1px solid rgba(255,255,255,0.08);
-          box-shadow: 0 24px 60px rgba(10,8,30,0.45);
+            radial-gradient(90% 120% at 8% 0%, rgba(212,175,55,0.36) 0%, rgba(212,175,55,0) 55%),
+            radial-gradient(90% 120% at 100% 40%, rgba(253,230,138,0.18) 0%, rgba(253,230,138,0) 62%),
+            linear-gradient(135deg, #141006 0%, #070707 100%);
+          border: 1px solid rgba(212,175,55,0.28);
+          box-shadow: 0 24px 60px rgba(212,175,55,0.16);
         }
         .if-glow {
           position: absolute;
@@ -84,18 +82,18 @@ export function InstantFundingBanner() {
           height: 180%;
           border-radius: 9999px;
           filter: blur(70px);
-          opacity: 0.55;
+          opacity: 0.48;
           pointer-events: none;
           will-change: transform, opacity;
         }
         .if-glow-1 {
           left: -10%;
-          background: radial-gradient(circle, rgba(124,92,255,0.85) 0%, rgba(124,92,255,0) 70%);
+          background: radial-gradient(circle, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0) 70%);
           animation: if-sweep1 9s ease-in-out infinite;
         }
         .if-glow-2 {
           right: -10%;
-          background: radial-gradient(circle, rgba(91,63,209,0.7) 0%, rgba(91,63,209,0) 70%);
+          background: radial-gradient(circle, rgba(253,230,138,0.55) 0%, rgba(253,230,138,0) 70%);
           animation: if-sweep2 11s ease-in-out infinite;
         }
         @keyframes if-sweep1 {
