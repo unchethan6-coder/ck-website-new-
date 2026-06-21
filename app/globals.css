@@ -353,3 +353,7 @@ html {
 #start-challenge h2 + p {
   display: none;
 }
+
+#start-challenge + section {
+  display: none;
+}
