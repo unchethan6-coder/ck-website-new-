@@ -38,3 +38,56 @@
     flex-basis: 275px !important;
   }
 }
+
+/* Desktop hero alignment like FundingPips reference */
+@media (min-width: 1024px) {
+  body > div > section:first-of-type {
+    justify-content: flex-start !important;
+  }
+
+  body > div > section:first-of-type > div.relative.z-10 {
+    width: 100% !important;
+    max-width: 1280px !important;
+    text-align: left !important;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+
+  body > div > section:first-of-type > div.relative.z-10 > div:first-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  body > div > section:first-of-type h1 {
+    max-width: 660px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  body > div > section:first-of-type h1 + p {
+    max-width: 620px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  body > div > section:first-of-type .flex.flex-col.sm\:flex-row {
+    justify-content: flex-start !important;
+  }
+
+  body > div > section:first-of-type .flex.justify-center.mb-12 {
+    justify-content: flex-start !important;
+  }
+
+  body > div > section:first-of-type .grid.grid-cols-1.md\:grid-cols-3 {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    max-width: 620px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  body > div > section:first-of-type > div.relative.z-10 {
+    max-width: 1440px !important;
+    padding-left: 6rem !important;
+  }
+}
