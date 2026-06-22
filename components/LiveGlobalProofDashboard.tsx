@@ -168,8 +168,6 @@ export function LiveGlobalProofDashboard() {
             </div>
           </div>
         </div>
-
-        <p className="relative z-10 mt-3 text-center text-[9px] leading-relaxed text-[#969690]">Displayed activity should be connected to verified internal data before using exact live totals publicly.</p>
       </div>
     </section>
   )
