@@ -1,6 +1,45 @@
+'use client'
+
+import { useEffect } from 'react'
+
 const promoItems = Array.from({ length: 10 }, (_, index) => index)
 
 export function PromoBar() {
+  useEffect(() => {
+    const handleCopyCode = async (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null
+      const button = target?.closest('button') as HTMLButtonElement | null
+      if (!button) return
+
+      const label = button.textContent?.trim() || ''
+      if (!label.startsWith('Copy Code:')) return
+
+      event.preventDefault()
+      event.stopPropagation()
+
+      const code = label.replace('Copy Code:', '').replace('Copied:', '').trim()
+      const original = button.textContent || `Copy Code: ${code}`
+
+      try {
+        await navigator.clipboard.writeText(code)
+        button.textContent = `Copied: ${code}`
+        button.classList.add('ck-code-copied')
+        window.setTimeout(() => {
+          button.textContent = original
+          button.classList.remove('ck-code-copied')
+        }, 1400)
+      } catch {
+        button.textContent = `Copy failed`
+        window.setTimeout(() => {
+          button.textContent = original
+        }, 1400)
+      }
+    }
+
+    document.addEventListener('click', handleCopyCode, true)
+    return () => document.removeEventListener('click', handleCopyCode, true)
+  }, [])
+
   return (
     <div className="relative z-[60] w-full overflow-hidden bg-gradient-to-r from-[#f4c430] via-[#f0e68c] to-[#f4c430] py-1.5 text-sm font-semibold text-black shadow-sm md:py-2 md:text-base">
       <style jsx global>{`
@@ -12,6 +51,42 @@ export function PromoBar() {
         .top-promo-marquee-track {
           animation: top-promo-marquee 26s linear infinite;
           will-change: transform;
+        }
+
+        button:has(> *),
+        button {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        button[type='button'] {
+          cursor: pointer;
+        }
+
+        button[type='button']:not([aria-haspopup='menu']) {
+          position: relative;
+        }
+
+        button[type='button']:not([aria-haspopup='menu']):has-text {
+          background: #fff4bf;
+        }
+
+        #start-challenge button[type='button'] {
+          background: linear-gradient(180deg, #fff7cf 0%, #f6e79b 100%) !important;
+          border: 1px dashed rgba(168, 123, 11, 0.45) !important;
+          color: #5a3f00 !important;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 8px 24px rgba(168,123,11,0.12);
+        }
+
+        #start-challenge button[type='button']:hover {
+          background: linear-gradient(180deg, #fffbe3 0%, #f7dda0 100%) !important;
+          border-color: rgba(168, 123, 11, 0.7) !important;
+          color: #111111 !important;
+        }
+
+        #start-challenge button.ck-code-copied {
+          background: linear-gradient(180deg, #e8fff2 0%, #bff7d4 100%) !important;
+          border-color: rgba(64, 242, 133, 0.65) !important;
+          color: #0b6b35 !important;
         }
 
         body > div > section:first-of-type {
