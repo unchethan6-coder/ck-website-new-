@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 const trustItems = [
-  { label: 'Trustpilot', value: '4.5 rating' },
-  { label: 'Active Regions', value: '28+ countries' },
-  { label: 'Platforms', value: 'MT5 + TradeLocker' },
-  { label: 'Support', value: '24/7 available' },
+  { label: 'Evaluations', value: '12K+', text: 'accounts accessed' },
+  { label: 'Rewards', value: '$4.8M+', text: 'processed in tracker' },
+  { label: 'Countries', value: '28+', text: 'active regions' },
+  { label: 'Platforms', value: 'MT5', text: '+ TradeLocker' },
 ]
 
 const features = [
@@ -17,11 +17,11 @@ const features = [
 ]
 
 const steps = [
-  'Choose Evaluation',
-  'Trade With Rules',
-  'Meet Objectives',
-  'Request Reward Review',
-  'Scale Your Journey',
+  { title: 'Choose Evaluation', text: 'Select your account size and evaluation route.' },
+  { title: 'Trade With Rules', text: 'Use a simulated account with clear objectives.' },
+  { title: 'Meet Objectives', text: 'Manage risk and complete the required goals.' },
+  { title: 'Request Review', text: 'Eligible traders can request reward review.' },
+  { title: 'Scale Journey', text: 'Continue improving with scalable program options.' },
 ]
 
 const faqs = [
@@ -34,54 +34,57 @@ const faqs = [
 export function CKFtmoInspiredSections() {
   return (
     <>
-      <section className="bg-white py-10 md:py-14">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <div className="grid gap-3 rounded-[28px] border border-black/10 bg-[#FAFAF7] p-4 shadow-[0_20px_70px_rgba(0,0,0,0.08)] md:grid-cols-4 md:p-5">
+      <section className="relative overflow-hidden bg-[#050505] py-14 md:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.22),transparent_45%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6">
+          <div className="grid gap-4 rounded-[32px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_26px_90px_rgba(0,0,0,0.35)] backdrop-blur md:grid-cols-4 md:p-5">
             {trustItems.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-black/5 bg-white p-4 text-center">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-black/45">{item.label}</p>
-                <p className="mt-2 text-lg font-extrabold text-black md:text-xl">{item.value}</p>
+              <div key={item.label} className="rounded-3xl border border-white/10 bg-[#0E0E0E] p-5 text-center transition-transform duration-300 hover:-translate-y-1">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-white/45">{item.label}</p>
+                <p className="mt-2 bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl">{item.value}</p>
+                <p className="mt-1 text-xs text-white/50">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <section className="relative overflow-hidden bg-[#050505] py-14 md:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,#101010_50%,#050505_100%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#A87B0B]">Why CK Capital</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-black md:text-5xl">Built for clear rules and trader progress.</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-black/60 md:text-base">A simple, premium structure for simulated trading evaluations, platform access, support, and reward review clarity.</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#D4AF37]">Why CK Capital</p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">Premium evaluation experience built for clarity.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">A focused prop-firm style journey with fewer distractions, stronger trust signals, and clear action paths.</p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
-              <article key={feature.title} className="group rounded-3xl border border-black/10 bg-[linear-gradient(180deg,#FFFFFF_0%,#F7F4EA_100%)] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,0,0,0.12)]">
+              <article key={feature.title} className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40 hover:shadow-[0_24px_70px_rgba(212,175,55,0.12)]">
                 <div className="mb-5 flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] text-sm font-extrabold text-black">0{index + 1}</div>
-                <h3 className="text-xl font-extrabold text-black">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-black/65">{feature.text}</p>
+                <h3 className="text-xl font-extrabold text-white">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/58">{feature.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#050505] py-14 md:py-20">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.20),transparent_42%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 md:px-6">
+      <section className="relative overflow-hidden bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#D4AF37]">How It Works</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">Start simple. Follow the process.</h2>
-            <p className="mt-4 text-sm leading-relaxed text-white/60 md:text-base">A clean FTMO-style flow adapted for CK Capital simulated evaluation programs.</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#A87B0B]">How It Works</p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-black md:text-5xl">Five simple steps from visitor to evaluation.</h2>
+            <p className="mt-4 text-sm leading-relaxed text-black/60 md:text-base">A clear, conversion-focused journey built for mobile and desktop users.</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-5">
             {steps.map((step, index) => (
-              <article key={step} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] p-5 text-white">
-                <div className="mb-8 flex size-12 items-center justify-center rounded-full bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] text-lg font-extrabold text-black">{index + 1}</div>
-                <h3 className="text-lg font-extrabold">{step}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/55">{index === 0 ? 'Select the account size and model that fits your style.' : index === 1 ? 'Trade inside a simulated account with clear objectives.' : index === 2 ? 'Manage risk and complete the required evaluation goals.' : index === 3 ? 'Eligible traders can request reward review under program terms.' : 'Continue improving with scalable program options.'}</p>
+              <article key={step.title} className="relative overflow-hidden rounded-3xl border border-black/10 bg-[#FAFAF7] p-5 text-black transition-transform duration-300 hover:-translate-y-1">
+                <div className="absolute right-4 top-4 text-6xl font-black text-black/[0.035]">0{index + 1}</div>
+                <div className="relative z-10 mb-8 flex size-12 items-center justify-center rounded-full bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] text-lg font-extrabold text-black">{index + 1}</div>
+                <h3 className="relative z-10 text-lg font-extrabold">{step.title}</h3>
+                <p className="relative z-10 mt-3 text-sm leading-relaxed text-black/58">{step.text}</p>
               </article>
             ))}
           </div>
@@ -96,7 +99,7 @@ export function CKFtmoInspiredSections() {
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
-              <details key={faq.q} className="group rounded-2xl border border-black/10 bg-[#FAFAF7] p-5">
+              <details key={faq.q} className="group rounded-2xl border border-black/10 bg-[#FAFAF7] p-5 transition-colors hover:bg-[#F7F4EA]">
                 <summary className="cursor-pointer list-none text-base font-extrabold text-black md:text-lg">{faq.q}</summary>
                 <p className="mt-3 text-sm leading-relaxed text-black/60">{faq.a}</p>
               </details>
