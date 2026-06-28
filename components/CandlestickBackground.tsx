@@ -22,6 +22,8 @@ export function CandlestickBackground() {
         fetchPriority="high"
         decoding="async"
       />
+      <div className="ck-hero-mask absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(90deg, #fffaf1 0%, rgba(255,250,241,0.94) 20%, rgba(255,250,241,0.6) 40%, rgba(255,250,241,0) 62%)' }} />
+      <div className="ck-hero-mask absolute inset-x-0 bottom-0 h-1/3 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,250,241,0) 0%, #fffaf1 100%)' }} />
     </div>
   )
 }
