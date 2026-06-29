@@ -94,7 +94,7 @@ export default function EvaluationPage() {
       {/* Pricing Table */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'1717' }}>Evaluation Pricing</h2>
+          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: '#101820' }}>Evaluation Pricing</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[

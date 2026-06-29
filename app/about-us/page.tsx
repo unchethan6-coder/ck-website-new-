@@ -128,7 +128,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 bg-card/20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6" style={{ color: 'var(--foreground)'0707' }}>Join the CK Capital Community</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-6" style={{ color: '#101820' }}>Join the CK Capital Community</h2>
           <p className="text-lg text-foreground mb-8">
             Be part of a growing global community of successful traders.
           </p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="button-secondary"
-              style={{ color: 'var(--foreground)'0000', background: 'linear-gradient(to right in oklab, rgb(212, 175, 55) 0%, rgb(240, 230, 140) 100%)' }}
+              style={{ color: '#101820', background: 'linear-gradient(to right in oklab, rgb(212, 175, 55) 0%, rgb(240, 230, 140) 100%)' }}
             >
               Join Discord
             </Link>

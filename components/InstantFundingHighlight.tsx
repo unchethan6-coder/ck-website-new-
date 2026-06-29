@@ -66,7 +66,7 @@ export function InstantFundingHighlight() {
               <div className="flex-1">
                 <span
                   className="ifo-badge inline-block rounded-md px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider"
-                  style={{ background: 'rgba(16,61,46,0.85)', color: 'var(--foreground)'d399', border: '1px solid rgba(52,211,153,0.4)' }}
+                  style={{ background: 'rgba(16,61,46,0.85)', color: '#101820', border: '1px solid rgba(52,211,153,0.4)' }}
                 >
                   Newly Launched
                 </span>
@@ -80,7 +80,7 @@ export function InstantFundingHighlight() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 self-start md:self-center rounded-full px-7 py-3 font-semibold transition-transform hover:scale-105"
-                style={{ background: 'rgba(15,42,34,0.9)', color: 'var(--foreground)'d399', border: '1px solid rgba(52,211,153,0.5)' }}
+                style={{ background: 'rgba(15,42,34,0.9)', color: '#101820', border: '1px solid rgba(52,211,153,0.5)' }}
               >
                 Start Now
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

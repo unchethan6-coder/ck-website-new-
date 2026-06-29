@@ -68,7 +68,7 @@ export default function BlogPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-12" style={{ color: 'var(--foreground)'0000' }}>
+      <section className="py-12" style={{ color: '#101820' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             {categories.map((cat, idx) => (
@@ -95,7 +95,7 @@ export default function BlogPage() {
               <span className="inline-block px-3 py-1 rounded-full text-foreground text-xs font-bold mb-4" style={{ background: 'linear-gradient(to right in oklab, rgb(168, 123, 11) 0%, rgb(212, 175, 55) 50%, rgb(168, 123, 11) 100%)' }}>
                 Featured
               </span>
-              <h2 className="text-3xl font-bold text-foreground mb-3" style={{ color: 'var(--foreground)'0303' }}>
+              <h2 className="text-3xl font-bold text-foreground mb-3" style={{ color: '#101820' }}>
                 {posts[0].title}
               </h2>
               <p className="text-foreground text-lg">{posts[0].excerpt}</p>
