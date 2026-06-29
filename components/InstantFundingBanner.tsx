@@ -6,14 +6,14 @@ const SIGNUP = 'https://app.ckcapital.co.uk/signup'
 
 export function InstantFundingBanner() {
   return (
-    <section className="py-12 md:py-16 px-4 md:px-6 bg-white">
+    <section className="py-12 md:py-16 px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>
+        <h2 className="text-3xl md:text-2xl font-extrabold text-foreground mb-4" style={{ fontSize: '30px' }}>
           Available Offers
         </h2>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="rounded-full px-4 py-1.5 text-sm font-semibold text-black shadow-sm if-pill">
+          <span className="rounded-full px-4 py-1.5 text-sm font-semibold text-foreground shadow-sm if-pill">
             start challenge • From $9
           </span>
         </div>
@@ -31,13 +31,13 @@ export function InstantFundingBanner() {
                 hot offer
               </span>
 
-              <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-[#111111]">
+              <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-foreground">
                 Your First Challenge, 70% Off
               </h3>
 
-              <div className="my-5 h-px w-full bg-[#D4AF37]/40" />
+              <div className="my-5 h-px w-full bg-primary/40" />
 
-              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-black/60">
+              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-muted-foreground">
                 Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.
               </p>
             </div>
@@ -47,7 +47,7 @@ export function InstantFundingBanner() {
                 href={SIGNUP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#D4AF37]/60 px-6 py-3 font-bold text-black transition-all text-lg shadow-[0_0_32px_rgba(212,175,55,0.35)]"
+                className="inline-flex items-center gap-2 rounded-xl border border-primary/60 px-6 py-3 font-bold text-foreground transition-all text-lg shadow-[0_0_32px_rgba(212,175,55,0.35)]"
                 style={{
                   backgroundImage: 'linear-gradient(90deg, #FDE68A 0%, #D4AF37 55%, #A87B0B 100%)',
                   fontSize: '18px',

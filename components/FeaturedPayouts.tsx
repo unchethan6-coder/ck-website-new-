@@ -24,7 +24,7 @@ export function FeaturedPayouts() {
         id="payout-certificates"
         className="relative overflow-hidden py-16"
         style={{
-          background: 'linear-gradient(180deg, #FFFFFF 0%, #FFFBEA 36%, #FFF2C2 50%, #FFFBEA 64%, #FFFFFF 100%)',
+          background: 'linear-gradient(180deg, #f4f7fa 0%, #eef3f7 36%, #e7edf2 50%, #eef3f7 64%, #f4f7fa 100%)',
           paddingBottom: '143px',
         }}
       >
@@ -48,11 +48,11 @@ export function FeaturedPayouts() {
         `}</style>
 
         <div className="relative mx-auto mb-12 max-w-7xl px-4 text-center md:px-6">
-          <p className="mb-3 text-xs font-semibold tracking-[0.25em] text-[#B59410]">PAYOUT CERTIFICATES</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-black text-balance">
+          <p className="mb-3 text-xs font-semibold tracking-[0.25em] text-primary">PAYOUT CERTIFICATES</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground text-balance">
             Real Payouts to <span className="gradient-text">Real Traders</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-black/60">
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             Real performance-fee payout certificates issued to CK Capital traders.
           </p>
         </div>
@@ -70,7 +70,7 @@ export function FeaturedPayouts() {
                     key={`${rowIndex}-${imageIndex}`}
                     src={src}
                     alt="CK Capital payout certificate"
-                    className="h-52 w-auto flex-shrink-0 rounded-xl border border-[#EADFA0] bg-white shadow-md md:h-72"
+                    className="h-52 w-auto flex-shrink-0 rounded-xl border border-primary/20 bg-card shadow-md md:h-72"
                     loading="lazy"
                     decoding="async"
                   />

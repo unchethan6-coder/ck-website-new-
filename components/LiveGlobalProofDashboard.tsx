@@ -109,7 +109,7 @@ export function LiveGlobalProofDashboard() {
   const scrollingFeed = [...feed, ...feed]
 
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-8 md:px-6 md:py-10">
+    <section className="relative overflow-hidden bg-background px-4 py-8 md:px-6 md:py-10">
       <style jsx global>{`
         body > div > section:has(h2.section-title):has(.space-y-8) { display: none !important; }
         @keyframes live-feed-vertical { from { transform: translateY(0); } to { transform: translateY(-50%); } }

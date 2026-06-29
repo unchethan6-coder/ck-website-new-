@@ -50,34 +50,34 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gray-50">
+    <section className="py-12 sm:py-16 md:py-20 px-4 bg-muted">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-8 sm:mb-12 space-y-2 sm:space-y-3">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-balance">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
             Find answers to common questions about CK Capital
           </p>
         </div>
 
         <div className="space-y-2 sm:space-y-3">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div key={index} className="bg-card border border-border rounded-lg overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-150"
+                className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-muted transition-colors duration-150"
               >
-                <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-900 text-balance pr-2">{faq.question}</span>
+                <span className="font-semibold text-xs sm:text-sm md:text-base text-foreground text-balance pr-2">{faq.question}</span>
                 <ChevronDown
-                  className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-500 transition-transform flex-shrink-0 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform flex-shrink-0 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
               </button>
               {openIndex === index && (
-                <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 bg-gray-50 border-t border-gray-200">
-                  <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">{faq.answer}</p>
+                <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 bg-muted border-t border-border">
+                  <p className="text-xs sm:text-sm md:text-base text-foreground leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
