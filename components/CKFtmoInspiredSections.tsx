@@ -34,68 +34,68 @@ const faqs = [
 export function CKFtmoInspiredSections() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#050505] py-14 md:py-20">
+      <section className="relative overflow-hidden bg-background-secondary py-14 md:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.22),transparent_45%)]" />
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
-          <div className="grid gap-4 rounded-[32px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_26px_90px_rgba(0,0,0,0.35)] backdrop-blur md:grid-cols-4 md:p-5">
+          <div className="grid gap-4 rounded-[32px] border border-primary/20 bg-primary/[0.04] p-4 shadow-[0_26px_90px_rgba(212,175,55,0.12)] backdrop-blur md:grid-cols-4 md:p-5">
             {trustItems.map((item) => (
-              <div key={item.label} className="rounded-3xl border border-white/10 bg-[#0E0E0E] p-5 text-center transition-transform duration-300 hover:-translate-y-1">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-white/45">{item.label}</p>
+              <div key={item.label} className="rounded-3xl border border-primary/20 bg-card p-5 text-center transition-transform duration-300 hover:-translate-y-1">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-muted-foreground/60">{item.label}</p>
                 <p className="mt-2 bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] bg-clip-text text-3xl font-extrabold text-transparent md:text-4xl">{item.value}</p>
-                <p className="mt-1 text-xs text-white/50">{item.text}</p>
+                <p className="mt-1 text-xs text-muted-foreground/70">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#050505] py-14 md:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,#101010_50%,#050505_100%)]" />
+      <section className="relative overflow-hidden bg-background-secondary py-14 md:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(238,243,247,0.3)_0%,rgba(224,235,245,0.3)_50%,rgba(238,243,247,0.3)_100%)]" />
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#D4AF37]">Why CK Capital</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">Premium evaluation experience built for clarity.</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">A focused prop-firm style journey with fewer distractions, stronger trust signals, and clear action paths.</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-primary">Why CK Capital</p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-foreground md:text-5xl">Premium evaluation experience built for clarity.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">A focused prop-firm style journey with fewer distractions, stronger trust signals, and clear action paths.</p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
-              <article key={feature.title} className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40 hover:shadow-[0_24px_70px_rgba(212,175,55,0.12)]">
-                <div className="mb-5 flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] text-sm font-extrabold text-black">0{index + 1}</div>
-                <h3 className="text-xl font-extrabold text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/58">{feature.text}</p>
+              <article key={feature.title} className="group rounded-3xl border border-primary/20 bg-card/80 p-6 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_70px_rgba(212,175,55,0.12)]">
+                <div className="mb-5 flex size-11 items-center justify-center rounded-2xl bg-primary text-sm font-extrabold text-foreground">0{index + 1}</div>
+                <h3 className="text-xl font-extrabold text-foreground">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{feature.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-14 md:py-20">
+      <section className="relative overflow-hidden bg-background py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#A87B0B]">How It Works</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-black md:text-5xl">Five simple steps from visitor to evaluation.</h2>
-            <p className="mt-4 text-sm leading-relaxed text-black/60 md:text-base">A clear, conversion-focused journey built for mobile and desktop users.</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-primary">How It Works</p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-foreground md:text-5xl">Five simple steps from visitor to evaluation.</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">A clear, conversion-focused journey built for mobile and desktop users.</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-5">
             {steps.map((step, index) => (
-              <article key={step.title} className="relative overflow-hidden rounded-3xl border border-black/10 bg-[#FAFAF7] p-5 text-black transition-transform duration-300 hover:-translate-y-1">
-                <div className="absolute right-4 top-4 text-6xl font-black text-black/[0.035]">0{index + 1}</div>
-                <div className="relative z-10 mb-8 flex size-12 items-center justify-center rounded-full bg-[linear-gradient(to_right_in_oklab,rgb(168,123,11)_0%,rgb(212,175,55)_50%,rgb(168,123,11)_100%)] text-lg font-extrabold text-black">{index + 1}</div>
+              <article key={step.title} className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 text-foreground transition-transform duration-300 hover:-translate-y-1">
+                <div className="absolute right-4 top-4 text-6xl font-black text-foreground/[0.035]">0{index + 1}</div>
+                <div className="relative z-10 mb-8 flex size-12 items-center justify-center rounded-full bg-primary text-lg font-extrabold text-foreground">{index + 1}</div>
                 <h3 className="relative z-10 text-lg font-extrabold">{step.title}</h3>
-                <p className="relative z-10 mt-3 text-sm leading-relaxed text-black/58">{step.text}</p>
+                <p className="relative z-10 mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-background py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#A87B0B]">FAQ</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-black md:text-5xl">Questions before you start?</h2>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-primary">FAQ</p>
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-foreground md:text-5xl">Questions before you start?</h2>
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (

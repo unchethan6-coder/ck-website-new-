@@ -3,7 +3,7 @@ import { TrendingUp, DollarSign, BarChart3 } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-4 sm:px-6 py-12 sm:py-16 md:py-32 lg:py-40">
+    <section className="relative overflow-hidden bg-background px-4 sm:px-6 py-12 sm:py-16 md:py-32 lg:py-40">
       {/* Subtle 3D Trading Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Faint 3D Chart Lines Background */}
@@ -75,26 +75,26 @@ export default function Hero() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-2 sm:pt-4">
-              <div className="bg-[#F9F9F9] p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-muted/50 p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F4D957] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#1a1a1a]">100%</span>
+                  <TrendingUp className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-primary flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-foreground">100%</span>
                 </div>
-                <p className="text-xs text-[#666666] leading-tight">Profit Split</p>
+                <p className="text-xs text-muted-foreground leading-tight">Profit Split</p>
               </div>
-              <div className="bg-[#F9F9F9] p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-muted/50 p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F4D957] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#1a1a1a]">$1.2M</span>
+                  <DollarSign className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-primary flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-foreground">$1.2M</span>
                 </div>
-                <p className="text-xs text-[#666666] leading-tight">Max Funded</p>
+                <p className="text-xs text-muted-foreground leading-tight">Max Funded</p>
               </div>
-              <div className="bg-[#F9F9F9] p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-muted/50 p-2 sm:p-3 md:p-4 rounded-lg shadow-premium hover:shadow-lg transition-shadow duration-200">
                 <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-[#F4D957] flex-shrink-0" />
-                  <span className="font-bold text-sm sm:text-lg md:text-xl text-[#1a1a1a]">50+</span>
+                  <BarChart3 className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-primary flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-lg md:text-xl text-foreground">50+</span>
                 </div>
-                <p className="text-xs text-[#666666] leading-tight">Instruments</p>
+                <p className="text-xs text-muted-foreground leading-tight">Instruments</p>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ export default function Hero() {
 
           {/* Right Column - Chart Visualization */}
           <div className="animate-slide-right hidden md:block">
-            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-[#FAFAFA] to-[#F5F5F5] rounded-xl p-6 sm:p-8 shadow-premium">
+            <div className="relative h-80 lg:h-96 bg-gradient-to-br from-background to-muted rounded-xl p-6 sm:p-8 shadow-premium">
               <div className="absolute inset-0 flex items-end justify-around gap-2 sm:gap-3 p-6 sm:p-8">
                 <div className="w-10 sm:w-12 h-20 bg-gradient-to-t from-[#F4D957] to-[#F9E8C8] rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-200"></div>
                 <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F4D957] to-[#F9E8C8] rounded-lg opacity-85 hover:opacity-100 transition-opacity duration-200"></div>

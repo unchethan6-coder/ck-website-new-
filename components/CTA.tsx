@@ -15,7 +15,7 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-base">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-foreground text-base">
               Start Your Evaluation
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

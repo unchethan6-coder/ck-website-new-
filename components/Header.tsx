@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm will-change-transform">
+    <header className="sticky top-0 z-50 w-full bg-background shadow-sm will-change-transform">
       <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center group flex-shrink-0">
@@ -60,7 +60,7 @@ export default function Header() {
             <a href="https://app.ckcapital.co.uk/signin">Log In</a>
           </Button>
           <Button 
-            className="bg-[#0A2463] hover:bg-[#051A41] text-white text-sm font-semibold px-4 py-2 h-10 transition-colors rounded"
+            className="bg-primary hover:bg-primary/90 text-foreground text-sm font-semibold px-4 py-2 h-10 transition-colors rounded"
             asChild
           >
             <a href="https://app.ckcapital.co.uk/signup">Start Challenge</a>
