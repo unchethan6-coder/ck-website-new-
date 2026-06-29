@@ -610,7 +610,7 @@ export default function ProductsComparison() {
               onClick={() => setActiveTab(tab.key)}
               className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
                 activeTab === tab.key
-                  ? 'bg-[#0A1628] text-white'
+                  ? 'bg-[#0A1628] text-foreground'
                   : 'bg-[#F0F2F7] text-[#4B5563] hover:bg-[#E8EAEF]'
               }`}
             >
@@ -627,7 +627,7 @@ export default function ProductsComparison() {
                 key={index}
                 className={`flex-shrink-0 rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden transition-all duration-300 h-full flex flex-col ${
                   account.popular
-                    ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957]'
+                    ? 'bg-[#0A1628] text-foreground shadow-xl ring-2 ring-[#F4D957]'
                     : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF] hover:shadow-lg hover:border-[#D8DADF]'
                 }`}
               >
@@ -659,7 +659,7 @@ export default function ProductsComparison() {
                     className={`w-full mb-5 sm:mb-6 font-bold py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg transition-all flex-shrink-0 ${
                       account.popular
               ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
-                        : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
+                        : 'bg-[#0A1628] text-foreground hover:bg-[#051A41]'
                     }`}
                     asChild
                   >
@@ -694,7 +694,7 @@ export default function ProductsComparison() {
                 key={index}
                 className={`flex-shrink-0 w-72 rounded-lg overflow-hidden transition-all duration-300 flex flex-col ${
                   account.popular
-                    ? 'bg-[#0A1628] text-white shadow-xl ring-2 ring-[#F4D957]'
+                    ? 'bg-[#0A1628] text-foreground shadow-xl ring-2 ring-[#F4D957]'
                     : 'bg-[#F8FAFC] text-[#0A1628] border border-[#E8EAEF]'
                 }`}
               >
@@ -726,7 +726,7 @@ export default function ProductsComparison() {
                     className={`w-full mb-5 font-bold py-2.5 text-xs rounded-lg transition-all flex-shrink-0 ${
                       account.popular
                         ? 'bg-[#F4D957] text-[#0A1628] hover:bg-[#F0C738]'
-                        : 'bg-[#0A1628] text-white hover:bg-[#051A41]'
+                        : 'bg-[#0A1628] text-foreground hover:bg-[#051A41]'
                     }`}
                     asChild
                   >
@@ -761,7 +761,7 @@ export default function ProductsComparison() {
             All challenges include live market trading on real instruments during simulated evaluation periods.
           </p>
           <Button
-            className="mt-6 sm:mt-8 bg-[#0A1628] hover:bg-[#051A41] text-white font-bold px-8 py-2.5 rounded-lg transition-colors"
+            className="mt-6 sm:mt-8 bg-[#0A1628] hover:bg-[#051A41] text-foreground font-bold px-8 py-2.5 rounded-lg transition-colors"
             asChild
           >
             <a href="https://app.ckcapital.co.uk/all-products">View All Products</a>

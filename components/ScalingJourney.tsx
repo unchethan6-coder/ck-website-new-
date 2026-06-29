@@ -19,7 +19,7 @@ export function ScalingJourney() {
           <h2 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">
             Your Path to Growth
           </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Track your progress from $2.5K to $1.2M.
           </p>
         </div>
@@ -30,7 +30,7 @@ export function ScalingJourney() {
             {milestones.map((milestone, idx) => (
               <React.Fragment key={idx}>
                 <div className="flex-1 text-center">
-                  <div className="bg-gray-50 rounded-2xl p-6 mb-4 border border-gray-200">
+                  <div className="bg-muted rounded-2xl p-6 mb-4 border border-border">
                     <div className="text-3xl font-bold text-black mb-2">{milestone.capital}</div>
                     <div className="text-sm font-semibold text-gray-700 mb-2">{milestone.label}</div>
                     <div className="flex items-center justify-center gap-1 text-green-600 font-bold text-sm">
@@ -56,7 +56,7 @@ export function ScalingJourney() {
               <div className="flex-shrink-0 mt-1">
                 <CheckCircle2 className="w-5 h-5 text-blue-600" />
               </div>
-              <div className="flex-1 bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex-1 bg-muted rounded-lg p-4 border border-border">
                 <div className="text-xl font-bold text-black">{milestone.capital}</div>
                 <div className="text-xs font-semibold text-gray-700 mt-1">{milestone.label}</div>
                 <div className="text-green-600 font-bold text-sm mt-2">{milestone.profit}</div>

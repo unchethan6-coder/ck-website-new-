@@ -76,7 +76,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-black/80 transition-colors hover:border-[#D4AF37]"
+        className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         aria-label="Select language"
       >
         <span className="text-base leading-none">{current.flag}</span>
@@ -84,7 +84,7 @@ export function LanguageSwitcher() {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {open && (
-        <div className="absolute right-0 z-[60] mt-2 max-h-[70vh] w-56 overflow-y-auto rounded-2xl border border-black/10 bg-white p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+        <div className="absolute right-0 z-[60] mt-2 max-h-[70vh] w-56 overflow-y-auto rounded-2xl border border-border bg-card p-1.5 shadow-sm">
           {LANGS.map((l) => (
             <button
               key={l.code}

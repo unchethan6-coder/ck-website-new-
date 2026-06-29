@@ -60,7 +60,7 @@ export default function WhyChooseCK() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 space-y-2 sm:space-y-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-balance">
             How It Works
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-[#78716C] max-w-2xl mx-auto">
@@ -85,7 +85,7 @@ export default function WhyChooseCK() {
                   <div className="flex items-start gap-3 mb-3 sm:mb-4">
                     <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-[#F9D834] flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-white">{feature.title}</h3>
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground">{feature.title}</h3>
                       <p className="text-sm text-[#F9D834] font-semibold">{feature.subtitle}</p>
                     </div>
                   </div>
@@ -120,7 +120,7 @@ export default function WhyChooseCK() {
                     &quot;{testimonials[idx].quote}&quot;
                   </p>
                   <div>
-                    <p className="font-semibold text-white text-sm">{testimonials[idx].author}</p>
+                    <p className="font-semibold text-foreground text-sm">{testimonials[idx].author}</p>
                     <p className="text-xs text-[#F9D834]">{testimonials[idx].location}</p>
                   </div>
                 </div>

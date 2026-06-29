@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export default function CommunitySection() {
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Main Container */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -12,29 +12,29 @@ export default function CommunitySection() {
           <div className="space-y-8">
             {/* Heading and Description */}
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0A1628] leading-tight text-balance">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
                 Learn, grow and connect with traders worldwide, traders from 195 countries trust our platform
               </h2>
-              <p className="text-[#4B5563] text-base md:text-lg max-w-lg leading-relaxed hidden sm:block">
+              <p className="text-muted-foreground text-base md:text-lg max-w-lg leading-relaxed hidden sm:block">
                 Join our vibrant community of successful traders sharing wins, strategies, and support.
               </p>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 md:gap-8 py-8 border-t-2 border-b-2 border-[#E8EAEF]">
+            <div className="grid grid-cols-2 gap-6 md:gap-8 py-8 border-t-2 border-b-2 border-border">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-[#0A1628]">3 Million+</div>
-                <div className="text-sm md:text-base text-[#4B5563]">Traders</div>
+                <div className="text-3xl md:text-4xl font-bold text-foreground">3 Million+</div>
+                <div className="text-sm md:text-base text-muted-foreground">Traders</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-[#0A1628]">$253M+</div>
-                <div className="text-sm md:text-base text-[#4B5563]">Rewards Distributed</div>
+                <div className="text-3xl md:text-4xl font-bold text-foreground">$253M+</div>
+                <div className="text-sm md:text-base text-muted-foreground">Rewards Distributed</div>
               </div>
             </div>
 
             {/* CTA Button */}
             <Button
-              className="bg-[#0A1628] hover:bg-[#051A41] text-white font-bold py-3 px-8 rounded-lg text-base md:text-lg transition-all duration-300 w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 text-foreground font-bold py-3 px-8 rounded-lg text-base md:text-lg transition-all duration-300 w-full sm:w-auto"
               asChild
             >
               <a 
@@ -59,7 +59,7 @@ export default function CommunitySection() {
                 {/* Screen */}
                 <div className="bg-[#2C2F33] rounded-2xl overflow-hidden">
                   {/* Status Bar */}
-                  <div className="bg-[#2C2F33] px-6 py-3 flex justify-between items-center text-white text-xs">
+                  <div className="bg-[#2C2F33] px-6 py-3 flex justify-between items-center text-foreground text-xs">
                     <span>10:24</span>
                     <div className="flex gap-1">
                       <div className="w-1 h-1 bg-white rounded-full"></div>
@@ -70,7 +70,7 @@ export default function CommunitySection() {
 
                   {/* Discord Header */}
                   <div className="bg-[#23272A] px-4 py-3">
-                    <div className="text-white font-bold text-sm"># | Rewards-Live-Updates</div>
+                    <div className="text-foreground font-bold text-sm"># | Rewards-Live-Updates</div>
                     <div className="text-gray-400 text-xs mt-1">CK Capital Community</div>
                   </div>
 
@@ -81,7 +81,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:49 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$4,093.86 reward!</span></div>
@@ -93,7 +93,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:47 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$642.37 reward!</span></div>
@@ -105,7 +105,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:45 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$514.60 reward!</span></div>
@@ -117,7 +117,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:43 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$1,090.36 reward!</span></div>

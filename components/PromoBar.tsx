@@ -67,20 +67,20 @@ export function PromoBar() {
         }
 
         button[type='button']:not([aria-haspopup='menu']):has-text {
-          background: #fff4bf;
+          background: #f9e8a6;
         }
 
         #start-challenge button[type='button'] {
-          background: linear-gradient(180deg, #fff7cf 0%, #f6e79b 100%) !important;
+          background: linear-gradient(180deg, #f9e8a6 0%, #f0d968 100%) !important;
           border: 1px dashed rgba(168, 123, 11, 0.45) !important;
           color: #5a3f00 !important;
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 8px 24px rgba(168,123,11,0.12);
+          box-shadow: inset 0 1px 0 rgba(250,248,245,0.7), 0 8px 24px rgba(168,123,11,0.12);
         }
 
         #start-challenge button[type='button']:hover {
-          background: linear-gradient(180deg, #fffbe3 0%, #f7dda0 100%) !important;
+          background: linear-gradient(180deg, #fbed9f 0%, #f3d76e 100%) !important;
           border-color: rgba(168, 123, 11, 0.7) !important;
-          color: #111111 !important;
+          color: #1a1a1a !important;
         }
 
         #start-challenge button.ck-code-copied {

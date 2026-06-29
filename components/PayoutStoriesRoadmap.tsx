@@ -43,7 +43,7 @@ function StatusBadge({ status }: { status: string }) {
   const active = status === 'Completed'
   const progress = status === 'In Progress'
   return (
-    <span className={`rounded-full px-3 py-1 text-[10px] font-extrabold ${active ? 'bg-[#40F285]/15 text-[#40F285]' : progress ? 'bg-[#D8AD00]/20 text-[#D8AD00]' : 'bg-white/10 text-white/55'}`}>
+    <span className={`rounded-full px-3 py-1 text-[10px] font-extrabold ${active ? 'bg-[#40F285]/15 text-[#40F285]' : progress ? 'bg-[#D8AD00]/20 text-[#D8AD00]' : 'bg-white/10 text-foreground/55'}`}>
       {status}
     </span>
   )
@@ -65,26 +65,26 @@ export function PayoutStoriesRoadmap() {
 
           <div className="grid gap-5 md:grid-cols-3">
             {payoutStories.map((story) => (
-              <article key={story.name} className="group relative overflow-hidden rounded-3xl border border-black/10 bg-[#0A0A0A] p-5 text-white shadow-[0_20px_70px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-1">
+              <article key={story.name} className="group relative overflow-hidden rounded-3xl border border-black/10 bg-[#0A0A0A] p-5 text-foreground shadow-[0_20px_70px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-1">
                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at 20% 0%, rgba(216,173,0,0.22), transparent 42%)' }} />
                 <div className="relative z-10">
                   <div className="mb-5 flex items-start justify-between gap-4">
                     <div className="flex items-center gap-4">
                       <img src={story.photo} alt={story.name} className="size-20 shrink-0 rounded-full border-2 border-[#D8AD00] bg-[#D8AD00] object-cover object-center shadow-[0_0_28px_rgba(216,173,0,0.28)]" />
                       <div>
-                        <p className="text-xl font-extrabold text-white">{story.name}</p>
-                        <p className="text-sm text-white/55">{story.country}</p>
+                        <p className="text-xl font-extrabold text-foreground">{story.name}</p>
+                        <p className="text-sm text-foreground/55">{story.country}</p>
                       </div>
                     </div>
                     <span className="rounded-full bg-[#40F285]/15 px-3 py-1 text-[10px] font-extrabold text-[#40F285]">Verified payout</span>
                   </div>
 
                   <div className="mb-5 rounded-2xl border border-[#D8AD00]/20 bg-white/[0.04] p-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/45">Reward amount</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/45">Reward amount</p>
                     <p className="mt-1 text-3xl font-extrabold text-[#D8AD00]">{story.amount}</p>
                   </div>
 
-                  <p className="text-sm leading-relaxed text-white/72">“{story.story}”</p>
+                  <p className="text-sm leading-relaxed text-foreground/72">“{story.story}”</p>
                   <div className="mt-5 inline-flex rounded-full border border-[#D8AD00]/25 bg-[#D8AD00]/10 px-3 py-1 text-[10px] font-extrabold text-[#F7D774]">
                     {story.tag}
                   </div>
@@ -104,24 +104,24 @@ export function PayoutStoriesRoadmap() {
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-10 max-w-3xl">
             <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#D8AD00]">CK Capital Roadmap</p>
-            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">A transparent roadmap for long-term growth.</h2>
-            <p className="mt-4 text-sm leading-relaxed text-white/60 md:text-base">
+            <h2 className="text-3xl font-extrabold tracking-[-0.04em] text-foreground md:text-5xl">A transparent roadmap for long-term growth.</h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/60 md:text-base">
               A simple view of CK Capital’s product direction, platform improvements, and ecosystem growth plans.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-4">
             {roadmap.map((item, index) => (
-              <article key={item.phase} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-white">
-                <div className="absolute right-5 top-5 text-5xl font-extrabold text-white/[0.04]">0{index + 1}</div>
+              <article key={item.phase} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-foreground">
+                <div className="absolute right-5 top-5 text-5xl font-extrabold text-foreground/[0.04]">0{index + 1}</div>
                 <div className="relative z-10">
                   <div className="mb-5 flex items-center justify-between gap-3">
                     <span className="rounded-full bg-[#D8AD00] px-3 py-1 text-xs font-extrabold text-black">{item.time}</span>
                     <StatusBadge status={item.status} />
                   </div>
                   <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D8AD00]">{item.phase}</p>
-                  <h3 className="mt-3 text-xl font-extrabold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">{item.text}</p>
+                  <h3 className="mt-3 text-xl font-extrabold text-foreground">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/60">{item.text}</p>
                 </div>
               </article>
             ))}

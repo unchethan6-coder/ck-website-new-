@@ -29,7 +29,7 @@ export function DiscordCommunitySection() {
   return (
     <>
       <CKFtmoInspiredSections />
-      <section className="relative overflow-hidden bg-[#F2F2F2] px-4 py-16 md:min-h-[760px] md:px-6 md:py-24 lg:min-h-[880px] xl:min-h-[1040px]">
+      <section className="relative overflow-hidden bg-background px-4 py-16 md:min-h-[760px] md:px-6 md:py-24 lg:min-h-[880px] xl:min-h-[1040px]">
         <style jsx global>{`
           body > div > section[style*='#010015'],
           body > div > section[style*='rgb(1, 0, 21)'] {
@@ -49,12 +49,12 @@ export function DiscordCommunitySection() {
                 src={imgImage1}
                 className="h-[68px] w-[90px] object-contain md:h-[90px] md:w-[118px] xl:h-[106px] xl:w-[139.6px]"
               />
-              <h2 className="text-[64px] font-bold leading-[1.175] tracking-[-0.035em] text-black md:text-[88px] xl:text-[114px]">
+              <h2 className="text-[64px] font-bold leading-[1.175] tracking-[-0.035em] text-foreground md:text-[88px] xl:text-[114px]">
                 Discord
               </h2>
             </div>
 
-            <p className="mt-10 max-w-[603px] text-[26px] font-bold leading-[1.38] tracking-[0.01em] text-black/50 md:text-[34px] xl:mt-10 xl:text-[39.28px]">
+            <p className="mt-10 max-w-[603px] text-[26px] font-bold leading-[1.38] tracking-[0.01em] text-muted-foreground md:text-[34px] xl:mt-10 xl:text-[39.28px]">
               Join the official CK Capital Discord community with support channels, announcements, payout updates, and exclusive events.
             </p>
 
@@ -62,7 +62,7 @@ export function DiscordCommunitySection() {
               href="https://discord.gg/ckcapital"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-14 inline-flex h-[74px] w-[310px] items-center justify-center rounded-full bg-white text-[30px] font-bold leading-[1.175] tracking-[-0.035em] text-black/75 shadow-[0px_66.84px_100.26px_rgba(58,58,58,0.2)] transition-transform hover:-translate-y-1 md:mt-20 md:h-[86px] md:w-[390px] md:text-[40px] xl:mt-[190px] xl:h-[96.29px] xl:w-[446.49px] xl:text-[45.87px]"
+              className="mt-14 inline-flex h-[74px] w-[310px] items-center justify-center rounded-full bg-primary text-[30px] font-bold leading-[1.175] tracking-[-0.035em] text-foreground shadow-[0px_66.84px_100.26px_rgba(212,175,55,0.2)] transition-transform hover:-translate-y-1 md:mt-20 md:h-[86px] md:w-[390px] md:text-[40px] xl:mt-[190px] xl:h-[96.29px] xl:w-[446.49px] xl:text-[45.87px]"
             >
               JOIN DISCORD
             </Link>

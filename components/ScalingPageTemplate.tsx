@@ -32,14 +32,14 @@ export function ScalingPageTemplate({ title, description, features, pricing }: S
             {/* Title Section */}
             <div className="mb-8">
               <h1 className="text-3xl md:text-4xl font-bold text-[#15161a] mb-4">{title}</h1>
-              <p className="text-lg text-gray-600">{description}</p>
+              <p className="text-lg text-muted-foreground">{description}</p>
             </div>
 
             {/* Pricing Section */}
             {pricing && (
               <div className="bg-gradient-to-r from-[#f4c430]/10 to-[#d4a020]/10 rounded-lg p-6 mb-8 border border-[#f4c430]/20">
                 <div className="text-center">
-                  <p className="text-sm text-gray-600 mb-2">Investment Amount</p>
+                  <p className="text-sm text-muted-foreground mb-2">Investment Amount</p>
                   <p className="text-3xl font-bold text-[#15161a] mb-2">{pricing.price}</p>
                   <p className="text-sm text-gray-500">{pricing.period}</p>
                 </div>
@@ -66,7 +66,7 @@ export function ScalingPageTemplate({ title, description, features, pricing }: S
               </Button>
               <Button 
                 variant="outline" 
-                className="flex-1 border-[#15161a] text-[#15161a] hover:bg-gray-50 font-semibold py-6"
+                className="flex-1 border-[#15161a] text-[#15161a] hover:bg-muted font-semibold py-6"
                 onClick={() => setShowModal(false)}
               >
                 Learn More

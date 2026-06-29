@@ -17,7 +17,7 @@ export default function PaymentMethods() {
             {/* Stripe */}
             <div className="bg-[#F9F9F9] border border-[#E8E8E8] rounded-lg p-8 shadow-premium hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-[#E8C547] to-[#D4AF37] rounded-lg mb-6">
-                <CreditCard className="h-6 w-6 text-white" />
+                <CreditCard className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">Stripe</h3>
               <p className="text-[#666666] mb-6">
@@ -34,7 +34,7 @@ export default function PaymentMethods() {
             {/* PayPal */}
             <div className="bg-[#F9F9F9] border border-[#E8E8E8] rounded-lg p-8 shadow-premium hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-[#E8C547] to-[#D4AF37] rounded-lg mb-6">
-                <DollarSign className="h-6 w-6 text-white" />
+                <DollarSign className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">PayPal</h3>
               <p className="text-[#666666] mb-6">
@@ -51,7 +51,7 @@ export default function PaymentMethods() {
             {/* Cryptocurrency */}
             <div className="bg-[#F9F9F9] border border-[#E8E8E8] rounded-lg p-8 shadow-premium hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-[#E8C547] to-[#D4AF37] rounded-lg mb-6">
-                <Bitcoin className="h-6 w-6 text-white" />
+                <Bitcoin className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">Cryptocurrency</h3>
               <p className="text-[#666666] mb-6">

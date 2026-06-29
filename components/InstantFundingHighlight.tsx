@@ -66,11 +66,11 @@ export function InstantFundingHighlight() {
               <div className="flex-1">
                 <span
                   className="ifo-badge inline-block rounded-md px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider"
-                  style={{ background: 'rgba(16,61,46,0.85)', color: '#34d399', border: '1px solid rgba(52,211,153,0.4)' }}
+                  style={{ background: 'rgba(16,61,46,0.85)', color: '#101820', border: '1px solid rgba(52,211,153,0.4)' }}
                 >
                   Newly Launched
                 </span>
-                <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
                   Instant Funding
                 </h2>
               </div>
@@ -80,7 +80,7 @@ export function InstantFundingHighlight() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 self-start md:self-center rounded-full px-7 py-3 font-semibold transition-transform hover:scale-105"
-                style={{ background: 'rgba(15,42,34,0.9)', color: '#34d399', border: '1px solid rgba(52,211,153,0.5)' }}
+                style={{ background: 'rgba(15,42,34,0.9)', color: '#101820', border: '1px solid rgba(52,211,153,0.5)' }}
               >
                 Start Now
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,11 +92,11 @@ export function InstantFundingHighlight() {
             <div className="my-6 border-t border-white/10" />
 
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
-              <p className="max-w-2xl text-sm md:text-base text-white/60 leading-relaxed">
+              <p className="max-w-2xl text-sm md:text-base text-foreground/60 leading-relaxed">
                 Skip the challenge — get a funded simulated account instantly from $20. No waiting,
                 no complex rules. Start trading immediately.
               </p>
-              <p className="text-xs text-white/40 md:whitespace-nowrap">
+              <p className="text-xs text-foreground/40 md:whitespace-nowrap">
                 No Challenge &middot; Instant Access &middot; From $20
               </p>
             </div>

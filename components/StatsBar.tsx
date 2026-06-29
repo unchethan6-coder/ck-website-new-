@@ -53,7 +53,7 @@ export default function StatsBar() {
             <div className="flex flex-col items-center gap-2">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-500 text-lg">★</span>
+                  <span key={i} className="text-primary500 text-lg">★</span>
                 ))}
               </div>
               <div className="text-xs md:text-sm text-black font-semibold">Excellent</div>

@@ -60,7 +60,7 @@ const plans = [
 
 export default function PricingPlans() {
   return (
-    <section id="pricing" className="py-12 sm:py-16 md:py-20 px-4 bg-white">
+    <section id="pricing" className="py-12 sm:py-16 md:py-20 px-4 bg-background">
       <div className="container mx-auto">
         <div className="mb-8 sm:mb-12 md:mb-16 text-center space-y-2 sm:space-y-3">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-balance">

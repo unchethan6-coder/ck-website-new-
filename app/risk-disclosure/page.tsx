@@ -193,12 +193,12 @@ export default function RiskDisclosure() {
         </section>
 
         <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-12">
-          <p className="text-sm text-yellow-900">
+          <p className="text-sm text-primary900">
             <strong>This Risk Disclosure is provided for informational purposes only and does not constitute financial advice. If you have questions about trading risks, please contact support before opening an account.</strong>
           </p>
         </div>
 
-        <p className="text-sm text-gray-600 mt-12">
+        <p className="text-sm text-muted-foreground mt-12">
           Last Updated: {new Date().toLocaleDateString()}
         </p>
       </div>

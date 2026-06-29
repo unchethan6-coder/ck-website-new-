@@ -12,7 +12,7 @@ interface ModalHeaderProps {
 
 export function ModalHeader({ onClose, showClose = true, title }: ModalHeaderProps) {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border shadow-md">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
         {/* Desktop Header */}
         <div className="hidden md:flex items-center justify-between">
@@ -42,16 +42,16 @@ export function ModalHeader({ onClose, showClose = true, title }: ModalHeaderPro
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
-            <Button variant="outline" className="border-[#15161a] text-[#15161a] hover:bg-gray-50">
+            <Button variant="outline" className="border-[#15161a] text-[#15161a] hover:bg-muted">
               Sign In
             </Button>
-            <Button className="bg-[#15161a] text-white hover:bg-[#0a0a0c]">
+            <Button className="bg-[#15161a] text-foreground hover:bg-[#0a0a0c]">
               Join Now
             </Button>
             {showClose && (
               <button
                 onClick={onClose}
-                className="ml-2 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="ml-2 p-2 hover:bg-muted rounded-lg transition-colors"
               >
                 <X size={20} className="text-[#15161a]" />
               </button>
@@ -71,7 +71,7 @@ export function ModalHeader({ onClose, showClose = true, title }: ModalHeaderPro
             {showClose && (
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-muted rounded-lg transition-colors"
               >
                 <X size={18} className="text-[#15161a]" />
               </button>
