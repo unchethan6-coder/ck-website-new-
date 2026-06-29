@@ -72,46 +72,46 @@ export default function Home() {
             <h1>EVERYTHING</h1>
             <div className="discount">70% OFF</div>
             <div className="sub">ACROSS ALL PLANS</div>
-            <p className="text">Funded accounts up to $1.2M. Earn up to a 100% Profit Split. No time limits. Trade on MT5 &amp; TradeLocker with news trading allowed. Start your evaluation today and secure the latest CK Capital offer before it ends. Transparent rules, competitive spreads, and no hidden fees.</p>
+            <p className="text">Funded accounts up to $100K. Earn up to a 100% Profit Split. No time limits. Trade on MT5 &amp; TradeLocker with news trading allowed. Start your evaluation today and secure the latest CK Capital offer before it ends. Transparent rules, competitive spreads, and no hidden fees.</p>
             <div className="timer"><div className="clock"></div><div><h2>ENDING SOON</h2><p>MORE TIME. BECAUSE YOU EARNED IT.</p></div></div>
             <a href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="btn">Claim 70% OFF →</a>
-            <div className="features"><div><span></span>12H Payouts</div><div><span></span>100% Profit Split</div><div><span></span>$1.2M Capital</div><div><span></span>No Time Limits</div></div>
+            <div className="features"><div><span></span>12H Payouts</div><div><span></span>100% Profit Split</div><div><span></span>$100K Capital</div><div><span></span>No Time Limits</div></div>
           </div>
           <div className="cards">
             <div className="card">
-              <div className="img">A</div>
+              <div className="img">$2.5K</div>
               <div className="content">
                 <div className="tag">LOWEST PRICE</div>
-                <div className="name">Alpha <small>2.5K</small></div>
-                <div className="type">INSTANT FUNDING</div>
-                <div className="row">DAILY DD <b>4%</b></div>
-                <div className="row">MAX DD <b>5%</b></div>
-                <div className="row">TARGET <b>No cap</b></div>
-                <div className="price"><div className="old">$228</div><div className="new">$19</div><div className="off">-70%</div></div>
+                <div className="name">Standard <small>$2.5K</small></div>
+                <div className="type">2-STEP CHALLENGE</div>
+                <div className="row">MAX DAILY LOSS <b>$80</b></div>
+                <div className="row">MAX LOSS <b>$200</b></div>
+                <div className="row">PROFIT TARGET <b>$250</b></div>
+                <div className="price"><div className="old">$99</div><div className="new">$9</div><div className="off">-70%</div></div>
               </div>
             </div>
             <div className="card popular">
-              <div className="img">N</div>
+              <div className="img">$10K</div>
               <div className="content">
                 <div className="tag">MOST POPULAR</div>
-                <div className="name">Nova <small>5K</small></div>
-                <div className="type">INSTANT FUNDING</div>
-                <div className="row">DAILY DD <b>4%</b></div>
-                <div className="row">MAX DD <b>7%</b></div>
-                <div className="row">TARGET <b>No cap</b></div>
-                <div className="price"><div className="old">$228</div><div className="new">$137</div><div className="off">-70%</div></div>
+                <div className="name">Standard <small>$10K</small></div>
+                <div className="type">2-STEP CHALLENGE</div>
+                <div className="row">MAX DAILY LOSS <b>$400</b></div>
+                <div className="row">MAX LOSS <b>$800</b></div>
+                <div className="row">PROFIT TARGET <b>$1,000</b></div>
+                <div className="price"><div className="old">$99</div><div className="new">$19</div><div className="off">-70%</div></div>
               </div>
             </div>
             <div className="card">
-              <div className="img">F</div>
+              <div className="img">$100K</div>
               <div className="content">
                 <div className="tag">FASTEST PAYOUTS</div>
-                <div className="name">Falcon <small>10K</small></div>
-                <div className="type">1-STEP CHALLENGE</div>
-                <div className="row">DAILY DD <b>6%</b></div>
-                <div className="row">MAX DD <b>10%</b></div>
-                <div className="row">TARGET <b>5%</b></div>
-                <div className="price"><div className="old">$430</div><div className="new">$258</div><div className="off">-70%</div></div>
+                <div className="name">Standard <small>$100K</small></div>
+                <div className="type">2-STEP CHALLENGE</div>
+                <div className="row">MAX DAILY LOSS <b>$4,000</b></div>
+                <div className="row">MAX LOSS <b>$8,000</b></div>
+                <div className="row">PROFIT TARGET <b>$10,000</b></div>
+                <div className="price"><div className="old">$705.60</div><div className="new">$176.40</div><div className="off">-70%</div></div>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Home() {
           #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; }
           #ck70 .card{ width:280px; min-height:610px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
           #ck70 .card.popular{ width:320px; min-height:660px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
-          #ck70 .img{ height:290px; display:flex; align-items:center; justify-content:center; font-size:100px; font-weight:900; color:var(--ck-gold); background: radial-gradient(circle,rgba(245,197,66,.35),transparent 35%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .img{ height:290px; display:flex; align-items:center; justify-content:center; font-size:48px; font-weight:900; color:var(--ck-gold); background: radial-gradient(circle,rgba(245,197,66,.35),transparent 35%), linear-gradient(180deg,#2a210b,#090909); }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
           #ck70 .content{ padding:24px; }
           #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:6px 10px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:14px; }
