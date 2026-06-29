@@ -50,19 +50,19 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column */}
           <div className="animate-slide-left space-y-4 sm:space-y-6">
-            <span className="inline-block text-xs font-bold text-[#F4D957] bg-[#F5F5F5] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+            <span className="inline-block text-xs font-bold text-primary bg-muted px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               CK CAPITAL
             </span>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1628] leading-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
               Trade Simulated Funded Accounts With CK Capital
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#666666] leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
               Join a proprietary trading evaluation platform designed for traders who can demonstrate discipline, consistency, and responsible risk management in a simulated trading environment.
             </p>
 
-            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#666666]">
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-muted-foreground">
               <p className="leading-relaxed">Access simulated account sizes up to $1.2M with scalable evaluation programs, flexible trading conditions, and performance-based payout structures.</p>
               <ul className="space-y-1 pl-4">
                 <li>• Simulated Trading Environment</li>
@@ -98,7 +98,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <Button size="lg" className="bg-[#F4D957] hover:bg-[#F0C738] text-[#1a1a1a] font-bold rounded-lg transition-colors duration-150 w-full sm:w-auto">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-foreground font-bold rounded-lg transition-colors duration-150 w-full sm:w-auto">
               Start Evaluation
             </Button>
           </div>
@@ -113,7 +113,7 @@ export default function Hero() {
                 <div className="w-10 sm:w-12 h-36 bg-gradient-to-t from-[#F4D957] to-[#F9E8C8] rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-200"></div>
                 <div className="w-10 sm:w-12 h-28 bg-gradient-to-t from-[#F4D957] to-[#F9E8C8] rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-200"></div>
               </div>
-              <div className="absolute bottom-4 left-0 right-0 flex justify-around px-4 sm:px-8 text-xs text-[#999999] font-medium">
+              <div className="absolute bottom-4 left-0 right-0 flex justify-around px-4 sm:px-8 text-xs text-muted-foreground font-medium">
                 <span>Jan</span>
                 <span>Feb</span>
                 <span>Mar</span>

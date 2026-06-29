@@ -19,7 +19,7 @@ function LogoRow({ reverse = false }: { reverse?: boolean }) {
         {loop.map((m, i) => (
           <div
             key={`${m.name}-${i}-${reverse ? 'reverse' : 'forward'}`}
-            className="flex h-16 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white shadow-sm"
+            className="flex h-16 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-border bg-card shadow-sm"
           >
             <img
               src={`https://cdn.simpleicons.org/${m.slug}`}
@@ -32,7 +32,7 @@ function LogoRow({ reverse = false }: { reverse?: boolean }) {
               }}
               className="h-7 w-auto max-w-[78%] object-contain"
             />
-            <span style={{ display: 'none' }} className="text-base font-bold text-black">
+            <span style={{ display: 'none' }} className="text-base font-bold text-foreground">
               {m.name}
             </span>
           </div>

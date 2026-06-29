@@ -29,13 +29,13 @@ export function ProcessSteps() {
   ]
 
   return (
-    <section className="py-12 md:py-20 bg-white">
+    <section className="py-12 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-black mb-3 md:mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
             How It Works
           </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Three simple steps to trading profits and scaling capital
           </p>
         </div>
@@ -43,26 +43,26 @@ export function ProcessSteps() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
-              <div className="hidden md:block absolute -top-6 left-0 text-6xl font-bold text-blue-100 opacity-40">
+              <div className="hidden md:block absolute -top-6 left-0 text-6xl font-bold text-primary/20 opacity-40">
                 {step.number}
               </div>
-              <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-200 hover:shadow-md transition-all h-full">
+              <div className="bg-card rounded-xl md:rounded-2xl p-6 md:p-8 border border-border hover:shadow-md transition-all h-full">
                 <div className="md:hidden mb-3">
-                  <span className="text-3xl font-bold text-blue-100">{step.number}</span>
+                  <span className="text-3xl font-bold text-primary/30">{step.number}</span>
                 </div>
                 <div className="mb-4 md:mb-6">
-                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 md:mb-3">{step.title}</h3>
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg md:text-2xl font-bold text-foreground mb-2 md:mb-3">{step.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
 
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                  <p className="text-xs md:text-sm text-gray-700 italic mb-2 leading-relaxed">&quot;{step.testimonial}&quot;</p>
-                  <p className="text-xs font-semibold text-gray-500">— {step.author}</p>
+                <div className="bg-muted rounded-lg p-4 border border-border">
+                  <p className="text-xs md:text-sm text-foreground italic mb-2 leading-relaxed">&quot;{step.testimonial}&quot;</p>
+                  <p className="text-xs font-semibold text-muted-foreground">— {step.author}</p>
                 </div>
 
                 {idx < steps.length - 1 && (
                   <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-blue-600"></div>
+                    <div className="w-8 h-0.5 bg-primary"></div>
                   </div>
                 )}
               </div>

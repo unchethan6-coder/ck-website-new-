@@ -128,7 +128,7 @@ export default function PricingCalculator() {
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-premium p-4 sm:p-6 md:p-8 border border-gray-200">
+        <div className="bg-card rounded-lg shadow-sm p-4 sm:p-6 md:p-8 border border-border">
           {/* Challenge Type Tabs */}
           <div className="flex gap-2 sm:gap-3 justify-center mb-6 sm:mb-8 flex-wrap">
             <button
@@ -329,7 +329,7 @@ export default function PricingCalculator() {
           {/* Checkout Button */}
           <div className="text-center">
             <Button 
-              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base transition-all duration-200 shadow-card hover:shadow-elevated"
+              className="bg-primary hover:bg-primary/90 text-foreground font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base transition-all duration-200 shadow-sm hover:shadow-md"
               asChild
             >
               <a href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer">
