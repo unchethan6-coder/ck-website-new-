@@ -65,7 +65,7 @@ export function ObjectivesTable() {
             <button
               key={c.code}
               onClick={() => setCi(idx)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${idx === ci ? 'bg-black text-foreground' : 'text-black/70'}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${idx === ci ? 'bg-[#D4AF37] text-black' : 'text-black/70'}`}
             >
               {c.symbol} {c.code}
             </button>
@@ -79,7 +79,7 @@ export function ObjectivesTable() {
           <button
             key={idx}
             onClick={() => setI(idx)}
-            className={`px-4 py-2 rounded-full text-sm font-medium border-2 transition-all ${idx === i ? 'bg-black text-foreground border-black' : 'bg-black/5 text-black border-black/10 hover:border-black/30'}`}
+            className={`px-4 py-2 rounded-full text-sm font-medium border-2 transition-all ${idx === i ? 'bg-[#D4AF37] text-black border-black' : 'bg-black/5 text-black border-black/10 hover:border-black/30'}`}
           >
             {sizeLabel(sz.size)}
           </button>
@@ -99,7 +99,7 @@ export function ObjectivesTable() {
               <p className='text-[11px] uppercase tracking-wide text-black/40'>Evaluation</p>
               <p className='font-bold text-black'>Phase 2</p>
             </div>
-            <div className='bg-black px-4 py-5 text-center'>
+            <div className='bg-[#D4AF37] px-4 py-5 text-center'>
               <p className='text-[11px] uppercase tracking-wide text-[#D4AF37]'>Funded</p>
               <p className='font-bold gradient-text'>Master</p>
             </div>
@@ -112,7 +112,7 @@ export function ObjectivesTable() {
                 <div className='px-4 py-3 text-sm font-medium text-black/70'>{r.label}</div>
                 <div className='px-4 py-3 text-sm text-center text-black border-l border-black/5'>{c.p1}</div>
                 <div className='px-4 py-3 text-sm text-center text-black border-l border-black/5'>{c.p2}</div>
-                <div className='px-4 py-3 text-sm text-center font-semibold text-foreground bg-black'>{c.funded}</div>
+                <div className='px-4 py-3 text-sm text-center font-semibold text-black bg-[#D4AF37]'>{c.funded}</div>
               </div>
             )
           })}
