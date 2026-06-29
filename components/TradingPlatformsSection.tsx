@@ -25,12 +25,12 @@ function GoldIcon({ children }: { children: React.ReactNode }) {
 
 function PlatformBadge({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 text-foreground backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/50">
-      <div className="flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-black/35">
+    <div className="rounded-3xl border border-black/10 bg-white p-5 text-black backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/50">
+      <div className="flex h-24 items-center justify-center rounded-2xl border border-black/10 bg-[#F4ECD2]">
         {children}
       </div>
       <h4 className="mt-4 text-xl font-extrabold">{title}</h4>
-      <p className="mt-2 text-sm leading-relaxed text-foreground/55">{subtitle}</p>
+      <p className="mt-2 text-sm leading-relaxed text-black/55">{subtitle}</p>
     </div>
   )
 }
@@ -79,8 +79,8 @@ export function TradingPlatformsSection() {
             <div className="relative z-10 grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
               <div>
                 <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-[#D4AF37]">Platform access</p>
-                <h3 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">MT5 and TradeLocker access</h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/60">
+                <h3 className="mt-3 text-3xl font-extrabold text-black md:text-4xl">MT5 and TradeLocker access</h3>
+                <p className="mt-3 text-sm leading-relaxed text-black/60">
                   Give traders a choice between familiar charting and modern platform access inside a simulated evaluation workflow.
                 </p>
               </div>
@@ -91,8 +91,8 @@ export function TradingPlatformsSection() {
                 </PlatformBadge>
 
                 <PlatformBadge title="TradeLocker" subtitle="Modern platform experience for active traders.">
-                  <div className="flex h-16 w-full items-center justify-center rounded-xl bg-black px-4">
-                    <span className="text-xl font-extrabold tracking-tight text-foreground md:text-2xl">TRADE<span className="text-[#D4AF37]">LOCKER</span></span>
+                  <div className="flex h-16 w-full items-center justify-center rounded-xl bg-[#F4ECD2] px-4">
+                    <span className="text-xl font-extrabold tracking-tight text-black md:text-2xl">TRADE<span className="text-[#D4AF37]">LOCKER</span></span>
                   </div>
                 </PlatformBadge>
               </div>
