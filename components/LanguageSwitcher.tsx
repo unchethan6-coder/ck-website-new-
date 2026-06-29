@@ -76,7 +76,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+        className="flex items-center gap-2 rounded-full border border-[#D4AF37]/25 bg-[#0E0B06]/90 px-3 py-2 text-sm font-semibold text-white/85 transition-colors hover:border-[#D4AF37]"
         aria-label="Select language"
       >
         <span className="text-base leading-none">{current.flag}</span>
@@ -84,13 +84,13 @@ export function LanguageSwitcher() {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {open && (
-        <div className="absolute right-0 z-[60] mt-2 max-h-[70vh] w-56 overflow-y-auto rounded-2xl border border-border bg-card p-1.5 shadow-sm">
+        <div className="absolute right-0 z-[60] mt-2 max-h-[70vh] w-56 overflow-y-auto rounded-2xl border border-[#D4AF37]/25 bg-[#13100A] p-1.5 shadow-sm">
           {LANGS.map((l) => (
             <button
               key={l.code}
               type="button"
               onClick={() => choose(l.code)}
-              className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors ${l.code === current.code ? 'bg-[#FBF7EA] font-semibold text-black' : 'text-black/75 hover:bg-black/[0.04]'}`}
+              className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors ${l.code === current.code ? 'bg-[#D4AF37]/15 font-semibold text-white' : 'text-white/80 hover:bg-white/[0.06]'}`}
             >
               <span className="text-lg leading-none">{l.flag}</span>
               <span>{l.label}</span>
