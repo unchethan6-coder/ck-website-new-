@@ -79,7 +79,7 @@ export default function Home() {
           </div>
           <div className="cards">
             <div className="card">
-              <div className="img">$2.5K</div>
+              <div className="img">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DDBO5ZLldZQZLxxyVBdiTQXCB0/hf_20260629_202310_585889c9-e3b8-46b5-a4a7-31baca4be8fd.png" alt="$2.5K challenge" /></div>
               <div className="content">
                 <div className="tag">LOWEST PRICE</div>
                 <div className="name">Standard <small>$2.5K</small></div>
@@ -91,7 +91,7 @@ export default function Home() {
               </div>
             </div>
             <div className="card popular">
-              <div className="img">$10K</div>
+              <div className="img">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DDBO5ZLldZQZLxxyVBdiTQXCB0/hf_20260629_202320_d80ee793-51ba-4e14-8c99-28e4c4538058.png" alt="$10K challenge" /></div>
               <div className="content">
                 <div className="tag">MOST POPULAR</div>
                 <div className="name">Standard <small>$10K</small></div>
@@ -103,7 +103,7 @@ export default function Home() {
               </div>
             </div>
             <div className="card">
-              <div className="img">$100K</div>
+              <div className="img">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DDBO5ZLldZQZLxxyVBdiTQXCB0/hf_20260629_202322_befbd61e-9682-404d-8f70-dabb9c3d9160.png" alt="$100K challenge" /></div>
               <div className="content">
                 <div className="tag">FASTEST PAYOUTS</div>
                 <div className="name">Standard <small>$100K</small></div>
@@ -139,7 +139,8 @@ export default function Home() {
           #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; }
           #ck70 .card{ width:280px; min-height:500px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
           #ck70 .card.popular{ width:320px; min-height:540px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
-          #ck70 .img{ height:172px; position:relative; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .img{ height:172px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .img img{ width:100%; height:100%; object-fit:cover; display:block; }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
           #ck70 .content{ padding:24px; }
           #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:6px 10px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:14px; }
