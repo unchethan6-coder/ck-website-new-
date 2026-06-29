@@ -137,9 +137,9 @@ export default function Home() {
           #ck70 .features > div{ display:flex; align-items:center; gap:10px; font-size:14px; }
           #ck70 .features span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
           #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; }
-          #ck70 .card{ width:280px; min-height:610px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
-          #ck70 .card.popular{ width:320px; min-height:660px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
-          #ck70 .img{ height:290px; display:flex; align-items:center; justify-content:center; font-size:48px; font-weight:900; color:var(--ck-gold); background: radial-gradient(circle,rgba(245,197,66,.35),transparent 35%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .card{ width:280px; min-height:500px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
+          #ck70 .card.popular{ width:320px; min-height:540px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
+          #ck70 .img{ height:172px; position:relative; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
           #ck70 .content{ padding:24px; }
           #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:6px 10px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:14px; }
