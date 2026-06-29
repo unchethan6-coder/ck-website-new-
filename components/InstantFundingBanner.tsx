@@ -6,7 +6,7 @@ const SIGNUP = 'https://app.ckcapital.co.uk/signup'
 
 export function InstantFundingBanner() {
   return (
-    <section className="py-12 md:py-16 px-4 md:px-6 bg-background">
+    <section className="py-12 md:py-16 px-4 md:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-2xl font-extrabold text-[#111111] mb-4" style={{ fontSize: '30px' }}>
           Available Offers
@@ -31,13 +31,13 @@ export function InstantFundingBanner() {
                 hot offer
               </span>
 
-              <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-white">
+              <h3 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-[#111111]">
                 Your First Challenge, 70% Off
               </h3>
 
-              <div className="my-5 h-px w-full bg-[#D4AF37]/20" />
+              <div className="my-5 h-px w-full bg-[#D4AF37]/40" />
 
-              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-white/65">
+              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-black/60">
                 Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.
               </p>
             </div>
@@ -71,7 +71,7 @@ export function InstantFundingBanner() {
           background:
             radial-gradient(90% 120% at 8% 0%, rgba(212,175,55,0.36) 0%, rgba(212,175,55,0) 55%),
             radial-gradient(90% 120% at 100% 40%, rgba(253,230,138,0.18) 0%, rgba(253,230,138,0) 62%),
-            linear-gradient(135deg, #141006 0%, #070707 100%);
+            linear-gradient(135deg, #FFFDF7 0%, #FFF7E6 100%);
           border: 1px solid rgba(212,175,55,0.28);
           box-shadow: 0 24px 60px rgba(212,175,55,0.16);
         }
