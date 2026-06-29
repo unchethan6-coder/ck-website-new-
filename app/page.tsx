@@ -8,7 +8,6 @@ import { Footer } from '@/components/Footer'
 import { PromoBar } from '@/components/PromoBar'
 import { StatCounter } from '@/components/StatCounter'
 import { PaymentMarquee } from '@/components/PaymentMarquee'
-import { CandlestickBackground } from '@/components/CandlestickBackground'
 import { PromoPopup } from '@/components/PromoPopup'
 import { FeaturedPayouts } from '@/components/FeaturedPayouts'
 import { InstantFundingBanner } from '@/components/InstantFundingBanner'
@@ -66,7 +65,96 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <PromoBar /><Navbar /><PromoPopup />
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden"><CandlestickBackground /><div className="absolute inset-0 z-[1] pointer-events-none" style={{ background: 'radial-gradient(ellipse 90% 70% at center, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0) 72%)' }} /><div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center"><div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur"><span className="size-2 rounded-full bg-[#00B67A]" />Simulated trading evaluations with clear rules</div><h1 className="hero-title text-[#111111] mb-6 text-balance">Trade with Clear Rules.<br className="hidden md:block" /> Earn Rewards for Consistency.</h1><p className="mx-auto mb-8 max-w-3xl text-base md:text-xl leading-relaxed text-black/70">CK Capital provides structured simulated trading evaluations designed for disciplined traders who want flexible plans, transparent objectives, and a premium trading experience.</p><div className="flex flex-col sm:flex-row gap-4 justify-center mb-10"><Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary">Start Evaluation</Link><Link href="#start-challenge" className="button-secondary-dark">Compare Plans</Link></div><div className="flex justify-center mb-12"><div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl border border-black/10 bg-white/80 px-5 py-3 text-sm text-[#4B5563] shadow-sm backdrop-blur"><TrustStars compact /><span>Rated 4.9/5 on Trustpilot</span><a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-[#00B67A] font-semibold hover:underline">View Reviews →</a></div></div><div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12"><StatCounter target={100} label="Max Reward Split" format="percent" /><StatCounter target={1200000} label="Max Simulated Capital" format="currency" /><div className="text-center"><div className="text-3xl md:text-4xl font-bold gradient-text">24/7</div><div className="text-sm text-[#4B5563] mt-2">Support Available</div></div></div></div></section>
+      <section id="ck70">
+        <div className="hero">
+          <div>
+            <div className="badge"><span></span>70% sale 2026 · Biggest drop of the Year</div>
+            <h1>EVERYTHING</h1>
+            <div className="discount">70% OFF</div>
+            <div className="sub">ACROSS ALL PLANS</div>
+            <p className="text">Funded accounts up to $1.2M. Earn up to a 100% Profit Split. No time limits. Trade on MT5 &amp; TradeLocker with news trading allowed. Start your evaluation today and secure the latest CK Capital offer before it ends. Transparent rules, competitive spreads, and no hidden fees.</p>
+            <div className="timer"><div className="clock"></div><div><h2>ENDING SOON</h2><p>MORE TIME. BECAUSE YOU EARNED IT.</p></div></div>
+            <a href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="btn">Claim 70% OFF →</a>
+            <div className="features"><div><span></span>12H Payouts</div><div><span></span>100% Profit Split</div><div><span></span>$1.2M Capital</div><div><span></span>No Time Limits</div></div>
+          </div>
+          <div className="cards">
+            <div className="card">
+              <div className="img">A</div>
+              <div className="content">
+                <div className="tag">LOWEST PRICE</div>
+                <div className="name">Alpha <small>2.5K</small></div>
+                <div className="type">INSTANT FUNDING</div>
+                <div className="row">DAILY DD <b>4%</b></div>
+                <div className="row">MAX DD <b>5%</b></div>
+                <div className="row">TARGET <b>No cap</b></div>
+                <div className="price"><div className="old">$228</div><div className="new">$19</div><div className="off">-70%</div></div>
+              </div>
+            </div>
+            <div className="card popular">
+              <div className="img">N</div>
+              <div className="content">
+                <div className="tag">MOST POPULAR</div>
+                <div className="name">Nova <small>5K</small></div>
+                <div className="type">INSTANT FUNDING</div>
+                <div className="row">DAILY DD <b>4%</b></div>
+                <div className="row">MAX DD <b>7%</b></div>
+                <div className="row">TARGET <b>No cap</b></div>
+                <div className="price"><div className="old">$228</div><div className="new">$137</div><div className="off">-70%</div></div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="img">F</div>
+              <div className="content">
+                <div className="tag">FASTEST PAYOUTS</div>
+                <div className="name">Falcon <small>10K</small></div>
+                <div className="type">1-STEP CHALLENGE</div>
+                <div className="row">DAILY DD <b>6%</b></div>
+                <div className="row">MAX DD <b>10%</b></div>
+                <div className="row">TARGET <b>5%</b></div>
+                <div className="price"><div className="old">$430</div><div className="new">$258</div><div className="off">-70%</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>{`
+          #ck70{ --ck-gold:#f5c542; --ck-gold2:#ffdf7a; --ck-muted:#b8b8b8; font-family:Arial,Helvetica,sans-serif; color:#ffffff; display:block; }
+          #ck70 *{ box-sizing:border-box; margin:0; padding:0; }
+          #ck70 .hero{ min-height:100vh; padding:55px 9%; display:grid; grid-template-columns:1fr 1.25fr; gap:70px; background: radial-gradient(circle at 70% 15%,rgba(245,197,66,.18),transparent 30%), linear-gradient(180deg,#111111,#050505); align-items:center; }
+          #ck70 .badge{ display:inline-flex; align-items:center; gap:12px; border:1px solid var(--ck-gold); color:var(--ck-gold2); padding:10px 22px; border-radius:30px; font-size:15px; margin-bottom:20px; }
+          #ck70 .badge span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 14px var(--ck-gold); }
+          #ck70 h1{ font-size:56px; line-height:.95; font-weight:900; letter-spacing:-2px; }
+          #ck70 .discount{ font-size:110px; font-weight:900; color:var(--ck-gold); margin:12px 0; text-shadow:0 0 30px rgba(245,197,66,.35); }
+          #ck70 .sub{ font-size:38px; font-weight:900; margin-bottom:25px; }
+          #ck70 .text{ max-width:600px; color:var(--ck-muted); font-size:18px; line-height:1.5; margin-bottom:55px; }
+          #ck70 .timer{ display:flex; align-items:center; gap:24px; margin-bottom:60px; }
+          #ck70 .clock{ width:54px; height:54px; border:4px solid var(--ck-gold); border-radius:50%; position:relative; box-shadow:0 0 18px rgba(245,197,66,.35); }
+          #ck70 .clock:before{ content:""; position:absolute; width:4px; height:16px; background:var(--ck-gold); top:11px; left:23px; }
+          #ck70 .clock:after{ content:""; position:absolute; width:17px; height:4px; background:var(--ck-gold); top:25px; left:23px; }
+          #ck70 .timer h2{ font-size:42px; font-weight:900; }
+          #ck70 .timer p{ font-size:18px; margin-top:10px; font-weight:700; color:#eeeeee; }
+          #ck70 .btn{ display:inline-flex; align-items:center; gap:18px; background:linear-gradient(135deg,#b88718,#f5c542,#ffdf7a); color:#050505; border:none; padding:22px 34px; border-radius:14px; font-size:20px; font-weight:900; text-decoration:none; box-shadow:0 0 35px rgba(245,197,66,.45); }
+          #ck70 .features{ display:flex; gap:35px; margin-top:35px; flex-wrap:wrap; color:#d6d6d6; }
+          #ck70 .features > div{ display:flex; align-items:center; gap:10px; font-size:14px; }
+          #ck70 .features span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
+          #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; }
+          #ck70 .card{ width:280px; min-height:610px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
+          #ck70 .card.popular{ width:320px; min-height:660px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
+          #ck70 .img{ height:290px; display:flex; align-items:center; justify-content:center; font-size:100px; font-weight:900; color:var(--ck-gold); background: radial-gradient(circle,rgba(245,197,66,.35),transparent 35%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
+          #ck70 .content{ padding:24px; }
+          #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:6px 10px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:14px; }
+          #ck70 .name{ font-size:28px; font-weight:900; }
+          #ck70 .name small{ font-size:16px; color:#8c8c8c; }
+          #ck70 .type{ color:#8c8c8c; font-size:13px; letter-spacing:2px; margin:10px 0 22px; }
+          #ck70 .row{ display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.08); padding:13px 0; color:#8c8c8c; font-weight:800; font-size:13px; }
+          #ck70 .row b{ color:#eeeeee; }
+          #ck70 .price{ display:flex; align-items:center; gap:12px; margin-top:20px; }
+          #ck70 .old{ color:#777; text-decoration:line-through; font-size:18px; }
+          #ck70 .new{ color:var(--ck-gold); font-size:36px; font-weight:900; }
+          #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:10px; border-radius:7px; font-weight:900; }
+          @media(max-width:1100px){ #ck70 .hero{ grid-template-columns:1fr; padding:35px 5%; } #ck70 .cards{ flex-wrap:wrap; } #ck70 h1{ font-size:42px; } #ck70 .discount{ font-size:72px; } }
+        `}</style>
+      </section>
       <InstantFundingBanner /><section className="py-12 md:py-16 bg-white"><div className="max-w-7xl mx-auto px-4 md:px-6"><h2 className="text-center text-xl md:text-2xl font-bold text-black mb-8">Trusted Payment Partners</h2></div><PaymentMarquee /></section><TradingPlatformsSection />
       <section id="start-challenge" className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 bg-white"><div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 0%, rgba(212,175,55,0.20), transparent 42%)' }} /><div className="relative z-10 mx-auto max-w-[1680px] px-4 md:px-8"><div className="mx-auto mb-8 max-w-3xl text-center md:mb-10"><p className="mb-3 text-xs font-bold tracking-[0.28em] text-[#D4AF37]">CK CAPITAL EVALUATIONS</p><h2 className="text-3xl font-extrabold tracking-[-1px] text-black text-balance md:text-5xl lg:text-6xl">Choose your account size. Start your evaluation.</h2><p className="mx-auto mt-4 max-w-2xl text-sm md:text-base text-black/65">Full-width, flexible pricing cards inspired by the FundingPips layout, using CK Capital account sizes and rules.</p></div><div className="mb-8 flex justify-center overflow-x-auto pb-2"><div className="flex w-max gap-2 rounded-2xl border border-black/10 bg-black/[0.03] p-2 backdrop-blur md:flex-wrap md:justify-center">{CHALLENGE_TABS.map((tab) => <button key={tab.id} onClick={() => setSelectedChallengeType(tab.id)} className={`min-w-[132px] rounded-xl px-4 py-3 text-left transition-all ${selectedChallengeType === tab.id ? 'bg-white text-black shadow-[0_12px_35px_rgba(212,175,55,0.25)]' : 'text-black/70 hover:bg-white/10 hover:text-black'}`}><span className="block text-sm font-bold">{tab.label}</span><span className="block text-[11px] opacity-70">{tab.note}</span></button>)}</div></div><div className="mb-10 flex justify-center"><div className="inline-flex rounded-full border border-black/10 bg-white p-1"><button onClick={() => setPricingView('cards')} className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${pricingView === 'cards' ? 'bg-[#D4AF37] text-black' : 'text-black/70'}`}>Cards</button><button onClick={() => setPricingView('table')} className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${pricingView === 'table' ? 'bg-[#D4AF37] text-black' : 'text-black/70'}`}>Table</button></div></div>
       {pricingView === 'cards' && <><MobilePricingSelector selectedChallengeType={selectedChallengeType} /><div className="hidden md:block mx-auto pb-6"><div className="flex flex-wrap justify-center gap-6 xl:flex-nowrap xl:gap-4 2xl:gap-5">{cards.map((card) => <article key={card.size} className={`relative flex min-h-[500px] w-full max-w-[300px] flex-[1_1_260px] flex-col overflow-hidden rounded-3xl border p-5 transition-all duration-300 hover:-translate-y-1 xl:max-w-[250px] xl:flex-[1_1_0] xl:p-4 2xl:max-w-[270px] 2xl:p-5 ${card.badge ? 'border-[#D4AF37] bg-white text-black shadow-[0_0_0_1px_rgba(212,175,55,0.25),0_30px_80px_rgba(212,175,55,0.22)]' : 'border-black/10 bg-white text-black hover:border-[#D4AF37]/60'}`}>{card.badge && <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-2.5 py-1 text-[9px] font-extrabold tracking-wide text-black">{card.badge}</div>}<p className={`mb-2 text-xs font-bold uppercase tracking-[0.18em] ${card.badge ? 'text-black/45' : 'text-black/45'}`}>Account Size</p><h3 className="mb-4 text-4xl font-extrabold tracking-tight xl:text-3xl 2xl:text-4xl">{card.size}</h3><div className={`mb-5 overflow-hidden rounded-2xl border p-4 xl:p-3 2xl:p-4 ${card.badge ? 'border-black/10 bg-black/[0.03]' : 'border-black/10 bg-black/[0.03]'}`}><div className="flex min-w-0 flex-col items-start"><span className="max-w-full truncate text-[38px] font-extrabold leading-none text-[#D4AF37] xl:text-[30px] 2xl:text-[36px]">{card.price}</span><span className={`mt-2 block max-w-full truncate text-xs line-through ${card.badge ? 'text-black/40' : 'text-black/40'}`}>{card.oldPrice}</span></div><p className={`mt-2 text-xs ${card.badge ? 'text-black/55' : 'text-black/55'}`}>Limited promotional pricing</p></div><Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-[#A87B0B] text-white hover:bg-[#8a6309]' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>Start Challenge</Link><div className="grid grid-cols-1 gap-3 text-sm xl:text-xs 2xl:text-sm">{[['Phase 1 Target', card.features.phase1], ['Phase 2 Target', card.features.phase2], ['Max Daily Loss', card.features.maxDaily], ['Max Loss', card.features.maxLoss], ['Trading Period', card.features.period], ['Min Trading Days', card.features.minDays], ['Reward Split', card.features.rewardSplit], ['Consistency Rule', card.features.consistency]].map(([label, value]) => <div key={label} className="flex items-center justify-between gap-3 border-b border-current/10 pb-2 last:border-0"><span className={card.badge ? 'text-black/55' : 'text-black/55'}>{label}</span><span className="text-right font-bold">{value}</span></div>)}</div><button type="button" onClick={() => navigator.clipboard.writeText(`JUN70-${card.size.replace('$', '').replace('K', '')}`)} className={`mt-auto rounded-xl border border-dashed px-3 py-3 text-xs font-extrabold transition-all xl:px-2 xl:text-[11px] 2xl:text-xs ${card.badge ? 'border-black/20 bg-black/[0.04] text-black hover:bg-black/[0.08]' : 'border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#F7D774] hover:bg-[#D4AF37]/20'}`}>Copy Code: JUN70-{card.size.replace('$', '').replace('K', '')}</button></article>)}</div></div></>}
