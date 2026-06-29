@@ -16,68 +16,6 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 -mb-[92px] bg-transparent px-4 pt-3 md:px-6 md:pt-4">
-      <style jsx global>{`
-        body > div > section:first-of-type {
-          background: #f4f7fa !important;
-        }
-
-        body > div > section:first-of-type::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          z-index: 2;
-          pointer-events: none;
-          background: linear-gradient(90deg, rgba(244,247,250,0.94) 0%, rgba(244,247,250,0.80) 44%, rgba(244,247,250,0.18) 100%), radial-gradient(circle at 24% 20%, rgba(212,175,55,0.22), transparent 32%);
-        }
-
-        body > div > section:first-of-type h1 {
-          color: #101820 !important;
-          letter-spacing: -0.055em !important;
-        }
-
-        body > div > section:first-of-type p {
-          color: rgba(16,24,32,0.72) !important;
-        }
-
-        body > div > section:first-of-type .mx-auto.mb-5 {
-          border-color: rgba(212,175,55,0.28) !important;
-          background: rgba(255,255,255,0.68) !important;
-          color: rgba(16,24,32,0.78) !important;
-        }
-
-        body > div > section:first-of-type .button-primary {
-          animation: ckHeroPulse 2.8s ease-in-out infinite;
-        }
-
-        body > div > section:first-of-type .button-secondary-dark {
-          border-color: rgba(15,23,42,0.35) !important;
-          background: rgba(255,255,255,0.68) !important;
-          color: #101820 !important;
-        }
-
-        body > div > section:first-of-type .grid.max-w-3xl > * {
-          border-radius: 22px;
-          border: 1px solid rgba(212,175,55,0.18);
-          background: rgba(255,255,255,0.76);
-          padding: 16px;
-          backdrop-filter: blur(16px);
-        }
-
-        body > div > section:first-of-type .grid.max-w-3xl div {
-          color: rgba(16,24,32,0.72) !important;
-        }
-
-        @keyframes ckHeroPulse {
-          0%, 100% { transform: translateY(0); box-shadow: 0 16px 44px rgba(212,175,55,0.28); }
-          50% { transform: translateY(-2px); box-shadow: 0 24px 58px rgba(212,175,55,0.42); }
-        }
-
-        @media (max-width: 767px) {
-          body > div > section:first-of-type::after {
-            background: linear-gradient(180deg, rgba(244,247,250,0.88), rgba(244,247,250,0.42), rgba(244,247,250,0.82));
-          }
-        }
-      `}</style>
       <div className="max-w-7xl mx-auto bg-background/95 backdrop-blur-md rounded-2xl shadow-sm border border-border px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="CK Capital home">
           <span className="font-bold leading-10 text-foreground text-xl md:text-[33px]">CK CAPITAL</span>
