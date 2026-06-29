@@ -260,14 +260,12 @@ html {
 
 section[class*="bg-card/20"],
 section[class*="bg-white"] {
-  background:
-    radial-gradient(circle at 10% 10%, rgba(15, 118, 110, 0.055), transparent 24rem),
-    linear-gradient(180deg, rgba(255,255,255,0.55), rgba(244,247,250,0.7)) !important;
+  background: transparent !important;
 }
 
 section[class*="bg-[#050505]"],
 section[class*="bg-black"] {
-  background: linear-gradient(135deg, #f4f7fa 0%, #eef3f7 58%, #e7edf2 125%) !important;
+  background: transparent !important;
 }
 
 input,
@@ -286,7 +284,7 @@ textarea::placeholder {
 table {
   overflow: hidden;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.62);
+  background: transparent;
   backdrop-filter: blur(16px);
 }
 
