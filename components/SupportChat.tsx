@@ -54,7 +54,7 @@ export function SupportChat() {
       <button
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close support chat' : 'Open support chat'}
-        className="fixed bottom-5 right-5 z-[60] flex items-center justify-center w-14 h-14 rounded-full bg-black text-white shadow-lg hover:bg-black/90 transition-colors"
+        className="fixed bottom-5 right-5 z-[60] flex items-center justify-center w-14 h-14 rounded-full bg-black text-foreground shadow-lg hover:bg-black/90 transition-colors"
       >
         {open ? (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
@@ -68,9 +68,9 @@ export function SupportChat() {
           className="fixed bottom-24 right-5 z-[60] w-[calc(100vw-2.5rem)] max-w-sm rounded-2xl border border-black/10 bg-white shadow-2xl overflow-hidden flex flex-col"
           style={{ maxHeight: '70vh' }}
         >
-          <div className="bg-black text-white px-4 py-3">
+          <div className="bg-black text-foreground px-4 py-3">
             <p className="font-semibold text-sm">CK Capital Support</p>
-            <p className="text-xs text-white/70">We usually reply within a few minutes</p>
+            <p className="text-xs text-foreground/70">We usually reply within a few minutes</p>
           </div>
 
           <div className="p-4 overflow-y-auto flex-1">

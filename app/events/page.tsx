@@ -27,7 +27,7 @@ export default function EventsPage() {
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 className="hero-title text-foreground mb-6 text-balance">
             CK Capital <span className="gradient-text">Events</span>
           </h1>
           <p className="text-lg text-foreground max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ export default function EventsPage() {
       {/* Upcoming Events */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Upcoming Events</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Upcoming Events</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {upcomingEvents.map((event, idx) => (
@@ -49,7 +49,7 @@ export default function EventsPage() {
                     UPCOMING
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">{event.title}</h3>
                 <p className="text-foreground text-sm mb-4">{event.description}</p>
                 <div className="flex gap-4 text-sm text-muted-foreground">
                   <span>{event.date}</span>
@@ -64,12 +64,12 @@ export default function EventsPage() {
       {/* Past Events */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Past Events</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Past Events</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pastEvents.map((event, idx) => (
               <div key={idx} className="glow-card text-center">
-                <h3 className="text-lg font-bold text-white mb-2">{event.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">{event.title}</h3>
                 <p className="text-sm text-muted-foreground">{event.date}</p>
               </div>
             ))}

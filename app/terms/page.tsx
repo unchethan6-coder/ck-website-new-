@@ -115,7 +115,7 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        <p className="text-sm text-gray-600 mt-12">
+        <p className="text-sm text-muted-foreground mt-12">
           Last Updated: {new Date().toLocaleDateString()}
         </p>
       </div>

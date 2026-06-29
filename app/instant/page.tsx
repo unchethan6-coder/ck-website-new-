@@ -21,7 +21,7 @@ export default function InstantPage() {
           <div className="inline-block mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-semibold">
             NEWLY LAUNCHED
           </div>
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 className="hero-title text-foreground mb-6 text-balance">
             No Challenge.<br />Start <span className="gradient-text">Instantly</span>.
           </h1>
           <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#e8e9eb' }}>
@@ -33,7 +33,7 @@ export default function InstantPage() {
       {/* Benefits Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0a0a0a' }}>Why Choose Instant Funding?</h2>
+          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'0a0a' }}>Why Choose Instant Funding?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -70,9 +70,9 @@ export default function InstantPage() {
             ].map((item, idx) => {
               const titleColors = ['#0a0a0a', '#121212', '#0e0e0e', '#171717', '#0c0c0c', '#191818'];
               return (
-                <div key={idx} className="glow-card flex flex-col items-start" style={{ color: '#0f1010' }}>
+                <div key={idx} className="glow-card flex flex-col items-start" style={{ color: 'var(--foreground)'1010' }}>
                   <div className="mb-4">{item.icon}</div>
-                  <h3 className="text-lg font-bold text-white mb-2" style={{ color: titleColors[idx] }}>{item.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2" style={{ color: titleColors[idx] }}>{item.title}</h3>
                   <p className="text-foreground text-sm">{item.description}</p>
                 </div>
               );
@@ -84,7 +84,7 @@ export default function InstantPage() {
       {/* Instant Pricing */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0d0c0c' }}>Instant Funding Prices</h2>
+          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'0c0c' }}>Instant Funding Prices</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
@@ -112,14 +112,14 @@ export default function InstantPage() {
       </section>
 
       {/* Comparison vs Challenge */}
-      <div className="max-w-4xl mx-auto px-4 md:px-6" style={{ color: '#191a1b' }}>
-        <h2 className="section-title text-white mb-12 text-center" style={{ color: '#040404' }}>Instant vs Challenge</h2>
+      <div className="max-w-4xl mx-auto px-4 md:px-6" style={{ color: 'var(--foreground)'1a1b' }}>
+        <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'0404' }}>Instant vs Challenge</h2>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left py-3 px-4 text-white font-semibold" style={{ color: '#0c0c0c' }}>Feature</th>
+                <th className="text-left py-3 px-4 text-foreground font-semibold" style={{ color: 'var(--foreground)'0c0c' }}>Feature</th>
                   <th className="text-center py-3 px-4 text-primary font-semibold">Instant Funding</th>
                   <th className="text-center py-3 px-4 text-foreground font-semibold">1-Step Challenge</th>
                 </tr>
@@ -148,7 +148,7 @@ export default function InstantPage() {
       {/* FAQ */}
       <section className="py-16 bg-card/20">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#0f0f0f' }}>FAQ</h2>
+          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'0f0f' }}>FAQ</h2>
 
           <div className="space-y-4">
             {[
@@ -170,7 +170,7 @@ export default function InstantPage() {
               },
             ].map((item, idx) => (
               <div key={idx} className="glow-card">
-                <h3 className="font-bold text-white mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-foreground text-sm">{item.a}</p>
               </div>
             ))}

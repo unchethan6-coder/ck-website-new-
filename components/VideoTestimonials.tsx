@@ -14,10 +14,10 @@ export function VideoTestimonials() {
       <style>{`@keyframes ck-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ck-marquee{animation:ck-marquee 45s linear infinite}.ck-marquee:hover{animation-play-state:paused}`}</style>
 
       <div className='max-w-7xl mx-auto px-4 md:px-6 text-center mb-12'>
-        <h2 className='text-3xl md:text-5xl font-bold text-white mb-4 text-balance'>
+        <h2 className='text-3xl md:text-5xl font-bold text-foreground mb-4 text-balance'>
           Real Traders, Real Rewards, <span className='gradient-text'>Real Impact</span>
         </h2>
-        <p className='text-white/60 max-w-2xl mx-auto text-pretty'>
+        <p className='text-foreground/60 max-w-2xl mx-auto text-pretty'>
           Hear it directly from traders who passed their challenge and received their reward — real stories from people whose lives changed with every payout.
         </p>
       </div>
@@ -46,7 +46,7 @@ export function VideoTestimonials() {
               <div className='absolute top-3 left-3 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#F0E68C] text-black text-xs font-bold'>
                 Reward: {v.reward}
               </div>
-              <p className='absolute bottom-3 left-3 right-3 text-white text-sm font-semibold leading-snug'>
+              <p className='absolute bottom-3 left-3 right-3 text-foreground text-sm font-semibold leading-snug'>
                 {v.title}
               </p>
             </a>

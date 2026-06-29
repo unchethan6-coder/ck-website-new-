@@ -110,15 +110,15 @@ export function CKFtmoInspiredSections() {
 
       <section className="relative overflow-hidden bg-[#050505] px-4 py-14 md:px-6 md:py-20">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.26),transparent_45%)]" />
-        <div className="relative mx-auto max-w-5xl rounded-[32px] border border-[#D4AF37]/20 bg-white/[0.04] p-8 text-center text-white md:p-12">
+        <div className="relative mx-auto max-w-5xl rounded-[32px] border border-[#D4AF37]/20 bg-white/[0.04] p-8 text-center text-foreground md:p-12">
           <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-[#D4AF37]">Start CK Capital</p>
           <h2 className="text-3xl font-extrabold tracking-[-0.04em] md:text-5xl">Ready to start your evaluation?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">Choose a simulated trading evaluation, follow the rules, and track your progress with CK Capital.</p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground/60 md:text-base">Choose a simulated trading evaluation, follow the rules, and track your progress with CK Capital.</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary inline-flex min-h-12 items-center justify-center px-8 font-extrabold">Start Evaluation</Link>
             <Link href="#start-challenge" className="button-secondary inline-flex min-h-12 items-center justify-center px-8">Compare Plans</Link>
           </div>
-          <p className="mt-5 text-xs text-white/40">Demo accounts with fictitious funds. Simulated trading only. Terms apply.</p>
+          <p className="mt-5 text-xs text-foreground/40">Demo accounts with fictitious funds. Simulated trading only. Terms apply.</p>
         </div>
       </section>
     </>

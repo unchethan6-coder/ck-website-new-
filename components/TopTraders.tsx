@@ -44,10 +44,10 @@ export function TopTraders() {
         {/* Heading */}
         <div className='text-center mb-12 md:mb-16'>
           <p className='text-xs font-semibold tracking-[0.25em] text-[#D4AF37] mb-3'>LEADERBOARD</p>
-          <h2 className='text-3xl md:text-5xl font-bold text-white text-balance'>
+          <h2 className='text-3xl md:text-5xl font-bold text-foreground text-balance'>
             Rewarding Our <span className='gradient-text'>Best Traders</span>
           </h2>
-          <p className='text-white/60 mt-3 max-w-2xl mx-auto'>Real payouts to real traders — every single day.</p>
+          <p className='text-foreground/60 mt-3 max-w-2xl mx-auto'>Real payouts to real traders — every single day.</p>
         </div>
 
         {/* Podium (top 3) */}
@@ -63,9 +63,9 @@ export function TopTraders() {
               <div className='mx-auto flex h-16 w-16 items-center justify-center rounded-full text-2xl font-bold text-black shadow-md' style={{ background: rankStyle(t.rank) }}>
                 {t.name.charAt(0)}
               </div>
-              <p className='mt-4 font-semibold text-white'>{t.name} <span className='ml-1'>{t.flag}</span></p>
+              <p className='mt-4 font-semibold text-foreground'>{t.name} <span className='ml-1'>{t.flag}</span></p>
               <p className='mt-2 text-2xl md:text-3xl font-bold gradient-text'>{t.earnings}</p>
-              <p className='mt-1 text-xs text-white/45'>Reward · {t.time}</p>
+              <p className='mt-1 text-xs text-foreground/45'>Reward · {t.time}</p>
               {t.rank === 1 && (
                 <div className='mt-4 inline-block rounded-full px-3 py-1 text-xs font-bold text-black' style={{ background: rankStyle(1) }}>Top Earner</div>
               )}
@@ -82,7 +82,7 @@ export function TopTraders() {
               <div key={i} className='flex flex-shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3'>
                 <div className='flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#FCE17B] to-[#D4AF37] text-sm font-bold text-black'>{t.name.charAt(0)}</div>
                 <div className='text-left'>
-                  <p className='text-sm font-medium text-white'>{t.name} <span>{t.flag}</span></p>
+                  <p className='text-sm font-medium text-foreground'>{t.name} <span>{t.flag}</span></p>
                   <p className='text-xs font-semibold text-[#FFD700]'>{t.earnings} · {t.time}</p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export function TopTraders() {
           {STATS.map((s) => (
             <div key={s.label} className='rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm py-7 text-center'>
               <p className='mb-1 text-3xl md:text-4xl font-bold gradient-text'>{s.value}</p>
-              <p className='text-sm text-white/55'>{s.label}</p>
+              <p className='text-sm text-foreground/55'>{s.label}</p>
             </div>
           ))}
         </div>

@@ -85,11 +85,11 @@ export default function FAQ() {
         </div>
 
         <div className="mt-8 sm:mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-4 sm:p-6 md:p-8 text-center">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Still have questions?</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-2 sm:mb-3">Still have questions?</h3>
           <p className="text-xs sm:text-sm md:text-base text-gray-700 mb-4 sm:mb-6">
             Can&apos;t find what you&apos;re looking for? Contact our support team for more information.
           </p>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-6 sm:px-8 rounded-lg transition-colors duration-150 text-sm sm:text-base">
+          <button className="bg-primary hover:bg-primary/90 text-foreground font-bold py-2 px-6 sm:px-8 rounded-lg transition-colors duration-150 text-sm sm:text-base">
             Contact Support
           </button>
         </div>

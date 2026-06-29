@@ -59,7 +59,7 @@ export default function CommunitySection() {
                 {/* Screen */}
                 <div className="bg-[#2C2F33] rounded-2xl overflow-hidden">
                   {/* Status Bar */}
-                  <div className="bg-[#2C2F33] px-6 py-3 flex justify-between items-center text-white text-xs">
+                  <div className="bg-[#2C2F33] px-6 py-3 flex justify-between items-center text-foreground text-xs">
                     <span>10:24</span>
                     <div className="flex gap-1">
                       <div className="w-1 h-1 bg-white rounded-full"></div>
@@ -70,7 +70,7 @@ export default function CommunitySection() {
 
                   {/* Discord Header */}
                   <div className="bg-[#23272A] px-4 py-3">
-                    <div className="text-white font-bold text-sm"># | Rewards-Live-Updates</div>
+                    <div className="text-foreground font-bold text-sm"># | Rewards-Live-Updates</div>
                     <div className="text-gray-400 text-xs mt-1">CK Capital Community</div>
                   </div>
 
@@ -81,7 +81,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:49 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$4,093.86 reward!</span></div>
@@ -93,7 +93,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:47 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$642.37 reward!</span></div>
@@ -105,7 +105,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:45 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$514.60 reward!</span></div>
@@ -117,7 +117,7 @@ export default function CommunitySection() {
                       <div className="w-8 h-8 rounded-full bg-[#F4D957] flex-shrink-0"></div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm font-bold">CK Capital Bot</span>
+                          <span className="text-foreground text-sm font-bold">CK Capital Bot</span>
                           <span className="text-gray-500 text-xs">2:43 PM</span>
                         </div>
                         <div className="text-gray-200 text-xs mt-1">🎉 An FP Trader from just secured a <span className="text-[#F4D957] font-bold">$1,090.36 reward!</span></div>

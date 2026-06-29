@@ -111,7 +111,7 @@ export function MobilePricingSelector({ selectedChallengeType }: Props) {
               className={`rounded-full border px-4 py-2 text-sm font-extrabold transition-all ${
                 item.size === card.size
                   ? 'border-[#D4AF37] bg-[#D4AF37] text-black'
-                  : 'border-white/10 bg-white/[0.06] text-white/70'
+                  : 'border-white/10 bg-white/[0.06] text-foreground/70'
               }`}
             >
               {item.size}
@@ -120,14 +120,14 @@ export function MobilePricingSelector({ selectedChallengeType }: Props) {
         </div>
       </div>
 
-      <article className={`relative mx-auto flex min-h-[540px] w-full max-w-[360px] flex-col overflow-hidden rounded-3xl border p-5 transition-all duration-300 ${card.badge ? 'border-[#D4AF37] bg-white text-black shadow-[0_0_0_1px_rgba(212,175,55,0.25),0_30px_80px_rgba(212,175,55,0.22)]' : 'border-white/10 bg-white/[0.06] text-white'}`}>
+      <article className={`relative mx-auto flex min-h-[540px] w-full max-w-[360px] flex-col overflow-hidden rounded-3xl border p-5 transition-all duration-300 ${card.badge ? 'border-[#D4AF37] bg-white text-black shadow-[0_0_0_1px_rgba(212,175,55,0.25),0_30px_80px_rgba(212,175,55,0.22)]' : 'border-white/10 bg-white/[0.06] text-foreground'}`}>
         {card.badge && (
           <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold tracking-wide text-black">
             {card.badge}
           </div>
         )}
 
-        <p className={`mb-2 text-xs font-bold uppercase tracking-[0.18em] ${card.badge ? 'text-black/45' : 'text-white/45'}`}>Account Size</p>
+        <p className={`mb-2 text-xs font-bold uppercase tracking-[0.18em] ${card.badge ? 'text-black/45' : 'text-foreground/45'}`}>Account Size</p>
         <h3 key={`${selectedChallengeType}-${card.size}`} className="mb-4 animate-fade-up text-5xl font-extrabold tracking-tight">
           {card.size}
         </h3>
@@ -135,12 +135,12 @@ export function MobilePricingSelector({ selectedChallengeType }: Props) {
         <div className={`mb-5 overflow-hidden rounded-2xl border p-4 ${card.badge ? 'border-black/10 bg-black/[0.03]' : 'border-white/10 bg-white/[0.05]'}`}>
           <div key={`${selectedChallengeType}-${card.price}`} className="animate-fade-up">
             <span className="block max-w-full truncate text-[42px] font-extrabold leading-none text-[#D4AF37]">{card.price}</span>
-            <span className={`mt-2 block max-w-full truncate text-xs line-through ${card.badge ? 'text-black/40' : 'text-white/40'}`}>{card.oldPrice}</span>
+            <span className={`mt-2 block max-w-full truncate text-xs line-through ${card.badge ? 'text-black/40' : 'text-foreground/40'}`}>{card.oldPrice}</span>
           </div>
-          <p className={`mt-2 text-xs ${card.badge ? 'text-black/55' : 'text-white/55'}`}>Limited promotional pricing</p>
+          <p className={`mt-2 text-xs ${card.badge ? 'text-black/55' : 'text-foreground/55'}`}>Limited promotional pricing</p>
         </div>
 
-        <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-black text-white hover:bg-black/85' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>
+        <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-black text-foreground hover:bg-black/85' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>
           Start Challenge
         </Link>
 
@@ -156,7 +156,7 @@ export function MobilePricingSelector({ selectedChallengeType }: Props) {
             ['Consistency Rule', card.features.consistency],
           ].map(([label, value]) => (
             <div key={label} className="flex items-center justify-between gap-4 border-b border-current/10 pb-2 last:border-0">
-              <span className={card.badge ? 'text-black/55' : 'text-white/55'}>{label}</span>
+              <span className={card.badge ? 'text-black/55' : 'text-foreground/55'}>{label}</span>
               <span className="text-right font-bold">{value}</span>
             </div>
           ))}

@@ -26,7 +26,7 @@ export default function CalculatorPage() {
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 className="hero-title text-foreground mb-6 text-balance">
             Trading <span className="gradient-text">Calculator</span>
           </h1>
           <p className="text-lg text-foreground max-w-2xl mx-auto">
@@ -41,7 +41,7 @@ export default function CalculatorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Profit Calculator */}
             <div className="glow-card">
-              <h3 className="text-2xl font-bold text-white mb-6">Profit Calculator</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Profit Calculator</h3>
               
               <div className="space-y-4">
                 <div>
@@ -50,7 +50,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={profitInput}
                     onChange={(e) => setProfitInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -60,7 +60,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={percentInput}
                     onChange={(e) => setPercentInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -75,7 +75,7 @@ export default function CalculatorPage() {
 
             {/* Risk Calculator */}
             <div className="glow-card">
-              <h3 className="text-2xl font-bold text-white mb-6">Risk Calculator</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Risk Calculator</h3>
               
               <div className="space-y-4">
                 <div>
@@ -84,7 +84,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={riskInput}
                     onChange={(e) => setRiskInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -94,7 +94,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={percentInput}
                     onChange={(e) => setPercentInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -109,7 +109,7 @@ export default function CalculatorPage() {
 
             {/* Pip Calculator */}
             <div className="glow-card lg:col-span-2">
-              <h3 className="text-2xl font-bold text-white mb-6">Pip Value Calculator</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Pip Value Calculator</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -118,7 +118,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={riskInput}
                     onChange={(e) => setRiskInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -128,7 +128,7 @@ export default function CalculatorPage() {
                     type="number"
                     value={pipsInput}
                     onChange={(e) => setPipsInput(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-white placeholder-muted-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-2 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function CalculatorPage() {
       {/* Calculator Info */}
       <section className="py-16 bg-card/20">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">How to Use</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">How to Use</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -165,7 +165,7 @@ export default function CalculatorPage() {
               },
             ].map((item, idx) => (
               <div key={idx} className="glow-card">
-                <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-sm text-foreground">{item.description}</p>
               </div>
             ))}

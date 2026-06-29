@@ -11,25 +11,25 @@ export default function EvaluationPage() {
 
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#13100A] via-[#13100A] to-[#13100A]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted to-muted" />
         <div className="absolute inset-0" style={{
           background: 'radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)',
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 className="hero-title text-foreground mb-6 text-balance">
             Trading <span className="gradient-text">Evaluations</span>
           </h1>
-          <p className="text-lg text-foreground max-w-2xl mx-auto" style={{ color: '#ffffff' }}>
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
             Prove your trading skills and unlock access to funded simulated accounts with profit-sharing opportunities up to 100%.
           </p>
         </div>
       </section>
 
       {/* 3-Step Process */}
-      <section className="py-16" style={{ color: '#1b1b1c' }}>
-        <div className="max-w-4xl mx-auto px-4 md:px-6" style={{ color: '#000000' }}>
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#050505' }}>Your Path to Success</h2>
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="section-title text-foreground mb-12 text-center">Your Path to Success</h2>
 
           <div className="space-y-8">
             {[
@@ -51,7 +51,7 @@ export default function EvaluationPage() {
             ].map((item, idx) => (
               <div key={idx} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#D4AF37] flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-[#D4AF37] flex items-center justify-center text-foreground font-bold text-lg">
                     {item.step}
                   </div>
                   {idx < 2 && (
@@ -59,7 +59,7 @@ export default function EvaluationPage() {
                   )}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-xl font-bold text-white mb-2" style={{ color: idx === 0 ? '#0e0d0d' : idx === 1 ? '#252424' : '#161414' }}>{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
                   <p className="text-foreground">{item.description}</p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function EvaluationPage() {
       {/* Rules Grid */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#080808' }}>Trading Rules</h2>
+          <h2 className="section-title text-foreground mb-12 text-center">Trading Rules</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -94,7 +94,7 @@ export default function EvaluationPage() {
       {/* Pricing Table */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="section-title text-white mb-12 text-center" style={{ color: '#181717' }}>Evaluation Pricing</h2>
+          <h2 className="section-title text-foreground mb-12 text-center" style={{ color: 'var(--foreground)'1717' }}>Evaluation Pricing</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -115,7 +115,7 @@ export default function EvaluationPage() {
               },
             ].map((plan, idx) => (
               <div key={idx} className="glow-card text-center">
-                <h3 className="text-xl font-bold text-white mb-3" style={{ color: idx === 0 ? '#161515' : idx === 1 ? '#070707' : '#0b0b0b' }}>{plan.name}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3" style={{ color: idx === 0 ? '#161515' : idx === 1 ? '#070707' : '#0b0b0b' }}>{plan.name}</h3>
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-primary">{plan.price}</span>
                   <span className="text-sm text-muted-foreground line-through ml-2">{plan.oldPrice}</span>
@@ -159,7 +159,7 @@ export default function EvaluationPage() {
               },
             ].map((item, idx) => (
               <div key={idx} className="glow-card">
-                <h3 className="font-bold text-white mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-foreground text-sm">{item.a}</p>
               </div>
             ))}

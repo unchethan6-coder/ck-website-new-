@@ -75,7 +75,7 @@ export default function HowItWorks() {
                 <span className="text-primary font-bold text-lg sm:text-xl">★</span>
                 <h4 className="font-bold text-sm sm:text-base md:text-lg text-foreground">2-Step Evaluation</h4>
               </div>
-              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600">
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li>• Simplified profit targets</li>
                 <li>• Same risk management</li>
                 <li>• Demonstrate consistency</li>
@@ -84,12 +84,12 @@ export default function HowItWorks() {
               </ul>
             </div>
 
-            <div className="bg-white p-4 sm:p-5 md:p-6 rounded-lg border border-gray-200 md:border-yellow-400">
+            <div className="bg-white p-4 sm:p-5 md:p-6 rounded-lg border border-border md:border-yellow-400">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <span className="text-yellow-500 font-bold text-lg sm:text-xl">★</span>
-                <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900">CK Trader Account</h4>
+                <span className="text-primary500 font-bold text-lg sm:text-xl">★</span>
+                <h4 className="font-bold text-sm sm:text-base md:text-lg text-foreground">CK Trader Account</h4>
               </div>
-              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-600">
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li>• Simulated payout model</li>
                 <li>• Up to 100% profit split</li>
                 <li>• Scale up to $1.2M</li>

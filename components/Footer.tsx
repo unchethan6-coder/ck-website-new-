@@ -18,9 +18,9 @@ export function Footer() {
       <PayoutStoriesRoadmap />
       <DiscordCommunitySection />
       <footer className="bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#eef3f7', color: '#101820', paddingBottom: '89px' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#eef3f7', color: 'var(--foreground)'1820', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8 mb-12" style={{ color: '#101820' }}>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8 mb-12" style={{ color: 'var(--foreground)'1820' }}>
           {/* Brand & Social */}
           <div className="space-y-4 col-span-2 md:col-span-1">
             <div className="font-bold text-xl text-foreground">CK CAPITAL</div>
@@ -91,7 +91,7 @@ export function Footer() {
         {/* Payment Options */}
         <div className="py-8 mb-8">
           <p className="text-sm text-foreground mb-4 font-semibold">Accepted Payment Methods</p>
-          <div className="flex flex-wrap gap-4 text-sm text-foreground" style={{ color: '#101820' }}>
+          <div className="flex flex-wrap gap-4 text-sm text-foreground" style={{ color: 'var(--foreground)'1820' }}>
             <span>Stripe</span><span>PayPal</span><span>Visa / Mastercard</span><span>Crypto (USDT)</span>
           </div>
         </div>
@@ -99,34 +99,34 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="pt-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-8">
-            <div className="text-sm" style={{ color: '#101820' }}>
+            <div className="text-sm" style={{ color: 'var(--foreground)'1820' }}>
               <p className="text-foreground font-semibold mb-2">CK CAPITAL GROUP LTD</p>
-              <p style={{ color: '#101820' }}>All Rights Reserved</p>
-              <p className="mt-2" style={{ color: '#101820' }}>Mon-Fri: 8am-8pm (GMT)</p>
-              <p style={{ color: '#101820' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+              <p style={{ color: 'var(--foreground)'1820' }}>All Rights Reserved</p>
+              <p className="mt-2" style={{ color: 'var(--foreground)'1820' }}>Mon-Fri: 8am-8pm (GMT)</p>
+              <p style={{ color: 'var(--foreground)'1820' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
             </div>
 
             <div className="text-sm">
               <p className="text-foreground font-semibold mb-2">Support</p>
-              <p style={{ color: '#101820' }}>24/7 Support Available</p>
+              <p style={{ color: 'var(--foreground)'1820' }}>24/7 Support Available</p>
               <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">Discord Community</a>
             </div>
 
-            <div className="text-sm" style={{ color: '#101820' }}>
+            <div className="text-sm" style={{ color: 'var(--foreground)'1820' }}>
               <p className="text-foreground font-semibold mb-2">Quick Links</p>
-              <div className="space-y-1" style={{ color: '#101820' }}>
-                <Link href="/" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>Home</Link>
-                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>About Us</Link>
-                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>Blog</Link>
+              <div className="space-y-1" style={{ color: 'var(--foreground)'1820' }}>
+                <Link href="/" className="block text-foreground hover:text-primary transition-colors" style={{ color: 'var(--foreground)'1820' }}>Home</Link>
+                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors" style={{ color: 'var(--foreground)'1820' }}>About Us</Link>
+                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors" style={{ color: 'var(--foreground)'1820' }}>Blog</Link>
               </div>
             </div>
           </div>
 
-          <div className="bg-primary/5 rounded-lg p-4 mt-8" style={{ fontSize: '13px', color: '#101820', textAlign: 'left' }}>
-            <h1 style={{ fontWeight: '700', fontSize: '15px', lineHeight: '0.6em', color: '#101820' }}>Important Information & Disclaimer</h1>
-            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: '#101820' }}>Simulated Trading Environment</h2>
+          <div className="bg-primary/5 rounded-lg p-4 mt-8" style={{ fontSize: '13px', color: 'var(--foreground)'1820', textAlign: 'left' }}>
+            <h1 style={{ fontWeight: '700', fontSize: '15px', lineHeight: '0.6em', color: 'var(--foreground)'1820' }}>Important Information & Disclaimer</h1>
+            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: 'var(--foreground)'1820' }}>Simulated Trading Environment</h2>
             <p style={{ fontSize: '13px', lineHeight: '1.6' }}>All accounts and evaluation programs provided by CK Capital operate exclusively within a simulated trading environment. No trades are executed on live financial markets, and no real capital is allocated to participants. Our services are intended solely for educational, skill assessment, and trader evaluation purposes.</p>
-            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: '#101820' }}>No Investment Services</h2>
+            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: 'var(--foreground)'1820' }}>No Investment Services</h2>
             <p style={{ fontSize: '13px', lineHeight: '1.6' }}>The simulated trading services are provided by CK Capital. All content published or distributed by CK Capital and its affiliated entities is provided for general informational and educational purposes only.</p>
             <p style={{ fontSize: '13px', marginTop: '8px' }}><strong>The Company:</strong></p>
             <ul style={{ marginLeft: '16px', marginTop: '4px', lineHeight: '1.6' }}>

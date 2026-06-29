@@ -136,12 +136,12 @@ export default function TraderJourney() {
               <div className="flex items-center justify-center gap-2 text-sm text-[#B0BCC9] mb-6">
                 <span className="line-through">$399</span>
                 <span className="text-[#10B981]">→</span>
-                <span className="text-white font-semibold">$26,242</span>
+                <span className="text-foreground font-semibold">$26,242</span>
               </div>
 
               {/* CTA Button */}
               <Button
-                className="w-full bg-white text-[#0A1628] hover:bg-gray-100 font-bold py-3 rounded-lg transition-all"
+                className="w-full bg-white text-[#0A1628] hover:bg-muted font-bold py-3 rounded-lg transition-all"
                 asChild
               >
                 <a href="https://app.ckcapital.co.uk/buy-challenge">Start Challenge</a>

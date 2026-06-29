@@ -18,7 +18,7 @@ export default function CompetitionPage() {
         }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="hero-title text-white mb-6 text-balance">
+          <h1 className="hero-title text-foreground mb-6 text-balance">
             Trading <span className="gradient-text">Competition</span>
           </h1>
           <p className="text-lg text-foreground max-w-2xl mx-auto">
@@ -75,16 +75,16 @@ export default function CompetitionPage() {
       {/* Leaderboard */}
       <section className="py-16 bg-card/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Current Standings</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Current Standings</h2>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-white font-semibold">Rank</th>
-                  <th className="text-left py-3 px-4 text-white font-semibold">Trader</th>
-                  <th className="text-right py-3 px-4 text-white font-semibold">Profit</th>
-                  <th className="text-center py-3 px-4 text-white font-semibold">Win Rate</th>
+                  <th className="text-left py-3 px-4 text-foreground font-semibold">Rank</th>
+                  <th className="text-left py-3 px-4 text-foreground font-semibold">Trader</th>
+                  <th className="text-right py-3 px-4 text-foreground font-semibold">Profit</th>
+                  <th className="text-center py-3 px-4 text-foreground font-semibold">Win Rate</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,7 +97,7 @@ export default function CompetitionPage() {
                 ].map((trader, idx) => (
                   <tr key={idx} className="border-b border-border/50 hover:bg-card/50 transition-colors">
                     <td className="py-3 px-4 text-primary font-bold">#{trader.rank}</td>
-                    <td className="py-3 px-4 text-white font-semibold">{trader.name}</td>
+                    <td className="py-3 px-4 text-foreground font-semibold">{trader.name}</td>
                     <td className="py-3 px-4 text-right text-[#00B67A] font-bold">{trader.profit}</td>
                     <td className="py-3 px-4 text-center text-foreground">{trader.wr}</td>
                   </tr>
@@ -111,7 +111,7 @@ export default function CompetitionPage() {
       {/* Rules */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Competition Rules</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Competition Rules</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -134,7 +134,7 @@ export default function CompetitionPage() {
       {/* CTA */}
       <section className="py-16 bg-card/20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Compete?</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Compete?</h2>
           <p className="text-lg text-foreground mb-8">
             Join the competition and start competing for prizes today.
           </p>
