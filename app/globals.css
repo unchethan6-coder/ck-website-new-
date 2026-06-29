@@ -267,7 +267,7 @@ section[class*="bg-white"] {
 
 section[class*="bg-[#050505]"],
 section[class*="bg-black"] {
-  background: linear-gradient(135deg, #101820 0%, #121b26 58%, #0b2f2e 125%) !important;
+  background: linear-gradient(135deg, #f4f7fa 0%, #eef3f7 58%, #e7edf2 125%) !important;
 }
 
 input,

@@ -18,7 +18,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 -mb-[92px] bg-transparent px-4 pt-3 md:px-6 md:pt-4">
       <style jsx global>{`
         body > div > section:first-of-type {
-          background: #050505 !important;
+          background: #f4f7fa !important;
         }
 
         body > div > section:first-of-type::after {
@@ -27,22 +27,22 @@ export function Navbar() {
           inset: 0;
           z-index: 2;
           pointer-events: none;
-          background: linear-gradient(90deg, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.80) 44%, rgba(5,5,5,0.18) 100%), radial-gradient(circle at 24% 20%, rgba(212,175,55,0.22), transparent 32%);
+          background: linear-gradient(90deg, rgba(244,247,250,0.94) 0%, rgba(244,247,250,0.80) 44%, rgba(244,247,250,0.18) 100%), radial-gradient(circle at 24% 20%, rgba(212,175,55,0.22), transparent 32%);
         }
 
         body > div > section:first-of-type h1 {
-          color: #f7f4ea !important;
+          color: #101820 !important;
           letter-spacing: -0.055em !important;
         }
 
         body > div > section:first-of-type p {
-          color: rgba(247,244,234,0.72) !important;
+          color: rgba(16,24,32,0.72) !important;
         }
 
         body > div > section:first-of-type .mx-auto.mb-5 {
           border-color: rgba(212,175,55,0.28) !important;
-          background: rgba(255,255,255,0.08) !important;
-          color: rgba(247,244,234,0.78) !important;
+          background: rgba(255,255,255,0.68) !important;
+          color: rgba(16,24,32,0.78) !important;
         }
 
         body > div > section:first-of-type .button-primary {
@@ -50,21 +50,21 @@ export function Navbar() {
         }
 
         body > div > section:first-of-type .button-secondary-dark {
-          border-color: rgba(247,244,234,0.35) !important;
-          background: rgba(255,255,255,0.04) !important;
-          color: #f7f4ea !important;
+          border-color: rgba(15,23,42,0.35) !important;
+          background: rgba(255,255,255,0.68) !important;
+          color: #101820 !important;
         }
 
         body > div > section:first-of-type .grid.max-w-3xl > * {
           border-radius: 22px;
           border: 1px solid rgba(212,175,55,0.18);
-          background: rgba(255,255,255,0.06);
+          background: rgba(255,255,255,0.76);
           padding: 16px;
           backdrop-filter: blur(16px);
         }
 
         body > div > section:first-of-type .grid.max-w-3xl div {
-          color: rgba(247,244,234,0.72) !important;
+          color: rgba(16,24,32,0.72) !important;
         }
 
         @keyframes ckHeroPulse {
@@ -74,7 +74,7 @@ export function Navbar() {
 
         @media (max-width: 767px) {
           body > div > section:first-of-type::after {
-            background: linear-gradient(180deg, rgba(5,5,5,0.88), rgba(5,5,5,0.42), rgba(5,5,5,0.82));
+            background: linear-gradient(180deg, rgba(244,247,250,0.88), rgba(244,247,250,0.42), rgba(244,247,250,0.82));
           }
         }
       `}</style>
@@ -123,8 +123,8 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <LanguageSwitcher />
-          <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg border-2 border-black text-black text-sm font-semibold hover:bg-black/5 transition-colors">Sign In</Link>
-          <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-black/90 transition-colors">Start Challenge</Link>
+          <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg border-2 border-primary text-primary text-sm font-semibold hover:bg-primary/5 transition-colors">Sign In</Link>
+          <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-lg bg-primary text-foreground text-sm font-semibold hover:bg-primary/90 transition-colors">Start Challenge</Link>
         </div>
 
         <button className="md:hidden text-black" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -149,8 +149,8 @@ export function Navbar() {
             <Link href="/faq" className="block text-black hover:text-primary text-sm">FAQs</Link>
             <Link href="/affiliates" className="block text-black hover:text-primary text-sm">Affiliates</Link>
             <div className="flex gap-2 pt-4">
-              <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg border-2 border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors text-center">Sign In</Link>
-              <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-black/90 transition-colors text-center">Start Challenge</Link>
+              <Link href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg border-2 border-primary text-primary text-sm font-medium hover:bg-primary hover:text-foreground transition-colors text-center">Sign In</Link>
+              <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2 rounded-lg bg-primary text-foreground text-sm font-medium hover:bg-primary/90 transition-colors text-center">Start Challenge</Link>
             </div>
           </div>
         </div>
