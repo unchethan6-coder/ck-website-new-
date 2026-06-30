@@ -106,7 +106,7 @@ export default function Home() {
       <MarketTicker />
       <InstantFundingBanner />
 
-      {/* PRICING - Dark */}
+      {/* PRICING SECTION */}
       <section id="start-challenge" className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 bg-[#0a0a0a]">
         <div className="relative z-10 mx-auto max-w-[1680px] px-4 md:px-8">
           <div className="mx-auto mb-8 max-w-3xl text-center">
@@ -122,38 +122,46 @@ export default function Home() {
             </div>
           </div>
 
-          {pricingView === 'cards' && <>
-            <MobilePricingSelector selectedChallengeType={selectedChallengeType} />
-            <div className="hidden md:block mx-auto pb-6">
-              <div className="flex flex-wrap justify-center gap-6 xl:flex-nowrap xl:gap-4 2xl:gap-5">
-                {cards.map((card, idx) => (
-                  <article key={idx} className={`relative flex min-h-[500px] w-full max-w-[300px] flex-[1_1_260px] flex-col overflow-hidden rounded-3xl border p-5 transition-all hover:-translate-y-1 ${card.badge ? 'border-[#D4AF37] bg-zinc-950 shadow-[0_0_0_1px_rgba(212,175,55,0.3)]' : 'border-white/10 bg-zinc-950 hover:border-[#D4AF37]/60'}`}>
-                    {card.badge && <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-2.5 py-1 text-[9px] font-extrabold tracking-wide text-black">{card.badge}</div>}
-                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">Account Size</p>
-                    <h3 className="mb-4 text-4xl font-extrabold tracking-tight text-white">{card.size}</h3>
-                    <div className="mb-5 overflow-hidden rounded-2xl border border-white/10 p-4 bg-black/40">
-                      <div className="flex flex-col items-start">
-                        <span className="text-[38px] font-extrabold leading-none text-[#D4AF37]">{card.price}</span>
-                        <span className="mt-2 text-xs line-through text-white/40">{card.oldPrice}</span>
+          {/* Cards View */}
+          {pricingView === 'cards' && (
+            <>
+              <MobilePricingSelector selectedChallengeType={selectedChallengeType} />
+              <div className="hidden md:block mx-auto pb-6">
+                <div className="flex flex-wrap justify-center gap-6 xl:flex-nowrap xl:gap-4 2xl:gap-5">
+                  {cards.map((card, idx) => (
+                    <article key={idx} className={`relative flex min-h-[500px] w-full max-w-[300px] flex-[1_1_260px] flex-col overflow-hidden rounded-3xl border p-5 transition-all hover:-translate-y-1 ${card.badge ? 'border-[#D4AF37] bg-zinc-950 shadow-[0_0_0_1px_rgba(212,175,55,0.3)]' : 'border-white/10 bg-zinc-950 hover:border-[#D4AF37]/60'}`}>
+                      {card.badge && <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-2.5 py-1 text-[9px] font-extrabold tracking-wide text-black">{card.badge}</div>}
+                      <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">Account Size</p>
+                      <h3 className="mb-4 text-4xl font-extrabold tracking-tight text-white">{card.size}</h3>
+                      <div className="mb-5 overflow-hidden rounded-2xl border border-white/10 p-4 bg-black/40">
+                        <div className="flex flex-col items-start">
+                          <span className="text-[38px] font-extrabold leading-none text-[#D4AF37]">{card.price}</span>
+                          <span className="mt-2 text-xs line-through text-white/40">{card.oldPrice}</span>
+                        </div>
+                        <p className="mt-2 text-xs text-white/50">Limited promotional pricing</p>
                       </div>
-                      <p className="mt-2 text-xs text-white/50">Limited promotional pricing</p>
-                    </div>
-                    <Link href="https://app.ckcapital.co.uk/signup" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-[#A87B0B] text-white hover:bg-[#8a6309]' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>Start Challenge</Link>
-                    <div className="grid grid-cols-1 gap-3 text-sm">
-                      {[['Phase 1 Target', card.features.phase1], ['Phase 2 Target', card.features.phase2], ['Max Daily Loss', card.features.maxDaily], ['Max Loss', card.features.maxLoss], ['Reward Split', card.features.rewardSplit]].map(([label, value]) => (
-                        <div key={label} className="flex items-center justify-between border-b border-white/10 pb-2 last:border-0"><span className="text-white/60">{label}</span><span className="font-bold text-white">{value}</span></div>
-                      ))}
-                    </div>
-                  </article>
-                ))}
+                      <Link href="https://app.ckcapital.co.uk/signup" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-[#A87B0B] text-white hover:bg-[#8a6309]' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>Start Challenge</Link>
+                      <div className="grid grid-cols-1 gap-3 text-sm">
+                        {[['Phase 1 Target', card.features.phase1], ['Phase 2 Target', card.features.phase2], ['Max Daily Loss', card.features.maxDaily], ['Max Loss', card.features.maxLoss], ['Reward Split', card.features.rewardSplit]].map(([label, value]) => (
+                          <div key={label} className="flex items-center justify-between border-b border-white/10 pb-2 last:border-0"><span className="text-white/60">{label}</span><span className="font-bold text-white">{value}</span></div>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-          </>}
+            </>
+          )}
 
-          {pricingView === 'table' && <div className="rounded-3xl bg-zinc-950 p-4 md:p-6 border border-white/10"><ObjectivesTable /></div>}
+          {/* Table View */}
+          {pricingView === 'table' && (
+            <div className="rounded-3xl bg-zinc-950 p-4 md:p-6 border border-white/10">
+              <ObjectivesTable />
+            </div>
+          )}
         </section>
 
-      {/* REVIEWS - Dark */}
+      {/* REVIEWS */}
       <section className="bg-[#0a0a0a] py-16 md:py-24 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 text-center">
@@ -182,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY CHOOSE - Dark */}
+      {/* WHY CHOOSE */}
       <section className="py-12 md:py-16 bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-white mb-12 text-center">Why Choose <span className="text-[#D4AF37]">CK Capital?</span></h2>
