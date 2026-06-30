@@ -41,17 +41,12 @@ export function Navbar() {
 
           <Link href="/rewards" className="text-white hover:text-primary transition-colors text-sm">Rewards</Link>
 
-          <Link href="/trading-objectives" className="text-white hover:text-primary transition-colors text-sm">Trading Objectives</Link>
-
-          <Link href="/prime" className="text-white hover:text-primary transition-colors text-sm">Prime</Link>
-
           <DropdownMenu>
             <DropdownMenuTrigger className="text-white hover:text-primary transition-colors text-sm">
               Trading
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-[#13100A] border-[#D4AF37]/25">
               <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/about-us">About Us</Link></DropdownMenuItem>
-              <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/events">Events</Link></DropdownMenuItem>
               <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/contact">Contact</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -83,8 +78,6 @@ export function Navbar() {
               </div>
             </div>
             <Link href="/rewards" className="block text-white hover:text-primary text-sm">Rewards</Link>
-            <Link href="/trading-objectives" className="block text-white hover:text-primary text-sm">Trading Objectives</Link>
-            <Link href="/prime" className="block text-white hover:text-primary text-sm">Prime</Link>
             <Link href="/faq" className="block text-white hover:text-primary text-sm">FAQs</Link>
             <Link href="/affiliates" className="block text-white hover:text-primary text-sm">Affiliates</Link>
             <div className="flex gap-2 pt-4">
