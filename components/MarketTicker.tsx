@@ -9,7 +9,6 @@ interface MarketItem {
   change: string
   changePercent: string
   isPositive: boolean
-  tradingViewUrl: string
   icon?: string
 }
 
@@ -21,7 +20,6 @@ const marketData: MarketItem[] = [
     change: '+15.10',
     changePercent: '+0.20%',
     isPositive: true,
-    tradingViewUrl: 'https://www.tradingview.com/symbols/SPX/',
     icon: '📈'
   },
   {
@@ -31,7 +29,6 @@ const marketData: MarketItem[] = [
     change: '+94.20',
     changePercent: '+0.32%',
     isPositive: true,
-    tradingViewUrl: 'https://www.tradingview.com/symbols/NASDAQ/',
     icon: '📈'
   },
   {
@@ -41,7 +38,6 @@ const marketData: MarketItem[] = [
     change: '-0.00',
     changePercent: '-1.20%',
     isPositive: false,
-    tradingViewUrl: 'https://www.tradingview.com/symbols/DOGEUSDT/',
     icon: '🐕'
   },
   {
@@ -51,7 +47,6 @@ const marketData: MarketItem[] = [
     change: '+4.78',
     changePercent: '+0.12%',
     isPositive: true,
-    tradingViewUrl: 'https://www.tradingview.com/symbols/XAUUSD/',
     icon: '🥇'
   },
   {
@@ -61,12 +56,14 @@ const marketData: MarketItem[] = [
     change: '+0.46',
     changePercent: '+0.79%',
     isPositive: true,
-    tradingViewUrl: 'https://www.tradingview.com/symbols/XAGUSD/',
     icon: '🥈'
   }
 ]
 
 export function MarketTicker() {
+  // All items link to main TradingView for live data
+  const tradingViewLink = 'https://www.tradingview.com/'
+
   return (
     <div className="bg-[#0a0a0a] border-b border-white/10 py-2.5 overflow-hidden">
       <div className="flex items-center">
@@ -74,13 +71,13 @@ export function MarketTicker() {
           MARKET
         </div>
         
-        {/* Scrolling ticker */}
+        {/* Continuous scrolling ticker - links to TradingView */}
         <div className="flex-1 overflow-hidden">
           <div className="marquee flex items-center gap-8 whitespace-nowrap">
             {[...marketData, ...marketData].map((item, index) => (
               <a
                 key={`${item.symbol}-${index}`}
-                href={item.tradingViewUrl}
+                href={tradingViewLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 group hover:bg-white/5 px-3 py-1 rounded-lg transition-colors"
