@@ -105,40 +105,45 @@ export default function Home() {
       <MarketTicker />
       <InstantFundingBanner />
 
-      {/* PRICING - SIMPLIFIED (Cards only for stability) */}
+      {/* PRICING - ULTRA SIMPLE */}
       <section id="start-challenge" className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 bg-[#0a0a0a]">
-        <div className="relative z-10 mx-auto max-w-[1680px] px-4 md:px-8">
-          <div className="mx-auto mb-8 max-w-3xl text-center">
-            <p className="mb-3 text-xs font-bold tracking-[0.28em] text-[#D4AF37]">CK CAPITAL EVALUATIONS</p>
-            <h2 className="text-3xl font-extrabold tracking-[-1px] text-white md:text-5xl lg:text-6xl">Choose your account size. Start your evaluation.</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base text-white/70">Full-width, flexible pricing cards using CK Capital account sizes and rules.</p>
+        <div className="max-w-[1680px] mx-auto px-4 md:px-8">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold tracking-[0.28em] text-[#D4AF37] mb-3">CK CAPITAL EVALUATIONS</p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-[-1px] text-white">Choose your account size</h2>
           </div>
 
           <MobilePricingSelector selectedChallengeType={selectedChallengeType} />
 
-          <div className="hidden md:block mx-auto pb-6">
-            <div className="flex flex-wrap justify-center gap-6 xl:flex-nowrap xl:gap-4 2xl:gap-5">
-              {cards.map((card, idx) => (
-                <article key={idx} className={`relative flex min-h-[500px] w-full max-w-[300px] flex-[1_1_260px] flex-col overflow-hidden rounded-3xl border p-5 transition-all hover:-translate-y-1 ${card.badge ? 'border-[#D4AF37] bg-zinc-950 shadow-[0_0_0_1px_rgba(212,175,55,0.3)]' : 'border-white/10 bg-zinc-950 hover:border-[#D4AF37]/60'}`}>
-                  {card.badge && <div className="absolute right-4 top-4 rounded-full bg-[#D4AF37] px-2.5 py-1 text-[9px] font-extrabold tracking-wide text-black">{card.badge}</div>}
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">Account Size</p>
-                  <h3 className="mb-4 text-4xl font-extrabold tracking-tight text-white">{card.size}</h3>
-                  <div className="mb-5 overflow-hidden rounded-2xl border border-white/10 p-4 bg-black/40">
-                    <div className="flex flex-col items-start">
-                      <span className="text-[38px] font-extrabold leading-none text-[#D4AF37]">{card.price}</span>
-                      <span className="mt-2 text-xs line-through text-white/40">{card.oldPrice}</span>
-                    </div>
-                    <p className="mt-2 text-xs text-white/50">Limited promotional pricing</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+            {cards.map((card, idx) => (
+              <div key={idx} className="bg-zinc-950 border border-white/10 rounded-2xl p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <p className="text-white/50 text-xs">Account Size</p>
+                    <h3 className="text-3xl font-extrabold text-white">{card.size}</h3>
                   </div>
-                  <Link href="https://app.ckcapital.co.uk/signup" className={`mb-5 flex h-12 w-full items-center justify-center rounded-xl text-sm font-extrabold transition-all ${card.badge ? 'bg-[#A87B0B] text-white hover:bg-[#8a6309]' : 'bg-[#D4AF37] text-black hover:bg-[#F7D774]'}`}>Start Challenge</Link>
-                  <div className="grid grid-cols-1 gap-3 text-sm">
-                    {[['Phase 1 Target', card.features.phase1], ['Phase 2 Target', card.features.phase2], ['Max Daily Loss', card.features.maxDaily], ['Max Loss', card.features.maxLoss], ['Reward Split', card.features.rewardSplit]].map(([label, value]) => (
-                      <div key={label} className="flex items-center justify-between border-b border-white/10 pb-2 last:border-0"><span className="text-white/60">{label}</span><span className="font-bold text-white">{value}</span></div>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
+                  {card.badge && <div className="bg-[#D4AF37] text-black text-[10px] font-extrabold px-3 py-1 rounded-full">{card.badge}</div>}
+                </div>
+
+                <div className="mb-6">
+                  <span className="text-5xl font-extrabold text-[#D4AF37]">{card.price}</span>
+                  <span className="text-white/40 line-through ml-2">{card.oldPrice}</span>
+                </div>
+
+                <Link href="https://app.ckcapital.co.uk/signup" className="block w-full text-center bg-[#D4AF37] hover:bg-[#F5C542] text-black font-extrabold py-3 rounded-xl mb-6 transition-all">
+                  Start Challenge
+                </Link>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between"><span className="text-white/60">Phase 1 Target</span><span className="font-bold">{card.features.phase1}</span></div>
+                  <div className="flex justify-between"><span className="text-white/60">Phase 2 Target</span><span className="font-bold">{card.features.phase2}</span></div>
+                  <div className="flex justify-between"><span className="text-white/60">Max Daily Loss</span><span className="font-bold">{card.features.maxDaily}</span></div>
+                  <div className="flex justify-between"><span className="text-white/60">Max Loss</span><span className="font-bold">{card.features.maxLoss}</span></div>
+                  <div className="flex justify-between"><span className="text-white/60">Reward Split</span><span className="font-bold">{card.features.rewardSplit}</span></div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
