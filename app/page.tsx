@@ -50,6 +50,13 @@ const BASE_CARDS = [
   { size: '$100K', price: '$176.40', oldPrice: '$705.60', badge: null },
 ]
 
+const REVIEW_CARDS = [
+  { name: 'CK Trader', country: 'United Kingdom', quote: 'The objectives are clear, support is responsive, and the dashboard makes the evaluation process easy to follow.', source: 'Trustpilot' },
+  { name: 'Community Trader', country: 'UAE', quote: 'Fast support and a smooth simulated trading experience. The rules are simple to understand before starting.', source: 'Trustpilot' },
+  { name: 'Discord Member', country: 'India', quote: 'The community is active, friendly, and helpful. CK Capital feels more personal than other evaluation brands.', source: 'Community' },
+  { name: 'Evaluation User', country: 'United States', quote: 'The price options are flexible and the account-size choices make it easier to pick the right starting point.', source: 'Review' },
+]
+
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState<ChallengeTypeKey>('standard')
   const [pricingView, setPricingView] = useState<'cards' | 'table'>('cards')
