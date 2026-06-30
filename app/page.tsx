@@ -50,6 +50,13 @@ const BASE_CARDS = [
   { size: '$100K', price: '$176.40', oldPrice: '$705.60', badge: null },
 ]
 
+const REVIEW_CARDS = [
+  { quote: 'Best trading challenge platform with actual payouts and support.', name: 'Alex T.', country: 'UK', source: 'Trustpilot' },
+  { quote: 'Very professional team and fast withdrawal process. Highly recommended!', name: 'Jordan M.', country: 'Canada', source: 'Trustpilot' },
+  { quote: 'Transparent rules and excellent customer service throughout my journey.', name: 'Sofia K.', country: 'Germany', source: 'Trustpilot' },
+  { quote: 'The 70% sale was incredible. Already scaling my account with profits.', name: 'Marcus J.', country: 'Australia', source: 'Trustpilot' },
+]
+
 export default function Home() {
   const [selectedChallengeType, setSelectedChallengeType] = useState<ChallengeTypeKey>('standard')
   const [pricingView, setPricingView] = useState<'cards' | 'table'>('cards')
@@ -144,7 +151,8 @@ export default function Home() {
           </>}
 
           {pricingView === 'table' && <div className="rounded-3xl bg-zinc-950 p-4 md:p-6 border border-white/10"><ObjectivesTable /></div>}
-        </section>
+        </div>
+      </section>
 
       {/* REVIEWS - Dark */}
       <section className="bg-[#0a0a0a] py-16 md:py-24 border-t border-white/10">
