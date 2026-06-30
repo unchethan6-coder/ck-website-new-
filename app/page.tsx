@@ -68,7 +68,7 @@ export default function Home() {
       
       <section id="ck70">
         <div className="hero">
-          <div>
+          <div className="hero-left">
             <div className="badge"><span></span>70% sale 2026 · Biggest drop of the Year</div>
             <h1>EVERYTHING</h1>
             <div className="discount">70% OFF</div>
@@ -78,6 +78,7 @@ export default function Home() {
             <a href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="btn">Claim 70% OFF →</a>
             <div className="features"><div><span></span>12H Payouts</div><div><span></span>100% Profit Split</div><div><span></span>$100K Capital</div><div><span></span>No Time Limits</div></div>
           </div>
+          
           <div className="cards">
             <div className="card">
               <div className="img">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DDBO5ZLldZQZLxxyVBdiTQXCB0/hf_20260629_202310_585889c9-e3b8-46b5-a4a7-31baca4be8fd.png" alt="$2.5K challenge" /></div>
@@ -120,50 +121,91 @@ export default function Home() {
         <style>{`
           #ck70{ --ck-gold:#f5c542; --ck-gold2:#ffdf7a; --ck-muted:#b8b8b8; font-family:Arial,Helvetica,sans-serif; color:#ffffff; display:block; }
           #ck70 *{ box-sizing:border-box; margin:0; padding:0; }
-          #ck70 .hero{ min-height:100vh; padding:55px 9%; display:grid; grid-template-columns:1fr 1.25fr; gap:70px; background: radial-gradient(circle at 70% 15%,rgba(245,197,66,.18),transparent 30%), linear-gradient(180deg,#111111,#050505); align-items:center; }
+          
+          /* FIXED: Better balanced hero alignment */
+          #ck70 .hero{ 
+            min-height:100vh; 
+            padding:55px 7% 55px 8%; 
+            display:grid; 
+            grid-template-columns: 1fr 1.05fr; 
+            gap:45px; 
+            background: radial-gradient(circle at 70% 15%,rgba(245,197,66,.18),transparent 30%), linear-gradient(180deg,#111111,#050505); 
+            align-items:center; 
+            max-width: 1520px;
+            margin: 0 auto;
+          }
+          
+          #ck70 .hero-left {
+            max-width: 540px;
+          }
+          
           #ck70 .badge{ display:inline-flex; align-items:center; gap:12px; border:1px solid var(--ck-gold); color:var(--ck-gold2); padding:10px 22px; border-radius:30px; font-size:15px; margin-bottom:20px; }
           #ck70 .badge span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 14px var(--ck-gold); }
           #ck70 h1{ font-size:56px; line-height:.95; font-weight:900; letter-spacing:-2px; }
-          #ck70 .discount{ font-size:110px; font-weight:900; color:var(--ck-gold); margin:12px 0; text-shadow:0 0 30px rgba(245,197,66,.35); }
-          #ck70 .sub{ font-size:38px; font-weight:900; margin-bottom:25px; }
-          #ck70 .text{ max-width:600px; color:var(--ck-muted); font-size:18px; line-height:1.5; margin-bottom:55px; }
-          #ck70 .timer{ display:flex; align-items:center; gap:24px; margin-bottom:60px; }
-          #ck70 .clock{ width:54px; height:54px; border:4px solid var(--ck-gold); border-radius:50%; position:relative; box-shadow:0 0 18px rgba(245,197,66,.35); }
-          #ck70 .clock:before{ content:""; position:absolute; width:4px; height:16px; background:var(--ck-gold); top:11px; left:23px; }
-          #ck70 .clock:after{ content:""; position:absolute; width:17px; height:4px; background:var(--ck-gold); top:25px; left:23px; }
-          #ck70 .timer h2{ font-size:42px; font-weight:900; }
-          #ck70 .timer p{ font-size:18px; margin-top:10px; font-weight:700; color:#eeeeee; }
-          #ck70 .btn{ display:inline-flex; align-items:center; gap:18px; background:linear-gradient(135deg,#b88718,#f5c542,#ffdf7a); color:#050505; border:none; padding:22px 34px; border-radius:14px; font-size:20px; font-weight:900; text-decoration:none; box-shadow:0 0 35px rgba(245,197,66,.45); }
-          #ck70 .features{ display:flex; gap:35px; margin-top:35px; flex-wrap:wrap; color:#d6d6d6; }
-          #ck70 .features > div{ display:flex; align-items:center; gap:10px; font-size:14px; }
+          #ck70 .discount{ font-size:108px; font-weight:900; color:var(--ck-gold); margin:12px 0; text-shadow:0 0 30px rgba(245,197,66,.35); }
+          #ck70 .sub{ font-size:36px; font-weight:900; margin-bottom:22px; }
+          #ck70 .text{ max-width:520px; color:var(--ck-muted); font-size:17px; line-height:1.55; margin-bottom:45px; }
+          #ck70 .timer{ display:flex; align-items:center; gap:22px; margin-bottom:45px; }
+          #ck70 .clock{ width:52px; height:52px; border:4px solid var(--ck-gold); border-radius:50%; position:relative; box-shadow:0 0 18px rgba(245,197,66,.35); }
+          #ck70 .clock:before{ content:""; position:absolute; width:4px; height:15px; background:var(--ck-gold); top:11px; left:23px; }
+          #ck70 .clock:after{ content:""; position:absolute; width:16px; height:4px; background:var(--ck-gold); top:25px; left:23px; }
+          #ck70 .timer h2{ font-size:40px; font-weight:900; }
+          #ck70 .timer p{ font-size:17px; margin-top:8px; font-weight:700; color:#eeeeee; }
+          #ck70 .btn{ display:inline-flex; align-items:center; gap:16px; background:linear-gradient(135deg,#b88718,#f5c542,#ffdf7a); color:#050505; border:none; padding:20px 32px; border-radius:14px; font-size:19px; font-weight:900; text-decoration:none; box-shadow:0 0 35px rgba(245,197,66,.45); }
+          #ck70 .features{ display:flex; gap:28px; margin-top:30px; flex-wrap:wrap; color:#d6d6d6; }
+          #ck70 .features > div{ display:flex; align-items:center; gap:9px; font-size:14px; }
           #ck70 .features span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
-          #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; flex-wrap: wrap; }
-          #ck70 .card{ width:100%; max-width: 320px; min-height:500px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
-          #ck70 .card.popular{ max-width: 340px; min-height:540px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
-          #ck70 .img{ height:172px; position:relative; overflow-hidden; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
+          
+          /* Cards - better alignment and spacing */
+          #ck70 .cards{ 
+            display:flex; 
+            align-items:center; 
+            gap:20px; 
+            justify-content:flex-end;
+            flex-wrap: wrap; 
+          }
+          #ck70 .card{ 
+            width:100%; 
+            max-width: 300px; 
+            min-height:470px; 
+            border:1px solid rgba(245,197,66,.25); 
+            border-radius:18px; 
+            overflow:hidden; 
+            background:linear-gradient(180deg,#151515,#070707); 
+            box-shadow:0 20px 50px rgba(0,0,0,.5); 
+          }
+          #ck70 .card.popular{ 
+            max-width: 315px; 
+            min-height:500px; 
+            border-color:var(--ck-gold); 
+            box-shadow:0 0 28px rgba(245,197,66,.35); 
+          }
+          #ck70 .img{ height:158px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:48px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 24px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
           #ck70 .img img{ width:100%; height:100%; object-fit:cover; display:block; }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
-          #ck70 .content{ padding:24px; }
-          #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:6px 10px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:14px; }
-          #ck70 .name{ font-size:28px; font-weight:900; }
-          #ck70 .name small{ font-size:16px; color:#8c8c8c; }
-          #ck70 .type{ color:#8c8c8c; font-size:13px; letter-spacing:2px; margin:10px 0 22px; }
-          #ck70 .row{ display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.08); padding:13px 0; color:#8c8c8c; font-weight:800; font-size:13px; }
+          #ck70 .content{ padding:20px; }
+          #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:5px 9px; border-radius:5px; font-size:11px; font-weight:800; margin-bottom:11px; }
+          #ck70 .name{ font-size:25px; font-weight:900; }
+          #ck70 .name small{ font-size:15px; color:#8c8c8c; }
+          #ck70 .type{ color:#8c8c8c; font-size:12px; letter-spacing:2px; margin:7px 0 16px; }
+          #ck70 .row{ display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.08); padding:11px 0; color:#8c8c8c; font-weight:800; font-size:13px; }
           #ck70 .row b{ color:#eeeeee; }
-          #ck70 .price{ display:flex; align-items:center; gap:12px; margin-top:20px; }
-          #ck70 .old{ color:#777; text-decoration:line-through; font-size:18px; }
-          #ck70 .new{ color:var(--ck-gold); font-size:36px; font-weight:900; }
-          #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:10px; border-radius:7px; font-weight:900; }
-          @media(max-width:1100px){ 
-            #ck70 .hero{ grid-template-columns:1fr; padding:35px 5%; gap:40px; } 
-            #ck70 .cards{ flex-direction: column; align-items: center; } 
+          #ck70 .price{ display:flex; align-items:center; gap:11px; margin-top:16px; }
+          #ck70 .old{ color:#777; text-decoration:line-through; font-size:16px; }
+          #ck70 .new{ color:var(--ck-gold); font-size:32px; font-weight:900; }
+          #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:8px 11px; border-radius:6px; font-weight:900; font-size:12px; }
+          
+          @media(max-width:1200px){ 
+            #ck70 .hero{ grid-template-columns:1fr; padding:45px 5%; gap:40px; }
+            #ck70 .cards{ justify-content:center; }
+            #ck70 .hero-left { max-width: 100%; }
+          }
+          @media(max-width:768px){ 
+            #ck70 .hero{ padding:35px 4%; }
+            #ck70 .cards{ flex-direction: column; align-items: center; }
             #ck70 .card, #ck70 .card.popular { width: 100%; max-width: 340px; }
             #ck70 h1{ font-size:42px; } 
-            #ck70 .discount{ font-size:72px; } 
-          }
-          @media(max-width:640px){ 
-            #ck70 .hero{ padding:25px 4%; }
-            #ck70 .card { min-height: auto; }
+            #ck70 .discount{ font-size:72px; }
           }
         `}</style>
       </section>
