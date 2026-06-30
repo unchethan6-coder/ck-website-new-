@@ -1,30 +1,10 @@
 'use client'
 
 const VIDEOS = [
-  { 
-    id: '5RjtGHPcuMM', 
-    title: 'MY PERCEPTION ABOUT TRADING WAS WRONG...', 
-    reward: '$15,995',
-    subtitle: 'Trading Gold & Nasdaq to a funded payout'
-  },
-  { 
-    id: 'LNXpq8_PwxU', 
-    title: 'THIS IS HOW ALGO TRADING CHANGED IT ALL', 
-    reward: '$22,400',
-    subtitle: 'From challenge to funded: a CK success story'
-  },
-  { 
-    id: 'bZq8jtD9acY', 
-    title: 'I DROPPED OUT OF COLLEGE FOR TRADING', 
-    reward: '$38,200',
-    subtitle: 'More than rewards — how CK changed my trading'
-  },
-  { 
-    id: '8NQAWtlh_ws', 
-    title: 'BEST PROP? I TRUST CK CAPITAL', 
-    reward: '$84,120',
-    subtitle: 'Trusting the process paid off big time'
-  },
+  { id: '5RjtGHPcuMM', title: 'MY PERCEPTION ABOUT TRADING WAS WRONG...', reward: '$15,995', subtitle: 'Trading Gold & Nasdaq to a funded payout' },
+  { id: 'LNXpq8_PwxU', title: 'THIS IS HOW ALGO TRADING CHANGED IT ALL', reward: '$22,400', subtitle: 'From challenge to funded: a CK success story' },
+  { id: 'bZq8jtD9acY', title: 'I DROPPED OUT OF COLLEGE FOR TRADING', reward: '$38,200', subtitle: 'More than rewards — how CK changed my trading' },
+  { id: '8NQAWtlh_ws', title: 'BEST PROP? I TRUST CK CAPITAL', reward: '$84,120', subtitle: 'Trusting the process paid off big time' },
 ]
 
 export function VideoTestimonials() {
@@ -41,29 +21,26 @@ export function VideoTestimonials() {
         </p>
       </div>
 
-      {/* Video Cards - Horizontal Scroll */}
+      {/* Video Cards - Horizontal Scroll with reduced motion support */}
       <div className="relative">
-        <div className="flex gap-5 w-max animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused] px-6">
+        <div className="flex gap-5 w-max animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused] px-6 motion-reduce:animate-none motion-reduce:transform-none">
           {loop.map((video, index) => (
             <a
               key={index}
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Watch testimonial: ${video.title} — Reward ${video.reward}`}
               className="group relative flex-shrink-0 w-[295px] md:w-[310px] overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 transition-all active:scale-[0.985]"
             >
-              {/* Video Thumbnail Area */}
               <div className="relative aspect-video bg-black">
                 <img
                   src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                   alt={video.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-300"
                 />
-                
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
-                {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="#111111" className="ml-0.5">
@@ -72,13 +49,11 @@ export function VideoTestimonials() {
                   </div>
                 </div>
 
-                {/* Reward Badge - Yellow/Gold */}
                 <div className="absolute top-3 left-3 px-3.5 py-1 rounded-lg bg-[#D4AF37] text-black text-[11px] font-extrabold tracking-[0.3px] shadow-md">
                   Reward: {video.reward}
                 </div>
               </div>
 
-              {/* Text Content */}
               <div className="p-5">
                 <p className="font-bold text-white text-[15px] leading-tight line-clamp-2 mb-2 group-hover:text-[#D4AF37] transition-colors">
                   {video.title}
@@ -92,7 +67,6 @@ export function VideoTestimonials() {
         </div>
       </div>
 
-      {/* Bottom CTA */}
       <div className="text-center mt-12">
         <a 
           href="https://discord.gg/ckcapital" 
