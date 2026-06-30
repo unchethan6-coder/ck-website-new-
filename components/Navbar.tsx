@@ -51,7 +51,6 @@ export function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-[#13100A] border-[#D4AF37]/25">
               <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/about-us">About Us</Link></DropdownMenuItem>
-              <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/hall-of-fame">Hall of Fame</Link></DropdownMenuItem>
               <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/events">Events</Link></DropdownMenuItem>
               <DropdownMenuItem className="text-white hover:text-primary cursor-pointer"><Link href="/contact">Contact</Link></DropdownMenuItem>
             </DropdownMenuContent>
