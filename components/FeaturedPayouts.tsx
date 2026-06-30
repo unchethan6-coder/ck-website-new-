@@ -1,16 +1,10 @@
 'use client'
 
-import { LiveGlobalProofDashboard } from '@/components/LiveGlobalProofDashboard'
-
 const CERTS = [
   'https://i.postimg.cc/sDwNLJz6/1.png',
   'https://i.postimg.cc/rFQPH9TZ/2.png',
   'https://i.postimg.cc/rFQPH9TP/3.png',
   'https://i.postimg.cc/ZKVMQLmg/4.png',
-  'https://i.postimg.cc/Ghq5fjRf/5.png',
-  'https://i.postimg.cc/02cB4Cvh/6.png',
-  'https://i.postimg.cc/xTt4ZPQW/7.png',
-  'https://i.postimg.cc/HsBhNtHD/8.png',
   'https://i.postimg.cc/g2jTb6ct/9.png',
 ]
 
@@ -19,7 +13,6 @@ export function FeaturedPayouts() {
 
   return (
     <>
-      <LiveGlobalProofDashboard />
       <section
         id="payout-certificates"
         className="relative overflow-hidden py-16"
@@ -36,14 +29,6 @@ export function FeaturedPayouts() {
           @keyframes payout-right {
             from { transform: translateX(-50%); }
             to { transform: translateX(0); }
-          }
-          .payout-row-left {
-            animation: payout-left 62s linear infinite;
-            will-change: transform;
-          }
-          .payout-row-right {
-            animation: payout-right 68s linear infinite;
-            will-change: transform;
           }
         `}</style>
 
