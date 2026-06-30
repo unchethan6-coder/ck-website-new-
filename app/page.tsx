@@ -122,98 +122,98 @@ export default function Home() {
           #ck70{ --ck-gold:#f5c542; --ck-gold2:#ffdf7a; --ck-muted:#b8b8b8; font-family:Arial,Helvetica,sans-serif; color:#ffffff; display:block; }
           #ck70 *{ box-sizing:border-box; margin:0; padding:0; }
           
-          /* FIXED: Smaller cards to prevent overlapping text */
+          /* AGGRESSIVELY REDUCED card size to fix overlapping */
           #ck70 .hero{ 
             min-height:100vh; 
-            padding:50px 6% 50px 7%; 
+            padding:45px 5% 45px 6%; 
             display:grid; 
-            grid-template-columns: 1.1fr 0.95fr; 
-            gap:35px; 
+            grid-template-columns: 1.15fr 0.85fr; 
+            gap:28px; 
             background: radial-gradient(circle at 70% 15%,rgba(245,197,66,.18),transparent 30%), linear-gradient(180deg,#111111,#050505); 
             align-items:center; 
-            max-width: 1480px;
+            max-width: 1450px;
             margin: 0 auto;
           }
           
           #ck70 .hero-left {
-            max-width: 520px;
+            max-width: 500px;
           }
           
-          #ck70 .badge{ display:inline-flex; align-items:center; gap:12px; border:1px solid var(--ck-gold); color:var(--ck-gold2); padding:9px 20px; border-radius:30px; font-size:14px; margin-bottom:18px; }
-          #ck70 .badge span{ width:11px; height:11px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 14px var(--ck-gold); }
-          #ck70 h1{ font-size:52px; line-height:.95; font-weight:900; letter-spacing:-2px; }
-          #ck70 .discount{ font-size:100px; font-weight:900; color:var(--ck-gold); margin:10px 0; text-shadow:0 0 30px rgba(245,197,66,.35); }
-          #ck70 .sub{ font-size:34px; font-weight:900; margin-bottom:20px; }
-          #ck70 .text{ max-width:500px; color:var(--ck-muted); font-size:16px; line-height:1.5; margin-bottom:40px; }
-          #ck70 .timer{ display:flex; align-items:center; gap:20px; margin-bottom:40px; }
-          #ck70 .clock{ width:48px; height:48px; border:4px solid var(--ck-gold); border-radius:50%; position:relative; box-shadow:0 0 18px rgba(245,197,66,.35); }
-          #ck70 .clock:before{ content:""; position:absolute; width:3.5px; height:14px; background:var(--ck-gold); top:10px; left:22px; }
-          #ck70 .clock:after{ content:""; position:absolute; width:15px; height:3.5px; background:var(--ck-gold); top:24px; left:22px; }
-          #ck70 .timer h2{ font-size:38px; font-weight:900; }
-          #ck70 .timer p{ font-size:16px; margin-top:7px; font-weight:700; color:#eeeeee; }
-          #ck70 .btn{ display:inline-flex; align-items:center; gap:14px; background:linear-gradient(135deg,#b88718,#f5c542,#ffdf7a); color:#050505; border:none; padding:18px 28px; border-radius:13px; font-size:18px; font-weight:900; text-decoration:none; box-shadow:0 0 32px rgba(245,197,66,.45); }
-          #ck70 .features{ display:flex; gap:24px; margin-top:28px; flex-wrap:wrap; color:#d6d6d6; }
-          #ck70 .features > div{ display:flex; align-items:center; gap:8px; font-size:13px; }
-          #ck70 .features span{ width:11px; height:11px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
+          #ck70 .badge{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--ck-gold); color:var(--ck-gold2); padding:8px 18px; border-radius:30px; font-size:13px; margin-bottom:16px; }
+          #ck70 .badge span{ width:10px; height:10px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
+          #ck70 h1{ font-size:48px; line-height:.95; font-weight:900; letter-spacing:-2px; }
+          #ck70 .discount{ font-size:92px; font-weight:900; color:var(--ck-gold); margin:8px 0; text-shadow:0 0 28px rgba(245,197,66,.35); }
+          #ck70 .sub{ font-size:32px; font-weight:900; margin-bottom:18px; }
+          #ck70 .text{ max-width:480px; color:var(--ck-muted); font-size:15px; line-height:1.5; margin-bottom:35px; }
+          #ck70 .timer{ display:flex; align-items:center; gap:18px; margin-bottom:35px; }
+          #ck70 .clock{ width:44px; height:44px; border:3.5px solid var(--ck-gold); border-radius:50%; position:relative; box-shadow:0 0 16px rgba(245,197,66,.35); }
+          #ck70 .clock:before{ content:""; position:absolute; width:3px; height:13px; background:var(--ck-gold); top:9px; left:20px; }
+          #ck70 .clock:after{ content:""; position:absolute; width:14px; height:3px; background:var(--ck-gold); top:22px; left:20px; }
+          #ck70 .timer h2{ font-size:36px; font-weight:900; }
+          #ck70 .timer p{ font-size:15px; margin-top:6px; font-weight:700; color:#eeeeee; }
+          #ck70 .btn{ display:inline-flex; align-items:center; gap:12px; background:linear-gradient(135deg,#b88718,#f5c542,#ffdf7a); color:#050505; border:none; padding:16px 26px; border-radius:12px; font-size:17px; font-weight:900; text-decoration:none; box-shadow:0 0 30px rgba(245,197,66,.45); }
+          #ck70 .features{ display:flex; gap:20px; margin-top:24px; flex-wrap:wrap; color:#d6d6d6; }
+          #ck70 .features > div{ display:flex; align-items:center; gap:7px; font-size:12px; }
+          #ck70 .features span{ width:10px; height:10px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 10px var(--ck-gold); }
           
-          /* Smaller cards - no overlapping */
+          /* Much smaller cards */
           #ck70 .cards{ 
             display:flex; 
             align-items:stretch; 
-            gap:16px; 
+            gap:14px; 
             justify-content:flex-end;
             flex-wrap: nowrap;
           }
           #ck70 .card{ 
             width:100%; 
-            max-width: 265px; 
-            min-height: 430px; 
+            max-width: 235px; 
+            min-height: 395px; 
             border:1px solid rgba(245,197,66,.25); 
-            border-radius:16px; 
+            border-radius:15px; 
             overflow:hidden; 
             background:linear-gradient(180deg,#151515,#070707); 
-            box-shadow:0 18px 45px rgba(0,0,0,.5); 
+            box-shadow:0 16px 40px rgba(0,0,0,.5); 
             flex-shrink: 0;
           }
           #ck70 .card.popular{ 
-            max-width: 278px; 
-            min-height:455px; 
+            max-width: 248px; 
+            min-height:420px; 
             border-color:var(--ck-gold); 
-            box-shadow:0 0 24px rgba(245,197,66,.35); 
+            box-shadow:0 0 22px rgba(245,197,66,.35); 
           }
-          #ck70 .img{ height:142px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:44px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 22px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .img{ height:128px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:40px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 20px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
           #ck70 .img img{ width:100%; height:100%; object-fit:cover; display:block; }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
-          #ck70 .content{ padding:18px; }
-          #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:4px 8px; border-radius:5px; font-size:10px; font-weight:800; margin-bottom:10px; }
-          #ck70 .name{ font-size:23px; font-weight:900; }
-          #ck70 .name small{ font-size:14px; color:#8c8c8c; }
-          #ck70 .type{ color:#8c8c8c; font-size:11px; letter-spacing:1.5px; margin:6px 0 14px; }
-          #ck70 .row{ display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.08); padding:10px 0; color:#8c8c8c; font-weight:800; font-size:12px; }
+          #ck70 .content{ padding:16px; }
+          #ck70 .tag{ display:inline-block; border:1px solid var(--ck-gold); color:var(--ck-gold); padding:4px 7px; border-radius:4px; font-size:9px; font-weight:800; margin-bottom:8px; }
+          #ck70 .name{ font-size:21px; font-weight:900; }
+          #ck70 .name small{ font-size:13px; color:#8c8c8c; }
+          #ck70 .type{ color:#8c8c8c; font-size:10px; letter-spacing:1.5px; margin:5px 0 12px; }
+          #ck70 .row{ display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.08); padding:9px 0; color:#8c8c8c; font-weight:800; font-size:11px; }
           #ck70 .row b{ color:#eeeeee; }
-          #ck70 .price{ display:flex; align-items:center; gap:10px; margin-top:14px; }
-          #ck70 .old{ color:#777; text-decoration:line-through; font-size:15px; }
-          #ck70 .new{ color:var(--ck-gold); font-size:29px; font-weight:900; }
-          #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:7px 10px; border-radius:6px; font-weight:900; font-size:11px; }
+          #ck70 .price{ display:flex; align-items:center; gap:9px; margin-top:12px; }
+          #ck70 .old{ color:#777; text-decoration:line-through; font-size:14px; }
+          #ck70 .new{ color:var(--ck-gold); font-size:27px; font-weight:900; }
+          #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:6px 9px; border-radius:5px; font-weight:900; font-size:10px; }
           
           @media(max-width:1100px){ 
-            #ck70 .hero{ grid-template-columns:1fr; padding:40px 5%; gap:35px; }
+            #ck70 .hero{ grid-template-columns:1fr; padding:35px 5%; gap:30px; }
             #ck70 .cards{ 
               justify-content:center; 
               flex-wrap: wrap;
-              gap:14px;
+              gap:12px;
             }
             #ck70 .hero-left { max-width: 100%; }
           }
           @media(max-width:768px){ 
-            #ck70 .hero{ padding:30px 4%; }
+            #ck70 .hero{ padding:25px 4%; }
             #ck70 .cards{ 
               flex-direction: column; 
               align-items: center; 
             }
-            #ck70 .card, #ck70 .card.popular { width: 100%; max-width: 320px; min-height: auto; }
-            #ck70 h1{ font-size:40px; } 
-            #ck70 .discount{ font-size:68px; }
+            #ck70 .card, #ck70 .card.popular { width: 100%; max-width: 300px; min-height: auto; }
+            #ck70 h1{ font-size:38px; } 
+            #ck70 .discount{ font-size:64px; }
           }
         `}</style>
       </section>
