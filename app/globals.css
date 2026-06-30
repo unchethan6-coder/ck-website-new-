@@ -28,7 +28,7 @@ html {
 }
 
 :root {
-  --ck-gold-gradient-oklab: linear-gradient(to right in oklab, rgb(166, 119, 10) 0%, rgb(212, 175, 55) 48%, rgb(245, 213, 112) 100%);
+  --ck-gold-gradient-oklab: linear-gradient(135deg, #D4AF37 0%, #F5D570 50%, #D4AF37 100%);
   --ck-glass: rgba(244, 247, 250, 0.72);
   --ck-glass-strong: rgba(244, 247, 250, 0.86);
   --ck-ink: #101820;
