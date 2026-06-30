@@ -9,12 +9,10 @@ import {
   Facebook,
   Send
 } from 'lucide-react'
-import { DiscordCommunitySection } from '@/components/DiscordCommunitySection'
 
 export function Footer() {
   return (
     <>
-      <DiscordCommunitySection />
       <footer className="bg-background-secondary">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#eef3f7', color: '#101820', paddingBottom: '89px' }}>
         {/* Main Footer Grid */}
@@ -60,7 +58,6 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/faq" className="text-foreground hover:text-primary transition-colors text-sm">FAQ</Link></li>
               <li><Link href="/contact" className="text-foreground hover:text-primary transition-colors text-sm">Contact</Link></li>
-              <li><a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">Community</a></li>
             </ul>
           </div>
 
@@ -107,7 +104,6 @@ export function Footer() {
             <div className="text-sm">
               <p className="text-foreground font-semibold mb-2">Support</p>
               <p style={{ color: '#101820' }}>24/7 Support Available</p>
-              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">Discord Community</a>
             </div>
 
             <div className="text-sm" style={{ color: '#101820' }}>
