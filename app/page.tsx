@@ -122,7 +122,7 @@ export default function Home() {
           #ck70{ --ck-gold:#f5c542; --ck-gold2:#ffdf7a; --ck-muted:#b8b8b8; font-family:Arial,Helvetica,sans-serif; color:#ffffff; display:block; }
           #ck70 *{ box-sizing:border-box; margin:0; padding:0; }
           
-          /* FIXED: Better balanced hero alignment */
+          /* FIXED: Cards side by side on desktop */
           #ck70 .hero{ 
             min-height:100vh; 
             padding:55px 7% 55px 8%; 
@@ -156,13 +156,13 @@ export default function Home() {
           #ck70 .features > div{ display:flex; align-items:center; gap:9px; font-size:14px; }
           #ck70 .features span{ width:12px; height:12px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
           
-          /* Cards - better alignment and spacing */
+          /* Cards side by side - NO wrapping on desktop */
           #ck70 .cards{ 
             display:flex; 
-            align-items:center; 
+            align-items:stretch; 
             gap:20px; 
             justify-content:flex-end;
-            flex-wrap: wrap; 
+            flex-wrap: nowrap;   /* Force side by side */
           }
           #ck70 .card{ 
             width:100%; 
@@ -173,6 +173,7 @@ export default function Home() {
             overflow:hidden; 
             background:linear-gradient(180deg,#151515,#070707); 
             box-shadow:0 20px 50px rgba(0,0,0,.5); 
+            flex-shrink: 0;
           }
           #ck70 .card.popular{ 
             max-width: 315px; 
@@ -195,14 +196,21 @@ export default function Home() {
           #ck70 .new{ color:var(--ck-gold); font-size:32px; font-weight:900; }
           #ck70 .off{ margin-left:auto; background:linear-gradient(135deg,#b88718,#f5c542); color:#050505; padding:8px 11px; border-radius:6px; font-weight:900; font-size:12px; }
           
-          @media(max-width:1200px){ 
+          @media(max-width:1100px){ 
             #ck70 .hero{ grid-template-columns:1fr; padding:45px 5%; gap:40px; }
-            #ck70 .cards{ justify-content:center; }
+            #ck70 .cards{ 
+              justify-content:center; 
+              flex-wrap: wrap;   /* Allow wrapping on tablet */
+            }
             #ck70 .hero-left { max-width: 100%; }
           }
           @media(max-width:768px){ 
             #ck70 .hero{ padding:35px 4%; }
-            #ck70 .cards{ flex-direction: column; align-items: center; }
+            #ck70 .cards{ 
+              flex-direction: column; 
+              align-items: center; 
+              flex-wrap: wrap;
+            }
             #ck70 .card, #ck70 .card.popular { width: 100%; max-width: 340px; }
             #ck70 h1{ font-size:42px; } 
             #ck70 .discount{ font-size:72px; }
