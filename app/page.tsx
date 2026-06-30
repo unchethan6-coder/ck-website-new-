@@ -66,9 +66,6 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <PromoBar /><Navbar /><PromoPopup />
       
-      {/* Live Market Ticker */}
-      <MarketTicker />
-      
       <section id="ck70">
         <div className="hero">
           <div>
@@ -143,7 +140,7 @@ export default function Home() {
           #ck70 .cards{ display:flex; align-items:center; gap:24px; justify-content:center; flex-wrap: wrap; }
           #ck70 .card{ width:100%; max-width: 320px; min-height:500px; border:1px solid rgba(245,197,66,.25); border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#151515,#070707); box-shadow:0 20px 50px rgba(0,0,0,.5); }
           #ck70 .card.popular{ max-width: 340px; min-height:540px; border-color:var(--ck-gold); box-shadow:0 0 28px rgba(245,197,66,.35); }
-          #ck70 .img{ height:172px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
+          #ck70 .img{ height:172px; position:relative; overflow-hidden; display:flex; align-items:center; justify-content:center; font-size:52px; letter-spacing:-1px; font-weight:900; color:var(--ck-gold); text-shadow:0 0 26px rgba(245,197,66,.5); border-bottom:1px solid rgba(245,197,66,.18); background: radial-gradient(circle at 50% 44%,rgba(245,197,66,.30),transparent 62%), linear-gradient(180deg,#2a210b,#090909); }
           #ck70 .img img{ width:100%; height:100%; object-fit:cover; display:block; }
           #ck70 .card.popular .img{ background: radial-gradient(circle,rgba(255,223,122,.45),transparent 35%), linear-gradient(180deg,#30250c,#090909); }
           #ck70 .content{ padding:24px; }
@@ -170,6 +167,9 @@ export default function Home() {
           }
         `}</style>
       </section>
+
+      {/* Market Ticker - Placed just above Available Offers section */}
+      <MarketTicker />
 
       <InstantFundingBanner />
 
@@ -250,7 +250,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews Section - CLEANED */}
+      {/* Reviews Section */}
       <section className="relative overflow-hidden bg-white py-16 md:py-24">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #fffaf1 0%, #fffaf1 45%, #fffaf1 100%)' }} />
         <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
@@ -310,7 +310,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose CK Capital? - CLEAN */}
+      {/* Why Choose CK Capital? */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="section-title text-black mb-12 text-balance text-center">Why Choose <span className="gradient-text">CK Capital?</span></h2>
