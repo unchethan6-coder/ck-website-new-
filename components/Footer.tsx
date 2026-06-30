@@ -12,31 +12,32 @@ import {
 
 export function Footer() {
   return (
-    <>
-      <footer className="bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#eef3f7', color: '#101820', paddingBottom: '89px' }}>
+    <footer className="bg-[#0a0a0a] border-t border-white/10 text-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
+        
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8 mb-12" style={{ color: '#101820' }}>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8 mb-12">
+          
           {/* Brand & Social */}
           <div className="space-y-4 col-span-2 md:col-span-1">
-            <div className="font-bold text-xl text-foreground">CK CAPITAL</div>
+            <div className="font-bold text-xl">CK CAPITAL</div>
             <div className="flex gap-4">
-              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <MessageCircle size={20} />
               </a>
-              <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://twitter.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="https://instagram.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://instagram.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://youtube.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <Youtube size={20} />
               </a>
-              <a href="https://facebook.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://facebook.com/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://t.me/ckcapital" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://t.me/ckcapital" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">
                 <Send size={20} />
               </a>
             </div>
@@ -44,97 +45,89 @@ export function Footer() {
 
           {/* Evaluations */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">Evaluations</h4>
-            <ul className="space-y-2">
-              <li><Link href="/evaluation?type=1-step" className="text-foreground hover:text-primary transition-colors text-sm">1-Step Challenge</Link></li>
-              <li><Link href="/evaluation?type=2-step" className="text-foreground hover:text-primary transition-colors text-sm">2-Step Challenge</Link></li>
-              <li><Link href="/instant" className="text-foreground hover:text-primary transition-colors text-sm">Instant Funding</Link></li>
+            <h4 className="font-semibold text-white">Evaluations</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/evaluation?type=1-step" className="text-white/70 hover:text-[#D4AF37] transition-colors">1-Step Challenge</Link></li>
+              <li><Link href="/evaluation?type=2-step" className="text-white/70 hover:text-[#D4AF37] transition-colors">2-Step Challenge</Link></li>
+              <li><Link href="/instant" className="text-white/70 hover:text-[#D4AF37] transition-colors">Instant Funding</Link></li>
             </ul>
           </div>
 
-          {/* FAQ & Support */}
+          {/* Support */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">Support</h4>
-            <ul className="space-y-2">
-              <li><Link href="/faq" className="text-foreground hover:text-primary transition-colors text-sm">FAQ</Link></li>
-              <li><Link href="/contact" className="text-foreground hover:text-primary transition-colors text-sm">Contact</Link></li>
+            <h4 className="font-semibold text-white">Support</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/faq" className="text-white/70 hover:text-[#D4AF37] transition-colors">FAQ</Link></li>
+              <li><Link href="/contact" className="text-white/70 hover:text-[#D4AF37] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Important Links */}
+          {/* Important */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">Important</h4>
-            <ul className="space-y-2">
-              <li><Link href="/risk-disclosure" className="text-foreground hover:text-primary transition-colors text-sm">Disclaimer</Link></li>
-              <li><Link href="/cookie-policy" className="text-foreground hover:text-primary transition-colors text-sm">Cookies</Link></li>
-              <li><Link href="/terms-conditions" className="text-foreground hover:text-primary transition-colors text-sm">Terms & Conditions</Link></li>
-              <li><Link href="/privacy-policy" className="text-foreground hover:text-primary transition-colors text-sm">Privacy Policy</Link></li>
+            <h4 className="font-semibold text-white">Important</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/risk-disclosure" className="text-white/70 hover:text-[#D4AF37] transition-colors">Disclaimer</Link></li>
+              <li><Link href="/cookie-policy" className="text-white/70 hover:text-[#D4AF37] transition-colors">Cookies</Link></li>
+              <li><Link href="/terms-conditions" className="text-white/70 hover:text-[#D4AF37] transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/privacy-policy" className="text-white/70 hover:text-[#D4AF37] transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link href="/return-policy" className="text-foreground hover:text-primary transition-colors text-sm">Returns Policy</Link></li>
-              <li><a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors text-sm">Reviews</a></li>
-              <li><Link href="/affiliates" className="text-foreground hover:text-primary transition-colors text-sm">Affiliates</Link></li>
+            <h4 className="font-semibold text-white">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/return-policy" className="text-white/70 hover:text-[#D4AF37] transition-colors">Returns Policy</Link></li>
+              <li><a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#D4AF37] transition-colors">Reviews</a></li>
+              <li><Link href="/affiliates" className="text-white/70 hover:text-[#D4AF37] transition-colors">Affiliates</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Payment Options */}
-        <div className="py-8 mb-8">
-          <p className="text-sm text-foreground mb-4 font-semibold">Accepted Payment Methods</p>
-          <div className="flex flex-wrap gap-4 text-sm text-foreground" style={{ color: '#101820' }}>
-            <span>Stripe</span><span>PayPal</span><span>Visa / Mastercard</span><span>Crypto (USDT)</span>
+        {/* Payment Methods */}
+        <div className="py-6 border-t border-white/10 mb-8">
+          <p className="text-sm text-white/60 mb-3 font-medium">Accepted Payment Methods</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/70">
+            <span>Stripe</span>
+            <span>PayPal</span>
+            <span>Visa / Mastercard</span>
+            <span>Crypto (USDT)</span>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="pt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-8">
-            <div className="text-sm" style={{ color: '#101820' }}>
-              <p className="text-foreground font-semibold mb-2">CK CAPITAL GROUP LTD</p>
-              <p style={{ color: '#101820' }}>All Rights Reserved</p>
-              <p className="mt-2" style={{ color: '#101820' }}>Mon-Fri: 8am-8pm (GMT)</p>
-              <p style={{ color: '#101820' }}>6-7 Waterside Station Road, Harpenden, AL5 4US</p>
+        {/* Bottom Info */}
+        <div className="pt-6 border-t border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+            
+            <div>
+              <p className="font-semibold mb-2">CK CAPITAL GROUP LTD</p>
+              <p className="text-white/60">All Rights Reserved</p>
+              <p className="mt-2 text-white/60">Mon-Fri: 8am-8pm (GMT)</p>
+              <p className="text-white/60">6-7 Waterside Station Road, Harpenden, AL5 4US</p>
             </div>
 
-            <div className="text-sm">
-              <p className="text-foreground font-semibold mb-2">Support</p>
-              <p style={{ color: '#101820' }}>24/7 Support Available</p>
+            <div>
+              <p className="font-semibold mb-2">Support</p>
+              <p className="text-white/60">24/7 Support Available</p>
             </div>
 
-            <div className="text-sm" style={{ color: '#101820' }}>
-              <p className="text-foreground font-semibold mb-2">Quick Links</p>
-              <div className="space-y-1" style={{ color: '#101820' }}>
-                <Link href="/" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>Home</Link>
-                <Link href="/about-us" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>About Us</Link>
-                <Link href="/blog" className="block text-foreground hover:text-primary transition-colors" style={{ color: '#101820' }}>Blog</Link>
+            <div>
+              <p className="font-semibold mb-2">Quick Links</p>
+              <div className="space-y-1 text-white/60">
+                <Link href="/" className="block hover:text-[#D4AF37] transition-colors">Home</Link>
+                <Link href="/about-us" className="block hover:text-[#D4AF37] transition-colors">About Us</Link>
+                <Link href="/blog" className="block hover:text-[#D4AF37] transition-colors">Blog</Link>
               </div>
             </div>
           </div>
 
-          <div className="bg-primary/5 rounded-lg p-4 mt-8" style={{ fontSize: '13px', color: '#101820', textAlign: 'left' }}>
-            <h1 style={{ fontWeight: '700', fontSize: '15px', lineHeight: '0.6em', color: '#101820' }}>Important Information & Disclaimer</h1>
-            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: '#101820' }}>Simulated Trading Environment</h2>
-            <p style={{ fontSize: '13px', lineHeight: '1.6' }}>All accounts and evaluation programs provided by CK Capital operate exclusively within a simulated trading environment. No trades are executed on live financial markets, and no real capital is allocated to participants. Our services are intended solely for educational, skill assessment, and trader evaluation purposes.</p>
-            <h2 style={{ fontWeight: '700', fontSize: '15px', marginTop: '12px', lineHeight: '1.4', color: '#101820' }}>No Investment Services</h2>
-            <p style={{ fontSize: '13px', lineHeight: '1.6' }}>The simulated trading services are provided by CK Capital. All content published or distributed by CK Capital and its affiliated entities is provided for general informational and educational purposes only.</p>
-            <p style={{ fontSize: '13px', marginTop: '8px' }}><strong>The Company:</strong></p>
-            <ul style={{ marginLeft: '16px', marginTop: '4px', lineHeight: '1.6' }}>
-              <li style={{ fontSize: '13px', marginBottom: '4px' }}>1) Does not provide investment, financial, legal, or tax advice.</li>
-              <li style={{ fontSize: '13px', marginBottom: '4px' }}>2) Does not recommend or solicit the purchase or sale of any financial instrument, security, or investment product.</li>
-              <li style={{ fontSize: '13px', marginBottom: '4px' }}>3) Does not act as a broker, dealer, custodian, or financial intermediary.</li>
-              <li style={{ fontSize: '13px', marginBottom: '4px' }}>4) Does not offer live trading accounts or investment management services through this website.</li>
-            </ul>
-            <p style={{ fontSize: '13px', marginTop: '8px', lineHeight: '1.6' }}>Participation in any CK Capital program is voluntary. Program fees are service fees for access to evaluation programs, technology, educational resources, and related services. Such fees are not deposits, do not constitute investments, and should not be interpreted as client funds.</p>
-            <p style={{ fontSize: '13px', marginTop: '8px', lineHeight: '1.6' }}>Program fees are generally non-refundable except where required by applicable law. These fees do not earn interest, returns, dividends, or profit-sharing rights and do not establish any investment relationship between participants and the Company.</p>
+          {/* Disclaimer */}
+          <div className="mt-10 text-xs text-white/50 leading-relaxed bg-white/5 p-5 rounded-xl">
+            <p className="font-semibold text-white/70 mb-2">Important Information</p>
+            <p>CK Capital provides simulated trading evaluations only. All accounts operate in a demo environment with fictitious funds. No real capital is traded or allocated. Participation is for evaluation and educational purposes only.</p>
           </div>
         </div>
       </div>
     </footer>
-    </>
   )
 }
