@@ -171,9 +171,8 @@ export default function Home() {
       {pricingView === 'table' && <div className="rounded-3xl bg-white p-4 md:p-6"><ObjectivesTable /></div>}<p className="mx-auto mt-8 max-w-3xl text-center text-xs md:text-sm text-black/45">CK Capital programs use demo accounts with fictitious funds for simulated trading evaluation only. Program terms, rules, and eligibility apply.</p></div></section>
       <section className="relative overflow-hidden bg-white py-16 md:py-24"><div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #fffaf1 0%, #fffaf1 45%, #fffaf1 100%)' }} /><div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6"><div className="mx-auto flex max-w-4xl flex-col items-center gap-5 text-center"><p className="text-xs font-bold tracking-[0.28em] text-[#D4AF37]">TRADER REVIEWS</p><h2 className="text-4xl md:text-6xl font-extrabold tracking-[-1.5px] text-black text-balance">The trusted choice for CK traders</h2><div className="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-black/70"><span>4.9 based on Trustpilot reviews</span><TrustStars /></div><a href="https://uk.trustpilot.com/review/ckcapital.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D4AF37] px-6 text-sm font-extrabold text-black transition-colors hover:bg-[#F7D774] md:h-14 md:px-10">Read All Reviews on Trustpilot ↗</a></div>
       
-      {/* Reviews Grid - Fixed Syntax */}
+      {/* Reviews Grid */}
       <div className="mt-14 grid gap-4 md:grid-cols-4">
-        {/* Video Story Card */}
         <div className="group relative min-h-[410px] overflow-hidden rounded-2xl border border-black/10 bg-black/[0.04] md:col-span-1">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,175,55,0.55),transparent_45%),linear-gradient(180deg,#fffaf1,#fffaf1)]" />
           <div className="relative z-10 flex h-full flex-col justify-end p-5">
@@ -185,7 +184,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 24/7 Support Card */}
         <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37] p-5 text-black md:col-span-1">
           <p className="text-5xl font-extrabold">24/7</p>
           <p className="mt-2 text-xs font-extrabold uppercase tracking-[0.2em] text-black/60">Support Available</p>
@@ -196,7 +194,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Review Cards */}
         {REVIEW_CARDS.map((review) => (
           <article
             key={review.quote}
@@ -216,17 +213,13 @@ export default function Home() {
             </div>
             <div className="mt-6 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-full bg-white text-sm font-extrabold text-[#D4AF37]">
-                  {review.name[0]}
-                </span>
+                <span className="flex size-10 items-center justify-center rounded-full bg-white text-sm font-extrabold text-[#D4AF37]">{review.name[0]}</span>
                 <div>
                   <p className="text-sm font-extrabold">{review.name}</p>
                   <p className={`text-xs ${review.tone === 'dark' ? 'text-black/55' : 'text-black/55'}`}>{review.country}</p>
                 </div>
               </div>
-              <span className={`rounded-full px-3 py-1 text-[10px] font-bold ${review.tone === 'dark' ? 'bg-black/[0.04] text-black/70' : 'bg-black/10 text-black/65'}`}>
-                {review.source}
-              </span>
+              <span className={`rounded-full px-3 py-1 text-[10px] font-bold ${review.tone === 'dark' ? 'bg-black/[0.04] text-black/70' : 'bg-black/10 text-black/65'}`}>{review.source}</span>
             </div>
           </article>
         ))}
@@ -234,11 +227,81 @@ export default function Home() {
 
       <p className="mx-auto mt-8 max-w-3xl text-center text-xs text-black/45">Reviews reflect individual experiences and do not guarantee future results. CK Capital provides simulated trading evaluations only.</p>
       </div></section>
-      <section className="py-12 md:py-16 bg-white"><div className="max-w-7xl mx-auto px-4 md:px-6"><h2 className="section-title text-black mb-12 text-balance text-center">Why Choose <span className="gradient-text">CK Capital?</span></h2><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{[{ title: 'News Trading Allowed', description: 'Trade around high-impact market events according to CK Capital program rules.' }, { title: 'Flexible Reward Process', description: 'Reward requests are reviewed based on eligibility, account status, and program terms.' }, { title: 'Up to 100% Reward Split', description: 'Eligible traders can receive up to 100% reward split in supported evaluation models.' }, { title: 'Reset & Top-Up', description: 'Flexible reset and top-up options helps traders continue their evaluation journey.' }, { title: 'Competitive Trading Conditions', description: 'Access supported trading platforms and market instruments inside a simulated environment.' }, { title: '24/7 Support', description: 'Support access is available for account, rules, and evaluation questions.' }].map((item) => <div key={item.title} className="glow-card group" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}><h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">{item.title}</h3><p className="text-black/80 text-sm leading-relaxed">{item.description}</p></div>]}</div></div></section>
-      <section className="py-12 md:py-16 bg-white"><div className="max-w-4xl mx-auto px-4 md:px-6"><h2 className="section-title text-black mb-12 text-center">Your Path to <span className="gradient-text">Progress</span></h2><div className="space-y-8">{[{ step: 1, title: 'Choose Evaluation', description: 'Select the account size and evaluation model that fits your trading style.' }, { step: 2, title: 'Trade in a Simulated Environment', description: 'Use demo accounts with fictitious funds and clear trading objectives.' }, { step: 3, title: 'Meet the Objectives', description: 'Follow the rules, manage risk, and complete the required evaluation stages.' }, { step: 4, title: 'Request Rewards', description: 'Eligible traders can request rewards according to CK Capital program terms.' }].map((item, idx, arr) => <div key={item.step} className="flex gap-6"><div className="flex flex-col items-center"><div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">{item.step}</div>{idx < arr.length - 1 && <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />}</div><div className="pb-8"><h3 className="text-xl font-bold text-black mb-2">{item.title}</h3><p className="text-black/70">{item.description}</p></div></div>)}</div></div></section>
+
+      {/* Why Choose CK Capital? - FIXED */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="section-title text-black mb-12 text-balance text-center">Why Choose <span className="gradient-text">CK Capital?</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'News Trading Allowed', description: 'Trade around high-impact market events according to CK Capital program rules.' },
+              { title: 'Flexible Reward Process', description: 'Reward requests are reviewed based on eligibility, account status, and program terms.' },
+              { title: 'Up to 100% Reward Split', description: 'Eligible traders can receive up to 100% reward split in supported evaluation models.' },
+              { title: 'Reset & Top-Up', description: 'Flexible reset and top-up options helps traders continue their evaluation journey.' },
+              { title: 'Competitive Trading Conditions', description: 'Access supported trading platforms and market instruments inside a simulated environment.' },
+              { title: '24/7 Support', description: 'Support access is available for account, rules, and evaluation questions.' }
+            ].map((item) => (
+              <div key={item.title} className="glow-card group" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}>
+                <h3 className="text-lg font-bold text-black mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-black/80 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="section-title text-black mb-12 text-center">Your Path to <span className="gradient-text">Progress</span></h2>
+          <div className="space-y-8">
+            {[
+              { step: 1, title: 'Choose Evaluation', description: 'Select the account size and evaluation model that fits your trading style.' },
+              { step: 2, title: 'Trade in a Simulated Environment', description: 'Use demo accounts with fictitious funds and clear trading objectives.' },
+              { step: 3, title: 'Meet the Objectives', description: 'Follow the rules, manage risk, and complete the required evaluation stages.' },
+              { step: 4, title: 'Request Rewards', description: 'Eligible traders can request rewards according to CK Capital program terms.' }
+            ].map((item, idx, arr) => (
+              <div key={item.step} className="flex gap-6">
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-black font-bold text-lg">{item.step}</div>
+                  {idx < arr.length - 1 && <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent my-2" />}
+                </div>
+                <div className="pb-8">
+                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
+                  <p className="text-black/70">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FeaturedPayouts /><VideoTestimonials /><HomeDashboardPreview />
-      <section className="py-12 md:py-16 bg-white"><div className="max-w-4xl mx-auto px-4 md:px-6 text-center"><h2 className="section-title text-black mb-6 text-balance">Excellent Customer <span className="gradient-text">Support</span></h2><p className="text-lg text-black/70 mb-8 leading-relaxed">CK Capital support helps traders understand account access, evaluation rules, and platform questions throughout their simulated trading journey.</p><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{['Professional Discord Support', 'Community Game Nights', 'Comprehensive Online FAQ'].map((item) => <div key={item} className="glow-card" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}><p className="text-black font-semibold">{item}</p></div>)}</div></div></section>
-      <section className="py-12 md:py-16 bg-card/20" style={{ backgroundColor: '#010015' }}><div className="max-w-4xl mx-auto px-4 md:px-6 text-center"><h2 className="section-title text-foreground mb-4 text-balance">Start Your Evaluation Journey</h2><p className="text-lg mb-12" style={{ color: 'var(--foreground)' }}>Choose your plan, follow the rules, and track your progress with CK Capital.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><Link href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="button-secondary flex items-center justify-center gap-2">Join Discord</Link><Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary flex items-center justify-center gap-2">Start Evaluation</Link></div></div></section>
+
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+          <h2 className="section-title text-black mb-6 text-balance">Excellent Customer <span className="gradient-text">Support</span></h2>
+          <p className="text-lg text-black/70 mb-8 leading-relaxed">CK Capital support helps traders understand account access, evaluation rules, and platform questions throughout their simulated trading journey.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {['Professional Discord Support', 'Community Game Nights', 'Comprehensive Online FAQ'].map((item) => (
+              <div key={item} className="glow-card" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}>
+                <p className="text-black font-semibold">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-16 bg-card/20" style={{ backgroundColor: '#010015' }}>
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+          <h2 className="section-title text-foreground mb-4 text-balance">Start Your Evaluation Journey</h2>
+          <p className="text-lg mb-12" style={{ color: 'var(--foreground)' }}>Choose your plan, follow the rules, and track your progress with CK Capital.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer" className="button-secondary flex items-center justify-center gap-2">Join Discord</Link>
+            <Link href="https://app.ckcapital.co.uk/signup" target="_blank" rel="noopener noreferrer" className="button-primary flex items-center justify-center gap-2">Start Evaluation</Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )
