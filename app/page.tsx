@@ -106,7 +106,7 @@ export default function Home() {
       <MarketTicker />
       <InstantFundingBanner />
 
-      {/* PRICING SECTION */}
+      {/* PRICING SECTION - FIXED STRUCTURE */}
       <section id="start-challenge" className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 bg-[#0a0a0a]">
         <div className="relative z-10 mx-auto max-w-[1680px] px-4 md:px-8">
           <div className="mx-auto mb-8 max-w-3xl text-center">
