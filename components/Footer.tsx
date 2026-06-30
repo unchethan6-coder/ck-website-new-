@@ -10,12 +10,10 @@ import {
   Send
 } from 'lucide-react'
 import { DiscordCommunitySection } from '@/components/DiscordCommunitySection'
-import { PayoutStoriesRoadmap } from '@/components/PayoutStoriesRoadmap'
 
 export function Footer() {
   return (
     <>
-      <PayoutStoriesRoadmap />
       <DiscordCommunitySection />
       <footer className="bg-background-secondary">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16" style={{ backgroundColor: '#eef3f7', color: '#101820', paddingBottom: '89px' }}>
