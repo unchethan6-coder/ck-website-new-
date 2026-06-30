@@ -14,6 +14,7 @@ import { FeaturedPayouts } from '@/components/FeaturedPayouts'
 import { InstantFundingBanner } from '@/components/InstantFundingBanner'
 import { HomeDashboardPreview } from '@/components/home/HomeDashboardPreview'
 import { MobilePricingSelector } from '@/components/home/MobilePricingSelector'
+import { SupportSection } from '@/components/SupportSection'
 
 const ObjectivesTable = dynamic(() => import('@/components/ObjectivesTable').then(mod => ({ default: mod.ObjectivesTable })), { ssr: false })
 const VideoTestimonials = dynamic(() => import('@/components/VideoTestimonials').then(mod => ({ default: mod.VideoTestimonials })), { ssr: false })
@@ -138,7 +139,6 @@ export default function Home() {
           #ck70 .hero-left {
             max-width: 500px;
           }
-          
           #ck70 .badge{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--ck-gold); color:var(--ck-gold2); padding:8px 18px; border-radius:30px; font-size:13px; margin-bottom:16px; }
           #ck70 .badge span{ width:10px; height:10px; background:var(--ck-gold); border-radius:50%; box-shadow:0 0 12px var(--ck-gold); }
           #ck70 h1{ font-size:48px; line-height:.95; font-weight:900; letter-spacing:-2px; }
@@ -411,19 +411,8 @@ export default function Home() {
       <VideoTestimonials />
       <HomeDashboardPreview />
 
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="section-title text-black mb-6 text-balance">Excellent Customer <span className="gradient-text">Support</span></h2>
-          <p className="text-lg text-black/70 mb-8 leading-relaxed">CK Capital support helps traders understand account access, evaluation rules, and platform questions throughout their simulated trading journey.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {['Professional Discord Support', 'Community Game Nights', 'Comprehensive Online FAQ'].map((item) => (
-              <div key={item} className="glow-card" style={{ background: 'linear-gradient(180deg, #FCFCFC 0%, #F6F7F9 40%, #F5F6F8 100%)' }}>
-                <p className="text-black font-semibold">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* NEW PREMIUM SUPPORT SECTION */}
+      <SupportSection />
 
       <section className="py-12 md:py-16 bg-card/20" style={{ backgroundColor: '#010015' }}>
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
