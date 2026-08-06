@@ -1,0 +1,615 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-inter-tight);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-bg-scrolled: var(--nav-bg-scrolled);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ============================================================= */
+/* CK Capital — DARK theme (default). Tokens extracted from recon */
+/* Also applied to any subtree marked `.dark-panel` so premium    */
+/* dark-gradient cards keep readable light text in light mode.    */
+/* ============================================================= */
+:root,
+html.dark,
+.dark-panel {
+  color-scheme: dark;
+
+  /* Brand colours */
+  --background:            #0b0a07;
+  --background-secondary:  #12100a;
+  --foreground:            #f4f6f8;
+
+  /* Surfaces */
+  --card:                  #0f0d09;
+  --card-foreground:       #f4f6f8;
+  --card-border:           #ffffff1a;
+  --popover:               #16130c;
+  --popover-foreground:    #f4f6f8;
+  --surface:               #12100a;
+
+  /* Primary — CK gold (identical across themes; that's the brand) */
+  --primary:               #d4af37;
+  --primary-dark:          #a6770a;
+  --primary-foreground:    #0b0a07;
+
+  /* Secondary — teal trust */
+  --secondary:             #14b8a6;
+  --secondary-foreground:  #0b0a07;
+
+  /* Muted */
+  --muted:                 #ffffff0f;
+  --muted-foreground:      #9aa2ad;
+
+  /* Accent = teal */
+  --accent:                #14b8a6;
+  --accent-foreground:     #0b0a07;
+
+  /* Destructive */
+  --destructive:           #ef4444;
+  --destructive-foreground: #f4f6f8;
+
+  /* Borders / inputs */
+  --border:                #ffffff1a;
+  --input:                 #ffffff0f;
+  --ring:                  #d4af37;
+
+  /* Nav pill */
+  --nav-bg:                #0e0c08;
+  --nav-bg-scrolled:       #0e0c08;
+
+  /* Charts */
+  --chart-1:               #d4af37;
+  --chart-2:               #0f766e;
+  --chart-3:               #14b8a6;
+  --chart-4:               #334155;
+  --chart-5:               #94a3b8;
+
+  /* Radius */
+  --radius:                0.75rem;
+
+  /* Brand helpers */
+  --ck-glass:              #14110ab8;
+  --ck-glass-strong:       #14110ae0;
+  --ck-ink:                #f4f6f8;
+  --ck-muted:              #9aa2ad;
+  --ck-line:               #ffffff1a;
+  --ck-trust:              #14b8a6;
+  --ck-surface:            #0b0a07;
+  --ck-surface-2:          #12100a;
+  --ck-gold-gradient:      linear-gradient(135deg, #d4af37 0%, #f5d570 50%, #d4af37 100%);
+  --trustpilot:            #00b67a;
+
+  /* Sidebar (dark, matches brand) */
+  --sidebar:               #101820;
+  --sidebar-foreground:    #e7edf2;
+  --sidebar-primary:       #d4af37;
+  --sidebar-primary-foreground: #101820;
+  --sidebar-accent:        #0f766e;
+  --sidebar-accent-foreground: #f4f7fa;
+  --sidebar-border:        #f4f7fa1f;
+  --sidebar-ring:          #d4af37;
+
+  /* Body gradient stops — brightened from source (0.12 / 0.05 → 0.22 / 0.12) */
+  --radial-glow-1:         rgba(212, 175, 55, 0.24);
+  --radial-glow-2:         rgba(212, 175, 55, 0.14);
+  --linear-top:            #14100a;
+  --linear-mid:            #0d0b07;
+  --linear-bot:            #0a0906;
+}
+
+/* ============================================================= */
+/* CK Capital — LIGHT theme (warm cream that complements gold)   */
+/* ============================================================= */
+html.light {
+  color-scheme: light;
+
+  --background:            #f8f4ea;
+  --background-secondary:  #f2ecdb;
+  --foreground:            #1a1508;
+
+  --card:                  #ffffff;
+  --card-foreground:       #1a1508;
+  --card-border:           #1a150824;
+  --popover:               #fffdf7;
+  --popover-foreground:    #1a1508;
+  --surface:               #ffffff;
+
+  --primary:               #b8901f;         /* deeper gold for AA contrast on light */
+  --primary-dark:          #8a6a12;
+  --primary-foreground:    #1a1508;         /* dark-on-gold (matches dark theme posture) */
+
+  --secondary:             #0f766e;
+  --secondary-foreground:  #ffffff;
+
+  --muted:                 #1a15080e;
+  --muted-foreground:      #5c5449;
+
+  --accent:                #0f766e;
+  --accent-foreground:     #ffffff;
+
+  --destructive:           #b91c1c;
+  --destructive-foreground: #ffffff;
+
+  --border:                #1a150822;
+  --input:                 #1a15080f;
+  --ring:                  #b8901f;
+
+  --nav-bg:                #fffdf7;
+  --nav-bg-scrolled:       #fffdf7;
+
+  --chart-1:               #b8901f;
+  --chart-2:               #0f766e;
+  --chart-3:               #14b8a6;
+  --chart-4:               #6b7280;
+  --chart-5:               #9ca3af;
+
+  --ck-glass:              #ffffffcc;
+  --ck-glass-strong:       #ffffffee;
+  --ck-ink:                #1a1508;
+  --ck-muted:              #5c5449;
+  --ck-line:               #1a150822;
+  --ck-trust:              #0f766e;
+  --ck-surface:            #f8f4ea;
+  --ck-surface-2:          #f2ecdb;
+  --ck-gold-gradient:      linear-gradient(135deg, #b8901f 0%, #d4af37 50%, #b8901f 100%);
+
+  --sidebar:               #ffffff;
+  --sidebar-foreground:    #1a1508;
+  --sidebar-primary:       #b8901f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:        #0f766e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border:        #1a150822;
+  --sidebar-ring:          #b8901f;
+
+  /* Light-mode gradient — warm cream with gold glow */
+  --radial-glow-1:         rgba(212, 175, 55, 0.32);
+  --radial-glow-2:         rgba(212, 175, 55, 0.18);
+  --linear-top:            #fbf7ee;
+  --linear-mid:            #f5efe0;
+  --linear-bot:            #ede4cf;
+}
+
+/* Body background — token-driven so it switches with theme */
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 82% 0px,  var(--radial-glow-1), transparent 640px),
+    radial-gradient(circle at 12% 40%, var(--radial-glow-2), transparent 560px),
+    linear-gradient(var(--linear-top) 0%, var(--linear-mid) 45%, var(--linear-bot) 100%);
+  background-attachment: fixed;
+  overflow-x: clip;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    overflow-x: clip;
+  }
+
+  /* Tailwind v4 no longer sets cursor:pointer on buttons by default —
+     restore it for every interactive element so hover state is discoverable. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="switch"]:not([aria-disabled="true"]),
+  [role="tab"]:not([aria-disabled="true"]),
+  [role="menuitem"]:not([aria-disabled="true"]),
+  [role="option"]:not([aria-disabled="true"]),
+  summary,
+  label[for],
+  select:not(:disabled),
+  a[href] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
+
+/* Marquee keyframes */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+/* Opt-out class: `.no-pause` keeps a marquee scrolling even on hover
+   (used on Trusted Payment Partners so it never freezes). Other marquees
+   keep the default pause-on-hover behaviour. */
+.animate-marquee:not(.no-pause):hover,
+.animate-marquee-reverse:not(.no-pause):hover {
+  animation-play-state: paused;
+}
+
+/* Gold shimmer for headline / branding */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #d4af37, #f5d570, #d4af37, #f5d570, #d4af37);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+html.light .shimmer-text {
+  background: linear-gradient(90deg, #8a6a12, #b8901f, #8a6a12, #b8901f, #8a6a12);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*
+ * Monochrome payment logo — theme-aware filter.
+ *
+ * The DEFAULT filter is inverted (white). Rationale: dark is our default
+ * theme, and if the pre-hydration boot script hasn't attached `.dark` to
+ * <html> yet (fraction of a frame on first paint), the base rule still
+ * paints white logos against the already-dark background instead of a
+ * flash of black-on-dark. `html.light` explicitly overrides to plain black.
+ */
+.pay-logo {
+  filter: brightness(0) invert(1);    /* default (dark): white on dark tile */
+  transition: filter 0.25s ease;
+}
+html.light .pay-logo {
+  filter: brightness(0);              /* light theme: black on cream tile */
+}
+
+/* Countdown pulse */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); }
+}
+.pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Scrollbar — themed */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--primary) 40%, transparent); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ============================================================= */
+/* CK Capital — Component classes (matching original site)       */
+/* ============================================================= */
+
+/* Glow card — glassmorphism with gold corner glow */
+.glow-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.1), transparent 42%);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+}
+.glow-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+.glow-card h2,
+.glow-card h3 {
+  color: var(--ck-ink) !important;
+}
+
+/* Gradient text — gold gradient */
+.gradient-text,
+.gradient-text-gold {
+  background: var(--ck-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Primary button — gold gradient pill */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b0a07;
+  font-weight: 700;
+  padding: 0.625rem 1.5rem;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  border-radius: 999px;
+  background: var(--ck-gold-gradient);
+  box-shadow: 0 14px 34px rgba(166, 119, 10, 0.18);
+  font-size: 0.875rem;
+}
+.button-primary:hover {
+  box-shadow: 0 18px 44px rgba(166, 119, 10, 0.24);
+  transform: translateY(-1px);
+}
+.button-primary:active {
+  transform: scale(0.95);
+}
+
+/* Secondary button — glass pill */
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--ck-ink) !important;
+  backdrop-filter: blur(16px);
+  font-size: 0.875rem;
+}
+.button-secondary:hover {
+  border-color: rgba(15, 118, 110, 0.32);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+/* Dark secondary button */
+.button-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ck-ink) !important;
+  backdrop-filter: blur(16px);
+  font-size: 0.875rem;
+}
+.button-secondary-dark:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Hero title */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+/* Section title */
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Float animation */
+@keyframes ck-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.ck-float { animation: ck-float 5.5s ease-in-out infinite; }
+
+/* Glow pulse */
+@keyframes ck-glow-pulse {
+  0%, 100% { box-shadow: 0 0 18px rgba(212, 175, 55, 0.25); }
+  50% { box-shadow: 0 0 34px rgba(212, 175, 55, 0.45); }
+}
+.ck-glow-pulse { animation: ck-glow-pulse 3.6s ease-in-out infinite; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ck-float, .ck-glow-pulse { animation: none; }
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #fff;
+}
+
+/* ── Light: glow-card — warm-white card, gold corner wash, soft gold shadow ── */
+html.light .glow-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.12), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #fdf8ec 100%);
+  border-color: rgba(26, 21, 8, 0.10);
+  box-shadow: 0 1px 2px rgba(26, 21, 8, 0.05), 0 18px 44px rgba(166, 119, 10, 0.12);
+  backdrop-filter: none;
+}
+html.light .glow-card:hover {
+  border-color: rgba(166, 119, 10, 0.35);
+  box-shadow: 0 2px 4px rgba(26, 21, 8, 0.06), 0 24px 60px rgba(166, 119, 10, 0.18);
+}
+html.light .glow-card h2,
+html.light .glow-card h3 {
+  color: #101820 !important;
+}
+html.light .button-primary {
+  background: var(--ck-gold-gradient);
+}
+html.light .button-secondary {
+  background: rgba(26, 21, 8, 0.045);
+  border-color: rgba(26, 21, 8, 0.14);
+}
+html.light .gradient-text {
+  background: linear-gradient(135deg, #9a7a1c 0%, #d4af37 55%, #9a7a1c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Light: gold text remap — AA contrast on cream (#9a7a1c ≈ 4.9:1) ── */
+html.light .text-primary {
+  color: #9a7a1c;
+}
+html.light .dark-panel .text-primary {
+  color: #d4af37;
+}
+html.light .text-primary\/50,
+html.light .text-primary\/60,
+html.light .text-primary\/70,
+html.light .text-primary\/80 {
+  color: #9a7a1c;
+}
+html.light .dark-panel .text-primary\/50,
+html.light .dark-panel .text-primary\/60,
+html.light .dark-panel .text-primary\/70,
+html.light .dark-panel .text-primary\/80 {
+  color: color-mix(in oklab, #d4af37 72%, transparent);
+}
+
+/* ── Light: alpha text remap — alpha-blended ink is muddy at ≤75% on cream.
+       Solid warm-dark neutrals keep the visual hierarchy but hold ≥4.5:1. ── */
+html.light .text-foreground\/10,
+html.light .text-foreground\/25,
+html.light .text-foreground\/30 { color: #6f685a; }
+html.light .text-foreground\/35,
+html.light .text-foreground\/40,
+html.light .text-foreground\/45 { color: #5f584b; }
+html.light .text-foreground\/50,
+html.light .text-foreground\/55,
+html.light .text-foreground\/60 { color: #50493d; }
+html.light .text-foreground\/65,
+html.light .text-foreground\/70,
+html.light .text-foreground\/75 { color: #433d32; }
+
+/* restore dark-theme alpha blends inside .dark-panel subtrees */
+html.light .dark-panel .text-foreground\/10,
+html.light .dark-panel .text-foreground\/25,
+html.light .dark-panel .text-foreground\/30 { color: color-mix(in oklab, #f4f6f8 20%, transparent); }
+html.light .dark-panel .text-foreground\/35,
+html.light .dark-panel .text-foreground\/40,
+html.light .dark-panel .text-foreground\/45 { color: color-mix(in oklab, #f4f6f8 42%, transparent); }
+html.light .dark-panel .text-foreground\/50,
+html.light .dark-panel .text-foreground\/55,
+html.light .dark-panel .text-foreground\/60 { color: color-mix(in oklab, #f4f6f8 56%, transparent); }
+html.light .dark-panel .text-foreground\/65,
+html.light .dark-panel .text-foreground\/70,
+html.light .dark-panel .text-foreground\/75 { color: color-mix(in oklab, #f4f6f8 72%, transparent); }
+
+/* ── Light: alpha surface fills — dark-at-3% is invisible on cream.
+       Bump to warm tints so chips, section bands and hover states read. ── */
+html.light .bg-foreground\/\[0\.02\] { background-color: rgba(26, 21, 8, 0.04); }
+html.light .bg-foreground\/\[0\.03\] { background-color: rgba(26, 21, 8, 0.055); }
+html.light .bg-foreground\/\[0\.04\] { background-color: rgba(26, 21, 8, 0.07); }
+html.light .bg-foreground\/\[0\.05\] { background-color: rgba(26, 21, 8, 0.085); }
+html.light .bg-foreground\/\[0\.06\] { background-color: rgba(26, 21, 8, 0.11); }
+html.light .bg-foreground\/\[0\.08\] { background-color: rgba(26, 21, 8, 0.14); }
+html.light .hover\:bg-foreground\/\[0\.04\]:hover { background-color: rgba(26, 21, 8, 0.11); }
+html.light .hover\:bg-foreground\/\[0\.05\]:hover { background-color: rgba(26, 21, 8, 0.13); }
+html.light .hover\:bg-foreground\/\[0\.14\]:hover { background-color: rgba(26, 21, 8, 0.18); }
+
+/* restore dark-theme fills inside .dark-panel subtrees */
+html.light .dark-panel .bg-foreground\/\[0\.03\] { background-color: rgba(255, 255, 255, 0.03); }
+html.light .dark-panel .bg-foreground\/\[0\.04\] { background-color: rgba(255, 255, 255, 0.04); }
+html.light .dark-panel .bg-foreground\/\[0\.05\] { background-color: rgba(255, 255, 255, 0.05); }
+html.light .dark-panel .bg-foreground\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.06); }
+html.light .dark-panel .bg-foreground\/\[0\.08\] { background-color: rgba(255, 255, 255, 0.08); }
+html.light .dark-panel .hover\:bg-foreground\/\[0\.04\]:hover { background-color: rgba(255, 255, 255, 0.08); }
+html.light .dark-panel .hover\:bg-foreground\/\[0\.05\]:hover { background-color: rgba(255, 255, 255, 0.09); }
+html.light .dark-panel .hover\:bg-foreground\/\[0\.14\]:hover { background-color: rgba(255, 255, 255, 0.16); }
+
+/* ── Light: hardcoded gold text (#F7D774) is invisible on cream.
+       Override to dark gold (#5c3d00 ≈ 7.5:1 on #f8f4ea) for AA compliance. ── */
+html.light .text-\[\#F7D774\] { color: #5c3d00 !important; }
+html.light .bg-primary\/\[0\.08\] {
+  background-color: rgba(184, 144, 31, 0.12) !important;
+}
+
+/* ── Light: challenge table — darken border lines for readability ── */
+html.light .border-foreground\/\[0\.06\] { border-color: rgba(26, 21, 8, 0.12); }
+html.light .border-foreground\/\[0\.1\] { border-color: rgba(26, 21, 8, 0.15); }
