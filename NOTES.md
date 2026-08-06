@@ -89,6 +89,15 @@ npm run dev
 - [x] FAQ accordion (single-item-open)
 - [x] In-view scroll reveals (Framer Motion)
 
+### 2026-08-06 — DevOps / Coolify deployment
+- **Repo:** `kimjoshuadr/ck-capital` (private). Branches: `main` → production, `staging` → staging.
+- **Coolify:** 4.1.2 at coolify.fundedproptraders.com, server 178.105.229.60. Apps: `ck-capital:main` (production, `https://ckcapital.co.uk`, running:healthy) + `ck-capital:staging` (staging env in Product project, `https://staging.ckcapital.co.uk`, basic-auth protected).
+- **Build:** custom `Dockerfile` (node:22-alpine, `output: "standalone"`, healthcheck) + `.dockerignore`. Env vars live in Coolify (STRAPI_BASE_URL, STRAPI_API_TOKEN read-only, REVALIDATE_SECRET).
+- **CI:** `.github/workflows/ci.yml` — typecheck+build on PR/push; Playwright smoke against staging on `staging` branch (secrets `STAGING_URL`, `STAGING_BASIC_AUTH`).
+- **Tests:** `tests/smoke.spec.ts` (route 200s, key sections, theme toggle, basic-auth guard).
+- **Local:** `.env.local` uses the read-only Strapi token; standalone build verified locally.
+- See `docs/devops.md` for the runbook.
+
 ## Content model
 Most copy is typed in `lib/content.ts`. To update any text, price, FAQ, or testimonial, edit that file only — no JSX hunting required.
 
