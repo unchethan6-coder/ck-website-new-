@@ -1,0 +1,25 @@
+# deps / build output
+node_modules
+.next
+out
+.turbo
+
+# git / CI
+.git
+.github
+.gitignore
+
+# secrets — never bake env files into the image (Coolify injects at runtime)
+.env
+.env.*
+!.env.example
+
+# tests / tooling
+test-results
+playwright-report
+coverage
+*.tsbuildinfo
+
+# misc
+.DS_Store
+*.md
