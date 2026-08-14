@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   Medal, Circle, TrendingUp, Euro, PoundSterling, Droplet,
   type LucideIcon,
@@ -167,16 +168,32 @@ function TickerCell({ inst, live }: { inst: TickerInstrument; live: Live }) {
 
 /* ─────────────────────────────────────────────────────────── component */
 
-export function MarketTicker({ className }: { className?: string }) {
+export function MarketTicker({
+  className,
+  revealDelay,
+}: {
+  className?: string;
+  revealDelay?: number;
+}) {
   const { prices, liveOk } = useTickerPrices(HERO_TICKER);
   // Double the stream so the marquee loops seamlessly
   const stream = useMemo(() => [...HERO_TICKER, ...HERO_TICKER], []);
   const liveStream = useMemo(() => [...prices, ...prices], [prices]);
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, delay: revealDelay ?? 0, ease: [0.22, 1, 0.36, 1] },
+        },
+      }}
       className={cn(
-        "relative overflow-hidden border-y border-foreground/[0.08] bg-[color:var(--background-secondary)]/85 backdrop-blur-sm h-12 flex items-center",
+        "relative overflow-hidden border-y border-foreground/[0.08] bg-[color-mix(in_oklab,var(--background)_65%,transparent)] backdrop-blur-md h-12 flex items-center",
         className
       )}
       data-od-id="market-ticker"
@@ -207,6 +224,6 @@ export function MarketTicker({ className }: { className?: string }) {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

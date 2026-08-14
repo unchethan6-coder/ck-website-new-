@@ -43,13 +43,19 @@ export function LivePayoutPill({
 
   return (
     <span
-      className={cn(
-        "inline-flex items-center gap-2.5 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-[12.5px] font-semibold text-primary",
-        className
-      )}
+      key={amount ?? "static"}
+      className="inline-flex fx-pill-bump"
+      aria-hidden="true"
     >
-      <span className="pulse-gold h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-      {label}
+      <span
+        className={cn(
+          "inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-[color-mix(in_oklab,var(--background)_80%,transparent)] px-4 py-2 text-[12.5px] font-semibold text-primary backdrop-blur-md",
+          className
+        )}
+      >
+        <span className="pulse-gold h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+        {label}
+      </span>
     </span>
   );
 }

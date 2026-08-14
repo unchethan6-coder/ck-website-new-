@@ -293,6 +293,75 @@ body {
   animation-play-state: paused;
 }
 
+/* Gold sheen sweep — one-shot across a CTA after entrance (§3 hero timeline) */
+@keyframes sheen-sweep {
+  0%   { transform: translateX(-120%); }
+  60%  { transform: translateX(120%); }
+  100% { transform: translateX(120%); }
+}
+.fx-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.fx-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  transform: translateX(-120%);
+  animation: sheen-sweep 0.9s ease-in-out 1.5s forwards;
+  pointer-events: none;
+}
+
+/* Hover sheen — same sweep, retriggered by :hover (micro-interaction §6.4) */
+.fx-sheen-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.5) 50%, transparent 58%);
+  transform: translateX(-150%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.fx-sheen-hover:hover::before { transform: translateX(150%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-sheen::after { animation: none; opacity: 0; }
+  .fx-sheen-hover::before { display: none; }
+}
+
+/* Copy scrim (§5.1) — token-driven so it auto-remaps in light mode.
+   Bleeds past the text bounds and travels at the copy column's rate. */
+.fx-copy-scrim {
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--background) 55%, transparent), transparent 75%);
+  border-radius: 24px;
+}
+html.light .fx-copy-scrim {
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--background) 62%, transparent), transparent 75%);
+}
+
+/* Copy insurance shadow (§5.1) — dark halo for bright-particle fly-throughs */
+.fx-copy-shadow { text-shadow: 0 2px 24px color-mix(in oklab, var(--background) 45%, transparent); }
+html.light .fx-copy-shadow { text-shadow: 0 2px 18px color-mix(in oklab, var(--background) 60%, transparent); }
+
+/* CTA plate + halo (§5.2) — the gold button never touches raw scene pixels */
+.fx-cta-plate {
+  border-radius: calc(var(--radius) + 0.25rem);
+  background: color-mix(in oklab, var(--background) 40%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent),
+    0 8px 32px color-mix(in oklab, var(--primary) 18%, transparent);
+}
+html.light .fx-cta-plate {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
+    0 8px 24px color-mix(in oklab, var(--primary-dark) 16%, transparent);
+}
+
 /* Gold shimmer for headline / branding */
 @keyframes shimmer {
   0%   { background-position: -200% center; }
@@ -338,6 +407,17 @@ html.light .pay-logo {
 }
 .pulse-gold {
   animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Live payout pill "now" micro-bump on ticker increment */
+@keyframes pill-bump {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.045); }
+  100% { transform: scale(1); }
+}
+.fx-pill-bump { animation: pill-bump 0.4s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .fx-pill-bump { animation: none; }
 }
 
 /* Scrollbar — themed */

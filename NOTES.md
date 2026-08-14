@@ -238,3 +238,50 @@ Kept (not removed): PaymentsMarquee (after stats), TradingPlatforms (after chall
 **⚠️ Environment gotcha:** this runtime exports `NODE_ENV=production`, which makes npm default to `omit=dev` — a plain `npm install`/`npm ci` silently skips all devDependencies (`tailwindcss`, `@tailwindcss/postcss`, `typescript`, `@playwright/test`, `@types/*`), breaking `next build`. Always use **`npm ci --include=dev`** (or `NODE_ENV= npm ci`) in this shell. This bit during the `three` install (which pruned `@tailwindcss/postcss`); resolved with `npm ci --include=dev`.
 
 **Fix (same day): reduced-motion hydration error.** `TerminalCard` branched its render on `useReducedMotion()` — true on the client under `prefers-reduced-motion`, null during SSR — so the server rendered the 18 lines at `opacity:0` while the reduced-motion client rendered them at `opacity:1` → React error #418 (hydration). Fixed by mount-guarding `staticMode = mounted && reduceMotion` (resolved in an effect), so the client's first render matches the server and the static full-script view appears after mount. Also removed a leftover duplicate `const staticMode` declaration. **Final production gate: 19/19 checks pass** (WebGL hero, challenge interactions, deep-links, overflow at 1440/768/390, light mode, reduced motion, `/evaluation`) with **zero console/page errors including reduced-motion**.
+
+---
+
+### 2026-08-14 — Award-winning hero cinematics (hero-cinematics-plan.md)
+
+Locked (plan-brief): column skyline matured · parallax-fade hand-off · full 2.2s entrance · full ambient loops · parallax-only pointer.
+
+**`components/fx/HeroField.tsx` (rewritten):**
+- **Camera choreography:** expo-out entrance dolly (0,4.2,22)→(0,5,18) over 2s; scroll dolly forward+up (z−4, y+1.4) + fog density 0.018→0.03 as the hero scrolls away; smoothed mouse orbit (parallax only); gentle ambient bob.
+- **Gold dust particles:** additive Points shader field (~320 desktop / 120 mobile), upward drift + twinkle via `mod()` wrap and `sin` alpha, brand golds.
+- **Scene craft:** breathing grid rotation (sin, 0.02 rad), per-column sway, pulsing point glow (starts as intro runs), slow teal rim glow orbiting behind the grid, ground-glow radial plane under the columns, row-depth height fade for back rows (misty skyline), emissive tint on gold materials.
+- **Mobile profile:** 5×4 columns, DPR ≤1.5, 120 particles. IntersectionObserver pauses the loop off-screen (battery). Reduced-motion → one static frame. Light → hidden + paused. Full dispose.
+
+**`components/sections/Hero.tsx` (rewritten):**
+- Staged 2.2s entrance: pill (0.30) → H1 word-mask (line1 0.45 + 0.04/word, line2 0.62) → subcopy (0.85) → CTA (1.00) → feature chips (1.15 + stagger) → pricing cards (1.25 + 0.12 stagger) → ticker (1.70). Mask reveals via `overflow-hidden` inline-blocks + `y:115%→0`.
+- Scroll-linked parallax (`useScroll` + `useTransform`, offset `start start → end start`): copy y−80/opacity→0, WebGL y+40, glows y+120/opacity→0.6, dots y+70, ticker fades by 0.92.
+- **`components/fx/MagneticWrapper.tsx`** (new): primary CTA follows cursor ≤6px (spring), disabled on touch/reduced-motion.
+- **`fx-sheen`** one-shot gold sweep across the primary CTA at 1.5s; **`fx-pill-bump`** micro-bump on the live-pill dot when the ticker increments.
+- `MarketTicker` accepts `revealDelay` (entrance slide-up). `MotionConfig reducedMotion="user"` wraps the hero.
+
+**Verification (production, 15/15):** WebGL canvas 1440×856, entrance completes (h1 + cards + ticker visible), word-mask wrappers present (8), copy parallax active after scroll (opacity 0.026 at y500), no overflow @1440/390, **zero console errors**, reduced-motion static + clean, light hides canvas, deep-link `?type=instant&size=$100K` preselects. Nav transparent over hero → solid on scroll (unchanged).
+
+**Environment note:** forcing `NODE_ENV=development npm run build` breaks prerender of `/_global-error`+`/about-us` (dev-mode react-diff artifacts) — always use the plain `npm run build`.
+
+---
+
+### 2026-08-14 — Hero cinematics Rev 2: nebula hybrid + passive motion + contrast hardening (hero-cinematics-plan.md §4–§6)
+
+Locked from plan-brief answers (OQ-6→OQ-9): columns + nebula hybrid · all four contrast targets · "alive" passive motion · pointer/scroll retained as secondary layers. Git snapshot `1d730b5`.
+
+**`components/fx/HeroField.tsx`:**
+- **Nebula field** (`buildNebula`, Rev 2 centerpiece): fullscreen ShaderMaterial quad at z=−40 (deepest layer, `depthWrite:false`, no fog), domain-warped fbm (3 octaves mobile / 5 desktop) driven by a `uTime` clock uniform — full morph cycle ≈50s, flow visible within ~5s. Gold ramp `#8a6410→#d4af37→#f5d570` + teal `#14b8a6` fringe at ≤15% blend. Vignette grounds the edges. **Luminance budget:** output scaled ×0.75 and pixel-verified columns stay the brightest element (columns ~188 vs nebula ~6 in readback).
+- **Quiet zone** (the contrast engine): screen-space smooth mask (`uQuietCenter/uQuietSize/uQuietStrength`, no DOM overlay, no hard edge) dims nebula 40–55% + thins stream B density behind the copy block — left ~55% of frame desktop, upper band mobile. Tracks layout breakpoint at build.
+- **Autonomous camera drift** (`renderFrame(simT)` refactor): non-harmonic 26s/34s/48s clock loops (x ±0.6 / y ±0.35 / z ±0.4), amplitude ramps 0→full over 1s after the 2s entrance. Pointer parallax reduced to ±0.8/±0.5 and scroll dolly summed on top — composed, never fighting.
+- **Particle stream B**: sparse second Points cloud drifting laterally along the nebula current (0.15 units/s wrap-around), additive, quiet-zone-thinned.
+- Render loop now a pure `renderFrame(simT)`; reduced-motion renders one static composed frame at simT=12s (nebula frozen mid-flow); resize updates nebula `uResolution/uAspect`; dispose extended to `THREE.Points`.
+
+**Contrast layer (§5) — `Hero.tsx`, `LivePayoutPill.tsx`, `MarketTicker.tsx`, `app/globals.css`:**
+- **Copy scrim** (`.fx-copy-scrim`): radial `--background @55%` behind the copy, bleeds 4–14 inset, travels at the copy column's rate (same parallax transform) so it can never detach. Token-driven → auto-cream in light mode.
+- **Copy insurance** (`.fx-copy-shadow`): `0 2px 24px rgb(11 10 15 / .45)` on H1 + subcopy; light remaps to cream halo.
+- **CTA plate + halo** (`.fx-cta-plate`): 16px-radius plate `--background @40%` + backdrop-blur + `1px rgb(212 175 55 / .35)` ring + gold shadow. Button never touches raw scene pixels. Hover sheen (`fx-sheen-hover::before`, transition-based, reduced-motion-disabled) on top of the existing entrance sheen.
+- **Pricing cards**: heavier glass — `--background-secondary @72%` + `backdrop-blur-md` (popular card keeps its dark gradient + border-spin).
+- **Pill**: solid chip `--background @80%` + blur + `border-primary/25` (was gold-on-gold-tint). **Ticker**: grounding band `--background @65%` + `backdrop-blur-md`.
+
+**Also:** fixed a pre-existing `MarketTicker` hydration mismatch (moved to `initial="hidden"`/`animate="show"` variants so it agrees with the server under `MotionConfig reducedMotion="user"`). The remaining dev-only hydration warning is the known `LiveChart` polygon artifact (WhyChooseUs, byte-identical server/client points, absent in production — pre-existing, out of scope).
+
+**Verification:** `npm run build` clean. Dev (Edge) — idle drift with **zero input** at 1440 and 390 (`skyA≠skyB` across 1.5s), reduced-motion static (loop frozen, scene present, sky luma ≈53), nebula warm gold behind the columns, columns remain brightest, no overflow @1440/390, no WebGL/shader errors (`gl.getError=0`), no hero hydration warnings. **Production** (`next start`) — dark 1440 + tablet 768 drift active / no overflow / **zero console errors**; light mode hides the canvas (parentOpacity 0) and the scrim/plate remap to cream (oklab L≈0.96) via token `color-mix`.
