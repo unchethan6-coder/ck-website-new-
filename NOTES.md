@@ -285,3 +285,20 @@ Locked from plan-brief answers (OQ-6→OQ-9): columns + nebula hybrid · all fou
 **Also:** fixed a pre-existing `MarketTicker` hydration mismatch (moved to `initial="hidden"`/`animate="show"` variants so it agrees with the server under `MotionConfig reducedMotion="user"`). The remaining dev-only hydration warning is the known `LiveChart` polygon artifact (WhyChooseUs, byte-identical server/client points, absent in production — pre-existing, out of scope).
 
 **Verification:** `npm run build` clean. Dev (Edge) — idle drift with **zero input** at 1440 and 390 (`skyA≠skyB` across 1.5s), reduced-motion static (loop frozen, scene present, sky luma ≈53), nebula warm gold behind the columns, columns remain brightest, no overflow @1440/390, no WebGL/shader errors (`gl.getError=0`), no hero hydration warnings. **Production** (`next start`) — dark 1440 + tablet 768 drift active / no overflow / **zero console errors**; light mode hides the canvas (parentOpacity 0) and the scrim/plate remap to cream (oklab L≈0.96) via token `color-mix`.
+
+---
+
+### 2026-08-14 — Hero Rev 3: organic aurora scene (user redesign)
+
+**User direction:** "no major movement, the bars are just bricks of yellow" → the rigid gold column skyline was **removed** and replaced with an organic, continuously-flowing composition. This supersedes OQ-1 (column skyline).
+
+**`components/fx/HeroField.tsx` (rewritten scene):**
+- **Aurora-silk ribbons (signature):** 5 flowing sheets (3 mobile) — wide `PlaneGeometry(≈42×12, 128×1)` with vertices displaced by **layered traveling waves** in the vertex shader (3 sine components per ribbon, per-ribbon freq/speed/amp/phase). Amplitudes ≈0.6–1.7 units, speeds ≈0.8–2.1 rad/s → crests visibly travel. Additive gold (`#d4af37→#f5d570` core, fading edges), teal ≤15% on two sheets, per-ribbon breathing opacity, quiet-zone-dimmed behind the copy via `gl_FragCoord` mask. Positioned z≈−4…−14 with slight y-rotations so the sheets cross for depth.
+- **Deep nebula base (kept, enriched):** larger noise cells (scale 3.0), faster flow (`uTime*0.07` + slow rotation), alpha floor 0.16 so the field always reads; vignette + quiet zone + teal fringe ≤15% kept.
+- **Gold dust (kept, denser):** 420 desktop / 160 mobile, faster upward drift (0.5), opacity 0.85.
+- **Stream B (kept):** lateral wrap flow, more visible (0.35).
+- **Camera reframe:** FOV 50, rest (0, 3.2, 16), lookAt (0, 1.8, 0) — frames the ribbons; entrance dolly + 26/34/48s drift + scroll dolly + parallax (±0.6/±0.4) retained. Column grid, floor, lights, env map all removed (scene is now fully shader-lit/additive).
+
+**Measured (Playwright readback, idle, zero input):** `mean |ΔRGB| ≈ 13.7 / 0.5s` (was ~0 with the static bricks) — major, continuous motion; luminance distribution P10=6 / P50=20 / P90=42 — dark valleys + gold peaks, not a wash. Drift confirmed @1440 and 390; reduced-motion static frame; no overflow; `npm run build` clean; no shader/WebGL errors.
+
+**Uncommitted** — working tree (HeroField.tsx + docs) ready for a snapshot when approved.

@@ -4,22 +4,24 @@ import * as THREE from "three";
 import { useScroll } from "framer-motion";
 
 /**
- * HeroField — full-viewport 3D gold column skyline (upcomers-style hero).
+ * HeroField — full-viewport cinematic aurora scene (Rev 4).
  *
- * Cinematics:
- * - Entrance dolly: camera travels from (0, 4.2, 22) → resting (0, 5, 18)
- *   over ~2s expo-out as the staged DOM timeline plays (Hero.tsx owns the DOM
- *   choreography; this owns the WebGL).
- * - Scroll reaction: as the hero scrolls away, the camera dollies forward
- *   (z 18→14) and up (y 5→6.4) while fog thickens — the "hand-off" feel.
- * - Gold dust particle field (additive Points, shader drift + twinkle).
- * - Ambient idle: breathing grid rotation, gentle camera bob, pulsing point
- *   glow, slow teal rim glow orbiting behind the grid.
- * - Ground glow plane (radial gold wash under the grid).
+ * Composition (back → front), every layer clock-driven with zero input:
+ * 1. Deep domain-warped fbm nebula — dark atmosphere, not a wall (kept subtle).
+ * 2. Aurora-silk ribbons — thin flowing sheets, layered traveling waves.
+ * 3. FLOW-FIELD STREAM — ~12k gold motes weaving on non-repeating Lissajous
+ *    paths, wrapping in a bounded volume: the unmistakable "major movement."
+ * 4. Teal accent stream (≤15%) + sparse far sparkle dust.
+ *
+ * Motion: all layers animate on the render-loop clock; pointer parallax +
+ * scroll dolly are secondary layers summed on top.
+ *
+ * Contrast (§5): the screen-space "quiet zone" dims the nebula, ribbons and
+ * streams behind the copy block; DOM scrim/plate/cards ground reading surfaces.
  *
  * Behaviour:
  * - Hidden + paused in light mode.
- * - `prefers-reduced-motion` → one static resting frame, no loops, no intro.
+ * - `prefers-reduced-motion` → one static composed frame, no loops, no intro.
  * - WebGL unavailable → no-op (CSS aurora fallback).
  * - Paused when the hero is off-screen (IntersectionObserver).
  * - Disposed on unmount.
@@ -29,53 +31,30 @@ const EASE_OUT_EXPO = (p: number) => (p >= 1 ? 1 : 1 - Math.pow(2, -10 * p));
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-function makeParticleTexture(): THREE.CanvasTexture {
-  const size = 64;
-  const canvas = document.createElement("canvas");
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext("2d")!;
-  const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-  g.addColorStop(0, "rgba(255,255,255,1)");
-  g.addColorStop(0.35, "rgba(255,240,200,0.9)");
-  g.addColorStop(1, "rgba(255,220,140,0)");
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, size, size);
-  return new THREE.CanvasTexture(canvas);
-}
-
-function makeGroundGlowTexture(): THREE.CanvasTexture {
-  const size = 256;
-  const canvas = document.createElement("canvas");
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext("2d")!;
-  const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-  g.addColorStop(0, "rgba(212,175,55,0.85)");
-  g.addColorStop(0.4, "rgba(138,100,16,0.35)");
-  g.addColorStop(1, "rgba(138,100,16,0)");
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, size, size);
-  return new THREE.CanvasTexture(canvas);
+/** Shared quiet-zone geometry for the layout breakpoint. */
+function quietZone(isMobile: boolean) {
+  return {
+    center: new THREE.Vector2(isMobile ? 0.5 : 0.3, isMobile ? 0.34 : 0.5),
+    size: new THREE.Vector2(isMobile ? 0.9 : 0.62, isMobile ? 0.6 : 0.62),
+    strength: isMobile ? 0.45 : 0.5,
+  };
 }
 
 /**
- * buildNebula — fullscreen domain-warped fbm aurora field (Rev 2).
- * Deepest layer of the scene: renders behind the column skyline, on the
- * render-loop clock only (zero input required). Gold ramp with a ≤15%
- * teal fringe; a screen-space "quiet zone" dims the region behind the
- * copy block so H1/CTA reading surfaces get engineered separation.
+ * buildNebula — fullscreen domain-warped fbm aurora base. Kept as a subtle
+ * dark atmosphere (low alpha floor) so the flowing streams read against it.
  */
 function buildNebula(isMobile: boolean, width: number, height: number) {
   const octaves = isMobile ? 3 : 5;
+  const qz = quietZone(isMobile);
   const uniforms = {
     uTime: { value: 0 },
     uResolution: { value: new THREE.Vector2(width, height) },
     uAspect: { value: width / height },
-    uQuietCenter: { value: new THREE.Vector2(isMobile ? 0.5 : 0.3, isMobile ? 0.34 : 0.5) },
-    uQuietSize: { value: new THREE.Vector2(isMobile ? 0.9 : 0.62, isMobile ? 0.6 : 0.62) },
-    uQuietStrength: { value: isMobile ? 0.45 : 0.5 },
-    uTealBlend: { value: 0.15 },
+    uQuietCenter: { value: qz.center },
+    uQuietSize: { value: qz.size },
+    uQuietStrength: { value: qz.strength },
+    uTealBlend: { value: 0.12 },
     uOpacity: { value: 0 },
   };
 
@@ -133,44 +112,38 @@ function buildNebula(isMobile: boolean, width: number, height: number) {
 
       void main() {
         vec2 uv = vUv;
-        // isotropic noise space (aspect-corrected), slow clock scroll
-        vec2 p = (uv - 0.5) * vec2(uAspect, 1.0) * 2.4;
-        p += uTime * 0.045;
+        vec2 p = (uv - 0.5) * vec2(uAspect, 1.0) * 3.0;
+        p += uTime * 0.06;
+        p = mat2(cos(uTime * 0.02), sin(uTime * 0.02), -sin(uTime * 0.02), cos(uTime * 0.02)) * p;
 
-        // domain warp — the flowing aurora current (~50s morph cycle)
-        vec2 q = vec2(fbm(p + uTime * 0.04), fbm(p - uTime * 0.055));
+        vec2 q = vec2(fbm(p + uTime * 0.07), fbm(p - uTime * 0.09));
         vec2 r = vec2(
-          fbm(p + 2.0 * q + vec2(1.7, 9.2) + uTime * 0.03),
-          fbm(p + 2.0 * q + vec2(8.3, 2.8) - uTime * 0.035)
+          fbm(p + 2.0 * q + vec2(1.7, 9.2) + uTime * 0.05),
+          fbm(p + 2.0 * q + vec2(8.3, 2.8) - uTime * 0.06)
         );
         float f = fbm(p + 2.6 * r);
 
-        // gold ramp: dark -> gold -> bright (thresholds match the ~0.2-0.5
-        // range the warped fbm actually produces at this scale)
         vec3 dark = vec3(0.541, 0.392, 0.063);   // #8a6410
         vec3 gold = vec3(0.831, 0.686, 0.216);   // #d4af37
         vec3 bright = vec3(0.961, 0.835, 0.439); // #f5d570
         vec3 col = mix(dark, gold, smoothstep(0.15, 0.5, f));
         col = mix(col, bright, smoothstep(0.42, 0.62, f));
 
-        // teal fringe (≤15% blend)
         vec3 teal = vec3(0.078, 0.722, 0.651);   // #14b8a6
         float fringe = smoothstep(0.3, 0.5, r.y) * (1.0 - smoothstep(0.5, 0.72, r.y));
         col = mix(col, teal, fringe * uTealBlend);
 
-        // density alpha + vignette (ground the edges)
-        float a = smoothstep(0.15, 0.55, f) * uOpacity;
+        // subtle dark atmosphere — low floor so streams read against it
+        float a = (0.13 + 0.62 * smoothstep(0.2, 0.64, f)) * uOpacity;
         vec2 vd = (uv - 0.5) * vec2(uAspect, 1.0);
         a *= 1.0 - smoothstep(0.62, 0.95, length(vd));
 
-        // quiet zone — dim behind the copy block (no hard edge)
         vec2 qd = (uv - uQuietCenter) / uQuietSize;
         float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
         col *= 1.0 - uQuietStrength * qmask;
-        a *= 1.0 - uQuietStrength * 0.85 * qmask;
+        a *= 1.0 - uQuietStrength * 0.8 * qmask;
 
-        // scaled under the column rim-light luminance budget
-        gl_FragColor = vec4(col * a * 0.75, a);
+        gl_FragColor = vec4(col * a, a);
       }
     `,
   });
@@ -178,8 +151,221 @@ function buildNebula(isMobile: boolean, width: number, height: number) {
   const geo = new THREE.PlaneGeometry(220, 90);
   const mesh = new THREE.Mesh(geo, mat);
   mesh.position.set(0, 2.5, -40);
-  mesh.rotation.x = 0.04; // face the camera's downward gaze
+  mesh.rotation.x = 0.04;
   return { mesh, uniforms };
+}
+
+interface RibbonSpec {
+  z: number;
+  y: number;
+  rotY: number;
+  width: number;
+  height: number;
+  freq: [number, number, number];
+  speed: [number, number, number];
+  amp: [number, number, number];
+  phase: [number, number];
+  base: number;
+  breathe: number;
+  teal: number;
+}
+
+/** Thin silk sheets — bright filaments with dark negative space around them. */
+const RIBBON_SPECS: RibbonSpec[] = [
+  { z: -4,    y: 4.0, rotY: -0.42, width: 42, height: 7, freq: [1.1, 0.45, 0.16], speed: [1.9, 1.3, 0.8], amp: [0.6, 0.95, 1.5], phase: [0.0, 1.3], base: 0.30, breathe: 0.5, teal: 0.0 },
+  { z: -6.5,  y: 2.0, rotY:  0.34, width: 40, height: 6, freq: [0.9, 0.6, 0.2],  speed: [1.5, 1.1, 0.7], amp: [0.65, 0.8, 1.6], phase: [2.1, 0.4], base: 0.26, breathe: 0.4, teal: 0.1 },
+  { z: -9,    y: 4.6, rotY: -0.2,  width: 44, height: 7, freq: [1.3, 0.35, 0.18], speed: [2.1, 1.2, 0.75], amp: [0.55, 1.0, 1.4], phase: [4.2, 2.8], base: 0.32, breathe: 0.55, teal: 0.0 },
+  { z: -11.5, y: 1.6, rotY:  0.26, width: 40, height: 6, freq: [0.75, 0.5, 0.22], speed: [1.4, 1.0, 0.6], amp: [0.7, 0.85, 1.7], phase: [1.6, 5.0], base: 0.24, breathe: 0.35, teal: 0.12 },
+  { z: -14,   y: 3.2, rotY: -0.1,  width: 46, height: 8, freq: [1.0, 0.55, 0.14], speed: [1.8, 1.25, 0.8], amp: [0.6, 0.9, 1.55], phase: [3.3, 0.9], base: 0.30, breathe: 0.6, teal: 0.0 },
+];
+
+function buildRibbons(isMobile: boolean, width: number, height: number) {
+  const qz = quietZone(isMobile);
+  const specs = isMobile ? RIBBON_SPECS.slice(0, 3) : RIBBON_SPECS;
+  const group = new THREE.Group();
+  const materials: THREE.ShaderMaterial[] = [];
+
+  specs.forEach((s) => {
+    const uniforms = {
+      uTime: { value: 0 },
+      uPhase: { value: new THREE.Vector2(s.phase[0], s.phase[1]) },
+      uFreq: { value: new THREE.Vector3(s.freq[0], s.freq[1], s.freq[2]) },
+      uSpeed: { value: new THREE.Vector3(s.speed[0], s.speed[1], s.speed[2]) },
+      uAmp: { value: new THREE.Vector3(s.amp[0], s.amp[1], s.amp[2]) },
+      uBaseOpacity: { value: s.base },
+      uBreathe: { value: s.breathe },
+      uTeal: { value: s.teal },
+      uResolution: { value: new THREE.Vector2(width, height) },
+      uQuietCenter: { value: qz.center },
+      uQuietSize: { value: qz.size },
+      uQuietStrength: { value: qz.strength },
+    };
+
+    const mat = new THREE.ShaderMaterial({
+      uniforms,
+      transparent: true,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+      blending: THREE.AdditiveBlending,
+      vertexShader: `
+        uniform float uTime;
+        uniform vec2 uPhase;
+        uniform vec3 uFreq;
+        uniform vec3 uSpeed;
+        uniform vec3 uAmp;
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          vec3 p = position;
+          float x = p.x;
+          float w = sin(x * uFreq.x + uTime * uSpeed.x + uPhase.x) * uAmp.x
+                  + sin(x * uFreq.y - uTime * uSpeed.y + uPhase.y) * uAmp.y
+                  + sin(x * uFreq.z + uTime * uSpeed.z * 0.6 + uPhase.x * 1.7) * uAmp.z;
+          p.y += w;
+          p.z += sin(x * 1.2 + uTime * 0.7 + uPhase.y) * 0.3;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+        }
+      `,
+      fragmentShader: `
+        precision highp float;
+        uniform float uTime;
+        uniform float uBaseOpacity;
+        uniform float uBreathe;
+        uniform float uTeal;
+        uniform vec2 uResolution;
+        uniform vec2 uQuietCenter;
+        uniform vec2 uQuietSize;
+        uniform float uQuietStrength;
+        varying vec2 vUv;
+        void main() {
+          float edge = smoothstep(0.0, 0.14, vUv.y) * (1.0 - smoothstep(0.86, 1.0, vUv.y));
+          float xedge = smoothstep(0.0, 0.05, vUv.x) * (1.0 - smoothstep(0.95, 1.0, vUv.x));
+          float breathe = 0.8 + 0.2 * sin(uTime * uBreathe);
+          float a = edge * xedge * uBaseOpacity * breathe;
+
+          vec3 gold = vec3(0.831, 0.686, 0.216);   // #d4af37
+          vec3 bright = vec3(0.961, 0.835, 0.439); // #f5d570
+          vec3 col = mix(gold, bright, smoothstep(0.3, 0.7, vUv.y));
+          vec3 teal = vec3(0.078, 0.722, 0.651);   // #14b8a6
+          col = mix(col, teal, uTeal);
+
+          vec2 uv = gl_FragCoord.xy / uResolution;
+          vec2 qd = (uv - uQuietCenter) / uQuietSize;
+          float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
+          a *= 1.0 - uQuietStrength * qmask;
+
+          gl_FragColor = vec4(col * a, a);
+        }
+      `,
+    });
+    materials.push(mat);
+
+    const geo = new THREE.PlaneGeometry(s.width, s.height, 128, 1);
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(0, s.y, s.z);
+    mesh.rotation.y = s.rotY;
+    mesh.rotation.x = -0.1;
+    group.add(mesh);
+  });
+
+  return { group, materials };
+}
+
+/**
+ * buildFlowField — the signature stream. Thousands of gold motes weaving on
+ * non-repeating Lissajous paths inside a bounded volume, wrapping at the
+ * edges. Constant, unmistakable streaming motion (zero input required).
+ */
+function buildFlowField(isMobile: boolean, width: number, height: number) {
+  const qz = quietZone(isMobile);
+  const COUNT = isMobile ? 4200 : 12000;
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(COUNT * 3);
+  const seed = new Float32Array(COUNT);
+  const size = new Float32Array(COUNT);
+  for (let i = 0; i < COUNT; i++) {
+    pos[i * 3] = (Math.random() - 0.5) * 44;
+    pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
+    pos[i * 3 + 2] = (Math.random() - 0.5) * 36 - 2; // bias toward the camera
+    seed[i] = Math.random();
+    size[i] = (isMobile ? 1.2 : 1.6) + Math.random() * 2.4;
+  }
+  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
+  geo.setAttribute("aSize", new THREE.BufferAttribute(size, 1));
+
+  const uniforms = {
+    uTime: { value: 0 },
+    uColorA: { value: new THREE.Color(0xf5d570) },
+    uColorB: { value: new THREE.Color(0xd4af37) },
+    uOpacity: { value: isMobile ? 0.4 : 0.5 },
+    uResolution: { value: new THREE.Vector2(width, height) },
+    uQuietCenter: { value: qz.center },
+    uQuietSize: { value: qz.size },
+    uQuietStrength: { value: qz.strength },
+  };
+  const mat = new THREE.ShaderMaterial({
+    uniforms,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexShader: `
+      attribute float aSeed;
+      attribute float aSize;
+      uniform float uTime;
+      varying float vAlpha;
+      varying float vMix;
+      void main() {
+        vec3 p = position;
+        float s = aSeed;
+        float t = uTime;
+        // winding Lissajous streams (1.618 ratio = non-repeating), seeded speed
+        float ang = t * (0.22 + 0.5 * fract(s * 3.1)) + s * 6.2831;
+        float r = (1.5 + 5.5 * fract(s * 7.7)) * (0.6 + 0.4 * sin(t * 0.2 + s * 5.0));
+        p.x += cos(ang) * r;
+        p.z += sin(ang * 1.618) * r * 0.7;
+        p.y += mod(t * (0.5 + 0.9 * fract(s * 11.7)) + s * 4.0, 16.0) - 8.0;
+        p.x += sin(t * 0.4 + s * 9.0) * 1.5;
+        p.z += cos(t * 0.3 + s * 13.0) * 1.5;
+        p.x = mod(p.x + 24.0, 48.0) - 24.0;
+        p.z = mod(p.z + 22.0, 44.0) - 22.0;
+
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = aSize * (200.0 / -mv.z);
+        vAlpha = 0.3 + 0.6 * abs(sin(t * (0.5 + 0.5 * fract(s)) + s * 4.0));
+        vMix = fract(s * 2.0);
+        gl_Position = projectionMatrix * mv;
+      }
+    `,
+    fragmentShader: `
+      precision highp float;
+      uniform vec3 uColorA;
+      uniform vec3 uColorB;
+      uniform float uOpacity;
+      uniform vec2 uResolution;
+      uniform vec2 uQuietCenter;
+      uniform vec2 uQuietSize;
+      uniform float uQuietStrength;
+      varying float vAlpha;
+      varying float vMix;
+      void main() {
+        vec2 c = gl_PointCoord - 0.5;
+        float d = length(c);
+        float glow = smoothstep(0.5, 0.05, d);
+        vec3 col = mix(uColorB, uColorA, vMix);
+        float alpha = glow * vAlpha * uOpacity;
+
+        vec2 uv = gl_FragCoord.xy / uResolution;
+        vec2 qd = (uv - uQuietCenter) / uQuietSize;
+        float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
+        alpha *= 1.0 - uQuietStrength * qmask;
+
+        gl_FragColor = vec4(col * alpha, alpha);
+      }
+    `,
+  });
+  const points = new THREE.Points(geo, mat);
+  return { points, uniforms };
 }
 
 function createScene(host: HTMLDivElement, isMobile: boolean) {
@@ -194,203 +380,55 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
   renderer.setSize(width, height);
   renderer.setClearColor(0x000000, 0);
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.2;
   host.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  const fog = new THREE.FogExp2(0x0b0a07, 0.018);
-  scene.fog = fog;
 
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 200);
-  camera.position.set(0, 5, 18);
-  camera.lookAt(0, 2, 0);
+  const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 200);
+  camera.position.set(0, 3, 14);
+  camera.lookAt(0, 1.6, 0);
 
-  // ─── Materials ───
-  const goldMat = new THREE.MeshStandardMaterial({
-    color: 0xd4af37,
-    metalness: 0.85,
-    roughness: 0.18,
-    emissive: 0x3a2c08,
-    emissiveIntensity: 0.35,
-    envMapIntensity: 1.5,
-  });
-  const darkGoldMat = new THREE.MeshStandardMaterial({
-    color: 0x8a6410,
-    metalness: 0.9,
-    roughness: 0.25,
-    emissive: 0x2a1f06,
-    emissiveIntensity: 0.3,
-    envMapIntensity: 1.2,
-  });
-  const brightGoldMat = new THREE.MeshStandardMaterial({
-    color: 0xf5d570,
-    metalness: 0.8,
-    roughness: 0.15,
-    emissive: 0x554010,
-    emissiveIntensity: 0.4,
-    envMapIntensity: 1.8,
-  });
-
-  // ─── Columns — grid of varying heights (mature skyline) ───
-  const grid = new THREE.Group();
-  const columns: THREE.Mesh[] = [];
-  const gridX = isMobile ? 5 : 9;
-  const gridZ = isMobile ? 4 : 6;
-  const spacingX = isMobile ? 2.8 : 2.4;
-  const spacingZ = isMobile ? 3.4 : 2.8;
-
-  for (let ix = 0; ix < gridX; ix++) {
-    for (let iz = 0; iz < gridZ; iz++) {
-      const x = (ix - (gridX - 1) / 2) * spacingX + (Math.random() - 0.5) * 0.6;
-      const z = (iz - (gridZ - 1) / 2) * spacingZ - 3 + (Math.random() - 0.5) * 0.5;
-
-      // Height varies — taller in center, shorter at edges. Back rows (low iz)
-      // shrink further so the grid reads as a misty skyline fading into fog.
-      const distFromCenter = Math.sqrt(
-        Math.pow(ix - (gridX - 1) / 2, 2) + Math.pow(iz - (gridZ - 1) / 2, 2)
-      );
-      const backAmount = (gridZ - 1 - iz) / (gridZ - 1); // 1 = farthest from camera
-      const baseHeight = 1.5 + Math.random() * 2.5;
-      const centerBoost = Math.max(0, 3.5 - distFromCenter * 0.6);
-      const h = (baseHeight + centerBoost) * (1 - backAmount * 0.28);
-
-      const w = 0.8 + Math.random() * 0.7;
-      const d = 0.8 + Math.random() * 0.7;
-
-      const geo = new THREE.BoxGeometry(w, h, d);
-      geo.translate(0, h / 2, 0);
-
-      const matChoice = Math.random();
-      const mat = matChoice < 0.5 ? goldMat : matChoice < 0.8 ? darkGoldMat : brightGoldMat;
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.set(x, 0, z);
-      mesh.rotation.y = Math.random() * 0.3 - 0.15;
-      grid.add(mesh);
-      columns.push(mesh);
-    }
-  }
-  scene.add(grid);
-
-  // ─── Floor — dark reflective plane ───
-  const floorGeo = new THREE.PlaneGeometry(80, 80);
-  const floorMat = new THREE.MeshStandardMaterial({
-    color: 0x0a0906,
-    metalness: 0.95,
-    roughness: 0.08,
-    envMapIntensity: 0.8,
-  });
-  const floor = new THREE.Mesh(floorGeo, floorMat);
-  floor.rotation.x = -Math.PI / 2;
-  floor.position.y = 0;
-  scene.add(floor);
-
-  // ─── Ground glow — soft gold wash under the grid (anchors the glow) ───
-  const glowGeo = new THREE.PlaneGeometry(46, 30);
-  const glowMat = new THREE.MeshBasicMaterial({
-    map: makeGroundGlowTexture(),
-    transparent: true,
-    opacity: 0.4,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false,
-  });
-  const glow = new THREE.Mesh(glowGeo, glowMat);
-  glow.rotation.x = -Math.PI / 2;
-  glow.position.y = 0.06;
-  scene.add(glow);
-
-  // ─── Nebula field (Rev 2) — deepest layer, renders behind the skyline ───
+  // ─── Deep nebula base (farthest) ───
   const { mesh: nebula, uniforms: nebulaUniforms } = buildNebula(isMobile, width, height);
   scene.add(nebula);
 
-  // ─── Gold dust particles (additive Points, shader drift + twinkle) ───
-  const COUNT = isMobile ? 120 : 320;
-  const pGeo = new THREE.BufferGeometry();
-  const pPos = new Float32Array(COUNT * 3);
-  const pSeed = new Float32Array(COUNT);
-  const pSize = new Float32Array(COUNT);
-  for (let i = 0; i < COUNT; i++) {
-    pPos[i * 3] = (Math.random() - 0.5) * 30;
-    pPos[i * 3 + 1] = Math.random() * 14;
-    pPos[i * 3 + 2] = (Math.random() - 0.5) * 20;
-    pSeed[i] = Math.random() * Math.PI * 2;
-    pSize[i] = 0.5 + Math.random() * 1.1;
+  // ─── Aurora-silk ribbons (flowing sheets) ───
+  const { group: ribbons, materials: ribbonMaterials } = buildRibbons(isMobile, width, height);
+  scene.add(ribbons);
+
+  // ─── Flow-field stream — the signature motion layer ───
+  const { points: stream, uniforms: streamUniforms } = buildFlowField(isMobile, width, height);
+  scene.add(stream);
+
+  // ─── Teal accent stream (≤15% blend) — sparse lateral flow ───
+  const TCOUNT = isMobile ? 80 : 220;
+  const tGeo = new THREE.BufferGeometry();
+  const tPos = new Float32Array(TCOUNT * 3);
+  const tSeed = new Float32Array(TCOUNT);
+  const tSize = new Float32Array(TCOUNT);
+  for (let i = 0; i < TCOUNT; i++) {
+    tPos[i * 3] = (Math.random() - 0.5) * 32;
+    tPos[i * 3 + 1] = 3 + Math.random() * 13;
+    tPos[i * 3 + 2] = -36 + Math.random() * 18;
+    tSeed[i] = Math.random() * Math.PI * 2;
+    tSize[i] = 0.4 + Math.random() * 0.9;
   }
-  pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
-  pGeo.setAttribute("aSeed", new THREE.BufferAttribute(pSeed, 1));
-  pGeo.setAttribute("aSize", new THREE.BufferAttribute(pSize, 1));
+  tGeo.setAttribute("position", new THREE.BufferAttribute(tPos, 3));
+  tGeo.setAttribute("aSeed", new THREE.BufferAttribute(tSeed, 1));
+  tGeo.setAttribute("aSize", new THREE.BufferAttribute(tSize, 1));
 
-  const particleUniforms = {
+  const qz = quietZone(isMobile);
+  const tealUniforms = {
     uTime: { value: 0 },
-    uColor: { value: new THREE.Color(0xf5d570) },
-    uOpacity: { value: isMobile ? 0.5 : 0.7 },
-  };
-  const particleMat = new THREE.ShaderMaterial({
-    uniforms: particleUniforms,
-    transparent: true,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    vertexShader: `
-      attribute float aSeed;
-      attribute float aSize;
-      uniform float uTime;
-      varying float vAlpha;
-      void main() {
-        vec3 p = position;
-        // Upward drift, wrapping at the top
-        p.y = mod(p.y + uTime * 0.35 + aSeed * 0.1, 14.0);
-        p.x += sin(uTime * 0.25 + aSeed) * 0.3;
-        vec4 mv = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = aSize * (150.0 / -mv.z);
-        vAlpha = 0.2 + 0.6 * abs(sin(uTime * 0.6 + aSeed * 2.0));
-        gl_Position = projectionMatrix * mv;
-      }
-    `,
-    fragmentShader: `
-      uniform vec3 uColor;
-      uniform float uOpacity;
-      varying float vAlpha;
-      void main() {
-        vec2 c = gl_PointCoord - 0.5;
-        float d = length(c);
-        float alpha = smoothstep(0.5, 0.05, d) * vAlpha * uOpacity;
-        gl_FragColor = vec4(uColor, alpha);
-      }
-    `,
-  });
-  const particles = new THREE.Points(pGeo, particleMat);
-  scene.add(particles);
-
-  // ─── Particle stream B (Rev 2) — lateral flow along the nebula current ───
-  // Sparse, low-opacity cloud drifting sideways so motion is visible at a
-  // glance; depth-tested behind the columns but in front of the nebula quad.
-  const SCOUNT = isMobile ? 60 : 140;
-  const sGeo = new THREE.BufferGeometry();
-  const sPos = new Float32Array(SCOUNT * 3);
-  const sSeed = new Float32Array(SCOUNT);
-  const sSize = new Float32Array(SCOUNT);
-  for (let i = 0; i < SCOUNT; i++) {
-    sPos[i * 3] = (Math.random() - 0.5) * 30;
-    sPos[i * 3 + 1] = 3 + Math.random() * 13;
-    sPos[i * 3 + 2] = -38 + Math.random() * 18;
-    sSeed[i] = Math.random() * Math.PI * 2;
-    sSize[i] = 0.4 + Math.random() * 0.9;
-  }
-  sGeo.setAttribute("position", new THREE.BufferAttribute(sPos, 3));
-  sGeo.setAttribute("aSeed", new THREE.BufferAttribute(sSeed, 1));
-  sGeo.setAttribute("aSize", new THREE.BufferAttribute(sSize, 1));
-
-  const streamUniforms = {
-    uTime: { value: 0 },
-    uColor: { value: new THREE.Color(0xf5d570) },
-    uOpacity: { value: isMobile ? 0.22 : 0.3 },
+    uColor: { value: new THREE.Color(0x14b8a6) },
+    uOpacity: { value: isMobile ? 0.2 : 0.3 },
     uResolution: { value: new THREE.Vector2(width, height) },
-    uQuietCenter: { value: new THREE.Vector2(isMobile ? 0.5 : 0.3, isMobile ? 0.34 : 0.5) },
-    uQuietSize: { value: new THREE.Vector2(isMobile ? 0.9 : 0.62, isMobile ? 0.6 : 0.62) },
-    uQuietStrength: { value: isMobile ? 0.45 : 0.5 },
+    uQuietCenter: { value: qz.center },
+    uQuietSize: { value: qz.size },
+    uQuietStrength: { value: qz.strength },
   };
-  const streamMat = new THREE.ShaderMaterial({
-    uniforms: streamUniforms,
+  const tealMat = new THREE.ShaderMaterial({
+    uniforms: tealUniforms,
     transparent: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
@@ -401,12 +439,11 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
       varying float vAlpha;
       void main() {
         vec3 p = position;
-        // lateral drift along the nebula current, wrap-around
-        p.x = mod(p.x + uTime * 0.15 + aSeed * 0.25, 30.0) - 15.0;
-        p.y += sin(uTime * 0.2 + aSeed * 2.0) * 0.4;
+        p.x = mod(p.x + uTime * 0.18 + aSeed * 0.25, 32.0) - 16.0;
+        p.y += sin(uTime * 0.25 + aSeed * 2.0) * 0.5;
         vec4 mv = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = aSize * (90.0 / -mv.z);
-        vAlpha = 0.3 + 0.35 * sin(uTime * 0.5 + aSeed * 3.0);
+        gl_PointSize = aSize * (95.0 / -mv.z);
+        vAlpha = 0.3 + 0.35 * sin(uTime * 0.6 + aSeed * 3.0);
         gl_Position = projectionMatrix * mv;
       }
     `,
@@ -430,68 +467,69 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
       }
     `,
   });
-  const stream = new THREE.Points(sGeo, streamMat);
-  scene.add(stream);
+  const tealStream = new THREE.Points(tGeo, tealMat);
+  scene.add(tealStream);
 
-  // ─── Lighting ───
-  const keyLight = new THREE.DirectionalLight(0xf5d570, 2.5);
-  keyLight.position.set(8, 15, 5);
-  scene.add(keyLight);
-
-  const fillLight = new THREE.DirectionalLight(0xd4af37, 0.8);
-  fillLight.position.set(-6, 8, 3);
-  scene.add(fillLight);
-
-  const rimLight = new THREE.DirectionalLight(0x14b8a6, 0.6);
-  rimLight.position.set(0, 6, -10);
-  scene.add(rimLight);
-
-  const ambient = new THREE.AmbientLight(0x1a1508, 0.4);
-  scene.add(ambient);
-
-  const pointGlow = new THREE.PointLight(0xd4af37, 3, 25, 1.5);
-  pointGlow.position.set(0, 4, 2);
-  scene.add(pointGlow);
-
-  // Slow teal rim glow orbiting behind the grid (subtle depth accent)
-  const orbitGlow = new THREE.PointLight(0x14b8a6, 0.2, 30, 1.5);
-  scene.add(orbitGlow);
-
-  // ─── Environment map (simple gradient for reflections) ───
-  const envSize = 128;
-  const envData = new Uint8Array(envSize * envSize * 4);
-  for (let y = 0; y < envSize; y++) {
-    for (let x = 0; x < envSize; x++) {
-      const i = (y * envSize + x) * 4;
-      const t = y / envSize;
-      envData[i] = Math.floor(10 + t * 180 * Math.sin(t * Math.PI));
-      envData[i + 1] = Math.floor(9 + t * 130 * Math.sin(t * Math.PI));
-      envData[i + 2] = Math.floor(6 + t * 30 * Math.sin(t * Math.PI));
-      envData[i + 3] = 255;
-    }
+  // ─── Sparse far sparkle dust (background twinkle) ───
+  const DCOUNT = isMobile ? 80 : 200;
+  const dGeo = new THREE.BufferGeometry();
+  const dPos = new Float32Array(DCOUNT * 3);
+  const dSeed = new Float32Array(DCOUNT);
+  const dSize = new Float32Array(DCOUNT);
+  for (let i = 0; i < DCOUNT; i++) {
+    dPos[i * 3] = (Math.random() - 0.5) * 60;
+    dPos[i * 3 + 1] = (Math.random() - 0.5) * 30;
+    dPos[i * 3 + 2] = (Math.random() - 0.5) * 60 - 20;
+    dSeed[i] = Math.random() * Math.PI * 2;
+    dSize[i] = 0.3 + Math.random() * 0.6;
   }
-  const envTexture = new THREE.DataTexture(envData, envSize, envSize, THREE.RGBAFormat);
-  envTexture.mapping = THREE.EquirectangularReflectionMapping;
-  envTexture.needsUpdate = true;
-  scene.environment = envTexture;
+  dGeo.setAttribute("position", new THREE.BufferAttribute(dPos, 3));
+  dGeo.setAttribute("aSeed", new THREE.BufferAttribute(dSeed, 1));
+  dGeo.setAttribute("aSize", new THREE.BufferAttribute(dSize, 1));
+  const dustUniforms = { uTime: { value: 0 }, uOpacity: { value: 0.4 } };
+  const dustMat = new THREE.ShaderMaterial({
+    uniforms: dustUniforms,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexShader: `
+      attribute float aSeed;
+      attribute float aSize;
+      uniform float uTime;
+      varying float vAlpha;
+      void main() {
+        vec3 p = position;
+        p.x += sin(uTime * 0.12 + aSeed) * 0.8;
+        p.y += cos(uTime * 0.1 + aSeed * 2.0) * 0.6;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = aSize * (120.0 / -mv.z);
+        vAlpha = 0.3 + 0.5 * abs(sin(uTime * 0.4 + aSeed * 3.0));
+        gl_Position = projectionMatrix * mv;
+      }
+    `,
+    fragmentShader: `
+      uniform float uOpacity;
+      varying float vAlpha;
+      void main() {
+        vec2 c = gl_PointCoord - 0.5;
+        float d = length(c);
+        float alpha = smoothstep(0.5, 0.05, d) * vAlpha * uOpacity;
+        gl_FragColor = vec4(vec3(0.831, 0.686, 0.216), alpha);
+      }
+    `,
+  });
+  const dust = new THREE.Points(dGeo, dustMat);
+  scene.add(dust);
 
   return {
     renderer,
     scene,
     camera,
-    fog,
-    columns,
-    grid,
-    particles,
-    particleUniforms,
-    nebula,
     nebulaUniforms,
-    stream,
+    ribbonMaterials,
     streamUniforms,
-    pointGlow,
-    orbitGlow,
-    glowMat,
-    envTexture,
+    tealUniforms,
+    dustUniforms,
   };
 }
 
@@ -519,14 +557,12 @@ export function HeroField({ className }: { className?: string }) {
       try {
         const isMobile = window.innerWidth < 768;
         sceneData = createScene(host, isMobile);
-        const { renderer, scene, camera, fog, columns, grid, particleUniforms, nebulaUniforms, streamUniforms, pointGlow, orbitGlow } = sceneData;
+        const { renderer, scene, camera, nebulaUniforms, ribbonMaterials, streamUniforms, tealUniforms, dustUniforms } = sceneData;
 
-        // Mobile profile: camera sits higher & wider so the grid is a backdrop
-        // band, not a wall (plan §4.5).
-        const camStartY = isMobile ? 5 : 4.2;
-        const camStartZ = isMobile ? 24 : 22;
-        const camRestY = isMobile ? 6 : 5;
-        const camRestZ = isMobile ? 20 : 18;
+        const camStartY = 4.6;
+        const camStartZ = isMobile ? 22 : 19;
+        const camRestY = 3.2;
+        const camRestZ = isMobile ? 17 : 14;
 
         const mouse = { x: 0, y: 0 };
         const target = { x: 0, y: 0 };
@@ -546,10 +582,13 @@ export function HeroField({ className }: { className?: string }) {
           nebulaUniforms.uResolution.value.set(w, h);
           nebulaUniforms.uAspect.value = w / h;
           streamUniforms.uResolution.value.set(w, h);
+          tealUniforms.uResolution.value.set(w, h);
+          for (const m of ribbonMaterials) {
+            m.uniforms.uResolution.value.set(w, h);
+          }
         };
         window.addEventListener("resize", onResize);
 
-        // Pause the loop when the hero is off-screen (battery + focus)
         let heroVisible = true;
         const io = new IntersectionObserver(
           (entries) => {
@@ -561,70 +600,43 @@ export function HeroField({ className }: { className?: string }) {
         );
         io.observe(host);
 
-        // Composed render: pure function of a simulation time `simT` (seconds
-        // from mount). Passive layers (autonomous drift, nebula, streams) run on
-        // the clock; pointer parallax + scroll dolly are secondary additions.
+        // Composed render — pure function of simulation time `simT`. All layers
+        // are clock-driven; pointer parallax + scroll dolly are secondary.
         const renderFrame = (simT: number) => {
           if (disposed || !renderer) return;
 
-          // Entrance camera dolly (expo-out, ~2s)
           const intro = clamp01(simT / 2.0);
           const e = EASE_OUT_EXPO(intro);
-          // Passive-drift amplitude ramps 0→full over 1s after the intro
           const driftRamp = clamp01((simT - 2.0) / 1.0);
-
-          // Scroll hand-off: camera dollies forward + up, fog thickens
           const sp = clamp01(scrollYProgress.get());
 
-          // Mouse parallax — smoothed orbit, reduced amplitude (±0.8/±0.5)
           target.x += (mouse.x - target.x) * 0.04;
           target.y += (mouse.y - target.y) * 0.04;
 
-          // Autonomous drift — non-harmonic clock loops (26s/34s/48s), never
-          // repeats, zero input required (plan §4.1 / §4.3)
-          const driftX = Math.sin(simT * (Math.PI * 2) / 26) * 0.6;
-          const driftY = Math.cos(simT * (Math.PI * 2) / 34) * 0.35;
-          const driftZ = Math.sin(simT * (Math.PI * 2) / 48) * 0.4;
+          // Autonomous drift — non-harmonic clock loops (26s/34s/48s)
+          const driftX = Math.sin(simT * (Math.PI * 2) / 26) * 0.7;
+          const driftY = Math.cos(simT * (Math.PI * 2) / 34) * 0.45;
+          const driftZ = Math.sin(simT * (Math.PI * 2) / 48) * 0.5;
 
-          const restX = target.x * 0.8 + driftX * driftRamp;
-          const restY = camRestY + target.y * 0.5 + driftY * driftRamp;
+          const restX = target.x * 0.6 + driftX * driftRamp;
+          const restY = camRestY + target.y * 0.4 + driftY * driftRamp;
           const restZ = camRestZ + driftZ * driftRamp;
 
-          // Gentle ambient camera bob (scales in with intro)
-          const bobY = Math.sin(simT * 0.15) * 0.15 * e;
-          const bobZ = Math.sin(simT * 0.11) * 0.3 * e;
+          const bobY = Math.sin(simT * 0.15) * 0.12 * e;
+          const bobZ = Math.sin(simT * 0.11) * 0.25 * e;
 
           camera.position.x = restX;
-          camera.position.y = lerp(camStartY, restY, e) + bobY + sp * 1.4;
+          camera.position.y = lerp(camStartY, restY, e) + bobY + sp * 1.1;
           camera.position.z = lerp(camStartZ, restZ, e) + bobZ - sp * 4;
-          camera.lookAt(0, 2 - sp * 0.5, 0);
+          camera.lookAt(0, 1.6 - sp * 0.5, 0);
 
-          // Breathing grid rotation (very slow collective sway)
-          grid.rotation.y = Math.sin(simT * 0.15) * 0.02;
-
-          // Per-column sway
-          for (let i = 0; i < columns.length; i++) {
-            columns[i].rotation.z = Math.sin(simT * 0.3 + i * 0.5) * 0.008;
-          }
-
-          // Pulsing point glow (starts once the intro is underway)
-          pointGlow.intensity = e * (2.5 + Math.sin(simT * 0.8) * 0.8);
-
-          // Teal rim glow drifting behind the grid
-          orbitGlow.position.set(Math.cos(simT * 0.3) * 8, 3.5, Math.sin(simT * 0.3) * 8 - 6);
-          orbitGlow.intensity = 0.15 + Math.sin(simT * 0.45) * 0.1;
-
-          // Particles drift + twinkle + stream B lateral flow
-          particleUniforms.uTime.value = simT;
-          streamUniforms.uTime.value = simT;
-
-          // Nebula field morphs on the clock; cross-fades in over the first
-          // second so the entrance never fights it
+          // Everything flows on the clock
+          for (const m of ribbonMaterials) m.uniforms.uTime.value = simT;
           nebulaUniforms.uTime.value = simT;
           nebulaUniforms.uOpacity.value = clamp01(simT / 1.0);
-
-          // Fog thickens as the hero scrolls away
-          fog.density = 0.018 + sp * 0.012;
+          streamUniforms.uTime.value = simT;
+          tealUniforms.uTime.value = simT;
+          dustUniforms.uTime.value = simT;
 
           renderer.render(scene, camera);
         };
@@ -657,7 +669,7 @@ export function HeroField({ className }: { className?: string }) {
             host.style.opacity = "1";
             if (reduceMotion()) {
               stop();
-              renderFrame(12); // single static resting frame, nebula frozen mid-flow
+              renderFrame(12); // single static composed frame, streams frozen mid-flow
             } else {
               start();
             }
@@ -688,7 +700,6 @@ export function HeroField({ className }: { className?: string }) {
               else m.dispose();
             }
           });
-          sceneData?.envTexture.dispose();
           if (renderer.domElement.parentNode === host) {
             host.removeChild(renderer.domElement);
           }
