@@ -244,14 +244,14 @@ export const CHALLENGE_ACCESS = [
 
 export const HOW_IT_WORKS = [
   {
-    step: "Step 1 →",
+    step: "Step 1",
     phase: "Evaluation Process",
     title: "Prove your skills",
     description:
       "Pass a 1-Step or 2-Step evaluation with clear objectives, no time limits, and news trading allowed.",
   },
   {
-    step: "Step 2 →",
+    step: "Step 2",
     phase: "CK Account",
     title: "Earn rewards",
     description:
