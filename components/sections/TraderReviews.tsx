@@ -1,6 +1,8 @@
 "use client";
+import { motion } from "framer-motion";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import { fadeUp, stagger } from "@/components/fx/reveal";
 import { Star } from "lucide-react";
 
 export interface ReviewCard {
@@ -102,10 +104,17 @@ export function TraderReviews({ reviews = DEFAULT_REVIEWS }: { reviews?: ReviewC
           </a>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
           {items.map((r, i) => (
-            <div
+            <motion.div
               key={i}
+              variants={fadeUp}
               className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 flex flex-col justify-between gap-6"
             >
               <div>
@@ -132,9 +141,9 @@ export function TraderReviews({ reviews = DEFAULT_REVIEWS }: { reviews?: ReviewC
                   </span>
                 ) : null}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <p className="mt-8 text-center text-xs text-foreground/30 max-w-lg mx-auto">
           Reviews reflect individual experiences and do not guarantee future results. CK Capital provides simulated trading evaluations only.

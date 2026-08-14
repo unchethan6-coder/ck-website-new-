@@ -1,67 +1,19 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { GoldButton } from "@/components/shared/GoldButton";
 import { MarketTicker } from "@/components/sections/MarketTicker";
+import { Aurora } from "@/components/fx/Aurora";
+import { LivePayoutPill } from "@/components/fx/LivePayoutPill";
 import { PRICING_PLANS } from "@/lib/content";
-import { ArrowRight, Sparkles, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function useCountdown() {
-  // Initial state deliberately uses the FULL 24h window with no `Date.now()`
-  // or `localStorage` read. Both server and client's first render produce
-  // "24 : 00 : 00" — identical strings, so hydration matches. The real target
-  // is resolved inside useEffect (client only), which then triggers a
-  // re-render with the correct remaining time.
-  const [diff, setDiff] = useState<number>(86_400_000);
-
-  useEffect(() => {
-    const resolveTarget = (): number => {
-      try {
-        const stored = localStorage.getItem("ck-countdown");
-        if (stored) {
-          const t = parseInt(stored, 10);
-          if (!Number.isNaN(t) && t > Date.now()) return t;
-        }
-      } catch {
-        // localStorage may throw in private mode — fall through to a fresh target
-      }
-      const target = Date.now() + 86_400_000;
-      try {
-        localStorage.setItem("ck-countdown", String(target));
-      } catch {}
-      return target;
-    };
-
-    const target = resolveTarget();
-    setDiff(Math.max(0, target - Date.now()));
-    const id = setInterval(
-      () => setDiff(Math.max(0, target - Date.now())),
-      1000
-    );
-    return () => clearInterval(id);
-  }, []);
-
-  const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
-  const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
-  const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
-  return { h, m, s };
-}
-
-function CountdownTile({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl border border-primary/25 bg-foreground/[0.04] flex items-center justify-center">
-        <span className="font-mono text-xl sm:text-2xl font-bold text-primary tabular-nums leading-none">
-          {value}
-        </span>
-      </div>
-      <span className="text-[9px] text-foreground/35 mt-1.5 uppercase tracking-[0.14em]">
-        {label}
-      </span>
-    </div>
-  );
-}
+// Three.js gold aurora field — lazy-loaded chunk (kept out of the main bundle).
+const HeroField = dynamic(
+  () => import("@/components/fx/HeroField").then((m) => m.HeroField),
+  { ssr: false }
+);
 
 const HERO_FEATURES = [
   "12H Payouts",
@@ -81,7 +33,7 @@ function HeroPricingCard({
       className={cn(
         "relative flex flex-col rounded-2xl border p-5 sm:p-6 min-w-0",
         plan.popular
-          ? "border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_25px_rgba(212,175,55,0.25)]"
+          ? "fx-border-spin border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_25px_rgba(212,175,55,0.25)]"
           : "border-foreground/10 bg-foreground/[0.03]"
       )}
     >
@@ -151,41 +103,43 @@ function HeroPricingCard({
 }
 
 export function Hero() {
-  const { h, m, s } = useCountdown();
-
   return (
     <section
-      // Hero + ticker together fit within the initial viewport. The 112px
-      // offset accounts for the announcement bar (~40px) and nav pill flow
-      // (~72px) that precede this section, so `min-h-[calc(100dvh-112px)]`
-      // makes the ticker land at the bottom edge of the 100vh fold.
-      className="relative flex flex-col min-h-[calc(100dvh-112px)]"
+      /* Slides under the transparent nav pill (mirrors upcomers' -mt-[--nav-h]) */
+      className="relative -mt-[72px] md:-mt-[76px] flex flex-col min-h-[calc(100dvh-44px)]"
       data-od-id="hero"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 75% 10%, rgba(212,175,55,0.22), transparent 45%), radial-gradient(circle at 10% 90%, rgba(212,175,55,0.10), transparent 40%)",
-        }}
-      />
-      <div className="relative w-full flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+      {/* Large CSS gold radial glows — fill the hero like upcomers' aurora image */}
+      <div aria-hidden="true" className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+        {/* Top center glow — broad, dominant */}
+        <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70"
+          style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.28) 0%, rgba(138,100,16,0.12) 40%, transparent 70%)" }} />
+        {/* Center-left glow */}
+        <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60"
+          style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.22) 0%, rgba(138,100,16,0.08) 45%, transparent 70%)" }} />
+        {/* Center-right glow */}
+        <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55"
+          style={{ background: "radial-gradient(ellipse at center, rgba(245,213,112,0.18) 0%, rgba(212,175,55,0.08) 40%, transparent 65%)" }} />
+        {/* Bottom fill */}
+        <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40"
+          style={{ background: "radial-gradient(ellipse at center, rgba(138,100,16,0.2) 0%, transparent 65%)" }} />
+      </div>
+      {/* WebGL gold aurora (animated layer — detail on top of CSS glows) */}
+      <HeroField className="absolute inset-0 z-[2] pointer-events-none" />
+      {/* CSS aurora: dot grid overlay */}
+      <Aurora variant="hero" grid className="inset-x-0 -top-1 bottom-0 z-[3] pointer-events-none" />
+
+      <div className="relative z-10 w-full flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
           {/* ─────────────── LEFT COLUMN — copy ─────────────── */}
           <div className="lg:col-span-7 xl:col-span-6 min-w-0">
-            {/* Promo pill */}
+            {/* Live payout pill */}
             <motion.div
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold text-primary tracking-[0.16em] uppercase">
-                <Sparkles size={11} className="text-primary" />
-                Summer Sale
-                <span className="text-primary/40">·</span>
-                Biggest Drop of the Year
-              </span>
+              <LivePayoutPill />
             </motion.div>
 
             {/* Headline */}
@@ -193,7 +147,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-[family-name:var(--font-inter-tight)] font-extrabold leading-[1.02] tracking-[-0.02em] text-foreground text-[clamp(38px,7vw,44px)] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+              className="mt-6 font-[family-name:var(--font-inter-tight)] font-extrabold leading-[1.02] tracking-[-0.02em] text-foreground text-[clamp(38px,7vw,44px)] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
               data-od-id="hero-headline"
             >
               Trade up to <span className="shimmer-text whitespace-nowrap">$100K.</span>
@@ -201,53 +155,24 @@ export function Hero() {
               Keep up to <span className="shimmer-text whitespace-nowrap">100%.</span>
             </motion.h1>
 
-            {/* Gold sub-line */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-4 text-base sm:text-lg font-bold text-primary tracking-tight"
-            >
-              70% OFF all evaluations
-            </motion.p>
-
             {/* Subcopy */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-3 max-w-xl text-[14px] sm:text-[15px] text-foreground/55 leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="mt-5 max-w-xl text-[14px] sm:text-[15px] text-foreground/55 leading-relaxed"
             >
               Prove your skills in a simulated environment on MT5 &amp; TradeLocker.
               No time limits, news trading allowed, transparent rules, and no hidden
               fees.
             </motion.p>
 
-            {/* Countdown */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-7"
-            >
-              <p className="text-[10.5px] text-foreground/40 uppercase tracking-[0.2em] font-semibold mb-3">
-                Offer Ends In
-              </p>
-              <div className="flex items-center gap-2 sm:gap-2.5">
-                <CountdownTile value={h} label="hrs" />
-                <span className="text-foreground/25 font-bold text-lg sm:text-xl -mt-4">:</span>
-                <CountdownTile value={m} label="min" />
-                <span className="text-foreground/25 font-bold text-lg sm:text-xl -mt-4">:</span>
-                <CountdownTile value={s} label="sec" />
-              </div>
-            </motion.div>
-
-            {/* CTAs */}
+            {/* CTAs — one primary, one text link */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-6 flex flex-wrap items-center gap-3"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-7 flex flex-wrap items-center gap-4"
             >
               <a
                 href="https://app.ckcapital.co.uk/signup"
@@ -255,15 +180,16 @@ export function Hero() {
                 rel="noopener noreferrer"
               >
                 <GoldButton size="lg" data-od-id="hero-cta-primary">
-                  Claim 70% OFF <ArrowRight size={16} />
+                  Start Your Challenge <ArrowRight size={16} />
                 </GoldButton>
               </a>
               <a
-                href="#start-challenge"
+                href="#how-it-works"
                 data-od-id="hero-cta-secondary"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-foreground/15 text-[14px] font-semibold text-foreground/85 hover:text-foreground hover:border-foreground/25 hover:bg-foreground/[0.04] transition-all"
+                className="inline-flex items-center gap-1.5 px-2 py-3 text-[14px] font-semibold text-foreground/75 hover:text-foreground transition-colors"
               >
-                Compare Plans
+                See how it works
+                <span aria-hidden="true" className="text-primary">↓</span>
               </a>
             </motion.div>
 
@@ -271,8 +197,8 @@ export function Hero() {
             <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.75 }}
-              className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2"
             >
               {HERO_FEATURES.map((f) => (
                 <li
@@ -287,11 +213,6 @@ export function Hero() {
           </div>
 
           {/* ─────────────── RIGHT COLUMN — pricing cards ─────────────── */}
-          {/*
-            Mobile/tablet (<lg): full-width, sm+ shows 3-across
-            lg (1024–1279): stack vertically to give each card breathing room
-            xl (1280+): 3-across again inside the 5/12 sidebar column
-          */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

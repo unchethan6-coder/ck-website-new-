@@ -117,7 +117,7 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
                     {/* Play button */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all ring-1 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/60">
                         <Play size={22} fill="#0B0A07" stroke="none" className="ml-1" />
                       </div>
                     </div>

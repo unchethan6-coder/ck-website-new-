@@ -1,19 +1,18 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/sections/Hero";
-import { OffersStrip } from "@/components/sections/OffersStrip";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 import { PaymentsMarquee } from "@/components/sections/PaymentsMarquee";
 import { ChallengeComparison } from "@/components/sections/ChallengeComparison";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { SupportSection } from "@/components/sections/SupportSection";
 import { TradingPlatforms } from "@/components/sections/TradingPlatforms";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { PayoutCarousel } from "@/components/sections/PayoutCarousel";
-import { CommunityGrid } from "@/components/sections/CommunityGrid";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { CommunityGrid } from "@/components/sections/CommunityGrid";
 import { TraderReviews } from "@/components/sections/TraderReviews";
-import { InstrumentsShowcase } from "@/components/sections/InstrumentsShowcase";
+import { SupportSection } from "@/components/sections/SupportSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { ClosingCta } from "@/components/sections/ClosingCta";
 import {
   getActivePromo,
   getFirmReviews,
@@ -56,24 +55,35 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
+      {/* S1 — Hero (aurora, live pill, border-spin pricing, slides under nav) */}
       <Hero />
-      {/* Section 2 — Available Offers → Trust stats → Payment partners */}
-      <OffersStrip promo={promo} />
+      {/* S2 — Stat band */}
       <StatsStrip />
+      {/* Trusted payment partners */}
       <PaymentsMarquee />
+      {/* S3 — Why CK bento (count-up + live chart) */}
+      <WhyChooseUs />
+      {/* S4 — Three steps */}
+      <HowItWorks />
+      {/* S5 — Choose Your Challenge */}
       <Suspense fallback={null}>
         <ChallengeComparison config={challengeConfig} promoCode={promo?.code} />
       </Suspense>
+      {/* Trading platforms (MT5 / TradeLocker) */}
       <TradingPlatforms />
-      <WhyChooseUs />
+      {/* S6 — Real Payouts */}
       <PayoutCarousel payouts={payoutItems} />
+      {/* S7 — Testimonials */}
       <Testimonials videos={videoItems} />
+      {/* S8 — Community + algo terminal */}
       <CommunityGrid />
+      {/* S9 — Trader reviews */}
       <TraderReviews reviews={reviewCards} />
-      <InstrumentsShowcase />
-      <HowItWorks />
+      {/* Support */}
       <SupportSection />
       <FaqAccordion />
+      {/* S10 — Closing CTA */}
+      <ClosingCta />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
@@ -20,6 +20,7 @@ const FALLBACK_PAYOUTS: PayoutItem[] = [
 
 function MarqueeRow({ items, reverse = false }: { items: PayoutItem[]; reverse?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -30,24 +31,30 @@ function MarqueeRow({ items, reverse = false }: { items: PayoutItem[]; reverse?:
 
     function tick() {
       if (!track) return;
-      if (reverse) {
-        pos -= speed;
-        if (pos <= -track.scrollWidth / 2) pos = 0;
-      } else {
-        pos += speed;
-        if (pos >= 0) pos = -track.scrollWidth / 2;
+      if (!paused) {
+        if (reverse) {
+          pos -= speed;
+          if (pos <= -track.scrollWidth / 2) pos = 0;
+        } else {
+          pos += speed;
+          if (pos >= 0) pos = -track.scrollWidth / 2;
+        }
+        track.style.transform = `translateX(${pos}px)`;
       }
-      track.style.transform = `translateX(${pos}px)`;
       raf = requestAnimationFrame(tick);
     }
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [reverse]);
+  }, [reverse, paused]);
 
   const doubled = [...items, ...items];
 
   return (
-    <div className="overflow-hidden">
+    <div
+      className="overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div ref={trackRef} className="flex gap-3 sm:gap-4 w-max">
         {doubled.map((p, i) => (
           <div
@@ -64,6 +71,9 @@ function MarqueeRow({ items, reverse = false }: { items: PayoutItem[]; reverse?:
                 unoptimized
               />
             </div>
+            <span className="fx-chip-in absolute top-2 left-2 rounded-lg bg-[#0b0a07]/80 px-2 py-1 text-[10px] font-bold text-[#F7D774] backdrop-blur-sm">
+              ✓ Verified payout
+            </span>
             {p.amount && (
               <div className="absolute bottom-2 left-2 rounded-lg bg-[#0b0a07]/85 px-2.5 py-1 text-xs font-bold text-[#F7D774]">
                 {p.amount}
@@ -92,8 +102,9 @@ export function PayoutCarousel({ payouts = FALLBACK_PAYOUTS }: { payouts?: Payou
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
               Real Payouts to Real Traders
             </h2>
-            <p className="mt-2 text-foreground/50 text-sm">
-              65,000+ traders paid. Average processing time: 12 hours.
+            <p className="mt-3 text-foreground/50 text-sm max-w-xl mx-auto">
+              Average processing time: <span className="font-bold text-primary">12 hours</span>.
+              No waiting periods, no hidden conditions.
             </p>
           </div>
         </SectionReveal>

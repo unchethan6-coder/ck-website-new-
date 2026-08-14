@@ -1,19 +1,11 @@
 "use client";
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { TRUST_STATS } from "@/lib/content";
-
-function CountUp({ target, suffix = "" }: { target: string; suffix?: string }) {
-  return <span>{target}{suffix}</span>;
-}
+import { CountUp } from "@/components/fx/CountUp";
 
 export function StatsStrip() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
-
   return (
     <section
-      ref={ref}
       className="border-y border-foreground/10 bg-foreground/[0.03] py-10 md:py-12"
       data-od-id="stats-strip"
     >
@@ -23,13 +15,15 @@ export function StatsStrip() {
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-col items-center justify-center gap-1 px-3 sm:px-4 py-3 sm:py-4 text-center"
             >
-              <span className="font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-primary">
-                {stat.value}
-              </span>
+              <CountUp
+                value={stat.value}
+                className="font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-primary tabular-nums"
+              />
               <span className="text-[11px] sm:text-xs text-foreground/45 leading-snug">{stat.label}</span>
             </motion.div>
           ))}

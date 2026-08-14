@@ -62,6 +62,7 @@ html.dark,
   color-scheme: dark;
 
   /* Brand colours */
+  --brand-rgb:             212 175 55;  /* gold as rgb triplet for fx alpha compositing */
   --background:            #0b0a07;
   --background-secondary:  #12100a;
   --foreground:            #f4f6f8;
@@ -613,3 +614,159 @@ html.light .bg-primary\/\[0\.08\] {
 /* ── Light: challenge table — darken border lines for readability ── */
 html.light .border-foreground\/\[0\.06\] { border-color: rgba(26, 21, 8, 0.12); }
 html.light .border-foreground\/\[0\.1\] { border-color: rgba(26, 21, 8, 0.15); }
+
+/* ============================================================= */
+/* Upcomers-style fx system — Phase 1 homepage revamp            */
+/* All effects are transform/opacity/clip-path only (GPU-safe).  */
+/* ============================================================= */
+
+/* ── Aurora atmosphere layers + dot grid ───────────────────── */
+.fx-aurora-a {
+  background: radial-gradient(125% 85% at 50% -14%, rgb(var(--brand-rgb)/0.20), transparent 60%);
+  animation: fx-aurora-a 3.6s ease-in-out infinite;
+}
+.fx-aurora-b {
+  background: radial-gradient(85% 100% at 50% 0, rgb(var(--brand-rgb)/0.18), transparent 70%);
+  animation: fx-aurora-b 4.6s ease-in-out infinite;
+}
+.fx-aurora-core {
+  background: radial-gradient(40% 32% at 50% 30%, rgb(var(--brand-rgb)/0.15), transparent 70%);
+  animation: fx-aurora-core 2.8s ease-in-out infinite;
+}
+.fx-aurora-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+@keyframes fx-aurora-a {
+  0%, 100% { opacity: 0.66; }
+  50%      { opacity: 1; }
+}
+@keyframes fx-aurora-b {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@keyframes fx-aurora-core {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* ── Conic orbiting border (featured cards only — 1 per viewport) ── */
+@property --upc-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes fx-border-spin {
+  to { --upc-angle: 360deg; }
+}
+.fx-border-spin { position: relative; }
+.fx-border-spin::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--upc-angle), transparent 0deg, rgb(var(--brand-rgb)/0.9) 40deg, transparent 90deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: fx-border-spin 4s linear infinite;
+  pointer-events: none;
+}
+
+/* ── Terminal choreography ─────────────────────────────────── */
+@keyframes term-line-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes term-type {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes term-caret {
+  0%, 49%  { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes term-spark-in {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.term-line {
+  animation: term-line-in 0.3s ease-out both;
+}
+.term-type {
+  animation: term-type 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.term-caret {
+  display: inline-block;
+  width: 0.55em;
+  animation: term-caret 1s steps(1) infinite;
+}
+.term-spark {
+  display: inline-block;
+  animation: term-spark-in 0.3s ease-out both;
+}
+
+/* ── Chip pop / check draw ─────────────────────────────────── */
+@keyframes fx-chip-in {
+  from { opacity: 0; transform: translateY(3px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.fx-chip-in {
+  animation: fx-chip-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes fx-check-draw {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+.fx-check-draw path,
+.fx-check-draw line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: fx-check-draw 0.4s ease-out both;
+}
+
+/* ── content-visibility for below-fold sections (pacing/perf) ── */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
+/* ── Light-mode remaps (aurora alpha ~50%, dot grid on cream) ── */
+html.light .fx-aurora-a {
+  background: radial-gradient(125% 85% at 50% -14%, rgb(var(--brand-rgb)/0.11), transparent 60%);
+}
+html.light .fx-aurora-b {
+  background: radial-gradient(85% 100% at 50% 0, rgb(var(--brand-rgb)/0.1), transparent 70%);
+}
+html.light .fx-aurora-core {
+  background: radial-gradient(40% 32% at 50% 30%, rgb(var(--brand-rgb)/0.08), transparent 70%);
+}
+html.light .fx-aurora-dots {
+  background-image: radial-gradient(rgba(26, 21, 8, 0.05) 1px, transparent 1.4px);
+}
+
+/* ── Live chart — teal line (dark) / darker teal on cream for AA ── */
+.fx-chart-line { stroke: #14b8a6; }
+.fx-chart-fill { stop-color: #14b8a6; }
+.fx-chart-dot { fill: #14b8a6; }
+html.light .fx-chart-line { stroke: #0f766e; }
+html.light .fx-chart-fill { stop-color: #0f766e; }
+html.light .fx-chart-dot { fill: #0f766e; }
+html.light .fx-chart-grid { stroke: rgba(26, 21, 8, 0.08); }
+
+/* ── Reduced motion — static fallbacks for every fx animation ── */
+@media (prefers-reduced-motion: reduce) {
+  .fx-aurora-a, .fx-aurora-b, .fx-aurora-core,
+  .fx-border-spin::before,
+  .term-line, .term-type, .term-caret, .term-spark,
+  .fx-chip-in {
+    animation: none !important;
+  }
+  .term-type { clip-path: inset(0 0 0 0) !important; }
+  .term-line { opacity: 1 !important; transform: none !important; }
+  .term-caret { opacity: 0 !important; }
+}

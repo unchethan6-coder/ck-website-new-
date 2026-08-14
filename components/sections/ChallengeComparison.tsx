@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { Check } from "lucide-react";
 import {
   CHALLENGE_TYPES,
   CHALLENGE_RULES,
@@ -14,6 +16,7 @@ import type { ChallengeType } from "@/lib/content";
 import type { ChallengeConfig } from "@/lib/cms";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import { chipIn, stagger } from "@/components/fx/reveal";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────── helpers */
@@ -336,6 +339,27 @@ export function ChallengeComparison({
             </div>
           </SectionReveal>
 
+          {/* Universal-conditions strip — honest CK values (fx-chip-in pop) */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={stagger}
+            className="mb-7 flex flex-wrap justify-center gap-2"
+            data-od-id="challenge-conditions"
+          >
+            {["Profit split up to 100%", "Leverage 1:100", "Payouts in ~12 hours"].map((c) => (
+              <motion.span
+                key={c}
+                variants={chipIn}
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/[0.07] px-3.5 py-1.5 text-[12.5px] font-semibold text-foreground/85"
+              >
+                <Check size={13} strokeWidth={3} className="text-primary shrink-0" />
+                {c}
+              </motion.span>
+            ))}
+          </motion.div>
+
           {/* ─────────────── PHASES VIEW ─────────────── */}
           {view === "phases" && (
             <>
@@ -536,7 +560,7 @@ export function ChallengeComparison({
                       className={cn(
                         "relative rounded-2xl border p-4",
                         s.badge
-                          ? "border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06]"
+                          ? "fx-border-spin border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06]"
                           : "border-foreground/10 bg-foreground/[0.03]"
                       )}
                     >
@@ -669,7 +693,7 @@ export function ChallengeComparison({
                           className={cn(
                             "relative flex min-w-[190px] flex-1 flex-col rounded-2xl border px-4 pb-4 pt-5 transition-transform duration-300 hover:-translate-y-1",
                             s.badge
-                              ? "border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_25px_rgba(212,175,55,0.22)]"
+                              ? "fx-border-spin border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_25px_rgba(212,175,55,0.22)]"
                               : "border-foreground/10 bg-foreground/[0.03] hover:border-primary/40"
                           )}
                         >
@@ -766,8 +790,24 @@ export function ChallengeComparison({
                 {access.map((a) => (
                   <span
                     key={a}
-                    className="rounded-lg border border-foreground/12 bg-foreground/[0.04] px-3.5 py-2 text-[13px] font-semibold text-foreground/75"
+                    className="inline-flex items-center gap-2 rounded-lg border border-foreground/12 bg-foreground/[0.04] px-3.5 py-2 text-[13px] font-semibold text-foreground/75"
                   >
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                      className="fx-check-draw shrink-0 text-primary"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                     {a}
                   </span>
                 ))}
