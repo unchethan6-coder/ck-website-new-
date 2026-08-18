@@ -16,7 +16,7 @@ export function PricingGrid() {
   const sym = CURRENCIES.find((c) => c.code === currency)?.symbol ?? "$";
 
   return (
-    <section className="py-16 md:py-24 bg-background" data-od-id="pricing">
+    <section className="py-16 md:py-24" data-od-id="pricing">
       <Container>
         <SectionReveal className="text-center mb-10">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">

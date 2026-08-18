@@ -8,11 +8,13 @@ export const SITE_META = {
 };
 
 export const NAV_LINKS = [
-  { label: "Products", href: "/#start-challenge" },
-  { label: "Rewards", href: "/rewards" },
-  { label: "Trading", href: "/#platforms" },
-  { label: "FAQs", href: "/faq" },
+  { label: "Evaluation", href: "/evaluation" },
+  { label: "Instant Funding", href: "/instant" },
+  { label: "Trading Objectives", href: "/trading-objectives" },
+  { label: "Payouts", href: "/payouts" },
+  { label: "About Us", href: "/about-us" },
   { label: "Affiliates", href: "/affiliates" },
+  { label: "FAQ", href: "https://intercom.help/ck-capital/en/" },
 ];
 
 export const PRICING_PLANS = [

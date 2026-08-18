@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
@@ -80,6 +81,7 @@ export function ChallengeComparison({
   config?: ChallengeConfig | null;
   promoCode?: string;
 }) {
+  const t = useTranslations("challenge");
   const [activeType, setActiveType] = useState<ChallengeType>("standard");
   const [currency, setCurrency] = useState("USD");
   const [size, setSize] = useState("$10K");
@@ -139,37 +141,37 @@ export function ChallengeComparison({
   }[] = [];
   const funded = {
     key: "funded",
-    title: "CK Account",
-    subtitle: "Funded Stage",
+    title: t("ckAccount"),
+    subtitle: t("fundedStage"),
     target: "—",
     maxDaily: X.maxDaily,
     maxLoss: X.maxLoss,
     minDays: "—",
-    period: activeType === "instant" ? "Unlimited" : "—",
+    period: activeType === "instant" ? t("unlimited") : "—",
     split,
     consistency: X.consistency,
   };
   const phase1 = {
     key: "p1",
-    title: "Phase 1",
-    subtitle: "Evaluation",
+    title: t("phase1"),
+    subtitle: t("evaluationStage"),
     target: X.phase1,
     maxDaily: X.maxDaily,
     maxLoss: X.maxLoss,
     minDays: "1",
-    period: "Unlimited",
+    period: t("unlimited"),
     split: "—",
     consistency: X.consistency,
   };
   const phase2 = {
     key: "p2",
-    title: "Phase 2",
-    subtitle: "Verification",
+    title: t("phase2"),
+    subtitle: t("verificationStage"),
     target: X.phase2,
     maxDaily: X.maxDaily,
     maxLoss: X.maxLoss,
     minDays: "1",
-    period: "Unlimited",
+    period: t("unlimited"),
     split: "—",
     consistency: X.consistency,
   };
@@ -178,13 +180,13 @@ export function ChallengeComparison({
   else columns.push(phase1, phase2, funded);
 
   const rows: { label: string; key: "target" | "maxDaily" | "maxLoss" | "minDays" | "period" | "split" | "consistency" }[] = [
-    { label: "Profit Target", key: "target" },
-    { label: "Max Daily Loss", key: "maxDaily" },
-    { label: "Max Loss", key: "maxLoss" },
-    { label: "Min Trading Days", key: "minDays" },
-    { label: "Trading Period", key: "period" },
-    { label: "Reward Split", key: "split" },
-    { label: "Consistency Rule", key: "consistency" },
+    { label: t("profitTarget"), key: "target" },
+    { label: t("maxDailyLoss"), key: "maxDaily" },
+    { label: t("maxLoss"), key: "maxLoss" },
+    { label: t("minTradingDays"), key: "minDays" },
+    { label: t("tradingPeriod"), key: "period" },
+    { label: t("rewardSplit"), key: "split" },
+    { label: t("consistencyRule"), key: "consistency" },
   ];
 
   const copyCode = () => {
@@ -203,13 +205,13 @@ export function ChallengeComparison({
       const rule = rules[activeType][s];
       return {
         size: s,
-        badge: s === "$100K" ? "MOST POPULAR" : null,
+        badge: s === "$100K" ? t("mostPopular") : null,
         phase1: rule.phase1,
         phase2: rule.phase2,
         maxDaily: rule.maxDaily,
         maxLoss: rule.maxLoss,
         minDays: "1",
-        period: "Unlimited",
+        period: t("unlimited"),
         split,
         consistency: rule.consistency,
         price: prices[activeType][s].price,
@@ -221,14 +223,9 @@ export function ChallengeComparison({
   return (
     <section
       id="start-challenge"
-      className="relative scroll-mt-28 overflow-hidden bg-background py-16 md:py-24"
+      className="relative scroll-mt-28 overflow-hidden py-16 md:py-24"
       data-od-id="challenge-comparison"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(circle at 50% 0%, rgba(212,175,55,0.20), transparent 45%)" }}
-      />
       <Container>
         <div className="relative">
           {/* Title */}
@@ -237,10 +234,10 @@ export function ChallengeComparison({
               data-od-id="challenge-title"
               className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground"
             >
-              Choose Your CK Capital Challenge
+              {t("title")}
             </h2>
             <p className="mx-auto mt-4 max-w-[560px] text-[15px] leading-7 text-foreground/60">
-              Complete the Trading Objectives to become eligible for your CK Account.
+              {t("subtitle")}
             </p>
           </SectionReveal>
 
@@ -307,7 +304,7 @@ export function ChallengeComparison({
                   className="inline-flex min-h-11 select-none items-center gap-2 whitespace-nowrap rounded-full px-3 text-xs font-bold text-foreground/70 transition-colors hover:text-foreground"
                 >
                   <Switch checked={showNumbers} />
-                  Show Numbers
+                  {t("showNumbers")}
                 </button>
                 <div className="inline-flex rounded-full border border-foreground/15 bg-foreground/[0.04] p-1">
                   <button
@@ -320,7 +317,7 @@ export function ChallengeComparison({
                         : "text-foreground/60 hover:text-foreground"
                     )}
                   >
-                    Show Phases
+                    {t("showPhases")}
                   </button>
                   <button
                     onClick={() => setView("compare")}
@@ -332,7 +329,7 @@ export function ChallengeComparison({
                         : "text-foreground/60 hover:text-foreground"
                     )}
                   >
-                    Compare Sizes
+                    {t("compareSizes")}
                   </button>
                 </div>
               </div>
@@ -446,7 +443,7 @@ export function ChallengeComparison({
                             scope="col"
                             className="px-5 py-4 text-left text-[12px] font-bold uppercase tracking-[0.14em] text-foreground/45"
                           >
-                            Trading Objectives
+                            {t("tradingObjectives")}
                           </th>
                           {columns.map((c) => (
                             <th
@@ -505,7 +502,7 @@ export function ChallengeComparison({
                   <div className="flex flex-col gap-4 border-t border-foreground/10 bg-foreground/[0.03] px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/40">
-                        CK Account
+                        {t("ckAccount")}
                       </p>
                       <p className="text-2xl font-extrabold text-foreground tabular-nums">
                         {fmtMoney(parseMoney(activeSize))}
@@ -517,11 +514,11 @@ export function ChallengeComparison({
                         onClick={copyCode}
                         className="rounded-lg border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-[13px] font-bold text-[#F7D774] transition-all hover:bg-primary/20"
                       >
-                        {copied === promo ? "✓ Copied!" : `Code: ${promo}`}
+                        {copied === promo ? `✓ ${t("copied")}` : `${t("code")}: ${promo}`}
                       </button>
                       <div className="text-right">
                         <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/40">
-                          Price
+                          {t("price")}
                         </p>
                         <p className="text-2xl font-extrabold text-[#F7D774] tabular-nums">
                           {toCurrency(Y.price, currency)}{" "}
@@ -537,7 +534,7 @@ export function ChallengeComparison({
                         data-od-id="challenge-cta"
                         className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D4AF37] px-8 text-[15px] font-bold text-[#0B0A07] transition-colors hover:bg-[#F7D774]"
                       >
-                        Start Now
+                        {t("startNow")}
                       </a>
                     </div>
                   </div>
@@ -567,7 +564,7 @@ export function ChallengeComparison({
                       {s.badge && (
                         <div className="absolute -top-3 left-3 flex items-center gap-1.5 whitespace-nowrap">
                           <span className="rounded-full bg-[#D4AF37] px-2.5 py-1 text-[10px] font-bold text-[#0B0A07]">
-                            BEST VALUE
+                            {t("bestValue")}
                           </span>
                           <span className="rounded-full bg-gradient-to-r from-[#b88718] to-[#F7D774] px-2 py-1 text-[10px] font-bold text-[#0B0A07]">
                             -70%
@@ -577,7 +574,7 @@ export function ChallengeComparison({
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-foreground/40">
-                            Account
+                            {t("account")}
                           </p>
                           <p className="text-2xl font-extrabold text-foreground tabular-nums">
                             {toCurrency(s.size, currency)}
@@ -618,7 +615,7 @@ export function ChallengeComparison({
                               val = r(s.maxLoss);
                               break;
                             case "minDays":
-                              val = `${s.minDays} day`;
+                              val = `${s.minDays} ${t("day")}`;
                               break;
                             case "period":
                               val = s.period;
@@ -645,7 +642,7 @@ export function ChallengeComparison({
                           s.badge && "shadow-[0_0_16px_rgba(212,175,55,0.4)]"
                         )}
                       >
-                        Start now
+                        {t("startNow")}
                       </a>
                     </div>
                   );
@@ -658,7 +655,7 @@ export function ChallengeComparison({
                 <div className="flex w-[180px] shrink-0 flex-col rounded-2xl bg-[#0e0c08] px-5 pt-9 pb-4 text-[13px] font-semibold text-foreground/65">
                   <div className="mb-4 h-[66px]">
                     <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-foreground/40">
-                      Account
+                      {t("account")}
                     </p>
                     <p className="text-2xl font-extrabold text-foreground/25">…</p>
                   </div>
@@ -674,7 +671,7 @@ export function ChallengeComparison({
                     </div>
                   ))}
                   <div className="mt-4 flex h-16 items-start pt-1 text-foreground/50">
-                    One-time fee<br />from
+                    {t("oneTimeFee")}
                   </div>
                 </div>
 
@@ -700,7 +697,7 @@ export function ChallengeComparison({
                           {s.badge && (
                             <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap">
                               <span className="rounded-full bg-[#D4AF37] px-2.5 py-1 text-[10px] font-bold text-[#0B0A07]">
-                                BEST VALUE
+                                {t("bestValue")}
                               </span>
                               <span className="rounded-full bg-gradient-to-r from-[#b88718] to-[#F7D774] px-2 py-1 text-[10px] font-bold text-[#0B0A07]">
                                 -70%
@@ -709,7 +706,7 @@ export function ChallengeComparison({
                           )}
                           <div className="mb-4 h-[66px] text-center">
                             <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-foreground/40">
-                              Account
+                              {t("account")}
                             </p>
                             <p className="text-2xl font-extrabold text-foreground tabular-nums">
                               {toCurrency(s.size, currency)}
@@ -719,14 +716,14 @@ export function ChallengeComparison({
                           <div className="flex min-h-14 flex-col justify-center border-t border-foreground/[0.07] text-xs">
                             <div className="flex items-center justify-between gap-2 whitespace-nowrap">
                               <span className="text-[11px] font-bold uppercase tracking-wide text-foreground/45">
-                                Phase 1
+                                {t("phase1")}
                               </span>
                               <span className="font-bold text-foreground tabular-nums">{r(s.phase1)}</span>
                             </div>
                             {s.phase2 !== "$0" && (
                               <div className="mt-1 flex items-center justify-between gap-2 whitespace-nowrap">
                                 <span className="text-[11px] font-bold uppercase tracking-wide text-foreground/45">
-                                  Phase 2
+                                  {t("phase2")}
                                 </span>
                                 <span className="font-bold text-foreground tabular-nums">{r(s.phase2)}</span>
                               </div>
@@ -740,7 +737,7 @@ export function ChallengeComparison({
                             {r(s.maxLoss)}
                           </div>
                           <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-foreground tabular-nums">
-                            {s.minDays} day
+                            {s.minDays} {t("day")}
                           </div>
                           <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-foreground">
                             {s.period}
@@ -762,14 +759,14 @@ export function ChallengeComparison({
                           </div>
                           <a
                             href="https://app.ckcapital.co.uk/signup"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={cn(
                               "mt-1 inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-lg bg-[#D4AF37] text-sm font-bold text-[#0B0A07] transition-colors hover:bg-[#F7D774]",
                               s.badge && "shadow-[0_0_16px_rgba(212,175,55,0.4)]"
                             )}
                           >
-                            Start now
+                            {t("startNow")}
                           </a>
                         </div>
                       );
@@ -784,7 +781,7 @@ export function ChallengeComparison({
           <SectionReveal delay={0.24}>
             <div className="mt-8 text-center">
               <p className="mb-3 text-[13px] font-semibold text-foreground/55">
-                You will also get access to:
+                {t("accessTitle")}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
                 {access.map((a) => (
@@ -814,8 +811,7 @@ export function ChallengeComparison({
               </div>
             </div>
             <p className="mx-auto mt-8 max-w-3xl text-center text-[13px] leading-relaxed text-foreground/50 md:text-sm">
-              CK Capital programs use demo accounts with fictitious funds for simulated trading
-              evaluation only. Program terms, rules, and eligibility apply.
+              {t("disclaimer")}
             </p>
           </SectionReveal>
         </div>

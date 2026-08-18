@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, MotionConfig, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 import { GoldButton } from "@/components/shared/GoldButton";
@@ -77,6 +78,8 @@ function HeroPricingCard({
   plan: (typeof PRICING_PLANS)[number];
   index: number;
 }) {
+  const tc = useTranslations("challenge");
+
   return (
     <motion.article
       data-od-id={`hero-pricing-${plan.id}`}
@@ -92,7 +95,7 @@ function HeroPricingCard({
       {/* Badge above card */}
       {plan.popular ? (
         <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[image:var(--ck-gold-gradient)] px-3.5 py-1 text-[10px] font-bold text-black tracking-[0.14em]">
-          MOST POPULAR
+          {tc("mostPopular")}
         </span>
       ) : (
         <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-primary/80 mb-2">
@@ -109,9 +112,9 @@ function HeroPricingCard({
 
       <div className="mt-4 space-y-2 text-[12.5px] flex-1">
         {[
-          { label: "Profit Target",   value: plan.profitTarget },
-          { label: "Max Daily Loss",  value: plan.maxDailyLoss },
-          { label: "Max Loss",        value: plan.maxLoss },
+          { label: tc("profitTarget"), value: plan.profitTarget },
+          { label: tc("maxDailyLoss"), value: plan.maxDailyLoss },
+          { label: tc("maxLoss"), value: plan.maxLoss },
         ].map((row) => (
           <div
             key={row.label}
@@ -146,7 +149,7 @@ function HeroPricingCard({
             variant={plan.popular ? "gold" : "outline"}
             size="md"
           >
-            Start Now
+            {tc("startNow")}
           </GoldButton>
         </a>
       </div>
@@ -155,7 +158,18 @@ function HeroPricingCard({
 }
 
 export function Hero() {
+  const tHero = useTranslations("hero");
   const sectionRef = useRef<HTMLElement>(null);
+  const heroFeatures = (tHero.raw("features") as string[]) ?? HERO_FEATURES;
+
+  const line1 = tHero("headlineLine1") || "Trade up to $100K.";
+  const line2 = tHero("headlineLine2") || "Keep up to 100%.";
+  const line1Words = line1.split(" ");
+  const line2Words = line2.split(" ");
+  const dynamicH1Lines = [
+    { words: line1Words.map((text, i) => ({ text, gold: i === line1Words.length - 1 })) },
+    { words: line2Words.map((text, i) => ({ text, gold: i === line2Words.length - 1 })) },
+  ];
 
   // Scroll hand-off (parallax-fade, Option A). progress = 0 at hero top in
   // view; 1 when the hero bottom reaches the viewport top.
@@ -185,14 +199,10 @@ export function Hero() {
           style={{ y: glowY, opacity: glowOpacity }}
           className="absolute inset-0 z-[1] pointer-events-none overflow-hidden"
         >
-          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70"
-            style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.28) 0%, rgba(138,100,16,0.12) 40%, transparent 70%)" }} />
-          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60"
-            style={{ background: "radial-gradient(ellipse at center, rgba(212,175,55,0.22) 0%, rgba(138,100,16,0.08) 45%, transparent 70%)" }} />
-          <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55"
-            style={{ background: "radial-gradient(ellipse at center, rgba(245,213,112,0.18) 0%, rgba(212,175,55,0.08) 40%, transparent 65%)" }} />
-          <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40"
-            style={{ background: "radial-gradient(ellipse at center, rgba(138,100,16,0.2) 0%, transparent 65%)" }} />
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+          <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55 fx-hero-glow-3" />
+          <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40 fx-hero-glow-4" />
         </motion.div>
 
         {/* WebGL gold column skyline (animated layer — detail on top of CSS glows) */}
@@ -233,7 +243,7 @@ export function Hero() {
                 className="fx-copy-shadow mt-6 font-[family-name:var(--font-inter-tight)] font-extrabold leading-[1.02] tracking-[-0.02em] text-foreground text-[clamp(38px,7vw,44px)] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="hero-headline"
               >
-                {H1_LINES.map((line, li) => (
+                {dynamicH1Lines.map((line, li) => (
                   <span key={li} className="block">
                     {line.words.map((w, wi) => {
                       const delay = (li === 0 ? 0.45 : 0.62) + wi * 0.04;
@@ -264,9 +274,7 @@ export function Hero() {
                 custom={0.85}
                 className="fx-copy-shadow mt-5 max-w-xl text-[14px] sm:text-[15px] text-foreground/55 leading-relaxed"
               >
-                Prove your skills in a simulated environment on MT5 &amp; TradeLocker.
-                No time limits, news trading allowed, transparent rules, and no hidden
-                fees.
+                {tHero("subcopy")}
               </motion.p>
 
               {/* CTAs — one primary, one text link (1.00s) */}
@@ -287,7 +295,7 @@ export function Hero() {
                       data-od-id="hero-cta-primary"
                       className="fx-sheen fx-sheen-hover"
                     >
-                      Start Your Challenge <ArrowRight size={16} />
+                      {tHero("startChallenge")} <ArrowRight size={16} />
                     </GoldButton>
                   </a>
                 </MagneticWrapper>
@@ -296,7 +304,7 @@ export function Hero() {
                   data-od-id="hero-cta-secondary"
                   className="inline-flex items-center gap-1.5 px-2 py-3 text-[14px] font-semibold text-foreground/75 hover:text-foreground transition-colors"
                 >
-                  See how it works
+                  {tHero("exploreObjectives")}
                   <span aria-hidden="true" className="text-primary">↓</span>
                 </a>
               </motion.div>
@@ -306,7 +314,7 @@ export function Hero() {
                 variants={{ hidden: {}, show: {} }}
                 className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2"
               >
-                {HERO_FEATURES.map((f, i) => (
+                {heroFeatures.map((f, i) => (
                   <motion.li
                     key={f}
                     variants={chipUp}

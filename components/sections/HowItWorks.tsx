@@ -1,29 +1,47 @@
 "use client";
 import { motion } from "framer-motion";
-import { HOW_IT_WORKS } from "@/lib/content";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
-import { Aurora } from "@/components/fx/Aurora";
 import { fadeUp, stagger } from "@/components/fx/reveal";
 
 export function HowItWorks() {
+  const t = useTranslations("howItWorks");
+
+  const steps = [
+    {
+      phase: t("steps.step1.phase"),
+      title: t("steps.step1.title"),
+      description: t("steps.step1.description"),
+    },
+    {
+      phase: t("steps.step2.phase"),
+      title: t("steps.step2.title"),
+      description: t("steps.step2.description"),
+    },
+    {
+      phase: t("steps.step3.phase"),
+      title: t("steps.step3.title"),
+      description: t("steps.step3.description"),
+    },
+  ];
+
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden border-y border-foreground/[0.06] bg-foreground/[0.02] py-14 md:py-24"
+      className="relative overflow-hidden py-14 md:py-24"
       data-od-id="how-it-works"
     >
-      <Aurora variant="section" />
       <Container>
         <SectionReveal className="text-center mb-12 md:mb-16">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             Process
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
-            Three stages from evaluation to funded
+            {t("title")}
           </h2>
           <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
-            Pass the objectives, earn rewards, then scale — on your own timetable.
+            {t("subtitle")}
           </p>
         </SectionReveal>
 
@@ -40,9 +58,9 @@ export function HowItWorks() {
             className="absolute left-[34px] top-6 bottom-6 w-px bg-gradient-to-b from-primary/40 via-primary/15 to-transparent"
           />
           <div className="space-y-10 md:space-y-12">
-            {HOW_IT_WORKS.map((step, i) => (
+            {steps.map((step, i) => (
               <motion.div
-                key={step.title}
+                key={i}
                 variants={fadeUp}
                 className="relative flex items-start gap-5 sm:gap-8"
                 data-od-id={`how-step-${i + 1}`}

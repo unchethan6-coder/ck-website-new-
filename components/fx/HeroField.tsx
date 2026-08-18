@@ -20,7 +20,7 @@ import { useScroll } from "framer-motion";
  * streams behind the copy block; DOM scrim/plate/cards ground reading surfaces.
  *
  * Behaviour:
- * - Hidden + paused in light mode.
+ * - Dark-only: the locked additive gold-on-black scene always renders.
  * - `prefers-reduced-motion` → one static composed frame, no loops, no intro.
  * - WebGL unavailable → no-op (CSS aurora fallback).
  * - Paused when the hero is off-screen (IntersectionObserver).
@@ -40,11 +40,53 @@ function quietZone(isMobile: boolean) {
   };
 }
 
+/* ── Scene palette ────────────────────────────────────────────────────
+ * CK Capital is dark-only: a single locked additive gold-on-black config.
+ * No theme switching — the scene always renders this palette.
+ */
+interface Palette {
+  nebula: [string, string, string];
+  ribbon: [string, string];
+  teal: string;
+  stream: [string, string];
+  dust: string;
+  mode: "additive" | "normal";
+  quietDimToBlack: boolean;
+  nebulaAlpha: [number, number];
+  ribbonAlphaScale: number;
+  streamOpacity: number;
+  streamSizeScale: number;
+  streamCountScale: number;
+  tealOpacity: number;
+  tealOpacityMobile: number;
+  dustOpacity: number;
+  quietStrength: number;
+}
+
+const SCENE_PALETTE: Palette = {
+  nebula: ["#8a6410", "#d4af37", "#f5d570"],
+  ribbon: ["#d4af37", "#f5d570"],
+  teal: "#14b8a6",
+  stream: ["#f5d570", "#d4af37"],
+  dust: "#d4af37",
+  mode: "additive",
+  quietDimToBlack: true,
+  nebulaAlpha: [0.13, 0.75],
+  ribbonAlphaScale: 1.0,
+  streamOpacity: 0.5,
+  streamSizeScale: 1.0,
+  streamCountScale: 1.0,
+  tealOpacity: 0.3,
+  tealOpacityMobile: 0.2,
+  dustOpacity: 0.4,
+  quietStrength: 0.5,
+};
+
 /**
  * buildNebula — fullscreen domain-warped fbm aurora base. Kept as a subtle
  * dark atmosphere (low alpha floor) so the flowing streams read against it.
  */
-function buildNebula(isMobile: boolean, width: number, height: number) {
+function buildNebula(isMobile: boolean, width: number, height: number, palette: Palette) {
   const octaves = isMobile ? 3 : 5;
   const qz = quietZone(isMobile);
   const uniforms = {
@@ -53,15 +95,24 @@ function buildNebula(isMobile: boolean, width: number, height: number) {
     uAspect: { value: width / height },
     uQuietCenter: { value: qz.center },
     uQuietSize: { value: qz.size },
-    uQuietStrength: { value: qz.strength },
+    uQuietStrength: { value: qz.strength * palette.quietStrength },
     uTealBlend: { value: 0.12 },
     uOpacity: { value: 0 },
+    uDark: { value: new THREE.Color(palette.nebula[0]) },
+    uGold: { value: new THREE.Color(palette.nebula[1]) },
+    uBright: { value: new THREE.Color(palette.nebula[2]) },
+    uTeal: { value: new THREE.Color(palette.teal) },
+    uDimToBlack: { value: palette.quietDimToBlack ? 1 : 0 },
+    uPremultiplied: { value: palette.mode === "additive" ? 1 : 0 },
+    uAlphaFloor: { value: palette.nebulaAlpha[0] },
+    uAlphaScale: { value: palette.nebulaAlpha[1] - palette.nebulaAlpha[0] },
   };
 
   const mat = new THREE.ShaderMaterial({
     uniforms,
     transparent: true,
     depthWrite: false,
+    blending: palette.mode === "additive" ? THREE.AdditiveBlending : THREE.NormalBlending,
     vertexShader: `
       varying vec2 vUv;
       void main() {
@@ -79,6 +130,14 @@ function buildNebula(isMobile: boolean, width: number, height: number) {
       uniform float uQuietStrength;
       uniform float uTealBlend;
       uniform float uOpacity;
+      uniform vec3 uDark;
+      uniform vec3 uGold;
+      uniform vec3 uBright;
+      uniform vec3 uTeal;
+      uniform float uDimToBlack;
+      uniform float uPremultiplied;
+      uniform float uAlphaFloor;
+      uniform float uAlphaScale;
       varying vec2 vUv;
 
       #define OCTAVES ${octaves}
@@ -123,27 +182,26 @@ function buildNebula(isMobile: boolean, width: number, height: number) {
         );
         float f = fbm(p + 2.6 * r);
 
-        vec3 dark = vec3(0.541, 0.392, 0.063);   // #8a6410
-        vec3 gold = vec3(0.831, 0.686, 0.216);   // #d4af37
-        vec3 bright = vec3(0.961, 0.835, 0.439); // #f5d570
-        vec3 col = mix(dark, gold, smoothstep(0.15, 0.5, f));
-        col = mix(col, bright, smoothstep(0.42, 0.62, f));
+        vec3 col = mix(uDark, uGold, smoothstep(0.15, 0.5, f));
+        col = mix(col, uBright, smoothstep(0.42, 0.62, f));
 
-        vec3 teal = vec3(0.078, 0.722, 0.651);   // #14b8a6
         float fringe = smoothstep(0.3, 0.5, r.y) * (1.0 - smoothstep(0.5, 0.72, r.y));
-        col = mix(col, teal, fringe * uTealBlend);
+        col = mix(col, uTeal, fringe * uTealBlend);
 
-        // subtle dark atmosphere — low floor so streams read against it
-        float a = (0.13 + 0.62 * smoothstep(0.2, 0.64, f)) * uOpacity;
+        // atmosphere — low floor so streams read against it (dark) or a
+        // soft warm wash on cream (light)
+        float a = (uAlphaFloor + uAlphaScale * smoothstep(0.2, 0.64, f)) * uOpacity;
         vec2 vd = (uv - 0.5) * vec2(uAspect, 1.0);
         a *= 1.0 - smoothstep(0.62, 0.95, length(vd));
 
+        // Quiet zone — dark: dim toward black; light: alpha→0 reveals cream
         vec2 qd = (uv - uQuietCenter) / uQuietSize;
         float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
-        col *= 1.0 - uQuietStrength * qmask;
-        a *= 1.0 - uQuietStrength * 0.8 * qmask;
+        col *= 1.0 - uQuietStrength * qmask * uDimToBlack;
+        a *= 1.0 - uQuietStrength * mix(0.8, 1.0, 1.0 - uDimToBlack) * qmask;
 
-        gl_FragColor = vec4(col * a, a);
+        // premultiplied (additive) output for dark; straight alpha for light
+        gl_FragColor = vec4(mix(col, col * a, uPremultiplied), a);
       }
     `,
   });
@@ -179,7 +237,7 @@ const RIBBON_SPECS: RibbonSpec[] = [
   { z: -14,   y: 3.2, rotY: -0.1,  width: 46, height: 8, freq: [1.0, 0.55, 0.14], speed: [1.8, 1.25, 0.8], amp: [0.6, 0.9, 1.55], phase: [3.3, 0.9], base: 0.30, breathe: 0.6, teal: 0.0 },
 ];
 
-function buildRibbons(isMobile: boolean, width: number, height: number) {
+function buildRibbons(isMobile: boolean, width: number, height: number, palette: Palette) {
   const qz = quietZone(isMobile);
   const specs = isMobile ? RIBBON_SPECS.slice(0, 3) : RIBBON_SPECS;
   const group = new THREE.Group();
@@ -198,7 +256,12 @@ function buildRibbons(isMobile: boolean, width: number, height: number) {
       uResolution: { value: new THREE.Vector2(width, height) },
       uQuietCenter: { value: qz.center },
       uQuietSize: { value: qz.size },
-      uQuietStrength: { value: qz.strength },
+      uQuietStrength: { value: qz.strength * palette.quietStrength },
+      uGold: { value: new THREE.Color(palette.ribbon[0]) },
+      uBright: { value: new THREE.Color(palette.ribbon[1]) },
+      uTealColor: { value: new THREE.Color(palette.teal) },
+      uAlphaScale: { value: palette.ribbonAlphaScale },
+      uPremultiplied: { value: palette.mode === "additive" ? 1 : 0 },
     };
 
     const mat = new THREE.ShaderMaterial({
@@ -206,7 +269,7 @@ function buildRibbons(isMobile: boolean, width: number, height: number) {
       transparent: true,
       depthWrite: false,
       side: THREE.DoubleSide,
-      blending: THREE.AdditiveBlending,
+      blending: palette.mode === "additive" ? THREE.AdditiveBlending : THREE.NormalBlending,
       vertexShader: `
         uniform float uTime;
         uniform vec2 uPhase;
@@ -232,6 +295,11 @@ function buildRibbons(isMobile: boolean, width: number, height: number) {
         uniform float uBaseOpacity;
         uniform float uBreathe;
         uniform float uTeal;
+        uniform float uAlphaScale;
+        uniform vec3 uGold;
+        uniform vec3 uBright;
+        uniform vec3 uTealColor;
+        uniform float uPremultiplied;
         uniform vec2 uResolution;
         uniform vec2 uQuietCenter;
         uniform vec2 uQuietSize;
@@ -241,20 +309,18 @@ function buildRibbons(isMobile: boolean, width: number, height: number) {
           float edge = smoothstep(0.0, 0.14, vUv.y) * (1.0 - smoothstep(0.86, 1.0, vUv.y));
           float xedge = smoothstep(0.0, 0.05, vUv.x) * (1.0 - smoothstep(0.95, 1.0, vUv.x));
           float breathe = 0.8 + 0.2 * sin(uTime * uBreathe);
-          float a = edge * xedge * uBaseOpacity * breathe;
+          float a = edge * xedge * uBaseOpacity * uAlphaScale * breathe;
 
-          vec3 gold = vec3(0.831, 0.686, 0.216);   // #d4af37
-          vec3 bright = vec3(0.961, 0.835, 0.439); // #f5d570
-          vec3 col = mix(gold, bright, smoothstep(0.3, 0.7, vUv.y));
-          vec3 teal = vec3(0.078, 0.722, 0.651);   // #14b8a6
-          col = mix(col, teal, uTeal);
+          vec3 col = mix(uGold, uBright, smoothstep(0.3, 0.7, vUv.y));
+          col = mix(col, uTealColor, uTeal);
 
           vec2 uv = gl_FragCoord.xy / uResolution;
           vec2 qd = (uv - uQuietCenter) / uQuietSize;
           float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
           a *= 1.0 - uQuietStrength * qmask;
 
-          gl_FragColor = vec4(col * a, a);
+          // premultiplied (additive) output for dark; straight alpha for light
+          gl_FragColor = vec4(mix(col, col * a, uPremultiplied), a);
         }
       `,
     });
@@ -276,9 +342,9 @@ function buildRibbons(isMobile: boolean, width: number, height: number) {
  * non-repeating Lissajous paths inside a bounded volume, wrapping at the
  * edges. Constant, unmistakable streaming motion (zero input required).
  */
-function buildFlowField(isMobile: boolean, width: number, height: number) {
+function buildFlowField(isMobile: boolean, width: number, height: number, palette: Palette) {
   const qz = quietZone(isMobile);
-  const COUNT = isMobile ? 4200 : 12000;
+  const COUNT = Math.round((isMobile ? 4200 : 12000) * palette.streamCountScale);
   const geo = new THREE.BufferGeometry();
   const pos = new Float32Array(COUNT * 3);
   const seed = new Float32Array(COUNT);
@@ -288,7 +354,7 @@ function buildFlowField(isMobile: boolean, width: number, height: number) {
     pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
     pos[i * 3 + 2] = (Math.random() - 0.5) * 36 - 2; // bias toward the camera
     seed[i] = Math.random();
-    size[i] = (isMobile ? 1.2 : 1.6) + Math.random() * 2.4;
+    size[i] = (isMobile ? 1.2 : 1.6) * palette.streamSizeScale + Math.random() * 2.4 * palette.streamSizeScale;
   }
   geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
   geo.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
@@ -296,19 +362,20 @@ function buildFlowField(isMobile: boolean, width: number, height: number) {
 
   const uniforms = {
     uTime: { value: 0 },
-    uColorA: { value: new THREE.Color(0xf5d570) },
-    uColorB: { value: new THREE.Color(0xd4af37) },
-    uOpacity: { value: isMobile ? 0.4 : 0.5 },
+    uColorA: { value: new THREE.Color(palette.stream[0]) },
+    uColorB: { value: new THREE.Color(palette.stream[1]) },
+    uOpacity: { value: isMobile ? palette.streamOpacity * 0.8 : palette.streamOpacity },
+    uPremultiplied: { value: palette.mode === "additive" ? 1 : 0 },
     uResolution: { value: new THREE.Vector2(width, height) },
     uQuietCenter: { value: qz.center },
     uQuietSize: { value: qz.size },
-    uQuietStrength: { value: qz.strength },
+    uQuietStrength: { value: qz.strength * palette.quietStrength },
   };
   const mat = new THREE.ShaderMaterial({
     uniforms,
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
+    blending: palette.mode === "additive" ? THREE.AdditiveBlending : THREE.NormalBlending,
     vertexShader: `
       attribute float aSeed;
       attribute float aSize;
@@ -342,6 +409,7 @@ function buildFlowField(isMobile: boolean, width: number, height: number) {
       uniform vec3 uColorA;
       uniform vec3 uColorB;
       uniform float uOpacity;
+      uniform float uPremultiplied;
       uniform vec2 uResolution;
       uniform vec2 uQuietCenter;
       uniform vec2 uQuietSize;
@@ -360,7 +428,7 @@ function buildFlowField(isMobile: boolean, width: number, height: number) {
         float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
         alpha *= 1.0 - uQuietStrength * qmask;
 
-        gl_FragColor = vec4(col * alpha, alpha);
+        gl_FragColor = vec4(mix(col, col * alpha, uPremultiplied), alpha);
       }
     `,
   });
@@ -368,7 +436,7 @@ function buildFlowField(isMobile: boolean, width: number, height: number) {
   return { points, uniforms };
 }
 
-function createScene(host: HTMLDivElement, isMobile: boolean) {
+function createScene(host: HTMLDivElement, isMobile: boolean, palette: Palette) {
   const width = host.clientWidth || window.innerWidth;
   const height = host.clientHeight || window.innerHeight;
 
@@ -389,15 +457,15 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
   camera.lookAt(0, 1.6, 0);
 
   // ─── Deep nebula base (farthest) ───
-  const { mesh: nebula, uniforms: nebulaUniforms } = buildNebula(isMobile, width, height);
+  const { mesh: nebula, uniforms: nebulaUniforms } = buildNebula(isMobile, width, height, palette);
   scene.add(nebula);
 
   // ─── Aurora-silk ribbons (flowing sheets) ───
-  const { group: ribbons, materials: ribbonMaterials } = buildRibbons(isMobile, width, height);
+  const { group: ribbons, materials: ribbonMaterials } = buildRibbons(isMobile, width, height, palette);
   scene.add(ribbons);
 
   // ─── Flow-field stream — the signature motion layer ───
-  const { points: stream, uniforms: streamUniforms } = buildFlowField(isMobile, width, height);
+  const { points: stream, uniforms: streamUniforms } = buildFlowField(isMobile, width, height, palette);
   scene.add(stream);
 
   // ─── Teal accent stream (≤15% blend) — sparse lateral flow ───
@@ -420,18 +488,19 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
   const qz = quietZone(isMobile);
   const tealUniforms = {
     uTime: { value: 0 },
-    uColor: { value: new THREE.Color(0x14b8a6) },
-    uOpacity: { value: isMobile ? 0.2 : 0.3 },
+    uColor: { value: new THREE.Color(palette.teal) },
+    uOpacity: { value: isMobile ? palette.tealOpacityMobile : palette.tealOpacity },
+    uPremultiplied: { value: palette.mode === "additive" ? 1 : 0 },
     uResolution: { value: new THREE.Vector2(width, height) },
     uQuietCenter: { value: qz.center },
     uQuietSize: { value: qz.size },
-    uQuietStrength: { value: qz.strength },
+    uQuietStrength: { value: qz.strength * palette.quietStrength },
   };
   const tealMat = new THREE.ShaderMaterial({
     uniforms: tealUniforms,
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
+    blending: palette.mode === "additive" ? THREE.AdditiveBlending : THREE.NormalBlending,
     vertexShader: `
       attribute float aSeed;
       attribute float aSize;
@@ -450,6 +519,7 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
     fragmentShader: `
       uniform vec3 uColor;
       uniform float uOpacity;
+      uniform float uPremultiplied;
       uniform vec2 uResolution;
       uniform vec2 uQuietCenter;
       uniform vec2 uQuietSize;
@@ -463,7 +533,7 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
         vec2 qd = (uv - uQuietCenter) / uQuietSize;
         float qmask = 1.0 - smoothstep(0.5, 1.0, length(qd));
         alpha *= 1.0 - uQuietStrength * qmask;
-        gl_FragColor = vec4(uColor, alpha);
+        gl_FragColor = vec4(mix(uColor, uColor * alpha, uPremultiplied), alpha);
       }
     `,
   });
@@ -486,12 +556,12 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
   dGeo.setAttribute("position", new THREE.BufferAttribute(dPos, 3));
   dGeo.setAttribute("aSeed", new THREE.BufferAttribute(dSeed, 1));
   dGeo.setAttribute("aSize", new THREE.BufferAttribute(dSize, 1));
-  const dustUniforms = { uTime: { value: 0 }, uOpacity: { value: 0.4 } };
+  const dustUniforms = { uTime: { value: 0 }, uOpacity: { value: palette.dustOpacity }, uColor: { value: new THREE.Color(palette.dust) }, uPremultiplied: { value: palette.mode === "additive" ? 1 : 0 } };
   const dustMat = new THREE.ShaderMaterial({
     uniforms: dustUniforms,
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
+    blending: palette.mode === "additive" ? THREE.AdditiveBlending : THREE.NormalBlending,
     vertexShader: `
       attribute float aSeed;
       attribute float aSize;
@@ -509,12 +579,14 @@ function createScene(host: HTMLDivElement, isMobile: boolean) {
     `,
     fragmentShader: `
       uniform float uOpacity;
+      uniform vec3 uColor;
+      uniform float uPremultiplied;
       varying float vAlpha;
       void main() {
         vec2 c = gl_PointCoord - 0.5;
         float d = length(c);
         float alpha = smoothstep(0.5, 0.05, d) * vAlpha * uOpacity;
-        gl_FragColor = vec4(vec3(0.831, 0.686, 0.216), alpha);
+        gl_FragColor = vec4(mix(uColor, uColor * alpha, uPremultiplied), alpha);
       }
     `,
   });
@@ -549,14 +621,13 @@ export function HeroField({ className }: { className?: string }) {
     let running = false;
     let sceneData: ReturnType<typeof createScene> | null = null;
 
-    const isLight = () => document.documentElement.classList.contains("light");
     const reduceMotion = () =>
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const build = () => {
       try {
         const isMobile = window.innerWidth < 768;
-        sceneData = createScene(host, isMobile);
+        sceneData = createScene(host, isMobile, SCENE_PALETTE);
         const { renderer, scene, camera, nebulaUniforms, ribbonMaterials, streamUniforms, tealUniforms, dustUniforms } = sceneData;
 
         const camStartY = 4.6;
@@ -594,7 +665,7 @@ export function HeroField({ className }: { className?: string }) {
           (entries) => {
             heroVisible = entries[0].isIntersecting;
             if (!heroVisible) stop();
-            else if (!disposed && !document.documentElement.classList.contains("light") && !reduceMotion()) start();
+            else if (!disposed && !reduceMotion()) start();
           },
           { threshold: 0.02 }
         );
@@ -641,12 +712,24 @@ export function HeroField({ className }: { className?: string }) {
           renderer.render(scene, camera);
         };
 
-        let startT = -1;
+        // Simulation clock accumulates *clamped* frame deltas. rAF pauses while
+        // the tab is hidden (alt-tab), so the browser's next timestamp can be
+        // seconds later — an unclamped `simT` would leap the nebula/drift/dust
+        // uniforms one giant step and render as a fast wave sweep on return.
+        // MAX_STEP caps that spike so the scene can never jump.
+        let simT = 0;
+        let lastT = -1;
+        const MAX_STEP = 0.05; // seconds — clamps the tab-return spike
         const frame = (time: number) => {
           if (disposed) return;
           const tSec = time * 0.001;
-          if (startT < 0) startT = tSec;
-          renderFrame(tSec - startT);
+          if (lastT < 0) {
+            lastT = tSec;
+          } else {
+            simT += Math.min(tSec - lastT, MAX_STEP);
+            lastT = tSec;
+          }
+          renderFrame(simT);
           raf = requestAnimationFrame(frame);
         };
 
@@ -660,34 +743,17 @@ export function HeroField({ className }: { className?: string }) {
           cancelAnimationFrame(raf);
         };
 
-        const applyTheme = () => {
-          if (!host) return;
-          if (isLight()) {
-            stop();
-            host.style.opacity = "0";
-          } else {
-            host.style.opacity = "1";
-            if (reduceMotion()) {
-              stop();
-              renderFrame(12); // single static composed frame, streams frozen mid-flow
-            } else {
-              start();
-            }
-          }
-        };
-
-        const observer = new MutationObserver(applyTheme);
-        observer.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-
-        applyTheme();
+        // CK Capital is dark-only — the scene always runs (or renders a
+        // static composed frame under reduced motion).
+        if (reduceMotion()) {
+          renderFrame(12); // single static composed frame, streams frozen mid-flow
+        } else {
+          start();
+        }
 
         return () => {
           disposed = true;
           stop();
-          observer.disconnect();
           io.disconnect();
           window.removeEventListener("mousemove", onMove);
           window.removeEventListener("resize", onResize);

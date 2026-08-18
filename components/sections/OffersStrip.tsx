@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
 import { ArrowRight } from "lucide-react";
@@ -13,19 +14,18 @@ export interface PromoData {
 }
 
 export function OffersStrip({ promo }: { promo?: PromoData | null }) {
+  const t = useTranslations("offers");
   const code = promo?.code ?? SITE_META.promoCode;
   const discount = promo?.discountLabel ?? SITE_META.promoDiscount;
-  const headline = promo?.title ?? "Your First Challenge, 70% Off";
-  const subcopy =
-    promo?.subtitle ??
-    "Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.";
+  const headline = promo?.title ?? t("defaultHeadline", { discount });
+  const subcopy = promo?.subtitle ?? t("defaultSubcopy");
 
   return (
-    <section className="py-12 md:py-16 bg-background" data-od-id="offers">
+    <section className="py-12 md:py-16" data-od-id="offers">
       <Container>
         <SectionReveal>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl md:text-4xl font-extrabold text-foreground mb-3">
-            Available Offers
+            {t("title")}
           </h2>
         </SectionReveal>
 
@@ -33,7 +33,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
         <SectionReveal delay={0.05}>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 border border-primary/30 px-3 py-1 text-[11px] font-semibold text-primary mb-6">
             <span className="w-1 h-1 rounded-full bg-primary" />
-            start challenge · From $9
+            {t("badge")}
           </span>
         </SectionReveal>
 
@@ -52,7 +52,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
               <div className="flex-1 min-w-0">
                 {/* "hot offer" pill */}
                 <span className="inline-flex items-center rounded-full bg-primary/20 border border-primary/40 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
-                  hot offer
+                  {t("hotOffer")}
                 </span>
 
                 {/* Headline — white + gold split */}
@@ -82,7 +82,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
                 data-od-id="offers-cta"
                 className="group shrink-0 self-start md:self-center inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--ck-gold-gradient)] text-black font-bold text-[13px] tracking-[0.12em] uppercase px-5 py-3 shadow-[0_6px_24px_rgba(212,175,55,0.35)] hover:brightness-110 transition-all"
               >
-                {promo?.ctaLabel ?? `Use Code: ${code}`}
+                {promo?.ctaLabel ?? t("useCode", { code })}
                 <ArrowRight
                   size={15}
                   strokeWidth={2.5}

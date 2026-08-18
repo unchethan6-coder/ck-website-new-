@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
@@ -178,23 +179,24 @@ function LoopingTerminal() {
 }
 
 export function InstrumentsShowcase() {
+  const t = useTranslations("instruments");
   const [reviewIdx, setReviewIdx] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => {
+    const timer = setInterval(() => {
       setReviewIdx((i) => (i + 1) % REVIEWS.length);
     }, 4000);
-    return () => clearInterval(t);
+    return () => clearInterval(timer);
   }, []);
 
   const r = REVIEWS[reviewIdx];
 
   return (
-    <section className="py-14 md:py-24 bg-background" data-od-id="instruments">
+    <section className="py-14 md:py-24" data-od-id="instruments">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-5xl">
-            Trade your way
+            {t("title")}
           </h2>
         </SectionReveal>
 
@@ -208,12 +210,11 @@ export function InstrumentsShowcase() {
             transition={{ duration: 0.5 }}
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">CFDs</h3>
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("cfdsTitle")}</h3>
             <p className="text-sm text-foreground/50 leading-relaxed mb-6 max-w-md">
-              Go long or short on 1,000+ instruments across forex, crypto, indices, commodities and stocks with
-              institutional spreads, on simulated capital.
+              {t("cfdsDesc")}
             </p>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {BASE_PRICES.map((inst, i) => (
                 <motion.div
                   key={inst.symbol}
@@ -239,8 +240,8 @@ export function InstrumentsShowcase() {
                     {inst.up ? "↑" : "↓"} {inst.chg}
                   </p>
                   <div className="flex gap-2 mt-1">
-                    <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors">Long</button>
-                    <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors">Short</button>
+                    <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors">{t("btnLong")}</button>
+                    <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors">{t("btnShort")}</button>
                   </div>
                 </motion.div>
               ))}
@@ -255,10 +256,9 @@ export function InstrumentsShowcase() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">Futures</h3>
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("futuresTitle")}</h3>
             <p className="text-sm text-foreground/50 leading-relaxed mb-6 max-w-md">
-              Standardized contracts on indices, commodities and crypto. Prices track real exchange liquidity,
-              not a market maker&apos;s book. Go long or short, overnight and through the weekend.
+              {t("futuresDesc")}
             </p>
             <div className="flex-1 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 flex flex-col">
               <div className="flex items-center justify-between mb-4">
@@ -275,9 +275,9 @@ export function InstrumentsShowcase() {
                 <AnimatedChart />
               </div>
               <div className="flex justify-between mt-4 text-[10px] font-mono text-foreground/40">
-                <div><span className="block text-foreground/30">24H HIGH</span><span className="text-foreground/60 font-bold">24,194</span></div>
-                <div><span className="block text-foreground/30">24H LOW</span><span className="text-foreground/60 font-bold">23,745</span></div>
-                <div><span className="block text-foreground/30">VOL</span><span className="text-foreground/60 font-bold">1.3M</span></div>
+                <div><span className="block text-foreground/30">{t("high24h")}</span><span className="text-foreground/60 font-bold">24,194</span></div>
+                <div><span className="block text-foreground/30">{t("low24h")}</span><span className="text-foreground/60 font-bold">23,745</span></div>
+                <div><span className="block text-foreground/30">{t("vol")}</span><span className="text-foreground/60 font-bold">1.3M</span></div>
               </div>
             </div>
           </motion.div>
@@ -293,7 +293,7 @@ export function InstrumentsShowcase() {
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
             <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-4">
-              Bring your own agent or algo
+              {t("algoTitle")}
             </h3>
             <LoopingTerminal />
           </motion.div>
@@ -307,10 +307,10 @@ export function InstrumentsShowcase() {
           >
             <div>
               <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-2">
-                Trusted by 65k+ traders
+                {t("trustTitle")}
               </h3>
               <p className="text-sm text-foreground/50 leading-relaxed mb-4">
-                Real, verified reviews from funded traders – on Feefo and Google, never cherry-picked.
+                {t("trustSubtitle")}
               </p>
               <div className="flex items-end gap-3">
                 <span className="font-[family-name:var(--font-inter-tight)] text-5xl font-extrabold text-foreground">4.8</span>
@@ -321,7 +321,7 @@ export function InstrumentsShowcase() {
                       <Star key={i} size={16} fill="#f7d774" stroke="none" />
                     ))}
                   </div>
-                  <span className="text-[10px] text-foreground/30">2,800+ verified reviews · Feefo &amp; Google</span>
+                  <span className="text-[10px] text-foreground/30">{t("trustSummary")}</span>
                 </div>
               </div>
             </div>
@@ -346,7 +346,7 @@ export function InstrumentsShowcase() {
                         <Star key={i} size={10} fill="#f7d774" stroke="none" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-bold text-foreground/50">VERIFIED</span>
+                    <span className="text-[10px] font-bold text-foreground/50">{t("verifiedBadge")}</span>
                   </div>
                 </motion.div>
               </AnimatePresence>

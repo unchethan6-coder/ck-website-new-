@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# test & recon artifacts
+qaqc-screenshots/
+qaqc-mobile-screenshots/
+RECON/
+/*.mjs

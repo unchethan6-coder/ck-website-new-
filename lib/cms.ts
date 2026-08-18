@@ -25,17 +25,24 @@ export interface CmsMedia {
   formats?: Record<string, { url: string; width?: number; height?: number }>;
 }
 
+/** Unwrap flattened, REST `data`, and `attributes` media payloads. */
+function unwrapMedia(media: any): any {
+  const item = Array.isArray(media) ? media[0] : media;
+  return item?.data ? unwrapMedia(item.data) : item?.attributes ?? item;
+}
+
 /** Normalise a Strapi v5 media object into a full absolute URL, or null. */
 function mediaUrl(media: any): string | null {
-  const raw = Array.isArray(media) ? media[0] : media;
+  const raw = unwrapMedia(media);
   const url: string | undefined = raw?.url;
   if (!url) return null;
-  return url.startsWith("http") ? url : `${BASE_URL}${url}`;
+  if (/^https?:\/\//i.test(url)) return url;
+  return `${BASE_URL.replace(/\/$/, "")}/${url.replace(/^\//, "")}`;
 }
 
 /** Pick the largest usable format for a media object (for next/image density). */
 function mediaFormats(media: any): Record<string, { url: string; width?: number; height?: number }> | undefined {
-  const raw = Array.isArray(media) ? media[0] : media;
+  const raw = unwrapMedia(media);
   const formats: Record<string, { url: string; width?: number; height?: number }> = raw?.formats;
   if (!formats) return undefined;
   const out: Record<string, { url: string; width?: number; height?: number }> = {};
@@ -46,7 +53,7 @@ function mediaFormats(media: any): Record<string, { url: string; width?: number;
 }
 
 function toMedia(raw: any): CmsMedia | null {
-  const m = Array.isArray(raw) ? raw[0] : raw;
+  const m = unwrapMedia(raw);
   if (!m?.url) return null;
   return {
     id: m.id,
@@ -170,6 +177,11 @@ export interface CmsFirmReview {
   rating: number;
   body: any[];
   publishedAt: string;
+  authorName?: string | null;
+  countryName?: string | null;
+  countryCode?: string | null;
+  source?: string | null;
+  verified?: boolean;
 }
 
 export async function getFirmReviews(): Promise<CmsFirmReview[]> {
@@ -186,6 +198,11 @@ export async function getFirmReviews(): Promise<CmsFirmReview[]> {
       rating: typeof r.rating === "number" ? r.rating : 0,
       body: Array.isArray(r.body) ? r.body : [],
       publishedAt: r.publishedAt,
+      authorName: r.authorName ?? r.author_name ?? null,
+      countryName: r.countryName ?? r.country_name ?? null,
+      countryCode: r.countryCode ?? r.country_code ?? null,
+      source: r.source ?? null,
+      verified: r.verified === undefined ? undefined : Boolean(r.verified),
     }))
     .filter((r: CmsFirmReview) => r.summary);
 }
@@ -197,6 +214,14 @@ export interface CmsVideoReview {
   youtubeVideoId: string;
   title: string;
   publishedAt: string;
+  authorName?: string | null;
+  countryName?: string | null;
+  countryCode?: string | null;
+  qualifiedAnalyst?: boolean;
+  reward?: string | null;
+  description?: string | null;
+  source?: string | null;
+  thumbnail?: CmsMedia | null;
 }
 
 export async function getVideoReviews(): Promise<CmsVideoReview[]> {
@@ -204,6 +229,7 @@ export async function getVideoReviews(): Promise<CmsVideoReview[]> {
   params.set("filters[firmSlug][$eq]", CMS_FIRM_SLUG);
   params.set("pagination[pageSize]", "50");
   params.set("sort", "createdAt:desc");
+  params.set("populate[thumbnail]", "true");
   const res = await cmsFetch<any>(`video-reviews?${params.toString()}`);
   if (!res?.data) return [];
   return res.data
@@ -212,6 +238,17 @@ export async function getVideoReviews(): Promise<CmsVideoReview[]> {
       youtubeVideoId: r.youtubeVideoId ?? "",
       title: r.title ?? "",
       publishedAt: r.publishedAt,
+      authorName: r.authorName ?? r.author_name ?? null,
+      countryName: r.countryName ?? r.country_name ?? null,
+      countryCode: r.countryCode ?? r.country_code ?? null,
+      qualifiedAnalyst:
+        r.qualifiedAnalyst === undefined && r.qualified_analyst === undefined
+          ? undefined
+          : Boolean(r.qualifiedAnalyst ?? r.qualified_analyst),
+      reward: r.reward ?? null,
+      description: r.description ?? null,
+      source: r.source ?? null,
+      thumbnail: toMedia(r.thumbnail),
     }))
     .filter((r: CmsVideoReview) => r.youtubeVideoId);
 }
@@ -272,6 +309,13 @@ export interface CmsPayout {
   title: string | null;
   amount: string | null;
   image: CmsMedia | null;
+  currency?: string | null;
+  countryName?: string | null;
+  countryCode?: string | null;
+  approvedAt?: string | null;
+  verificationStatus?: string | null;
+  publicDisplay?: boolean;
+  certificateUrl?: string | null;
 }
 
 export async function getPayouts(): Promise<CmsPayout[]> {
@@ -287,8 +331,42 @@ export async function getPayouts(): Promise<CmsPayout[]> {
       title: p.title ?? null,
       amount: p.amount ?? null,
       image: toMedia(p.image),
+      currency: p.currency ?? "USD",
+      countryName: p.countryName ?? p.country_name ?? null,
+      countryCode: p.countryCode ?? p.country_code ?? null,
+      approvedAt: p.approvedAt ?? p.approved_at ?? p.publishedAt ?? null,
+      verificationStatus: p.verificationStatus ?? p.verification_status ?? null,
+      publicDisplay:
+        p.publicDisplay === undefined && p.public_display === undefined
+          ? undefined
+          : Boolean(p.publicDisplay ?? p.public_display),
+      certificateUrl: p.certificateUrl ?? p.certificate_url ?? null,
     }))
-    .filter((p: CmsPayout) => p.image);
+    .filter((p: CmsPayout) => p.image || p.certificateUrl);
+}
+
+export interface CmsRewardsSummary {
+  totalRewards: number | null;
+  analystsRewarded: number | null;
+  countries: number | null;
+  maxRewardPercent: number | null;
+  asOf: string | null;
+}
+
+/** Optional single-type summary. Missing CMS content intentionally returns null. */
+export async function getRewardsSummary(): Promise<CmsRewardsSummary | null> {
+  const res = await cmsFetch<any>("rewards-summary?populate=*");
+  const raw = res?.data?.attributes ?? res?.data;
+  if (!raw || typeof raw !== "object") return null;
+  const numberOrNull = (value: unknown) =>
+    typeof value === "number" && Number.isFinite(value) ? value : null;
+  return {
+    totalRewards: numberOrNull(raw.totalRewards ?? raw.total_rewards),
+    analystsRewarded: numberOrNull(raw.analystsRewarded ?? raw.analysts_rewarded),
+    countries: numberOrNull(raw.countries),
+    maxRewardPercent: numberOrNull(raw.maxRewardPercent ?? raw.max_reward_percent),
+    asOf: typeof raw.asOf === "string" ? raw.asOf : typeof raw.as_of === "string" ? raw.as_of : null,
+  };
 }
 
 /* ─────────────────────────────── challenge config ─────────────────────────────── */

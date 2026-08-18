@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles, Award, ShieldCheck, Target } from "lucide-react";
 import { Container } from "@/components/shared/Container";
@@ -18,9 +19,44 @@ export default function EvaluationIntro({
   features,
   steps,
 }: {
-  features: string[];
-  steps: EvaluationStep[];
+  features?: string[];
+  steps?: EvaluationStep[];
 }) {
+  const t = useTranslations("evaluation");
+  const tHero = useTranslations("hero");
+  const tHow = useTranslations("howItWorks");
+
+  const defaultFeatures = [
+    tHero("features.0"),
+    tHero("features.1"),
+    tHero("features.3"),
+    tHero("features.2"),
+  ];
+
+  const defaultSteps: EvaluationStep[] = [
+    {
+      step: "01",
+      icon: "target",
+      title: tHow("steps.step1.title"),
+      description: tHow("steps.step1.description"),
+    },
+    {
+      step: "02",
+      icon: "shield",
+      title: tHow("steps.step2.title"),
+      description: tHow("steps.step2.description"),
+    },
+    {
+      step: "03",
+      icon: "award",
+      title: tHow("steps.step3.title"),
+      description: tHow("steps.step3.description"),
+    },
+  ];
+
+  const featList = features ?? defaultFeatures;
+  const stepList = steps ?? defaultSteps;
+
   return (
     <>
       {/* ─────────────── Hero ─────────────── */}
@@ -42,9 +78,7 @@ export default function EvaluationIntro({
             >
               <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
                 <Sparkles size={11} className="text-primary" />
-                Summer Sale
-                <span className="text-primary/40">·</span>
-                70% Off All Evaluations
+                {t("badge")}
               </span>
             </motion.div>
 
@@ -55,8 +89,7 @@ export default function EvaluationIntro({
               className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
               data-od-id="evaluation-hero-title"
             >
-              Trading <span className="shimmer-text">Evaluations</span>
-              <br className="hidden sm:block" /> built for serious traders.
+              {t("title")}
             </motion.h1>
 
             <motion.p
@@ -65,9 +98,7 @@ export default function EvaluationIntro({
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-5 max-w-xl text-[15px] leading-relaxed text-foreground/55"
             >
-              Prove your skills in a simulated environment, unlock funded accounts up to
-              $1.2M, and keep up to 100% of your profits. Transparent rules, no hidden
-              fees, no time limits.
+              {t("subtitle")}
             </motion.p>
 
             <motion.div
@@ -82,7 +113,7 @@ export default function EvaluationIntro({
                 rel="noopener noreferrer"
               >
                 <GoldButton size="lg" data-od-id="evaluation-hero-cta-primary">
-                  Claim 70% OFF <ArrowRight size={16} />
+                  {t("claimOffer")} <ArrowRight size={16} />
                 </GoldButton>
               </a>
               <a
@@ -90,7 +121,7 @@ export default function EvaluationIntro({
                 data-od-id="evaluation-hero-cta-secondary"
                 className="inline-flex items-center gap-1.5 rounded-lg border border-foreground/15 px-5 py-2.5 text-[14px] font-semibold text-foreground/85 transition-all hover:border-foreground/25 hover:bg-foreground/[0.04] hover:text-foreground"
               >
-                Compare Challenges
+                {t("compareBtn")}
               </a>
             </motion.div>
 
@@ -100,7 +131,7 @@ export default function EvaluationIntro({
               transition={{ duration: 0.5, delay: 0.55 }}
               className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2"
             >
-              {features.map((f) => (
+              {featList.map((f) => (
                 <li
                   key={f}
                   className="flex items-center gap-1.5 text-[12.5px] text-foreground/60"
@@ -125,18 +156,18 @@ export default function EvaluationIntro({
             className="mx-auto mb-10 max-w-2xl text-center md:mb-14"
           >
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
-              How It Works
+              {t("pathEyebrow")}
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
-              Your Path to Success
+              {t("pathTitle")}
             </h2>
             <p className="mt-3 text-[15px] text-foreground/50">
-              Three clear stages between you and your funded CK Account.
+              {t("pathSubtitle")}
             </p>
           </motion.div>
 
           <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {steps.map((item, i) => {
+            {stepList.map((item, i) => {
               const Icon = ICONS[item.icon];
               return (
                 <motion.div

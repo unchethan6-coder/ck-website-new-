@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { FAQ_ITEMS } from "@/lib/content";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
@@ -12,16 +13,21 @@ import {
 import { MessageCircle } from "lucide-react";
 
 export function FaqAccordion() {
+  const t = useTranslations("faq");
+
   return (
-    <section id="faqs" className="py-14 md:py-24 bg-muted" data-od-id="faq">
+    <section id="faqs" className="py-14 md:py-24" data-od-id="faq">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
-            FAQ
+            {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
-            Frequently Asked Questions
+            {t("title")}
           </h2>
+          <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
+            {t("subtitle")}
+          </p>
         </SectionReveal>
 
         <div className="max-w-3xl mx-auto">
@@ -52,14 +58,14 @@ export function FaqAccordion() {
               </div>
             </div>
             <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-foreground mb-2">
-              Still have questions?
+              {t("stillQuestions")}
             </h3>
             <p className="text-sm text-foreground/50 mb-5">
-              Our support team is available 24/7 — average response time under 2 minutes.
+              {t("supportAvailable")}
             </p>
-            <a href="/contact">
+            <a href="https://intercom.help/ck-capital/en/" target="_blank" rel="noopener noreferrer">
               <GoldButton size="md" data-od-id="faq-support-cta">
-                Chat with Support
+                {t("chatSupport")}
               </GoldButton>
             </a>
           </SectionReveal>

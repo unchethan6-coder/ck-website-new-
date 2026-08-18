@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -175,6 +176,7 @@ export function MarketTicker({
   className?: string;
   revealDelay?: number;
 }) {
+  const t = useTranslations("ticker");
   const { prices, liveOk } = useTickerPrices(HERO_TICKER);
   // Double the stream so the marquee loops seamlessly
   const stream = useMemo(() => [...HERO_TICKER, ...HERO_TICKER], []);
@@ -205,10 +207,10 @@ export function MarketTicker({
             "w-1.5 h-1.5 rounded-full transition-colors",
             liveOk ? "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)] animate-pulse" : "bg-foreground/25"
           )}
-          aria-label={liveOk ? "Live" : "Reconnecting"}
+          aria-label={liveOk ? t("live") : t("reconnecting")}
         />
         <span className="font-mono text-[11px] font-bold tracking-[0.22em] text-foreground/55 uppercase">
-          Market
+          {t("market")}
         </span>
       </div>
 

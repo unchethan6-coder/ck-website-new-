@@ -1,130 +1,140 @@
 "use client";
+
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { ArrowUpRight, MessageCircle, Play } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
-import { GoldButton } from "@/components/shared/GoldButton";
-import { Headphones } from "lucide-react";
+import { fadeUp, stagger } from "@/components/fx/reveal";
 
-const FLAGS = ["🇬🇧", "🇦🇪", "🇮🇳", "🇵🇰", "🇪🇸", "🇫🇷", "🇩🇪"];
-
-const STATS = [
-  { value: "95%", label: "TRADER\nSATISFACTION" },
-  { value: "60s", label: "AVG RESPONSE\nTIME" },
-  { value: "24/7", label: "SUPPORT\nAVAILABLE" },
-];
+const SUPPORT_PLACEHOLDER = "/images/support/image-placeholder.svg";
 
 export function SupportSection() {
+  const t = useTranslations("support");
+
   return (
-    <section className="py-14 md:py-24 bg-background" data-od-id="support">
+    <section className="py-14 md:py-24" data-od-id="support">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left — content */}
-          <SectionReveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 mb-6">
-              <Headphones size={14} className="text-primary" />
-              <span className="text-xs font-bold text-primary uppercase tracking-wider">24/7 Trader Support</span>
-            </div>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid gap-12 lg:grid-cols-2 lg:gap-8"
+        >
+          <SupportCard
+            id="support-discord"
+            visual={<CommunityVisual text={t("communityImagePlaceholder")} />}
+            eyebrow={t("eyebrow247")}
+            eyebrowIcon={<MessageCircle size={14} className="text-secondary" />}
+            statLabel={t("memberCount")}
+            statValue={t("pending")}
+            title={t("discordTitle")}
+            description={t("discordDesc")}
+            action={t("discordAction")}
+            href="https://discord.gg/ckcapital"
+          />
 
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-5xl leading-[1.1] mb-5">
-              Support Built for<br />Serious Traders
-            </h2>
-
-            <p className="text-foreground/50 leading-relaxed mb-8 max-w-lg">
-              Our team is available 24/7 to help traders with evaluation access, platform
-              questions, account support, and payout-related guidance. Fast replies, clear
-              answers, and trader-first service.
-            </p>
-
-            <p className="text-[10px] text-foreground/30 uppercase tracking-widest font-semibold mb-3">
-              Languages Spoken
-            </p>
-            <div className="flex items-center gap-2 mb-8">
-              {FLAGS.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="w-9 h-9 rounded-full border border-foreground/10 bg-foreground/[0.03] flex items-center justify-center text-sm"
-                >
-                  {f}
-                </motion.div>
-              ))}
-              <span className="text-xs text-foreground/30 ml-1">+ more</span>
-            </div>
-
-            <div className="flex gap-3">
-              <a href="/contact">
-                <GoldButton data-od-id="support-cta">Get Support</GoldButton>
-              </a>
-              <a
-                href="#faqs"
-                className="inline-flex h-12 items-center justify-center rounded-xl border border-foreground/20 px-8 text-[15px] font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-              >
-                Read FAQs
-              </a>
-            </div>
-          </SectionReveal>
-
-          {/* Right — support card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col gap-6"
-          >
-            {/* Header */}
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-foreground/[0.05] border border-foreground/10 flex items-center justify-center">
-                <Headphones size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-extrabold text-foreground">
-                  CK Capital Support
-                </h3>
-                <p className="text-xs text-primary">Always online • Trader-first</p>
-              </div>
-            </div>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3">
-              {STATS.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="rounded-xl border border-foreground/10 bg-foreground/[0.02] p-3 text-center"
-                >
-                  <p className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground">
-                    {s.value}
-                  </p>
-                  <p className="text-[9px] text-foreground/40 uppercase tracking-wider mt-1 whitespace-pre-line leading-tight">
-                    {s.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Tagline */}
-            <div className="flex items-center gap-3">
-              <div className="flex-1 h-px bg-foreground/10" />
-              <span className="text-xs text-foreground/40">Real traders. Real answers. Real fast.</span>
-              <div className="flex-1 h-px bg-foreground/10" />
-            </div>
-
-            {/* Badge */}
-            <div className="flex justify-end">
-              <span className="text-xs text-primary border border-primary/30 rounded-full px-3 py-1">
-                Avg reply under 60 seconds
-              </span>
-            </div>
-          </motion.div>
-        </div>
+          <SupportCard
+            id="support-youtube"
+            visual={<VideoVisual />}
+            eyebrow={t("youtubeEyebrow")}
+            eyebrowIcon={<Play size={14} fill="currentColor" className="text-primary" />}
+            statLabel={t("subscriberCount")}
+            statValue={t("pending")}
+            title={t("youtubeTitle")}
+            description={t("youtubeDesc")}
+            action={t("youtubeAction")}
+            href="https://www.youtube.com/@CKCapital"
+          />
+        </motion.div>
       </Container>
     </section>
+  );
+}
+
+function SupportCard({
+  id,
+  visual,
+  eyebrow,
+  eyebrowIcon,
+  statLabel,
+  statValue,
+  title,
+  description,
+  action,
+  href,
+}: {
+  id: string;
+  visual: React.ReactNode;
+  eyebrow: string;
+  eyebrowIcon: React.ReactNode;
+  statLabel: string;
+  statValue: string;
+  title: React.ReactNode;
+  description: string;
+  action: string;
+  href: string;
+}) {
+  return (
+    <motion.article variants={fadeUp} data-od-id={id}>
+      <div className="relative mb-7 h-[280px] overflow-hidden rounded-[28px] border border-foreground/10 sm:h-[360px] lg:h-[330px]">
+        {visual}
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs font-semibold text-foreground/55">
+        <div className="flex items-center gap-2">
+          {eyebrowIcon}
+          <span>{eyebrow}</span>
+        </div>
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.12em]">
+          <span className="text-foreground/40">{statLabel}</span>
+          <span className="text-primary">{statValue}</span>
+        </div>
+      </div>
+
+      <h2 className="mt-4 max-w-none font-[family-name:var(--font-inter-tight)] text-[clamp(1.75rem,2.8vw,2.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground">
+        {title}
+      </h2>
+      <p className="mt-5 max-w-xl text-base leading-7 text-foreground/50">{description}</p>
+
+      <a
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-primary/50 bg-primary/[0.06] px-5 text-sm font-bold text-primary transition-colors hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+        data-od-id={`${id}-cta`}
+      >
+        {action}
+        <ArrowUpRight size={16} />
+      </a>
+    </motion.article>
+  );
+}
+
+function CommunityVisual({ text }: { text: string }) {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-surface">
+      <Image src={SUPPORT_PLACEHOLDER} alt="Image placeholder" fill sizes="(max-width: 1024px) 100vw, 50vw" className="z-[1] object-cover" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 z-[3] p-5 sm:p-7">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">{text}</p>
+      </div>
+    </div>
+  );
+}
+
+function VideoVisual() {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-surface">
+      <Image src={SUPPORT_PLACEHOLDER} alt="Image placeholder" fill sizes="(max-width: 1024px) 100vw, 50vw" className="z-[1] object-cover" />
+      <div className="absolute inset-0 z-[2] bg-background/10" />
+      <div className="absolute inset-0 z-[3] flex items-center justify-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-foreground text-background shadow-xl">
+          <Play size={26} fill="currentColor" className="ml-1" />
+        </div>
+      </div>
+    </div>
   );
 }

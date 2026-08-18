@@ -1,0 +1,920 @@
+{
+  "announcement": {
+    "badge": "عرض الصيف",
+    "discount": "خصم 70%",
+    "allEvaluations": "جميع التقييمات",
+    "codeLabel": "استخدم الرمز",
+    "expiresIn": "ينتهي خلال",
+    "claimOffer": "احصل على خصم 70%"
+  },
+  "nav": {
+    "evaluation": "التقييم",
+    "instantFunding": "تمويل فوري",
+    "tradingObjectives": "الأهداف",
+    "aboutUs": "من نحن",
+    "affiliates": "الشركاء",
+    "payouts": "المدفوعات",
+    "faq": "FAQ",
+    "contact": "اتصل بنا",
+    "blog": "المدونة",
+    "menu": "القائمة",
+    "signIn": "دخول",
+    "startChallenge": "ابدأ الآن"
+  },
+  "hero": {
+    "features": [
+      "سحب خلال 12 ساعة",
+      "نسبة أرباح 100%",
+      "رأس مال 100 ألف دولار",
+      "بدون حدود زمنية"
+    ],
+    "badge": "شركة التداول الاحترافي CK CAPITAL",
+    "headlineLine1": "تداول حتى 100 ألف دولار.",
+    "headlineHighlight": "100 ألف دولار.",
+    "headlineLine2": "واحتفظ بما يصل إلى 100%.",
+    "subcopy": "أثبت مهاراتك في بيئة محاكاة عبر MT5 وTradeLocker. بدون حدود زمنية، وتداول الأخبار مسموح، مع قواعد واضحة وبدون رسوم خفية.",
+    "startChallenge": "ابدأ التحدي الآن",
+    "exploreObjectives": "تعرف على كيفية العمل"
+  },
+  "stats": {
+    "payoutTime": "متوسط وقت السحب",
+    "payoutTimeVal": "12 ساعة",
+    "rewardSplit": "أعلى نسبة أرباح",
+    "rewardSplitVal": "100%",
+    "accountSize": "أعلى رأس مال محاكى",
+    "accountSizeVal": "+100 ألف$",
+    "support": "دعم مباشر للمتداولين",
+    "supportVal": "24/7"
+  },
+  "howItWorks": {
+    "title": "كيف يعمل البرنامج",
+    "subtitle": "ثلاث خطوات واضحة من أول صفقة محاكاة حتى استلام أرباحك الحقيقية.",
+    "steps": {
+      "step1": {
+        "step": "01",
+        "phase": "المرحلة 1",
+        "title": "التقييم",
+        "description": "تداول في بيئة محاكاة والتزم بقواعد إدارة المخاطر وحقق هدف الأرباح وفق جدولك الزمني دون ضغط."
+      },
+      "step2": {
+        "step": "02",
+        "phase": "المرحلة 2",
+        "title": "التحقق",
+        "description": "أثبت استمراريتك في مرحلة التحقق مع أهداف ربح مخفضة وبنفس القواعد الشفافة للمخاطر."
+      },
+      "step3": {
+        "step": "03",
+        "phase": "المرحلة 3",
+        "title": "متداول ممول",
+        "description": "احصل على حسابك الممول المحاكى وتداول بثقة واسحب حتى 100% من أرباحك."
+      }
+    },
+    "badge": "Process"
+  },
+  "whyChooseUs": {
+    "title": "كل ما تحتاجه للتداول بحساب ممول",
+    "subtitle": "صُمم للمتداولين الجادين الذين يبحثون عن قواعد حقيقية ودفعات سريعة ودعم موثوق.",
+    "items": {
+      "split": {
+        "title": "نسبة الأرباح",
+        "description": "احتفظ بما يصل إلى 100% من أرباح التداول المحاكى. لا خصومات معقدة ولا رسوم خفية."
+      },
+      "news": {
+        "title": "تداول الأخبار متاح",
+        "description": "تداول خلال الأخبار الاقتصادية القوية بحرية تامة في جميع المراحل دون قيود أو عقوبات."
+      },
+      "conditions": {
+        "title": "شروط تداول تنافسية",
+        "description": "فروق أسعار تبدأ من 0.0 نقطة وسرعة تنفيذ فائقة على MT5 وTradeLocker."
+      },
+      "reset": {
+        "title": "إعادة التعيين والتعبئة",
+        "description": "هل خالفت قاعدة؟ أعد تعيين حسابك بخصم خاص وعد للتداول فوراً."
+      },
+      "flexible": {
+        "title": "سحب سريع خلال 12 ساعة",
+        "description": "اطلب أرباحك عند الطلب واستلم أموالك في أقل من 12 ساعة عبر العملات المشفرة أو التحويل البنكي."
+      },
+      "support": {
+        "title": "دعم مخصص 24/7",
+        "description": "احصل على المساعدة في أي وقت عبر الدردشة الحية أو ديسكورد مع متوسط استجابة أقل من دقيقتين."
+      }
+    },
+    "advantages": "Advantages",
+    "splitChips": [
+      "No commissions",
+      "No hidden fees",
+      "On-demand payouts"
+    ],
+    "upTo": "Up to",
+    "youKeep": "You keep",
+    "firmEarns": "We only earn when you scale",
+    "rawSpreadsMT5": "Raw spreads on MT5 · TradeLocker",
+    "pips": "pips"
+  },
+  "challenge": {
+    "title": "اختر تحدي CK Capital المناسب لك",
+    "subtitle": "أكمل أهداف التداول لتصبح مؤهلاً للحصول على حساب CK.",
+    "showNumbers": "عرض بالأرقام",
+    "showPhases": "عرض المراحل",
+    "compareSizes": "مقارنة الأحجام",
+    "mostPopular": "الأكثر شهرة",
+    "bestValue": "أفضل قيمة",
+    "tradingObjectives": "أهداف التداول",
+    "fundedStage": "مرحلة التمويل",
+    "evaluationStage": "التقييم",
+    "verificationStage": "التحقق",
+    "ckAccount": "حساب CK",
+    "profitTarget": "هدف الربح",
+    "maxDailyLoss": "أقصى خسارة يومية",
+    "maxLoss": "أقصى خسارة إجمالية",
+    "minTradingDays": "أقل أيام تداول",
+    "tradingPeriod": "فترة التداول",
+    "rewardSplit": "تقاسم الأرباح",
+    "consistencyRule": "قاعدة الاستمرارية",
+    "account": "الحساب",
+    "price": "السعر",
+    "phase1": "المرحلة 1",
+    "phase2": "المرحلة 2",
+    "unlimited": "غير محدود",
+    "day": "يوم واحد",
+    "oneTimeFee": "One-time fee",
+    "code": "الرمز",
+    "copied": "تم النسخ!",
+    "startNow": "ابدأ الآن",
+    "accessTitle": "تتضمن جميع النماذج:",
+    "disclaimer": "جميع التداولات تتم باستخدام رأس مال محاكى في بيئات تجريبية. الأداء السابق لا يضمن نتائج مستقبلية.",
+    "conditions": [
+      "Profit split up to 100%",
+      "Leverage 1:100",
+      "Payouts in ~12 hours"
+    ]
+  },
+  "platforms": {
+    "eyebrow": "المنصات",
+    "title": "تداول على المنصة التي تناسب أسلوبك",
+    "subtitle": "منصتا MT5 وTradeLocker متاحتان في جميع تحديات CK Capital.",
+    "mt5Desc": "المنصة الرائدة عالمياً المعتمدة من المحترفين برسم بياني متقدم وتنفيذ فوري.",
+    "tradelockerDesc": "منصة ويب عصرية فائقة السرعة مع أدوات متكاملة لإدارة المخاطر.",
+    "getPlatform": "احصل على {name}",
+    "mt5Features": [
+      "Advanced charting",
+      "Expert Advisors (EA)",
+      "One-click trading",
+      "20+ order types"
+    ],
+    "tradelockerFeatures": [
+      "Web & mobile native",
+      "Real-time analytics",
+      "Built-in risk tools",
+      "Clean modern UI"
+    ]
+  },
+  "liveRewards": {
+    "badge": "المدفوعات المباشرة",
+    "rewardsDistributed": "الأرباح الموزعة",
+    "awaiting": "بانتظار السجلات الموثقة",
+    "desc": "إجمالي المكافآت المحاكاة الموزعة الموثقة لدى CK Capital.",
+    "verifiedText": "سجلات أرباح موثقة ومنشورة من قبل CK Capital.",
+    "viewRewards": "عرض الأرباح",
+    "recentSettlements": "أحدث التسويات",
+    "empty": "ستظهر الأرباح الموثقة هنا فور نشرها.",
+    "showing": "عرض {visible} من أصل {total} سجل موثق",
+    "heroTitlePrefix": "أداء حقيقي.",
+    "heroTitleShimmer": "مكافآت حقيقية.",
+    "certificateProof": "إثبات مدعوم بالشهادات",
+    "analystsRewarded": "محللون مؤهلون تمت مكافأتهم",
+    "countriesWorldwide": "دولة حول العالم",
+    "simulatedRewards": "مكافآت أرباح محاكاة",
+    "subjectToTerms": "تخضع لشروط الحساب",
+    "provenEyebrow": "مكافآت مثبتة من محللي CK CAPITAL",
+    "provenTitle": "أداء يستحق الاحتفال.",
+    "provenSubtitle": "ترتبط كل مكافأة معروضة هنا بشهادة مكافأة يمكن التحقق منها من CK Capital.",
+    "amountLabel": "المبلغ",
+    "certificatesEmpty": "ستظهر شهادات المكافآت المنشورة هنا",
+    "benefitsEyebrow": "أداؤك. مكافأتك.",
+    "benefitsTitle": "مسار أكثر وضوحاً من المهارة إلى التوسع.",
+    "benefitsSubtitle": "تم تصميم CK Capital لتقدير الأداء المنضبط داخل بيئة التداول التجريبية.",
+    "processEyebrow": "كيف تعمل مكافآت CK CAPITAL",
+    "processTitle": "خمس خطوات. بدون تعقيد.",
+    "processSubtitle": "المسار من التقييم إلى المكافأة واضح وموثق ويخضع لشروط حسابك.",
+    "worldEyebrow": "مكافآت حول العالم",
+    "worldTitle": "مجتمع عالمي واحد في CK Capital.",
+    "worldSubtitle": "اختر دولة منشورة لمعرفة أين حصل محللو CK Capital على المكافآت.",
+    "reviewsEyebrow": "آراء مجتمع CK",
+    "reviewsTitle": "تجارب حقيقية من متداولي CK Capital.",
+    "reviewsSubtitle": "تقييمات منشورة تصف تجربة التقييم والدعم والمكافآت.",
+    "readyTitle": "هل أنت مستعد لبدء رحلتك مع CK CAPITAL؟",
+    "readySubtitle": "اختر التقييم المناسب لك واعمل لتصبح محللاً مؤهلاً.",
+    "exploreEvaluations": "استكشف التقييمات",
+    "importantInfo": "معلومات هامة",
+    "legalDisclaimer": "تقدم CK Capital برامج تقييم تداول داخل بيئات محاكاة تجريبية.",
+    "viewTerms": "عرض الشروط والأحكام",
+    "viewRisk": "عرض إفصاح المخاطر"
+  },
+  "proof": {
+    "eyebrow": "أداء موثق",
+    "title": "متداولون حقيقيون. أرباح حقيقية.",
+    "subtitle": "No complicated processes. No hidden requirements. A clear path from evaluation to eligible simulated profit rewards.",
+    "rewardsDistributed": "Rewards Distributed",
+    "qualifiedAnalysts": "Qualified Analysts",
+    "countriesWorldwide": "Countries Worldwide",
+    "excellentRating": "Excellent",
+    "ratedScore": "4.9 rated",
+    "liveSupport": "Live trader support",
+    "titleLine1": "Trade with",
+    "titleLine2": "peace of mind",
+    "benefitFlexible": "Flexible Reward Cycles",
+    "benefitAllocation": "Up to $1.2M Allocation",
+    "benefitNoHidden": "No Hidden Fees",
+    "modelsPill": "1 Step · 2 Step · Instant",
+    "viewEvaluations": "View Evaluations"
+  },
+  "reviews": {
+    "eyebrow": "تقييمات المتداولين",
+    "title": "الخيار الموثوق لمتداولي CK",
+    "subtitle": "تجارب منشورة من متداولين يستخدمون برامج التقييم المحاكية لـ CK Capital على Trustpilot وX وReddit.",
+    "readOnTrustpilot": "قراءة التقييمات على Trustpilot",
+    "viewOnTrustpilot": "عرض على Trustpilot",
+    "readOnX": "قراءة على X",
+    "viewOnReddit": "عرض على Reddit",
+    "traderStory": "قصة متداول",
+    "avgProcessing": "متوسط وقت معالجة المكافآت",
+    "processingPending": "ستظهر بيانات المعالجة التي تم التحقق منها هنا بمجرد ربط مصدر معتمد.",
+    "disclaimer": "تعكس التقييمات تجارب فردية ولا تضمن نتائج مستقبلية. تقدم CK Capital تقييمات تداول محاكاة فقط.",
+    "placeholdersNote": " الاقتباسات المعروضة هي نصوص مؤقتة في انتظار نشر تقييمات معتمدة."
+  },
+  "support": {
+    "eyebrow247": "دعم متداولين 24/7",
+    "discordTitle": "اطرح أسئلتك. تداول بذكاء في مجتمعنا.",
+    "discordDesc": "انضم إلى مجتمع CK Capital للحصول على إجابات سريعة وتبادل الخبرات مع زملائك.",
+    "discordAction": "انضم لمجتمع CK",
+    "youtubeEyebrow": "CK CAPITAL على يوتيوب",
+    "youtubeTitle": "شاهد. تعلم. تداول.",
+    "youtubeDesc": "تابع شروحات المنصات وقصص النجاح للتقييم والتداول.",
+    "youtubeAction": "مشاهدة CK Capital",
+    "customerTitle": "خدمة عملاء مصممة خصيصاً للمتداولين.",
+    "customerDesc": "فريقنا متواجد على مدار الساعة لمساعدتك في أي استفسار حول الحسابات والمدفوعات.",
+    "discordBtn": "دعم ديسكورد",
+    "emailBtn": "البريد الإلكتروني للدعم",
+    "showAll": "عرض جميع جهات الاتصال",
+    "available247": "Available 24/7",
+    "supportBrand": "CK Capital support",
+    "imagePlaceholder": "Image placeholder",
+    "memberCount": "عدد الأعضاء",
+    "subscriberCount": "عدد المشتركين",
+    "pending": "قيد الانتظار",
+    "communityImagePlaceholder": "صورة مؤقتة للمجتمع"
+  },
+  "faq": {
+    "eyebrow": "الأسئلة الشائعة",
+    "title": "الأسئلة الأكثر تكراراً",
+    "subtitle": "كل ما تحتاج معرفته حول قواعد التحديات والحسابات والمدفوعات في CK Capital.",
+    "stillQuestions": "هل لديك أسئلة أخرى؟",
+    "supportAvailable": "فريق الدعم لدينا متاح 24/7 بمتوسط وقت رد أقل من دقيقتين.",
+    "chatSupport": "تحدث مع الدعم",
+    "items": {
+      "payoutTime": {
+        "q": "ما مدى سرعة معالجة المدفوعات؟",
+        "a": "نقدم معالجة للمدفوعات في غضون 12 ساعة تقريباً للمتداولين المؤهلين. بمجرد الطلب، تتم معالجة السحوبات وإرسالها خلال 12 ساعة."
+      },
+      "timeLimit": {
+        "q": "هل هناك أي حدود زمنية للتحديات؟",
+        "a": "لا! لا توجد حدود زمنية على تقييمات التحدي في CK Capital. تداول بالسرعة التي تناسبك دون أي ضغوط."
+      },
+      "platforms": {
+        "q": "ما هي المنصات المدعومة؟",
+        "a": "تدعم CK Capital كلاً من MetaTrader 5 (MT5) و TradeLocker مع رسوم بيانية متقدمة وتنفيذ فائق السرعة."
+      },
+      "profitSplit": {
+        "q": "ما هي نسبة تقسيم الأرباح التي تقدمونها؟",
+        "a": "تقدم CK Capital نسبة مشاركة أرباح تصل إلى 100% للمتداولين المؤهلين في الحسابات الممولة."
+      },
+      "drawdown": {
+        "q": "ما هي قواعد التراجع (Drawdown)؟",
+        "a": "معايير المخاطرة شفافة: 4% كحد أقصى للتراجع اليومي و 8% كحد أقصى للتراجع الكلي."
+      },
+      "newsTrading": {
+        "q": "هل يمكنني التداول أثناء الأخبار والاحتفاظ بالصفقات خلال عطلة نهاية الأسبوع؟",
+        "a": "نعم! التداول وقت الأخبار مسموح به بالكامل في جميع الحسابات مع إمكانية الاحتفاظ بالصفقات خلال عطلات نهاية الأسبوع."
+      },
+      "consistency": {
+        "q": "ما هي قاعدة الاتساق؟",
+        "a": "نحن نشجع إدارة المخاطر المستدامة وعادات التداول المتسقة في جميع مراحل التحدي."
+      },
+      "cryptoFunding": {
+        "q": "هل تقبلون الدفع والسحب بالعملات الرقمية؟",
+        "a": "نعم، نحن ندعم العملات الرقمية الرئيسية والتحويلات المصرفية لكل من الدفع والسحب."
+      },
+      "refundPolicy": {
+        "q": "هل رسوم التحدي قابلة للاسترداد؟",
+        "a": "نعم، يتم استرداد رسوم التحدي مع أول دفعة سحب أرباح مؤهلة لك كمتداول في CK."
+      },
+      "expertAdvisors": {
+        "q": "هل المستشارون الخبراء (EAs) والروبوتات مسموح بها؟",
+        "a": "نعم، نرحب بالتداول الآلي والمستشارين الخبراء طالما أنها تتبع إرشادات المخاطر القياسية."
+      },
+      "instantPayouts": {
+        "q": "ما مدى سرعة بدء التداول مع التمويل الفوري؟",
+        "a": "يمكنك بدء التداول في غضون دقائق بعد الشراء، حيث يتم تفعيل حسابات التمويل الفوري على الفور."
+      }
+    }
+  },
+  "closingCta": {
+    "eyebrow": "صفقتك القادمة قد تكون بحساب ممول",
+    "title": "جاهز للتداول برأس مال CK؟",
+    "subtitle": "اختر التحدي المناسب، وحقق الأهداف وفق جدولك واحتفظ بما يصل إلى 100% من الأرباح.",
+    "button": "ابدأ التحدي الآن"
+  },
+  "footer": {
+    "tagline": "تمكين المتداولين حول العالم برأس مال محاكى وقواعد شفافة ونسبة أرباح تصل إلى 100%.",
+    "newsletterTitle": "احصل على تحليلات التداول",
+    "newsletterSubtitle": "تحديثات السوق وأخبار التداول والعروض الحصرية أسبوعياً.",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشتراك",
+    "products": "منتجات التداول",
+    "evaluation": "تحدي التقييم",
+    "instantFunding": "التمويل الفوري",
+    "tradingObjectives": "أهداف التداول",
+    "scalingPlan": "خطة زيادة رأس المال",
+    "platforms": "المنصات والأدوات",
+    "company": "الشركة",
+    "aboutUs": "من نحن",
+    "affiliates": "برنامج الشركاء",
+    "payouts": "إثباتات السحب",
+    "careers": "الوظائف",
+    "contact": "اتصل بنا",
+    "legal": "الشؤون القانونية",
+    "terms": "الشروط والأحكام",
+    "privacy": "سياسة الخصوصية",
+    "cookies": "سياسة ملفات تعريف الارتباط",
+    "riskDisclosure": "إخلاء المسؤولية عن المخاطر",
+    "returnPolicy": "سياسة الاسترداد",
+    "copyright": "© {year} CK Capital Group LTD. جميع الحقوق محفوظة.",
+    "disclaimer": "تقدم CK Capital Group LTD تقييمات تداول محاكاة في بيئة تجريبية بأموال افتراضية.",
+    "acceptedMethods": "Accepted Methods",
+    "errorEmail": "Please enter a valid email address.",
+    "successEmail": "Thank you for subscribing!"
+  },
+  "ticker": {
+    "market": "السوق",
+    "live": "مباشر",
+    "reconnecting": "جارٍ إعادة الاتصال"
+  },
+  "languageSwitcher": {
+    "selectLanguage": "اختر اللغة"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backHome": "العودة للرئيسية"
+  },
+  "meta": {
+    "homeTitle": "CK Capital - شركة تداول | تداول حتى 100 ألف دولار مع نسبة أرباح 100%",
+    "homeDescription": "انضم إلى CK Capital. اجتز تقييمنا لتتداول برأس مال محاكى يصل إلى 100 ألف دولار مع سحب أرباح خلال 12 ساعة."
+  },
+  "about": {
+    "badge": "من نحن · تداول ممول متميز",
+    "title": "تعرف على فريق CK Capital",
+    "storyEyebrow": "قصتنا",
+    "storyTitle": "صُممت لردم الفجوة",
+    "storyDesc": "تأسست CK Capital لدعم المتداولين الطموحين من خلال توفير بيئة متطورة وتكنولوجيا خاصة ودعم استثنائي.",
+    "missionTitle": "مهمتنا",
+    "missionDesc": "توفير أدوات مبتكرة وتقييمات محاكاة لبناء الانضباط وتحقيق الربحية المستمرة.",
+    "visionTitle": "رؤيتنا",
+    "visionDesc": "تمكين المتداولين عالمياً وبناء مجتمع ناجح يكافئ المهارة بكل عدالة.",
+    "leadershipEyebrow": "القيادة",
+    "leadershipTitle": "فريق الإدارة",
+    "founderTitle": "دانيال تشيونغ — المؤسس",
+    "founderRole": "متداول سباعي الأرقام | خبير وساطة ورأس مال خاص",
+    "founderBio": "دانيال تشيونغ متداول بريطاني خبير في إدارة الصناديق وتطوير المتداولين المحترفين.",
+    "valuesEyebrow": "مبادئنا",
+    "valuesTitle": "قيمنا الجوهرية",
+    "integrityTitle": "النزاهة",
+    "integrityDesc": "نعمل بشفافية تامة ومصداقية مطلقة.",
+    "communityTitle": "المجتمع",
+    "communityDesc": "نوفر بيئة تفاعلية وداعمة لكل متداول.",
+    "excellenceTitle": "التميز",
+    "excellenceDesc": "نقدم أفضل المنصات وشروط التداول.",
+    "innovationTitle": "الابتكار",
+    "innovationDesc": "نطور تكنولوجياتنا وخدماتنا باستمرار.",
+    "statsTraders": "متداول نشط",
+    "statsCapital": "أعلى رأس مال محاكى",
+    "statsSplit": "نسبة تقاسم الأرباح",
+    "statsSupport": "دعم المجتمع",
+    "ctaTitle": "انضم إلى مجتمع CK Capital",
+    "ctaDesc": "كن جزءاً من مجتمع عالمي متنامٍ من المتداولين الناجحين.",
+    "ctaStart": "ابدأ التداول",
+    "ctaDiscord": "انضم إلى ديسكورد",
+    "heroTitlePrefix": "صُنع بواسطة متداولين.",
+    "heroTitleShimmer": "صُمم للتوسع.",
+    "exploreObjectives": "استكشف الأهداف",
+    "badgeSimulated": "رأس مال تجريبي",
+    "badgeVerifiedUk": "شركة بريطانية موثقة",
+    "badgeGlobalTraders": "أكثر من 50,000 متداول",
+    "founderRoleBadge": "المؤسس والمتداول",
+    "founderQuote": "نحن نتبنى عقلية 'نحن ضد أنفسنا' — ندعم مجتمع المتداولين كعائلة واحدة ونكافئ المهارة بأعلى نسب تقاسم أرباح في المجال.",
+    "founderBadges": [
+      "متداول بأرقام سباعية",
+      "وساطة العملات",
+      "رأس مال خاص",
+      "تأسست في بريطانيا"
+    ],
+    "statsTradersNote": "متداولون في أكثر من 140 دولة",
+    "statsCapitalNote": "الحد الأقصى للتخصيص القابل للترقية",
+    "statsSplitNote": "احتفظ بما يصل إلى 100% من الأرباح",
+    "statsSupportNote": "متوسط وقت الاستجابة أقل من دقيقتين",
+    "missionEyebrow": "الهدف",
+    "visionEyebrow": "المستقبل",
+    "missionVisionHeadingEyebrow": "رسالتنا ورؤيتنا",
+    "missionVisionHeadingTitle": "توجيه الجيل القادم من متداولي الشركات التمويلية.",
+    "missionVisionHeadingSubtitle": "إتاحة رأس المال المؤسسي للجميع وتوفير الهيكل الذي يحتاجه المتداولون للاستمرارية.",
+    "cultureEyebrow": "ثقافتنا والتزاماتنا",
+    "cultureTitle": "معيار 'نحن ضد أنفسنا'.",
+    "cultureSubtitle": "التداول ليس منافسة ضد الشركة، بل هو التحكم في النفس والتنفيذ بانضباط.",
+    "pillars": [
+      {
+        "title": "الشفافية أولاً",
+        "description": "بدون قواعد تراجع مخفية أو مفاجآت. جميع القواعد منشورة بوضوح."
+      },
+      {
+        "title": "المهارة قبل السرعة",
+        "description": "بدون مواعيد نهائية تعسفية. تداول بهدوء وفق جدولك الزمني الخاص."
+      },
+      {
+        "title": "ثقافة تضع المتداول أولاً",
+        "description": "تم بناؤها بواسطة متداولين ذوي خبرة يفهمون واقع السوق ويقدمون إرشادات مخصصة."
+      }
+    ],
+    "valuesSubtitle": "المبادئ الأساسية التي تقود تقنياتنا ودعمنا ومجتمعنا كل يوم."
+  },
+  "affiliates": {
+    "badge": "برنامج شركاء CK CAPITAL",
+    "title": "شارك CK Capital. واكسب حتى 25%.",
+    "subtitle": "حوّل جمهورك ومحتواك إلى مصدر دخل مع برنامج شركاء CK Capital.",
+    "becomeAffiliate": "كن شريكاً مع CK",
+    "seeHowItWorks": "تعرف على كيفية العمل",
+    "commissionHighlight": "عمولة الشريك",
+    "minPayoutHighlight": "أقل مبلغ للسحب",
+    "globalHighlight": "فرصة عالمية",
+    "tiersHighlight": "مستويات الشركاء",
+    "howEyebrow": "كيف يعمل البرنامج",
+    "howTitle": "أربع خطوات بسيطة للبدء في الكسب.",
+    "howSubtitle": "انضم للبرنامج وابدأ بناء عملك الخاص كشريك.",
+    "step1Title": "قدم طلبك",
+    "step1Desc": "أرسل طلب الانضمام لتتم مراجعته والتأكد من مطابقة المعايير.",
+    "step2Title": "احصل على الموافقة",
+    "step2Desc": "احصل على رابط الإحالة ولوحة التحكم الخاصة بك فور الموافقة.",
+    "step3Title": "ابدأ بالإحالة",
+    "step3Desc": "شارك CK Capital مع جمهورك ومجتمعك عبر روابطك المخصصة.",
+    "step4Title": "اكسب العمولات",
+    "step4Desc": "احصل على عمولات مجزية عن كل عملية شراء مؤهلة من إحالاتك.",
+    "applyNow": "قدم الآن",
+    "calculatorTitle": "احسب عمولتك المتوقعة كشريك.",
+    "calculatorSubtitle": "استخدم الحاسبة لتقدير أرباحك وفقاً لعدد الإحالات.",
+    "yourNumbers": "أرقامك المتوقعة",
+    "referralsLabel": "إحالات جديدة مؤهلة / شهر",
+    "orderValueLabel": "متوسط قيمة الطلب",
+    "tierLabel": "نسبة العمولة",
+    "estimatedMonthly": "العمولة الشهرية التقديرية",
+    "estimatedAnnual": "العمولة السنوية المحتملة",
+    "calculatorDisclaimer": "نتائج الحاسبة هي للأغراض التوضيحية فقط. تعتمد الأرباح الفعلية على الأداء.",
+    "readyTitle": "جاهز لتصبح شريكاً مع CK CAPITAL؟",
+    "readySubtitle": "رحلتك تبدأ هنا. انضم إلى الشركاء اليوم.",
+    "login": "هل أنت شريك بالفعل؟ تسجيل الدخول",
+    "benefitsEyebrow": "WHY PARTNER WITH CK CAPITAL?",
+    "benefitsTitle": "A programme built to reward performance.",
+    "benefits": [
+      {
+        "value": "UP TO 25%",
+        "title": "Affiliate Commission",
+        "desc": "Earn up to 25% commission on qualified referrals depending on your affiliate tier and performance."
+      },
+      {
+        "value": "PERFORMANCE-BASED",
+        "title": "Affiliate Tiers",
+        "desc": "Your affiliate partnership can develop according to your performance and the applicable programme structure."
+      },
+      {
+        "value": "GLOBAL BRAND",
+        "title": "Reach Traders Worldwide",
+        "desc": "Promote CK Capital's simulated evaluation programmes to relevant audiences around the world, subject to local requirements and programme terms."
+      },
+      {
+        "value": "MULTIPLE EVALUATIONS",
+        "title": "More Choices to Promote",
+        "desc": "Promote CK Capital's range of evaluation options including: 1 Step, 2 Step, Instant. Available account structures and products are subject to current CK Capital offerings."
+      },
+      {
+        "value": "UP TO $1.2M",
+        "title": "Simulated Account Allocation",
+        "desc": "CK Capital Qualified Analysts can access total simulated account allocations of up to $1.2M under applicable programme conditions."
+      },
+      {
+        "value": "UP TO 100%",
+        "title": "Simulated Profit Rewards",
+        "desc": "Eligible CK Capital Qualified Analysts may receive up to 100% of applicable simulated profits according to their account rules."
+      }
+    ],
+    "contentEyebrow": "CREATE CONTENT THAT CONVERTS",
+    "contentTitle": "Tell the CK Capital story your way.",
+    "contentSubtitle": "Build content around the parts of CK Capital your audience actually cares about.",
+    "contentTopics": [
+      {
+        "title": "Evaluation Options",
+        "desc": "Explain CK Capital's different evaluation structures."
+      },
+      {
+        "title": "Trading Objectives",
+        "desc": "Break down the objectives and risk parameters."
+      },
+      {
+        "title": "Offers",
+        "desc": "Promote approved CK Capital offers and campaigns."
+      },
+      {
+        "title": "Platform Experience",
+        "desc": "Show the CK Capital user journey and available platform options."
+      },
+      {
+        "title": "Community",
+        "desc": "Introduce your audience to the CK Capital community."
+      },
+      {
+        "title": "Reward Stories",
+        "desc": "Share approved CK Capital Qualified Analyst achievements and verified reward stories."
+      }
+    ],
+    "channelsEyebrow": "YOUR AFFILIATE CONTENT. YOUR AUDIENCE.",
+    "channelsTitle": "Approved channels.",
+    "channelsDesc": "Partners may promote CK Capital through approved channels including:",
+    "channelsDisclaimer": "All promotional activity must comply with CK Capital's Affiliate Program Terms, advertising requirements and applicable laws.",
+    "complianceEyebrow": "PROMOTE RESPONSIBLY",
+    "complianceTitle": "Build trust. Keep it accurate.",
+    "complianceDesc": "CK Capital affiliates must communicate clearly and responsibly. Affiliate content must not be misleading, deceptive, false, defamatory, offensive or unlawful. Affiliates should not make guaranteed earnings, guaranteed performance or misleading financial claims. Marketing should accurately represent CK Capital as providing proprietary trading evaluation programmes within simulated/demo trading environments.",
+    "payoutsEyebrow": "GET PAID FOR YOUR PERFORMANCE",
+    "payoutsTitle": "Minimum affiliate payout: $250",
+    "payoutsDesc": "Affiliate commission becomes eligible for payout according to CK Capital's current affiliate payout schedule and programme terms. A minimum affiliate commission balance of $250 is required before a payout can be requested or processed.",
+    "viewAffiliateTerms": "VIEW AFFILIATE TERMS",
+    "storiesEyebrow": "AFFILIATE SUCCESS STORIES",
+    "storiesTitle": "Meet the CK Capital partners growing with us.",
+    "storiesEmpty": "Approved affiliate stories will appear here once real testimonials and publication consent are available.",
+    "communityEyebrow": "CK CAPITAL COMMUNITY",
+    "communityTitle": "Promote more than an evaluation.",
+    "communityDesc": "Introduce your audience to a growing community built around skill development, trading discipline and simulated evaluation programmes.",
+    "communityList": [
+      "1 Step Evaluations",
+      "2 Step Evaluations",
+      "Instant Options",
+      "MT5",
+      "TradeLocker",
+      "Unlimited Trading Periods on applicable evaluations",
+      "Reset & Top-Up options",
+      "News Trading under applicable account rules",
+      "Up to 100% simulated profit rewards",
+      "Total simulated account allocation up to $1.2M"
+    ],
+    "ctaStats": [
+      {
+        "value": "UP TO 25%",
+        "label": "Commission"
+      },
+      {
+        "value": "$250",
+        "label": "Minimum Affiliate Payout"
+      },
+      {
+        "value": "PERFORMANCE-BASED",
+        "label": "Affiliate Tiers"
+      },
+      {
+        "value": "GLOBAL",
+        "label": "Community"
+      }
+    ],
+    "disclaimerTitle": "AFFILIATE DISCLAIMER",
+    "disclaimerDesc": "Participation in the CK Capital Affiliate Program is subject to application approval and the applicable Affiliate Program Terms. Commission is earned only on eligible qualified referrals and may vary according to affiliate tier, performance and programme requirements. CK Capital does not guarantee any level of affiliate income. Any earnings examples, calculators or projections displayed on this page are illustrative only and should not be interpreted as guaranteed results. Affiliate accounts may be reviewed, suspended or terminated where programme requirements are not met or prohibited activity occurs. CK Capital reserves the right to update affiliate commission rates, requirements, benefits and programme terms. CK Capital provides proprietary trading evaluation programmes operating within simulated/demo environments. CK Capital does not provide investment advice, financial advice or brokerage services.",
+    "linkTerms": "AFFILIATE TERMS & CONDITIONS →",
+    "linkGeneralTerms": "GENERAL TERMS & CONDITIONS →",
+    "linkDisclaimer": "DISCLAIMER →",
+    "linkPrivacy": "PRIVACY POLICY →"
+  },
+  "contact": {
+    "badge": "اتصل بنا · دعم 24/7",
+    "title": "تواصل معنا",
+    "subtitle": "لديك استفسار؟ فريق الدعم لدينا متواجد لمساعدتك في أي وقت.",
+    "discordTitle": "دعم ديسكورد",
+    "discordDesc": "انضم لمجتمع ديسكورد للحصول على مساعدة سريعة والتواصل مع المتداولين.",
+    "discordBtn": "انضم لديسكورد →",
+    "officeTitle": "عنوان المكتب",
+    "officeDesc": "6-7 Waterside Station Road, Harpenden, AL5 4US, United Kingdom",
+    "hoursTitle": "ساعات العمل والدعم",
+    "hoursDesc": "من الإثنين إلى الجمعة: 8ص - 8م بتوقيت غرينتش. دعم المجتمع 24/7."
+  },
+  "evaluation": {
+    "badge": "عرض الصيف · خصم 70% على التقييمات",
+    "title": "تقييمات تداول مصممة للمحترفين.",
+    "subtitle": "أثبت مهاراتك في بيئة محاكاة واحصل على حسابات ممولة حتى 1.2 مليون دولار.",
+    "claimOffer": "احصل على خصم 70%",
+    "compareBtn": "قارن التحديات",
+    "pathEyebrow": "كيف يعمل التقييم",
+    "pathTitle": "طريقك نحو النجاح",
+    "pathSubtitle": "ثلاث مراحل واضحة بينك وبين حسابك الممول في CK.",
+    "resetTitle": "خيارات إعادة التعيين والتعبئة",
+    "resetDesc": "هل خالفت قاعدة؟ أعد تعيين حسابك بخصم وعد للتداول مجدداً.",
+    "resetBtn": "العودة للتداول",
+    "faqEyebrow": "الأسئلة الشائعة",
+    "faqTitle": "أسئلة حول التقييم"
+  },
+  "instant": {
+    "badge": "أُطلق حديثاً",
+    "title": "بدون تحديات. ابدأ التداول فوراً.",
+    "subtitle": "تجاوز مرحلة التقييم واحصل على التمويل المباشر بحسابات من 5 آلاف إلى 50 ألف دولار.",
+    "whyTitle": "لماذا تختار التمويل الفوري؟",
+    "pricesTitle": "أسعار التمويل الفوري",
+    "comparisonTitle": "التمويل الفوري مقابل التحدي",
+    "feature": "الميزة",
+    "instantCol": "التمويل الفوري",
+    "challengeCol": "تحدي المرحلة الواحدة",
+    "getStarted": "ابدأ الآن →"
+  },
+  "legal": {
+    "badgeLegal": "الشؤون القانونية",
+    "cookieBadge": "ملفات تعريف الارتباط",
+    "cookieTitle": "سياسة ملفات تعريف الارتباط",
+    "returnBadge": "الاسترداد والنزاعات",
+    "returnTitle": "سياسة الاسترداد",
+    "privacyBadge": "خصوصيتك تهمنا",
+    "privacyTitle": "سياسة الخصوصية وإخلاء المسؤولية",
+    "termsBadge": "يرجى القراءة بعناية",
+    "termsTitle": "الشروط والأحكام",
+    "riskBadge": "اقرأ قبل البدء بالتداول",
+    "riskTitle": "بيان الإفصاح عن المخاطر"
+  },
+  "tradingObjectives": {
+    "heroBadge": "CK CAPITAL TRADING OBJECTIVES",
+    "heroTitlePrefix": "اعثر على التقييم الذي يناسب استراتيجيتك.",
+    "heroTitleShimmer": "بدون قيود زمنية. قواعد شفافة.",
+    "heroDesc": "Different traders need different paths. Choose between 1 Step, 2 Step or Instant and compare the objectives, risk limits and conditions before starting your CK Capital evaluation.",
+    "chooseEvaluation": "Choose Your Evaluation",
+    "understandObjectives": "Understand the objectives",
+    "badgeSimulated": "Simulated evaluation environments",
+    "badgeProgression": "Objective-driven progression",
+    "step1Title": "Choose your evaluation model.",
+    "step1Subtitle": "Start with the path that matches how you prefer to trade — the objectives below update instantly.",
+    "step2Title": "Select your account size.",
+    "step2Subtitle": "Per-size objective values update as you choose.",
+    "step2Showing": "Showing objectives for {size}.",
+    "step2SelectPrompt": "Select a size to reveal the per-size objective values.",
+    "accountLabel": "ACCOUNT",
+    "step3Title": "Review your objectives.",
+    "step3Subtitle": "Adjust secondary conditions, then read the full rules below.",
+    "evalTypeLabel": "Evaluation Type",
+    "platformLabel": "Platform",
+    "optional": "optional",
+    "bothPlatformsNote": "Both platforms available on all models.",
+    "paths": {
+      "oneStep": "1 STEP",
+      "oneStepSub": "One evaluation phase",
+      "twoStep": "2 STEP",
+      "twoStepSub": "Two evaluation phases",
+      "instant": "INSTANT",
+      "instantSub": "Start under account rules"
+    },
+    "evalTypes": {
+      "standard": "Standard",
+      "middle": "Middle",
+      "pro": "Pro"
+    },
+    "platforms": {
+      "mt5": {
+        "label": "MT5",
+        "tagline": "MetaTrader 5",
+        "desc": "Advanced charting, Expert Advisors and one-click trading on the industry-standard platform."
+      },
+      "tradelocker": {
+        "label": "TradeLocker",
+        "tagline": "TradeLocker",
+        "desc": "A modern web and mobile platform built for speed, with real-time analytics and built-in risk tools."
+      }
+    },
+    "phaseCards": {
+      "phase1Title": "Phase 1",
+      "phase1Sub": "Evaluation stage",
+      "phase2Title": "Phase 2",
+      "phase2Sub": "Verification stage",
+      "qaTitle": "CK Qualified Analyst",
+      "qaSub": "Programme destination",
+      "qaFooter": "Up to 100% simulated profit rewards",
+      "evaluationTitle": "Evaluation",
+      "evaluationSub": "Single stage — complete the objective under CK Capital's risk parameters.",
+      "instantTitle": "Instant Account",
+      "instantSub": "Your dashboard clearly displays your:",
+      "afterEvalTitle": "After the evaluation",
+      "afterEvalDesc": "Complete the evaluation objectives and applicable account review to progress to the next CK Capital stage.",
+      "beforeStartTitle": "Before you start",
+      "beforeStartDesc": "Always review the exact objectives for your selected Instant account before checkout."
+    },
+    "rows": {
+      "tradingPeriod": "Trading Period",
+      "profitTarget": "Profit Target",
+      "maxDailyLoss": "Max Daily Loss",
+      "maxLoss": "Max Loss",
+      "minTradingDays": "Minimum Trading Days",
+      "consistency": "Consistency",
+      "platform": "Platform",
+      "consistencyReq": "Consistency Requirement",
+      "tradingConditions": "Trading Conditions",
+      "accountSize": "Account Size",
+      "rewardEligibility": "Reward Eligibility",
+      "unlimited": "Unlimited",
+      "none": "None",
+      "accordingToRules": "According to selected account rules",
+      "checkConditions": "Check account conditions",
+      "upToSplit": "Up to applicable split",
+      "consistencyWhereApplicable": "40% where applicable",
+      "twoStepProPending": "The Pro evaluation structure — current rates pending publication."
+    },
+    "twoStepSection": {
+      "title": "Two stages. Clear objectives. One goal.",
+      "desc": "Demonstrate your ability to follow structured risk parameters across two simulated evaluation phases before progressing to a CK Capital Qualified Analyst Account.",
+      "phase1ExplTitle": "Phase 1 — Evaluation",
+      "phase1ExplDesc": "Show that you can reach the required objective while respecting CK Capital's risk parameters. Complete the profit target, minimum trading-day requirement and all applicable account rules.",
+      "phase2ExplTitle": "Phase 2 — Verification",
+      "phase2ExplDesc": "Confirm the consistency and risk management demonstrated during Phase 1. Once all objectives are completed and the account passes review, you can progress to the CK Capital Qualified Analyst stage."
+    },
+    "oneStepSection": {
+      "title": "One evaluation. One clear path.",
+      "desc": "Designed for traders who prefer a shorter evaluation structure. Complete one simulated evaluation while following CK Capital's risk-management requirements."
+    },
+    "instantSection": {
+      "title": "Skip the traditional multi-stage evaluation.",
+      "desc": "CK Capital Instant provides a different account structure for traders who want to begin under defined account rules without completing the standard multi-stage evaluation process.",
+      "notOffered": "Instant is not currently offered at {size}. Available sizes: $5K – $200K."
+    },
+    "glossaryHeadingEyebrow": "UNDERSTAND YOUR OBJECTIVES",
+    "glossaryHeadingTitle": "Know the rules before you trade.",
+    "glossary": [
+      {
+        "title": "Profit Target",
+        "desc": "The simulated profit objective that must be reached during an evaluation phase before the account can progress to review."
+      },
+      {
+        "title": "Maximum Daily Loss",
+        "desc": "The maximum permitted loss during a trading day. Your dashboard should clearly display your current daily-loss usage and remaining allowance."
+      },
+      {
+        "title": "Maximum Loss",
+        "desc": "The maximum total permitted loss on the account. Reaching or exceeding the defined maximum-loss level may result in an account breach."
+      },
+      {
+        "title": "Minimum Trading Days",
+        "desc": "The minimum number of qualifying trading days required before completing an evaluation stage."
+      },
+      {
+        "title": "Consistency",
+        "desc": "Certain CK Capital models may include a consistency requirement designed to encourage sustainable and disciplined simulated trading behaviour. Always check the requirements associated with your selected evaluation."
+      }
+    ],
+    "unlimitedEyebrow": "UNLIMITED TRADING PERIOD",
+    "unlimitedTitle": "Trade at your own pace.",
+    "unlimitedDesc": "CK Capital evaluation programmes currently provide unlimited trading periods, allowing you to focus on following the objectives rather than racing against an expiry date.",
+    "resetEyebrow": "RESET & TOP-UP",
+    "resetTitle": "Another opportunity to continue.",
+    "resetDesc": "Eligible CK Capital accounts may have access to Reset or Top-Up options. If an account breaches applicable rules, check your dashboard for available reset or top-up options and their current terms.",
+    "viewTerms": "View terms",
+    "progressionEyebrow": "FROM EVALUATION TO QUALIFIED ANALYST",
+    "progressionTitle": "Three steps. One destination.",
+    "progression": [
+      {
+        "step": "Step 1",
+        "title": "Evaluation",
+        "desc": "Demonstrate your ability to meet the selected programme's objectives while respecting its risk parameters."
+      },
+      {
+        "step": "Step 2",
+        "title": "Verification",
+        "desc": "Where applicable, confirm your performance through the second evaluation stage."
+      },
+      {
+        "step": "Step 3",
+        "title": "CK Capital Qualified Analyst",
+        "desc": "After successful completion and account review, eligible traders can progress to a CK Capital Qualified Analyst Account in CK Capital's simulated environment."
+      }
+    ],
+    "qaBenefitsTitle": "Qualified Analyst benefits may include:",
+    "qaBenefits": [
+      "Up to 100% simulated profit rewards",
+      "Flexible reward cycles",
+      "News trading according to applicable rules",
+      "Multiple account sizes",
+      "MT5 & TradeLocker"
+    ],
+    "compareEyebrow": "COMPARE CK CAPITAL MODELS",
+    "compareTitle": "Compare CK Capital models.",
+    "compareTableHeader": "Compare",
+    "selectedBadge": "SELECTED",
+    "compareRows": {
+      "phases": "Evaluation Phases",
+      "phases1": "1",
+      "phases2": "2",
+      "phasesInstant": "No traditional multi-stage evaluation",
+      "period": "Trading Period",
+      "minDays": "Minimum Trading Days",
+      "minDays1": "From 1 Day",
+      "minDays2": "From 1 Day per phase",
+      "platforms": "Platforms",
+      "reset": "Reset / Top-Up",
+      "resetAvail": "Available where eligible",
+      "reward": "Simulated Reward"
+    },
+    "faqEyebrow": "FREQUENTLY ASKED QUESTIONS",
+    "faqTitle": "Questions, answered.",
+    "faqs": [
+      {
+        "q": "Is there a time limit?",
+        "a": "CK Capital's current standard evaluation structure provides unlimited trading periods."
+      },
+      {
+        "q": "What happens after I complete an evaluation?",
+        "a": "Accounts that meet the required objectives proceed through CK Capital's applicable review process before progressing to the next stage."
+      },
+      {
+        "q": "Can I trade news?",
+        "a": "CK Capital supports news trading subject to the rules associated with the selected account."
+      },
+      {
+        "q": "What platforms are available?",
+        "a": "CK Capital currently provides MetaTrader 5 and TradeLocker options."
+      },
+      {
+        "q": "Can I reset an account?",
+        "a": "Eligible accounts may have access to CK Capital Reset or Top-Up options. Availability and pricing depend on the selected account and current terms."
+      },
+      {
+        "q": "Are CK Capital accounts live-money accounts?",
+        "a": "No. CK Capital states that its evaluation and account environments are simulated/demo environments using virtual funds."
+      }
+    ],
+    "finalCtaTitle": "Choose Your CK Capital Evaluation",
+    "finalCtaDesc": "Compare the objectives. Select your account size. Start your evaluation.",
+    "finalCtaBtn": "VIEW EVALUATIONS",
+    "legalEyebrow": "IMPORTANT INFORMATION",
+    "legalDesc": "CK Capital provides proprietary trading evaluation programmes operating within simulated/demo trading environments. Accounts use virtual funds and do not represent customer deposits or live brokerage accounts. Objectives, risk limits and eligibility vary by selected model, account size and current programme terms — always review the exact objectives for your selected account before checkout. Objective values shown here are drawn from the live CK Capital challenge configuration where available; any value not yet confirmed by that source is marked as account-specific or pending publication. Individual results vary and past performance does not guarantee future results. CK Capital does not provide investment advice, financial advice, asset management or brokerage services.",
+    "viewTermsConditions": "VIEW TERMS & CONDITIONS",
+    "viewDisclaimer": "VIEW DISCLAIMER",
+    "exploreRules": "استكشف القواعد",
+    "step1Eyebrow": "الخطوة 1: اختر نموذج التداول الخاص بك",
+    "step2Eyebrow": "الخطوة 2: اختر حجم رأس المال",
+    "step3Eyebrow": "الخطوة 3: المنصة والنوع",
+    "startChallenge": "ابدأ التحدي"
+  },
+  "instruments": {
+    "title": "Trade your way",
+    "cfdsTitle": "CFDs",
+    "cfdsDesc": "Go long or short on 1,000+ instruments across forex, crypto, indices, commodities and stocks with institutional spreads, on simulated capital.",
+    "futuresTitle": "Futures",
+    "futuresDesc": "Standardized contracts on indices, commodities and crypto. Prices track real exchange liquidity, not a market maker's book. Go long or short, overnight and through the weekend.",
+    "btnLong": "Long",
+    "btnShort": "Short",
+    "high24h": "24H HIGH",
+    "low24h": "24H LOW",
+    "vol": "VOL",
+    "algoTitle": "Bring your own agent or algo",
+    "trustTitle": "Trusted by 65k+ traders",
+    "trustSubtitle": "Real, verified reviews from funded traders – on Feefo and Google, never cherry-picked.",
+    "trustSummary": "2,800+ verified reviews · Feefo & Google",
+    "verifiedBadge": "VERIFIED"
+  },
+  "offers": {
+    "title": "Available Offers",
+    "badge": "start challenge · From $9",
+    "hotOffer": "hot offer",
+    "defaultHeadline": "Your First Challenge, {discount} Off",
+    "defaultSubcopy": "Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.",
+    "useCode": "Use Code: {code}"
+  },
+  "search": {
+    "buttonLabel": "بحث...",
+    "searchAria": "البحث في الموقع",
+    "placeholder": "ابحث في الصفحات، القواعد، النماذج، والأسئلة الشائعة...",
+    "noResults": "لم يتم العثور على نتائج لـ",
+    "tryAnother": "جرب البحث عن أحجام الحسابات أو المنصات أو قواعد التداول.",
+    "popularSearches": "عمليات البحث الشائعة",
+    "navigationShortcuts": "اختصارات التنقل",
+    "categories": {
+      "pages": "الصفحات",
+      "challenges": "نماذج التحدي والأحجام",
+      "rules": "قواعد التداول والأهداف",
+      "platforms": "المنصات والأدوات المالية",
+      "faq": "الأسئلة الشائعة",
+      "actions": "الإجراءات السريعة"
+    },
+    "footer": {
+      "navigate": "للتنقل",
+      "select": "للاختيار",
+      "close": "للإغلاق"
+    },
+    "clear": "مسح البحث"
+  }
+}

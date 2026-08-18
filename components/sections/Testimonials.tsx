@@ -3,29 +3,35 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import { fadeUp } from "@/components/fx/reveal";
+import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
 const VIDEOS: VideoItem[] = [
   {
     id: "bZq8jtD9acY",
+    thumbnail: "/images/testimonials/hqdefault-308afdd2f9.jpg",
     reward: "$38,200",
     title: "I DROPPED OUT OF COLLEGE FOR TRADING",
     desc: "More than rewards — how CK changed my trading",
   },
   {
     id: "8NQAWtlh_ws",
+    thumbnail: "/images/testimonials/hqdefault-88f16d731b.jpg",
     reward: "$84,120",
     title: "BEST PROP? I TRUST CK CAPITAL",
     desc: "Trusting the process paid off big time",
   },
   {
     id: "5RjtGHPcuMM",
+    thumbnail: "/images/testimonials/hqdefault-ae10a042fa.jpg",
     reward: "$15,995",
     title: "MY PERCEPTION ABOUT TRADING WAS WRONG...",
     desc: "Trading Gold & Nasdaq to a funded payout",
   },
   {
     id: "LNXpq8_PwxU",
+    thumbnail: "/images/testimonials/hqdefault-9c0405cb37.jpg",
     reward: "$22,400",
     title: "THIS IS HOW ALGO TRADING CHANGED IT ALL",
     desc: "From challenge to funded: a CK success story",
@@ -35,6 +41,7 @@ const VIDEOS: VideoItem[] = [
 export interface VideoItem {
   id: string;
   title: string;
+  thumbnail?: string;
   reward?: string | null;
   desc?: string | null;
 }
@@ -70,25 +77,31 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
   const doubled = [...items, ...items];
 
   return (
-    <section className="py-14 md:py-24 bg-background" data-od-id="testimonials">
+    <section className="py-14 md:py-24" data-od-id="testimonials">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             Testimonials
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
-            Real Traders, Real Rewards,{" "}
-            <span className="text-primary">Real Impact</span>
+            Funded traders,{" "}
+            <span className="text-primary">on record</span>
           </h2>
           <p className="mt-3 text-foreground/50 max-w-xl mx-auto text-sm">
-            Hear it directly from traders who passed their challenge and received their reward — real
-            stories from people whose lives changed with every payout.
+            Watch traders who passed their challenge and collected their payout — in their own
+            words, straight from the source.
           </p>
         </SectionReveal>
       </Container>
 
       {/* Auto-scrolling video row */}
-      <div className="overflow-hidden">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="overflow-hidden"
+      >
         <div ref={rowRef} className="flex gap-4 w-max px-4 sm:px-6 lg:px-8">
           {doubled.map((v, i) => (
             <div
@@ -96,7 +109,18 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
               className="w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl border border-foreground/10 bg-foreground/[0.03] overflow-hidden shrink-0 flex flex-col"
             >
               {/* Thumbnail */}
-              <div className="relative w-full aspect-video cursor-pointer group" onClick={() => handlePlay(v.id)}>
+              <div
+                className="relative w-full aspect-video cursor-pointer group"
+                role="button"
+                tabIndex={0}
+                onClick={() => handlePlay(v.id)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handlePlay(v.id);
+                  }
+                }}
+              >
                 {playing === v.id ? (
                   <iframe
                     src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
@@ -108,7 +132,7 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
                 ) : (
                   <>
                     <Image
-                      src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
+                      src={v.thumbnail ?? VIDEOS[i % VIDEOS.length].thumbnail!}
                       alt={v.title}
                       fill
                       className="object-cover"
@@ -117,7 +141,7 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
                     {/* Play button */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all ring-1 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/60">
+                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all ring-1 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/60 group-focus-visible:ring-2 group-focus-visible:ring-primary/60">
                         <Play size={22} fill="#0B0A07" stroke="none" className="ml-1" />
                       </div>
                     </div>
@@ -140,7 +164,7 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Join Community CTA */}
       <Container>

@@ -1,9 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 
-const FALLBACK_MESSAGES = ["🏆 Join Now & Get JUN70 Code for 70% Off"];
-
-export function AnnouncementBar({ banners = FALLBACK_MESSAGES }: { banners?: string[] }) {
-  const messages = banners.length ? banners : FALLBACK_MESSAGES;
+export function AnnouncementBar({ banners }: { banners?: string[] }) {
+  const t = useTranslations("announcement");
+  const defaultMsg = `🔥 ${t("badge")} — ${t("discount")} ${t("allEvaluations")} — ${t("codeLabel")} SUMMER70`;
+  const messages = banners && banners.length ? banners : [defaultMsg];
   // Repeat so the ticker always fills even wide screens
   const items = Array.from({ length: 12 }, (_, i) => i);
 
