@@ -176,6 +176,27 @@ function CertificateModal({ payout, onClose }: { payout: CmsPayout | null; onClo
   );
 }
 
+function countryCodeToFlag(code: string): string {
+  if (!code || code.length !== 2) return "🏳️";
+  return String.fromCodePoint(
+    ...code.toUpperCase().split("").map((c) => 0x1f1e6 - 65 + c.charCodeAt(0))
+  );
+}
+
+/** Positions for flag dots arranged around the globe in a pleasing arc layout */
+const FLAG_POSITIONS = [
+  { left: "22%", top: "18%" },
+  { left: "52%", top: "12%" },
+  { left: "76%", top: "22%" },
+  { left: "14%", top: "48%" },
+  { left: "82%", top: "45%" },
+  { left: "24%", top: "72%" },
+  { left: "54%", top: "78%" },
+  { left: "74%", top: "68%" },
+  { left: "38%", top: "35%" },
+  { left: "62%", top: "55%" },
+];
+
 function CountryAtlas({ payouts }: { payouts: CmsPayout[] }) {
   const countries = useMemo(() => {
     const grouped = new Map<string, { name: string; code: string; count: number; total: number }>();
@@ -197,21 +218,81 @@ function CountryAtlas({ payouts }: { payouts: CmsPayout[] }) {
       <div className="relative min-h-[310px] overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.025] p-6 sm:min-h-[390px]" data-od-id="rewards-world-map">
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="relative flex h-full min-h-[258px] items-center justify-center">
-          <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.04] shadow-[0_0_90px_color-mix(in_oklab,var(--primary)_14%,transparent)] sm:h-64 sm:w-64">
-            <div className="absolute inset-5 rounded-full border border-primary/15" />
-            <div className="absolute inset-12 rounded-full border border-teal/20" />
-            <Globe2 className="text-primary/60" size={72} strokeWidth={0.8} />
-            {countries.slice(0, 8).map((country, index) => (
-              <button key={country.code} type="button" onClick={() => setSelected(country.code)} className="absolute h-4 w-4 rounded-full border-2 border-background bg-secondary shadow-[0_0_16px_var(--secondary)] transition hover:scale-125 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" style={{ left: `${18 + ((index * 29) % 64)}%`, top: `${20 + ((index * 37) % 55)}%` }} aria-label={`Show ${country.name} rewards`} />
-            ))}
+          {/* Globe with slow rotation */}
+          <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.04] shadow-[0_0_90px_color-mix(in_oklab,var(--primary)_14%,transparent)] sm:h-64 sm:w-64 animate-[globe-spin_60s_linear_infinite]">
+            {/* Orbital rings */}
+            <div className="absolute inset-5 rounded-full border border-primary/15 animate-[orbit-pulse_8s_ease-in-out_infinite]" />
+            <div className="absolute inset-12 rounded-full border border-teal/20 animate-[orbit-pulse_8s_ease-in-out_infinite_2s]" />
+            {/* Globe icon with gentle float */}
+            <Globe2 className="text-primary/60 animate-[globe-float_6s_ease-in-out_infinite]" size={72} strokeWidth={0.8} />
+            {/* Country flag dots */}
+            {countries.slice(0, 10).map((country, index) => {
+              const pos = FLAG_POSITIONS[index % FLAG_POSITIONS.length];
+              const isSelected = country.code === selected;
+              return (
+                <button
+                  key={country.code}
+                  type="button"
+                  onClick={() => setSelected(country.code)}
+                  className={`absolute text-lg transition-all duration-300 hover:scale-150 hover:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                    isSelected
+                      ? "scale-150 drop-shadow-[0_0_12px_var(--primary)] z-10"
+                      : "hover:drop-shadow-[0_0_8px_var(--primary)]"
+                  }`}
+                  style={{
+                    left: pos.left,
+                    top: pos.top,
+                    animation: `flag-float-${index % 4} ${5 + (index % 3)}s ease-in-out infinite ${index * 0.3}s`,
+                  }}
+                  aria-label={`Show ${country.name} rewards`}
+                >
+                  {countryCodeToFlag(country.code)}
+                </button>
+              );
+            })}
           </div>
         </div>
-        <div className="absolute bottom-5 left-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-foreground/35"><span className="h-2 w-2 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]" /> Published country data</div>
+        <div className="absolute bottom-5 left-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-foreground/35"><span className="text-sm">🏳️</span> Published country data</div>
+        <style jsx global>{`
+          @keyframes globe-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          @keyframes globe-float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-4px) scale(1.02); }
+          }
+          @keyframes orbit-pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+          }
+          @keyframes flag-float-0 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+          }
+          @keyframes flag-float-1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-4px) rotate(3deg); }
+            66% { transform: translateY(2px) rotate(-2deg); }
+          }
+          @keyframes flag-float-2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes flag-float-3 {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(2px, -4px); }
+            75% { transform: translate(-2px, 2px); }
+          }
+        `}</style>
       </div>
       <div className="rounded-xl border border-primary/20 bg-primary/[0.045] p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">Selected country</p><Globe2 size={16} className="text-primary/70" /></div>
         {active ? <>
-          <h3 className="mt-7 font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground">{active.name}</h3>
+          <div className="mt-7 flex items-center gap-3">
+            <span className="text-4xl">{countryCodeToFlag(active.code)}</span>
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground">{active.name}</h3>
+          </div>
           <div className="mt-8 space-y-5">
             <div><p className="text-xs text-foreground/40">Published reward records</p><p className="mt-1 text-2xl font-extrabold text-primary">{active.count}</p></div>
             <div><p className="text-xs text-foreground/40">Published reward value</p><p className="mt-1 text-2xl font-extrabold text-primary">{formatMoney(active.total)}</p></div>
