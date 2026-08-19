@@ -457,12 +457,17 @@ export function RewardsPageClient({
         <Container><SectionHeading id="reward-world-heading" eyebrow={t("worldEyebrow")} title={t("worldTitle")}>{t("worldSubtitle")}</SectionHeading><div className="mt-12"><CountryAtlas payouts={payouts} /></div></Container>
         </section>
 
-       <section className="py-20 md:py-28" data-od-id="reward-reviews">
-        <Container>
-          <SectionHeading id="reward-reviews-heading" eyebrow={t("reviewsEyebrow")} title={t("reviewsTitle")}>{t("reviewsSubtitle")}</SectionHeading>
-          {reviews.length ? <><div className="mt-12 grid gap-4 md:grid-cols-3">{reviews.slice(0, reviewCount).map((review) => <article key={review.id} className="flex min-h-56 flex-col justify-between rounded-xl border border-foreground/10 bg-foreground/[0.035] p-6" data-od-id={`reward-review-${review.id}`}><div><div className="flex items-center gap-1 text-primary">{Array.from({ length: Math.min(review.rating || 5, 5) }).map((_, i) => <Sparkles key={i} size={13} fill="currentColor" />)}</div><blockquote className="mt-5 text-sm leading-7 text-foreground/70">“{review.summary}”</blockquote></div><div className="mt-6 flex items-center gap-3 border-t border-foreground/[0.08] pt-4"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">{initials(review.authorName)}</span><div><p className="text-sm font-semibold text-foreground">{review.authorName || "Verified trader"}</p><p className="text-xs text-foreground/35">{review.countryName || review.source || "Published review"}</p></div></div></article>)}</div>{reviewCount < reviews.length ? <div className="mt-8 text-center"><button type="button" onClick={() => setReviewCount((count) => Math.min(count + 3, reviews.length))} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-primary/35 px-5 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Read more reviews <ChevronDown size={15} /></button></div> : null}</> : <div className="mt-10 rounded-xl border border-dashed border-foreground/15 px-6 py-16 text-center"><Unavailable label="Verified reviews will appear here from Strapi" /></div>}
-        </Container>
-      </section>
+       {(() => {
+          const realReviews = reviews.filter((r) => r.authorName && r.authorName.trim().length > 0 && !/^verified trader$/i.test(r.authorName));
+          return realReviews.length > 0 ? (
+            <section className="py-20 md:py-28" data-od-id="reward-reviews">
+              <Container>
+                <SectionHeading id="reward-reviews-heading" eyebrow={t("reviewsEyebrow")} title={t("reviewsTitle")}>{t("reviewsSubtitle")}</SectionHeading>
+                <div className="mt-12 grid gap-4 md:grid-cols-3">{realReviews.slice(0, reviewCount).map((review) => <article key={review.id} className="flex min-h-56 flex-col justify-between rounded-xl border border-foreground/10 bg-foreground/[0.035] p-6" data-od-id={`reward-review-${review.id}`}><div><div className="flex items-center gap-1 text-primary">{Array.from({ length: Math.min(review.rating || 5, 5) }).map((_, i) => <Sparkles key={i} size={13} fill="currentColor" />)}</div><blockquote className="mt-5 text-sm leading-7 text-foreground/70">"{review.summary}"</blockquote></div><div className="mt-6 flex items-center gap-3 border-t border-foreground/[0.08] pt-4"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">{initials(review.authorName)}</span><div><p className="text-sm font-semibold text-foreground">{review.authorName}</p><p className="text-xs text-foreground/35">{review.countryName || review.source || ""}</p></div></div></article>)}</div>{reviewCount < realReviews.length ? <div className="mt-8 text-center"><button type="button" onClick={() => setReviewCount((count) => Math.min(count + 3, realReviews.length))} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-primary/35 px-5 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Read more reviews <ChevronDown size={15} /></button></div> : null}
+              </Container>
+            </section>
+          ) : null;
+        })()}
 
       <section className="relative overflow-hidden border-t border-primary/20 py-20 md:py-28" data-od-id="reward-cta">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,color-mix(in_oklab,var(--primary)_14%,transparent),transparent_55%)]" />
