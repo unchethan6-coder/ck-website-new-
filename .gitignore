@@ -43,5 +43,7 @@ next-env.d.ts
 # test & recon artifacts
 qaqc-screenshots/
 qaqc-mobile-screenshots/
+test-results/
+playwright-report/
 RECON/
 /*.mjs
