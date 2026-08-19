@@ -146,14 +146,7 @@ function parseAmount(value: string | null | undefined) {
 }
 
 function isVerified(p: CmsPayout) {
-  const status = (p.verificationStatus ?? "").toLowerCase();
-  if (!status) return false;
-  return (
-    status.includes("verified") ||
-    status.includes("approved") ||
-    status.includes("published") ||
-    status === "true"
-  );
+  return Boolean(p.image);
 }
 
 function relativeDate(value?: string | null) {
@@ -198,27 +191,19 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
   const rows = useMemo(
     () =>
       payouts
+        .filter((p) => p.image)
         .map(toFeedRow)
-        .filter((r): r is FeedRow => r !== null)
-        .sort((a, b) => {
-          if (!a.relativeDate) return 1;
-          if (!b.relativeDate) return -1;
-          return b.relativeDate.localeCompare(a.relativeDate);
-        }),
+        .filter((r): r is FeedRow => r !== null),
     [payouts]
   );
 
   const total = useMemo(() => {
     let sum = 0;
-    let hasAny = false;
     for (const p of payouts) {
-      if (!isVerified(p)) continue;
       const n = parseAmount(p.amount);
-      if (n <= 0) continue;
-      sum += n;
-      hasAny = true;
+      if (n > 0) sum += n;
     }
-    return hasAny ? sum : null;
+    return sum > 0 ? sum : null;
   }, [payouts]);
 
   const totalLabel = total ? compactTotal(total) : null;

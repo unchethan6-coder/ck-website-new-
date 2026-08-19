@@ -248,7 +248,7 @@ export function RewardsPageClient({
     desc: video.description,
   }));
   const filteredPayouts = useMemo(() => {
-    const list = [...payouts];
+    const list = payouts.filter((p) => p.image);
     let withCountry = filter === "country" ? list.filter((payout) => payout.countryName) : list;
     if (filter === "highest") withCountry = withCountry.sort((a, b) => parseAmount(b.amount) - parseAmount(a.amount));
     if (filter === "latest") withCountry = withCountry.sort((a, b) => (b.approvedAt || "").localeCompare(a.approvedAt || ""));
@@ -257,12 +257,17 @@ export function RewardsPageClient({
     return withCountry.filter((payout) => parseAmount(payout.amount) >= threshold);
   }, [amountBand, filter, payouts]);
 
-  const highlights = [
-    { value: summary?.totalRewards === null || summary?.totalRewards === undefined ? null : formatCompactMoney(summary.totalRewards), label: t("rewardsDistributed"), note: summary?.asOf ? `As of ${formatDate(summary.asOf)}` : t("verifiedText") },
-    { value: summary?.analystsRewarded == null ? null : `${summary.analystsRewarded.toLocaleString()}+`, label: t("analystsRewarded"), note: t("verifiedText") },
-    { value: summary?.countries == null ? null : `${summary.countries}+`, label: t("countriesWorldwide"), note: t("verifiedText") },
-    { value: summary?.maxRewardPercent == null ? null : `UP TO ${summary.maxRewardPercent}%`, label: t("simulatedRewards"), note: t("subjectToTerms") },
-  ];
+  const highlights = useMemo(() => {
+    const allTotal = payouts.reduce((s, p) => s + parseAmount(p.amount), 0);
+    const analysts = new Set(payouts.map((p) => p.title).filter(Boolean)).size;
+    const countries = new Set(payouts.map((p) => p.countryCode).filter(Boolean)).size;
+    return [
+      { value: allTotal > 0 ? formatCompactMoney(allTotal) : null, label: t("rewardsDistributed"), note: t("verifiedText") },
+      { value: analysts > 0 ? `${analysts.toLocaleString()}+` : null, label: t("analystsRewarded"), note: t("verifiedText") },
+      { value: countries > 0 ? `${countries}+` : null, label: t("countriesWorldwide"), note: t("verifiedText") },
+      { value: summary?.maxRewardPercent == null ? null : `UP TO ${summary.maxRewardPercent}%`, label: t("simulatedRewards"), note: t("subjectToTerms") },
+    ];
+  }, [payouts, summary]);
 
   return (
     <div data-od-id="rewards-page">

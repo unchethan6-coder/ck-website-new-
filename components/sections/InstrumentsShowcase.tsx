@@ -57,10 +57,10 @@ const TERMINAL_SETS = [
 ];
 
 const REVIEWS = [
-  { name: "Sarah K.", flag: "🇨🇦", initial: "S", text: "The evaluation rules were easy to understand and the platform was smooth.", source: "feefo" },
-  { name: "James L.", flag: "🇬🇧", initial: "J", text: "Payout was processed within 12 hours. Couldn't believe how fast it was.", source: "feefo" },
-  { name: "Ahmed M.", flag: "🇦🇪", initial: "A", text: "Best prop firm I've tried. Clear rules, no hidden conditions, great support.", source: "Google" },
-  { name: "Maria S.", flag: "🇩🇪", initial: "M", text: "The dashboard is intuitive and the community keeps me motivated every day.", source: "feefo" },
+  { name: "Aiman A.", flag: "🇲🇾", initial: "A", text: "Best customer support experience especially on discord. Plan rules are straightforward as all in their FAQ website.", source: "Trustpilot" },
+  { name: "Ghecel V.", flag: "🇵🇭", initial: "G", text: "CK cap is my new favorite prop firm. The rules are very trader friendly and almost all pairs are available.", source: "Trustpilot" },
+  { name: "Luyanda", flag: "🇿🇦", initial: "L", text: "I really trust this prop firm to payout on time every time. The customer care is just too proper.", source: "Trustpilot" },
+  { name: "David A.", flag: "🇳🇬", initial: "D", text: "Customer service is top-notch, the website is good, trading rules aren't bad. I'd rate them with 5 stars.", source: "Trustpilot" },
 ];
 
 function useTickingPrice(base: number, decimals: number) {

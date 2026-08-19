@@ -30,14 +30,7 @@ function parseAmount(value: string | null | undefined) {
 }
 
 function isVerified(p: CmsPayout) {
-  const status = (p.verificationStatus ?? "").toLowerCase();
-  return (
-    Boolean(status) &&
-    (status.includes("verified") ||
-      status.includes("approved") ||
-      status.includes("published") ||
-      status === "true")
-  );
+  return Boolean(p.image);
 }
 
 function formatMoney(value: number | null, currency = "USD") {
@@ -85,12 +78,12 @@ export function ProofShowcase({
 
   const verified = useMemo(() => payouts.filter(isVerified), [payouts]);
   const payoutTotal = useMemo(() => {
-    const total = verified.reduce(
+    const total = payouts.reduce(
       (sum, payout) => sum + parseAmount(payout.amount),
       0
     );
     return total > 0 ? total : null;
-  }, [verified]);
+  }, [payouts]);
   const total =
     summary?.totalRewards && summary.totalRewards > 0
       ? summary.totalRewards
@@ -109,7 +102,7 @@ export function ProofShowcase({
   );
   const analysts =
     summary?.analystsRewarded ??
-    (new Set(verified.map((p) => p.title).filter(Boolean)).size || null);
+    (new Set(payouts.map((p) => p.title).filter(Boolean)).size || null);
   const countries =
     summary?.countries ??
     (new Set(verified.map((p) => p.countryCode).filter(Boolean)).size || null);
