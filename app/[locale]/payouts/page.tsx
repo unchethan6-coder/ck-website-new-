@@ -1,6 +1,6 @@
 import { RewardsPageClient } from "@/components/sections/RewardsPageClient";
 import { getFirmReviews, getPayouts, getRewardsSummary, getVideoReviews } from "@/lib/cms";
-import { trustpilotReviewCards } from "@/components/sections/TraderReviews";
+import { TRUSTPILOT_REVIEWS } from "@/lib/trustpilot-reviews";
 import type { CmsFirmReview } from "@/lib/cms";
 
 export const revalidate = 300;
@@ -19,7 +19,7 @@ export default async function PayoutsPage() {
   );
   const reviews: CmsFirmReview[] = realCmsReviews.length > 0
     ? realCmsReviews
-    : trustpilotReviewCards.map((r, i) => ({
+    : TRUSTPILOT_REVIEWS.map((r, i) => ({
         id: i,
         summary: r.text,
         rating: r.rating,
@@ -28,7 +28,7 @@ export default async function PayoutsPage() {
         authorName: r.name,
         countryName: r.location,
         countryCode: null,
-        source: r.source,
+        source: "Trustpilot",
         verified: undefined,
       }));
 
