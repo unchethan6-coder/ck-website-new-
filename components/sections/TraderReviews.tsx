@@ -103,8 +103,6 @@ export function TraderReviews({
   const realReviews = reviews.filter(
     (r) => r.name && r.name.trim().length > 0 && !/^verified trader$/i.test(r.name.trim())
   );
-  const sourceReviews = realReviews.length > 0 ? realReviews : null;
-  if (!sourceReviews && !video) return null;
 
   // Live CMS reviews all arrive tagged "CK Capital" from page.tsx, which would
   // flatten the wall into one identical style. Preserve the reference's
@@ -117,8 +115,8 @@ export function TraderReviews({
   ];
 
   // If CMS has no real reviews, use Trustpilot reviews directly (already have sourceKey)
-  const wallCards: WallCard[] = sourceReviews
-    ? sourceReviews.map((r, i) => {
+  const wallCards: WallCard[] = realReviews.length > 0
+    ? realReviews.map((r, i) => {
         const hasRealSource =
           r.source && !/^ck capital$/i.test(r.source.trim()) && r.source.trim().length > 0;
         const { key, label } = hasRealSource
@@ -127,6 +125,8 @@ export function TraderReviews({
         return { ...r, sourceKey: key, sourceLabel: label };
       })
     : trustpilotWallCards;
+
+  if (!wallCards.length && !video) return null;
 
   // Asymmetric masonry: distribute cards across 3 columns with vertical offsets.
   // Column 1 also hosts the video card; column 2 hosts the stat card.
@@ -207,7 +207,7 @@ export function TraderReviews({
           data-od-id="trader-reviews-disclaimer"
         >
           {t("disclaimer")}
-          {!sourceReviews && video && t("placeholdersNote")}
+          {!realReviews.length && video && t("placeholdersNote")}
         </p>
       </Container>
     </section>
