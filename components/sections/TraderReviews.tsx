@@ -80,7 +80,28 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-/** No hardcoded fallback reviews — only show real CMS reviews */
+/** Real 5-star Trustpilot reviews — used as fallback when CMS has no reviews with real author names */
+const TRUSTPILOT_REVIEWS: WallCard[] = [
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "Best customer support experience especially on discord. Their plan rules also straightforward as all in their faq website.", name: "Aiman A.", location: "Malaysia", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "CK cap is my new favorite prop firm. The rules are very trader friendly and almost all pairs are available especially indices.", name: "Ghecel V.", location: "Philippines", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "CK CAPITAL is currently one of my top choices for prop firms — the dashboard is simple, and the support team is quick to respond.", name: "Sandi G.", location: "Indonesia", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "I just love what CK Capital has done for me. The customer care is just too proper and I really trust this prop firm to payout on time.", name: "Luyanda", location: "South Africa", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "I've tried a few prop firms before, but CK Capital stands out. The platform is clean, and the trading rules actually make sense.", name: "Mmabatho M.", location: "Botswana", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "Customer service is top-notch, the website is good, trading rules aren't bad as well. So I'd rate them with 5 stars.", name: "David A.", location: "Nigeria", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "Had an incredible time with CK Capital. Their support team is incredibly great, fast response.", name: "Chudhery M.", location: "Pakistan", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "CK Capital has one of the most engaged discord community I've been apart of.", name: "Yazzy", location: "Sweden", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "CK Capital offers competitive trading rules and environment, despite being relatively new in the market.", name: "Eric A.", location: "Nigeria", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+  { sourceKey: "trustpilot", sourceLabel: "Trustpilot", rating: 5, text: "Best firm, best service, always thinking about traders.", name: "A l", location: "India", source: "Trustpilot", url: "https://www.trustpilot.com/review/ckcapital.co.uk" },
+];
+
+/** Convert Trustpilot reviews to ReviewCard format for use in other components */
+export const trustpilotReviewCards: ReviewCard[] = TRUSTPILOT_REVIEWS.map((r) => ({
+  text: r.text,
+  name: r.name,
+  location: r.location,
+  source: r.source,
+  rating: r.rating,
+}));
 
 export function TraderReviews({
   reviews = [],
@@ -91,12 +112,12 @@ export function TraderReviews({
 }) {
   const t = useTranslations("reviews");
 
-  // Only show reviews with real author names — skip seed/placeholder data
+  // Use CMS reviews with real names, or fall back to Trustpilot reviews
   const realReviews = reviews.filter(
     (r) => r.name && r.name.trim().length > 0 && !/^verified trader$/i.test(r.name.trim())
   );
-  const hasRealReviews = realReviews.length > 0;
-  if (!hasRealReviews && !video) return null;
+  const sourceReviews = realReviews.length > 0 ? realReviews : null;
+  if (!sourceReviews && !video) return null;
 
   // Live CMS reviews all arrive tagged "CK Capital" from page.tsx, which would
   // flatten the wall into one identical style. Preserve the reference's
@@ -108,14 +129,17 @@ export function TraderReviews({
     { key: "reddit", label: "Reddit" },
   ];
 
-  const wallCards: WallCard[] = realReviews.map((r, i) => {
-    const hasRealSource =
-      r.source && !/^ck capital$/i.test(r.source.trim()) && r.source.trim().length > 0;
-    const { key, label } = hasRealSource
-      ? normalizeSource(r.source)
-      : SOURCE_ROTATION[i % SOURCE_ROTATION.length];
-    return { ...r, sourceKey: key, sourceLabel: label };
-  });
+  // If CMS has no real reviews, use Trustpilot reviews directly (already have sourceKey)
+  const wallCards: WallCard[] = sourceReviews
+    ? sourceReviews.map((r, i) => {
+        const hasRealSource =
+          r.source && !/^ck capital$/i.test(r.source.trim()) && r.source.trim().length > 0;
+        const { key, label } = hasRealSource
+          ? normalizeSource(r.source)
+          : SOURCE_ROTATION[i % SOURCE_ROTATION.length];
+        return { ...r, sourceKey: key, sourceLabel: label };
+      })
+    : TRUSTPILOT_REVIEWS;
 
   // Asymmetric masonry: distribute cards across 3 columns with vertical offsets.
   // Column 1 also hosts the video card; column 2 hosts the stat card.
@@ -196,7 +220,7 @@ export function TraderReviews({
           data-od-id="trader-reviews-disclaimer"
         >
           {t("disclaimer")}
-          {!hasRealReviews && video && t("placeholdersNote")}
+          {!sourceReviews && video && t("placeholdersNote")}
         </p>
       </Container>
     </section>
