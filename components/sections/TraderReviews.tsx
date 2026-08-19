@@ -80,9 +80,8 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-/** Real 5-star Trustpilot reviews (scraped 2026-08-20).
- *  Source: https://www.trustpilot.com/review/ckcapital.co.uk?stars=5 */
-const PLACEHOLDER_CARDS: WallCard[] = [
+/** Fallback reviews when CMS has no firm reviews — sourced from Trustpilot 5-star reviews */
+const FALLBACK_REVIEWS: WallCard[] = [
   {
     sourceKey: "trustpilot",
     sourceLabel: "Trustpilot",
@@ -193,7 +192,7 @@ export function TraderReviews({
   video?: VideoItem;
 }) {
   const t = useTranslations("reviews");
-  const usingPlaceholders = !reviews.length;
+  const usingFallback = !reviews.length;
 
   // Live CMS reviews all arrive tagged "CK Capital" from page.tsx, which would
   // flatten the wall into one identical style. Preserve the reference's
@@ -215,7 +214,7 @@ export function TraderReviews({
           r.name && !/^verified trader$/i.test(r.name.trim()) ? r.name : "Verified Trader";
         return { ...r, name: displayName, sourceKey: key, sourceLabel: label };
       })
-    : PLACEHOLDER_CARDS;
+    : FALLBACK_REVIEWS;
 
   // Asymmetric masonry: distribute cards across 3 columns with vertical offsets.
   // Column 1 also hosts the video card; column 2 hosts the stat card.
@@ -296,7 +295,7 @@ export function TraderReviews({
           data-od-id="trader-reviews-disclaimer"
         >
           {t("disclaimer")}
-          {usingPlaceholders && t("placeholdersNote")}
+          {usingFallback && t("placeholdersNote")}
         </p>
       </Container>
     </section>

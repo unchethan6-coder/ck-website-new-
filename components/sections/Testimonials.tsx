@@ -7,35 +7,19 @@ import { fadeUp } from "@/components/fx/reveal";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
-const VIDEOS: VideoItem[] = [
-  {
-    id: "bZq8jtD9acY",
-    thumbnail: "/images/testimonials/hqdefault-308afdd2f9.jpg",
-    reward: "$38,200",
-    title: "I DROPPED OUT OF COLLEGE FOR TRADING",
-    desc: "More than rewards — how CK changed my trading",
-  },
-  {
-    id: "8NQAWtlh_ws",
-    thumbnail: "/images/testimonials/hqdefault-88f16d731b.jpg",
-    reward: "$84,120",
-    title: "BEST PROP? I TRUST CK CAPITAL",
-    desc: "Trusting the process paid off big time",
-  },
-  {
-    id: "5RjtGHPcuMM",
-    thumbnail: "/images/testimonials/hqdefault-ae10a042fa.jpg",
-    reward: "$15,995",
-    title: "MY PERCEPTION ABOUT TRADING WAS WRONG...",
-    desc: "Trading Gold & Nasdaq to a funded payout",
-  },
-  {
-    id: "LNXpq8_PwxU",
-    thumbnail: "/images/testimonials/hqdefault-9c0405cb37.jpg",
-    reward: "$22,400",
-    title: "THIS IS HOW ALGO TRADING CHANGED IT ALL",
-    desc: "From challenge to funded: a CK success story",
-  },
+/** Known video metadata — used to enrich CMS entries that may lack reward/description */
+const VIDEO_META: Record<string, { reward: string; desc: string; thumbnail: string }> = {
+  bZq8jtD9acY: { reward: "$38,200", desc: "More than rewards — how CK changed my trading", thumbnail: "/images/testimonials/hqdefault-308afdd2f9.jpg" },
+  "8NQAWtlh_ws": { reward: "$84,120", desc: "Trusting the process paid off big time", thumbnail: "/images/testimonials/hqdefault-88f16d731b.jpg" },
+  "5RjtGHPcuMM": { reward: "$15,995", desc: "Trading Gold & Nasdaq to a funded payout", thumbnail: "/images/testimonials/hqdefault-ae10a042fa.jpg" },
+  LNXpq8_PwxU: { reward: "$22,400", desc: "From challenge to funded: a CK success story", thumbnail: "/images/testimonials/hqdefault-9c0405cb37.jpg" },
+};
+
+const FALLBACK_VIDEOS: VideoItem[] = [
+  { id: "bZq8jtD9acY", thumbnail: VIDEO_META["bZq8jtD9acY"].thumbnail, reward: VIDEO_META["bZq8jtD9acY"].reward, title: "I DROPPED OUT OF COLLEGE FOR TRADING", desc: VIDEO_META["bZq8jtD9acY"].desc },
+  { id: "8NQAWtlh_ws", thumbnail: VIDEO_META["8NQAWtlh_ws"].thumbnail, reward: VIDEO_META["8NQAWtlh_ws"].reward, title: "BEST PROP? I TRUST CK CAPITAL", desc: VIDEO_META["8NQAWtlh_ws"].desc },
+  { id: "5RjtGHPcuMM", thumbnail: VIDEO_META["5RjtGHPcuMM"].thumbnail, reward: VIDEO_META["5RjtGHPcuMM"].reward, title: "MY PERCEPTION ABOUT TRADING WAS WRONG...", desc: VIDEO_META["5RjtGHPcuMM"].desc },
+  { id: "LNXpq8_PwxU", thumbnail: VIDEO_META["LNXpq8_PwxU"].thumbnail, reward: VIDEO_META["LNXpq8_PwxU"].reward, title: "THIS IS HOW ALGO TRADING CHANGED IT ALL", desc: VIDEO_META["LNXpq8_PwxU"].desc },
 ];
 
 export interface VideoItem {
@@ -46,11 +30,21 @@ export interface VideoItem {
   desc?: string | null;
 }
 
-export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
+export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[] }) {
   const [playing, setPlaying] = useState<string | null>(null);
   const rowRef = useRef<HTMLDivElement>(null);
 
-  const items = videos.length ? videos : VIDEOS;
+  // Enrich CMS videos with known metadata (reward amounts, descriptions, thumbnails)
+  const items = (videos.length ? videos : FALLBACK_VIDEOS).map((v) => {
+    const meta = VIDEO_META[v.id];
+    if (!meta) return v;
+    return {
+      ...v,
+      reward: v.reward || meta.reward,
+      desc: v.desc || meta.desc,
+      thumbnail: v.thumbnail || meta.thumbnail,
+    };
+  });
 
   const handlePlay = useCallback((id: string) => {
     setPlaying((prev) => (prev === id ? null : id));
@@ -132,7 +126,7 @@ export function Testimonials({ videos = VIDEOS }: { videos?: VideoItem[] }) {
                 ) : (
                   <>
                     <Image
-                      src={v.thumbnail ?? VIDEOS[i % VIDEOS.length].thumbnail!}
+                      src={v.thumbnail ?? FALLBACK_VIDEOS[i % FALLBACK_VIDEOS.length].thumbnail!}
                       alt={v.title}
                       fill
                       className="object-cover"
