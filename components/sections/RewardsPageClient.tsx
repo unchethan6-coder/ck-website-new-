@@ -241,6 +241,9 @@ export function RewardsPageClient({
   const [certificate, setCertificate] = useState<CmsPayout | null>(null);
   const [reviewCount, setReviewCount] = useState(3);
   const [recentCount, setRecentCount] = useState(4);
+  const [certPageSize, setCertPageSize] = useState(10);
+  const handleFilterChange = (f: Filter) => { setFilter(f); setCertPageSize(10); };
+  const handleAmountBandChange = (a: AmountBand) => { setAmountBand(a); setCertPageSize(10); };
   const testimonialVideos = videos.map((video) => ({
     id: video.youtubeVideoId,
     title: video.title,
@@ -256,6 +259,9 @@ export function RewardsPageClient({
     const threshold = Number(amountBand.replace("k", "000"));
     return withCountry.filter((payout) => parseAmount(payout.amount) >= threshold);
   }, [amountBand, filter, payouts]);
+
+  const visiblePayouts = useMemo(() => filteredPayouts.slice(0, certPageSize), [filteredPayouts, certPageSize]);
+  const hasMorePayouts = certPageSize < filteredPayouts.length;
 
   const highlights = useMemo(() => {
     const allTotal = payouts.reduce((s, p) => s + parseAmount(p.amount), 0);
@@ -308,10 +314,21 @@ export function RewardsPageClient({
         <Container>
           <SectionHeading id="reward-certificates-heading" eyebrow={t("provenEyebrow")} title={t("provenTitle")}>{t("provenSubtitle")}</SectionHeading>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2" role="toolbar" aria-label="Filter rewards" data-od-id="reward-filters">
-            {(["all", "latest", "highest", "country"] as Filter[]).map((value) => <button key={value} type="button" onClick={() => setFilter(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-primary/50 bg-primary/12 text-primary" : "border-foreground/10 text-foreground/45 hover:border-primary/30 hover:text-foreground"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>)}
+            {(["all", "latest", "highest", "country"] as Filter[]).map((value) => <button key={value} type="button" onClick={() => handleFilterChange(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-primary/50 bg-primary/12 text-primary" : "border-foreground/10 text-foreground/45 hover:border-primary/30 hover:text-foreground"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>)}
           </div>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-2" aria-label="Optional reward amount filter"><span className="mr-1 text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/30">{t("amountLabel")}</span>{(["all", "5k", "10k", "25k", "50k", "100k", "200k", "300k"] as AmountBand[]).map((value) => <button key={value} type="button" onClick={() => setAmountBand(value)} aria-pressed={amountBand === value} className={`min-h-9 rounded-md border px-3 text-[10px] font-bold uppercase tracking-[0.12em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${amountBand === value ? "border-primary/40 bg-primary/[0.08] text-primary" : "border-foreground/10 text-foreground/35 hover:text-foreground"}`}>{value === "all" ? "All" : `$${value.toUpperCase()}`}</button>)}</div>
-          {filteredPayouts.length ? <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{filteredPayouts.map((payout, index) => <CertificateCard key={payout.id} payout={payout} index={index} onOpen={setCertificate} />)}</div> : <div className="mt-10 rounded-xl border border-dashed border-foreground/15 px-6 py-16 text-center"><FileCheck2 className="mx-auto mb-4 text-foreground/20" size={32} /><Unavailable label={t("certificatesEmpty")} /></div>}
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2" aria-label="Optional reward amount filter"><span className="mr-1 text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/30">{t("amountLabel")}</span>{(["all", "5k", "10k", "25k", "50k", "100k", "200k", "300k"] as AmountBand[]).map((value) => <button key={value} type="button" onClick={() => handleAmountBandChange(value)} aria-pressed={amountBand === value} className={`min-h-9 rounded-md border px-3 text-[10px] font-bold uppercase tracking-[0.12em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${amountBand === value ? "border-primary/40 bg-primary/[0.08] text-primary" : "border-foreground/10 text-foreground/35 hover:text-foreground"}`}>{value === "all" ? "All" : `$${value.toUpperCase()}`}</button>)}</div>
+          {filteredPayouts.length ? (
+            <>
+              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{visiblePayouts.map((payout, index) => <CertificateCard key={payout.id} payout={payout} index={index} onOpen={setCertificate} />)}</div>
+              {hasMorePayouts && (
+                <div className="mt-8 text-center">
+                  <button type="button" onClick={() => setCertPageSize((prev) => prev + 10)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-primary/35 px-6 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                    Load more ({filteredPayouts.length - certPageSize} remaining) <ChevronDown size={15} />
+                  </button>
+                </div>
+              )}
+            </>
+          ) : <div className="mt-10 rounded-xl border border-dashed border-foreground/15 px-6 py-16 text-center"><FileCheck2 className="mx-auto mb-4 text-foreground/20" size={32} /><Unavailable label={t("certificatesEmpty")} /></div>}
         </Container>
       </section>
 
