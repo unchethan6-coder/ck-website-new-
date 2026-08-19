@@ -151,25 +151,6 @@ export function TraderReviews({
             {t("subtitle")}
           </p>
 
-          {/* Trustpilot aggregate — 400 reviews, 51% 5-star (scraped 2026-08-20) */}
-          <div
-            className="mt-6 flex flex-col items-center gap-2.5 text-sm text-foreground/50"
-            data-od-id="trader-reviews-rating"
-            aria-label="Trustpilot rating summary — 400 reviews, 51% 5-star"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="text-base font-bold text-foreground">4.5</span>
-              <StarRating rating={5} />
-              <span>
-                based on <span className="font-semibold text-foreground/70">400</span>{" "}
-                reviews
-              </span>
-            </div>
-            <span className="rounded-full border border-foreground/20 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/40">
-              51% 5-star on Trustpilot
-            </span>
-          </div>
-
           <a
             href="https://www.trustpilot.com/review/ckcapital.co.uk"
             target="_blank"
