@@ -232,7 +232,7 @@ export function ProofShowcase({
                 className="relative flex items-end px-5 pb-14 pt-4 sm:px-10 lg:px-0 lg:pb-14 lg:pt-12 lg:pr-12"
                 data-od-id="proof-showcase-visual"
               >
-                <BrowserWindow rows={rows} total={total} count={verified.length} />
+                <BrowserWindow rows={rows} total={total} />
               </div>
             </div>
           </div>
@@ -271,11 +271,9 @@ function RailMetric({
 function BrowserWindow({
   rows,
   total,
-  count,
 }: {
   rows: CmsPayout[];
   total: number | null;
-  count: number;
 }) {
   return (
     <div className="relative w-full" data-od-id="proof-browser">
@@ -365,12 +363,6 @@ function BrowserWindow({
             {formatMoney(total)}
           </p>
           <GoldGem className="pointer-events-none absolute -right-2 top-4 h-24 w-24 opacity-90 sm:h-28 sm:w-28" />
-          <div className="mt-6 flex items-center gap-2 border-t border-foreground/10 pt-3.5 text-xs text-foreground/45">
-            Rewards count:
-            <span className="font-bold text-foreground/85">
-              {count > 0 ? count : "—"}
-            </span>
-          </div>
         </div>
       </motion.div>
     </div>

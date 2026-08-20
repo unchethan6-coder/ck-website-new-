@@ -295,7 +295,6 @@ function CountryAtlas({ payouts }: { payouts: CmsPayout[] }) {
             <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground">{active.name}</h3>
           </div>
           <div className="mt-8 space-y-5">
-            <div><p className="text-xs text-foreground/40">Published reward records</p><p className="mt-1 text-2xl font-extrabold text-primary">{active.count}</p></div>
             <div><p className="text-xs text-foreground/40">Published reward value</p><p className="mt-1 text-2xl font-extrabold text-primary">{formatMoney(active.total)}</p></div>
           </div>
           <button type="button" onClick={() => document.getElementById("reward-certificates")?.focus()} className="mt-8 inline-flex min-h-11 items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-foreground/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">View country records <ArrowRight size={14} /></button>
@@ -405,7 +404,7 @@ export function RewardsPageClient({
               {hasMorePayouts && (
                 <div className="mt-8 text-center">
                   <button type="button" onClick={() => setCertPageSize((prev) => prev + 10)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-primary/35 px-6 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                    Load more ({filteredPayouts.length - certPageSize} remaining) <ChevronDown size={15} />
+                    Load more rewards <ChevronDown size={15} />
                   </button>
                 </div>
               )}

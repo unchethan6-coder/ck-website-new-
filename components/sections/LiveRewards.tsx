@@ -297,10 +297,6 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
                   </div>
                 )}
               </div>
-
-              <p className="mt-3 hidden text-right text-[11px] text-foreground/30 lg:block">
-                {t("showing", { visible: visibleRows.length, total: rows.length })}
-              </p>
             </motion.div>
           </div>
         </div>
