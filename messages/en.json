@@ -96,19 +96,19 @@
         "step": "01",
         "phase": "Phase 1",
         "title": "Evaluation",
-        "description": "Trade in a simulated environment, follow risk rules, and reach the profit target on your own schedule with no time pressure."
+        "description": "Trade your way and hit the profit target with no consistency rules and no time pressure."
       },
       "step2": {
         "step": "02",
         "phase": "Phase 2",
         "title": "Verification",
-        "description": "Confirm your consistency in the verification stage with lower profit targets and the same transparent risk rules."
+        "description": "Show your trading skills with the same simple rules. No unnecessary restrictions holding you back."
       },
       "step3": {
         "step": "03",
         "phase": "Phase 3",
         "title": "Funded Trader",
-        "description": "Receive your funded simulated account, trade with confidence, and withdraw up to 100% of your simulated earnings."
+        "description": "Get funded and trade with confidence. Keep up to 100% of your profits."
       }
     },
     "badge": "Process"
