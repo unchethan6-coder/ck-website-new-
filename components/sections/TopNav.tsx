@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import {
   Menu,
@@ -185,6 +185,57 @@ export function TopNav() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  const navRef = useRef<HTMLElement>(null);
+  const programsTriggerRef = useRef<HTMLAnchorElement>(null);
+  const companyTriggerRef = useRef<HTMLButtonElement>(null);
+  const [programsCaretLeft, setProgramsCaretLeft] = useState<number | null>(null);
+  const [companyCaretLeft, setCompanyCaretLeft] = useState<number | null>(null);
+
+  const updateCaretPositions = useCallback(() => {
+    if (!navRef.current) return;
+    const navRect = navRef.current.getBoundingClientRect();
+
+    if (programsTriggerRef.current) {
+      const triggerRect = programsTriggerRef.current.getBoundingClientRect();
+      const center = triggerRect.left + triggerRect.width / 2 - navRect.left;
+      setProgramsCaretLeft(center);
+    }
+
+    if (companyTriggerRef.current) {
+      const triggerRect = companyTriggerRef.current.getBoundingClientRect();
+      const center = triggerRect.left + triggerRect.width / 2 - navRect.left;
+      setCompanyCaretLeft(center);
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    updateCaretPositions();
+    const timer = setTimeout(updateCaretPositions, 320);
+    return () => clearTimeout(timer);
+  }, [updateCaretPositions, pathname, scrolled]);
+
+  useEffect(() => {
+    updateCaretPositions();
+    window.addEventListener("resize", updateCaretPositions);
+    window.addEventListener("scroll", updateCaretPositions, { passive: true });
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && navRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        updateCaretPositions();
+      });
+      resizeObserver.observe(navRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateCaretPositions);
+      window.removeEventListener("scroll", updateCaretPositions);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+    };
+  }, [updateCaretPositions]);
+
   const isProgramsActive =
     pathname.startsWith("/evaluation") ||
     pathname.startsWith("/instant") ||
@@ -241,6 +292,7 @@ export function TopNav() {
         data-od-id="top-nav"
       >
         <nav
+          ref={navRef}
           className={cn(
             "relative mx-auto max-w-7xl transition-all duration-300",
             scrolled
@@ -265,8 +317,12 @@ export function TopNav() {
             <div className="hidden lg:flex items-center h-full flex-nowrap gap-0.5 xl:gap-1 shrink min-w-0" data-od-id="nav-links">
               
               {/* 1. PROGRAMS MEGA MENU (Full-Width Maximized Spacing) */}
-              <div className="group h-full flex items-center">
+              <div
+                className="group h-full flex items-center"
+                onMouseEnter={updateCaretPositions}
+              >
                 <Link
+                  ref={programsTriggerRef}
                   href="/trading-objectives"
                   onClick={(e) => handleNavClick(e, "/trading-objectives")}
                   data-od-id="desktop-nav-tradingObjectives"
@@ -289,8 +345,11 @@ export function TopNav() {
                   data-od-id="desktop-dropdown-tradingObjectives"
                   className="absolute top-full left-0 right-0 w-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
                 >
-                  {/* Pointer Caret aligned above trigger */}
-                  <div className="absolute top-1 left-[300px] w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]" />
+                  {/* Pointer Caret dynamically centered above trigger */}
+                  <div
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]"
+                    style={programsCaretLeft !== null ? { left: `${programsCaretLeft}px` } : undefined}
+                  />
 
                   <div className="w-full bg-[#0D0C08]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Funding Models & Rules (Matching Company Format) */}
@@ -392,8 +451,12 @@ export function TopNav() {
               </Link>
 
               {/* 3. COMPANY MEGA MENU (Full-Width Maximized Spacing) */}
-              <div className="group h-full flex items-center">
+              <div
+                className="group h-full flex items-center"
+                onMouseEnter={updateCaretPositions}
+              >
                 <button
+                  ref={companyTriggerRef}
                   type="button"
                   data-od-id="desktop-nav-company"
                   className={cn(
@@ -415,8 +478,11 @@ export function TopNav() {
                   data-od-id="desktop-dropdown-company"
                   className="absolute top-full left-0 right-0 w-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
                 >
-                  {/* Pointer Caret aligned above trigger */}
-                  <div className="absolute top-1 left-[495px] w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]" />
+                  {/* Pointer Caret dynamically centered above trigger */}
+                  <div
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]"
+                    style={companyCaretLeft !== null ? { left: `${companyCaretLeft}px` } : undefined}
+                  />
 
                   <div className="w-full bg-[#0D0C08]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Company & Connect (Spacious Grid) */}
