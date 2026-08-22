@@ -20,7 +20,7 @@ export function CountUp({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const inView = useInView(ref, { once: true, margin: "0px" });
   const reduceMotion = useReducedMotion();
 
   const m = value.match(NUM_RE);
@@ -31,13 +31,15 @@ export function CountUp({
   const decimals = numStr.includes(".") ? numStr.split(".")[1]!.length : 0;
 
   const [display, setDisplay] = useState(target);
+  const animatedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || animatedRef.current) return;
     if (reduceMotion) {
       setDisplay(target);
       return;
     }
+    animatedRef.current = true;
     const start = performance.now();
     let raf: number;
     const tick = (now: number) => {

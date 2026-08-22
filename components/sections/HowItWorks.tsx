@@ -29,44 +29,41 @@ export function HowItWorks() {
   ];
 
   const features = [
-    "NO CONSISTENCY RULES",
-    "NEWS TRADING ALLOWED",
-    "NO TIME PRESSURE",
-    "UP TO 100% PROFIT SPLIT",
+    t("noConsistency"),
+    t("newsAllowed"),
+    t("noTimePressure"),
+    t("profitSplit"),
   ];
 
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden py-14 md:py-24"
+      className="relative overflow-hidden bg-[#F6F7F9] text-[#111827] py-16 md:py-24"
       data-od-id="how-it-works"
     >
       <Container>
         <SectionReveal className="text-center mb-12 md:mb-16">
-          <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
-            Process
+          <p className="text-xs text-[#D99B00] uppercase tracking-[0.2em] font-black mb-3">
+            {t("badge")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
+          <p className="mt-3 text-[#4B5563] font-medium max-w-xl mx-auto">
             {t("subtitle")}
           </p>
         </SectionReveal>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+        <div
           className="relative mx-auto max-w-3xl"
         >
-          {/* Connecting hairline */}
-          <div
-            aria-hidden="true"
-            className="absolute left-[34px] top-6 bottom-6 w-px bg-gradient-to-b from-primary/40 via-primary/15 to-transparent"
-          />
-          <div className="space-y-10 md:space-y-12">
+          {/* Steps list with scoped connecting hairline */}
+          <div className="relative space-y-10 md:space-y-12">
+            {/* Connecting hairline: perfectly connects the 3 yellow node dots */}
+            <div
+              aria-hidden="true"
+              className="absolute left-[68px] top-[34px] bottom-[34px] w-[2px] -translate-x-1/2 bg-[#FFC107]/40 z-0"
+            />
             {steps.map((step, i) => (
               <motion.div
                 key={i}
@@ -74,20 +71,20 @@ export function HowItWorks() {
                 className="relative flex items-start gap-5 sm:gap-8"
                 data-od-id={`how-step-${i + 1}`}
               >
-                <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-background shadow-lg shadow-primary/5">
-                  <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-primary tabular-nums">
+                <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-2xl border border-gray-200/90 bg-white shadow-md">
+                  <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
-                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-primary ring-4 ring-background" />
+                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#FFC107] ring-4 ring-[#F6F7F9]" />
                 </div>
                 <div className="pt-1.5 flex-1 min-w-0">
-                  <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary/60">
+                  <span className="text-[11px] font-black uppercase tracking-[0.18em] text-[#D99B00]">
                     {step.phase}
                   </span>
-                  <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-foreground tracking-tight">
+                  <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C] tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="mt-2 max-w-lg text-sm text-foreground/55 leading-relaxed">
+                  <p className="mt-2 max-w-lg text-sm font-medium text-[#4B5563] leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -96,41 +93,40 @@ export function HowItWorks() {
           </div>
 
           {/* Feature Highlights Strip & CTA */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-14 overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.08] via-foreground/[0.02] to-primary/[0.04] p-6 backdrop-blur-sm shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
+          <div
+            className="mt-14 overflow-hidden rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-7 shadow-md"
             data-od-id="how-it-works-features"
           >
             <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-2.5 text-center">
               {features.map((feature, idx) => (
                 <div key={feature} className="flex items-center gap-2">
                   {idx > 0 && (
-                    <span className="text-primary/40 text-xs hidden sm:inline" aria-hidden="true">
+                    <span className="text-gray-300 text-xs hidden sm:inline" aria-hidden="true">
                       •
                     </span>
                   )}
-                  <span className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.14em] text-primary">
+                  <span className="text-[11px] sm:text-[12px] font-black uppercase tracking-[0.14em] text-[#0A0A0C]">
                     {feature}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-              <p className="text-sm font-semibold text-foreground/80">
-                Ready to get funded? <span className="text-primary font-bold">Start your journey today.</span>
+            <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+              <p className="text-sm font-bold text-[#0A0A0C]">
+                {t("readyFunded")} <span className="text-[#D99B00] font-black">{t("startJourney")}</span>
               </p>
               <a
                 href="/#start-challenge"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground shadow-md shadow-primary/20 hover:brightness-110 transition-all shrink-0"
+                className="btn-gold-standard inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.12em] shrink-0"
                 data-od-id="how-it-works-cta"
               >
-                <span>Start Challenge</span>
+                <span>{t("startChallenge")}</span>
                 <ArrowRight size={13} />
               </a>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </Container>
     </section>
   );

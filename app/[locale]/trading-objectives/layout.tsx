@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "Trading Objectives & Rules — CK Capital Prop Firm",
+    title: "Trading Objectives & Rules",
     description: "Compare 1-Step, 2-Step, and Instant Funding trading objectives, profit targets, drawdown limits, and rules across account sizes up to $1.2M.",
     path: "/trading-objectives",
     locale: resolved,

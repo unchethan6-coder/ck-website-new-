@@ -2,7 +2,7 @@
 
 export const SITE_META = {
   name: "CK Capital",
-  tagline: "Premium Prop Trading Firm",
+  tagline: "Prop Trading Firm",
   promoCode: "JUN70",
   promoDiscount: "70%",
 };
@@ -261,10 +261,10 @@ export const HOW_IT_WORKS = [
   },
   {
     step: "Step 3",
-    phase: "Scale Up",
-    title: "Grow your account",
+    phase: "Get Rewarded",
+    title: "Receive regular payouts",
     description:
-      "Hit scaling targets and unlock larger account sizes. Reinvest or withdraw anytime.",
+      "Request simulated profit disbursements bi-weekly with fast turnaround via Crypto or Bank Wire.",
   },
 ];
 
@@ -278,32 +278,32 @@ export const WHY_CHOOSE_US = [
   {
     title: "Flexible Reward Process",
     description:
-      "Request simulated payouts on demand — no waiting periods, no bureaucracy.",
-    icon: "zap",
+      "Request payouts as often as bi-weekly. Fast processing directly to your crypto wallet or bank.",
+    icon: "clock",
   },
   {
-    title: "Up to 100% Reward Split",
+    title: "No Time Limits",
     description:
-      "Keep all simulated profits from your CK Account. We only earn when you scale.",
-    icon: "trending-up",
+      "Trade at your own pace. There are no maximum days to complete any challenge phase.",
+    icon: "infinity",
   },
   {
-    title: "Reset & Top-Up",
+    title: "Raw Spreads from 0.0",
     description:
-      "Had a rough patch? Reset your evaluation or top-up your account balance at any time.",
-    icon: "refresh-cw",
-  },
-  {
-    title: "Competitive Trading Conditions",
-    description:
-      "Raw spreads, deep liquidity, and institutional-grade execution on MT5 and TradeLocker.",
+      "Institutional-grade liquidity with ultra-low spreads and fast execution on MT5 & TradeLocker.",
     icon: "activity",
   },
   {
-    title: "24/7 Support",
+    title: "Zero Hidden Rules",
     description:
-      "Real humans available around the clock via live chat, email, and Discord.",
-    icon: "headphones",
+      "What you see is what you get. Clear profit targets, straightforward drawdown limits.",
+    icon: "eye",
+  },
+  {
+    title: "Up to 100% Profit Split",
+    description:
+      "Keep what you earn. Our profit split starts high and rewards consistent, disciplined traders.",
+    icon: "percent",
   },
 ];
 
@@ -313,19 +313,12 @@ export const TESTIMONIALS = [
     location: "United Kingdom",
     avatar: "/avatars/alex.jpg",
     rating: 5,
-    text: "CK Capital gave me the funding I needed to trade professionally. The process was straightforward, and my first payout arrived in under 12 hours.",
+    text: "Passed my 2-Step challenge in 3 weeks. Received my first payout within 24 hours of requesting it. Outstanding platform.",
   },
   {
-    name: "Sofia R.",
+    name: "David K.",
     location: "Germany",
-    avatar: "/avatars/sofia.jpg",
-    rating: 5,
-    text: "The 100% profit split is real. I've made five withdrawals and every single one was processed the same day. Incredible firm.",
-  },
-  {
-    name: "James T.",
-    location: "Australia",
-    avatar: "/avatars/james.jpg",
+    avatar: "/avatars/david.jpg",
     rating: 5,
     text: "News trading allowed? 24/7 support? No time limits? This is the most trader-friendly prop firm I've ever used.",
   },
@@ -341,7 +334,7 @@ export const TESTIMONIALS = [
     location: "Singapore",
     avatar: "/avatars/chen.jpg",
     rating: 5,
-    text: "The scaling plan is genuinely the best I've seen. I'm already at $200K after starting at $25K six months ago.",
+    text: "The rules are clear and transparent without any hidden tricks. Payouts arrive in my wallet within hours.",
   },
 ];
 
@@ -357,14 +350,6 @@ export const FAQ_ITEMS = [
   {
     q: "What platforms do you support?",
     a: "We support both TradeLocker and MT5 platforms. You can choose your preferred platform when setting up your account.",
-  },
-  {
-    q: "What instruments can I trade?",
-    a: "As a CK Trader, you have access to 50+ trading instruments including Forex, Cryptocurrencies, Commodities, Indices, and more.",
-  },
-  {
-    q: "Can I trade the news?",
-    a: "Yes! News trading is allowed on CK Capital accounts. We encourage traders to capitalize on market-moving events with proper risk management.",
   },
   {
     q: "What are the profit splits?",
@@ -437,7 +422,7 @@ export const COMMUNITY_CARDS = [
   },
   {
     title: "Track every metric",
-    description: "Your personalised dashboard shows live stats, challenge progress, payout history, and scaling milestones.",
+    description: "Your personalised dashboard shows live stats, challenge progress, payout history, and performance milestones.",
     cta: "View Dashboard",
     href: "https://app.ckcapital.co.uk/signin",
     external: true,

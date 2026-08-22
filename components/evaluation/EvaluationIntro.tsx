@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles, Award, ShieldCheck, Target } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { GoldButton } from "@/components/shared/GoldButton";
+import { Aurora } from "@/components/fx/Aurora";
+import { EvaluationPathVisual } from "@/components/shared/EvaluationPathVisual";
 
 export interface EvaluationStep {
   step: string;
@@ -59,142 +61,144 @@ export default function EvaluationIntro({
 
   return (
     <>
-      {/* ─────────────── Hero ─────────────── */}
-      <section className="relative bg-background" data-od-id="evaluation-hero">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 0%, rgba(212,175,55,0.20), transparent 45%), radial-gradient(circle at 5% 100%, rgba(212,175,55,0.08), transparent 40%)',
-          }}
-        />
-        <Container className="relative py-16 md:py-24">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
-                <Sparkles size={11} className="text-primary" />
-                {t("badge")}
-              </span>
-            </motion.div>
+      {/* ─────────────── Hero (DARK) ─────────────── */}
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="evaluation-hero">
+        <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+          <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55 fx-hero-glow-3" />
+          <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40 fx-hero-glow-4" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 z-[2]">
+          <Aurora variant="hero" grid className="absolute inset-0" />
+        </div>
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-20 sm:px-6 md:pb-10 md:pt-24 lg:px-8">
+          <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+            <div className="lg:col-span-7 xl:col-span-6 min-w-0">
+              <motion.div
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                  <Sparkles size={12} className="text-primary" />
+                  {t("badge")}
+                </span>
+              </motion.div>
 
-            <motion.h1
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                data-od-id="evaluation-hero-title"
+              >
+                {t("title")}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+              >
+                {t("subtitle")}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="mt-8 flex flex-wrap items-center gap-4"
+              >
+                <a
+                  href="https://app.ckcapital.co.uk/signup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GoldButton size="lg" data-od-id="evaluation-hero-cta-primary">
+                    {t("claimOffer")} <ArrowRight size={16} />
+                  </GoldButton>
+                </a>
+                <a
+                  href="#start-challenge"
+                  data-od-id="evaluation-hero-cta-secondary"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                >
+                  {t("compareBtn")} <ArrowRight size={15} />
+                </a>
+              </motion.div>
+
+              <motion.ul
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.55 }}
+                className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2"
+              >
+                {featList.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-center gap-2 text-[12px] font-medium text-white/70"
+                  >
+                    <Check size={13} className="shrink-0 text-primary" strokeWidth={3} />
+                    {f}
+                  </li>
+                ))}
+              </motion.ul>
+            </div>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
-              data-od-id="evaluation-hero-title"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="lg:col-span-5 xl:col-span-6 min-w-0"
+              data-od-id="evaluation-hero-dashboard"
             >
-              {t("title")}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-5 max-w-xl text-[15px] leading-relaxed text-foreground/55"
-            >
-              {t("subtitle")}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center gap-3"
-            >
-              <a
-                href="https://app.ckcapital.co.uk/signup"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GoldButton size="lg" data-od-id="evaluation-hero-cta-primary">
-                  {t("claimOffer")} <ArrowRight size={16} />
-                </GoldButton>
-              </a>
-              <a
-                href="#start-challenge"
-                data-od-id="evaluation-hero-cta-secondary"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-foreground/15 px-5 py-2.5 text-[14px] font-semibold text-foreground/85 transition-all hover:border-foreground/25 hover:bg-foreground/[0.04] hover:text-foreground"
-              >
-                {t("compareBtn")}
-              </a>
+              <EvaluationPathVisual />
             </motion.div>
-
-            <motion.ul
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.55 }}
-              className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2"
-            >
-              {featList.map((f) => (
-                <li
-                  key={f}
-                  className="flex items-center gap-1.5 text-[12.5px] text-foreground/60"
-                >
-                  <Check size={12} className="shrink-0 text-primary" strokeWidth={3} />
-                  {f}
-                </li>
-              ))}
-            </motion.ul>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* ─────────────── Your Path to Success ─────────────── */}
-      <section className="bg-background py-16 md:py-24" data-od-id="evaluation-steps">
+      {/* ─────────────── Your Path to Success (LIGHT) ─────────────── */}
+      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-steps">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto mb-10 max-w-2xl text-center md:mb-14"
-          >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
               {t("pathEyebrow")}
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               {t("pathTitle")}
             </h2>
-            <p className="mt-3 text-[15px] text-foreground/50">
+            <p className="mt-3 text-sm leading-7 text-[#4B5563]">
               {t("pathSubtitle")}
             </p>
-          </motion.div>
+          </div>
 
-          <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {stepList.map((item, i) => {
               const Icon = ICONS[item.icon];
               return (
-                <motion.div
+                <div
                   key={item.step}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.55, delay: i * 0.1 }}
-                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                  className="group relative rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-all duration-300 hover:border-primary/30 hover:bg-foreground/[0.05]"
+                  className="group relative rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
                   data-od-id={`evaluation-step-${i + 1}`}
                 >
                   <div className="mb-5 flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/15">
-                      <Icon size={20} className="text-primary" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 transition-colors group-hover:bg-[#D4AF37]/20">
+                      <Icon size={20} className="text-[#D4AF37]" />
                     </div>
-                    <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground/10">
+                    <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#E5E7EB]">
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-foreground">
+                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/50">
+                  <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
                     {item.description}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
           </div>

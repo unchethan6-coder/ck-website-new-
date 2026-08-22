@@ -8,62 +8,63 @@
     "claimOffer": "70% RABATT SICHERN"
   },
   "nav": {
-    "evaluation": "Evaluation",
-    "instantFunding": "Instant Funding",
+    "evaluation": "Evaluierung",
+    "instantFunding": "Sofort-Finanzierung",
     "tradingObjectives": "Ziele",
     "aboutUs": "Über Uns",
-    "affiliates": "Affiliates",
+    "affiliates": "Partner",
     "payouts": "Auszahlungen",
     "faq": "FAQ",
     "contact": "Kontakt",
     "blog": "Blog",
     "menu": "Menü",
     "signIn": "Anmelden",
-    "startChallenge": "Starten",
-    "evaluationDesc": "1-Step & 2-Step Challenges",
-    "instantDesc": "Skip the evaluation phase",
-    "company": "Company",
-    "aboutUsDesc": "Learn about CK Capital",
+    "startChallenge": "Challenge Starten",
+    "evaluationDesc": "1-Stufen & 2-Stufen Challenges",
+    "instantDesc": "Direktes simuliertes Kapital ohne Evaluierungsphase.",
+    "company": "Unternehmen",
+    "aboutUsDesc": "Unsere Mission, Führungsteam und Firmengeschichte im Vereinigten Königreich",
     "contactDesc": "Get in touch with us",
-    "blogDesc": "Latest news and updates",
+    "blogDesc": "Marktanalysen, Handelsleitfäden und Neuigkeiten",
     "programs": "Programme",
     "programsEyebrow": "[ PROGRAMME ]",
     "fundingModelsHeader": "Finanzierungsmodelle",
-    "rulesToolsHeader": "Regeln & Skalierung",
+    "rulesToolsHeader": "Regeln & Richtlinien",
     "oneStepTitle": "1-Stufen Evaluierung",
-    "oneStepDesc": "Einphasiges Ziel, schneller Weg zum finanzierten Trader.",
+    "oneStepDesc": "Einphasiges Ziel, Schnellüberholspur zum geförderten Trader.",
     "oneStepPrice": "Ab $32",
     "twoStepTitle": "2-Stufen Evaluierung",
-    "twoStepDesc": "Traditionelle 2-Phasen-Verifizierung mit maximalem Split.",
+    "twoStepDesc": "Traditionelle 2-Phasen-Verifizierung mit maximaler Gewinnbeteiligung.",
     "twoStepPrice": "Ab $49",
-    "instantTitle": "Sofortige Finanzierung",
+    "instantTitle": "Sofort-Finanzierung",
     "instantPrice": "Ab $55",
-    "compareAllTitle": "Alle Modelle Vergleichen",
-    "compareAllDesc": "Direkter Vergleich von Drawdown, Zielen und Gebühren",
+    "compareAllTitle": "Alle Programme Vergleichen",
+    "compareAllDesc": "Direkter Vergleich von Drawdown, Gewinnzielen und Gebühren",
     "tradingObjectivesTitle": "Handelsziele",
-    "tradingObjectivesDesc": "Drawdown-Limits, Gewinnziele und Regeln",
-    "scalingPlanTitle": "Skalierungsplan",
-    "scalingPlanDesc": "Skalieren Sie das Kapital auf bis zu 1,2 Mio. $ mit 100% Split",
-    "companyHeader": "Company",
-    "connectHeader": "Connect & Resources",
-    "payoutsProof": "Live Payouts Proof",
-    "payoutsProofDesc": "Verified certificates & payout distributions",
-    "affiliateProgram": "Affiliate Program",
-    "affiliateProgramDesc": "Earn up to 25% commissions on customer referrals",
-    "helpCenter": "Help Center & FAQ",
-    "helpCenterDesc": "Guides on challenge rules, accounts and platforms",
+    "tradingObjectivesDesc": "Interaktive Drawdown-Limits, Zielvorgaben & Parameter",
+    "rulesFaqTitle": "Regel-FAQ & Bedingungen",
+    "rulesFaqDesc": "Verlustgrenzen, News-Trading & Richtlinien",
+    "companyHeader": "Unternehmen",
+    "connectHeader": "Community & Ressourcen",
+    "payoutsProof": "Live-Auszahlungsnachweise",
+    "payoutsProofDesc": "Verifizierte Zertifikate & Gewinnausschüttungen",
+    "affiliateProgram": "Partnerprogramm",
+    "affiliateProgramDesc": "Verdienen Sie bis zu 25% Provision für vermittelte Trader",
+    "helpCenter": "Hilfecenter & FAQ",
+    "helpCenterDesc": "Leitfäden zu Challenge-Regeln, Konten und Handelsplattformen",
     "support247": "24/7 Support",
-    "support247Desc": "Live assistance, ticket support and dedicated help",
-    "blogTitle": "Trading Insights & Blog",
-    "featuredEvalBadge": "SUMMER SALE · 70% OFF",
-    "featuredEvalTitle": "Start Your Challenge",
-    "featuredEvalDesc": "Trade up to $1.2M simulated capital with up to 100% profit split.",
-    "featuredEvalCta": "Claim 70% Off",
-    "featuredCommunityBadge": "TRADER COMMUNITY",
-    "featuredCommunityTitle": "Join 50,000+ Traders",
-    "featuredCommunityDesc": "Live trading discussions, giveaways & 24/7 support in our Discord.",
-    "featuredCommunityCta": "Join Discord Community",
-    "instantTitle": "Instant Funding"
+    "support247Desc": "Live-Hilfe, Ticket-Support und persönliche Betreuung",
+    "blogTitle": "Trading-Einblicke & Blog",
+    "featuredEvalBadge": "LIMITIERTES ANGEBOT · 75% RABATT",
+    "featuredEvalTitle": "Handeln Sie mit bis zu $300K Kapital",
+    "featuredEvalDesc": "Nutzen Sie professionelle Tools, enge Spreads und bis zu 100% Gewinnbeteiligung auf simulierten Konten.",
+    "featuredEvalCta": "75% Rabatt Sichern",
+    "featuredCommunityBadge": "TRADER-COMMUNITY",
+    "featuredCommunityTitle": "Über 20.000 Aktiven Tradern Beitreten",
+    "featuredCommunityDesc": "Live-Trading-Analysen, Auszahlungsnachweise und direkter VIP-Support auf Discord.",
+    "featuredCommunityCta": "Offiziellem Discord Beitreten",
+    "viewAllPrograms": "Alle Programme Anzeigen",
+    "joinDiscord": "Offiziellem Discord Beitreten"
   },
   "hero": {
     "features": [
@@ -72,22 +73,22 @@
       "$100K Kapital",
       "Keine Zeitlimits"
     ],
-    "badge": "CK CAPITAL PROP FIRM",
-    "headlineLine1": "Handle bis zu $100K.",
+    "badge": "CK CAPITAL PROP-TRADING-FIRM",
+    "headlineLine1": "Handeln Sie bis zu $100K.",
     "headlineHighlight": "$100K.",
-    "headlineLine2": "Behalte bis zu 100%.",
-    "subcopy": "Beweise deine Fähigkeiten in einer simulierten Umgebung auf MT5 & TradeLocker. Ohne Zeitlimits, News-Trading erlaubt, transparente Regeln und ohne versteckte Gebühren.",
-    "startChallenge": "Starte deine Challenge",
-    "exploreObjectives": "So funktioniert es"
+    "headlineLine2": "Behalten Sie bis zu 100%.",
+    "subcopy": "Beweisen Sie Ihr Können in einer simulierten Umgebung auf MT5 & TradeLocker. Keine Zeitlimits, News-Trading erlaubt, transparente Regeln und keine versteckten Gebühren.",
+    "startChallenge": "Starten Sie Ihre Challenge",
+    "exploreObjectives": "Ablauf ansehen"
   },
   "stats": {
-    "payoutTime": "Durchschnittliche Auszahlungszeit",
+    "payoutTime": "Durchschn. Auszahlungszeit",
     "payoutTimeVal": "12 Stunden",
-    "rewardSplit": "Maximale Gewinnbeteiligung",
+    "rewardSplit": "Max. Gewinnbeteiligung",
     "rewardSplitVal": "100%",
-    "accountSize": "Maximales Simuliertes Kapital",
+    "accountSize": "Max. Simuliertes Kapital",
     "accountSizeVal": "$100K+",
-    "support": "Live Trader Support",
+    "support": "Live Trader-Support",
     "supportVal": "24/7"
   },
   "howItWorks": {
@@ -98,61 +99,68 @@
         "step": "01",
         "phase": "Phase 1",
         "title": "Evaluierung",
-        "description": "Handle in einer simulierten Umgebung, befolge die Risikoregeln und erreiche das Gewinnziel in deinem eigenen Tempo ohne Zeitdruck."
+        "description": "Handeln Sie nach Ihrem eigenen Stil und erreichen Sie das Gewinnziel ohne Konsistenzregeln und ohne Zeitdruck."
       },
       "step2": {
         "step": "02",
         "phase": "Phase 2",
         "title": "Verifizierung",
-        "description": "Bestätige deine Beständigkeit in der Verifizierungsphase mit niedrigeren Gewinnzielen und denselben transparenten Risikoregeln."
+        "description": "Beweisen Sie Ihre Handelsfähigkeiten mit denselben einfachen Regeln. Keine unnötigen Einschränkungen."
       },
       "step3": {
         "step": "03",
         "phase": "Phase 3",
         "title": "Geförderter Trader",
-        "description": "Erhalte dein simuliertes gefördertes Konto, handle mit Vertrauen und hebe bis zu 100% deiner simulierten Gewinne ab."
+        "description": "Werden Sie finanziert und handeln Sie mit Selbstvertrauen. Behalten Sie bis zu 100% Ihrer Gewinne."
       }
     },
-    "badge": "Process"
+    "badge": "Ablauf",
+    "noConsistency": "KEINE KONSISTENZREGELN",
+    "newsAllowed": "NEWS-TRADING ERLAUBT",
+    "noTimePressure": "KEIN ZEITDRUCK",
+    "profitSplit": "BIS ZU 100% GEWINNBETEILIGUNG",
+    "readyFunded": "Bereit für Ihr gefördertes Konto?",
+    "startJourney": "Starten Sie noch heute Ihre Reise.",
+    "startChallenge": "Challenge Starten"
   },
   "whyChooseUs": {
-    "title": "Alles, was du für gefördertes Trading brauchst",
-    "subtitle": "Entwickelt für ambitionierte Trader, die echte Regeln, echte Auszahlungen und echten Support wollen.",
+    "title": "Alles, was Sie für gefördertes Trading benötigen",
+    "subtitle": "Entwickelt für ambitionierte Trader, die echte Regeln, verlässliche Auszahlungen und erstklassigen Support erwarten.",
     "items": {
       "split": {
         "title": "Gewinnbeteiligung",
-        "description": "Behalte bis zu 100% deiner erzielten simulierten Handelsgewinne. Keine komplexen Abzüge, keine versteckten Kosten."
+        "description": "Behalten Sie bis zu 100% der simulierten Gewinne. Keine komplizierten Abzüge, keine versteckten Kosten."
       },
       "news": {
         "title": "News-Trading Erlaubt",
-        "description": "Handle wirtschaftliche Hochrisiko-Nachrichten frei über alle Phasen hinweg ohne Einschränkungen oder Strafen."
+        "description": "Handeln Sie während marktbewegender Wirtschaftsnachrichten in allen Phasen völlig frei und ohne Restriktionen."
       },
       "conditions": {
-        "title": "Wettbewerbsfähige Handelsbedingungen",
-        "description": "Enge Spreads ab 0,0 Pips und ultraschnelle Ausführung auf MetaTrader 5 und TradeLocker."
+        "title": "Wettbewerbsfähige Konditionen",
+        "description": "Raw Spreads ab 0,0 Pips und ultraschnelle Ausführung auf MetaTrader 5 und TradeLocker."
       },
       "reset": {
-        "title": "Reset & Aufstockung",
-        "description": "Regel verletzt? Setze dein Evaluierungskonto mit Rabatt zurück und steige sofort wieder ein."
+        "title": "Reset & Wiederholung",
+        "description": "Regel verletzt? Setzen Sie Ihr Evaluierungskonto mit hohem Rabatt zurück und starten Sie direkt neu."
       },
       "flexible": {
-        "title": "12-Stunden-Schnellauszahlung",
-        "description": "Fordere deine Auszahlung auf Abruf an und erhalte dein Geld in nur 12 Stunden via Krypto oder Banküberweisung."
+        "title": "12-Stunden Express-Auszahlungen",
+        "description": "Fordern Sie Ihre Auszahlung jederzeit an und erhalten Sie Ihre Gelder innerhalb von 12 Stunden per Krypto oder Banküberweisung."
       },
       "support": {
-        "title": "24/7 Engagierter Support",
-        "description": "Erhalte jederzeit Unterstützung per Live-Chat, Discord oder E-Mail mit einer Antwortzeit unter 2 Minuten."
+        "title": "24/7 Dedizierter Support",
+        "description": "Erhalten Sie jederzeit Unterstützung per Live-Chat, Discord oder E-Mail mit einer durchschnittlichen Antwortzeit unter 2 Minuten."
       }
     },
-    "advantages": "Advantages",
+    "advantages": "Vorteile",
     "splitChips": [
       "No commissions",
       "No hidden fees",
       "On-demand payouts"
     ],
     "upTo": "Up to",
-    "youKeep": "You keep",
-    "firmEarns": "We only earn when you scale",
+    "youKeep": "Sie behalten",
+    "firmEarns": "Firma behält",
     "rawSpreadsMT5": "Raw spreads on MT5 · TradeLocker",
     "pips": "pips"
   },
@@ -170,19 +178,19 @@
     "verificationStage": "Verifizierung",
     "ckAccount": "CK-Konto",
     "profitTarget": "Gewinnziel",
-    "maxDailyLoss": "Max. Tagesverlust",
+    "maxDailyLoss": "Maximaler Tagesverlust",
     "maxLoss": "Max. Gesamtverlust",
-    "minTradingDays": "Min. Handelstage",
+    "minTradingDays": "Minimale Handelstage",
     "tradingPeriod": "Handelszeitraum",
     "rewardSplit": "Gewinnbeteiligung",
     "consistencyRule": "Konsistenzregel",
     "account": "Konto",
     "price": "Preis",
-    "phase1": "Phase 1",
-    "phase2": "Phase 2",
+    "phase1": "Phase 1 (Evaluierung)",
+    "phase2": "Phase 2 (Verifizierung)",
     "unlimited": "Unbegrenzt",
     "day": "1 Tag",
-    "oneTimeFee": "One-time fee",
+    "oneTimeFee": "Einmalige Gebühr",
     "code": "CODE",
     "copied": "KOPIERT!",
     "startNow": "Jetzt Starten",
@@ -192,7 +200,11 @@
       "Profit split up to 100%",
       "Leverage 1:100",
       "Payouts in ~12 hours"
-    ]
+    ],
+    "scalingPlan": "Skalierungsplan",
+    "maxTotalLoss": "Maximaler Gesamtverlust",
+    "leverage": "Hebel",
+    "profitSplit": "Gewinnbeteiligung"
   },
   "platforms": {
     "eyebrow": "Plattformen",
@@ -216,7 +228,7 @@
   },
   "liveRewards": {
     "badge": "Live-Auszahlungen",
-    "rewardsDistributed": "Verteilte Belohnungen",
+    "rewardsDistributed": "Auszahlungen gesamt",
     "awaiting": "Warte auf verifizierte Datensätze",
     "desc": "Kumulierte simulierte Belohnungen aus verifizierten CK Capital Aufzeichnungen.",
     "verifiedText": "Verifizierte Belohnungsaufzeichnungen, veröffentlicht von CK Capital.",
@@ -227,8 +239,8 @@
     "heroTitlePrefix": "Echte Leistung.",
     "heroTitleShimmer": "Echte Belohnungen.",
     "certificateProof": "Zertifikatsbasierter Nachweis",
-    "analystsRewarded": "Belohnte qualifizierte Analysten",
-    "countriesWorldwide": "Länder weltweit",
+    "analystsRewarded": "Aktive Trader",
+    "countriesWorldwide": "Weltweite Trader",
     "simulatedRewards": "Simulierte Gewinnbelohnungen",
     "subjectToTerms": "Vorbehaltlich Kontobedingungen",
     "provenEyebrow": "BEWIESENE BELOHNUNGEN VON CK CAPITAL ANALYSTEN",
@@ -257,53 +269,61 @@
     "viewRisk": "Risikohinweise anzeigen"
   },
   "proof": {
-    "eyebrow": "VERIFIZIERTE LEISTUNG",
-    "title": "Echte Trader. Echte Belohnungen.",
-    "subtitle": "No complicated processes. No hidden requirements. A clear path from evaluation to eligible simulated profit rewards.",
-    "rewardsDistributed": "Rewards Distributed",
-    "qualifiedAnalysts": "Qualified Analysts",
-    "countriesWorldwide": "Countries Worldwide",
-    "excellentRating": "Excellent",
-    "ratedScore": "4.9 rated",
-    "liveSupport": "Live trader support",
-    "titleLine1": "Trade with",
-    "titleLine2": "peace of mind",
-    "benefitFlexible": "Flexible Reward Cycles",
-    "benefitAllocation": "Up to $1.2M Allocation",
-    "benefitNoHidden": "No Hidden Fees",
-    "modelsPill": "1 Step · 2 Step · Instant",
-    "viewEvaluations": "View Evaluations"
+    "eyebrow": "VERIFIZIERTE PERFORMANCE",
+    "title": "Echte Trader. Echte Auszahlungen.",
+    "subtitle": "Keine komplizierten Prozesse. Keine versteckten Anforderungen. Ein transparenter Weg von der Evaluierung bis zur Auszahlung.",
+    "rewardsDistributed": "Gesamtauszahlungen",
+    "qualifiedAnalysts": "Aktive Trader",
+    "countriesWorldwide": "Weltweite Trader",
+    "excellentRating": "Hervorragend",
+    "ratedScore": "4.9 Bewertung",
+    "liveSupport": "Live Trader-Support",
+    "titleLine1": "Handeln Sie mit",
+    "titleLine2": "Sicherheit & Vertrauen",
+    "benefitFlexible": "Flexible Auszahlungszyklen",
+    "benefitAllocation": "Bis zu $1.2M Zuteilung",
+    "benefitNoHidden": "Keine Versteckten Gebühren",
+    "modelsPill": "1 Stufe · 2 Stufen · Sofort",
+    "viewEvaluations": "Evaluierungen Ansehen",
+    "readyReward": "Bereit für Ihre Auszahlung?",
+    "readyRewardDesc": "Öffnen Sie Ihr CK Capital Dashboard, fordern Sie Ihre Auszahlung an und geben Sie Ihre Daten ein.",
+    "trader": "Trader",
+    "requested": "Angefordert",
+    "country": "Land",
+    "amount": "Betrag",
+    "verifiedPending": "Verifizierte Nachweise werden hier nach Veröffentlichung angezeigt.",
+    "totalPayouts": "Gesamtauszahlungen"
   },
   "reviews": {
     "eyebrow": "Trader-Bewertungen",
-    "title": "Die vertrauenswürdige Wahl für CK Trader",
-    "subtitle": "Veröffentlichte Erfahrungen von Tradern, die die simulierten Evaluierungsprogramme von CK Capital auf Trustpilot, X und Reddit nutzen.",
+    "title": "Die bewährte Wahl für CK Trader",
+    "subtitle": "Erfahrungsberichte von Tradern unserer simulierten Evaluierungsprogramme auf Trustpilot, X und Reddit.",
     "readOnTrustpilot": "Bewertungen auf Trustpilot lesen",
     "viewOnTrustpilot": "Auf Trustpilot ansehen",
     "readOnX": "Auf X lesen",
     "viewOnReddit": "Auf Reddit ansehen",
-    "traderStory": "Trader-Erfolgsgeschichte",
-    "avgProcessing": "Durchschn. Auszahlungsbearbeitung",
-    "processingPending": "Verifizierte Bearbeitungszeitdaten werden hier angezeigt, sobald eine Quelle verbunden ist.",
+    "traderStory": "Trader-Erfahrungsbericht",
+    "avgProcessing": "Durchschn. Auszahlungszeit",
+    "processingPending": "Verifizierte Bearbeitungszeiten werden hier live angezeigt.",
     "disclaimer": "Bewertungen spiegeln individuelle Erfahrungen wider und garantieren keine zukünftigen Ergebnisse.",
     "placeholdersNote": " Die gezeigten Zitate sind Platzhalter bis zur Veröffentlichung bestätigter Bewertungen."
   },
   "support": {
-    "eyebrow247": "24/7 TRADER SUPPORT",
-    "discordTitle": "Bessere Fragen stellen. Gemeinsam klüger handeln.",
-    "discordDesc": "Tritt der CK Capital Community bei für schnelle Antworten und echten Austausch unter Tradern.",
-    "discordAction": "Der CK Community beitreten",
+    "eyebrow247": "24/7 TRADER-SUPPORT",
+    "discordTitle": "Bessere Fragen stellen. Gemeinsam smarter handeln.",
+    "discordDesc": "Treten Sie der CK Capital Community für schnelle Antworten und praktische Trading-Diskussionen bei.",
+    "discordAction": "Der CK Community Beitreten",
     "youtubeEyebrow": "CK CAPITAL AUF YOUTUBE",
-    "youtubeTitle": "Zuschauen. Lernen. Traden.",
-    "youtubeDesc": "Erlebe Trader-Geschichten, Plattform-Guides und klare Erklärungen zur Evaluierung.",
-    "youtubeAction": "CK Capital ansehen",
-    "customerTitle": "Kundenservice, der für Trader entwickelt wurde.",
-    "customerDesc": "Unser Support-Team steht dir 24/7 bei Fragen zu Evaluierungen, Plattformen und Auszahlungen zur Seite.",
+    "youtubeTitle": "Zuschauen. Lernen. Handeln.",
+    "youtubeDesc": "Verfolgen Sie Trader-Storys, Plattform-Walkthroughs und Erklärungen zum Evaluierungsprozess.",
+    "youtubeAction": "CK Capital Ansehen",
+    "customerTitle": "Kundenservice speziell für Trader.",
+    "customerDesc": "Unser Support-Team hilft bei Evaluierungen, Plattformen, Kontenfragen und Auszahlungen.",
     "discordBtn": "Discord-Support",
     "emailBtn": "Support-E-Mail",
-    "showAll": "Alle Kontakte anzeigen",
-    "available247": "Available 24/7",
-    "supportBrand": "CK Capital support",
+    "showAll": "Alle Kontakte Anzeigen",
+    "available247": "24/7 Verfügbar",
+    "supportBrand": "CK Capital Support",
     "imagePlaceholder": "Image placeholder",
     "memberCount": "Mitgliederanzahl",
     "subscriberCount": "Abonnentenanzahl",
@@ -371,10 +391,10 @@
     "button": "Starte deine Challenge"
   },
   "footer": {
-    "tagline": "Wir stärken Trader weltweit mit simuliertem Kapital, transparenten Regeln und bis zu 100% Gewinnbeteiligung.",
-    "newsletterTitle": "Handelseinblicke Erhalten",
-    "newsletterSubtitle": "Wöchentliche Markt-Updates, Prop-Firm-News und exklusive Angebote.",
-    "emailPlaceholder": "E-Mail-Adresse eingeben",
+    "tagline": "Wir unterstützen Trader weltweit mit virtuellem Kapital, transparenten Regeln und bis zu 100% Gewinnbeteiligung.",
+    "newsletterTitle": "Trading-Einblicke Erhalten",
+    "newsletterSubtitle": "Markt-Updates, Prop-Firm-News und exklusive Angebote wöchentlich in Ihrem Postfach.",
+    "emailPlaceholder": "Ihre E-Mail eingeben",
     "subscribe": "Abonnieren",
     "products": "Handelsprodukte",
     "evaluation": "Evaluierungs-Challenge",
@@ -395,8 +415,13 @@
     "riskDisclosure": "Risikohinweis",
     "returnPolicy": "Rückerstattungsrichtlinie",
     "copyright": "© {year} CK Capital Group LTD. Alle Rechte vorbehalten.",
-    "disclaimer": "CK Capital Group LTD bietet simulierte Trading-Evaluierungen in einer Demo-Umgebung mit virtuellem Guthaben an.",
-    "acceptedMethods": "Accepted Methods",
+    "disclaimerTitle": "Wichtige rechtliche und regulatorische Hinweise",
+    "disclaimerSimulated": "CK Capital Group LTD (eingetragen im Vereinigten Königreich) bietet proprietäre Trading-Evaluierungsprogramme ausschließlich in simulierten Demo-Umgebungen an. Alle Konten, Challenges und finanzierten Stufen nutzen virtuelles Kapital. CK Capital Group LTD führt keine echten Finanzmarkttransaktionen für Kunden durch, agiert nicht als Broker oder Verwahrer und nimmt keine Kundeneinlagen entgegen.",
+    "disclaimerAdvice": "Alle auf dieser Website bereitgestellten Informationen, Lehrmaterialien, Marktanalysen und Tools dienen ausschließlich Informations- und Evaluierungszwecken und stellen keine Finanz- oder Anlageberatung dar.",
+    "disclaimerPerformance": "Hypothetische oder simulierte Handelsergebnisse unterliegen inhärenten Einschränkungen. Im Gegensatz zu tatsächlichen Handelsergebnissen spiegeln simulierte Ergebnisse kein reales Marktrisiko wider. Vergangene Leistungen garantieren keine zukünftigen Ergebnisse.",
+    "disclaimerJurisdiction": "Die von CK Capital Group LTD angebotenen Dienstleistungen und Evaluierungsprogramme richten sich nicht an Personen in Rechtsordnungen, in denen eine solche Bereitstellung gegen lokale Gesetze oder internationale Sanktionen verstoßen würde.",
+    "disclaimer": "CK Capital Group LTD (eingetragen im Vereinigten Königreich) bietet simulierte Trading-Evaluierungen mit virtuellem Kapital an. Keine Brokerage- oder Finanzberatungsdienste.",
+    "acceptedMethods": "Akzeptierte Zahlungsmethoden",
     "errorEmail": "Please enter a valid email address.",
     "successEmail": "Thank you for subscribing!"
   },
@@ -418,10 +443,10 @@
     "homeDescription": "Werde Teil von CK Capital. Bestehe unsere Evaluierung und handle bis zu $100K simuliertes Kapital mit Auszahlungen in 12h."
   },
   "about": {
-    "badge": "Über Uns · Premium Prop Trading",
+    "badge": "Über Uns · Prop Trading",
     "title": "Das Team von CK Capital",
-    "storyEyebrow": "Unsere Geschichte",
-    "storyTitle": "Gebaut, um Hürden abzubauen",
+    "storyEyebrow": "UNSERE GESCHICHTE",
+    "storyTitle": "Von Tradern für Trader gebaut",
     "storyDesc": "CK Capital wurde gegründet, um ambitionierte Trader mit fortschrittlicher Technologie und herausragendem Support zu fördern.",
     "missionTitle": "Unsere Mission",
     "missionDesc": "Wir bieten innovative Tools und simulierte Evaluierungen, um Disziplin und kontinuierliche Profitabilität aufzubauen.",
@@ -436,8 +461,8 @@
     "valuesTitle": "Unsere Werte",
     "integrityTitle": "Integrität",
     "integrityDesc": "Wir handeln stets mit absoluter Transparenz.",
-    "communityTitle": "Community",
-    "communityDesc": "Wir fördern eine unterstützende Gemeinschaft.",
+    "communityTitle": "Treten Sie unserer wachsenden Community bei",
+    "communityDesc": "Tausende von Tradern tauschen täglich Analysen, Setups und Erfolgsgeschichten aus.",
     "excellenceTitle": "Exzellenz",
     "excellenceDesc": "Wir bieten erstklassige Plattformen und Bedingungen.",
     "innovationTitle": "Innovation",
@@ -490,12 +515,25 @@
         "description": "Von erfahrenen Tradern aufgebaut, die die Marktrealitäten verstehen und kontinuierlich unterstützen."
       }
     ],
-    "valuesSubtitle": "Die unverhandelbaren Prinzipien, die unsere Technologie, unseren Support und unsere Community jeden Tag antreiben."
+    "valuesSubtitle": "Die unverhandelbaren Prinzipien, die unsere Technologie, unseren Support und unsere Community jeden Tag antreiben.",
+    "heroEyebrow": "ÜBER CK CAPITAL",
+    "heroTitle": "Wir definieren Prop-Trading neu.",
+    "heroSubtitle": "Gegründet in Großbritannien mit dem Ziel, talentierten Tradern weltweit faire Regeln, modernste Technologie und erstklassige Auszahlungen zu bieten.",
+    "storyP1": "CK Capital entstand aus der Überzeugung, dass fähige Trader Zugang zu echtem Kapital und fairen Bedingungen verdienen.",
+    "storyP2": "Wir haben überflüssige Hürden und unrealistische Zeitlimits abgeschafft, um einen nachhaltigen Weg zum geförderten Trading zu schaffen.",
+    "pillarsEyebrow": "UNSERE WERTE",
+    "pillarsTitle": "Worauf wir aufbauen",
+    "pillar1Title": "Transparenz",
+    "pillar1Desc": "Klare Regeln ohne versteckte Klauseln oder überraschende Bedingungen.",
+    "pillar2Title": "Schnelligkeit",
+    "pillar2Desc": "Express-Auszahlungen in unter 12 Stunden direkt per Krypto oder Banküberweisung.",
+    "pillar3Title": "Zuverlässigkeit",
+    "pillar3Desc": "Stabile Plattformen auf MT5 & TradeLocker mit extrem geringer Latenz."
   },
   "affiliates": {
     "badge": "CK CAPITAL PARTNERPROGRAMM",
-    "title": "Empfehle CK Capital. Verdiene bis zu 25%.",
-    "subtitle": "Mache deine Community und Reichweite zu einer lukrativen Einnahmequelle mit unserem Partnerprogramm.",
+    "title": "Partnerprogramm für Trader & Influencer",
+    "subtitle": "Verdienen Sie bis zu 25% wiederkehrende Provisionen auf alle Challenge-Käufe.",
     "becomeAffiliate": "JETZT PARTNER WERDEN",
     "seeHowItWorks": "So funktioniert es",
     "commissionHighlight": "Partner-Provision",
@@ -526,8 +564,8 @@
     "readyTitle": "BEREIT FÜR DAS CK CAPITAL PARTNERPROGRAMM?",
     "readySubtitle": "Starte noch heute deine Partnerschaft mit CK Capital.",
     "login": "Bereits Partner? ANMELDEN",
-    "benefitsEyebrow": "WHY PARTNER WITH CK CAPITAL?",
-    "benefitsTitle": "A programme built to reward performance.",
+    "benefitsEyebrow": "VORTEILE",
+    "benefitsTitle": "Warum Partner CK Capital wählen",
     "benefits": [
       {
         "value": "UP TO 25%",
@@ -589,13 +627,13 @@
         "desc": "Share approved CK Capital Qualified Analyst achievements and verified reward stories."
       }
     ],
-    "channelsEyebrow": "YOUR AFFILIATE CONTENT. YOUR AUDIENCE.",
-    "channelsTitle": "Approved channels.",
+    "channelsEyebrow": "KANÄLE",
+    "channelsTitle": "Erstellt für alle Kanäle",
     "channelsDesc": "Partners may promote CK Capital through approved channels including:",
     "channelsDisclaimer": "All promotional activity must comply with CK Capital's Affiliate Program Terms, advertising requirements and applicable laws.",
-    "complianceEyebrow": "PROMOTE RESPONSIBLY",
-    "complianceTitle": "Build trust. Keep it accurate.",
-    "complianceDesc": "CK Capital affiliates must communicate clearly and responsibly. Affiliate content must not be misleading, deceptive, false, defamatory, offensive or unlawful. Affiliates should not make guaranteed earnings, guaranteed performance or misleading financial claims. Marketing should accurately represent CK Capital as providing proprietary trading evaluation programmes within simulated/demo trading environments.",
+    "complianceEyebrow": "COMPLIANCE & REGELN",
+    "complianceTitle": "Faire und transparente Partnerschaft",
+    "complianceDesc": "Wir legen Wert auf ethisches Marketing und unterstützen Sie mit professionellen Bannern und Medien-Kits.",
     "payoutsEyebrow": "GET PAID FOR YOUR PERFORMANCE",
     "payoutsTitle": "Minimum affiliate payout: $250",
     "payoutsDesc": "Affiliate commission becomes eligible for payout according to CK Capital's current affiliate payout schedule and programme terms. A minimum affiliate commission balance of $250 is required before a payout can be requested or processed.",
@@ -641,7 +679,20 @@
     "linkTerms": "AFFILIATE TERMS & CONDITIONS →",
     "linkGeneralTerms": "GENERAL TERMS & CONDITIONS →",
     "linkDisclaimer": "DISCLAIMER →",
-    "linkPrivacy": "PRIVACY POLICY →"
+    "linkPrivacy": "PRIVACY POLICY →",
+    "joinBtn": "Jetzt Partner Werden",
+    "tier1": "Bronze Partner",
+    "tier2": "Silber Partner",
+    "tier3": "Gold VIP Partner",
+    "heroEyebrow": "PARTNERPROGRAMM",
+    "heroTitle": "Verdienen Sie bis zu 25% Provisionen als CK Partner",
+    "heroSubtitle": "Bewerben Sie eine der am schnellsten wachsenden Prop-Trading-Firmen und erhalten Sie branchenführende Vergütungen.",
+    "benefit1Title": "Bis zu 25% Provision",
+    "benefit1Desc": "Hohe Auszahlungsraten auf alle Challenge-Käufe Ihrer Community.",
+    "benefit2Title": "Wöchentliche Auszahlungen",
+    "benefit2Desc": "Erhalten Sie Ihre Affiliate-Provisionen wöchentlich per Krypto oder Banküberweisung.",
+    "benefit3Title": "Echtzeit-Dashboard",
+    "benefit3Desc": "Verfolgen Sie Klicks, Anmeldungen und Konversionen in Echtzeit."
   },
   "contact": {
     "badge": "Kontakt · 24/7 Support",
@@ -911,7 +962,41 @@
     "step1Eyebrow": "SCHRITT 1: WÄHLEN SIE IHR HANDELSMODELL",
     "step2Eyebrow": "SCHRITT 2: KAPITALGRÖSSE WÄHLEN",
     "step3Eyebrow": "SCHRITT 3: PLATTFORM & TYP",
-    "startChallenge": "CHALLENGE STARTEN"
+    "startChallenge": "CHALLENGE STARTEN",
+    "eyebrow": "TRANSPARENTE REGELN",
+    "heroTitle": "Handelsziele & Risikoparameter",
+    "heroSubtitle": "Klare, faire und transparente Regeln. Erreichen Sie Ihre Ziele ohne versteckte Beschränkungen.",
+    "tabs": {
+      "step2": "2-Stufen Challenge",
+      "step1": "1-Stufen Challenge",
+      "instant": "Sofort-Finanzierung"
+    },
+    "metrics": {
+      "accountSize": "Kontogröße",
+      "profitTarget": "Gewinnziel",
+      "maxDailyLoss": "Max. Tagesverlust",
+      "maxTotalLoss": "Max. Gesamtverlust",
+      "minTradingDays": "Min. Handelstage",
+      "timeLimit": "Zeitlimit",
+      "profitSplit": "Gewinnbeteiligung",
+      "leverage": "Hebelwirkung",
+      "refundableFee": "Rückerstattbare Gebühr"
+    },
+    "rules": {
+      "dailyLossTitle": "Maximaler Tagesverlust",
+      "dailyLossDesc": "Basierend auf dem Kontostand zu Beginn des Handelstages um 00:00 UTC.",
+      "totalLossTitle": "Maximaler Gesamtverlust",
+      "totalLossDesc": "Statischer Drawdown basierend auf dem anfänglichen Kontostand.",
+      "profitTargetTitle": "Gewinnziel",
+      "profitTargetDesc": "Erreichen Sie das Ziel ohne Zeitlimit und steigen Sie in die nächste Phase auf.",
+      "minDaysTitle": "Minimale Handelstage",
+      "minDaysDesc": "Nur 3 Handelstage erforderlich, um eine Phase abzuschließen."
+    },
+    "summary": {
+      "selectedPlan": "Ausgewählter Plan",
+      "startChallenge": "Challenge Starten",
+      "oneTimeFee": "Einmalige Gebühr · Keine monatlichen Abonnements"
+    }
   },
   "instruments": {
     "title": "Trade your way",
@@ -928,7 +1013,15 @@
     "trustTitle": "Trusted by 65k+ traders",
     "trustSubtitle": "Real, verified reviews from funded traders – on Feefo and Google, never cherry-picked.",
     "trustSummary": "2,800+ verified reviews · Feefo & Google",
-    "verifiedBadge": "VERIFIED"
+    "verifiedBadge": "VERIFIED",
+    "forex": "Forex",
+    "forexDesc": "Major-, Minor- und Exotic-Währungspaare mit Spreads ab 0,0 Pips.",
+    "indices": "Indizes",
+    "indicesDesc": "Globale Leitindizes wie US30, NAS100, GER40 und UK100.",
+    "commodities": "Rohstoffe & Metalle",
+    "commoditiesDesc": "Handeln Sie Gold (XAUUSD), Silber und Rohöl mit hoher Liquidität.",
+    "crypto": "Kryptowährungen",
+    "cryptoDesc": "Bitcoin, Ethereum und Top-Altcoins 24/7 handelbar."
   },
   "offers": {
     "title": "Available Offers",
@@ -936,7 +1029,10 @@
     "hotOffer": "hot offer",
     "defaultHeadline": "Your First Challenge, {discount} Off",
     "defaultSubcopy": "Enjoy 70% off selected evaluation models up to $100K account sizes. New users only. Terms apply.",
-    "useCode": "Use Code: {code}"
+    "useCode": "CODE VERWENDEN",
+    "bannerTitle": "Exklusives Frühlingsangebot",
+    "discountBadge": "75% Rabatt",
+    "expiresIn": "Endet in Kürze"
   },
   "search": {
     "buttonLabel": "Suchen...",
@@ -960,5 +1056,44 @@
       "close": "zum Schließen"
     },
     "clear": "Suche löschen"
+  },
+  "common": {
+    "logIn": "Anmelden",
+    "signUp": "Registrieren",
+    "startChallenge": "Challenge Starten",
+    "signIn": "Anmelden",
+    "learnMore": "Mehr Erfahren",
+    "getStarted": "Loslegen"
+  },
+  "evaluationPrograms": {
+    "eyebrow": "Wählen Sie Ihre Challenge",
+    "title": "Evaluierungsprogramme",
+    "subtitle": "Flexible Challenges, maßgeschneidert für jeden Trader-Typ.",
+    "compareBtn": "Challenges Vergleichen",
+    "mostPopular": "Am Beliebtesten",
+    "profitTarget": "Gewinnziel",
+    "maxLoss": "Max. Gesamtverlust",
+    "profitSplit": "Gewinnbeteiligung",
+    "profitSplitValue": "Bis zu 100%"
+  },
+  "featureStrip": {
+    "fastPayouts": "Schnelle Auszahlungen",
+    "fastPayoutsDesc": "Erhalten Sie Ihre Auszahlungen stets schnell und sicher.",
+    "noTimeLimits": "Keine Zeitlimits",
+    "noTimeLimitsDesc": "Handeln Sie in Ihrem eigenen Tempo ganz ohne Zeitdruck.",
+    "economicCalendar": "Wirtschaftskalender",
+    "economicCalendarDesc": "Integrierter Kalender für marktbewegende Wirtschaftsnachrichten.",
+    "advancedPlatform": "Moderne Plattform",
+    "advancedPlatformDesc": "Handeln Sie auf branchenführenden Handelsplattformen.",
+    "education": "Bildung & Ressourcen",
+    "educationDesc": "Verbessern Sie Ihre Fähigkeiten mit unseren kostenlosen Ressourcen."
+  },
+  "trustStats": {
+    "activeTraders": "Aktive Trader",
+    "worldwide": "Weltweit",
+    "globalReach": "Globale Reichweite",
+    "payoutsTotal": "Gesamtauszahlungen",
+    "secureTransparent": "Sicher & Transparent",
+    "traderSupport": "Trader-Support"
   }
 }

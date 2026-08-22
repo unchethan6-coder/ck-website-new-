@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Calendar, ChevronLeft, User } from "lucide-react";
+import { Calendar, ChevronLeft, User, ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/Container";
+import { GoldButton } from "@/components/shared/GoldButton";
 import { BlocksRenderer } from "@/components/blog/BlocksRenderer";
 import { getArticleBySlug, getAllArticleSlugs } from "@/lib/cms";
 import type { CmsArticle } from "@/lib/cms";
@@ -80,48 +81,44 @@ export default async function ArticlePage({
 
   return (
     <div className="min-h-screen bg-background" data-od-id="article-page">
-      {/* Hero */}
-      <section className="relative bg-background" data-od-id="article-hero">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 0%, rgba(212,175,55,0.18), transparent 45%), radial-gradient(circle at 5% 100%, rgba(212,175,55,0.08), transparent 40%)',
-          }}
-        />
-        <Container className="relative py-14 md:py-20">
+      {/* ─────────────── Hero (DARK) ─────────────── */}
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-foreground/[0.07] bg-[#070709] pt-28 md:pt-36 pb-14 md:pb-20 text-white" data-od-id="article-hero">
+        <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+        </div>
+        <Container className="relative z-10">
           <Link
             href="/blog"
-            className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold text-foreground/60 transition-colors hover:text-primary"
+            className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold text-white/70 transition-colors hover:text-primary"
           >
             <ChevronLeft size={16} />
             Back to Blog
           </Link>
           <div className="max-w-3xl">
             <div className="mb-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#F7D774]">
+              <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
                 {article.category}
               </span>
-              <span className="flex items-center gap-1.5 text-[12px] text-foreground/40">
+              <span className="flex items-center gap-1.5 text-[12px] text-white/50">
                 <Calendar size={12} className="text-primary" />
                 {formatDate(article.publishedAt)}
               </span>
               {article.author && (
-                <span className="flex items-center gap-1.5 text-[12px] text-foreground/40">
+                <span className="flex items-center gap-1.5 text-[12px] text-white/50">
                   <User size={12} className="text-primary" />
                   {article.author}
                 </span>
               )}
             </div>
             <h1
-              className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl"
+              className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-5xl"
               data-od-id="article-title"
             >
               {article.title}
             </h1>
             {article.excerpt && (
-              <p className="mt-5 text-[16px] leading-relaxed text-foreground/55">
+              <p className="mt-5 text-[16px] leading-relaxed text-white/60">
                 {article.excerpt}
               </p>
             )}
@@ -129,29 +126,47 @@ export default async function ArticlePage({
         </Container>
       </section>
 
-      {/* Cover image */}
-      {article.coverImage && (
-        <Container>
-          <div className="overflow-hidden rounded-2xl border border-foreground/10">
-            <Image
-              src={article.coverImage.url}
-              alt={article.title}
-              width={article.coverImage.width ?? 1200}
-              height={article.coverImage.height ?? 630}
-              className="h-auto w-full object-cover"
-              sizes="(min-width: 1280px) 1200px, 100vw"
-              priority
-            />
+      {/* ─────────────── Article Canvas (LIGHT) ─────────────── */}
+      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-12 md:py-20 text-[#111827]" data-od-id="article-body">
+        <Container className="max-w-4xl">
+          <div className="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-6 sm:p-10 md:p-12 shadow-sm">
+            {article.coverImage && (
+              <div className="mb-10 overflow-hidden rounded-xl border border-[#E5E7EB]">
+                <Image
+                  src={article.coverImage.url}
+                  alt={article.title}
+                  width={article.coverImage.width ?? 1200}
+                  height={article.coverImage.height ?? 630}
+                  className="h-auto w-full object-cover"
+                  sizes="(min-width: 1280px) 1200px, 100vw"
+                  priority
+                />
+              </div>
+            )}
+
+            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#D4AF37] hover:prose-a:underline">
+              <BlocksRenderer blocks={article.body} />
+            </article>
           </div>
         </Container>
-      )}
+      </section>
 
-      {/* Body */}
-      <section className="bg-background py-12 md:py-16" data-od-id="article-body">
-        <Container>
-          <article className="mx-auto max-w-3xl">
-            <BlocksRenderer blocks={article.body} />
-          </article>
+      {/* ─────────────── Closing CTA (DARK) ─────────────── */}
+      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="article-closing-cta">
+        <Container className="relative text-center">
+          <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+            Start Trading with CK Capital
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+            Take your trading strategy to the next level with our simulated evaluation accounts.
+          </p>
+          <div className="mt-8">
+            <a href="/#start-challenge">
+              <GoldButton size="lg">
+                Start Your Evaluation <ArrowRight size={16} />
+              </GoldButton>
+            </a>
+          </div>
         </Container>
       </section>
     </div>

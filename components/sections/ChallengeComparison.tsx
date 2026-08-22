@@ -57,7 +57,7 @@ function Switch({ checked }: { checked: boolean }) {
     <span
       className={cn(
         "relative inline-flex w-8 h-4 rounded-full transition-colors",
-        checked ? "bg-[#D4AF37]" : "bg-white/20"
+        checked ? "bg-primary" : "bg-white/20"
       )}
     >
       <span
@@ -243,7 +243,7 @@ export function ChallengeComparison({
 
           {/* Challenge-type tabs */}
           <SectionReveal delay={0.06}>
-            <div className="mb-6 flex justify-center overflow-x-auto pb-2">
+            <div className="mb-6 flex justify-start sm:justify-center overflow-x-auto pb-2 px-1">
               <div className="flex w-max gap-1.5 rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-1.5">
                 {CHALLENGE_TYPES.map((ct) => {
                   const active = activeType === ct.id;
@@ -313,7 +313,7 @@ export function ChallengeComparison({
                     className={cn(
                       "rounded-full px-5 py-2.5 text-xs font-bold transition-all min-h-11 flex items-center",
                       view === "phases"
-                        ? "bg-[#D4AF37] text-[#0B0A07]"
+                        ? "bg-primary text-primary-foreground font-extrabold"
                         : "text-foreground/60 hover:text-foreground"
                     )}
                   >
@@ -325,7 +325,7 @@ export function ChallengeComparison({
                     className={cn(
                       "rounded-full px-5 py-2.5 text-xs font-bold transition-all min-h-11 flex items-center",
                       view === "compare"
-                        ? "bg-[#D4AF37] text-[#0B0A07]"
+                        ? "bg-primary text-primary-foreground font-extrabold"
                         : "text-foreground/60 hover:text-foreground"
                     )}
                   >
@@ -336,26 +336,21 @@ export function ChallengeComparison({
             </div>
           </SectionReveal>
 
-          {/* Universal-conditions strip — honest CK values (fx-chip-in pop) */}
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-40px" }}
-            variants={stagger}
+          {/* Universal-conditions strip — honest CK values */}
+          <div
             className="mb-7 flex flex-wrap justify-center gap-2"
             data-od-id="challenge-conditions"
           >
             {["Profit split up to 100%", "Leverage 1:100", "Payouts in ~12 hours"].map((c) => (
-              <motion.span
+              <span
                 key={c}
-                variants={chipIn}
                 className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/[0.07] px-3.5 py-1.5 text-[12.5px] font-semibold text-foreground/85"
               >
                 <Check size={13} strokeWidth={3} className="text-primary shrink-0" />
                 {c}
-              </motion.span>
+              </span>
             ))}
-          </motion.div>
+          </div>
 
           {/* ─────────────── PHASES VIEW ─────────────── */}
           {view === "phases" && (
@@ -375,7 +370,7 @@ export function ChallengeComparison({
                         className={cn(
                           "rounded-lg px-4 py-2 text-sm font-extrabold transition-all min-h-11",
                           active
-                            ? "bg-[#D4AF37] text-[#0B0A07]"
+                            ? "bg-primary text-primary-foreground font-extrabold shadow-sm"
                             : "border border-foreground/15 bg-foreground/[0.04] text-foreground/70 hover:border-primary/50 hover:text-foreground"
                         )}
                       >
@@ -390,7 +385,7 @@ export function ChallengeComparison({
               <SectionReveal delay={0.2}>
                 <div
                   data-od-id="challenge-table"
-                  className="overflow-hidden rounded-2xl border border-foreground/10 bg-gradient-to-b from-foreground/[0.05] to-foreground/[0.02]"
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-[#12100A] shadow-xl"
                 >
                   {/* Mobile: stacked phase cards (< md) */}
                   <div className="md:hidden grid gap-3 p-3">
@@ -508,19 +503,19 @@ export function ChallengeComparison({
                         {fmtMoney(parseMoney(activeSize))}
                       </p>
                     </div>
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                       <button
                         type="button"
                         onClick={copyCode}
-                        className="rounded-lg border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-[13px] font-bold text-[#F7D774] transition-all hover:bg-primary/20"
+                        className="rounded-lg border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-[13px] font-bold text-[#F7D774] transition-all hover:bg-primary/20 text-center"
                       >
                         {copied === promo ? `✓ ${t("copied")}` : `${t("code")}: ${promo}`}
                       </button>
-                      <div className="text-right">
+                      <div className="text-left sm:text-right">
                         <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/40">
                           {t("price")}
                         </p>
-                        <p className="text-2xl font-extrabold text-[#F7D774] tabular-nums">
+                        <p className="text-2xl font-extrabold text-primary tabular-nums">
                           {toCurrency(Y.price, currency)}{" "}
                           <span className="ml-1 align-middle text-sm font-semibold text-foreground/35 line-through">
                             {toCurrency(Y.oldPrice, currency)}
@@ -532,7 +527,7 @@ export function ChallengeComparison({
                         target="_blank"
                         rel="noopener noreferrer"
                         data-od-id="challenge-cta"
-                        className="inline-flex h-12 items-center justify-center rounded-xl bg-[#D4AF37] px-8 text-[15px] font-bold text-[#0B0A07] transition-colors hover:bg-[#F7D774]"
+                        className="btn-gold-standard inline-flex h-12 items-center justify-center px-8 text-[15px] font-bold w-full sm:w-auto"
                       >
                         {t("startNow")}
                       </a>
@@ -555,18 +550,18 @@ export function ChallengeComparison({
                     <div
                       key={s.size}
                       className={cn(
-                        "relative rounded-2xl border p-4",
+                        "relative rounded-2xl border p-4 card-hover-standard",
                         s.badge
-                          ? "fx-border-spin border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06]"
-                          : "border-foreground/10 bg-foreground/[0.03]"
+                          ? "border-primary bg-[#12100A] shadow-xl"
+                          : "border-foreground/10 bg-[#12100A]/50"
                       )}
                     >
                       {s.badge && (
                         <div className="absolute -top-3 left-3 flex items-center gap-1.5 whitespace-nowrap">
-                          <span className="rounded-full bg-[#D4AF37] px-2.5 py-1 text-[10px] font-bold text-[#0B0A07]">
+                          <span className="rounded-full bg-primary px-2.5 py-1 text-[10px] font-extrabold text-primary-foreground">
                             {t("bestValue")}
                           </span>
-                          <span className="rounded-full bg-gradient-to-r from-[#b88718] to-[#F7D774] px-2 py-1 text-[10px] font-bold text-[#0B0A07]">
+                          <span className="rounded-full bg-[#FFE082] px-2 py-1 text-[10px] font-extrabold text-black">
                             -70%
                           </span>
                         </div>
@@ -581,51 +576,35 @@ export function ChallengeComparison({
                           </p>
                         </div>
                         <div className="text-right">
-                          <p className="text-lg font-extrabold leading-tight text-[#F7D774] tabular-nums">
-                            {toCurrency(s.price, currency)}
+                          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-foreground/40">
+                            {t("price")}
                           </p>
-                          <p className="text-[11px] font-semibold text-foreground/35 line-through tabular-nums">
-                            {toCurrency(s.oldPrice, currency)}
+                          <p className="text-xl font-extrabold text-primary tabular-nums">
+                            {toCurrency(s.price, currency)}
                           </p>
                         </div>
                       </div>
-                      <div className="mt-4 space-y-2.5 border-t border-foreground/[0.07] pt-3">
+                      <div className="mt-4 space-y-2 border-t border-foreground/[0.07] pt-3 text-xs">
                         {rows.map((row) => {
-                          if (row.key === "split") {
-                            return (
-                              <div key={row.key} className="flex items-center justify-between gap-3">
-                                <span className="text-[13px] font-semibold text-foreground/60">
-                                  {row.label}
-                                </span>
-                                <span className="text-sm font-bold text-[#F7D774] tabular-nums">
-                                  {s.split}
-                                </span>
-                              </div>
-                            );
-                          }
-                          let val: string;
-                          switch (row.key) {
-                            case "target":
-                              val = s.phase2 !== "$0" ? `${r(s.phase1)} / ${r(s.phase2)}` : r(s.phase1);
-                              break;
-                            case "maxDaily":
-                              val = r(s.maxDaily);
-                              break;
-                            case "maxLoss":
-                              val = r(s.maxLoss);
-                              break;
-                            case "minDays":
-                              val = `${s.minDays} ${t("day")}`;
-                              break;
-                            case "period":
-                              val = s.period;
-                              break;
-                            default:
-                              val = s.consistency;
-                          }
+                          const val =
+                            row.key === "target"
+                              ? `${r(s.phase1)}${s.phase2 !== "$0" ? ` / ${r(s.phase2)}` : ""}`
+                              : row.key === "maxDaily"
+                              ? r(s.maxDaily)
+                              : row.key === "maxLoss"
+                              ? r(s.maxLoss)
+                              : row.key === "minDays"
+                              ? `${s.minDays} ${t("day")}`
+                              : row.key === "period"
+                              ? s.period
+                              : row.key === "split"
+                              ? s.split
+                              : row.key === "consistency"
+                              ? s.consistency
+                              : "—";
                           return (
-                            <div key={row.key} className="flex items-center justify-between gap-3">
-                              <span className="text-[13px] font-semibold text-foreground/60">
+                            <div key={row.key} className="flex items-center justify-between">
+                              <span className="text-[11px] font-bold uppercase tracking-wide text-foreground/45">
                                 {row.label}
                               </span>
                               <span className="text-sm font-bold text-foreground tabular-nums">{val}</span>
@@ -637,10 +616,7 @@ export function ChallengeComparison({
                         href="https://app.ckcapital.co.uk/signup"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={cn(
-                          "mt-4 inline-flex h-12 w-full items-center justify-center whitespace-nowrap rounded-xl bg-[#D4AF37] text-sm font-bold text-[#0B0A07] transition-colors hover:bg-[#F7D774]",
-                          s.badge && "shadow-[0_0_16px_rgba(212,175,55,0.4)]"
-                        )}
+                        className="btn-gold-standard mt-4 inline-flex h-12 w-full items-center justify-center whitespace-nowrap text-sm font-bold"
                       >
                         {t("startNow")}
                       </a>
@@ -688,18 +664,18 @@ export function ChallengeComparison({
                         <div
                           key={s.size}
                           className={cn(
-                            "relative flex min-w-[190px] flex-1 flex-col rounded-2xl border px-4 pb-4 pt-5 transition-transform duration-300 hover:-translate-y-1",
+                            "relative flex min-w-[190px] flex-1 flex-col rounded-2xl border px-4 pb-4 pt-5 card-hover-standard",
                             s.badge
-                              ? "fx-border-spin border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_25px_rgba(212,175,55,0.22)]"
-                              : "border-foreground/10 bg-foreground/[0.03] hover:border-primary/40"
+                              ? "border-primary bg-[#12100A] shadow-xl"
+                              : "border-foreground/10 bg-[#12100A]/50 hover:border-primary/40"
                           )}
                         >
                           {s.badge && (
                             <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap">
-                              <span className="rounded-full bg-[#D4AF37] px-2.5 py-1 text-[10px] font-bold text-[#0B0A07]">
+                              <span className="rounded-full bg-primary px-2.5 py-1 text-[10px] font-extrabold text-primary-foreground">
                                 {t("bestValue")}
                               </span>
-                              <span className="rounded-full bg-gradient-to-r from-[#b88718] to-[#F7D774] px-2 py-1 text-[10px] font-bold text-[#0B0A07]">
+                              <span className="rounded-full bg-[#FFE082] px-2 py-1 text-[10px] font-extrabold text-black">
                                 -70%
                               </span>
                             </div>
@@ -742,7 +718,7 @@ export function ChallengeComparison({
                           <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-foreground">
                             {s.period}
                           </div>
-                          <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-[#F7D774]">
+                          <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-primary">
                             {s.split}
                           </div>
                           <div className="flex min-h-10 items-center whitespace-nowrap border-t border-foreground/[0.07] text-sm font-bold text-foreground">
@@ -750,7 +726,7 @@ export function ChallengeComparison({
                           </div>
 
                           <div className="mt-4 flex h-16 min-w-0 flex-col items-center justify-center whitespace-nowrap border-t border-foreground/[0.07] text-center">
-                            <p className="max-w-full truncate text-lg font-extrabold leading-tight text-[#F7D774] tabular-nums">
+                            <p className="max-w-full truncate text-lg font-extrabold leading-tight text-primary tabular-nums">
                               {toCurrency(s.price, currency)}
                             </p>
                             <p className="max-w-full truncate text-[11px] font-semibold text-foreground/35 line-through tabular-nums">
@@ -761,10 +737,7 @@ export function ChallengeComparison({
                             href="https://app.ckcapital.co.uk/signup"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={cn(
-                              "mt-1 inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-lg bg-[#D4AF37] text-sm font-bold text-[#0B0A07] transition-colors hover:bg-[#F7D774]",
-                              s.badge && "shadow-[0_0_16px_rgba(212,175,55,0.4)]"
-                            )}
+                            className="btn-gold-standard mt-1 inline-flex h-10 w-full items-center justify-center whitespace-nowrap text-sm font-bold"
                           >
                             {t("startNow")}
                           </a>

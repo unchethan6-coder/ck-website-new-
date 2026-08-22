@@ -71,7 +71,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
   const doubled = [...items, ...items];
 
   return (
-    <section className="py-14 md:py-24" data-od-id="testimonials">
+    <section className="bg-[#0D0C08] text-white py-16 md:py-24" data-od-id="testimonials">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
@@ -89,18 +89,14 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
       </Container>
 
       {/* Auto-scrolling video row */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
+      <div
         className="overflow-hidden"
       >
         <div ref={rowRef} className="flex gap-4 w-max px-4 sm:px-6 lg:px-8">
           {doubled.map((v, i) => (
             <div
               key={`${v.id}-${i}`}
-              className="w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl border border-foreground/10 bg-foreground/[0.03] overflow-hidden shrink-0 flex flex-col"
+              className="w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl border border-white/10 bg-[#12100A] shadow-xl overflow-hidden shrink-0 flex flex-col card-hover-standard"
             >
               {/* Thumbnail */}
               <div
@@ -158,7 +154,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* Join Community CTA */}
       <Container>
@@ -167,7 +163,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
             href="https://discord.gg/ckcapital"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center justify-center rounded-xl bg-primary px-8 text-[15px] font-bold text-black transition-colors hover:bg-[#F7D774]"
+            className="btn-gold-standard inline-flex h-12 items-center justify-center px-8 text-[15px] font-bold"
           >
             Join Our Community
           </a>

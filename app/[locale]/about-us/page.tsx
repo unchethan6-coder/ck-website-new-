@@ -25,12 +25,6 @@ import { Aurora } from '@/components/fx/Aurora'
 import { Link } from '@/i18n/navigation'
 import { fadeUp, stagger, EASE } from '@/components/fx/reveal'
 
-// Lazy-load WebGL HeroField skyline
-const HeroField = dynamic(
-  () => import('@/components/fx/HeroField').then((m) => m.HeroField),
-  { ssr: false }
-)
-
 const heroFadeDown = {
   hidden: { opacity: 0, y: -14 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
@@ -66,7 +60,7 @@ export default function AboutPage() {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.5])
 
   const aboutStats = [
-    { stat: '50,000+', label: t('statsTraders'), note: t('statsTradersNote') },
+    { stat: '20K+', label: t('statsTraders'), note: t('statsTradersNote') },
     { stat: '$1.2M', label: t('statsCapital'), note: t('statsCapitalNote') },
     { stat: '100%', label: t('statsSplit'), note: t('statsSplitNote') },
     { stat: '24/7', label: t('statsSupport'), note: t('statsSupportNote') },
@@ -149,13 +143,8 @@ export default function AboutPage() {
             <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40 fx-hero-glow-4" />
           </motion.div>
 
-          {/* WebGL Column Skyline */}
-          <div className="pointer-events-none absolute inset-0 z-[2]">
-            <HeroField className="absolute inset-0" />
-          </div>
-
           {/* Aurora Dot Grid Overlay */}
-          <div className="pointer-events-none absolute inset-0 z-[3]">
+          <div className="pointer-events-none absolute inset-0 z-[2]">
             <Aurora variant="hero" grid className="absolute inset-0" />
           </div>
 
@@ -314,65 +303,55 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
-        {/* ─────────────── Four-Pillar Stats Band ─────────────── */}
-        <section className="border-b border-foreground/[0.07] py-12 md:py-16" data-od-id="about-stats-strip">
+        {/* ─────────────── Four-Pillar Stats Band (LIGHT) ─────────────── */}
+        <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="about-stats-strip">
           <Container>
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-40px' }}
-              className="grid grid-cols-2 divide-x divide-y divide-foreground/[0.08] border-y border-foreground/[0.08] md:grid-cols-4 md:divide-y-0"
+            <div
+              className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0"
             >
               {aboutStats.map((metric) => (
-                <motion.div
+                <div
                   key={metric.label}
-                  variants={fadeUp}
                   className="min-h-36 px-4 py-7 first:pl-0 md:px-7 md:first:pl-0"
                 >
-                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-primary md:text-4xl">
+                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-[#D4AF37] md:text-4xl">
                     {metric.stat}
                   </p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-foreground/55">
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#4B5563]">
                     {metric.label}
                   </p>
-                  <p className="mt-3 text-[10px] text-foreground/30">
+                  <p className="mt-3 text-[10px] text-[#6B7280]">
                     {metric.note}
                   </p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </Container>
         </section>
 
-        {/* ─────────────── Mission & Vision ─────────────── */}
-        <section className="py-20 md:py-28" data-od-id="about-mission-vision">
+        {/* ─────────────── Mission & Vision (DARK) ─────────────── */}
+        <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="about-mission-vision">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                 {t('missionVisionHeadingEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-foreground md:text-5xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
                 {t('missionVisionHeadingTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-foreground/55">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/60">
                 {t('missionVisionHeadingSubtitle')}
               </p>
             </SectionReveal>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-40px' }}
+            <div
               className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2"
             >
               {missionVision.map((item) => {
                 const Icon = item.icon
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    variants={fadeUp}
                     className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-[#181309] to-[#0c0a06] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_12px_40px_rgba(212,175,55,0.12)] sm:p-10"
                     data-od-id={`about-${item.title.toLowerCase().replace(' ', '-')}`}
                   >
@@ -385,124 +364,114 @@ export default function AboutPage() {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                       {item.eyebrow}
                     </span>
-                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground">
+                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-7 text-foreground/60">
+                    <p className="mt-4 text-sm leading-7 text-white/60">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )
               })}
-            </motion.div>
+            </div>
           </Container>
         </section>
 
-        {/* ─────────────── Philosophy & Culture ─────────────── */}
-        <section className="border-y border-foreground/[0.07] bg-foreground/[0.018] py-20 md:py-28" data-od-id="about-pillars">
+        {/* ─────────────── Philosophy & Culture (LIGHT) ─────────────── */}
+        <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-pillars">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
                 {t('cultureEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-foreground md:text-5xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('cultureTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-foreground/55">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
                 {t('cultureSubtitle')}
               </p>
             </SectionReveal>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-40px' }}
+            <div
               className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3"
             >
               {pillars.map((pillar) => {
                 const Icon = pillar.icon
                 return (
-                  <motion.div
+                  <div
                     key={pillar.title}
-                    variants={fadeUp}
-                    className="rounded-2xl border border-foreground/10 bg-foreground/[0.035] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-foreground/[0.05]"
+                    className="rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40 hover:shadow-md"
                   >
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10">
-                      <Icon size={20} className="text-primary" />
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10">
+                      <Icon size={20} className="text-[#B89628]" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-foreground">
+                    <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
                       {pillar.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground/50">
+                    <p className="mt-3 text-sm leading-relaxed text-[#4B5563]">
                       {pillar.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )
               })}
-            </motion.div>
+            </div>
           </Container>
         </section>
 
-        {/* ─────────────── Core Values ─────────────── */}
-        <section className="py-20 md:py-28" data-od-id="about-values">
+        {/* ─────────────── Core Values (DARK) ─────────────── */}
+        <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="about-values">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                 {t('valuesEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-foreground md:text-5xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
                 {t('valuesTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-foreground/55">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/60">
                 {t('valuesSubtitle')}
               </p>
             </SectionReveal>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-40px' }}
+            <div
               className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
             >
               {values.map((item) => {
                 const Icon = item.icon
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    variants={fadeUp}
-                    className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-foreground/[0.05]"
+                    className="group rounded-2xl border border-white/10 bg-[#12100A] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#18140B]"
                     data-od-id={`about-value-${item.title.toLowerCase()}`}
                   >
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/15">
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/20">
                       <Icon size={20} className="text-primary" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-foreground">
+                    <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/50">
+                    <p className="mt-2 text-sm leading-relaxed text-white/50">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )
               })}
-            </motion.div>
+            </div>
           </Container>
         </section>
 
-        {/* ─────────────── Closing CTA ─────────────── */}
-        <section className="relative overflow-hidden border-t border-primary/20 py-20 md:py-28" data-od-id="about-cta">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.12),_transparent_65%)]" />
+        {/* ─────────────── Closing CTA (LIGHT) ─────────────── */}
+        <section className="relative overflow-hidden bg-[#F6F7F9] border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="about-cta">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.08),_transparent_65%)]" />
           <Container className="relative text-center">
             <SectionReveal>
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
-                <BadgeCheck size={30} className="text-primary" />
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                <BadgeCheck size={30} className="text-[#B89628]" />
               </div>
-              <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-foreground md:text-5xl">
+              <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('ctaTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-foreground/55 sm:text-base">
+              <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#4B5563] sm:text-base">
                 {t('ctaDesc')}
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
@@ -521,9 +490,9 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id="about-cta-secondary"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-foreground/15 px-6 py-2.5 text-sm font-semibold text-foreground/85 transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-foreground"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-[#F6F7F9]"
                 >
-                  <MessageCircle size={16} className="text-primary" />
+                  <MessageCircle size={16} className="text-[#B89628]" />
                   {t('ctaDiscord')}
                 </a>
               </div>

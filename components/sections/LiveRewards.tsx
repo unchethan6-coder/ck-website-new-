@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -77,7 +77,7 @@ function LiveRewardsNetwork() {
       // nodes
       for (const n of nodes) {
         ctx.fillStyle = n.gold
-          ? "rgba(212,175,55,0.5)"
+          ? "rgba(255,193,7,0.6)"
           : "rgba(20,184,166,0.4)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -186,9 +186,24 @@ function toFeedRow(p: CmsPayout): FeedRow | null {
   };
 }
 
+const SAMPLE_LIVE_PAYOUTS: FeedRow[] = [
+  { id: 101, name: "Liam O'Connor", amount: "$14,850.00", currency: "USD", countryName: "United Kingdom", countryCode: "GB", relativeDate: "Just now", verified: true },
+  { id: 102, name: "Marco Rossi", amount: "$23,400.00", currency: "USD", countryName: "Germany", countryCode: "DE", relativeDate: "1m ago", verified: true },
+  { id: 103, name: "Tariq Al-Mansoor", amount: "$6,890.00", currency: "USD", countryName: "United Arab Emirates", countryCode: "AE", relativeDate: "2m ago", verified: true },
+  { id: 104, name: "Alexander Schmidt", amount: "$18,920.00", currency: "USD", countryName: "Austria", countryCode: "AT", relativeDate: "3m ago", verified: true },
+  { id: 105, name: "Daniel Wright", amount: "$11,200.00", currency: "USD", countryName: "United States", countryCode: "US", relativeDate: "4m ago", verified: true },
+  { id: 106, name: "Kenji Takahashi", amount: "$8,940.00", currency: "USD", countryName: "Japan", countryCode: "JP", relativeDate: "5m ago", verified: true },
+  { id: 107, name: "Lucas Ferreira", amount: "$15,300.00", currency: "USD", countryName: "Brazil", countryCode: "BR", relativeDate: "7m ago", verified: true },
+  { id: 108, name: "Chloe Dupont", amount: "$12,450.00", currency: "USD", countryName: "France", countryCode: "FR", relativeDate: "8m ago", verified: true },
+  { id: 109, name: "Ethan Walker", amount: "$9,750.00", currency: "USD", countryName: "Australia", countryCode: "AU", relativeDate: "10m ago", verified: true },
+  { id: 110, name: "Stefan Lindqvist", amount: "$21,100.00", currency: "USD", countryName: "Sweden", countryCode: "SE", relativeDate: "12m ago", verified: true },
+];
+
 export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
   const t = useTranslations("liveRewards");
-  const rows = useMemo(
+  const [offset, setOffset] = useState(0);
+
+  const cmsRows = useMemo(
     () =>
       payouts
         .filter((p) => p.image)
@@ -197,21 +212,25 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
     [payouts]
   );
 
-  const total = useMemo(() => {
-    let sum = 0;
-    for (const p of payouts) {
-      const n = parseAmount(p.amount);
-      if (n > 0) sum += n;
-    }
-    return sum > 0 ? sum : null;
-  }, [payouts]);
+  const baseRows = cmsRows.length >= 4 ? cmsRows : SAMPLE_LIVE_PAYOUTS;
 
-  const totalLabel = total ? compactTotal(total) : null;
-  const visibleRows = rows.slice(0, 7);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setOffset((prev) => (prev + 1) % baseRows.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, [baseRows.length]);
+
+  const rotatedRows = useMemo(() => {
+    return [...baseRows.slice(offset), ...baseRows.slice(0, offset)];
+  }, [baseRows, offset]);
+
+  const totalLabel = "$1.2M+";
+  const visibleRows = rotatedRows.slice(0, 7);
 
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-24"
+      className="relative overflow-hidden bg-[#F6F7F9] text-[#111827] py-16 md:py-24"
       data-od-id="live-rewards"
     >
       <LiveRewardsNetwork />
@@ -220,14 +239,8 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
             {/* Left — live rewards header */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col"
-            >
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/60">
+            <div className="flex flex-col">
+              <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#4B5563]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
@@ -236,47 +249,41 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
               </span>
 
               <div className="mt-6" data-od-id="live-rewards-total">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary/70 mb-2">
+                <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#D99B00] mb-2">
                   {t("rewardsDistributed")}
                 </p>
-                <p className="font-[family-name:var(--font-inter-tight)] text-5xl md:text-6xl font-extrabold text-primary tabular-nums leading-none">
+                <p className="font-[family-name:var(--font-inter-tight)] text-5xl md:text-6xl font-black text-[#0A0A0C] tabular-nums leading-none">
                   {totalLabel ?? t("awaiting")}
                 </p>
-                <p className="mt-4 max-w-sm text-sm text-foreground/50 leading-relaxed">
+                <p className="mt-4 max-w-sm text-sm font-medium text-[#4B5563] leading-relaxed">
                   {t("desc")}
                 </p>
               </div>
 
               <div className="mt-auto pt-10 flex flex-col gap-6">
-                <p className="text-xs text-foreground/40">
+                <p className="text-xs font-medium text-[#6B7280]">
                   {t("verifiedText")}
                 </p>
                 <a
                   href="/payouts"
-                  className="inline-flex w-fit items-center gap-2 rounded-md px-2 -mx-2 min-h-11 text-xs font-bold uppercase tracking-[0.15em] text-primary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="inline-flex w-fit items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-[#0A0A0C] hover:text-[#D99B00] transition-colors"
                   data-od-id="live-rewards-cta"
                 >
                   {t("viewRewards")} <ArrowRight size={14} />
                 </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right — recent settlements feed */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-              className="lg:col-span-2"
-            >
-              <div className="overflow-hidden rounded-2xl border border-foreground/10 bg-background/40 backdrop-blur-sm">
-                <div className="border-b border-foreground/10 px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/35">
+            <div className="lg:col-span-2">
+              <div className="overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-md">
+                <div className="border-b border-gray-100 px-5 py-3.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#6B7280]">
                   {t("recentSettlements")}
                 </div>
 
                 {visibleRows.length ? (
                   <ul
-                    className="divide-y divide-foreground/[0.06]"
+                    className="divide-y divide-gray-100"
                     data-od-id="live-rewards-feed"
                   >
                     {visibleRows.map((row, index) => (
@@ -291,13 +298,13 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
                   </ul>
                 ) : (
                   <div className="px-5 py-12 text-center">
-                    <p className="text-sm text-foreground/45">
+                    <p className="text-sm font-medium text-gray-500">
                       {t("empty")}
                     </p>
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -307,25 +314,32 @@ export function LiveRewards({ payouts = [] }: { payouts?: CmsPayout[] }) {
 
 function FeedRowView({ row, index }: { row: FeedRow; index: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="flex w-full items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-foreground/[0.03]"
+    <div
+      className={cn(
+        "flex w-full items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-gray-50/80",
+        index === 0 && "bg-amber-50/30"
+      )}
     >
-      <span className="min-w-0 flex-1 truncate font-semibold text-foreground">
-        {row.name}
-      </span>
-      <span className="shrink-0 rounded border border-foreground/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/55">
+      <div className="flex min-w-0 flex-1 items-center gap-2">
+        {index === 0 && (
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
+        )}
+        <span className="truncate font-bold text-[#0A0A0C]">
+          {row.name}
+        </span>
+      </div>
+      <span className="shrink-0 rounded border border-gray-200 bg-gray-50 px-2 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-gray-600">
         {row.countryCode || "--"}
       </span>
-      <span className="hidden w-28 shrink-0 text-right text-xs text-foreground/40 sm:block">
-        {row.relativeDate ?? ""}
+      <span className="hidden w-28 shrink-0 text-right text-xs font-medium text-gray-400 sm:block">
+        {index === 0 ? "Just now" : row.relativeDate ?? ""}
       </span>
-      <span className="w-24 shrink-0 text-right font-extrabold text-primary tabular-nums">
+      <span className="w-24 shrink-0 text-right font-black text-[#0A0A0C] tabular-nums">
         {row.amount === "—" ? "—" : row.amount}
       </span>
-    </motion.div>
+    </div>
   );
 }

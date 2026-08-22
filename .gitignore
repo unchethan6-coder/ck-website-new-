@@ -47,6 +47,8 @@ test-results/
 playwright-report/
 RECON/
 /*.mjs
+graphify-out/
+.graphifyignore
 
 # Payout cert downloads (seeded from Google Drive)
 scripts/seed-data/certs/

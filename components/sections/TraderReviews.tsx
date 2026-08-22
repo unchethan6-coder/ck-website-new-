@@ -32,27 +32,27 @@ const SOURCE_STYLE: Record<
   { tint: string; chip: string; avatar: string; avatarBg: string; card: string; cta: string }
 > = {
   trustpilot: {
-    card: "border-foreground/10 bg-foreground/[0.03]",
+    card: "border-gray-200/90 bg-white shadow-md",
     tint: "text-[#00B67A]",
-    chip: "text-[#00B67A]/80",
-    avatar: "border-[#00B67A]/50",
-    avatarBg: "bg-[#00B67A]/15 text-[#00B67A]",
+    chip: "text-[#00B67A]",
+    avatar: "border-[#00B67A]/40",
+    avatarBg: "bg-[#00B67A]/10 text-[#00B67A]",
     cta: "View on Trustpilot",
   },
   x: {
-    card: "border-foreground/[0.14] bg-[#16151c]",
-    tint: "text-foreground/70",
-    chip: "text-foreground/50",
-    avatar: "border-foreground/30",
-    avatarBg: "bg-foreground/10 text-foreground",
+    card: "border-gray-200/90 bg-white shadow-md",
+    tint: "text-[#0A0A0C]",
+    chip: "text-gray-500",
+    avatar: "border-gray-300",
+    avatarBg: "bg-gray-100 text-[#0A0A0C]",
     cta: "Read on X",
   },
   reddit: {
-    card: "border-primary/25 bg-primary/[0.06]",
-    tint: "text-primary",
-    chip: "text-primary/80",
-    avatar: "border-primary/50",
-    avatarBg: "bg-primary/15 text-primary",
+    card: "border-gray-200/90 bg-white shadow-md",
+    tint: "text-[#D99B00]",
+    chip: "text-[#D99B00]",
+    avatar: "border-[#FFC107]/50",
+    avatarBg: "bg-[#FFF3CD] text-[#0A0A0C]",
     cta: "View on Reddit",
   },
 };
@@ -138,16 +138,16 @@ export function TraderReviews({
   wallCards.forEach((card, i) => columns[i % 3].push(card));
 
   return (
-    <section className="py-14 md:py-24" data-od-id="trader-reviews">
+    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="trader-reviews">
       <Container>
         <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
+          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-4 text-sm leading-7 text-foreground/50">
+          <p className="mt-4 text-sm font-medium leading-7 text-[#4B5563]">
             {t("subtitle")}
           </p>
 
@@ -155,18 +155,14 @@ export function TraderReviews({
             href="https://www.trustpilot.com/review/ckcapital.co.uk"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-7 inline-flex h-12 items-center gap-2 rounded-xl bg-[linear-gradient(135deg,#d4af37,#f5d570,#d4af37)] px-7 text-xs font-extrabold uppercase tracking-[0.14em] text-[#0B0A07] shadow-[0_8px_28px_-10px_rgba(212,175,55,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-10px_rgba(212,175,55,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+            className="btn-gold-standard mt-7 inline-flex h-12 items-center gap-2 px-7 text-xs uppercase tracking-[0.14em]"
             data-od-id="trader-reviews-cta"
           >
             {t("readOnTrustpilot")} <ArrowUpRight size={15} />
           </a>
         </SectionReveal>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+        <div
           className="grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3"
           data-od-id="trader-reviews-wall"
         >
@@ -185,7 +181,7 @@ export function TraderReviews({
               {columnIndex === 1 && <StatCard />}
             </div>
           ))}
-        </motion.div>
+        </div>
 
         <p
           className="mx-auto mt-10 max-w-lg text-center text-xs leading-6 text-foreground/30"
@@ -212,7 +208,7 @@ function WallMasonryCard({ card, index }: { card: WallCard; index: number }) {
   return (
     <motion.article
       variants={fadeUp}
-      className={`rounded-xl border p-5 backdrop-blur-sm transition-colors hover:border-foreground/25 ${style.card}`}
+      className={`rounded-xl border p-5 card-hover-standard ${style.card}`}
       data-od-id={`trader-review-${index}`}
     >
       {card.sourceKey === "trustpilot" ? (
@@ -227,12 +223,12 @@ function WallMasonryCard({ card, index }: { card: WallCard; index: number }) {
         </div>
       )}
 
-      <blockquote className="mt-4 text-[15px] leading-7 text-foreground/75">
+      <blockquote className="mt-4 text-[15px] leading-7 text-[#0A0A0C] font-medium">
         &ldquo;{card.text}&rdquo;
       </blockquote>
 
       {card.sourceKey === "trustpilot" && (
-        <div className="mt-5 border-t border-foreground/10 pt-4">
+        <div className="mt-5 border-t border-gray-100 pt-4">
           <CardIdentity card={card} avatarClass={style.avatar} avatarBgClass={style.avatarBg} />
         </div>
       )}
@@ -241,7 +237,7 @@ function WallMasonryCard({ card, index }: { card: WallCard; index: number }) {
         href={card.url || "#"}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/[0.04] px-3.5 text-[11.5px] font-semibold text-foreground/80 transition-colors hover:border-foreground/25 hover:bg-foreground/[0.08] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+        className="mt-4 inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3.5 text-[11.5px] font-bold text-[#0A0A0C] transition-colors hover:border-gray-300 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
         aria-label={`${ctaLabel} — ${card.name}`}
         data-od-id={`trader-review-${index}-link`}
       >
@@ -270,8 +266,8 @@ function CardIdentity({
         {(card.name || "T").replace(/^u\//, "").charAt(0).toUpperCase()}
       </span>
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-foreground">{card.name}</p>
-        {card.location && <p className="text-xs text-foreground/40">{card.location}</p>}
+        <p className="truncate text-sm font-bold text-[#0A0A0C]">{card.name}</p>
+        {card.location && <p className="text-xs font-medium text-gray-500">{card.location}</p>}
       </div>
       {bare && <span className="sr-only">{card.sourceLabel}</span>}
     </div>
@@ -332,11 +328,11 @@ function VideoCard({ video }: { video: VideoItem }) {
             )}
             <div className="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/15" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-foreground/25 bg-black/60 backdrop-blur-md transition-all group-hover:scale-105 group-hover:border-primary/60">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/80 transition-all group-hover:scale-105 group-hover:border-primary/60">
                 <Play size={20} fill="currentColor" className="ml-0.5 text-foreground" />
               </div>
             </div>
-            <div className="absolute bottom-3.5 left-3.5 flex items-center gap-2 rounded-lg border border-foreground/15 bg-black/70 px-3 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-foreground backdrop-blur-md">
+            <div className="absolute bottom-3.5 left-3.5 flex items-center gap-2 rounded-lg border border-white/15 bg-black/85 px-3 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               {t("traderStory")}
             </div>
@@ -352,13 +348,13 @@ function StatCard() {
   return (
     <motion.article
       variants={fadeUp}
-      className="rounded-xl border border-primary/30 bg-gradient-to-b from-primary/[0.09] to-foreground/[0.03] p-5"
+      className="rounded-xl border border-gray-200/90 bg-white p-5 card-hover-standard shadow-md"
       data-od-id="trader-reviews-stat"
     >
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
         {t("avgProcessing")}
       </p>
-      <p className="mt-4 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-tight text-primary">
+      <p className="mt-4 font-[family-name:var(--font-inter-tight)] text-4xl font-black tracking-tight text-[#0A0A0C]">
         ~12 hrs
       </p>
       <svg
@@ -369,8 +365,8 @@ function StatCard() {
       >
         <defs>
           <linearGradient id="ckStatFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#d4af37" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFC107" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FFC107" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path
@@ -380,13 +376,13 @@ function StatCard() {
         <path
           d="M0,48 L22,44 L44,50 L66,30 L88,36 L110,22 L132,34 L154,16 L176,28 L198,12 L220,24 L242,10 L260,18"
           fill="none"
-          stroke="#d4af37"
+          stroke="#FFC107"
           strokeWidth="1.6"
           strokeLinejoin="round"
         />
-        <circle cx="260" cy="18" r="3" fill="#d4af37" />
+        <circle cx="260" cy="18" r="3" fill="#FFC107" />
       </svg>
-      <p className="mt-3 text-xs leading-5 text-foreground/40">
+      <p className="mt-3 text-xs font-medium leading-5 text-gray-400">
         {t("processingPending")}
       </p>
     </motion.article>

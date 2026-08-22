@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "Instant Funding \u2013 Start Trading Immediately | Up to $50K",
-    description: "Skip the evaluation process and get funded immediately. Instant Funding accounts from $5K to $50K with up to 100% profit split and 24/7 support.",
+    title: "Instant Funding Accounts",
+    description: "Start trading simulated funded accounts immediately without an evaluation process. Account sizes from $5K to $50K with up to 100% profit splits.",
     path: "/instant",
     locale: resolved,
   });

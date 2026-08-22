@@ -5,17 +5,17 @@ import { pageSeo } from "@/lib/seo";
 export const metadata = pageSeo({
   title: "Cookie Policy",
   description:
-    "CK Capital Cookie Policy - Information about cookies and tracking technologies.",
+    "CK Capital Cookie Policy — Information about cookies and how they are used on our platform.",
   path: "/cookie-policy",
 });
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="mt-10 border-t border-foreground/[0.06] pt-8">
-      <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-foreground md:text-2xl">
+    <section className="mt-10 border-t border-[#E5E7EB] pt-8">
+      <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
         {title}
       </h2>
-      <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-foreground/60">
+      <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#4B5563]">
         {children}
       </div>
     </section>
@@ -25,10 +25,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="pt-2">
-      <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-foreground md:text-lg">
+      <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-[#0A0A0C] md:text-lg">
         {title}
       </h3>
-      <div className="mt-3">{children}</div>
+      <div className="mt-3 text-[#4B5563]">{children}</div>
     </div>
   );
 }
@@ -39,17 +39,13 @@ export default async function CookiePolicyPage() {
   return (
     <div className="min-h-screen bg-background" data-od-id="cookie-page">
 
-      {/* ─────────────── Hero ─────────────── */}
-      <section className="relative bg-background" data-od-id="cookie-hero">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 0%, rgba(212,175,55,0.18), transparent 45%), radial-gradient(circle at 5% 100%, rgba(212,175,55,0.07), transparent 40%)',
-          }}
-        />
-        <Container className="relative py-16 md:py-20">
+      {/* ─────────────── Hero (DARK) ─────────────── */}
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-foreground/[0.07] bg-[#070709] pt-28 md:pt-36 pb-14 md:pb-20 text-white" data-od-id="cookie-hero">
+        <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+        </div>
+        <Container className="relative z-10">
           <div className="max-w-3xl">
             <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
               {t("badgeLegal")}
@@ -57,7 +53,7 @@ export default async function CookiePolicyPage() {
               {t("cookieBadge")}
             </span>
             <h1
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl"
+              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-white md:text-5xl"
               data-od-id="cookie-hero-title"
             >
               {t("cookieTitle")}
@@ -66,10 +62,10 @@ export default async function CookiePolicyPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Document ─────────────── */}
-      <section className="bg-background pb-16 md:pb-24" data-od-id="cookie-document">
-        <Container>
-          <div className="mx-auto max-w-3xl text-[15px] leading-relaxed text-foreground/60">
+      {/* ─────────────── Document (LIGHT) ─────────────── */}
+      <section className="bg-[#F6F7F9] py-12 md:py-20 text-[#111827]" data-od-id="cookie-document">
+        <Container className="max-w-4xl">
+          <div className="rounded-2xl border border-[#E5E7EB] bg-white p-8 sm:p-12 shadow-sm text-[15px] leading-relaxed text-[#4B5563]">
             <Section title="Information Automatically Collected">
               <p>
                 During your visit, usage, or navigation of the Services, certain

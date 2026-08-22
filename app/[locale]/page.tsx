@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/sections/Hero";
 import { StatsStrip } from "@/components/sections/StatsStrip";
-import { ChallengeComparison } from "@/components/sections/ChallengeComparison";
+import { EvaluationPrograms } from "@/components/sections/EvaluationPrograms";
+import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { TradingPlatforms } from "@/components/sections/TradingPlatforms";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { LiveRewards } from "@/components/sections/LiveRewards";
@@ -52,31 +53,41 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* S1 — Hero (aurora, live pill, border-spin pricing, slides under nav) */}
+      {/* S1 — Hero: Light Canvas */}
       <Hero />
-      {/* S2 — Stat band */}
+
+      {/* S2 — Trust & Stats Band: Jet Black */}
       <StatsStrip />
-      {/* S3 — Live rewards proof (verified payout total + recent settlements) */}
+
+      {/* S3 — Evaluation Programs: Light Canvas */}
+      <EvaluationPrograms />
+
+      {/* S4 — Value Propositions Strip: Jet Black */}
+      <FeatureStrip />
+
+      {/* S5 — Live Rewards: Light Canvas */}
       <LiveRewards payouts={payouts} />
-      {/* S3.5 — Proof showcase (trust rail + confidence panel + dashboard visual) */}
+
+      {/* S6 — Proof Showcase: Jet Black */}
       <ProofShowcase payouts={payouts} summary={rewardsSummary} />
-      {/* S4 — Three steps */}
+
+      {/* S7 — How It Works: Light Canvas */}
       <HowItWorks />
-      {/* S5 — Choose Your Challenge */}
-      <Suspense fallback={null}>
-        <ChallengeComparison config={challengeConfig} promoCode={promo?.code} />
-      </Suspense>
-      {/* Trading platforms (MT5 / TradeLocker) */}
+
+      {/* S8 — Trading Platforms: Jet Black */}
       <TradingPlatforms />
-      {/* S7 — Testimonials */}
+
+      {/* S9 — Trader Reviews (Trustpilot): Light Canvas */}
+      <TraderReviews reviews={reviewCards} />
+
+      {/* S10 — Testimonials (Video Reviews): Jet Black */}
       <Testimonials videos={videoItems} />
-      {/* S8 — Trader reviews / trusted choice */}
-      <TraderReviews reviews={reviewCards} video={videoItems?.[0]} />
-      {/* Support */}
-      <SupportSection />
+
+      {/* S11 — Support & FAQ: Light Canvas */}
       <CustomerSupportSection />
       <FaqAccordion />
-      {/* S10 — Closing CTA */}
+
+      {/* S12 — Closing CTA: Jet Black */}
       <ClosingCta />
     </main>
   );

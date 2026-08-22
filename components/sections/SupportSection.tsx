@@ -14,13 +14,9 @@ export function SupportSection() {
   const t = useTranslations("support");
 
   return (
-    <section className="py-14 md:py-24" data-od-id="support">
+    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="support">
       <Container>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+        <div
           className="grid gap-12 lg:grid-cols-2 lg:gap-8"
         >
           <SupportCard
@@ -48,7 +44,7 @@ export function SupportSection() {
             action={t("youtubeAction")}
             href="https://www.youtube.com/@CKCapital"
           />
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
@@ -78,7 +74,7 @@ function SupportCard({
   href: string;
 }) {
   return (
-    <motion.article variants={fadeUp} data-od-id={id}>
+    <article data-od-id={id}>
       <div className="relative mb-7 h-[280px] overflow-hidden rounded-[28px] border border-foreground/10 sm:h-[360px] lg:h-[330px]">
         {visual}
       </div>
@@ -94,22 +90,22 @@ function SupportCard({
         </div>
       </div>
 
-      <h2 className="mt-4 max-w-none font-[family-name:var(--font-inter-tight)] text-[clamp(1.75rem,2.8vw,2.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground">
+      <h2 className="mt-4 max-w-none font-[family-name:var(--font-inter-tight)] text-[clamp(1.75rem,2.8vw,2.75rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0C]">
         {title}
       </h2>
-      <p className="mt-5 max-w-xl text-base leading-7 text-foreground/50">{description}</p>
+      <p className="mt-5 max-w-xl text-base font-medium leading-7 text-[#4B5563]">{description}</p>
 
       <a
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-primary/50 bg-primary/[0.06] px-5 text-sm font-bold text-primary transition-colors hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+        className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#FFC107] hover:bg-[#FFF8E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         data-od-id={`${id}-cta`}
       >
         {action}
         <ArrowUpRight size={16} />
       </a>
-    </motion.article>
+    </article>
   );
 }
 

@@ -1,0 +1,219 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Globe2,
+  Headphones,
+  Lock,
+  Mail,
+  MessageCircle,
+  Radio,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface ContactHeroVisualProps {
+  className?: string;
+  compact?: boolean;
+}
+
+export function ContactHeroVisual({
+  className,
+  compact = false,
+}: ContactHeroVisualProps) {
+  return (
+    <div
+      className={cn("relative w-full select-none", className)}
+      data-od-id="hero-contact-desk"
+    >
+      {/* Main Dashboard Window Container */}
+      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-[#12100A] shadow-2xl">
+        {/* Top Browser / App Window Chrome */}
+        <div className="flex h-11 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
+          <div className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-white/10 bg-black/40 px-2.5 py-1 text-[11px] font-mono text-foreground/45">
+              <Lock size={10} className="text-primary" />
+              <span>app.ckcapital.co.uk/support/live-desk</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+              Live Desk Online
+            </span>
+          </div>
+        </div>
+
+        {/* Dashboard Content */}
+        <div className="p-5 sm:p-6 lg:p-7">
+          {/* Header Support Row */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+            <div>
+              <div className="flex items-center gap-2">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+                  Global Support Node #CK-UK
+                </p>
+                <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
+                  24/7 DEDICATED
+                </span>
+              </div>
+              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+                &lt; 3 Min{" "}
+                <span className="text-xs font-semibold text-emerald-400">
+                  Avg First Response
+                </span>
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 rounded-xl border border-primary/25 bg-primary/10 px-3.5 py-2">
+              <Headphones size={15} className="text-primary shrink-0" />
+              <div className="text-left">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
+                  Active Queue
+                </p>
+                <p className="text-sm font-extrabold text-foreground">
+                  0 Waiting Traders
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Support Channels Grid */}
+          <div className="mt-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+                Priority Communication Channels
+              </p>
+              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-400">
+                <Radio size={12} className="animate-pulse" /> 100% Operational
+              </span>
+            </div>
+
+            {/* Channels List */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Discord VIP */}
+              <a
+                href="https://discord.gg/ckcapital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-xl border border-primary/40 bg-primary/10 p-3.5 text-left transition-colors hover:border-primary hover:bg-primary/15"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20 text-primary">
+                    <MessageCircle size={18} />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-xs font-bold text-foreground">Discord Server</p>
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    </div>
+                    <p className="text-[10px] text-foreground/50">Direct trader community & staff</p>
+                  </div>
+                </div>
+                <span className="rounded bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+                  JOIN
+                </span>
+              </a>
+
+              {/* Email Desk */}
+              <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] p-3.5 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-foreground/70">
+                    <Mail size={18} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-foreground">Direct Desk Email</p>
+                    <p className="text-[10px] text-foreground/50">support@ckcapital.co.uk</p>
+                  </div>
+                </div>
+                <span className="rounded border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-bold text-foreground/60">
+                  AUTO-ROUTED
+                </span>
+              </div>
+            </div>
+
+            {/* Simulated Live Support Dispatch Ping */}
+            <div className="rounded-xl border border-white/10 bg-black/40 p-3.5">
+              <div className="flex items-center justify-between text-[11px] text-foreground/50 border-b border-white/5 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="font-semibold text-foreground/80">Support Lead Available</span>
+                </div>
+                <span className="text-[10px] font-mono text-primary">London Desk (GMT)</span>
+              </div>
+              <div className="mt-2.5 flex items-start gap-3">
+                <img
+                  src="/images/about/dan.jpg"
+                  alt="Support Specialist"
+                  className="h-8 w-8 rounded-full border border-primary/40 object-cover shrink-0"
+                />
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-foreground/90">
+                    Daniel &amp; Team · <span className="text-foreground/40 font-normal">Desk Staff</span>
+                  </p>
+                  <p className="text-[11px] text-foreground/65 leading-relaxed">
+                    &ldquo;Have a question about rules, instant funding setup, or profit withdrawals? Our UK support desk is live 24/7.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Server Relay Latency Row */}
+            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-3.5 py-2.5 text-xs">
+              <div className="flex items-center gap-2 text-foreground/60">
+                <Globe2 size={14} className="text-primary" />
+                <span className="text-[11px]">Primary Routing: London (12ms) · NY (24ms)</span>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                Ultra-Low Latency
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Recent Status Activity Pill */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-white/[0.03] px-5 py-3 text-[11px] text-foreground/50">
+          <div className="flex items-center gap-2">
+            <ShieldCheck size={13} className="text-emerald-400 shrink-0" />
+            <span className="font-semibold text-foreground/75">
+              Resolution Rate:
+            </span>
+            <span className="text-foreground/90 font-bold">99.4% first-contact</span>
+          </div>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
+            ZERO BOT REPLIES
+          </span>
+        </div>
+      </div>
+
+      {/* Floating Decorative Response Badge */}
+      {!compact && (
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
+        >
+          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-[#0D0C08] px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
+              <Zap size={20} className="fill-primary text-primary" />
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+                Support SLA
+              </p>
+              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-foreground">
+                Instant Discord Support
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </div>
+  );
+}

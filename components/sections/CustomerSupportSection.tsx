@@ -10,21 +10,21 @@ export function CustomerSupportSection() {
   const t = useTranslations("support");
 
   return (
-    <section className="py-14 md:py-24" data-od-id="customer-support">
+    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="customer-support">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <SectionReveal>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-secondary">
-              <span className="h-2 w-2 rounded-full bg-secondary" />
+            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#D99B00]">
+              <span className="h-2 w-2 rounded-full bg-[#FFC107]" />
               {t("available247")}
             </div>
             <h2
-              className="mt-4 max-w-[15ch] font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold leading-[1.02] tracking-[-0.03em] text-foreground sm:text-4xl"
+              className="mt-4 max-w-[15ch] font-[family-name:var(--font-inter-tight)] text-3xl font-black leading-[1.02] tracking-tight text-[#0A0A0C] sm:text-4xl"
               data-od-id="customer-support-title"
             >
               {t("customerTitle")}
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-foreground/55">
+            <p className="mt-5 max-w-xl text-base font-medium leading-7 text-[#4B5563]">
               {t("customerDesc")}
             </p>
 
@@ -33,22 +33,22 @@ export function CustomerSupportSection() {
                 href="https://discord.gg/ckcapital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-primary/45 bg-primary/[0.06] px-4 text-sm font-bold text-primary transition-colors hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                className="inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#FFC107] hover:bg-[#FFF8E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 data-od-id="customer-support-discord"
               >
                 <span className="flex items-center gap-2">
-                  <MessageCircle size={17} />
+                  <MessageCircle size={17} className="text-[#FFC107]" />
                   {t("discordBtn")}
                 </span>
                 <ArrowUpRight size={16} />
               </a>
               <a
                 href="mailto:support@ckcapital.co.uk"
-                className="inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-foreground/15 px-4 text-sm font-bold text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                className="inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#FFC107] hover:bg-[#FFF8E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 data-od-id="customer-support-email"
               >
                 <span className="flex items-center gap-2">
-                  <Mail size={17} />
+                  <Mail size={17} className="text-[#FFC107]" />
                   {t("emailBtn")}
                 </span>
                 <ArrowUpRight size={16} />
@@ -57,7 +57,7 @@ export function CustomerSupportSection() {
 
             <a
               href="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0A0A0C] transition-colors hover:text-[#D99B00]"
               data-od-id="customer-support-contacts"
             >
               {t("showAll")} <ArrowUpRight size={15} />

@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "Blog \u2013 Trading Insights & Market Analysis",
-    description: "Trading insights, market analysis, risk management tips, and success stories from the CK Capital community.",
+    title: "Trading Insights & Market Blog",
+    description: "Trading strategies, risk management guides, market analysis, and trader interviews from CK Capital.",
     path: "/blog",
     locale: resolved,
   });

@@ -1,51 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" width="100%" height="100%" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
   <defs>
-    <linearGradient id="evalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1A1811" />
-      <stop offset="50%" stop-color="#0E0D09" />
-      <stop offset="100%" stop-color="#14120B" />
+    <!-- Background Gradient -->
+    <linearGradient id="evalBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141310" />
+      <stop offset="50%" stop-color="#0A0A0C" />
+      <stop offset="100%" stop-color="#060608" />
     </linearGradient>
-    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#F3E5AB" stop-opacity="0.05" />
+
+    <!-- Card Gradient -->
+    <linearGradient id="evalCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E1D18" />
+      <stop offset="100%" stop-color="#101014" />
     </linearGradient>
-    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0" />
-      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+
+    <!-- Gold Gradient -->
+    <linearGradient id="evalGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#FFC107" />
+      <stop offset="100%" stop-color="#E6AE06" />
     </linearGradient>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#D4AF37" stroke-width="0.75" stroke-opacity="0.08" />
+
+    <!-- Grid Pattern -->
+    <pattern id="evalGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.04" />
     </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="800" height="480" fill="url(#evalGrad)" />
-  <rect width="800" height="480" fill="url(#grid)" />
+  <!-- Canvas Background -->
+  <rect width="420" height="180" fill="url(#evalBgGrad)" />
+  <rect width="420" height="180" fill="url(#evalGrid)" />
 
-  <!-- Abstract Chart Curve -->
-  <path d="M 50 380 Q 200 320, 320 260 T 550 180 T 750 90" fill="none" stroke="url(#goldGlow)" stroke-width="32" stroke-linecap="round" filter="blur(8px)" />
-  <path d="M 50 380 Q 200 320, 320 260 T 550 180 T 750 90" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" />
-  
-  <!-- Glowing Dots -->
-  <circle cx="320" cy="260" r="5" fill="#D4AF37" />
-  <circle cx="550" cy="180" r="5" fill="#D4AF37" />
-  <circle cx="750" cy="90" r="7" fill="#F59E0B" />
-  <circle cx="750" cy="90" r="14" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.5" />
+  <!-- Ambient Light Orbs -->
+  <circle cx="120" cy="70" r="90" fill="#FFC107" opacity="0.06" />
 
-  <!-- Center Card Placeholder Badge -->
-  <rect x="250" y="190" width="300" height="100" rx="14" fill="#0B0A07" fill-opacity="0.85" stroke="#D4AF37" stroke-opacity="0.3" stroke-width="1.5" />
-  
-  <!-- Placeholder Image Icon -->
-  <g transform="translate(275, 222)" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0" y="0" width="36" height="36" rx="6" />
-    <circle cx="12" cy="12" r="3" fill="#D4AF37" />
-    <path d="M 36 26 L 24 14 L 6 32" />
+  <!-- Background Chart Line -->
+  <path d="M 10 160 C 60 155, 90 125, 140 110 C 190 95, 220 120, 270 75 C 310 45, 360 65, 410 40" fill="none" stroke="#FFC107" stroke-width="1.8" stroke-opacity="0.35" />
+
+  <!-- Main Left Card: Funded Trader Spec Card (with 20px border margins) -->
+  <g transform="translate(20, 18)">
+    <rect width="232" height="144" rx="12" fill="url(#evalCardGrad)" stroke="#FFC107" stroke-opacity="0.35" stroke-width="1.2" />
+
+    <!-- Top Header -->
+    <g transform="translate(12, 11)">
+      <path d="M 5 11 L 1 7 L 5 3" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 10 11 L 6 7 L 10 3" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="18" y="9" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="9" font-weight="900" letter-spacing="1">CK CAPITAL</text>
+      
+      <rect x="146" y="-1" width="56" height="15" rx="7" fill="#FFC107" fill-opacity="0.15" stroke="#FFC107" stroke-width="0.8" />
+      <text x="152" y="10" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="800">1-2 STEP</text>
+    </g>
+
+    <line x1="12" y1="35" x2="220" y2="35" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+
+    <!-- Balance & Split -->
+    <g transform="translate(12, 48)">
+      <text x="0" y="0" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="600">Funded Account Target</text>
+      <text x="0" y="20" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter Tight', sans-serif" font-size="19" font-weight="900" letter-spacing="-0.5">$100,000</text>
+      <rect x="98" y="7" width="48" height="15" rx="4" fill="#10B981" fill-opacity="0.15" />
+      <text x="103" y="18" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="800">+100% Split</text>
+    </g>
+
+    <!-- Progress Bar -->
+    <g transform="translate(12, 88)">
+      <text x="0" y="0" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="700">Evaluation Phase Passed</text>
+      <text x="178" y="0" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="800">100%</text>
+      <rect x="0" y="6" width="202" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.08" />
+      <rect x="0" y="6" width="202" height="4" rx="2" fill="url(#evalGoldGrad)" />
+    </g>
+
+    <!-- Badges Row -->
+    <g transform="translate(12, 118)">
+      <text x="0" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">⚡ Fast Payouts</text>
+      <text x="70" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">🛡️ No Limits</text>
+      <text x="142" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">📈 Up to $1.2M</text>
+    </g>
   </g>
 
-  <text x="330" y="240" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="15" font-weight="700" letter-spacing="1">CHALLENGE PROMO</text>
-  <text x="330" y="262" fill="#D4AF37" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="11" font-weight="600" letter-spacing="2">IMAGE PLACEHOLDER</text>
+  <!-- Right Top Card: 75% OFF Badge -->
+  <g transform="translate(262, 18)">
+    <rect width="138" height="67" rx="12" fill="url(#evalCardGrad)" stroke="#FFC107" stroke-opacity="0.35" stroke-width="1.2" />
+    <g transform="translate(10, 14)">
+      <rect x="0" y="0" width="48" height="15" rx="4" fill="#FFC107" />
+      <text x="5" y="11" fill="#0A0A0C" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="900">75% OFF</text>
+      
+      <text x="0" y="27" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="800">ALL CHALLENGES</text>
+      <text x="0" y="40" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="600">Code: <tspan fill="#FFC107" font-weight="800">10KFOR39</tspan></text>
+    </g>
+  </g>
 
-  <!-- Accent Divider -->
-  <line x1="100" y1="440" x2="700" y2="440" stroke="url(#accentLine)" stroke-width="2" />
+  <!-- Right Bottom Card: Scaling Plan -->
+  <g transform="translate(262, 95)">
+    <rect width="138" height="67" rx="12" fill="url(#evalCardGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" />
+    <g transform="translate(10, 14)">
+      <text x="0" y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="800">🛡️ Scaling Plan</text>
+      <text x="0" y="13" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="500">Scale up to $1.2M</text>
+      <line x1="0" y1="23" x2="118" y2="23" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1" />
+      <text x="0" y="37" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="700">✓ Bi-Weekly Payouts</text>
+    </g>
+  </g>
 </svg>

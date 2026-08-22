@@ -5,7 +5,6 @@ import { Check, Globe } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { GoldButton } from "@/components/shared/GoldButton";
 import { Link } from "@/i18n/navigation";
-import { LanguageSwitcher } from "@/components/shared/LanguageSwitcher";
 
 export function SiteFooter() {
   const [email, setEmail] = useState("");
@@ -113,13 +112,13 @@ export function SiteFooter() {
                     if (status !== "idle") setStatus("idle");
                   }}
                   placeholder={t("emailPlaceholder")}
-                  className="h-11 w-full rounded-xl border border-foreground/[0.12] bg-background px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/30"
+                  className="h-11 w-full rounded-xl border border-white/10 bg-[#12100A] px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-primary focus:ring-2 focus:ring-primary/30"
                   aria-invalid={status === "error"}
                 />
                 <GoldButton
                   type="submit"
                   size="md"
-                  className="h-11 shrink-0 px-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+                  className="h-11 shrink-0 px-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   data-od-id="footer-subscribe"
                 >
                   {t("subscribe")}
@@ -182,11 +181,27 @@ export function SiteFooter() {
       </div>
 
       {/* Compliance statement */}
-      <div className="border-b border-foreground/[0.06]" data-od-id="footer-compliance">
+      <div className="border-b border-foreground/[0.06] bg-foreground/[0.015]" data-od-id="footer-compliance">
         <Container>
-          <p className="max-w-none py-8 text-sm leading-relaxed text-foreground/45 md:py-10">
-            {t("disclaimer")}
-          </p>
+          <div className="py-8 md:py-10">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/60 mb-3.5">
+              {t("disclaimerTitle")}
+            </h3>
+            <div className="space-y-3 text-xs leading-relaxed text-foreground/45 sm:text-[12.5px]">
+              <p>
+                <strong className="text-foreground/65 font-medium">{t("disclaimerSimulated")}</strong>
+              </p>
+              <p>
+                {t("disclaimerAdvice")}
+              </p>
+              <p>
+                {t("disclaimerPerformance")}
+              </p>
+              <p>
+                {t("disclaimerJurisdiction")}
+              </p>
+            </div>
+          </div>
         </Container>
       </div>
 
@@ -225,16 +240,13 @@ export function SiteFooter() {
                 <span key={link.label}>
                   <Link
                     href={link.href as never}
-                    className="text-xs text-foreground/40 transition-colors hover:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+                    className="text-xs text-foreground/40 transition-colors hover:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     {link.label}
                   </Link>
                 </span>
               ))}
             </nav>
-          </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <LanguageSwitcher compact dropUp />
           </div>
         </div>
       </Container>

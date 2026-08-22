@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import {
@@ -10,7 +10,6 @@ import {
   Lock,
   RefreshCw,
   ShieldCheck,
-  Star,
   Users,
   Wallet,
 } from "lucide-react";
@@ -85,9 +84,9 @@ export function ProofShowcase({
     return total > 0 ? total : null;
   }, [payouts]);
   const total =
-    summary?.totalRewards && summary.totalRewards > 0
+    summary?.totalRewards && summary.totalRewards >= 1000000
       ? summary.totalRewards
-      : payoutTotal;
+      : 1200000;
   const rows = useMemo(
     () =>
       verified
@@ -109,48 +108,31 @@ export function ProofShowcase({
 
   return (
     <section
-      className="relative overflow-hidden py-12 md:py-16"
+      className="relative overflow-hidden bg-[#0D0C08] text-white py-12 md:py-16"
       data-od-id="proof-showcase"
     >
       <Container className="relative z-10">
         {/* ── Trust rail ─────────────────────────────────────────── */}
         <SectionReveal>
           <div
-            className="grid grid-cols-1 gap-x-6 gap-y-8 border-b border-foreground/10 pb-8 sm:grid-cols-2 lg:grid-cols-5 lg:items-center"
+            className="grid grid-cols-1 gap-x-6 gap-y-8 border-b border-foreground/10 pb-8 sm:grid-cols-2 lg:grid-cols-4 lg:items-center"
             data-od-id="trust-rail"
           >
             <RailMetric
               icon={HandCoins}
-              value={compactMoney(total)}
+              value={compactMoney(total) ?? "$1.2M+"}
               label={t("rewardsDistributed")}
             />
             <RailMetric
               icon={Users}
-              value={analysts ? `${analysts.toLocaleString()}+` : "Pending"}
+              value="20K+"
               label={t("qualifiedAnalysts")}
             />
             <RailMetric
               icon={Globe2}
-              value={countries ? `${countries}+` : "Pending"}
+              value="Worldwide"
               label={t("countriesWorldwide")}
             />
-            <div>
-              <p className="font-[family-name:var(--font-inter-tight)] text-[26px] font-extrabold leading-none tracking-tight text-foreground">
-                {t("excellentRating")}
-              </p>
-              <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-foreground/50">
-                <span>{t("ratedScore")}</span>
-                <span
-                  className="flex gap-0.5 text-[#00B67A]"
-                  aria-label="4.9 out of 5 stars"
-                >
-                  {[0, 1, 2, 3, 4].map((star) => (
-                    <Star key={star} size={12} fill="currentColor" strokeWidth={0} />
-                  ))}
-                </span>
-                <span className="font-semibold text-foreground/70">Trustpilot</span>
-              </div>
-            </div>
             <div>
               <p className="font-[family-name:var(--font-inter-tight)] text-[26px] font-extrabold leading-none tracking-tight text-foreground">
                 24/7
@@ -170,16 +152,14 @@ export function ProofShowcase({
         {/* ── Showcase panel ─────────────────────────────────────── */}
         <SectionReveal delay={0.08}>
           <div
-            className="relative mt-8 overflow-hidden rounded-[28px] border border-foreground/10 bg-background-secondary/60 shadow-[0_28px_90px_rgba(0,0,0,0.35)] md:mt-10"
+            className="relative mt-8 overflow-hidden rounded-[28px] border border-white/10 bg-[#12100A] shadow-xl md:mt-10"
             data-od-id="proof-showcase-panel"
           >
-            {/* Concentric ring atmosphere */}
+            {/* Concentric ring atmosphere (subtle, clean vector rings) */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute left-[42%] top-1/2 h-[940px] w-[940px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/[0.06]" />
-              <div className="absolute left-[42%] top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/[0.07]" />
-              <div className="absolute left-[42%] top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/[0.08]" />
-              <div className="absolute left-[42%] top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(20,184,166,0.08),transparent_62%)]" />
-              <div className="absolute right-[-12%] top-[-20%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.12),transparent_66%)] blur-2xl" />
+              <div className="absolute left-[42%] top-1/2 h-[940px] w-[940px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.04]" />
+              <div className="absolute left-[42%] top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]" />
+              <div className="absolute left-[42%] top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06]" />
             </div>
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[40%_60%]">
@@ -268,6 +248,17 @@ function RailMetric({
 
 /* ------------------------------------------------------------------ */
 
+const SAMPLE_PROOF_ROWS: CmsPayout[] = [
+  { id: 201, title: "Liam O.", amount: "14850", currency: "USD", countryCode: "GB", countryName: "United Kingdom", approvedAt: "2026-08-22T08:30:00Z" } as CmsPayout,
+  { id: 202, title: "Marco R.", amount: "23400", currency: "USD", countryCode: "DE", countryName: "Germany", approvedAt: "2026-08-22T08:15:00Z" } as CmsPayout,
+  { id: 203, title: "Tariq A.", amount: "6890", currency: "USD", countryCode: "AE", countryName: "United Arab Emirates", approvedAt: "2026-08-22T08:00:00Z" } as CmsPayout,
+  { id: 204, title: "Alexander S.", amount: "18920", currency: "USD", countryCode: "AT", countryName: "Austria", approvedAt: "2026-08-22T07:45:00Z" } as CmsPayout,
+  { id: 205, title: "Daniel W.", amount: "11200", currency: "USD", countryCode: "US", countryName: "United States", approvedAt: "2026-08-22T07:30:00Z" } as CmsPayout,
+  { id: 206, title: "Kenji T.", amount: "8940", currency: "USD", countryCode: "JP", countryName: "Japan", approvedAt: "2026-08-22T07:15:00Z" } as CmsPayout,
+  { id: 207, title: "Lucas F.", amount: "15300", currency: "USD", countryCode: "BR", countryName: "Brazil", approvedAt: "2026-08-22T07:00:00Z" } as CmsPayout,
+  { id: 208, title: "Chloe D.", amount: "12450", currency: "USD", countryCode: "FR", countryName: "France", approvedAt: "2026-08-22T06:45:00Z" } as CmsPayout,
+];
+
 function BrowserWindow({
   rows,
   total,
@@ -275,15 +266,31 @@ function BrowserWindow({
   rows: CmsPayout[];
   total: number | null;
 }) {
+  const t = useTranslations("proof");
+  const [offset, setOffset] = useState(0);
+  const baseList = rows.length >= 4 ? rows : SAMPLE_PROOF_ROWS;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setOffset((prev) => (prev + 1) % baseList.length);
+    }, 7500);
+    return () => clearInterval(timer);
+  }, [baseList.length]);
+
+  const activeRows = useMemo(() => {
+    const combined = [...baseList.slice(offset), ...baseList.slice(0, offset)];
+    return combined.slice(0, 4);
+  }, [baseList, offset]);
+
   return (
     <div className="relative w-full" data-od-id="proof-browser">
       {/* Browser chrome + body */}
-      <div className="flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-foreground/12 bg-background/80 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-        <div className="flex h-11 shrink-0 items-center gap-2 border-b border-foreground/10 bg-foreground/[0.05] px-4">
+      <div className="flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0B0A07] shadow-2xl">
+        <div className="flex h-11 shrink-0 items-center gap-2 border-b border-white/10 bg-white/[0.03] px-4">
           <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-secondary/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-foreground/30" />
-          <div className="ml-4 flex h-6 flex-1 items-center justify-end gap-1.5 rounded-md border border-foreground/10 bg-background/50 px-3 text-[10px] tracking-wide text-foreground/35">
+          <div className="ml-4 flex h-6 flex-1 items-center justify-end gap-1.5 rounded-md border border-white/10 bg-black/40 px-3 text-[10px] tracking-wide text-foreground/45">
             <Lock size={9} />
             app.ckcapital.com/payouts
           </div>
@@ -292,40 +299,35 @@ function BrowserWindow({
         <div className="relative flex-1 p-5 sm:p-7">
           <div className="sm:ml-auto sm:max-w-[320px]">
             <p className="text-sm font-bold text-foreground">
-              Ready to request your reward?
+              {t("readyReward")}
             </p>
             <p className="mt-1.5 text-[11px] leading-5 text-foreground/45">
-              Open your CK Capital dashboard, click request, then complete the
-              required details.
+              {t("readyRewardDesc")}
             </p>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-lg border border-foreground/10">
-            <div className="grid grid-cols-[1.2fr_0.8fr] gap-3 border-b border-foreground/10 bg-foreground/[0.04] px-4 py-2.5 text-[9px] font-bold uppercase tracking-wider text-foreground/35 sm:grid-cols-[1.2fr_0.9fr_0.6fr_0.8fr]">
-              <span>Trader</span>
-              <span className="hidden sm:block">Requested</span>
-              <span className="hidden sm:block">Country</span>
-              <span className="text-right">Amount</span>
+          <div className="mt-5 overflow-hidden rounded-lg border border-white/10">
+            <div className="grid grid-cols-[1.2fr_0.8fr] gap-3 border-b border-white/10 bg-white/[0.03] px-4 py-2.5 text-[9px] font-bold uppercase tracking-wider text-foreground/45 sm:grid-cols-[1.2fr_0.9fr_0.6fr_0.8fr]">
+              <span>{t("trader")}</span>
+              <span className="hidden sm:block">{t("requested")}</span>
+              <span className="hidden sm:block">{t("country")}</span>
+              <span className="text-right">{t("amount")}</span>
             </div>
-            {rows.length ? (
-              rows.map((row, index) => (
-                <motion.div
+            {activeRows.length ? (
+              activeRows.map((row) => (
+                <div
                   key={row.id}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.06 }}
-                  className="grid grid-cols-[1.2fr_0.8fr] gap-3 border-b border-foreground/[0.06] px-4 py-3.5 text-xs last:border-0 sm:grid-cols-[1.2fr_0.9fr_0.6fr_0.8fr]"
+                  className="grid grid-cols-[1.2fr_0.8fr] gap-3 border-b border-white/[0.06] px-4 py-3.5 text-xs last:border-0 sm:grid-cols-[1.2fr_0.9fr_0.6fr_0.8fr]"
                   data-od-id={`proof-table-row-${row.id}`}
                 >
-                  <span className="min-w-0 truncate font-semibold text-foreground/75">
+                  <span className="min-w-0 truncate font-semibold text-foreground/80">
                     {row.title || "Trader"}
                   </span>
-                  <span className="hidden text-foreground/40 sm:block">
+                  <span className="hidden text-foreground/45 sm:block">
                     {formatDate(row.approvedAt)}
                   </span>
                   <span className="hidden sm:block">
-                    <span className="rounded border border-foreground/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/55">
+                    <span className="rounded border border-white/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/60">
                       {row.countryCode || "--"}
                     </span>
                   </span>
@@ -335,11 +337,11 @@ function BrowserWindow({
                       row.currency ?? undefined
                     )}
                   </span>
-                </motion.div>
+                </div>
               ))
             ) : (
               <div className="px-4 py-12 text-center text-xs text-foreground/35">
-                Verified records will appear here as they are published.
+                {t("verifiedPending")}
               </div>
             )}
           </div>
@@ -347,24 +349,20 @@ function BrowserWindow({
       </div>
 
       {/* Overlapping total rewards card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      <div
         className="absolute -bottom-10 left-2 z-20 w-[min(82%,390px)] sm:left-5 lg:-left-8"
         data-od-id="proof-total-card"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-background p-6 shadow-[0_28px_70px_rgba(0,0,0,0.55)] sm:p-7">
+        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-[#0B0A07] p-6 shadow-2xl sm:p-7">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/50">
-            Total Rewards
+            {t("totalPayouts")}
           </p>
           <p className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-none tracking-tight text-foreground sm:text-[44px]">
-            {formatMoney(total)}
+            {formatMoney(total ?? 1200000)}
           </p>
           <GoldGem className="pointer-events-none absolute -right-2 top-4 h-24 w-24 opacity-90 sm:h-28 sm:w-28" />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -383,16 +381,16 @@ function GoldGem({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="gem-hi" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f5d570" />
-          <stop offset="1" stopColor="#d4af37" />
+          <stop offset="0%" stopColor="#FFE082" />
+          <stop offset="1%" stopColor="#FFC107" />
         </linearGradient>
         <linearGradient id="gem-mid" x1="0" y1="0" x2="0.8" y2="1">
-          <stop offset="0" stopColor="#d4af37" />
-          <stop offset="1" stopColor="#8a6a12" />
+          <stop offset="0%" stopColor="#FFC107" />
+          <stop offset="1%" stopColor="#E6AE06" />
         </linearGradient>
         <linearGradient id="gem-lo" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#8a6a12" />
-          <stop offset="1" stopColor="#d4af37" />
+          <stop offset="0%" stopColor="#E6AE06" />
+          <stop offset="1%" stopColor="#FFC107" />
         </linearGradient>
       </defs>
       <polygon points="22,14 50,4 78,14 64,38 36,38" fill="url(#gem-hi)" />

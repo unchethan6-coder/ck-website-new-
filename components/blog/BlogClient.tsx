@@ -4,8 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calendar, FileText, Sparkles, User } from "lucide-react";
+import { ArrowRight, Calendar, FileText, Sparkles, User, ShieldCheck, Newspaper } from "lucide-react";
 import { Container } from "@/components/shared/Container";
+import { GoldButton } from "@/components/shared/GoldButton";
+import { Aurora } from "@/components/fx/Aurora";
+import { SectionReveal } from "@/components/shared/SectionReveal";
+import { BlogHeroVisual } from "@/components/shared/BlogHeroVisual";
 import { ARTICLE_CATEGORIES } from "@/lib/cms";
 import type { CmsArticle } from "@/lib/cms";
 import { cn } from "@/lib/utils";
@@ -28,82 +32,112 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
 
   return (
     <div className="min-h-screen bg-background" data-od-id="blog-page">
-      {/* ─────────────── Hero ─────────────── */}
-      <section className="relative bg-background" data-od-id="blog-hero">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 0%, rgba(212,175,55,0.20), transparent 45%), radial-gradient(circle at 5% 100%, rgba(212,175,55,0.08), transparent 40%)',
-          }}
-        />
-        <Container className="relative py-16 md:py-24">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
-                <Sparkles size={11} className="text-primary" />
-                Insights &amp; Analysis
-                <span className="text-primary/40">·</span>
-                From the CK Capital Team
-              </span>
-            </motion.div>
+      {/* ─────────────── Hero (DARK) ─────────────── */}
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="blog-hero">
+        <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+          <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55 fx-hero-glow-3" />
+          <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40 fx-hero-glow-4" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 z-[2]">
+          <Aurora variant="hero" grid className="absolute inset-0" />
+        </div>
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-20 sm:px-6 md:pb-10 md:pt-24 lg:px-8">
+          <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+            <div className="lg:col-span-7 xl:col-span-6 min-w-0">
+              <motion.div
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                  <Sparkles size={12} /> Insights &amp; Market Analysis
+                </span>
+              </motion.div>
 
-            <motion.h1
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.08 }}
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                data-od-id="blog-hero-title"
+              >
+                CK Capital <span className="shimmer-text">Blog</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.24 }}
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+              >
+                Expert trading tips, systematic market analysis, risk management strategies, and success stories from our global analyst community.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.36 }}
+                className="mt-9 flex flex-wrap items-center gap-4"
+              >
+                <a href="#blog-feed" data-od-id="blog-hero-primary">
+                  <GoldButton size="lg">
+                    Browse Articles <ArrowRight size={16} />
+                  </GoldButton>
+                </a>
+                <a
+                  href="/#start-challenge"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                >
+                  Start Evaluation <ArrowRight size={15} />
+                </a>
+              </motion.div>
+
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+                <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-primary" /> Curated Content</span>
+                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Risk & Strategy Guides</span>
+              </div>
+            </div>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
-              data-od-id="blog-hero-title"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="lg:col-span-5 xl:col-span-6 min-w-0"
+              data-od-id="blog-hero-dashboard"
             >
-              CK Capital <span className="shimmer-text">Blog</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-5 max-w-xl text-[15px] leading-relaxed text-foreground/55"
-            >
-              Trading insights, market analysis, and success stories from our community.
-            </motion.p>
+              <BlogHeroVisual />
+            </motion.div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* ─────────────── Empty state ─────────────── */}
-      {articles.length === 0 ? (
-        <section className="bg-background pt-6 pb-20 md:pt-10 md:pb-28" data-od-id="blog-empty">
-          <Container>
+      {/* ─────────────── Blog Feed (LIGHT) ─────────────── */}
+      <section id="blog-feed" className="scroll-mt-24 bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="blog-feed">
+        <Container>
+          {articles.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto max-w-xl rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-6 py-16 text-center sm:py-20"
+              transition={{ duration: 0.5 }}
+              className="mx-auto max-w-xl rounded-2xl border border-[#E5E7EB] bg-white px-6 py-16 text-center shadow-sm sm:py-20"
             >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10">
-                <FileText size={24} className="text-primary" />
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/10">
+                <FileText size={24} className="text-[#D4AF37]" />
               </div>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-foreground md:text-2xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] md:text-2xl">
                 Articles Coming Soon
               </h2>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-foreground/55">
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#4B5563]">
                 We&apos;re putting the finishing touches on our insights hub. Trading tips,
                 market analysis, and trader success stories will be published here shortly.
               </p>
             </motion.div>
-          </Container>
-        </section>
-      ) : (
-        <>
-          {/* ─────────────── Category filter ─────────────── */}
-          <section className="bg-background pb-4" data-od-id="blog-filter">
-            <Container>
-              <div className="flex flex-wrap justify-center gap-2">
+          ) : (
+            <div className="space-y-12">
+              {/* Category filter */}
+              <div className="flex flex-wrap justify-center gap-2" data-od-id="blog-filter">
                 {ARTICLE_CATEGORIES.map((cat) => {
                   const isActive = active === cat.value;
                   return (
@@ -115,8 +149,8 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       className={cn(
                         "rounded-full border px-4 py-2 text-xs font-bold transition-all",
                         isActive
-                          ? "border-primary/70 bg-[#D4AF37] text-[#0B0A07] shadow-[0_0_14px_rgba(212,175,55,0.25)]"
-                          : "border-foreground/15 bg-foreground/[0.04] text-foreground/60 hover:border-primary/50 hover:text-foreground"
+                          ? "border-[#D4AF37] bg-[#D4AF37] text-[#0A0A0C] font-extrabold shadow-sm"
+                          : "border-[#E5E7EB] bg-white text-[#4B5563] hover:border-[#D4AF37]/50 hover:text-[#0A0A0C]"
                       )}
                     >
                       {cat.label}
@@ -124,84 +158,72 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                   );
                 })}
               </div>
-            </Container>
-          </section>
 
-          {/* ─────────────── Featured post ─────────────── */}
-          {featured && (
-            <section className="bg-background py-12 md:py-16" data-od-id="blog-featured">
-              <Container>
-                <AnimatePresence mode="wait">
-                  <motion.article
-                    key={featured.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.4 }}
-                    className="relative overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-r dark-panel from-[#1a1508] to-[#0d0b06] p-7 sm:p-10"
-                    data-od-id="blog-featured-card"
-                  >
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(212,175,55,0.10),_transparent_55%)]" />
-                    <div className="relative">
-                      <div className="mb-5 flex flex-wrap items-center gap-3">
-                        <span className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#0B0A07]">
-                          Featured
-                        </span>
-                        <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#F7D774]">
-                          {featured.category}
-                        </span>
-                      </div>
-                      <h2 className="max-w-2xl font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold leading-tight text-foreground md:text-3xl">
-                        {featured.title}
-                      </h2>
-                      <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-foreground/55">
-                        {featured.excerpt}
-                      </p>
-                      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-foreground/[0.08] pt-5">
-                        <div className="flex flex-wrap items-center gap-4">
-                          <span className="flex items-center gap-1.5 text-[12px] text-foreground/40">
-                            <Calendar size={12} className="text-primary" />
-                            {formatDate(featured.publishedAt)}
-                          </span>
-                          {featured.author && (
-                            <span className="flex items-center gap-1.5 text-[12px] text-foreground/40">
-                              <User size={12} className="text-primary" />
-                              {featured.author}
-                            </span>
-                          )}
-                        </div>
-                        <Link
-                          href={`/blog/${featured.slug}`}
-                          className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#F7D774] transition-colors hover:text-[#D4AF37]"
-                        >
-                          Read More <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </div>
-                  </motion.article>
-                </AnimatePresence>
-              </Container>
-            </section>
-          )}
-
-          {/* ─────────────── Blog grid ─────────────── */}
-          <section className="bg-background pb-16 md:pb-24" data-od-id="blog-grid">
-            <Container>
-              {rest.length > 0 ? (
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {rest.map((post, i) => (
+              {/* Featured post */}
+              {featured && (
+                <div data-od-id="blog-featured">
+                  <AnimatePresence mode="wait">
                     <motion.article
+                      key={featured.slug}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.4 }}
+                      className="relative overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-7 sm:p-10 shadow-sm hover:shadow-md transition-all"
+                      data-od-id="blog-featured-card"
+                    >
+                      <div className="relative">
+                        <div className="mb-5 flex flex-wrap items-center gap-3">
+                          <span className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#0A0A0C]">
+                            Featured
+                          </span>
+                          <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#B89628]">
+                            {featured.category}
+                          </span>
+                        </div>
+                        <h2 className="max-w-2xl font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold leading-tight text-[#0A0A0C] md:text-3xl">
+                          {featured.title}
+                        </h2>
+                        <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#4B5563]">
+                          {featured.excerpt}
+                        </p>
+                        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[#E5E7EB] pt-5">
+                          <div className="flex flex-wrap items-center gap-4">
+                            <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
+                              <Calendar size={12} className="text-[#D4AF37]" />
+                              {formatDate(featured.publishedAt)}
+                            </span>
+                            {featured.author && (
+                              <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
+                                <User size={12} className="text-[#D4AF37]" />
+                                {featured.author}
+                              </span>
+                            )}
+                          </div>
+                          <Link
+                            href={`/blog/${featured.slug}`}
+                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#D4AF37] hover:underline"
+                          >
+                            Read More <ArrowRight size={14} />
+                          </Link>
+                        </div>
+                      </div>
+                    </motion.article>
+                  </AnimatePresence>
+                </div>
+              )}
+
+              {/* Blog grid */}
+              {rest.length > 0 ? (
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3" data-od-id="blog-grid">
+                  {rest.map((post) => (
+                    <article
                       key={post.slug}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-60px" }}
-                      transition={{ duration: 0.5, delay: i * 0.06 }}
-                      whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                      className="group flex flex-col rounded-2xl border border-foreground/10 bg-foreground/[0.03] transition-all duration-300 hover:border-primary/30 hover:bg-foreground/[0.05]"
-                      data-od-id={`blog-card-${i + 1}`}
+                      className="group flex flex-col rounded-2xl border border-[#E5E7EB] bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+                      data-od-id={`blog-card-${post.slug}`}
                     >
                       {post.coverImage ? (
-                        <div className="relative h-40 w-full overflow-hidden rounded-t-2xl border-b border-foreground/10">
+                        <div className="relative h-44 w-full overflow-hidden rounded-t-2xl border-b border-[#E5E7EB]">
                           <Image
                             src={post.coverImage.url}
                             alt={post.title}
@@ -213,43 +235,64 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       ) : null}
                       <div className="flex flex-1 flex-col p-6">
                         <div className="mb-4 flex items-center gap-3">
-                          <span className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#F7D774]">
+                          <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#B89628]">
                             {post.category}
                           </span>
                         </div>
-                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#D4AF37]">
                           {post.title}
                         </h2>
-                        <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/50">
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-[#4B5563]">
                           {post.excerpt}
                         </p>
-                        <div className="mt-5 flex items-center justify-between border-t border-foreground/[0.08] pt-4">
-                          <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
-                            <Calendar size={11} className="text-primary" />
+                        <div className="mt-5 flex items-center justify-between border-t border-[#E5E7EB] pt-4">
+                          <span className="flex items-center gap-1.5 text-[11px] text-[#6B7280]">
+                            <Calendar size={11} className="text-[#D4AF37]" />
                             {formatDate(post.publishedAt)}
                           </span>
                           <Link
                             href={`/blog/${post.slug}`}
-                            className="inline-flex items-center gap-1 text-xs font-semibold text-[#F7D774] transition-colors hover:text-[#D4AF37]"
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF37] hover:underline"
                           >
                             Read <ArrowRight size={12} />
                           </Link>
                         </div>
                       </div>
-                    </motion.article>
+                    </article>
                   ))}
                 </div>
               ) : (
-                <div className="py-16 text-center">
-                  <p className="text-[15px] text-foreground/50">
-                    No posts in this category yet — check back soon.
+                <div className="py-12 text-center">
+                  <p className="text-[15px] text-[#6B7280]">
+                    No other posts in this category yet — check back soon.
                   </p>
                 </div>
               )}
-            </Container>
-          </section>
-        </>
-      )}
+            </div>
+          )}
+        </Container>
+      </section>
+
+      {/* ─────────────── Closing CTA (DARK) ─────────────── */}
+      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="blog-closing-cta">
+        <Container className="relative text-center">
+          <SectionReveal>
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+              Apply Your Knowledge Today
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+              Put proven market analysis into action with a simulated evaluation account on MT5 or TradeLocker.
+            </p>
+            <div className="mt-8">
+              <a href="/#start-challenge">
+                <GoldButton size="lg">
+                  Start Your Challenge <ArrowRight size={16} />
+                </GoldButton>
+              </a>
+            </div>
+          </SectionReveal>
+        </Container>
+      </section>
     </div>
   );
 }

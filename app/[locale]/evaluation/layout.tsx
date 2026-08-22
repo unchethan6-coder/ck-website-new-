@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "Prop Trading Evaluations \u2013 Funded Accounts Up to $1.2M",
-    description: "Pass our 1-Step or 2-Step prop trading evaluation to unlock a funded CK Account. Clear objectives, no time limits, up to 100% profit split, and payouts every 14 days.",
+    title: "Evaluation Programs & Challenges",
+    description: "Pass our 1-Step or 2-Step trading evaluation to unlock a simulated funded CK Account. Clear objectives, no time limits, and up to 100% profit split.",
     path: "/evaluation",
     locale: resolved,
   });

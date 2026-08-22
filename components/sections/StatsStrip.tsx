@@ -1,40 +1,64 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { useTranslations } from "next-intl";
+import { Users, Globe, DollarSign, ShieldCheck, Headphones } from "lucide-react";
 import { CountUp } from "@/components/fx/CountUp";
 
 export function StatsStrip() {
-  const t = useTranslations("stats");
+  const t = useTranslations("trustStats");
 
   const stats = [
-    { value: "12H", label: t("payoutTime") },
-    { value: "100%", label: t("rewardSplit") },
-    { value: "$100K", label: t("accountSize") },
-    { value: "24/7", label: t("support") },
+    {
+      icon: Users,
+      value: "20,000+",
+      label: t("activeTraders"),
+    },
+    {
+      icon: Globe,
+      value: t("worldwide"),
+      label: t("globalReach"),
+    },
+    {
+      icon: DollarSign,
+      value: "$1.2M+",
+      label: t("payoutsTotal"),
+    },
+    {
+      icon: ShieldCheck,
+      value: "100%",
+      label: t("secureTransparent"),
+    },
+    {
+      icon: Headphones,
+      value: "24/7",
+      label: t("traderSupport"),
+    },
   ];
 
   return (
     <section
-      className="py-10 md:py-12"
+      className="relative z-20 border-y border-white/[0.08] bg-[#050505] py-8 sm:py-10"
       data-od-id="stats-strip"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-foreground/[0.06] gap-y-2 md:gap-y-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-white/[0.08]">
           {stats.map((stat, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col items-center justify-center gap-1 px-3 sm:px-4 py-3 sm:py-4 text-center"
+              className="group flex items-center gap-3.5 px-3 sm:px-5 lg:justify-center cursor-default transition-transform duration-200 hover:-translate-y-0.5"
             >
-              <CountUp
-                value={stat.value}
-                className="font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-primary tabular-nums"
-              />
-              <span className="text-[11px] sm:text-xs text-foreground/45 leading-snug">{stat.label}</span>
-            </motion.div>
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#FFC107]/25 bg-[#FFC107]/10 text-[#FFC107] group-hover:border-[#FFC107]/60 group-hover:bg-[#FFC107]/20 group-hover:shadow-[0_0_15px_rgba(255,193,7,0.2)] transition-all duration-200">
+                <stat.icon size={22} strokeWidth={1.75} />
+              </div>
+              <div className="text-left">
+                <div className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#FFC107] transition-colors duration-150">
+                  <CountUp value={stat.value} />
+                </div>
+                <div className="text-[11.5px] sm:text-xs font-medium text-white/55 leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

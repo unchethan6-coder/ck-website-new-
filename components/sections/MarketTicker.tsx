@@ -195,13 +195,13 @@ export function MarketTicker({
         },
       }}
       className={cn(
-        "relative overflow-hidden border-y border-foreground/[0.08] bg-[color-mix(in_oklab,var(--background)_65%,transparent)] backdrop-blur-md h-12 flex items-center",
+        "relative overflow-hidden border-y border-white/[0.08] bg-[#0D0C08] h-12 flex items-center",
         className
       )}
       data-od-id="market-ticker"
     >
       {/* MARKET label — pinned, doesn't scroll. Includes live status dot. */}
-      <div className="relative z-20 flex items-center gap-2 h-full pl-4 pr-4 sm:pl-6 sm:pr-5 border-r border-foreground/[0.08] bg-[color:var(--background-secondary)]">
+      <div className="relative z-20 flex items-center gap-2 h-full pl-4 pr-4 sm:pl-6 sm:pr-5 border-r border-white/[0.08] bg-[#14120D]">
         <span
           className={cn(
             "w-1.5 h-1.5 rounded-full transition-colors",

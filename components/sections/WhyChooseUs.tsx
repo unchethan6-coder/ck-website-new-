@@ -54,16 +54,11 @@ export function WhyChooseUs() {
           </p>
         </SectionReveal>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+        <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 md:gap-5"
         >
           {/* Large — 100% split with count-up */}
-          <motion.div
-            variants={fadeUp}
+          <div
             className="glow-card relative overflow-hidden flex flex-col md:col-span-2 lg:col-span-4"
             data-od-id="feature-card-split"
           >
@@ -92,12 +87,9 @@ export function WhyChooseUs() {
                 <span className="text-primary tabular-nums">100%</span>
               </div>
               <div className="h-2.5 w-full overflow-hidden rounded-full bg-foreground/[0.07]">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                  className="h-full rounded-full bg-[image:var(--ck-gold-gradient)]"
+                <div
+                  style={{ width: "100%" }}
+                  className="h-full rounded-full bg-primary transition-all duration-500"
                 />
               </div>
               <div className="mt-2 flex items-center justify-between text-[11px] text-foreground/40">
@@ -109,18 +101,17 @@ export function WhyChooseUs() {
             <p className="mt-5 max-w-md text-sm text-foreground/50 leading-relaxed">
               {t("items.split.description")}
             </p>
-            <motion.div variants={stagger} className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {splitChips.map((chip) => (
-                <motion.span
+                <span
                   key={chip}
-                  variants={chipIn}
                   className="rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-[12.5px] font-semibold text-primary"
                 >
                   {chip}
-                </motion.span>
+                </span>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Small — News trading */}
           <BentoCard
@@ -132,8 +123,7 @@ export function WhyChooseUs() {
           />
 
           {/* Large — Competitive trading conditions, real spreads */}
-          <motion.div
-            variants={fadeUp}
+          <div
             className="glow-card relative overflow-hidden flex flex-col md:col-span-2 lg:col-span-4"
             data-od-id="feature-card-conditions"
           >
@@ -158,11 +148,9 @@ export function WhyChooseUs() {
 
             {/* Spread table — filled data encoding, honest values */}
             <div className="mt-5 space-y-3 flex-1" data-od-id="conditions-spreads">
-              {SPREADS.map((s, i) => (
-                <motion.div
+              {SPREADS.map((s) => (
+                <div
                   key={s.symbol}
-                  variants={fadeUp}
-                  custom={0.15 + i * 0.08}
                   className="group"
                 >
                   <div className="flex items-center justify-between text-[12px] mb-1.5">
@@ -178,18 +166,15 @@ export function WhyChooseUs() {
                     </span>
                   </div>
                   <div className="h-1.5 w-full overflow-hidden rounded-full bg-foreground/[0.06]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${Math.max(6, Math.sqrt(s.pips / MAX_PIPS) * 100)}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.1 }}
-                      className={`h-full rounded-full ${s.pips <= 0.3 ? "bg-[image:var(--ck-gold-gradient)]" : "bg-primary/50"}`}
+                    <div
+                      style={{ width: `${Math.max(6, Math.sqrt(s.pips / MAX_PIPS) * 100)}%` }}
+                      className={`h-full rounded-full transition-all duration-500 ${s.pips <= 0.3 ? "bg-primary" : "bg-primary/50"}`}
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Small — Reset & top-up */}
           <BentoCard
@@ -217,7 +202,7 @@ export function WhyChooseUs() {
             desc={t("items.support.description")}
             className="lg:col-span-3"
           />
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
@@ -241,7 +226,7 @@ function BentoCard({
     <motion.div
       variants={fadeUp}
       whileHover={{ y: -3, transition: { duration: 0.2 } }}
-      className={`group relative overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-all duration-300 hover:border-primary/30 hover:bg-foreground/[0.05] ${className ?? ""}`}
+      className={`group relative overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] card-hover-standard ${className ?? ""}`}
       data-od-id={`feature-card-${icon}`}
     >
       {/* Index + icon */}
@@ -257,7 +242,6 @@ function BentoCard({
         {title}
       </h3>
       <p className="text-sm text-foreground/50 leading-relaxed">{desc}</p>
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-[#d4af37]/5 to-transparent" />
     </motion.div>
   );
 }

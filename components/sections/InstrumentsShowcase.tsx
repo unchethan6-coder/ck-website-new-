@@ -57,10 +57,10 @@ const TERMINAL_SETS = [
 ];
 
 const REVIEWS = [
-  { name: "Aiman A.", flag: "🇲🇾", initial: "A", text: "Best customer support experience especially on discord. Plan rules are straightforward as all in their FAQ website.", source: "Trustpilot" },
-  { name: "Ghecel V.", flag: "🇵🇭", initial: "G", text: "CK cap is my new favorite prop firm. The rules are very trader friendly and almost all pairs are available.", source: "Trustpilot" },
-  { name: "Luyanda", flag: "🇿🇦", initial: "L", text: "I really trust this prop firm to payout on time every time. The customer care is just too proper.", source: "Trustpilot" },
-  { name: "David A.", flag: "🇳🇬", initial: "D", text: "Customer service is top-notch, the website is good, trading rules aren't bad. I'd rate them with 5 stars.", source: "Trustpilot" },
+  { name: "Aiman A.", flag: "🇲🇾", initial: "A", text: "Best customer support experience especially on discord. Plan rules are straightforward as all in their FAQ website.", source: "Verified Trader" },
+  { name: "Ghecel V.", flag: "🇵🇭", initial: "G", text: "CK cap is my new favorite prop firm. The rules are very trader friendly and almost all pairs are available.", source: "Verified Trader" },
+  { name: "Luyanda", flag: "🇿🇦", initial: "L", text: "I really trust this prop firm to payout on time every time. The customer care is just too proper.", source: "Verified Trader" },
+  { name: "David A.", flag: "🇳🇬", initial: "D", text: "Customer service is top-notch, the website is good, trading rules aren't bad. I'd rate them with 5 stars.", source: "Verified Trader" },
 ];
 
 function useTickingPrice(base: number, decimals: number) {
@@ -203,11 +203,7 @@ export function InstrumentsShowcase() {
         {/* Top row — CFDs + Futures */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
           {/* CFDs card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
             <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("cfdsTitle")}</h3>
@@ -215,13 +211,9 @@ export function InstrumentsShowcase() {
               {t("cfdsDesc")}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {BASE_PRICES.map((inst, i) => (
-                <motion.div
+              {BASE_PRICES.map((inst) => (
+                <div
                   key={inst.symbol}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.15 + i * 0.08 }}
                   className="rounded-xl border border-foreground/10 bg-foreground/[0.02] p-3.5 flex flex-col gap-2"
                 >
                   <div className="flex items-center justify-between">
@@ -243,17 +235,13 @@ export function InstrumentsShowcase() {
                     <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors">{t("btnLong")}</button>
                     <button className="flex-1 rounded-lg py-1.5 text-[11px] font-bold border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors">{t("btnShort")}</button>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Futures card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
             <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("futuresTitle")}</h3>
@@ -280,29 +268,21 @@ export function InstrumentsShowcase() {
                 <div><span className="block text-foreground/30">{t("vol")}</span><span className="text-foreground/60 font-bold">1.3M</span></div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom row — Algo terminal + Trust stats */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
             <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-4">
               {t("algoTitle")}
             </h3>
             <LoopingTerminal />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+          <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col gap-4"
           >
             <div>
@@ -351,7 +331,7 @@ export function InstrumentsShowcase() {
                 </motion.div>
               </AnimatePresence>
             </div>
-          </motion.div>
+          </div>
         </div>
       </Container>
     </section>

@@ -11,7 +11,7 @@
     "programs": "Programs",
     "programsEyebrow": "[ PROGRAMS ]",
     "fundingModelsHeader": "Funding Models",
-    "rulesToolsHeader": "Rules & Scaling",
+    "rulesToolsHeader": "Rules & Guidelines",
     "evaluation": "Evaluation",
     "evaluationDesc": "1-Step & 2-Step Challenges",
     "oneStepTitle": "1-Step Evaluation",
@@ -27,9 +27,9 @@
     "compareAllTitle": "Compare All Programs",
     "compareAllDesc": "Side-by-side comparison of drawdown, profit targets & fees",
     "tradingObjectivesTitle": "Trading Objectives",
-    "tradingObjectivesDesc": "Drawdown limits, targets & rules",
-    "scalingPlanTitle": "Scaling Plan",
-    "scalingPlanDesc": "Scale capital up to $1.2M with 100% split",
+    "tradingObjectivesDesc": "Interactive drawdown limits, targets & parameters",
+    "rulesFaqTitle": "Rules FAQ & Conditions",
+    "rulesFaqDesc": "Loss limits, news trading & guidelines",
     "tradingObjectives": "Objectives",
     "company": "Company",
     "companyHeader": "Company",
@@ -54,14 +54,16 @@
     "menu": "Menu",
     "signIn": "Sign In",
     "startChallenge": "Start Challenge",
-    "featuredEvalBadge": "SUMMER SALE · 70% OFF",
-    "featuredEvalTitle": "Start Your Challenge",
-    "featuredEvalDesc": "Trade up to $1.2M simulated capital with up to 100% profit split.",
-    "featuredEvalCta": "Claim 70% Off",
+    "featuredEvalBadge": "LIMITED OFFER · 75% OFF",
+    "featuredEvalTitle": "Trade Up to $300K Capital",
+    "featuredEvalDesc": "Trade with institutional tools, tight spreads, and earn up to 100% profit split on simulated accounts.",
+    "featuredEvalCta": "Claim 75% Off",
     "featuredCommunityBadge": "TRADER COMMUNITY",
-    "featuredCommunityTitle": "Join 50,000+ Traders",
-    "featuredCommunityDesc": "Live trading discussions, giveaways & 24/7 support in our Discord.",
-    "featuredCommunityCta": "Join Discord Community"
+    "featuredCommunityTitle": "Join 20,000+ Active Traders",
+    "featuredCommunityDesc": "Live trading breakdowns, payout proofs, and direct Discord VIP support.",
+    "featuredCommunityCta": "Join Official Discord",
+    "viewAllPrograms": "View All Programs",
+    "joinDiscord": "Join Official Discord"
   },
   "hero": {
     "features": [
@@ -111,7 +113,14 @@
         "description": "Get funded and trade with confidence. Keep up to 100% of your profits."
       }
     },
-    "badge": "Process"
+    "badge": "Process",
+    "noConsistency": "NO CONSISTENCY RULES",
+    "newsAllowed": "NEWS TRADING ALLOWED",
+    "noTimePressure": "NO TIME PRESSURE",
+    "profitSplit": "UP TO 100% PROFIT SPLIT",
+    "readyFunded": "Ready to get funded?",
+    "startJourney": "Start your journey today.",
+    "startChallenge": "Start Challenge"
   },
   "whyChooseUs": {
     "title": "Everything you need to trade funded",
@@ -213,8 +222,8 @@
     ]
   },
   "liveRewards": {
-    "badge": "Live rewards",
-    "rewardsDistributed": "Rewards distributed",
+    "badge": "Live payouts",
+    "rewardsDistributed": "Payouts total",
     "awaiting": "Awaiting verified records",
     "desc": "Cumulative simulated rewards across published, verified CK Capital reward records.",
     "verifiedText": "Verified reward records, published by CK Capital.",
@@ -225,8 +234,8 @@
     "heroTitlePrefix": "Real Performance.",
     "heroTitleShimmer": "Real Rewards.",
     "certificateProof": "Certificate-backed proof",
-    "analystsRewarded": "Qualified Analysts Rewarded",
-    "countriesWorldwide": "Countries Worldwide",
+    "analystsRewarded": "Active Traders",
+    "countriesWorldwide": "Worldwide Traders",
     "simulatedRewards": "Simulated Profit Rewards",
     "subjectToTerms": "Subject to account terms",
     "provenEyebrow": "PROVEN REWARDS FROM CK CAPITAL ANALYSTS",
@@ -242,7 +251,7 @@
     "processSubtitle": "The route from evaluation to reward is clear, documented, and governed by your selected account terms.",
     "worldEyebrow": "REWARDS AROUND THE WORLD",
     "worldTitle": "One global CK Capital community.",
-    "worldSubtitle": "Select a published country to see where CK Capital Qualified Analysts have received rewards.",
+    "worldSubtitle": "Select a published country to see where CK Capital traders have received rewards.",
     "reviewsEyebrow": "HEAR FROM THE CK COMMUNITY",
     "reviewsTitle": "Real experiences from CK Capital traders.",
     "reviewsSubtitle": "Published reviews from traders describing the evaluation, support, and reward experience.",
@@ -258,9 +267,9 @@
     "eyebrow": "VERIFIED PERFORMANCE",
     "title": "Real Traders. Real Rewards.",
     "subtitle": "No complicated processes. No hidden requirements. A clear path from evaluation to eligible simulated profit rewards.",
-    "rewardsDistributed": "Rewards Distributed",
-    "qualifiedAnalysts": "Qualified Analysts",
-    "countriesWorldwide": "Countries Worldwide",
+    "rewardsDistributed": "Payouts Total",
+    "qualifiedAnalysts": "Active Traders",
+    "countriesWorldwide": "Worldwide Traders",
     "excellentRating": "Excellent",
     "ratedScore": "4.9 rated",
     "liveSupport": "Live trader support",
@@ -270,7 +279,15 @@
     "benefitAllocation": "Up to $1.2M Allocation",
     "benefitNoHidden": "No Hidden Fees",
     "modelsPill": "1 Step · 2 Step · Instant",
-    "viewEvaluations": "View Evaluations"
+    "viewEvaluations": "View Evaluations",
+    "readyReward": "Ready to request your reward?",
+    "readyRewardDesc": "Open your CK Capital dashboard, click request, then complete the required details.",
+    "trader": "Trader",
+    "requested": "Requested",
+    "country": "Country",
+    "amount": "Amount",
+    "verifiedPending": "Verified records will appear here as they are published.",
+    "totalPayouts": "Total Payouts"
   },
   "reviews": {
     "eyebrow": "Trader reviews",
@@ -365,7 +382,7 @@
   "closingCta": {
     "eyebrow": "Your next trade could be funded",
     "title": "Ready to trade CK's capital?",
-    "subtitle": "Pick a challenge, pass the objectives on your timetable, and start scaling simulated accounts with up to 100% of the profits you keep.",
+    "subtitle": "Pick a challenge, pass the objectives on your timetable, and trade simulated accounts with up to 100% of the profits you keep.",
     "button": "Start Your Challenge"
   },
   "footer": {
@@ -393,7 +410,12 @@
     "riskDisclosure": "Risk Disclosure",
     "returnPolicy": "Return Policy",
     "copyright": "© {year} CK Capital Group LTD. All rights reserved.",
-    "disclaimer": "CK Capital Group LTD provides simulated trading evaluations. All trading activities on this platform occur in a demo environment with virtual funds. We do not provide financial advice, broker services, or hold customer deposits.",
+    "disclaimerTitle": "Important Legal & Regulatory Disclosures",
+    "disclaimerSimulated": "CK Capital Group LTD (Incorporated in the United Kingdom) provides proprietary trading evaluation programmes operating exclusively within simulated and demo trading environments. All accounts, challenges, and funded stages utilize virtual funds with fictitious capital. CK Capital Group LTD does not conduct live financial market trading for customers, does not act as a broker or custodian, and does not accept, hold, or solicit customer deposits or investment funds.",
+    "disclaimerAdvice": "All information, educational materials, market analysis, tools, and communications provided on this website are for evaluation and informational purposes only and must not be construed as investment advice, financial advice, or an offer or solicitation to buy or sell any financial instrument.",
+    "disclaimerPerformance": "Hypothetical or simulated performance results have inherent limitations. Unlike actual trading records, simulated results do not represent actual trading and do not account for market liquidity, slippage, or real financial risk. Past performance in simulated environments is not indicative of future results.",
+    "disclaimerJurisdiction": "The services, evaluation programmes, and products offered by CK Capital Group LTD are not directed to, intended for distribution to, or intended for use by any person in any jurisdiction where such distribution, publication, or use would be contrary to local laws, regulations, or international sanctions.",
+    "disclaimer": "CK Capital Group LTD (Incorporated in the United Kingdom) provides proprietary trading evaluation programmes operating exclusively within simulated and demo trading environments. All trading accounts use virtual funds. CK Capital Group LTD does not act as a broker, custodian, or financial advisor, and does not hold customer deposits.",
     "acceptedMethods": "Accepted Methods",
     "errorEmail": "Please enter a valid email address.",
     "successEmail": "Thank you for subscribing!"
@@ -416,7 +438,7 @@
     "homeDescription": "Join CK Capital prop firm. Pass our 1-step or 2-step evaluation to trade up to $100K simulated capital with 12h payouts, news trading allowed, and up to 100% profit split."
   },
   "about": {
-    "badge": "Who We Are · Premium Prop Trading",
+    "badge": "Who We Are · Prop Trading",
     "title": "Meet The CK Capital Team",
     "storyEyebrow": "Our Story",
     "storyTitle": "Built to Close the Gap",
@@ -453,7 +475,7 @@
     "exploreObjectives": "Explore Objectives",
     "badgeSimulated": "Simulated Capital",
     "badgeVerifiedUk": "Verified UK Firm",
-    "badgeGlobalTraders": "50,000+ Global Traders",
+    "badgeGlobalTraders": "20K+ Active Traders",
     "founderRoleBadge": "Founder & Trader",
     "founderQuote": "We champion an 'us vs us' mindset — supporting our community of traders like family while rewarding verified skill with industry-leading profit splits.",
     "founderBadges": [
@@ -462,7 +484,7 @@
       "Private Capital",
       "UK Founded"
     ],
-    "statsTradersNote": "Traders across 140+ countries",
+    "statsTradersNote": "Worldwide Traders",
     "statsCapitalNote": "Max scalable allocation",
     "statsSplitNote": "Keep up to 100% of profits",
     "statsSupportNote": "Under 2 min average response",
@@ -953,5 +975,44 @@
       "close": "to close"
     },
     "clear": "Clear search"
+  },
+  "evaluationPrograms": {
+    "eyebrow": "Choose Your Challenge",
+    "title": "Evaluation Programs",
+    "subtitle": "Flexible challenges designed for every type of trader.",
+    "compareBtn": "Compare Challenges",
+    "mostPopular": "Most Popular",
+    "profitTarget": "Profit Target",
+    "maxLoss": "Max Loss",
+    "profitSplit": "Profit Split",
+    "profitSplitValue": "Up to 100%"
+  },
+  "featureStrip": {
+    "fastPayouts": "Fast Payouts",
+    "fastPayoutsDesc": "Get paid quickly and securely, every time.",
+    "noTimeLimits": "No Time Limits",
+    "noTimeLimitsDesc": "Trade at your own pace with no time pressure.",
+    "economicCalendar": "Economic Calendar",
+    "economicCalendarDesc": "Built-in high impact news calendar.",
+    "advancedPlatform": "Advanced Platform",
+    "advancedPlatformDesc": "Trade on industry-leading platforms.",
+    "education": "Education & Resources",
+    "educationDesc": "Improve your skills with our free resources."
+  },
+  "trustStats": {
+    "activeTraders": "Active Traders",
+    "worldwide": "Worldwide",
+    "globalReach": "Global Reach",
+    "payoutsTotal": "Payouts Total",
+    "secureTransparent": "Secure & Transparent",
+    "traderSupport": "Trader Support"
+  },
+  "common": {
+    "logIn": "Log In",
+    "signUp": "Sign Up",
+    "startChallenge": "Start Challenge",
+    "signIn": "Sign In",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started"
   }
 }

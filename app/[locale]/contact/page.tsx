@@ -2,8 +2,12 @@
 
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
-import { Clock, MapPin, MessageCircle, Sparkles } from 'lucide-react'
+import { Clock, MapPin, MessageCircle, Sparkles, ArrowRight, ShieldCheck, Mail } from 'lucide-react'
 import { Container } from '@/components/shared/Container'
+import { GoldButton } from '@/components/shared/GoldButton'
+import { Aurora } from '@/components/fx/Aurora'
+import { SectionReveal } from '@/components/shared/SectionReveal'
+import { ContactHeroVisual } from '@/components/shared/ContactHeroVisual'
 
 export default function ContactPage() {
   const t = useTranslations('contact')
@@ -30,91 +34,155 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background" data-od-id="contact-page">
 
-      {/* ─────────────── Hero ─────────────── */}
-      <section className="relative bg-background" data-od-id="contact-hero">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 0%, rgba(212,175,55,0.20), transparent 45%), radial-gradient(circle at 5% 100%, rgba(212,175,55,0.08), transparent 40%)',
-          }}
-        />
-        <Container className="relative py-16 md:py-24">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
-                <Sparkles size={11} className="text-primary" />
-                {t('badge')}
-              </span>
-            </motion.div>
+      {/* ─────────────── Hero (DARK) ─────────────── */}
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="contact-hero">
+        <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+          <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
+          <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
+          <div className="absolute top-[20%] -right-[10%] w-[55%] h-[65%] rounded-full opacity-55 fx-hero-glow-3" />
+          <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[50%] rounded-full opacity-40 fx-hero-glow-4" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 z-[2]">
+          <Aurora variant="hero" grid className="absolute inset-0" />
+        </div>
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-20 sm:px-6 md:pb-10 md:pt-24 lg:px-8">
+          <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+            <div className="lg:col-span-7 xl:col-span-6 min-w-0">
+              <motion.div
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                  <Sparkles size={12} /> {t('badge')}
+                </span>
+              </motion.div>
 
-            <motion.h1
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.08 }}
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                data-od-id="contact-hero-title"
+              >
+                {t('title')}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.24 }}
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+              >
+                {t('subtitle')}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.36 }}
+                className="mt-9 flex flex-wrap items-center gap-4"
+              >
+                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+                  <GoldButton size="lg">
+                    Join Discord Server <ArrowRight size={16} />
+                  </GoldButton>
+                </a>
+                <a
+                  href="#contact-cards"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                >
+                  View Details <ArrowRight size={15} />
+                </a>
+              </motion.div>
+
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> 24/7 Dedicated Support</span>
+                <span className="inline-flex items-center gap-2"><Mail size={14} className="text-primary" /> Fast Response Times</span>
+              </div>
+            </div>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
-              data-od-id="contact-hero-title"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="lg:col-span-5 xl:col-span-6 min-w-0"
+              data-od-id="contact-hero-dashboard"
             >
-              {t('title')}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-5 max-w-xl text-[15px] leading-relaxed text-foreground/55"
-            >
-              {t('subtitle')}
-            </motion.p>
+              <ContactHeroVisual />
+            </motion.div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* ─────────────── Contact cards ─────────────── */}
-      <section className="bg-background py-4 md:py-6" data-od-id="contact-cards">
+      {/* ─────────────── Contact cards (LIGHT) ─────────────── */}
+      <section id="contact-cards" className="scroll-mt-24 bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="contact-cards">
         <Container>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+              CHANNELS & HOURS
+            </p>
+            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+              Get in touch with our team
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {contactCards.map((card, i) => {
               const Icon = card.icon;
               return (
-                <motion.div
+                <div
                   key={card.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.55, delay: i * 0.08 }}
-                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                  className="group flex flex-col rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-all duration-300 hover:border-primary/30 hover:bg-foreground/[0.05]"
+                  className="group flex flex-col justify-between rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
                   data-od-id={`contact-card-${i + 1}`}
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/15">
-                    <Icon size={20} className="text-primary" />
+                  <div>
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 transition-colors group-hover:bg-[#D4AF37]/20">
+                      <Icon size={20} className="text-[#D4AF37]" />
+                    </div>
+                    <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[#4B5563]">
+                      {card.description}
+                    </p>
                   </div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-foreground">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/55">
-                    {card.description}
-                  </p>
                   {'action' in card && card.action && (
                     <a
                       href={card.action.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center text-[13px] font-semibold text-[#F7D774] transition-colors hover:text-[#D4AF37]"
+                      className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#D4AF37] hover:text-[#0A0A0C] transition-colors"
                     >
-                      {card.action.label}
+                      {card.action.label} <ArrowRight size={13} />
                     </a>
                   )}
-                </motion.div>
+                </div>
               );
             })}
           </div>
+        </Container>
+      </section>
+
+      {/* ─────────────── Discord Community CTA (DARK) ─────────────── */}
+      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="contact-discord-cta">
+        <Container className="relative text-center">
+          <SectionReveal>
+            <MessageCircle className="mx-auto text-primary" size={32} />
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+              Connect with 10,000+ Analysts
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+              Join our global Discord trader community for market discussions, announcement drops, support ticketing, and weekly giveaways.
+            </p>
+            <div className="mt-8">
+              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+                <GoldButton size="lg">
+                  Join Discord Community <ArrowRight size={16} />
+                </GoldButton>
+              </a>
+            </div>
+          </SectionReveal>
         </Container>
       </section>
     </div>

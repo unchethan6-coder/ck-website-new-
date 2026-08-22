@@ -37,16 +37,12 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
           </span>
         </SectionReveal>
 
-        {/* Offer card — always dark, gold-tinted premium panel */}
+        {/* Offer card — flat solid panel */}
         <SectionReveal delay={0.1}>
           <div
             data-od-id="offers-card"
-            className="relative overflow-hidden rounded-2xl border border-primary/25 dark-panel bg-gradient-to-r from-[#1a1508] via-[#0d0b06] to-[#1a1508] p-6 sm:p-8 md:p-10"
+            className="relative overflow-hidden rounded-2xl border border-primary/30 bg-[#12100A] p-6 sm:p-8 md:p-10 shadow-xl"
           >
-            {/* Ambient gold glow */}
-            <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/12 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-primary/6 blur-3xl" />
-
             <div className="relative flex flex-col md:flex-row md:items-center gap-8 md:gap-6">
               {/* Content column */}
               <div className="flex-1 min-w-0">
@@ -68,10 +64,10 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
                 </h3>
 
                 {/* Thin divider under headline */}
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-primary/40 via-primary/15 to-transparent" />
+                <div className="mt-4 h-px w-full bg-primary/25" />
 
                 {/* Subcopy */}
-                <p className="mt-4 max-w-xl text-sm sm:text-[15px] text-foreground/55 leading-relaxed">
+                <p className="mt-4 max-w-xl text-sm sm:text-[15px] text-foreground/60 leading-relaxed">
                   {subcopy}
                 </p>
               </div>
@@ -80,7 +76,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
               <a
                 href="#start-challenge"
                 data-od-id="offers-cta"
-                className="group shrink-0 self-start md:self-center inline-flex items-center justify-center gap-2 rounded-full bg-[image:var(--ck-gold-gradient)] text-black font-bold text-[13px] tracking-[0.12em] uppercase px-5 py-3 shadow-[0_6px_24px_rgba(212,175,55,0.35)] hover:brightness-110 transition-all"
+                className="btn-gold-standard group shrink-0 self-stretch sm:self-start md:self-center inline-flex items-center justify-center gap-2 rounded-xl text-[13px] tracking-[0.12em] uppercase px-6 py-3 w-full sm:w-auto text-center"
               >
                 {promo?.ctaLabel ?? t("useCode", { code })}
                 <ArrowRight

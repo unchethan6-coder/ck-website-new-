@@ -15,21 +15,21 @@ export function GoldButton({
   ...props
 }: GoldButtonProps) {
   const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-5 py-2.5 text-sm font-semibold",
-    lg: "px-7 py-3.5 text-base font-semibold",
+    sm: "px-3.5 py-1.5 text-xs font-bold",
+    md: "px-5 py-2.5 text-sm font-extrabold",
+    lg: "px-7 py-3.5 text-base font-black",
   };
 
   const variants = {
-    gold: "text-black bg-[image:var(--ck-gold-gradient)] hover:brightness-110 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]",
-    outline: "text-[#d4af37] border border-[#d4af37]/40 hover:border-[#d4af37] hover:bg-[#d4af37]/10",
-    ghost: "text-white/80 hover:text-white hover:bg-white/5",
+    gold: "text-[#0A0A0C] bg-[#FFC107] hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    outline: "text-[#FFC107] border border-[#FFC107]/40 hover:border-[#FFC107] hover:bg-[#FFC107]/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    ghost: "text-white/70 hover:text-[#FFC107] hover:bg-white/5 active:scale-[0.98]",
   };
 
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-200 cursor-pointer",
+        "inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-200 ease-out cursor-pointer",
         sizes[size],
         variants[variant],
         className

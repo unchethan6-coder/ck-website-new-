@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "Contact Us \u2013 24/7 Trader Support",
-    description: "Get in touch with the CK Capital team. 24/7 support via live chat and Discord, with an average response time under 60 seconds.",
+    title: "Contact & 24/7 Trader Support",
+    description: "Get in touch with the CK Capital support team. 24/7 live assistance via chat and Discord for trading, account, and payout inquiries.",
     path: "/contact",
     locale: resolved,
   });

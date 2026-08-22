@@ -4,27 +4,26 @@ import type { Variants } from "framer-motion";
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: EASE },
+    transition: { duration: 0.2 },
   },
 };
 
 export const stagger: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.02 },
   },
 };
 
 export const chipIn: Variants = {
-  hidden: { opacity: 0, y: 6, scale: 0.96 },
+  hidden: { opacity: 1, scale: 1 },
   show: {
     opacity: 1,
-    y: 0,
     scale: 1,
-    transition: { duration: 0.35, ease: EASE },
+    transition: { duration: 0.2 },
   },
 };

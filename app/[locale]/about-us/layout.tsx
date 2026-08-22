@@ -11,8 +11,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
-    title: "About Us \u2013 Meet the CK Capital Team",
-    description: "CK Capital is a premium prop trading firm. Learn our story, mission and vision, leadership, and the values behind funded accounts up to $1.2M with 100% profit splits.",
+    title: "About Us — Our Story & Mission",
+    description: "Learn about CK Capital, our mission, leadership, and commitment to providing fair, transparent simulated funded accounts up to $1.2M with up to 100% profit splits.",
     path: "/about-us",
     locale: resolved,
   });

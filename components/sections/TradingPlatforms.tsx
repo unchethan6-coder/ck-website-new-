@@ -32,7 +32,7 @@ export function TradingPlatforms() {
   return (
     <section
       id="platforms"
-      className="scroll-mt-28 py-14 md:py-24"
+      className="scroll-mt-28 bg-[#0D0C08] text-white py-14 md:py-24"
       data-od-id="trading-platforms"
     >
       <Container>
@@ -48,18 +48,13 @@ export function TradingPlatforms() {
           </p>
         </SectionReveal>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+        <div
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {platforms.map((p) => (
-            <motion.div
+            <div
               key={p.id}
-              variants={fadeUp}
-              className="glow-card flex flex-col gap-5"
+              className="rounded-2xl border border-white/10 bg-[#12100A] p-6 sm:p-7 shadow-xl card-hover-standard flex flex-col gap-5 transition-transform duration-200 hover:-translate-y-1"
               data-od-id={`platform-${p.id}`}
             >
               <div className="flex items-center gap-3">
@@ -98,9 +93,9 @@ export function TradingPlatforms() {
                   {t("getPlatform", { name: p.name })}
                 </GoldButton>
               </a>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

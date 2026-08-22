@@ -53,24 +53,19 @@ export function PricingGrid() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 max-w-4xl mx-auto">
-          {PRICING_PLANS.map((plan, i) => (
-            <motion.article
+          {PRICING_PLANS.map((plan) => (
+            <article
               key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               data-od-id={`pricing-card-${plan.id}`}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-5",
+                "relative flex flex-col rounded-2xl border p-5 card-hover-standard transition-transform duration-200 hover:-translate-y-1",
                 plan.popular
-                  ? "border-primary bg-gradient-to-b dark-panel from-[#1a1508] to-[#0d0b06] shadow-[0_0_40px_rgba(212,175,55,0.2)]"
-                  : "border-foreground/10 bg-foreground/[0.03]"
+                  ? "border-primary bg-[#12100A] shadow-xl"
+                  : "border-foreground/10 bg-[#12100A]/50"
               )}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[image:var(--ck-gold-gradient)] px-4 py-1 text-xs font-bold text-black tracking-wider">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-4 py-1 text-xs font-extrabold text-primary-foreground tracking-wider shadow-md">
                   MOST POPULAR
                 </span>
               )}
@@ -134,17 +129,16 @@ export function PricingGrid() {
                   </GoldButton>
                 </a>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 
-        {/* Scale-up callout */}
+        {/* Transparent conditions callout */}
         <SectionReveal delay={0.3} className="mt-8 text-center">
-          <p className="flex items-center justify-center gap-2 text-sm text-foreground/40">
+          <p className="flex items-center justify-center gap-2 text-sm text-foreground/50 font-medium">
             <TrendingUp size={14} className="text-primary" />
-            Scale up to{" "}
-            <span className="text-primary font-semibold">$1.2M</span> with our
-            scaling plan
+            Trade with transparent drawdown rules and keep up to{" "}
+            <span className="text-primary font-bold">100% simulated profit split</span>
           </p>
         </SectionReveal>
       </Container>
