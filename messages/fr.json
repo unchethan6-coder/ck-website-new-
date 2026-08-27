@@ -204,7 +204,12 @@
     "scalingPlan": "Plan de mise à l'échelle",
     "maxTotalLoss": "Perte totale max.",
     "leverage": "Effet de levier",
-    "profitSplit": "Partage de profit"
+    "profitSplit": "Partage de profit",
+    "avgFirstRewards": "Les traders gagnent {amount} en moyenne pour leur première récompense",
+    "phases": "Phases",
+    "cards": "Cartes",
+    "funded": "Financé",
+    "revealSizes": "Afficher toutes les tailles de compte"
   },
   "platforms": {
     "eyebrow": "Plateformes",
@@ -283,7 +288,7 @@
     "benefitFlexible": "Cycles de Retrait Flexibles",
     "benefitAllocation": "Jusqu'à 1.2M $ d'Allocation",
     "benefitNoHidden": "Aucun Frais Caché",
-    "modelsPill": "1 Étape · 2 Étapes · Instantané",
+    "benefitStarting": "À partir de 58 $",
     "viewEvaluations": "Voir les Évaluations",
     "readyReward": "Prêt à demander votre récompense ?",
     "readyRewardDesc": "Ouvrez votre tableau de bord CK Capital, cliquez sur demander et complétez les informations requises.",
@@ -388,7 +393,32 @@
     "eyebrow": "Votre prochain trade pourrait être financé",
     "title": "Prêt à trader le capital de CK ?",
     "subtitle": "Choisissez un challenge, validez les objectifs à votre rythme et conservez jusqu'à 100% de vos gains simulés.",
-    "button": "Commencez Votre Challenge"
+    "button": "Commencez Votre Challenge",
+    "titleNew": "Your skill is our capital",
+    "subtitleNew": "A structured path from proving your edge in sim to trading CK funded capital.",
+    "stage1Label": "Stage 1",
+    "stage1Title": "Prove your edge",
+    "stage1Desc": "On Sim & grow with CK",
+    "stage2Label": "Stage 2",
+    "stage2Title": "Scale CK capital",
+    "stage2Desc": "Scale all the way to $1.2M.",
+    "stage3Label": "Stage 3",
+    "stage3Title": "Become CK Funded",
+    "stage3Desc": "Earn from funded capital.",
+    "pill1": "Up to 100% Rewards",
+    "pill2": "No Time Limits",
+    "primary": "Get Started",
+    "secondary": "See roadmap",
+    "drawerTitle": "Your path to CK Funded",
+    "drawerDesc": "Three clear stages from evaluation to funded. Each stage validates your edge before you scale with CK capital.",
+    "drawerStage1Title": "Evaluation",
+    "drawerStage1Desc": "Prove your edge in a timed or untimed sim. Hit the profit target without breaking the rules.",
+    "drawerStage2Title": "Verification",
+    "drawerStage2Desc": "Confirm consistency. Scale with tighter risk and unlock higher allocation.",
+    "drawerStage3Title": "CK Funded",
+    "drawerStage3Desc": "Trade funded, keep up to 100% of the profits you generate. Payouts on demand.",
+    "drawerCta": "Explore objectives",
+    "drawerClose": "Close"
   },
   "footer": {
     "tagline": "Nous accompagnons les traders du monde entier avec du capital simulé, des règles claires et jusqu'à 100 % de partage de profits.",
@@ -423,7 +453,28 @@
     "disclaimer": "CK Capital Group LTD (immatriculée au Royaume-Uni) propose des évaluations de trading simulées avec des fonds virtuels. Aucun service de courtage ni de conseil financier n'est fourni.",
     "acceptedMethods": "Moyens de Paiement Acceptés",
     "errorEmail": "Please enter a valid email address.",
-    "successEmail": "Thank you for subscribing!"
+    "successEmail": "Thank you for subscribing!",
+    "disclaimerImportantTitle": "Important Information & Disclaimer",
+    "simulatedEnvTitle": "Simulated Trading Environment",
+    "simulatedEnvBody": "All accounts provided by CK Capital are demo accounts operating exclusively in a simulated trading environment. No actual trades are executed on live financial markets. The services we offer are designed for educational and evaluation purposes only.",
+    "noInvestmentTitle": "No Investment Services",
+    "noInvestmentIntro": "The simulated trading services are provided by CK Capital Group LTD. All content published and distributed by CK Capital and its related entities (collectively, the \"Company\") is for general informational purposes only.",
+    "noInvestmentBullets": [
+      "The Company does not provide investment advice.",
+      "The Company does not solicit or recommend the purchase or sale of any financial instruments, securities, or funds.",
+      "The Company does not act as a broker, custodian, or financial intermediary."
+    ],
+    "participationBody": "Participation in any of our programs is entirely voluntary, and all fees paid to the Company are strictly service fees. Program fees are not deposits, do not represent client funds, and should not be considered investments under any circumstances. These fees are non-refundable once paid, except where required by applicable law, and they do not earn interest, returns, or profit sharing of any kind.",
+    "operationalBody": "Instead, all program fees are applied toward the Company's operational and administrative expenses, including, but not limited to, staffing, technology infrastructure, platform development and maintenance, software licensing, risk management systems, customer support, and other business-related costs. Payment of program fees does not create any fiduciary duty, custodial relationship, or investment arrangement between participants and the Company. Participants should understand that such fees provide access only to simulated trading evaluations and related services in a demo environment.",
+    "offerDisclaimerBody": "Nothing on this website or in our programs constitutes an offer to buy or sell futures, options, CFDs, forex, stocks, or any other financial instruments. All results displayed are based on simulated trading performance. Past simulated performance is not necessarily indicative of future results.",
+    "riskWarningTitle": "General Risk Warning",
+    "riskWarningBody": "Trading in financial markets involves a substantial risk of loss. Even in a simulated environment, strategies tested under leveraged conditions may produce results that do not reflect real-world execution. You should carefully consider your objectives, level of experience, and risk tolerance before participating.",
+    "corporateTitle": "Corporate & Related Entities",
+    "corporateBody": "CK Capital Group LTD is a company incorporated under the laws of the United Kingdom, having its registered address at 6–7 Waterside Station Road, Harpenden, AL5 4US, United Kingdom.",
+    "corporateNote": "Note: CK Capital Group LTD does not conduct brokerage services or offer real trading accounts on this website. Its services are limited to simulated trading programmes.",
+    "corporateRestrictions": "Restrictions: Services are not offered to residents of certain jurisdictions, including countries on sanctions lists and other restricted territories as described in our Terms & Conditions.",
+    "registeredAddressTitle": "Registered Address of CK Capital:",
+    "registeredAddressBody": "6–7 Waterside Station Road, Harpenden, AL5 4US, United Kingdom"
   },
   "ticker": {
     "market": "Marché",
@@ -1095,5 +1146,21 @@
     "payoutsTotal": "Total des Paiements",
     "secureTransparent": "Sécurisé & Transparent",
     "traderSupport": "Support aux Traders"
+  },
+  "stories": {
+    "title": "De vrais traders, de vraies récompenses, un vrai impact",
+    "subtitle": "Écoutez directement des traders qui ont réussi leur défi et reçu leur récompense. Voici de vraies histoires de traders dont la vie a changé avec chaque dollar reçu.",
+    "successStory": "HISTOIRE DE SUCCÈS"
+  },
+  "insights": {
+    "title1": "Construit par des traders, pour des traders.",
+    "title2": "Votre croissance est notre mission",
+    "subtitle": "Chez CK Capital, nous ne nous contentons pas de révéler les traders. Nous les construisons.",
+    "readLatest": "Lire le dernier article",
+    "visitBlog": "Visiter le blog",
+    "comingSoon": "De nouveaux articles arrivent bientôt",
+    "catNews": "Actualités",
+    "catTips": "Conseils de trading",
+    "catEducation": "Éducation"
   }
 }

@@ -204,7 +204,12 @@
     "scalingPlan": "स्केलिंग प्लान",
     "maxTotalLoss": "अधिकतम कुल नुकसान",
     "leverage": "लीवरेज",
-    "profitSplit": "लाभ विभाजन"
+    "profitSplit": "लाभ विभाजन",
+    "avgFirstRewards": "ट्रेडर औसतन पहले रिवॉर्ड के रूप में {amount} कमाते हैं",
+    "phases": "फेज़",
+    "cards": "कार्ड",
+    "funded": "फंडेड",
+    "revealSizes": "सभी अकाउंट साइज़ देखें"
   },
   "platforms": {
     "eyebrow": "प्लेटफ़ॉर्म",
@@ -283,7 +288,7 @@
     "benefitFlexible": "लचीले पेआउट चक्र",
     "benefitAllocation": "$1.2M तक का आवंटन",
     "benefitNoHidden": "कोई छिपा हुआ शुल्क नहीं",
-    "modelsPill": "1 स्टेप · 2 स्टेप · त्वरित",
+    "benefitStarting": "$58 से शुरू",
     "viewEvaluations": "मूल्यांकन देखें",
     "readyReward": "अपना रिवॉर्ड अनुरोध करने के लिए तैयार हैं?",
     "readyRewardDesc": "अपना CK Capital डैशबोर्ड खोलें, अनुरोध पर क्लिक करें और आवश्यक विवरण भरें।",
@@ -388,7 +393,32 @@
     "eyebrow": "आपका अगला ट्रेड वित्तपोषित हो सकता है",
     "title": "क्या आप CK की पूंजी के साथ ट्रेड करने के लिए तैयार हैं?",
     "subtitle": "एक चैलेंज चुनें, अपने समय पर लक्ष्यों को पूरा करें और 100% तक लाभ अपने पास रखें।",
-    "button": "अपना चैलेंज शुरू करें"
+    "button": "अपना चैलेंज शुरू करें",
+    "titleNew": "Your skill is our capital",
+    "subtitleNew": "A structured path from proving your edge in sim to trading CK funded capital.",
+    "stage1Label": "Stage 1",
+    "stage1Title": "Prove your edge",
+    "stage1Desc": "On Sim & grow with CK",
+    "stage2Label": "Stage 2",
+    "stage2Title": "Scale CK capital",
+    "stage2Desc": "Scale all the way to $1.2M.",
+    "stage3Label": "Stage 3",
+    "stage3Title": "Become CK Funded",
+    "stage3Desc": "Earn from funded capital.",
+    "pill1": "Up to 100% Rewards",
+    "pill2": "No Time Limits",
+    "primary": "Get Started",
+    "secondary": "See roadmap",
+    "drawerTitle": "Your path to CK Funded",
+    "drawerDesc": "Three clear stages from evaluation to funded. Each stage validates your edge before you scale with CK capital.",
+    "drawerStage1Title": "Evaluation",
+    "drawerStage1Desc": "Prove your edge in a timed or untimed sim. Hit the profit target without breaking the rules.",
+    "drawerStage2Title": "Verification",
+    "drawerStage2Desc": "Confirm consistency. Scale with tighter risk and unlock higher allocation.",
+    "drawerStage3Title": "CK Funded",
+    "drawerStage3Desc": "Trade funded, keep up to 100% of the profits you generate. Payouts on demand.",
+    "drawerCta": "Explore objectives",
+    "drawerClose": "Close"
   },
   "footer": {
     "tagline": "सिमुलेटेड कैपिटल, पारदर्शी नियमों और 100% तक लाभ विभाजन के साथ दुनिया भर के ट्रेडर्स को सशक्त बनाना।",
@@ -423,7 +453,28 @@
     "disclaimer": "CK Capital Group LTD (यूनाइटेड किंगडम में निगमित) वर्चुअल फंड के साथ सिम्युलेटेड ट्रेडिंग मूल्यांकन प्रदान करता है। ब्रोकरेज या वित्तीय सलाह सेवाएं नहीं दी जाती हैं।",
     "acceptedMethods": "स्वीकृत भुगतान विधियां",
     "errorEmail": "Please enter a valid email address.",
-    "successEmail": "Thank you for subscribing!"
+    "successEmail": "Thank you for subscribing!",
+    "disclaimerImportantTitle": "Important Information & Disclaimer",
+    "simulatedEnvTitle": "Simulated Trading Environment",
+    "simulatedEnvBody": "All accounts provided by CK Capital are demo accounts operating exclusively in a simulated trading environment. No actual trades are executed on live financial markets. The services we offer are designed for educational and evaluation purposes only.",
+    "noInvestmentTitle": "No Investment Services",
+    "noInvestmentIntro": "The simulated trading services are provided by CK Capital Group LTD. All content published and distributed by CK Capital and its related entities (collectively, the \"Company\") is for general informational purposes only.",
+    "noInvestmentBullets": [
+      "The Company does not provide investment advice.",
+      "The Company does not solicit or recommend the purchase or sale of any financial instruments, securities, or funds.",
+      "The Company does not act as a broker, custodian, or financial intermediary."
+    ],
+    "participationBody": "Participation in any of our programs is entirely voluntary, and all fees paid to the Company are strictly service fees. Program fees are not deposits, do not represent client funds, and should not be considered investments under any circumstances. These fees are non-refundable once paid, except where required by applicable law, and they do not earn interest, returns, or profit sharing of any kind.",
+    "operationalBody": "Instead, all program fees are applied toward the Company's operational and administrative expenses, including, but not limited to, staffing, technology infrastructure, platform development and maintenance, software licensing, risk management systems, customer support, and other business-related costs. Payment of program fees does not create any fiduciary duty, custodial relationship, or investment arrangement between participants and the Company. Participants should understand that such fees provide access only to simulated trading evaluations and related services in a demo environment.",
+    "offerDisclaimerBody": "Nothing on this website or in our programs constitutes an offer to buy or sell futures, options, CFDs, forex, stocks, or any other financial instruments. All results displayed are based on simulated trading performance. Past simulated performance is not necessarily indicative of future results.",
+    "riskWarningTitle": "General Risk Warning",
+    "riskWarningBody": "Trading in financial markets involves a substantial risk of loss. Even in a simulated environment, strategies tested under leveraged conditions may produce results that do not reflect real-world execution. You should carefully consider your objectives, level of experience, and risk tolerance before participating.",
+    "corporateTitle": "Corporate & Related Entities",
+    "corporateBody": "CK Capital Group LTD is a company incorporated under the laws of the United Kingdom, having its registered address at 6–7 Waterside Station Road, Harpenden, AL5 4US, United Kingdom.",
+    "corporateNote": "Note: CK Capital Group LTD does not conduct brokerage services or offer real trading accounts on this website. Its services are limited to simulated trading programmes.",
+    "corporateRestrictions": "Restrictions: Services are not offered to residents of certain jurisdictions, including countries on sanctions lists and other restricted territories as described in our Terms & Conditions.",
+    "registeredAddressTitle": "Registered Address of CK Capital:",
+    "registeredAddressBody": "6–7 Waterside Station Road, Harpenden, AL5 4US, United Kingdom"
   },
   "ticker": {
     "market": "बाज़ार",
@@ -1095,5 +1146,21 @@
     "payoutsTotal": "कुल पेआउट्स",
     "secureTransparent": "सुरक्षित और पारदर्शी",
     "traderSupport": "ट्रेडर सहायता"
+  },
+  "stories": {
+    "title": "असली ट्रेडर, असली रिवॉर्ड, असली असर",
+    "subtitle": "इसे उन ट्रेडर्स से सीधे सुनें जिन्होंने अपना चैलेंज पास किया और रिवॉर्ड पाया। ये उन ट्रेडर्स की असली कहानियाँ हैं जिनकी ज़िंदगी हर डॉलर के साथ बदली।",
+    "successStory": "सक्सेस स्टोरी"
+  },
+  "insights": {
+    "title1": "ट्रेडर्स द्वारा, ट्रेडर्स के लिए।",
+    "title2": "आपकी ग्रोथ हमारा मिशन है",
+    "subtitle": "CK Capital में हम सिर्फ ट्रेडर्स को आगे नहीं बढ़ाते। हम उन्हें बनाते हैं।",
+    "readLatest": "नवीनतम लेख पढ़ें",
+    "visitBlog": "ब्लॉग देखें",
+    "comingSoon": "नए लेख जल्द आ रहे हैं",
+    "catNews": "न्यूज़",
+    "catTips": "ट्रेडिंग टिप्स",
+    "catEducation": "शिक्षा"
   }
 }

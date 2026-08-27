@@ -22,10 +22,10 @@ export function PricingGrid() {
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             Pricing
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             Start your evaluation journey
           </h2>
-          <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
+          <p className="mt-3 text-gray-500 max-w-xl mx-auto">
             Choose your account size and prove your skills. All plans include the same
             transparent rules — no hidden fees.
           </p>
@@ -33,7 +33,7 @@ export function PricingGrid() {
 
         {/* Currency toggle */}
         <SectionReveal delay={0.1} className="flex justify-center mb-10">
-          <div className="flex gap-1 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-1">
+          <div className="flex gap-1 rounded-xl border border-gray-200 bg-foreground/[0.03] p-1">
             {CURRENCIES.map((c) => (
               <button
                 key={c.code}
@@ -41,8 +41,8 @@ export function PricingGrid() {
                 className={cn(
                   "flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition-all",
                   currency === c.code
-                    ? "bg-foreground/10 text-foreground border border-primary/60"
-                    : "text-foreground/50 hover:text-foreground/80"
+                    ? "bg-foreground/10 text-[#0A0A0C] border border-primary/60"
+                    : "text-gray-500 hover:text-foreground/80"
                 )}
               >
                 {c.flag} {c.code}
@@ -60,8 +60,8 @@ export function PricingGrid() {
               className={cn(
                 "relative flex flex-col rounded-2xl border p-5 card-hover-standard transition-transform duration-200 hover:-translate-y-1",
                 plan.popular
-                  ? "border-primary bg-[#12100A] shadow-xl"
-                  : "border-foreground/10 bg-[#12100A]/50"
+                  ? "border-primary bg-white shadow-xl"
+                  : "border-gray-200 bg-white/50"
               )}
             >
               {plan.popular && (
@@ -76,10 +76,10 @@ export function PricingGrid() {
                 </span>
               )}
 
-              <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground">
+              <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C]">
                 {plan.accountSize}
               </h3>
-              <p className="text-sm text-foreground/50 mt-0.5">{plan.type}</p>
+              <p className="text-sm text-gray-500 mt-0.5">{plan.type}</p>
 
               <div className="mt-4 space-y-2 text-sm flex-1">
                 {[
@@ -88,8 +88,8 @@ export function PricingGrid() {
                   { label: "Max Loss",       value: plan.maxLoss },
                 ].map((row) => (
                   <div key={row.label} className="flex items-center justify-between border-b border-foreground/[0.06] pb-2">
-                    <span className="text-foreground/50">{row.label}</span>
-                    <span className="font-semibold text-foreground">{row.value}</span>
+                    <span className="text-gray-500">{row.label}</span>
+                    <span className="font-semibold text-[#0A0A0C]">{row.value}</span>
                   </div>
                 ))}
                 <div className="flex items-center gap-1.5 pt-1 text-xs text-[#14b8a6]">
@@ -103,7 +103,7 @@ export function PricingGrid() {
               {/* Price */}
               <div className="mt-5 pt-4 border-t border-foreground/[0.06]">
                 <div className="flex items-end gap-2">
-                  <span className="font-mono text-3xl font-extrabold text-foreground">
+                  <span className="font-mono text-3xl font-extrabold text-[#0A0A0C]">
                     {sym}{(plan.priceUSD * fx).toFixed(2)}
                   </span>
                   <span className="text-sm text-foreground/30 line-through mb-1">
@@ -135,7 +135,7 @@ export function PricingGrid() {
 
         {/* Transparent conditions callout */}
         <SectionReveal delay={0.3} className="mt-8 text-center">
-          <p className="flex items-center justify-center gap-2 text-sm text-foreground/50 font-medium">
+          <p className="flex items-center justify-center gap-2 text-sm text-gray-500 font-medium">
             <TrendingUp size={14} className="text-primary" />
             Trade with transparent drawdown rules and keep up to{" "}
             <span className="text-primary font-bold">100% simulated profit split</span>

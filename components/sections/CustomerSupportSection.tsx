@@ -10,7 +10,7 @@ export function CustomerSupportSection() {
   const t = useTranslations("support");
 
   return (
-    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="customer-support">
+    <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="customer-support">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <SectionReveal>
@@ -64,19 +64,18 @@ export function CustomerSupportSection() {
             </a>
           </SectionReveal>
 
-          <div className="relative h-[320px] overflow-hidden rounded-[28px] border border-foreground/10 bg-surface sm:h-[400px] lg:h-full lg:min-h-[400px]" data-od-id="customer-support-image">
+          <div className="relative h-[320px] overflow-hidden rounded-[28px] border border-foreground/10 bg-[#07070B] sm:h-[400px] lg:h-full lg:min-h-[400px]" data-od-id="customer-support-image">
             <Image
-              src="/images/support/image-placeholder.svg"
-              alt="Customer support image placeholder"
+              src="/images/support/discord-community.jpg"
+              alt="CK Capital Discord community"
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
+              className="object-cover object-left-top"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-7 sm:left-7 sm:right-7">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">{t("supportBrand")}</p>
-                <p className="mt-1 text-sm text-foreground/75">{t("imagePlaceholder")}</p>
               </div>
               <span className="rounded-full border border-secondary/35 bg-background/70 px-3 py-1.5 text-xs font-semibold text-secondary">
                 24/7

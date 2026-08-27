@@ -29,16 +29,16 @@ export function FaqAccordion() {
   ] as const;
 
   return (
-    <section id="faqs" className="bg-[#0D0C08] text-white py-16 md:py-24" data-od-id="faq">
+    <section id="faqs" className="bg-white text-[#0A0A0C] py-16 md:py-24" data-od-id="faq">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-white md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-3 text-white/55 font-medium max-w-xl mx-auto">
+          <p className="mt-3 text-gray-500 font-medium max-w-xl mx-auto">
             {t("subtitle")}
           </p>
         </SectionReveal>
@@ -50,12 +50,12 @@ export function FaqAccordion() {
                 <AccordionItem
                   key={key}
                   value={String(i)}
-                  className="rounded-2xl border border-white/10 bg-[#12100A] px-6 shadow-sm data-[open]:border-primary/50 data-[open]:bg-[#16140D] transition-all"
+                  className="rounded-2xl border border-gray-200 bg-white px-6 shadow-sm data-[open]:border-primary/30 data-[open]:bg-[#FFFBEB] transition-all"
                 >
-                  <AccordionTrigger className="text-left text-sm font-bold text-white hover:text-primary hover:no-underline py-4">
+                  <AccordionTrigger className="text-left text-sm font-bold text-[#0A0A0C] hover:text-primary hover:no-underline py-4">
                     {t(`items.${key}.q` as any)}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm font-medium text-white/60 pb-4 leading-relaxed">
+                  <AccordionContent className="text-sm font-medium text-gray-500 pb-4 leading-relaxed">
                     {t(`items.${key}.a` as any)}
                   </AccordionContent>
                 </AccordionItem>
@@ -64,16 +64,16 @@ export function FaqAccordion() {
           </SectionReveal>
 
           {/* Still have questions CTA */}
-          <SectionReveal delay={0.1} className="mt-10 md:mt-12 rounded-2xl border border-white/10 bg-[#12100A] p-6 sm:p-8 text-center shadow-xl">
+          <SectionReveal delay={0.1} className="mt-10 md:mt-12 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 text-center shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)]">
             <div className="flex justify-center mb-4">
               <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
                 <MessageCircle size={20} className="text-primary" />
               </div>
             </div>
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-white mb-2">
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] mb-2">
               {t("stillQuestions")}
             </h3>
-            <p className="text-sm text-white/50 mb-5">
+            <p className="text-sm text-gray-500 mb-5">
               {t("supportAvailable")}
             </p>
             <a href="https://intercom.help/ck-capital/en/" target="_blank" rel="noopener noreferrer">

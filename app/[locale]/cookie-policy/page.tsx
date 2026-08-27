@@ -40,7 +40,7 @@ export default async function CookiePolicyPage() {
     <div className="min-h-screen bg-background" data-od-id="cookie-page">
 
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-foreground/[0.07] bg-[#070709] pt-28 md:pt-36 pb-14 md:pb-20 text-white" data-od-id="cookie-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-gray-200 bg-white pt-28 md:pt-36 pb-14 md:pb-20 text-[#0A0A0C]" data-od-id="cookie-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -53,7 +53,7 @@ export default async function CookiePolicyPage() {
               {t("cookieBadge")}
             </span>
             <h1
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-white md:text-5xl"
+              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
               data-od-id="cookie-hero-title"
             >
               {t("cookieTitle")}
@@ -63,7 +63,7 @@ export default async function CookiePolicyPage() {
       </section>
 
       {/* ─────────────── Document (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] py-12 md:py-20 text-[#111827]" data-od-id="cookie-document">
+      <section className="bg-white py-12 md:py-20 text-[#111827]" data-od-id="cookie-document">
         <Container className="max-w-4xl">
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-8 sm:p-12 shadow-sm text-[15px] leading-relaxed text-[#4B5563]">
             <Section title="Information Automatically Collected">

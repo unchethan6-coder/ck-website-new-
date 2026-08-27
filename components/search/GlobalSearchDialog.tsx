@@ -204,7 +204,7 @@ export function GlobalSearchDialog({ isOpen, onClose }: GlobalSearchDialogProps)
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-24 px-3 sm:px-4 pb-4">
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-0 sm:pt-20 px-0 sm:px-4 pb-0 sm:pb-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -212,25 +212,25 @@ export function GlobalSearchDialog({ isOpen, onClose }: GlobalSearchDialogProps)
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/75 backdrop-blur-md"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
             aria-hidden="true"
           />
 
           {/* Dialog Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: -10 }}
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            exit={{ opacity: 0, scale: 0.98, y: 10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-primary/30 bg-[#0B0C10]/95 shadow-[0_20px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(212,175,55,0.12)] backdrop-blur-xl"
+            className="relative w-full max-w-2xl h-[100dvh] sm:h-auto sm:max-h-[560px] flex flex-col overflow-hidden rounded-none sm:rounded-2xl border-0 sm:border border-primary/30 bg-[#0B0C10] sm:bg-[#0B0C10]/95 shadow-[0_20px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(212,175,55,0.12)] backdrop-blur-xl"
             data-od-id="global-search-modal"
             role="dialog"
             aria-modal="true"
             aria-label={t("searchAria")}
           >
             {/* Input Header */}
-            <div className="relative flex items-center border-b border-foreground/10 px-3.5 py-3 sm:px-5 sm:py-3.5">
-              <Search size={18} className="text-primary shrink-0 mr-2.5 sm:mr-3 opacity-90" />
+            <div className="relative flex items-center border-b border-foreground/10 px-4 py-3.5 sm:px-5 sm:py-3.5 shrink-0 bg-[#121216] sm:bg-transparent">
+              <Search size={19} className="text-primary shrink-0 mr-3 opacity-90" />
               <input
                 ref={inputRef}
                 type="text"
@@ -238,7 +238,7 @@ export function GlobalSearchDialog({ isOpen, onClose }: GlobalSearchDialogProps)
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder={t("placeholder")}
-                className="w-full bg-transparent text-[14px] sm:text-[15.5px] font-medium text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-0"
+                className="w-full bg-transparent text-[15px] sm:text-[15.5px] font-medium text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-0"
               />
               {query ? (
                 <button
@@ -247,19 +247,19 @@ export function GlobalSearchDialog({ isOpen, onClose }: GlobalSearchDialogProps)
                     setQuery("");
                     inputRef.current?.focus();
                   }}
-                  className="p-1 rounded-md text-foreground/40 hover:text-foreground hover:bg-foreground/10 transition-colors mr-1 sm:mr-2"
+                  className="p-1.5 rounded-md text-foreground/40 hover:text-foreground hover:bg-foreground/10 transition-colors mr-1 sm:mr-2 min-h-[36px] min-w-[36px] flex items-center justify-center"
                   aria-label={t("clear")}
                 >
-                  <X size={16} />
+                  <X size={17} />
                 </button>
               ) : null}
               <button
                 type="button"
                 onClick={onClose}
-                className="sm:hidden p-1 rounded-md text-foreground/50 hover:text-foreground hover:bg-foreground/10"
+                className="sm:hidden p-2 rounded-lg text-foreground/70 hover:text-foreground bg-white/5 active:bg-white/10 min-h-[38px] min-w-[38px] flex items-center justify-center shrink-0 ml-1"
                 aria-label="Close search"
               >
-                <X size={18} />
+                <X size={20} />
               </button>
               <kbd className="hidden sm:inline-flex items-center gap-1 rounded border border-foreground/15 bg-foreground/[0.06] px-2 py-0.5 font-mono text-[10.5px] font-semibold text-foreground/50">
                 ESC
@@ -269,7 +269,7 @@ export function GlobalSearchDialog({ isOpen, onClose }: GlobalSearchDialogProps)
             {/* Results List */}
             <div
               ref={listRef}
-              className="max-h-[70vh] sm:max-h-[440px] overflow-y-auto p-2 sm:p-3 scrollbar-thin scrollbar-thumb-foreground/10"
+              className="flex-1 overflow-y-auto p-3 sm:p-3 scrollbar-thin scrollbar-thumb-foreground/10"
             >
               {filteredItems.length === 0 ? (
                 <div className="py-12 px-4 text-center">

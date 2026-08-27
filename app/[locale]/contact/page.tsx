@@ -35,7 +35,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background" data-od-id="contact-page">
 
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="contact-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="contact-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="contact-hero-title"
               >
                 {t('title')}
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
               >
                 {t('subtitle')}
               </motion.p>
@@ -90,13 +90,13 @@ export default function ContactPage() {
                 </a>
                 <a
                   href="#contact-cards"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   View Details <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> 24/7 Dedicated Support</span>
                 <span className="inline-flex items-center gap-2"><Mail size={14} className="text-primary" /> Fast Response Times</span>
               </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
       </section>
 
       {/* ─────────────── Contact cards (LIGHT) ─────────────── */}
-      <section id="contact-cards" className="scroll-mt-24 bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="contact-cards">
+      <section id="contact-cards" className="scroll-mt-24 bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="contact-cards">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
@@ -165,14 +165,14 @@ export default function ContactPage() {
       </section>
 
       {/* ─────────────── Discord Community CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="contact-discord-cta">
+      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="contact-discord-cta">
         <Container className="relative text-center">
           <SectionReveal>
             <MessageCircle className="mx-auto text-primary" size={32} />
-            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Connect with 10,000+ Analysts
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
               Join our global Discord trader community for market discussions, announcement drops, support ticketing, and weekly giveaways.
             </p>
             <div className="mt-8">

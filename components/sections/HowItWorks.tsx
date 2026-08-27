@@ -38,7 +38,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden bg-[#F6F7F9] text-[#111827] py-16 md:py-24"
+      className="relative scroll-mt-24 sm:scroll-mt-28 overflow-hidden bg-white text-[#111827] py-16 md:py-24"
       data-od-id="how-it-works"
     >
       <Container>
@@ -75,7 +75,7 @@ export function HowItWorks() {
                   <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
-                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#FFC107] ring-4 ring-[#F6F7F9]" />
+                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#FFC107] ring-4 ring-white" />
                 </div>
                 <div className="pt-1.5 flex-1 min-w-0">
                   <span className="text-[11px] font-black uppercase tracking-[0.18em] text-[#D99B00]">
@@ -101,7 +101,7 @@ export function HowItWorks() {
               {features.map((feature, idx) => (
                 <div key={feature} className="flex items-center gap-2">
                   {idx > 0 && (
-                    <span className="text-gray-300 text-xs hidden sm:inline" aria-hidden="true">
+                    <span className="text-gray-400 text-xs hidden sm:inline" aria-hidden="true">
                       •
                     </span>
                   )}

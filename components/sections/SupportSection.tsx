@@ -9,19 +9,20 @@ import { SectionReveal } from "@/components/shared/SectionReveal";
 import { fadeUp, stagger } from "@/components/fx/reveal";
 
 const SUPPORT_PLACEHOLDER = "/images/support/image-placeholder.svg";
+const DISCORD_COMMUNITY_IMG = "/images/support/discord-community.jpg";
 
 export function SupportSection() {
   const t = useTranslations("support");
 
   return (
-    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="support">
+    <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="support">
       <Container>
         <div
           className="grid gap-12 lg:grid-cols-2 lg:gap-8"
         >
           <SupportCard
             id="support-discord"
-            visual={<CommunityVisual text={t("communityImagePlaceholder")} />}
+            visual={<CommunityVisual />}
             eyebrow={t("eyebrow247")}
             eyebrowIcon={<MessageCircle size={14} className="text-secondary" />}
             statLabel={t("memberCount")}
@@ -109,14 +110,17 @@ function SupportCard({
   );
 }
 
-function CommunityVisual({ text }: { text: string }) {
+function CommunityVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-surface">
-      <Image src={SUPPORT_PLACEHOLDER} alt="Image placeholder" fill sizes="(max-width: 1024px) 100vw, 50vw" className="z-[1] object-cover" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 z-[3] p-5 sm:p-7">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">{text}</p>
-      </div>
+    <div className="absolute inset-0 overflow-hidden bg-[#07070B]">
+      <Image
+        src={DISCORD_COMMUNITY_IMG}
+        alt="CK Capital Discord community"
+        fill
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        className="z-[1] object-cover object-left-top"
+      />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/35 via-transparent to-transparent" />
     </div>
   );
 }

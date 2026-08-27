@@ -29,12 +29,13 @@ export function CountUp({
   const suffix = m?.[3] ?? "";
   const target = parseFloat(numStr.replace(/,/g, ""));
   const decimals = numStr.includes(".") ? numStr.split(".")[1]!.length : 0;
+  const isNumeric = Boolean(m && !isNaN(target) && !value.includes("/"));
 
-  const [display, setDisplay] = useState(target);
+  const [display, setDisplay] = useState(isNumeric ? target : 0);
   const animatedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView || animatedRef.current) return;
+    if (!isNumeric || !inView || animatedRef.current) return;
     if (reduceMotion) {
       setDisplay(target);
       return;
@@ -50,7 +51,15 @@ export function CountUp({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, target, duration, reduceMotion]);
+  }, [inView, target, duration, reduceMotion, isNumeric]);
+
+  if (!isNumeric) {
+    return (
+      <span ref={ref} className={className}>
+        {value}
+      </span>
+    );
+  }
 
   return (
     <span ref={ref} className={className}>

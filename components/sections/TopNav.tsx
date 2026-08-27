@@ -280,13 +280,26 @@ export function TopNav() {
     setOpen(false);
   };
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (open) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = original;
+      };
+    }
+  }, [open]);
+
   return (
     <>
       <header
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-300",
           scrolled
-            ? "pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
+            ? open
+              ? "pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-auto"
+              : "pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
             : "bg-[#070709] border-b border-white/[0.08]"
         )}
         data-od-id="top-nav"
@@ -614,7 +627,7 @@ export function TopNav() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center justify-center gap-1.5 h-[34px] w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#FFC107]/40 hover:bg-white/[0.06] transition-all text-xs shrink-0"
+                className="flex items-center justify-center gap-1.5 min-h-11 h-11 w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#FFC107]/40 hover:bg-white/[0.06] transition-all text-xs shrink-0"
                 aria-label={tSearch("searchAria")}
                 data-od-id="nav-search-trigger"
               >
@@ -629,52 +642,56 @@ export function TopNav() {
                 href="https://app.ckcapital.co.uk/signin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap inline-flex items-center h-[34px] px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
+                className="whitespace-nowrap inline-flex items-center min-h-11 px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
               >
                 {t("signIn" as any)}
               </a>
               <Link
-                href="/#evaluation-programs"
+                href="/#start-challenge"
                 data-od-id="nav-cta"
-                className="whitespace-nowrap inline-flex items-center h-[34px] px-3 xl:px-4 rounded-lg bg-[#FFC107] text-[11.5px] xl:text-[12.5px] font-black text-black hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0 shadow-sm"
+                className="whitespace-nowrap inline-flex items-center min-h-11 px-3 xl:px-4 rounded-lg bg-[#FFC107] text-[11.5px] xl:text-[12.5px] font-black text-black hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0 shadow-sm"
               >
                 {t("startChallenge" as any)}
               </Link>
             </div>
 
             {/* Mobile Header Actions */}
-            <div className="lg:hidden flex items-center flex-nowrap gap-1.5 shrink-0">
+            <div className="lg:hidden flex items-center flex-nowrap gap-2 shrink-0">
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 data-od-id="mobile-search-trigger"
-                className="inline-flex h-[34px] w-[34px] items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0"
+                className="inline-flex min-h-11 min-w-11 h-11 w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
                 aria-label={tSearch("searchAria")}
               >
-                <Search size={16} className="text-primary" />
+                <Search size={17} className="text-primary" />
               </button>
               <Link
                 href="/#start-challenge"
-                className="hidden sm:inline-flex whitespace-nowrap items-center h-[34px] px-3 rounded-lg bg-primary text-[12px] font-bold text-primary-foreground hover:brightness-110 transition-all shrink-0"
+                className="hidden sm:inline-flex whitespace-nowrap items-center min-h-11 px-3 rounded-lg bg-primary text-[12px] font-bold text-primary-foreground hover:brightness-110 transition-all shrink-0"
               >
                 {t("startChallenge" as any)}
               </Link>
               <LanguageSwitcher compact />
               <button
-                className="inline-flex h-[34px] w-[34px] items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0"
+                className="inline-flex min-h-11 min-w-11 h-11 w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
                 onClick={() => setOpen(!open)}
                 aria-label={t("menu" as any)}
                 aria-expanded={open}
+                data-od-id="mobile-menu-trigger"
               >
-                {open ? <X size={18} /> : <Menu size={18} />}
+                {open ? <X size={19} /> : <Menu size={19} />}
               </button>
             </div>
           </div>
 
           {/* Mobile Drawer (Accordion) */}
           {open && (
-            <div className="lg:hidden border-t border-border pb-4 px-4" data-od-id="mobile-drawer">
-              <div className="flex flex-col gap-1 pt-3">
+            <div
+              className="lg:hidden border-t border-border pb-6 px-4 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain"
+              data-od-id="mobile-drawer"
+            >
+              <div className="flex flex-col gap-1 pt-3 pb-6">
                 <button
                   type="button"
                   onClick={() => {

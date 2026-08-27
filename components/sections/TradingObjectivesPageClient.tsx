@@ -68,14 +68,14 @@ function SectionHeading({
     <div className="mx-auto max-w-3xl text-center" data-od-id={id}>
       <p
         className={`mb-3 text-xs font-black uppercase tracking-[0.22em] ${
-          dark ? "text-[#FFC107]" : "text-[#9A6B00]"
+          dark ? "text-[#D99B00]" : "text-[#D99B00]"
         }`}
       >
         {eyebrow}
       </p>
       <h2
         className={`font-[family-name:var(--font-inter-tight)] text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-5xl ${
-          dark ? "text-white" : "text-[#0A0A0C]"
+          dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"
         }`}
       >
         {title}
@@ -83,7 +83,7 @@ function SectionHeading({
       {children ? (
         <p
           className={`mx-auto mt-4 max-w-2xl text-sm sm:text-base font-medium leading-relaxed ${
-            dark ? "text-gray-200" : "text-gray-700"
+            dark ? "text-[#4B5563]" : "text-[#4B5563]"
           }`}
         >
           {children}
@@ -180,16 +180,16 @@ function PhaseCard({
     >
       <div
         className={cn(
-          "flex items-center justify-between border-b px-6 py-4 sm:px-7 sm:py-5",
+          "flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3.5 sm:px-7 sm:py-5",
           accent
             ? "border-[#FFC107]/20 bg-[#FFFDF5]"
             : "border-gray-100 bg-[#FAFAFA]"
         )}
       >
-        <div className="flex items-center gap-3.5">
+        <div className="flex items-center gap-3">
           <span
             className={cn(
-              "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border font-bold shadow-sm",
+              "flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border font-bold shadow-sm",
               accent
                 ? "border-[#FFC107]/40 bg-[#FFC107] text-[#0A0A0C]"
                 : "border-gray-200 bg-white text-[#8A5A00]"
@@ -207,13 +207,13 @@ function PhaseCard({
           </div>
         </div>
         {accent && (
-          <span className="shrink-0 rounded-full bg-[#FFC107]/25 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#7A4E00]">
+          <span className="shrink-0 rounded-full bg-[#FFC107]/25 px-2.5 py-1 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#7A4E00]">
             Target Destination
           </span>
         )}
       </div>
 
-      <div className="flex-1 divide-y divide-gray-100 px-6 py-2 sm:px-7">
+      <div className="flex-1 divide-y divide-gray-100 px-4 py-2 sm:px-7">
         {rows.map((row) => (
           <div
             key={row.label}
@@ -655,8 +655,8 @@ function CompareModels({
         Compare evaluation structures side-by-side to choose the exact risk and verification model that matches your strategy.
       </SectionHeading>
 
-      {/* Mobile view: Stacked cards (< sm) */}
-      <div className="mt-8 space-y-4 sm:hidden" data-od-id="compare-models-cards-mobile">
+      {/* Mobile view: Stacked cards (< md) */}
+      <div className="mt-8 space-y-4 md:hidden" data-od-id="compare-models-cards-mobile">
         {[
           {
             title: t("paths.oneStep"),
@@ -730,12 +730,12 @@ function CompareModels({
         })}
       </div>
 
-      {/* Tablet / Desktop view: Horizontal table (sm+) */}
+      {/* Tablet / Desktop view: Horizontal table (md+) */}
       <div
-        className="mx-auto mt-6 sm:mt-10 max-w-5xl hidden sm:block overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-md"
+        className="mx-auto mt-6 sm:mt-10 max-w-5xl hidden md:block rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden"
         data-od-id="compare-models-table"
       >
-        <div className="min-w-[620px]">
+        <div className="min-w-0">
           <div className="grid grid-cols-4 border-b border-gray-200 bg-[#F8F9FA] text-xs font-black uppercase tracking-[0.14em]">
             <span className="px-6 py-5 text-gray-700">
               {t("compareTableHeader")}
@@ -833,12 +833,12 @@ function ObjectiveFaq() {
             <AccordionItem
               key={i}
               value={String(i)}
-              className="rounded-2xl border border-white/15 bg-[#12100A] px-6 transition-all data-[open]:border-[#FFC107]/50 data-[open]:bg-[#18140B]"
+              className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-[#FFC107]/50 data-[open]:bg-white"
             >
-              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-white hover:text-[#FFC107] hover:no-underline">
+              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-[#0A0A0C] hover:text-[#FFC107] hover:no-underline">
                 {item.q}
               </AccordionTrigger>
-              <AccordionContent className="pb-5 text-sm sm:text-[14.5px] font-medium leading-relaxed text-gray-200">
+              <AccordionContent className="pb-5 text-sm sm:text-[14.5px] font-medium leading-relaxed text-[#4B5563]">
                 {item.a}
               </AccordionContent>
             </AccordionItem>
@@ -1008,7 +1008,7 @@ export function TradingObjectivesPageClient({
       {/* S1. HERO SECTION (DARK)                                     */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]"
+        className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white"
         data-od-id="objectives-hero"
       >
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
@@ -1025,21 +1025,21 @@ export function TradingObjectivesPageClient({
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <div
-                className="inline-flex items-center gap-2 rounded-full border border-[#FFC107]/40 bg-[#FFC107]/15 px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#FFC107]/40 bg-[#FFC107]/15 px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]"
                 data-od-id="objectives-hero-eyebrow"
               >
                 <Sparkles size={13} /> {t("heroBadge")}
               </div>
 
               <h1
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-black uppercase leading-[1.04] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-black uppercase leading-[1.04] tracking-tight text-[#0A0A0C] sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px]"
                 data-od-id="objectives-hero-title"
               >
                 {t("heroTitlePrefix")}{" "}
                 <span className="shimmer-text">{t("heroTitleShimmer")}</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-sm sm:text-base font-medium leading-relaxed text-gray-200">
+              <p className="mt-5 max-w-xl text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
                 {t("heroDesc")}
               </p>
 
@@ -1051,14 +1051,14 @@ export function TradingObjectivesPageClient({
                 </a>
                 <a
                   href="#the-journey"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 text-sm font-bold text-white hover:border-[#FFC107]/60 hover:bg-[#FFC107]/15 hover:text-[#FFC107] transition-all duration-200 shadow-sm"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 text-sm font-bold text-[#0A0A0C] hover:border-[#FFC107]/40 hover:bg-[#FFF8E1] hover:text-[#8A5A00] transition-all duration-200 shadow-sm"
                   data-od-id="objectives-hero-secondary"
                 >
                   Explore Roadmap <ArrowRight size={15} />
                 </a>
               </div>
 
-              <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-[0.16em] text-gray-300">
+              <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-[0.16em] text-gray-500">
                 <span className="inline-flex items-center gap-2">
                   <ShieldCheck size={16} className="text-[#FFC107]" />
                   {t("badgeSimulated")}
@@ -1089,7 +1089,7 @@ export function TradingObjectivesPageClient({
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="the-journey"
-        className="relative bg-[#0D0C08] py-20 md:py-28 text-white border-b border-white/10 scroll-mt-20"
+        className="relative bg-white py-20 md:py-28 text-[#0A0A0C] border-b border-gray-200 scroll-mt-20"
         data-od-id="progression"
       >
         <Container>
@@ -1107,7 +1107,7 @@ export function TradingObjectivesPageClient({
               {rawProgression.map((item, i) => (
                 <div
                   key={item.step}
-                  className="relative flex flex-col justify-between rounded-2xl border border-white/15 bg-[#12100A] p-7 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1"
+                  className="relative flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-7 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1"
                 >
                   <div>
                     <div className="flex items-center justify-between">
@@ -1119,10 +1119,10 @@ export function TradingObjectivesPageClient({
                       </span>
                     </div>
 
-                    <h3 className="mt-6 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-white">
+                    <h3 className="mt-6 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm font-medium leading-relaxed text-gray-200">
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-[#4B5563]">
                       {item.desc}
                     </p>
                   </div>
@@ -1131,13 +1131,13 @@ export function TradingObjectivesPageClient({
             </div>
 
             {/* QA Benefits Strip */}
-            <div className="mt-10 rounded-2xl border border-[#FFC107]/40 bg-[#15120B] p-6 sm:p-8">
+            <div className="mt-10 rounded-2xl border border-[#FFC107]/40 bg-white p-6 sm:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
                     {t("qaBenefitsTitle")}
                   </p>
-                  <p className="mt-1 text-xs sm:text-sm text-gray-300 font-medium">
+                  <p className="mt-1 text-xs sm:text-sm text-gray-500 font-medium">
                     Verified benefits unlocked once you complete evaluation criteria
                   </p>
                 </div>
@@ -1150,7 +1150,7 @@ export function TradingObjectivesPageClient({
                 {qaBenefits.map((benefit) => (
                   <span
                     key={benefit}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-[#0A0A0C]"
                   >
                     <Check size={14} className="text-[#FFC107]" strokeWidth={3} />
                     {benefit}
@@ -1167,7 +1167,7 @@ export function TradingObjectivesPageClient({
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="evaluation-selector"
-        className="scroll-mt-24 bg-[#F4F5F7] border-b border-gray-200 py-16 md:py-24 text-[#0A0A0C]"
+        className="scroll-mt-24 bg-white border-b border-gray-200 py-16 md:py-24 text-[#0A0A0C]"
         data-od-id="evaluation-selector"
       >
         <Container>
@@ -1286,7 +1286,7 @@ export function TradingObjectivesPageClient({
               </div>
 
               <div
-                className="flex flex-wrap gap-2.5 sm:gap-3"
+                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5 sm:gap-3"
                 role="group"
                 aria-label="Account size"
                 data-od-id="selector-size"
@@ -1300,7 +1300,7 @@ export function TradingObjectivesPageClient({
                       aria-pressed={isSelected}
                       onClick={() => selectSize(s)}
                       className={cn(
-                        "group relative flex flex-1 min-w-[76px] sm:min-w-[100px] flex-col items-center justify-center rounded-xl border py-3.5 px-3 text-center transition-all duration-200 hover:-translate-y-0.5",
+                        "group relative flex min-w-0 flex-col items-center justify-center rounded-xl border py-3.5 px-3 text-center transition-all duration-200 hover:-translate-y-0.5",
                         isSelected
                           ? "border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] shadow-md ring-2 ring-[#FFC107]/30 font-black"
                           : "border-gray-200 bg-white text-gray-900 hover:border-[#FFC107]/60 hover:shadow-sm font-bold"
@@ -1346,7 +1346,7 @@ export function TradingObjectivesPageClient({
                 data-od-id="selector-platform"
               >
                 {platformsList.map((p) => {
-                  const active = platform === "both" || platform === p.id;
+                  const active = platform === p.id || (platform === "both" && p.id === "mt5");
                   return (
                     <button
                       key={p.id}
@@ -1534,7 +1534,7 @@ export function TradingObjectivesPageClient({
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="unlimited-trading-period"
-        className="scroll-mt-24 bg-[#0D0C08] py-20 md:py-28 text-white border-b border-white/10"
+        className="scroll-mt-24 bg-white py-20 md:py-28 text-[#0A0A0C] border-b border-gray-200"
         data-od-id="unlimited-trading-period"
       >
         <Container>
@@ -1549,33 +1549,33 @@ export function TradingObjectivesPageClient({
 
           <div className="mx-auto mt-14 max-w-5xl grid gap-6 md:grid-cols-2">
             {/* Card 1: Unlimited Trading Period */}
-            <div className="rounded-2xl border border-white/15 bg-[#12100A] p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
                 <Infinity size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]">
+              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
                 {t("unlimitedEyebrow")}
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-white">
+              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
                 {t("unlimitedTitle")}
               </h3>
-              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-gray-200">
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
                 {t("unlimitedDesc")}
               </p>
             </div>
 
             {/* Card 2: Reset & Top-Up */}
-            <div className="rounded-2xl border border-white/15 bg-[#12100A] p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
                 <RefreshCw size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]">
+              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
                 {t("resetEyebrow")}
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-white">
+              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
                 {t("resetTitle")}
               </h3>
-              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-gray-200">
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
                 {t("resetDesc")}
               </p>
               <a
@@ -1587,33 +1587,33 @@ export function TradingObjectivesPageClient({
             </div>
 
             {/* Card 3: News Trading & Weekend Holding */}
-            <div className="rounded-2xl border border-white/15 bg-[#12100A] p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
                 <Zap size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]">
+              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
                 TRADING FREEDOM
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-white">
+              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
                 News Trading & Overnight Holding
               </h3>
-              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-gray-200">
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
                 Trade high-impact macroeconomic releases and hold positions over the weekend without restrictive execution bans.
               </p>
             </div>
 
             {/* Card 4: Verified Fast Payouts */}
-            <div className="rounded-2xl border border-white/15 bg-[#12100A] p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
                 <Coins size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#FFC107]">
+              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
                 REWARD DISBURSEMENT
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-white">
+              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
                 Fast Payouts in Crypto & Fiat
               </h3>
-              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-gray-200">
+              <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
                 Receive simulated trading profit disbursements processed in under 12 hours via Crypto (USDT) or direct Bank Wire.
               </p>
             </div>
@@ -1626,7 +1626,7 @@ export function TradingObjectivesPageClient({
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="understand-objectives"
-        className="scroll-mt-24 bg-[#F4F5F7] py-20 md:py-28 text-[#0A0A0C] border-b border-gray-200"
+        className="scroll-mt-24 bg-white py-20 md:py-28 text-[#0A0A0C] border-b border-gray-200"
         data-od-id="understand-objectives"
       >
         <Container>
@@ -1670,7 +1670,7 @@ export function TradingObjectivesPageClient({
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="objectives-faq"
-        className="scroll-mt-24 bg-[#0D0C08] py-20 md:py-28 text-white border-b border-white/10"
+        className="scroll-mt-24 bg-white py-20 md:py-28 text-[#0A0A0C] border-b border-gray-200"
         data-od-id="objectives-faq"
       >
         <ObjectiveFaq />
@@ -1680,7 +1680,7 @@ export function TradingObjectivesPageClient({
       {/* S8. FINAL CLOSING CTA (LIGHT)                               */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden bg-[#F4F5F7] py-20 md:py-28 text-[#111827]"
+        className="relative overflow-hidden bg-white py-20 md:py-28 text-[#111827]"
         data-od-id="objectives-final-cta"
       >
         <Container className="relative text-center">
@@ -1723,29 +1723,29 @@ export function TradingObjectivesPageClient({
       {/* S9. LEGAL / REGULATORY DISCLAIMER (DARK)                    */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
-        className="border-t border-white/10 bg-[#070709] py-10 text-white/70"
+        className="border-t border-gray-200 bg-white py-10 text-gray-500"
         data-od-id="objectives-legal"
       >
         <Container>
           <div className="flex items-start gap-4">
             <ShieldCheck className="mt-1 shrink-0 text-[#FFC107]" size={20} />
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.16em] text-white">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#0A0A0C]">
                 {t("legalEyebrow")}
               </p>
-              <p className="mt-2.5 max-w-4xl text-xs sm:text-sm font-medium leading-relaxed text-gray-300">
+              <p className="mt-2.5 max-w-4xl text-xs sm:text-sm font-medium leading-relaxed text-gray-500">
                 {t("legalDesc")}
               </p>
-              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-[#FFC107]">
+              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-[#D99B00]">
                 <a
                   href="/terms-conditions"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-[#0A0A0C] transition-colors"
                 >
                   {t("viewTermsConditions")} <ArrowRight size={13} className="inline" />
                 </a>
                 <a
                   href="/risk-disclosure"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-[#0A0A0C] transition-colors"
                 >
                   {t("viewDisclaimer")} <ArrowRight size={13} className="inline" />
                 </a>

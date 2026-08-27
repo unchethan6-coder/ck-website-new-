@@ -128,7 +128,7 @@ export default function AboutPage() {
         {/* ─────────────── Hero (Landing Page Parity) ─────────────── */}
         <section
           ref={sectionRef}
-          className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07]"
+          className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200"
           data-od-id="about-hero"
         >
           {/* Parallax Radial Glows */}
@@ -151,7 +151,7 @@ export default function AboutPage() {
           {/* Content Container */}
           <motion.div
             style={{ y: copyY, opacity: copyOpacity }}
-            className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-12 pt-24 sm:px-6 md:pb-16 md:pt-28 lg:px-8"
+            className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-12 pt-28 sm:px-6 md:pb-16 md:pt-32 lg:px-8"
           >
             <div className="grid w-full gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               {/* Left Column: Hero Text */}
@@ -172,7 +172,7 @@ export default function AboutPage() {
                   initial="hidden"
                   animate="show"
                   custom={0.08}
-                  className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(36px,6vw,44px)] font-extrabold leading-[1.03] tracking-[-0.02em] text-foreground sm:text-[50px] md:text-[58px] lg:text-[52px] xl:text-[64px]"
+                  className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(36px,6vw,44px)] font-extrabold leading-[1.03] tracking-[-0.02em] text-[#0A0A0C] sm:text-[50px] md:text-[58px] lg:text-[52px] xl:text-[64px]"
                   data-od-id="about-hero-title"
                 >
                   {t('heroTitlePrefix')}{' '}
@@ -263,7 +263,7 @@ export default function AboutPage() {
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
                           <Star size={10} className="fill-primary text-primary" /> {t('founderRoleBadge')}
                         </span>
-                        <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-foreground sm:text-2xl">
+                        <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] sm:text-2xl">
                           Daniel Cheung
                         </h3>
                         <p className="text-xs font-semibold text-primary/80">
@@ -281,7 +281,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Bio details */}
-                    <p className="text-xs leading-relaxed text-foreground/50">
+                    <p className="text-xs leading-relaxed text-gray-500">
                       {t('founderBio')}
                     </p>
 
@@ -304,7 +304,7 @@ export default function AboutPage() {
         </section>
 
         {/* ─────────────── Four-Pillar Stats Band (LIGHT) ─────────────── */}
-        <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="about-stats-strip">
+        <section className="bg-white border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="about-stats-strip">
           <Container>
             <div
               className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0"
@@ -330,16 +330,16 @@ export default function AboutPage() {
         </section>
 
         {/* ─────────────── Mission & Vision (DARK) ─────────────── */}
-        <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="about-mission-vision">
+        <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-mission-vision">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                 {t('missionVisionHeadingEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('missionVisionHeadingTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/60">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500">
                 {t('missionVisionHeadingSubtitle')}
               </p>
             </SectionReveal>
@@ -364,10 +364,10 @@ export default function AboutPage() {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                       {item.eyebrow}
                     </span>
-                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-white">
+                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-[#0A0A0C]">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-7 text-white/60">
+                    <p className="mt-4 text-sm leading-7 text-gray-500">
                       {item.description}
                     </p>
                   </div>
@@ -378,7 +378,7 @@ export default function AboutPage() {
         </section>
 
         {/* ─────────────── Philosophy & Culture (LIGHT) ─────────────── */}
-        <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-pillars">
+        <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-pillars">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
@@ -419,16 +419,16 @@ export default function AboutPage() {
         </section>
 
         {/* ─────────────── Core Values (DARK) ─────────────── */}
-        <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="about-values">
+        <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-values">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
                 {t('valuesEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('valuesTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/60">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500">
                 {t('valuesSubtitle')}
               </p>
             </SectionReveal>
@@ -441,16 +441,16 @@ export default function AboutPage() {
                 return (
                   <div
                     key={item.title}
-                    className="group rounded-2xl border border-white/10 bg-[#12100A] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#18140B]"
+                    className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white"
                     data-od-id={`about-value-${item.title.toLowerCase()}`}
                   >
                     <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/20">
                       <Icon size={20} className="text-primary" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-white">
+                    <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-[#0A0A0C]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
                       {item.description}
                     </p>
                   </div>
@@ -461,7 +461,7 @@ export default function AboutPage() {
         </section>
 
         {/* ─────────────── Closing CTA (LIGHT) ─────────────── */}
-        <section className="relative overflow-hidden bg-[#F6F7F9] border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="about-cta">
+        <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="about-cta">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.08),_transparent_65%)]" />
           <Container className="relative text-center">
             <SectionReveal>
@@ -490,7 +490,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id="about-cta-secondary"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-[#F6F7F9]"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-white"
                 >
                   <MessageCircle size={16} className="text-[#B89628]" />
                   {t('ctaDiscord')}

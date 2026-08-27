@@ -24,7 +24,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
     <section className="py-12 md:py-16" data-od-id="offers">
       <Container>
         <SectionReveal>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl md:text-4xl font-extrabold text-foreground mb-3">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl md:text-4xl font-extrabold text-[#0A0A0C] mb-3">
             {t("title")}
           </h2>
         </SectionReveal>
@@ -41,7 +41,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
         <SectionReveal delay={0.1}>
           <div
             data-od-id="offers-card"
-            className="relative overflow-hidden rounded-2xl border border-primary/30 bg-[#12100A] p-6 sm:p-8 md:p-10 shadow-xl"
+            className="relative overflow-hidden rounded-2xl border border-primary/30 bg-white p-6 sm:p-8 md:p-10 shadow-xl"
           >
             <div className="relative flex flex-col md:flex-row md:items-center gap-8 md:gap-6">
               {/* Content column */}
@@ -52,7 +52,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
                 </span>
 
                 {/* Headline — white + gold split */}
-                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl md:text-[34px] font-extrabold leading-tight tracking-tight text-foreground">
+                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl md:text-[34px] font-extrabold leading-tight tracking-tight text-[#0A0A0C]">
                   {promo?.title ? (
                     headline
                   ) : (
@@ -67,7 +67,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
                 <div className="mt-4 h-px w-full bg-primary/25" />
 
                 {/* Subcopy */}
-                <p className="mt-4 max-w-xl text-sm sm:text-[15px] text-foreground/60 leading-relaxed">
+                <p className="mt-4 max-w-xl text-sm sm:text-[15px] text-gray-500 leading-relaxed">
                   {subcopy}
                 </p>
               </div>

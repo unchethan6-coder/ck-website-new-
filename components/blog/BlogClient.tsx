@@ -33,7 +33,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
   return (
     <div className="min-h-screen bg-background" data-od-id="blog-page">
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="blog-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="blog-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -60,7 +60,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="blog-hero-title"
               >
                 CK Capital <span className="shimmer-text">Blog</span>
@@ -70,7 +70,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
               >
                 Expert trading tips, systematic market analysis, risk management strategies, and success stories from our global analyst community.
               </motion.p>
@@ -88,13 +88,13 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 </a>
                 <a
                   href="/#start-challenge"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   Start Evaluation <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
                 <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-primary" /> Curated Content</span>
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Risk & Strategy Guides</span>
               </div>
@@ -114,7 +114,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
       </section>
 
       {/* ─────────────── Blog Feed (LIGHT) ─────────────── */}
-      <section id="blog-feed" className="scroll-mt-24 bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="blog-feed">
+      <section id="blog-feed" className="scroll-mt-24 bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="blog-feed">
         <Container>
           {articles.length === 0 ? (
             <motion.div
@@ -137,7 +137,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
           ) : (
             <div className="space-y-12">
               {/* Category filter */}
-              <div className="flex flex-wrap justify-center gap-2" data-od-id="blog-filter">
+              <div className="flex flex-wrap gap-2 pb-2 justify-center px-1" data-od-id="blog-filter">
                 {ARTICLE_CATEGORIES.map((cat) => {
                   const isActive = active === cat.value;
                   return (
@@ -274,13 +274,13 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
       </section>
 
       {/* ─────────────── Closing CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="blog-closing-cta">
+      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="blog-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Apply Your Knowledge Today
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
               Put proven market analysis into action with a simulated evaluation account on MT5 or TradeLocker.
             </p>
             <div className="mt-8">

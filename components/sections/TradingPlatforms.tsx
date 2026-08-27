@@ -32,7 +32,7 @@ export function TradingPlatforms() {
   return (
     <section
       id="platforms"
-      className="scroll-mt-28 bg-[#0D0C08] text-white py-14 md:py-24"
+      className="scroll-mt-28 bg-white text-[#0A0A0C] py-14 md:py-24"
       data-od-id="trading-platforms"
     >
       <Container>
@@ -40,10 +40,10 @@ export function TradingPlatforms() {
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
+          <p className="mt-3 text-gray-500 max-w-xl mx-auto">
             {t("subtitle")}
           </p>
         </SectionReveal>
@@ -54,7 +54,7 @@ export function TradingPlatforms() {
           {platforms.map((p) => (
             <div
               key={p.id}
-              className="rounded-2xl border border-white/10 bg-[#12100A] p-6 sm:p-7 shadow-xl card-hover-standard flex flex-col gap-5 transition-transform duration-200 hover:-translate-y-1"
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] card-hover-standard flex flex-col gap-5 transition-transform duration-200 hover:-translate-y-1"
               data-od-id={`platform-${p.id}`}
             >
               <div className="flex items-center gap-3">
@@ -66,16 +66,16 @@ export function TradingPlatforms() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-foreground">
+                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C]">
                     {p.name}
                   </h3>
-                  <p className="text-xs text-foreground/40">{p.fullName}</p>
+                  <p className="text-xs text-gray-400">{p.fullName}</p>
                 </div>
               </div>
 
-              <p className="text-sm text-foreground/50 leading-relaxed">{p.description}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{p.description}</p>
 
-              <ul className="grid grid-cols-2 gap-1.5 text-xs text-foreground/60">
+              <ul className="grid grid-cols-2 gap-1.5 text-xs text-gray-600">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-center gap-1.5">
                     <Check size={11} className="text-emerald-400 shrink-0" /> {f}
@@ -87,9 +87,9 @@ export function TradingPlatforms() {
                 href="https://app.ckcapital.co.uk/signup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="self-start"
+                className="w-full sm:w-auto self-stretch sm:self-start mt-auto pt-2"
               >
-                <GoldButton variant="outline" data-od-id={`platform-cta-${p.id}`}>
+                <GoldButton variant="outline" className="w-full sm:w-auto text-center justify-center" data-od-id={`platform-cta-${p.id}`}>
                   {t("getPlatform", { name: p.name })}
                 </GoldButton>
               </a>

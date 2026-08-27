@@ -49,6 +49,12 @@ const notoKufiArabic = Noto_Kufi_Arabic({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width" as const,
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

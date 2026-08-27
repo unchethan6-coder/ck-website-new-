@@ -15,8 +15,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-export function LaptopMockup() {
-  // Live Trading Simulation State
+/* Shared live-trading simulation — single instance drives phone/tablet/laptop */
+function useLiveDashboard() {
   const [liveData, setLiveData] = useState({
     balance: 52845.0,
     profit: 5214.75,
@@ -31,12 +31,10 @@ export function LaptopMockup() {
   });
 
   useEffect(() => {
-    // Start live trading simulation after line draw entrance completes
     const startTimer = setTimeout(() => {
       const interval = setInterval(() => {
         setLiveData((prev) => {
-          // Generate a realistic tick change
-          const isUp = Math.random() > 0.35; // 65% upward drift
+          const isUp = Math.random() > 0.35;
           const delta = isUp
             ? Math.round((Math.random() * 85 + 15) * 100) / 100
             : -Math.round((Math.random() * 45 + 10) * 100) / 100;
@@ -51,11 +49,9 @@ export function LaptopMockup() {
           ).toFixed(2);
           const newProfitPct = (((newProfit - 4500) / 4500) * 100).toFixed(2);
 
-          // Map delta to chart Y coordinate (inverted: higher balance = lower Y in SVG)
           const yShift = (delta / 85) * -3;
           const newY = Math.max(36, Math.min(58, prev.lastY + yShift));
 
-          // Occasionally add a completed trade
           const tradeIncrement = Math.random() > 0.85 ? 1 : 0;
 
           return {
@@ -79,6 +75,153 @@ export function LaptopMockup() {
     return () => clearTimeout(startTimer);
   }, []);
 
+  return liveData;
+}
+
+const SIDEBAR_ITEMS = [
+  { icon: TrendingUp, label: "Trading" },
+  { icon: BarChart2, label: "Statistics" },
+  { icon: Wallet, label: "Payouts" },
+  { icon: Users, label: "Partners" },
+  { icon: Download, label: "Downloads" },
+  { icon: User, label: "Profile" },
+  { icon: HelpCircle, label: "Help Center" },
+];
+
+function BrandMark() {
+  return (
+    <div className="flex items-center gap-1.5">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#FFC107"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="11 18 5 12 11 6" />
+        <polyline points="19 18 13 12 19 6" />
+      </svg>
+      <span className="text-[11px] font-black tracking-wider text-[#0A0A0C]">
+        CK CAPITAL
+      </span>
+    </div>
+  );
+}
+
+function MetricCard({
+  label,
+  value,
+  sub,
+  subTone,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+  subTone?: "up" | "down" | "muted";
+}) {
+  return (
+    <div className="rounded-lg border border-white/[0.06] bg-white p-2">
+      <span className="text-[9px] text-gray-500 block">{label}</span>
+      <div className="text-[12px] font-bold text-[#0A0A0C] mt-0.5 tabular-nums transition-colors duration-300 truncate">
+        {value}
+      </div>
+      {sub ? (
+        <span
+          className={`text-[8px] font-semibold tabular-nums transition-colors ${
+            subTone === "up"
+              ? "text-emerald-400"
+              : subTone === "down"
+                ? "text-rose-400"
+                : "text-gray-500"
+          }`}
+        >
+          {sub}
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
+function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboard> }) {
+  return (
+    <div className="relative flex-1 w-full">
+      <svg
+        viewBox="0 0 320 120"
+        className="h-full w-full overflow-visible"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFC107" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FFC107" stopOpacity="0.0" />
+          </linearGradient>
+        </defs>
+
+        <line x1="0" y1="20" x2="320" y2="20" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+        <line x1="0" y1="50" x2="320" y2="50" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+        <line x1="0" y1="80" x2="320" y2="80" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+
+        <motion.path
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32 L 320 120 L 0 120 Z`}
+          fill="url(#chartGradient)"
+        />
+
+        <motion.path
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 1.6, ease: "easeInOut" }}
+          d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32`}
+          fill="none"
+          stroke="#FFC107"
+          strokeWidth="2.2"
+        />
+
+        <line
+          x1="250"
+          y1="20"
+          x2="250"
+          y2="110"
+          stroke="#FFC107"
+          strokeDasharray="2 2"
+          strokeWidth="1"
+          opacity="0.6"
+        />
+
+        <circle
+          cx="250"
+          cy={liveData.lastY}
+          r="3.5"
+          fill="#FFC107"
+          stroke="#000"
+          strokeWidth="1.5"
+          className="transition-all duration-300"
+        />
+      </svg>
+
+      {/* Live tooltip card (tablet + laptop) */}
+      <div className="absolute top-1 right-10 hidden sm:block rounded border border-[#FFC107]/40 bg-[#1A1A20] px-2 py-1 shadow-lg text-center transition-all duration-300">
+        <div className="text-[9px] font-bold text-[#FFC107] tabular-nums">
+          {new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+          }).format(liveData.balance)}
+        </div>
+        <div className="text-[7.5px] text-gray-500">May 14</div>
+      </div>
+    </div>
+  );
+}
+
+export function LaptopMockup() {
+  const liveData = useLiveDashboard();
+
   const formatCurrency = (val: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -88,16 +231,16 @@ export function LaptopMockup() {
 
   return (
     <div
-      className="relative w-full max-w-[800px] select-none"
+      className="relative w-full max-w-[300px] sm:max-w-[600px] lg:max-w-[720px] select-none"
       style={{ perspective: "1100px" }}
     >
       {/* Static Ground Shadow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-8 left-[2%] h-16 w-[96%] rounded-full bg-black/50 blur-2xl"
+        className="pointer-events-none absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 left-[4%] h-10 sm:h-12 lg:h-16 w-[92%] rounded-full bg-black/25 sm:bg-black/35 lg:bg-black/50 blur-2xl"
       />
 
-      {/* 3D Perspective Wrapper - Static 3/4 Side View Angle */}
+      {/* 3D Perspective Wrapper - 3/4 Side View Angle (all devices) */}
       <div
         className="preserve-3d"
         style={{
@@ -106,58 +249,34 @@ export function LaptopMockup() {
           transform: "rotateY(-22deg) rotateX(9deg) rotateZ(-1.5deg)",
         }}
       >
-        {/* Laptop Display Chassis */}
-        <div className="relative overflow-hidden rounded-[20px] border-[11px] border-[#18181B] bg-[#09090B] shadow-[0_40px_120px_rgba(0,0,0,0.8),0_10px_40px_rgba(255,193,7,0.14)]">
-          {/* Top Bezel Camera Dot */}
-          <div className="absolute left-1/2 top-1.5 -translate-x-1/2 flex items-center justify-center">
+        {/* Device Chassis — phone bezel <sm, tablet bezel sm-lg, laptop bezel lg+ */}
+        <div className="relative overflow-hidden rounded-[44px] sm:rounded-[30px] lg:rounded-[20px] border-[10px] sm:border-[14px] lg:border-[11px] border-[#18181B] bg-[#09090B] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25),0_0_30px_rgba(255,193,7,0.12)] w-full">
+          {/* Top Bezel Camera Dot (tablet + laptop) */}
+          <div className="absolute left-1/2 top-1.5 -translate-x-1/2 hidden sm:flex items-center justify-center">
             <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
           </div>
 
-          {/* Screen Content - Dashboard UI */}
-          <div className="mt-2.5 flex h-[440px] w-full text-white">
-            {/* Sidebar */}
-            <aside className="flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#0D0D10] p-3">
+          {/* Dynamic Island (phone) */}
+          <div className="absolute left-1/2 top-[7px] -translate-x-1/2 sm:hidden z-10 h-[12px] w-[58px] rounded-full bg-black" />
+
+          {/* Screen Content - Dashboard UI (phone 9:19, tablet 4:3, laptop 16:9) */}
+          <div className="mt-2 sm:mt-3 lg:mt-2.5 flex aspect-[9/19] sm:aspect-[4/3] lg:aspect-[16/9] w-full text-[#0A0A0C]">
+            {/* Sidebar (laptop only) */}
+            <aside className="hidden lg:flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#0D0D10] p-3">
               <div>
-                {/* Logo */}
                 <div className="mb-4 flex items-center gap-1.5 px-1">
-                  <div className="flex items-center text-[#FFC107]">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#FFC107"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="11 18 5 12 11 6" />
-                      <polyline points="19 18 13 12 19 6" />
-                    </svg>
-                  </div>
-                  <span className="text-[11px] font-black tracking-wider text-white">
-                    CK CAPITAL
-                  </span>
+                  <BrandMark />
                 </div>
 
-                {/* Sidebar Navigation */}
                 <nav className="space-y-1 text-[11px]">
                   <div className="flex items-center gap-2 rounded-lg bg-[#FFC107] px-2.5 py-1.5 font-black text-black shadow-sm">
                     <LayoutDashboard size={13} />
                     <span>Overview</span>
                   </div>
-                  {[
-                    { icon: TrendingUp, label: "Trading" },
-                    { icon: BarChart2, label: "Statistics" },
-                    { icon: Wallet, label: "Payouts" },
-                    { icon: Users, label: "Partners" },
-                    { icon: Download, label: "Downloads" },
-                    { icon: User, label: "Profile" },
-                    { icon: HelpCircle, label: "Help Center" },
-                  ].map((item) => (
+                  {SIDEBAR_ITEMS.map((item) => (
                     <div
                       key={item.label}
-                      className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-white/55 transition-colors hover:text-white"
+                      className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-gray-500 transition-colors hover:text-[#0A0A0C]"
                     >
                       <item.icon size={13} />
                       <span className="text-[10.5px]">{item.label}</span>
@@ -168,146 +287,66 @@ export function LaptopMockup() {
             </aside>
 
             {/* Main Content View */}
-            <main className="flex flex-1 flex-col overflow-hidden bg-[#0A0A0C] p-3.5">
-              {/* Top 4 Metrics Cards with Live Ticking Numbers */}
-              <div className="grid grid-cols-4 gap-2 mb-2.5">
-                {/* Account Balance */}
-                <div className="rounded-lg border border-white/[0.06] bg-[#121216] p-2">
-                  <span className="text-[9px] text-white/50 block">Account Balance</span>
-                  <div className="text-[12px] font-bold text-white mt-0.5 tabular-nums transition-colors duration-300">
-                    {formatCurrency(liveData.balance)}
-                  </div>
-                  <span
-                    className={`text-[8px] font-semibold tabular-nums transition-colors ${
-                      liveData.balancePercent >= 0
-                        ? "text-emerald-400"
-                        : "text-rose-400"
-                    }`}
-                  >
-                    {liveData.balancePercent >= 0 ? "+" : ""}
-                    {liveData.balancePercent}%
+            <main className="flex flex-1 flex-col overflow-hidden bg-[#0A0A0C] p-3 sm:p-3.5">
+              {/* Status Bar (phone) */}
+              <div className="flex sm:hidden items-center justify-between text-[8px] font-semibold text-gray-500 px-1 mb-1.5">
+                <span>9:41</span>
+                <span className="flex items-center gap-1">
+                  <span className="flex items-end gap-[1.5px]">
+                    <span className="h-[3px] w-[2px] bg-white/60 rounded-sm" />
+                    <span className="h-[5px] w-[2px] bg-white/60 rounded-sm" />
+                    <span className="h-[7px] w-[2px] bg-white/60 rounded-sm" />
                   </span>
-                </div>
-
-                {/* Profit */}
-                <div className="rounded-lg border border-white/[0.06] bg-[#121216] p-2">
-                  <span className="text-[9px] text-white/50 block">Profit</span>
-                  <div className="text-[12px] font-bold text-white mt-0.5 tabular-nums transition-colors duration-300">
-                    {formatCurrency(liveData.profit)}
-                  </div>
-                  <span
-                    className={`text-[8px] font-semibold tabular-nums transition-colors ${
-                      liveData.profitPercent >= 0
-                        ? "text-emerald-400"
-                        : "text-rose-400"
-                    }`}
-                  >
-                    {liveData.profitPercent >= 0 ? "+" : ""}
-                    {liveData.profitPercent}%
+                  <span className="inline-block h-[7px] w-[12px] rounded-[2px] border border-white/60 relative">
+                    <span className="absolute inset-[1px] right-[3px] bg-white/60 rounded-[1px]" />
                   </span>
-                </div>
+                </span>
+              </div>
 
-                {/* Equity */}
-                <div className="rounded-lg border border-white/[0.06] bg-[#121216] p-2">
-                  <span className="text-[9px] text-white/50 block">Equity</span>
-                  <div className="text-[12px] font-bold text-white mt-0.5 tabular-nums transition-colors duration-300">
-                    {formatCurrency(liveData.equity)}
-                  </div>
-                </div>
+              {/* Top Bar (phone + tablet) */}
+              <div className="flex lg:hidden items-center justify-between mb-2">
+                <BrandMark />
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#FFC107]/40 bg-[#FFC107]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#FFC107]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFC107]" />
+                  Live
+                </span>
+              </div>
 
-                {/* Profit Split */}
-                <div className="rounded-lg border border-white/[0.06] bg-[#121216] p-2">
-                  <span className="text-[9px] text-white/50 block">Profit Split</span>
-                  <div className="text-[12px] font-bold text-white mt-0.5">100%</div>
-                  <span className="text-[8px] text-white/45">Your Share</span>
-                </div>
+              {/* Top Metrics Cards with Live Ticking Numbers */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-2">
+                <MetricCard
+                  label="Account Balance"
+                  value={formatCurrency(liveData.balance)}
+                  sub={`${liveData.balancePercent >= 0 ? "+" : ""}${liveData.balancePercent}%`}
+                  subTone={liveData.balancePercent >= 0 ? "up" : "down"}
+                />
+                <MetricCard
+                  label="Profit"
+                  value={formatCurrency(liveData.profit)}
+                  sub={`${liveData.profitPercent >= 0 ? "+" : ""}${liveData.profitPercent}%`}
+                  subTone={liveData.profitPercent >= 0 ? "up" : "down"}
+                />
+                <MetricCard label="Equity" value={formatCurrency(liveData.equity)} />
+                <MetricCard label="Profit Split" value="100%" sub="Your Share" subTone="muted" />
               </div>
 
               {/* Middle Section: Live Chart & Trading Objectives */}
-              <div className="grid grid-cols-12 gap-2 flex-1 min-h-0 mb-2.5">
-                {/* Account Growth Chart (8 cols) */}
-                <div className="col-span-8 flex flex-col rounded-lg border border-white/[0.06] bg-[#121216] p-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 flex-1 min-h-0 mb-2">
+                {/* Account Growth Chart */}
+                <div className="sm:col-span-7 lg:col-span-8 flex flex-col rounded-lg border border-white/[0.06] bg-white p-2.5">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-bold text-white">Account Growth</span>
-                    <span className="flex items-center gap-1 text-[8.5px] text-white/60 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
+                    <span className="text-[10px] font-bold text-[#0A0A0C]">Account Growth</span>
+                    <span className="hidden sm:flex items-center gap-1 text-[8.5px] text-gray-500 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
                       Last 30 Days <ChevronDown size={9} />
                     </span>
                   </div>
 
-                  <div className="relative flex-1 w-full">
-                    {/* SVG Chart */}
-                    <svg
-                      viewBox="0 0 320 120"
-                      className="h-full w-full overflow-visible"
-                      preserveAspectRatio="none"
-                    >
-                      <defs>
-                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#FFC107" stopOpacity="0.35" />
-                          <stop offset="100%" stopColor="#FFC107" stopOpacity="0.0" />
-                        </linearGradient>
-                      </defs>
-
-                      {/* Horizontal Grid lines */}
-                      <line x1="0" y1="20" x2="320" y2="20" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
-                      <line x1="0" y1="50" x2="320" y2="50" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
-                      <line x1="0" y1="80" x2="320" y2="80" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
-
-                      {/* Animated Area Fill */}
-                      <motion.path
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.4, ease: "easeOut" }}
-                        d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32 L 320 120 L 0 120 Z`}
-                        fill="url(#chartGradient)"
-                      />
-
-                      {/* Smooth Animated Line Draw */}
-                      <motion.path
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 1.6, ease: "easeInOut" }}
-                        d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32`}
-                        fill="none"
-                        stroke="#FFC107"
-                        strokeWidth="2.2"
-                      />
-
-                      {/* Tooltip marker vertical line */}
-                      <line
-                        x1="250"
-                        y1="20"
-                        x2="250"
-                        y2="110"
-                        stroke="#FFC107"
-                        strokeDasharray="2 2"
-                        strokeWidth="1"
-                        opacity="0.6"
-                      />
-
-                      {/* Solid Clean Apex Circle (No shooting ping) */}
-                      <circle
-                        cx="250"
-                        cy={liveData.lastY}
-                        r="3.5"
-                        fill="#FFC107"
-                        stroke="#000"
-                        strokeWidth="1.5"
-                        className="transition-all duration-300"
-                      />
-                    </svg>
-
-                    {/* Live Tooltip Card tracking live market value */}
-                    <div className="absolute top-1 right-10 rounded border border-[#FFC107]/40 bg-[#1A1A20] px-2 py-1 shadow-lg text-center transition-all duration-300">
-                      <div className="text-[9px] font-bold text-[#FFC107] tabular-nums">
-                        {formatCurrency(liveData.balance)}
-                      </div>
-                      <div className="text-[7.5px] text-white/50">May 14</div>
-                    </div>
+                  <div className="relative h-[110px] sm:h-auto sm:flex-1 w-full">
+                    <GrowthChart liveData={liveData} />
                   </div>
 
                   {/* Date labels */}
-                  <div className="flex justify-between text-[7.5px] text-white/40 pt-1">
+                  <div className="flex justify-between text-[7.5px] text-gray-400 pt-1">
                     <span>Apr 16</span>
                     <span>Apr 23</span>
                     <span>Apr 30</span>
@@ -316,15 +355,15 @@ export function LaptopMockup() {
                   </div>
                 </div>
 
-                {/* Trading Objectives (4 cols) */}
-                <div className="col-span-4 flex flex-col justify-start rounded-lg border border-white/[0.06] bg-[#121216] p-2.5">
-                  <div className="text-[10px] font-bold text-white mb-2">Trading Objectives</div>
+                {/* Trading Objectives */}
+                <div className="sm:col-span-5 lg:col-span-4 flex flex-col justify-start rounded-lg border border-white/[0.06] bg-white p-2.5">
+                  <div className="text-[10px] font-bold text-[#0A0A0C] mb-2">Trading Objectives</div>
 
                   <div className="space-y-2.5 text-[8.5px]">
                     <div>
                       <div className="flex items-center justify-between text-white/80 mb-0.5">
                         <span>Profit Target</span>
-                        <span className="flex items-center gap-0.5 text-white font-bold">
+                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
                           $10,000 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -336,13 +375,13 @@ export function LaptopMockup() {
                           className="h-full rounded-full bg-[#FFC107]"
                         />
                       </div>
-                      <span className="text-[7px] text-white/40 text-right block mt-0.5">$10,000 (100%)</span>
+                      <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$10,000 (100%)</span>
                     </div>
 
                     <div>
                       <div className="flex items-center justify-between text-white/80 mb-0.5">
                         <span>Max Daily Loss</span>
-                        <span className="flex items-center gap-0.5 text-white font-bold">
+                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
                           $2,500 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -354,13 +393,13 @@ export function LaptopMockup() {
                           className="h-full rounded-full bg-[#FFC107]"
                         />
                       </div>
-                      <span className="text-[7px] text-white/40 text-right block mt-0.5">$1,240 (49%)</span>
+                      <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$1,240 (49%)</span>
                     </div>
 
                     <div>
                       <div className="flex items-center justify-between text-white/80 mb-0.5">
                         <span>Max Loss</span>
-                        <span className="flex items-center gap-0.5 text-white font-bold">
+                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
                           $5,000 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -372,34 +411,34 @@ export function LaptopMockup() {
                           className="h-full rounded-full bg-[#FFC107]"
                         />
                       </div>
-                      <span className="text-[7px] text-white/40 text-right block mt-0.5">$3,180 (63%)</span>
+                      <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$3,180 (63%)</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Summary Metrics Row */}
-              <div className="grid grid-cols-4 gap-2 border-t border-white/[0.06] pt-2 text-[9px]">
+          {/* Bottom Summary Metrics Row — padded so text isn't clipped by bottom bezel */}
+              <div className="grid grid-cols-4 gap-2 border-t border-white/[0.06] pb-2 pt-2 text-[9px]">
                 <div>
-                  <span className="text-white/40 block text-[7.5px]">Total Trades</span>
+                  <span className="text-gray-400 block text-[7.5px]">Total Trades</span>
                   <span className="text-[11px] font-bold text-white tabular-nums">
                     {liveData.totalTrades}
                   </span>
                 </div>
                 <div>
-                  <span className="text-white/40 block text-[7.5px]">Win Rate</span>
+                  <span className="text-gray-400 block text-[7.5px]">Win Rate</span>
                   <span className="text-[11px] font-bold text-white tabular-nums">
                     {liveData.winRate}%
                   </span>
                 </div>
                 <div>
-                  <span className="text-white/40 block text-[7.5px]">Best Trade</span>
-                  <span className="text-[11px] font-bold text-white tabular-nums">
+                  <span className="text-gray-400 block text-[7.5px]">Best Trade</span>
+                  <span className="text-[11px] font-bold text-white tabular-nums truncate block">
                     {formatCurrency(liveData.lastTrade)}
                   </span>
                 </div>
                 <div>
-                  <span className="text-white/40 block text-[7.5px]">Avg. R:R</span>
+                  <span className="text-gray-400 block text-[7.5px]">Avg. R:R</span>
                   <span className="text-[11px] font-bold text-white">1.82</span>
                 </div>
               </div>
@@ -407,8 +446,8 @@ export function LaptopMockup() {
           </div>
         </div>
 
-        {/* Laptop Bottom Aluminum Base & Keyboard Deck Lip */}
-        <div className="relative -mt-1 mx-auto h-3.5 w-[105%] -translate-x-[2.5%] rounded-b-xl border-t border-white/20 bg-[#1E1E22] shadow-[0_20px_40px_rgba(0,0,0,0.8)]">
+        {/* Laptop Bottom Aluminum Base & Keyboard Deck Lip (laptop only) */}
+        <div className="relative hidden lg:block -mt-1 mx-auto h-3.5 w-[105%] -translate-x-[2.5%] rounded-b-xl border-t border-white/20 bg-[#1E1E22] shadow-[0_12px_24px_rgba(0,0,0,0.15)]">
           {/* Center Thumb Notch */}
           <div className="mx-auto h-1.5 w-16 rounded-b-md bg-[#0F0F12]" />
         </div>

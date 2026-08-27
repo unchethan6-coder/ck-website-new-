@@ -28,8 +28,8 @@ function SectionHeading({ eyebrow, title, children, id, dark = false }: { eyebro
   return (
     <SectionReveal className="mx-auto max-w-3xl text-center" data-od-id={id}>
       <p className={`mb-3 text-[11px] font-bold uppercase tracking-[0.22em] ${dark ? "text-primary" : "text-[#D4AF37]"}`}>{eyebrow}</p>
-      <h2 className={`font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] md:text-5xl ${dark ? "text-white" : "text-[#0A0A0C]"}`}>{title}</h2>
-      {children ? <p className={`mx-auto mt-4 max-w-2xl text-sm leading-7 ${dark ? "text-white/60" : "text-[#4B5563]"}`}>{children}</p> : null}
+      <h2 className={`font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] md:text-5xl ${dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"}`}>{title}</h2>
+      {children ? <p className={`mx-auto mt-4 max-w-2xl text-sm leading-7 ${dark ? "text-gray-500" : "text-[#4B5563]"}`}>{children}</p> : null}
     </SectionReveal>
   );
 }
@@ -64,15 +64,15 @@ function CommissionCalculator() {
               <input type="range" min="10" max="1000" step="10" value={orderValue} onChange={(event) => setOrderValue(Number(event.target.value))} className="mt-4 w-full accent-[#D4AF37]" aria-label="Average Order Value" />
               <span className="mt-2 flex justify-between text-[10px] text-[#6B7280]"><span>$10</span><span>$1,000+</span></span>
             </label>
-            <label className="block" data-od-id="affiliate-tier-control"><span className="text-sm font-semibold text-[#0A0A0C]">{t("tierLabel")}</span><select value={tier} onChange={(event) => setTier(event.target.value)} className="mt-3 h-11 w-full rounded-lg border border-[#E5E7EB] bg-[#F6F7F9] px-3 text-sm text-[#0A0A0C] focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30"><option value="example">Illustrative example — 20%</option>{TIERS.map((item) => <option key={item.name} value={item.name} disabled={item.rate === null}>{item.name} — {item.rate === null ? "Current rate pending" : `${item.rate * 100}%`}</option>)}</select></label>
+            <label className="block" data-od-id="affiliate-tier-control"><span className="text-sm font-semibold text-[#0A0A0C]">{t("tierLabel")}</span><select value={tier} onChange={(event) => setTier(event.target.value)} className="mt-3 h-11 w-full rounded-lg border border-[#E5E7EB] bg-white px-3 text-sm text-[#0A0A0C] focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30"><option value="example">Illustrative example — 20%</option>{TIERS.map((item) => <option key={item.name} value={item.name} disabled={item.rate === null}>{item.name} — {item.rate === null ? "Current rate pending" : `${item.rate * 100}%`}</option>)}</select></label>
           </div>
         </div>
-        <div className="flex flex-col justify-between rounded-xl border border-[#D4AF37]/30 bg-[#F6F7F9] p-6 md:p-8">
-          <div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4AF37]">{t("estimatedMonthly")}</p><p className="mt-4 font-[family-name:var(--font-inter-tight)] text-5xl font-extrabold tracking-[-0.05em] text-[#D4AF37] md:text-6xl">{money(monthly)}</p><p className="mt-2 text-xs text-[#6B7280]">Estimated based on the selected inputs.</p><div className="mt-8 border-t border-[#E5E7EB] pt-5"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6B7280]">{t("estimatedAnnual")}</p><p className="mt-2 text-2xl font-extrabold text-[#0A0A0C]">{money(yearly)}</p></div></div>
-          <div className="mt-8 rounded-lg border border-[#E5E7EB] bg-white p-4 text-sm text-[#4B5563] shadow-sm"><p className="font-semibold text-[#0A0A0C]">Example</p><p className="mt-3 leading-7">{referrals} qualified referrals<br />× ${orderValue} average qualifying purchase<br />× {rate === null ? "current tier rate" : `${rate * 100}% affiliate commission`}<br />= <strong className="text-[#D4AF37]">{money(monthly)} Estimated Commission</strong></p></div>
+        <div className="flex flex-col justify-between rounded-xl border border-[#D4AF37]/30 bg-white p-6 md:p-8">
+          <div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4AF37]">{t("estimatedMonthly")}</p><p className="mt-3 font-[family-name:var(--font-inter-tight)] text-4xl sm:text-5xl font-extrabold tracking-[-0.05em] text-[#D4AF37] md:text-6xl">{money(monthly)}</p><p className="mt-2 text-xs text-[#6B7280]">Estimated based on the selected inputs.</p><div className="mt-6 border-t border-[#E5E7EB] pt-4"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6B7280]">{t("estimatedAnnual")}</p><p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-[#0A0A0C]">{money(yearly)}</p></div></div>
+          <div className="mt-6 rounded-lg border border-[#E5E7EB] bg-white p-4 text-sm text-[#4B5563] shadow-sm"><p className="font-semibold text-[#0A0A0C]">Example</p><p className="mt-2 text-xs sm:text-sm leading-6">{referrals} qualified referrals<br />× ${orderValue} average qualifying purchase<br />× {rate === null ? "current tier rate" : `${rate * 100}% affiliate commission`}<br />= <strong className="text-[#D4AF37]">{money(monthly)} Estimated Commission</strong></p></div>
         </div>
       </div>
-      <p className="border-t border-[#E5E7EB] bg-[#F6F7F9]/50 px-6 py-4 text-xs leading-6 text-[#6B7280] md:px-8">{t("calculatorDisclaimer")}</p>
+      <p className="border-t border-[#E5E7EB] bg-white/50 px-6 py-4 text-xs leading-6 text-[#6B7280] md:px-8">{t("calculatorDisclaimer")}</p>
     </SectionReveal>
   );
 }
@@ -88,7 +88,7 @@ export function AffiliatePageClient() {
   return (
     <div data-od-id="affiliates-page">
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="affiliates-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="affiliates-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -102,11 +102,11 @@ export function AffiliatePageClient() {
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-primary"><Sparkles size={12} /> {t("badge")}</div>
-              <h1 className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="affiliates-hero-title">{t("title")}</h1>
-              <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]">{t("subtitle")}</p>
+              <h1 className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="affiliates-hero-title">{t("title")}</h1>
+              <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]">{t("subtitle")}</p>
               <div className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="/contact" data-od-id="affiliates-hero-cta"><GoldButton size="lg">{t("becomeAffiliate")} <ArrowRight size={16} /></GoldButton></a>
-                <a href="#affiliate-how-it-works" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">{t("seeHowItWorks")} <ArrowRight size={15} /></a>
+                <a href="#affiliate-how-it-works" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">{t("seeHowItWorks")} <ArrowRight size={15} /></a>
               </div>
             </div>
             <div className="lg:col-span-5 xl:col-span-6 min-w-0" data-od-id="affiliates-hero-dashboard">
@@ -117,7 +117,7 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Highlights (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="affiliate-highlights">
+      <section className="bg-white border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="affiliate-highlights">
         <Container>
           <div className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0">
             {[["UP TO 25%", t("commissionHighlight")], ["$250", t("minPayoutHighlight")], ["GLOBAL", t("globalHighlight")], ["PERFORMANCE-BASED", t("tiersHighlight")]].map(([value, label]) => (
@@ -131,15 +131,15 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── How it Works (DARK) ─────────────── */}
-      <section id="affiliate-how-it-works" className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="affiliate-how-it-works">
+      <section id="affiliate-how-it-works" className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="affiliate-how-it-works">
         <Container>
           <SectionHeading id="affiliate-how-heading" eyebrow={t("howEyebrow")} title={t("howTitle")} dark>{t("howSubtitle")}</SectionHeading>
-          <div className="mx-auto mt-12 max-w-5xl divide-y divide-white/10 border-y border-white/10">
+          <div className="mx-auto mt-12 max-w-5xl divide-y divide-white/10 border-y border-gray-200">
             {[["01", t("step1Title"), t("step1Desc")], ["02", t("step2Title"), t("step2Desc")], ["03", t("step3Title"), t("step3Desc")], ["04", t("step4Title"), t("step4Desc")]].map(([number, title, copy]) => (
               <div key={number} className="grid gap-4 py-7 md:grid-cols-[72px_0.65fr_1.35fr] md:items-center md:gap-8">
                 <span className="font-mono text-sm font-bold text-primary">{number}</span>
-                <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-white">{title}</h3>
-                <p className="text-sm leading-6 text-white/60">{copy}</p>
+                <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
+                <p className="text-sm leading-6 text-gray-500">{copy}</p>
               </div>
             ))}
           </div>
@@ -150,7 +150,7 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Commission Calculator & Benefits (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="affiliate-benefits">
+      <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="affiliate-benefits">
         <Container>
           <SectionHeading id="affiliate-benefits-heading" eyebrow={t("benefitsEyebrow")} title={t("benefitsTitle")} />
           <CommissionCalculator />
@@ -167,31 +167,31 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Content Topics & Channels (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="affiliate-content">
+      <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="affiliate-content">
         <Container>
           <SectionHeading id="affiliate-content-heading" eyebrow={t("contentEyebrow")} title={t("contentTitle")} dark>{t("contentSubtitle")}</SectionHeading>
           <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {contentTopics.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-white/10 bg-[#12100A] p-6 transition-all hover:border-primary/30">
-                <p className="font-semibold text-white">{item.title}</p>
-                <p className="mt-2 text-sm leading-6 text-white/50">{item.desc}</p>
+              <article key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-primary/30">
+                <p className="font-semibold text-[#0A0A0C]">{item.title}</p>
+                <p className="mt-2 text-sm leading-6 text-gray-500">{item.desc}</p>
               </article>
             ))}
           </div>
-          <div className="mt-14 rounded-2xl border border-white/10 bg-[#12100A] p-8 md:p-10">
+          <div className="mt-14 rounded-2xl border border-gray-200 bg-white p-8 md:p-10">
             <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary">{t("channelsEyebrow")}</p>
-                <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-white">{t("channelsTitle")}</h2>
+                <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-[#0A0A0C]">{t("channelsTitle")}</h2>
               </div>
               <div>
-                <p className="text-sm leading-7 text-white/60">{t("channelsDesc")}</p>
+                <p className="text-sm leading-7 text-gray-500">{t("channelsDesc")}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {["YouTube", "Instagram", "TikTok", "X", "Facebook", "Websites", "Blogs", "Trading Communities", "Email Audiences"].map((channel) => (
-                    <span key={channel} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/80">{channel}</span>
+                    <span key={channel} className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs text-[#4B5563]">{channel}</span>
                   ))}
                 </div>
-                <p className="mt-4 text-xs leading-6 text-white/40">{t("channelsDisclaimer")}</p>
+                <p className="mt-4 text-xs leading-6 text-gray-400">{t("channelsDisclaimer")}</p>
               </div>
             </div>
           </div>
@@ -199,7 +199,7 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Compliance & Terms (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="affiliate-compliance">
+      <section className="bg-white border-y border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="affiliate-compliance">
         <Container>
           <div className="mx-auto max-w-4xl rounded-2xl border border-[#D4AF37]/30 bg-white p-8 md:p-10 shadow-sm">
             <div className="flex items-start gap-5">
@@ -219,17 +219,17 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Community (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="affiliate-community">
+      <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="affiliate-community">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary">{t("communityEyebrow")}</p>
-              <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-white md:text-5xl">{t("communityTitle")}</h2>
-              <p className="mt-5 text-sm leading-7 text-white/60">{t("communityDesc")}</p>
+              <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">{t("communityTitle")}</h2>
+              <p className="mt-5 text-sm leading-7 text-gray-500">{t("communityDesc")}</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {communityList.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-[#12100A] p-4 text-sm text-white/80">
+                <div key={item} className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 text-sm text-[#4B5563]">
                   <Check size={16} className="mt-0.5 shrink-0 text-primary" />
                   {item}
                 </div>
@@ -240,7 +240,7 @@ export function AffiliatePageClient() {
       </section>
 
       {/* ─────────────── Final CTA (LIGHT) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#F6F7F9] border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="affiliate-final-cta">
+      <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="affiliate-final-cta">
         <Container className="relative text-center">
           <SectionReveal>
             <HandCoins className="mx-auto text-[#D4AF37]" size={32} />
@@ -256,25 +256,25 @@ export function AffiliatePageClient() {
             </div>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
               <a href="/contact"><GoldButton size="lg">{t("becomeAffiliate")} <ArrowRight size={16} /></GoldButton></a>
-              <a href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-[#F6F7F9]">{t("login")} <ArrowRight size={14} /></a>
+              <a href="https://app.ckcapital.co.uk/signin" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-white">{t("login")} <ArrowRight size={14} /></a>
             </div>
           </SectionReveal>
         </Container>
       </section>
 
       {/* ─────────────── Legal / Disclaimer (DARK) ─────────────── */}
-      <section className="border-t border-white/10 bg-[#070709] py-10 text-white/50" data-od-id="affiliate-disclaimer">
+      <section className="border-t border-gray-200 bg-white py-10 text-gray-500" data-od-id="affiliate-disclaimer">
         <Container>
           <div className="flex items-start gap-4">
             <Mail className="mt-1 shrink-0 text-primary" size={18} />
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">{t("disclaimerTitle")}</p>
-              <p className="mt-3 max-w-4xl text-xs leading-6 text-white/40">{t("disclaimerDesc")}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-500">{t("disclaimerTitle")}</p>
+              <p className="mt-3 max-w-4xl text-xs leading-6 text-gray-400">{t("disclaimerDesc")}</p>
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-primary">
-                <a href="/terms-conditions" className="hover:text-white transition-colors">{t("linkTerms")}</a>
-                <a href="/terms-conditions" className="hover:text-white transition-colors">{t("linkGeneralTerms")}</a>
-                <a href="/risk-disclosure" className="hover:text-white transition-colors">{t("linkDisclaimer")}</a>
-                <a href="/privacy-policy" className="hover:text-white transition-colors">{t("linkPrivacy")}</a>
+                <a href="/terms-conditions" className="hover:text-[#0A0A0C] transition-colors">{t("linkTerms")}</a>
+                <a href="/terms-conditions" className="hover:text-[#0A0A0C] transition-colors">{t("linkGeneralTerms")}</a>
+                <a href="/risk-disclosure" className="hover:text-[#0A0A0C] transition-colors">{t("linkDisclaimer")}</a>
+                <a href="/privacy-policy" className="hover:text-[#0A0A0C] transition-colors">{t("linkPrivacy")}</a>
               </div>
             </div>
           </div>

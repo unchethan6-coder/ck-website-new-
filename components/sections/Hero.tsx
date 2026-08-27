@@ -11,13 +11,13 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#F6F7F9] text-[#111827] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
+      className="relative isolate overflow-hidden bg-white text-[#111827] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
       data-od-id="hero"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Copy & Actions */}
-          <div className="lg:col-span-5 xl:col-span-5">
+          <div className="relative z-10 lg:col-span-5 xl:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,11 +34,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="font-[family-name:var(--font-inter-tight)] text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase leading-[1.05] tracking-tight text-[#0A0A0C]"
+              className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase leading-[1.08] tracking-tight text-[#0A0A0C]"
             >
               {t("headlineLine1")}
               <br />
-              {t("headlineLine2")} <span className="text-[#FFC107]">{t("headlineHighlight")}</span>
+              <span className="text-[#0A0A0C]">{t("headlineLine2")}</span>
             </motion.h1>
 
             <motion.p
@@ -55,22 +55,22 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.24 }}
-              className="mt-6 sm:mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3"
+              className="mt-6 sm:mt-7 flex flex-wrap items-center gap-2 sm:gap-3"
             >
               {/* Feature 1 */}
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2.5 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-4 py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
-                  <BarChart2 size={16} strokeWidth={2.5} />
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                  <BarChart2 size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Up to 100%
                   </span>
-                  <span className="text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
                     Profit Split
                   </span>
                 </div>
@@ -80,16 +80,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2.5 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-4 py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
-                  <Coins size={16} strokeWidth={2.5} />
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                  <Coins size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Up to $1.2M
                   </span>
-                  <span className="text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
                     Funding Accounts
                   </span>
                 </div>
@@ -99,16 +99,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2.5 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-4 py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
-                  <Zap size={16} strokeWidth={2.5} />
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                  <Zap size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Flexible
                   </span>
-                  <span className="text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
                     Payouts
                   </span>
                 </div>
@@ -120,11 +120,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.32 }}
-              className="mt-7 sm:mt-8 flex flex-wrap items-center gap-4"
+              className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Link
-                href="/#evaluation-programs"
-                className="group inline-flex items-center gap-2 rounded-xl bg-[#FFC107] px-6 py-3.5 text-sm sm:text-base font-black text-[#0A0A0C] shadow-sm hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200"
+                href="/#start-challenge"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#FFC107] px-6 py-3.5 text-sm sm:text-base font-black text-[#0A0A0C] shadow-sm hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] active:scale-[0.98] transition-all duration-200 text-center"
               >
                 <span>{t("startChallenge")}</span>
                 <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -132,9 +132,9 @@ export function Hero() {
 
               <a
                 href="#how-it-works"
-                className="group inline-flex items-center gap-2.5 rounded-xl border border-gray-300 bg-white/80 px-4 py-3 text-sm sm:text-base font-extrabold text-[#0A0A0C] hover:border-[#FFC107] hover:bg-[#FFF8E1] hover:text-black hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shadow-sm"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-gray-300 bg-white/80 px-4 py-3 text-sm sm:text-base font-extrabold text-[#0A0A0C] hover:border-[#D4AF37]/50 hover:bg-[#FFF8E1] hover:text-black active:translate-y-0 active:scale-[0.98] transition-colors duration-200 shadow-sm text-center"
               >
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#0A0A0C] text-[#0A0A0C] group-hover:border-black group-hover:bg-black group-hover:text-[#FFC107] transition-all duration-200">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#0A0A0C] text-[#0A0A0C] group-hover:border-black group-hover:bg-black group-hover:text-[#FFC107] transition-all duration-200 shrink-0">
                   <Play size={11} className="ml-0.5 fill-current" />
                 </div>
                 <span>{t("exploreObjectives")}</span>
@@ -142,12 +142,12 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Laptop Dashboard Visual */}
+          {/* Right Column: 3D Laptop Dashboard Visual — isolated so CTA hover never paints under it */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="flex justify-center lg:col-span-7 xl:col-span-7 lg:justify-end"
+            className="relative isolate z-0 mt-8 sm:mt-10 lg:mt-0 flex w-full max-w-full justify-center lg:col-span-7 xl:col-span-7 lg:justify-end overflow-visible"
           >
             <LaptopMockup />
           </motion.div>

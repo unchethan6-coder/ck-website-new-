@@ -21,8 +21,8 @@ export default async function TradingObjectivesPage({
   const rawEval = typeof params.evalType === "string" ? params.evalType : "standard";
   const evalType = rawEval === "middle" || rawEval === "pro" ? rawEval : "standard";
 
-  const rawPlatform = typeof params.platform === "string" ? params.platform : "both";
-  const platform = rawPlatform === "mt5" || rawPlatform === "tradelocker" ? rawPlatform : "both";
+  const rawPlatform = typeof params.platform === "string" ? params.platform : "mt5";
+  const platform = rawPlatform === "tradelocker" ? "tradelocker" : "mt5";
 
   const size = typeof params.size === "string" ? params.size : "$100K";
 

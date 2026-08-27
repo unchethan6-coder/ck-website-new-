@@ -1,25 +1,25 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/sections/Hero";
 import { StatsStrip } from "@/components/sections/StatsStrip";
-import { EvaluationPrograms } from "@/components/sections/EvaluationPrograms";
+import { ChallengeComparison } from "@/components/sections/ChallengeComparison";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { TradingPlatforms } from "@/components/sections/TradingPlatforms";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { LiveRewards } from "@/components/sections/LiveRewards";
 import { ProofShowcase } from "@/components/sections/ProofShowcase";
-import { Testimonials } from "@/components/sections/Testimonials";
+import { TraderStories } from "@/components/sections/TraderStories";
+import { BlogCategories } from "@/components/sections/BlogCategories";
 import { TraderReviews } from "@/components/sections/TraderReviews";
 import { SupportSection } from "@/components/sections/SupportSection";
 import { CustomerSupportSection } from "@/components/sections/CustomerSupportSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 import {
-  getActivePromo,
   getFirmReviews,
   getVideoReviews,
   getChallengeConfig,
   getPayouts,
   getRewardsSummary,
+  getArticles,
 } from "@/lib/cms";
 import type { VideoItem } from "@/components/sections/Testimonials";
 import type { ReviewCard } from "@/components/sections/TraderReviews";
@@ -27,14 +27,14 @@ import type { ReviewCard } from "@/components/sections/TraderReviews";
 export const revalidate = 300;
 
 export default async function Home() {
-  const [promo, reviews, videos, challengeConfig, payouts, rewardsSummary] =
+  const [reviews, videos, challengeConfig, payouts, rewardsSummary, articles] =
     await Promise.all([
-      getActivePromo(),
       getFirmReviews(),
       getVideoReviews(),
       getChallengeConfig(),
       getPayouts(),
       getRewardsSummary(),
+      getArticles(),
     ]);
 
   const reviewCards: ReviewCard[] | undefined = reviews.length
@@ -53,41 +53,45 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* S1 — Hero: Light Canvas */}
+      {/* S1 — Hero: Light */}
       <Hero />
 
-      {/* S2 — Trust & Stats Band: Jet Black */}
+      {/* S2 — Stats Strip: Light (was Jet Black) */}
       <StatsStrip />
 
-      {/* S3 — Evaluation Programs: Light Canvas */}
-      <EvaluationPrograms />
-
-      {/* S4 — Value Propositions Strip: Jet Black */}
-      <FeatureStrip />
-
-      {/* S5 — Live Rewards: Light Canvas */}
-      <LiveRewards payouts={payouts} />
-
-      {/* S6 — Proof Showcase: Jet Black */}
+      {/* S3 — Trade with Peace of Mind (proof): Light + warm glow */}
       <ProofShowcase payouts={payouts} summary={rewardsSummary} />
 
-      {/* S7 — How It Works: Light Canvas */}
-      <HowItWorks />
+      {/* S4 — Challenge Selector (evals): Light */}
+      <Suspense fallback={null}>
+        <ChallengeComparison config={challengeConfig} />
+      </Suspense>
 
-      {/* S8 — Trading Platforms: Jet Black */}
+      {/* S5 — Trading Platforms: Light (was Jet Black) */}
       <TradingPlatforms />
 
-      {/* S9 — Trader Reviews (Trustpilot): Light Canvas */}
+      {/* S6 — Feature Strip: Light (was Jet Black) */}
+      <FeatureStrip />
+
+      {/* S7 — Trader Stories: Light */}
+      <TraderStories videos={videoItems} />
+
+      {/* S8 — Trader Reviews: Light */}
       <TraderReviews reviews={reviewCards} />
 
-      {/* S10 — Testimonials (Video Reviews): Jet Black */}
-      <Testimonials videos={videoItems} />
+      {/* S9 — Blog Categories: Light */}
+      <BlogCategories articles={articles} />
 
-      {/* S11 — Support & FAQ: Light Canvas */}
+      {/* S10 — Customer Support: Light */}
       <CustomerSupportSection />
+
+      {/* S11 — How It Works (moved down — traders know this, keep for new users): Light */}
+      <HowItWorks />
+
+      {/* S12 — FAQ: Light (was Jet Black) */}
       <FaqAccordion />
 
-      {/* S12 — Closing CTA: Jet Black */}
+      {/* S13 — Closing CTA: Light + warm glow */}
       <ClosingCta />
     </main>
   );

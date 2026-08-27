@@ -66,7 +66,7 @@ export function EvaluationPrograms() {
   return (
     <section
       id="evaluation-programs"
-      className="relative z-10 bg-[#F8F9FA] py-16 sm:py-20 md:py-24 text-[#111827] scroll-mt-20"
+      className="relative z-10 bg-[#F8F9FA] py-16 sm:py-20 md:py-24 text-[#111827] scroll-mt-24 sm:scroll-mt-28"
       data-od-id="evaluation-programs"
     >
       <div id="start-challenge" className="absolute -top-24 pointer-events-none" />
@@ -153,21 +153,26 @@ export function EvaluationPrograms() {
                   </div>
 
                   {/* Pricing Footer */}
-                  <div className="mt-auto border-t border-gray-100 pt-4 pb-8">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-xs text-gray-400 line-through whitespace-nowrap">
-                        {challenge.originalPrice}
-                      </span>
-                      <span className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
-                        {challenge.discountedPrice}
+                  <div className="mt-auto border-t border-gray-100 pt-3.5 pb-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-xs text-gray-400 line-through whitespace-nowrap">
+                          {challenge.originalPrice}
+                        </span>
+                        <span className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
+                          {challenge.discountedPrice}
+                        </span>
+                      </div>
+                      <span className="rounded bg-[#FFC107] px-2 py-0.5 text-[10px] font-black text-[#0A0A0C] shadow-sm">
+                        {challenge.discountBadge}
                       </span>
                     </div>
-                  </div>
 
-                  {/* Discount badge — pinned bottom-right */}
-                  <span className="absolute bottom-4 right-4 whitespace-nowrap rounded bg-[#FFC107] px-2 py-0.5 text-[10.5px] font-black text-[#0A0A0C] shadow-sm">
-                    {challenge.discountBadge}
-                  </span>
+                    <div className="mt-3 flex items-center justify-between rounded-xl bg-gray-100/80 px-3 py-2 text-xs font-bold text-[#0A0A0C] group-hover:bg-[#FFC107] group-hover:text-black transition-colors">
+                      <span>Start Challenge</span>
+                      <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
                 </a>
               ))}
             </div>

@@ -138,7 +138,7 @@ export function TraderReviews({
   wallCards.forEach((card, i) => columns[i % 3].push(card));
 
   return (
-    <section className="bg-[#F6F7F9] text-[#111827] py-16 md:py-24" data-od-id="trader-reviews">
+    <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="trader-reviews">
       <Container>
         <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
           <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
@@ -162,8 +162,36 @@ export function TraderReviews({
           </a>
         </SectionReveal>
 
+        {/* Mobile Swipeable Carousel (< md) */}
+        <div className="md:hidden">
+          <div
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 pt-1 px-1 -mx-4 px-4"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {video && (
+              <div className="w-[85vw] max-w-[320px] shrink-0 snap-center">
+                <VideoCard video={video} />
+              </div>
+            )}
+            {wallCards.map((card, i) => (
+              <div key={`mobile-${card.name}-${i}`} className="w-[85vw] max-w-[320px] shrink-0 snap-center">
+                <WallMasonryCard card={card} index={i} />
+              </div>
+            ))}
+            <div className="w-[85vw] max-w-[320px] shrink-0 snap-center">
+              <StatCard />
+            </div>
+          </div>
+          <div className="mt-2 flex items-center justify-center gap-1.5">
+            <span className="text-[11px] font-bold text-[#D99B00] uppercase tracking-wider">
+              ← Swipe to explore reviews →
+            </span>
+          </div>
+        </div>
+
+        {/* Desktop / Tablet Multi-Column Masonry (>= md) */}
         <div
-          className="grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="hidden md:grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3"
           data-od-id="trader-reviews-wall"
         >
           {columns.map((columnCards, columnIndex) => (

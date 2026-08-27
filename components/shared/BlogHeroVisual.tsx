@@ -25,18 +25,18 @@ export function BlogHeroVisual({
 }: BlogHeroVisualProps) {
   return (
     <div
-      className={cn("relative w-full select-none", className)}
+      className={cn("relative w-full select-none mb-8 sm:mb-6", className)}
       data-od-id="hero-blog-intel"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-[#12100A] shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
         {/* Top Browser / App Window Chrome */}
-        <div className="flex h-11 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
+        <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-white/10 bg-black/40 px-2.5 py-1 text-[11px] font-mono text-foreground/45">
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
               <Lock size={10} className="text-primary" />
               <span>app.ckcapital.co.uk/research/intelligence</span>
             </div>
@@ -53,17 +53,17 @@ export function BlogHeroVisual({
         {/* Dashboard Content */}
         <div className="p-5 sm:p-6 lg:p-7">
           {/* Header Article Intelligence Row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
             <div>
               <div className="flex items-center gap-2">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
                   Institutional Research Guild
                 </p>
                 <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
                   EDITION #48
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 Market Blueprint{" "}
                 <span className="text-xs font-semibold text-primary">
                   Weekly Playbook
@@ -77,7 +77,7 @@ export function BlogHeroVisual({
                 <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
                   Win Rate Alpha
                 </p>
-                <p className="text-sm font-extrabold text-foreground">
+                <p className="text-sm font-extrabold text-[#0A0A0C]">
                   +18.4% Edge
                 </p>
               </div>
@@ -93,14 +93,14 @@ export function BlogHeroVisual({
                 </span>
                 <span className="text-[11px] text-foreground/40">5 Min Deep-Dive</span>
               </div>
-              <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-foreground sm:text-lg flex items-center justify-between group">
+              <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-[#0A0A0C] sm:text-lg flex items-center justify-between group">
                 <span>Liquidity Sweeps &amp; Institutional Order Flow in Forex</span>
                 <ArrowUpRight size={16} className="text-primary shrink-0 opacity-75" />
               </h4>
-              <p className="mt-1.5 text-xs text-foreground/60 leading-relaxed line-clamp-2">
+              <p className="mt-1.5 text-xs text-gray-500 leading-relaxed line-clamp-2">
                 Learn how top prop traders protect risk on high-impact news days while capitalizing on session liquidity expansion.
               </p>
-              <div className="mt-3 flex items-center gap-4 text-[11px] text-foreground/45 border-t border-white/5 pt-2.5">
+              <div className="mt-3 flex items-center gap-4 text-[11px] text-gray-500 border-t border-white/5 pt-2.5">
                 <span className="flex items-center gap-1">
                   <FileText size={12} className="text-primary" /> Risk Management
                 </span>
@@ -113,29 +113,29 @@ export function BlogHeroVisual({
             {/* Quick Articles Sub-Feed */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Item 1 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between text-[10px] text-foreground/40">
                   <span className="text-primary font-semibold">PSYCHOLOGY</span>
                   <span>4m read</span>
                 </div>
-                <p className="mt-1 text-xs font-bold text-foreground line-clamp-1">
+                <p className="mt-1 text-xs font-bold text-[#0A0A0C] line-clamp-1">
                   Overcoming Tilt in Prop Firm Evaluations
                 </p>
-                <p className="mt-1 text-[10px] text-foreground/50">
+                <p className="mt-1 text-[10px] text-gray-500">
                   Daily drawdown discipline &amp; size management
                 </p>
               </div>
 
               {/* Item 2 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between text-[10px] text-foreground/40">
                   <span className="text-emerald-400 font-semibold">MACRO ECONOMICS</span>
                   <span>6m read</span>
                 </div>
-                <p className="mt-1 text-xs font-bold text-foreground line-clamp-1">
+                <p className="mt-1 text-xs font-bold text-[#0A0A0C] line-clamp-1">
                   Federal Reserve Rate Cut Playbook for 2026
                 </p>
-                <p className="mt-1 text-[10px] text-foreground/50">
+                <p className="mt-1 text-[10px] text-gray-500">
                   Gold (XAU/USD) &amp; Dollar index correlation
                 </p>
               </div>
@@ -144,7 +144,7 @@ export function BlogHeroVisual({
         </div>
 
         {/* Bottom Recent Status Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-white/[0.03] px-5 py-3 text-[11px] text-foreground/50">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-primary shrink-0" />
             <span className="font-semibold text-foreground/75">
@@ -166,15 +166,15 @@ export function BlogHeroVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-[#0D0C08] px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
+          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
             <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
               <BookOpen size={20} className="text-primary" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
                 Research Guild
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-foreground">
+              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Institutional-Grade Insights
               </p>
             </div>

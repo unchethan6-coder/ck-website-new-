@@ -15,7 +15,7 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
       className="relative z-30 flex items-center justify-center bg-[#070709] px-4 py-2.5 text-center text-xs sm:text-[13px] border-b border-white/[0.08]"
       data-od-id="announcement-bar"
     >
-      <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1">
+      <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 pr-7 sm:pr-8">
         <span className="text-sm">🎁</span>
         <span className="font-semibold text-white/95 tracking-wide">
           <span className="text-[#FFC107]">{t("badge")}:</span> {t("discount")} {t("allEvaluations")}!
@@ -24,7 +24,7 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
           {t("codeLabel")}: 10KFOR39
         </span>
         <a
-          href="/#evaluation-programs"
+          href="/#start-challenge"
           className="inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
         >
           {t("claimOffer")} <span>→</span>
@@ -34,7 +34,7 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
       <button
         onClick={() => setVisible(false)}
         aria-label="Dismiss announcement"
-        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 p-1 text-white/50 transition-colors hover:text-white"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1 text-white/50 transition-colors hover:text-white flex items-center justify-center min-h-11 min-w-11"
       >
         <X size={15} />
       </button>

@@ -8,14 +8,14 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
 /** Known video metadata — used to enrich CMS entries that may lack reward/description */
-const VIDEO_META: Record<string, { reward: string; desc: string; thumbnail: string }> = {
+export const VIDEO_META: Record<string, { reward: string; desc: string; thumbnail: string }> = {
   bZq8jtD9acY: { reward: "$38,200", desc: "More than rewards — how CK changed my trading", thumbnail: "/images/testimonials/hqdefault-308afdd2f9.jpg" },
   "8NQAWtlh_ws": { reward: "$84,120", desc: "Trusting the process paid off big time", thumbnail: "/images/testimonials/hqdefault-88f16d731b.jpg" },
   "5RjtGHPcuMM": { reward: "$15,995", desc: "Trading Gold & Nasdaq to a funded payout", thumbnail: "/images/testimonials/hqdefault-ae10a042fa.jpg" },
   LNXpq8_PwxU: { reward: "$22,400", desc: "From challenge to funded: a CK success story", thumbnail: "/images/testimonials/hqdefault-9c0405cb37.jpg" },
 };
 
-const FALLBACK_VIDEOS: VideoItem[] = [
+export const FALLBACK_VIDEOS: VideoItem[] = [
   { id: "bZq8jtD9acY", thumbnail: VIDEO_META["bZq8jtD9acY"].thumbnail, reward: VIDEO_META["bZq8jtD9acY"].reward, title: "I DROPPED OUT OF COLLEGE FOR TRADING", desc: VIDEO_META["bZq8jtD9acY"].desc },
   { id: "8NQAWtlh_ws", thumbnail: VIDEO_META["8NQAWtlh_ws"].thumbnail, reward: VIDEO_META["8NQAWtlh_ws"].reward, title: "BEST PROP? I TRUST CK CAPITAL", desc: VIDEO_META["8NQAWtlh_ws"].desc },
   { id: "5RjtGHPcuMM", thumbnail: VIDEO_META["5RjtGHPcuMM"].thumbnail, reward: VIDEO_META["5RjtGHPcuMM"].reward, title: "MY PERCEPTION ABOUT TRADING WAS WRONG...", desc: VIDEO_META["5RjtGHPcuMM"].desc },
@@ -71,17 +71,17 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
   const doubled = [...items, ...items];
 
   return (
-    <section className="bg-[#0D0C08] text-white py-16 md:py-24" data-od-id="testimonials">
+    <section className="bg-white text-[#0A0A0C] py-16 md:py-24" data-od-id="testimonials">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             Testimonials
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             Funded traders,{" "}
             <span className="text-primary">on record</span>
           </h2>
-          <p className="mt-3 text-foreground/50 max-w-xl mx-auto text-sm">
+          <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm">
             Watch traders who passed their challenge and collected their payout — in their own
             words, straight from the source.
           </p>
@@ -96,7 +96,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
           {doubled.map((v, i) => (
             <div
               key={`${v.id}-${i}`}
-              className="w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl border border-white/10 bg-[#12100A] shadow-xl overflow-hidden shrink-0 flex flex-col card-hover-standard"
+              className="w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden shrink-0 flex flex-col card-hover-standard"
             >
               {/* Thumbnail */}
               <div
@@ -128,7 +128,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
                       className="object-cover"
                       sizes="360px"
                     />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                    <div className="absolute inset-0 bg-gray-50 group-hover:bg-black/20 transition-colors" />
                     {/* Play button */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all ring-1 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/60 group-focus-visible:ring-2 group-focus-visible:ring-primary/60">
@@ -146,7 +146,7 @@ export function Testimonials({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[
               </div>
               {/* Text */}
               <div className="p-4 flex flex-col gap-1">
-                <h3 className="font-[family-name:var(--font-inter-tight)] text-sm font-bold text-foreground uppercase leading-snug">
+                <h3 className="font-[family-name:var(--font-inter-tight)] text-sm font-bold text-[#0A0A0C] uppercase leading-snug">
                   {v.title}
                 </h3>
                 {v.desc && <p className="text-xs text-foreground/40 leading-relaxed">{v.desc}</p>}

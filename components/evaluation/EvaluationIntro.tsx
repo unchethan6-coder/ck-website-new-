@@ -62,7 +62,7 @@ export default function EvaluationIntro({
   return (
     <>
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="evaluation-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="evaluation-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -90,7 +90,7 @@ export default function EvaluationIntro({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="evaluation-hero-title"
               >
                 {t("title")}
@@ -100,7 +100,7 @@ export default function EvaluationIntro({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
               >
                 {t("subtitle")}
               </motion.p>
@@ -123,7 +123,7 @@ export default function EvaluationIntro({
                 <a
                   href="#start-challenge"
                   data-od-id="evaluation-hero-cta-secondary"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   {t("compareBtn")} <ArrowRight size={15} />
                 </a>
@@ -138,7 +138,7 @@ export default function EvaluationIntro({
                 {featList.map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-2 text-[12px] font-medium text-white/70"
+                    className="flex items-center gap-2 text-[12px] font-medium text-gray-500"
                   >
                     <Check size={13} className="shrink-0 text-primary" strokeWidth={3} />
                     {f}
@@ -161,7 +161,7 @@ export default function EvaluationIntro({
       </section>
 
       {/* ─────────────── Your Path to Success (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-steps">
+      <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-steps">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">

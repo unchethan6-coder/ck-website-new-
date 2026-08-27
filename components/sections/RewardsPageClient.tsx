@@ -87,10 +87,10 @@ function SectionHeading({
       <p className={`mb-3 text-[11px] font-bold uppercase tracking-[0.22em] ${dark ? "text-primary" : "text-[#D4AF37]"}`}>
         {eyebrow}
       </p>
-      <h2 className={`font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] md:text-5xl ${dark ? "text-white" : "text-[#0A0A0C]"}`}>
+      <h2 className={`font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] md:text-5xl ${dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"}`}>
         {title}
       </h2>
-      {children ? <p className={`mx-auto mt-4 max-w-xl text-sm leading-7 ${dark ? "text-white/60" : "text-[#4B5563]"}`}>{children}</p> : null}
+      {children ? <p className={`mx-auto mt-4 max-w-xl text-sm leading-7 ${dark ? "text-gray-500" : "text-[#4B5563]"}`}>{children}</p> : null}
     </div>
   );
 }
@@ -111,11 +111,11 @@ function CertificateCard({
   const date = formatDate(payout.approvedAt);
   return (
     <article
-      className="group overflow-hidden rounded-xl border border-white/10 bg-[#12100A] transition-colors hover:border-primary/40 shadow-lg"
+      className="group overflow-hidden rounded-xl border border-gray-200 bg-white transition-colors hover:border-primary/40 shadow-lg"
       data-od-id={`reward-certificate-${payout.id}`}
     >
       <button type="button" onClick={() => onOpen(payout)} className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset">
-        <div className="relative aspect-[1.34] overflow-hidden bg-black/40">
+        <div className="relative aspect-[1.34] overflow-hidden bg-white/70">
           {payout.image?.url ? (
             <Image src={payout.image.url} alt={payout.title || "CK Capital reward certificate"} fill className="object-cover object-top transition duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 92vw, 25vw" />
           ) : (
@@ -128,12 +128,12 @@ function CertificateCard({
         <div className="space-y-3 p-4">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm font-bold text-white">{payout.title || "Trader"}</p>
-              <p className="mt-1 flex items-center gap-2 text-xs text-white/50"><span className="rounded border border-white/15 px-1.5 py-0.5 text-[9px] font-bold text-white/70">{payout.countryCode || "--"}</span>{payout.countryName || "Country not published"}</p>
+              <p className="font-[family-name:var(--font-inter-tight)] text-sm font-bold text-[#0A0A0C]">{payout.title || "Trader"}</p>
+              <p className="mt-1 flex items-center gap-2 text-xs text-gray-500"><span className="rounded border border-gray-200 px-1.5 py-0.5 text-[9px] font-bold text-gray-500">{payout.countryCode || "--"}</span>{payout.countryName || "Country not published"}</p>
             </div>
             <p className="shrink-0 text-lg font-extrabold tracking-[-0.03em] text-primary">{amount || "—"}</p>
           </div>
-          <div className="flex items-center justify-between border-t border-white/10 pt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <div className="flex items-center justify-between border-t border-gray-200 pt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400">
             <span>{date || "Date not published"}</span>
             <span className="inline-flex items-center gap-1 text-primary/80">View reward certificate <ArrowRight size={12} /></span>
           </div>
@@ -161,9 +161,9 @@ function CertificateModal({ payout, onClose }: { payout: CmsPayout | null; onClo
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between bg-gradient-to-b from-background via-background/75 to-transparent px-5 pb-16 pt-5 sm:px-8 sm:pt-7">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">Reward certificate</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">{payout.title || "Trader"}</p>
+            <p className="mt-1 text-sm font-semibold text-[#0A0A0C]">{payout.title || "Trader"}</p>
           </div>
-          <button ref={closeRef} type="button" onClick={onClose} className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-lg border border-foreground/15 bg-background/60 text-foreground/70 backdrop-blur transition hover:bg-foreground/[0.1] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Close certificate"><X size={20} /></button>
+          <button ref={closeRef} type="button" onClick={onClose} className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-lg border border-foreground/15 bg-background/60 text-foreground/70 backdrop-blur transition hover:bg-foreground/[0.1] hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Close certificate"><X size={20} /></button>
         </div>
         <div className="absolute inset-0 flex items-center justify-center p-4 pt-24 pb-16 sm:p-8 sm:pt-28 sm:pb-20">
           {payout.image?.url ? <div className="relative h-full w-full"><Image src={payout.image.url} alt={payout.title || "Reward certificate"} fill sizes="100vw" className="object-contain" priority /></div> : <div className="flex min-h-64 w-full items-center justify-center rounded-lg border border-dashed border-foreground/15 text-center"><Unavailable label="The certificate image is not published yet" /></div>}
@@ -260,7 +260,7 @@ function CountryAtlas({ payouts }: { payouts: CmsPayout[] }) {
 
   return (
     <div className="grid gap-5 lg:grid-cols-[1.3fr_0.7fr]">
-      <div className="relative min-h-[310px] overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.025] p-6 sm:min-h-[390px]" data-od-id="rewards-world-map">
+      <div className="relative min-h-[310px] overflow-hidden rounded-xl border border-gray-200 bg-foreground/[0.025] p-6 sm:min-h-[390px]" data-od-id="rewards-world-map">
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="relative flex h-full min-h-[258px] items-center justify-center">
           {/* Globe with fixed central elements and revolving orbital ring */}
@@ -350,7 +350,7 @@ function CountryAtlas({ payouts }: { payouts: CmsPayout[] }) {
         {active ? <>
           <div className="mt-7 flex items-center gap-3">
             <span className="text-4xl">{countryCodeToFlag(active.code)}</span>
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground">{active.name}</h3>
+            <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C]">{active.name}</h3>
           </div>
           <div className="mt-8 space-y-5">
             <div><p className="text-xs text-foreground/40">Published reward value</p><p className="mt-1 text-2xl font-extrabold text-primary">{formatMoney(active.total)}</p></div>
@@ -414,7 +414,7 @@ export function RewardsPageClient({
   return (
     <div data-od-id="rewards-page">
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="rewards-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="rewards-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -428,13 +428,13 @@ export function RewardsPageClient({
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-primary" data-od-id="rewards-hero-eyebrow"><Sparkles size={12} /> {t("badge")}</motion.div>
-              <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="rewards-hero-title">{t("heroTitlePrefix")} <span className="shimmer-text">{t("heroTitleShimmer")}</span></motion.h1>
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.24 }} className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]">{t("desc")}</motion.p>
+              <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="rewards-hero-title">{t("heroTitlePrefix")} <span className="shimmer-text">{t("heroTitleShimmer")}</span></motion.h1>
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.24 }} className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]">{t("desc")}</motion.p>
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.36 }} className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="#reward-certificates" data-od-id="rewards-hero-primary"><GoldButton size="lg">{t("viewRewards")} <ArrowRight size={16} /></GoldButton></a>
-                <a href="/#start-challenge" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" data-od-id="rewards-hero-secondary">{tChallenge("startNow")} <ArrowRight size={15} /></a>
+                <a href="/#start-challenge" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" data-od-id="rewards-hero-secondary">{tChallenge("startNow")} <ArrowRight size={15} /></a>
               </motion.div>
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40"><span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> {t("verifiedText")}</span><span className="inline-flex items-center gap-2"><FileCheck2 size={14} className="text-primary" /> {t("certificateProof")}</span></div>
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400"><span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> {t("verifiedText")}</span><span className="inline-flex items-center gap-2"><FileCheck2 size={14} className="text-primary" /> {t("certificateProof")}</span></div>
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -450,7 +450,7 @@ export function RewardsPageClient({
       </section>
 
       {/* ─────────────── Highlights (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="reward-highlights">
+      <section className="bg-white border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="reward-highlights">
         <Container>
           <div className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0">
             {highlights.map((metric) => (
@@ -465,18 +465,18 @@ export function RewardsPageClient({
       </section>
 
       {/* ─────────────── Certificates (DARK) ─────────────── */}
-      <section id="reward-certificates" tabIndex={-1} className="scroll-mt-24 bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="reward-certificates">
+      <section id="reward-certificates" tabIndex={-1} className="scroll-mt-24 bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-certificates">
         <Container>
           <SectionHeading id="reward-certificates-heading" eyebrow={t("provenEyebrow")} title={t("provenTitle")} dark>{t("provenSubtitle")}</SectionHeading>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2" role="toolbar" aria-label="Filter rewards" data-od-id="reward-filters">
             {(["all", "latest", "highest", "country"] as Filter[]).map((value) => (
-              <button key={value} type="button" onClick={() => handleFilterChange(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-primary/50 bg-primary/12 text-primary" : "border-white/10 text-white/50 hover:border-primary/30 hover:text-white"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>
+              <button key={value} type="button" onClick={() => handleFilterChange(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-primary/50 bg-primary/12 text-primary" : "border-gray-200 text-gray-500 hover:border-primary/30 hover:text-[#0A0A0C]"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>
             ))}
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2" aria-label="Optional reward amount filter">
-            <span className="mr-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white/40">{t("amountLabel")}</span>
+            <span className="mr-1 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-400">{t("amountLabel")}</span>
             {(["all", "5k", "10k", "25k", "50k", "100k", "200k", "300k"] as AmountBand[]).map((value) => (
-              <button key={value} type="button" onClick={() => handleAmountBandChange(value)} aria-pressed={amountBand === value} className={`min-h-9 rounded-md border px-3 text-[10px] font-bold uppercase tracking-[0.12em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${amountBand === value ? "border-primary/40 bg-primary/[0.08] text-primary" : "border-white/10 text-white/40 hover:text-white"}`}>{value === "all" ? "All" : `$${value.toUpperCase()}`}</button>
+              <button key={value} type="button" onClick={() => handleAmountBandChange(value)} aria-pressed={amountBand === value} className={`min-h-9 rounded-md border px-3 text-[10px] font-bold uppercase tracking-[0.12em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${amountBand === value ? "border-primary/40 bg-primary/[0.08] text-primary" : "border-gray-200 text-gray-400 hover:text-[#0A0A0C]"}`}>{value === "all" ? "All" : `$${value.toUpperCase()}`}</button>
             ))}
           </div>
           {filteredPayouts.length ? (
@@ -490,7 +490,7 @@ export function RewardsPageClient({
                 </div>
               )}
             </>
-          ) : <div className="mt-10 rounded-xl border border-dashed border-white/15 px-6 py-16 text-center"><FileCheck2 className="mx-auto mb-4 text-white/20" size={32} /><Unavailable label={t("certificatesEmpty")} /></div>}
+          ) : <div className="mt-10 rounded-xl border border-dashed border-gray-200 px-6 py-16 text-center"><FileCheck2 className="mx-auto mb-4 text-gray-400" size={32} /><Unavailable label={t("certificatesEmpty")} /></div>}
         </Container>
       </section>
 
@@ -498,7 +498,7 @@ export function RewardsPageClient({
       <Testimonials videos={testimonialVideos.length ? testimonialVideos : undefined} />
 
       {/* ─────────────── Benefits (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="reward-benefits">
+      <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-benefits">
         <Container>
           <SectionHeading id="reward-benefits-heading" eyebrow={t("benefitsEyebrow")} title={t("benefitsTitle")} dark>{t("benefitsSubtitle")}</SectionHeading>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{[
@@ -507,17 +507,17 @@ export function RewardsPageClient({
             ["UP TO $1.2M", "Total Simulated Account Allocation", "Progress within the CK Capital programme and access larger simulated account allocations subject to applicable programme rules."],
             ["NEWS TRADING", "More Trading Flexibility", "Trade around news events where permitted under the rules of your selected account."],
           ].map(([value, title, copy]) => (
-            <div key={title} className="min-h-56 rounded-2xl border border-white/10 bg-[#12100A] p-6 shadow-md hover:border-primary/30 transition-all">
+            <div key={title} className="min-h-56 rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:border-primary/30 transition-all">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">{value}</p>
-              <h3 className="mt-10 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-white">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/50">{copy}</p>
+              <h3 className="mt-10 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-gray-500">{copy}</p>
             </div>
           ))}</div>
         </Container>
       </section>
 
       {/* ─────────────── Process (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-process">
+      <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-process">
         <Container>
           <SectionHeading id="reward-process-heading" eyebrow={t("processEyebrow")} title={t("processTitle")}>{t("processSubtitle")}</SectionHeading>
           <div className="mx-auto mt-12 max-w-4xl">{[
@@ -537,7 +537,7 @@ export function RewardsPageClient({
       </section>
 
       {/* ─────────────── World Map / Country Atlas (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-20 md:py-28 text-white" data-od-id="reward-world">
+      <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-world">
         <Container>
           <SectionHeading id="reward-world-heading" eyebrow={t("worldEyebrow")} title={t("worldTitle")} dark>{t("worldSubtitle")}</SectionHeading>
           <div className="mt-12"><CountryAtlas payouts={payouts} /></div>
@@ -548,7 +548,7 @@ export function RewardsPageClient({
       {(() => {
         const realReviews = reviews.filter((r) => r.authorName && r.authorName.trim().length > 0 && !/^verified trader$/i.test(r.authorName));
         return realReviews.length > 0 ? (
-          <section className="bg-[#F6F7F9] border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-reviews">
+          <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-reviews">
             <Container>
               <SectionHeading id="reward-reviews-heading" eyebrow={t("reviewsEyebrow")} title={t("reviewsTitle")}>{t("reviewsSubtitle")}</SectionHeading>
               <div className="mt-12 grid gap-4 md:grid-cols-3">
@@ -575,7 +575,7 @@ export function RewardsPageClient({
               </div>
               {reviewCount < realReviews.length ? (
                 <div className="mt-8 text-center">
-                  <button type="button" onClick={() => setReviewCount((count) => Math.min(count + 3, realReviews.length))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-5 text-xs font-bold uppercase tracking-[0.14em] text-[#0A0A0C] shadow-sm hover:bg-[#F6F7F9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                  <button type="button" onClick={() => setReviewCount((count) => Math.min(count + 3, realReviews.length))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-5 text-xs font-bold uppercase tracking-[0.14em] text-[#0A0A0C] shadow-sm hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                     Read more reviews <ChevronDown size={15} />
                   </button>
                 </div>
@@ -586,16 +586,16 @@ export function RewardsPageClient({
       })()}
 
       {/* ─────────────── Final CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="reward-cta">
+      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-cta">
         <Container className="relative text-center">
           <Trophy className="mx-auto text-primary" size={30} strokeWidth={1.4} />
-          <h2 className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">{t("readyTitle")}</h2>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">{t("readySubtitle")}</p>
+          <h2 className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">{t("readySubtitle")}</p>
           <div className="mx-auto mt-9 grid max-w-2xl gap-3 text-left sm:grid-cols-3">
             {[["1 STEP", "One-stage evaluation.", "/evaluation?type=one-step&size=$100K#start-challenge"], ["2 STEP", "Evaluation + Verification.", "/evaluation?type=standard&size=$100K#start-challenge"], ["INSTANT", "Alternative account structure subject to its applicable rules.", "/instant"]].map(([label, copy, href]) => (
-              <a key={label} href={href} className="rounded-xl border border-white/10 bg-[#12100A] p-4 transition hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+              <a key={label} href={href} className="rounded-xl border border-gray-200 bg-white p-4 transition hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <p className="text-xs font-bold tracking-[0.16em] text-primary">{label}</p>
-                <p className="mt-2 text-xs leading-5 text-white/50">{copy}</p>
+                <p className="mt-2 text-xs leading-5 text-gray-500">{copy}</p>
               </a>
             ))}
           </div>
@@ -606,16 +606,16 @@ export function RewardsPageClient({
       </section>
 
       {/* ─────────────── Legal / Disclaimer (DARK) ─────────────── */}
-      <section className="border-t border-white/10 bg-[#070709] py-10 text-white/50" data-od-id="reward-legal">
+      <section className="border-t border-gray-200 bg-white py-10 text-gray-500" data-od-id="reward-legal">
         <Container>
           <div className="flex items-start gap-4">
             <ArrowDownRight className="mt-1 shrink-0 text-primary" size={18} />
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">{t("importantInfo")}</p>
-              <p className="mt-3 max-w-4xl text-xs leading-6 text-white/40">{t("legalDisclaimer")}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-500">{t("importantInfo")}</p>
+              <p className="mt-3 max-w-4xl text-xs leading-6 text-gray-400">{t("legalDisclaimer")}</p>
               <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-primary">
-                <a href="/terms-conditions" className="hover:text-white transition-colors">{t("viewTerms")} <ExternalLink size={12} className="inline" /></a>
-                <a href="/risk-disclosure" className="hover:text-white transition-colors">{t("viewRisk")} <ExternalLink size={12} className="inline" /></a>
+                <a href="/terms-conditions" className="hover:text-[#0A0A0C] transition-colors">{t("viewTerms")} <ExternalLink size={12} className="inline" /></a>
+                <a href="/risk-disclosure" className="hover:text-[#0A0A0C] transition-colors">{t("viewRisk")} <ExternalLink size={12} className="inline" /></a>
               </div>
             </div>
           </div>

@@ -27,18 +27,18 @@ export function ObjectivesHUDVisual({
 }: ObjectivesHUDVisualProps) {
   return (
     <div
-      className={cn("relative w-full select-none", className)}
+      className={cn("relative w-full select-none mb-8 sm:mb-6", className)}
       data-od-id="hero-objectives-hud"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-[#12100A] shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
         {/* Top Browser / App Window Chrome */}
-        <div className="flex h-11 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
+        <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-white/10 bg-black/40 px-2.5 py-1 text-[11px] font-mono text-foreground/45">
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
               <Lock size={10} className="text-primary" />
               <span>app.ckcapital.co.uk/matrix/risk-engine</span>
             </div>
@@ -55,17 +55,17 @@ export function ObjectivesHUDVisual({
         {/* Dashboard Content */}
         <div className="p-5 sm:p-6 lg:p-7">
           {/* Header Account Row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
             <div>
               <div className="flex items-center gap-2">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
                   Objectives HUD #CK-RULES
                 </p>
                 <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
                   100% COMPLIANT
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 Zero Hidden Rules{" "}
                 <span className="text-xs font-semibold text-emerald-400">
                   Fully Transparent
@@ -92,7 +92,7 @@ export function ObjectivesHUDVisual({
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
                 Core Trading Parameters
               </p>
-              <span className="flex items-center gap-1 text-[11px] font-semibold text-foreground/45">
+              <span className="flex items-center gap-1 text-[11px] font-semibold text-gray-500">
                 <Activity size={12} className="text-primary" /> Live Compliance Sync
               </span>
             </div>
@@ -102,60 +102,60 @@ export function ObjectivesHUDVisual({
               {/* Rule 1 */}
               <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.05] p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">Profit Target</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">Profit Target</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">8% / 5%</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">8% / 5%</p>
                 <p className="text-[9px] text-emerald-400 font-semibold">Target Passed</p>
               </div>
 
               {/* Rule 2 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">Daily Loss</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">Daily Loss</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">5% Max</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">5% Max</p>
                 <p className="text-[9px] text-foreground/40 font-semibold">0.8% Utilized</p>
               </div>
 
               {/* Rule 3 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">Max Drawdown</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">Max Drawdown</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">10% Max</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">10% Max</p>
                 <p className="text-[9px] text-foreground/40 font-semibold">Static Shield</p>
               </div>
 
               {/* Rule 4 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">Min Trading Days</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">Min Trading Days</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">0 Days</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">0 Days</p>
                 <p className="text-[9px] text-primary font-semibold">Pass in 1 Day</p>
               </div>
 
               {/* Rule 5 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">News Trading</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">News Trading</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">Allowed</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">Allowed</p>
                 <p className="text-[9px] text-foreground/40 font-semibold">No Restrictions</p>
               </div>
 
               {/* Rule 6 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left">
+              <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-foreground/50">Weekend Holds</span>
+                  <span className="text-[10px] uppercase font-bold text-gray-500">Weekend Holds</span>
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground">Allowed</p>
+                <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">Allowed</p>
                 <p className="text-[9px] text-foreground/40 font-semibold">Crypto &amp; FX</p>
               </div>
             </div>
@@ -174,7 +174,7 @@ export function ObjectivesHUDVisual({
         </div>
 
         {/* Bottom Recent Settlement Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-white/[0.03] px-5 py-3 text-[11px] text-foreground/50">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
             <span className="font-semibold text-foreground/75">
@@ -196,15 +196,15 @@ export function ObjectivesHUDVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-[#0D0C08] px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
+          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
             <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
               <Sliders size={20} className="text-primary" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
                 Objective Model
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-foreground">
+              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Built For Serious Traders
               </p>
             </div>

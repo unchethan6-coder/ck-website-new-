@@ -156,7 +156,6 @@ export async function getArticles(opts: GetArticlesOptions = {}): Promise<CmsArt
 export async function getArticleBySlug(slug: string): Promise<CmsArticle | null> {
   const params = new URLSearchParams();
   params.set("filters[slug][$eq]", slug);
-  params.set("filters[brand][slug][$eq]", CMS_BRAND_SLUG);
   params.set("populate[cover_image]", "true");
   params.set("populate[seo_image]", "true");
   const res = await cmsFetch<any>(`articles?${params.toString()}`);

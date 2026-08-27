@@ -68,7 +68,7 @@ export default function InstantPage() {
     <div className="min-h-screen bg-background" data-od-id="instant-page">
 
       {/* ─────────────── Hero (DARK) ─────────────── */}
-      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-foreground/[0.07] bg-[#070709]" data-od-id="instant-hero">
+      <section className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white" data-od-id="instant-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
           <div className="absolute top-[15%] -left-[10%] w-[60%] h-[70%] rounded-full opacity-60 fx-hero-glow-2" />
@@ -95,7 +95,7 @@ export default function InstantPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="instant-hero-title"
               >
                 {t('title')}
@@ -105,7 +105,7 @@ export default function InstantPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
               >
                 {t('subtitle')}
               </motion.p>
@@ -123,13 +123,13 @@ export default function InstantPage() {
                 </a>
                 <a
                   href="#instant-comparison"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   {t('comparisonTitle')} <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
                 <span className="inline-flex items-center gap-2"><Zap size={14} className="text-primary" /> Instant Activation</span>
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Direct Simulated Funding</span>
               </div>
@@ -149,7 +149,7 @@ export default function InstantPage() {
       </section>
 
       {/* ─────────────── Benefits Grid (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-benefits">
+      <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-benefits">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
@@ -178,26 +178,28 @@ export default function InstantPage() {
       </section>
 
       {/* ─────────────── Instant Pricing (DARK) ─────────────── */}
-      <section id="instant-pricing" className="scroll-mt-24 bg-[#0D0C08] py-16 md:py-24 text-white" data-od-id="instant-pricing">
+      <section id="instant-pricing" className="scroll-mt-24 bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-pricing">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
               ACCOUNT TIERS
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-white md:text-5xl">
+            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               {t('pricesTitle')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
             {pricing.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between rounded-2xl border border-white/10 bg-[#12100A] p-6 text-center shadow-lg hover:border-primary/40 transition-all hover:-translate-y-1"
+                className={`flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 text-center shadow-lg hover:border-primary/40 transition-all hover:-translate-y-1 ${
+                  idx === 4 ? "col-span-2 md:col-span-1" : ""
+                }`}
               >
                 <div>
-                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-primary mb-2">{item.amount}</p>
-                  <p className="text-white/60 text-sm mb-6">From {item.price}</p>
+                  <p className="font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold text-primary mb-1.5 sm:mb-2">{item.amount}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm mb-5 sm:mb-6">From {item.price}</p>
                 </div>
                 <a
                   href="https://app.ckcapital.co.uk/signup"
@@ -214,7 +216,7 @@ export default function InstantPage() {
       </section>
 
       {/* ─────────────── Comparison Table (LIGHT) ─────────────── */}
-      <section id="instant-comparison" className="scroll-mt-24 bg-[#F6F7F9] border-y border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-comparison">
+      <section id="instant-comparison" className="scroll-mt-24 bg-white border-y border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-comparison">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
@@ -225,21 +227,21 @@ export default function InstantPage() {
             </h2>
           </div>
 
-          <div className="mx-auto max-w-4xl overflow-x-auto rounded-2xl border border-[#E5E7EB] bg-white shadow-sm">
-            <table className="w-full text-sm">
+          <div className="mx-auto max-w-4xl overflow-x-auto rounded-2xl border border-[#E5E7EB] bg-white shadow-sm scrollbar-thin">
+            <table className="w-full text-sm min-w-[500px]">
               <thead>
-                <tr className="border-b border-[#E5E7EB] bg-[#F6F7F9] text-[11px] font-bold uppercase tracking-[0.16em]">
-                  <th className="text-left py-4 px-6 text-[#6B7280] font-semibold">{t('feature')}</th>
-                  <th className="text-center py-4 px-6 text-[#D4AF37] font-bold">{t('instantCol')}</th>
-                  <th className="text-center py-4 px-6 text-[#0A0A0C] font-semibold">{t('challengeCol')}</th>
+                <tr className="border-b border-[#E5E7EB] bg-white text-[11px] font-bold uppercase tracking-[0.16em]">
+                  <th className="text-left py-4 px-5 sm:px-6 text-[#6B7280] font-semibold">{t('feature')}</th>
+                  <th className="text-center py-4 px-5 sm:px-6 text-[#D4AF37] font-bold">{t('instantCol')}</th>
+                  <th className="text-center py-4 px-5 sm:px-6 text-[#0A0A0C] font-semibold">{t('challengeCol')}</th>
                 </tr>
               </thead>
               <tbody>
                 {comparison.map((row, idx) => (
-                  <tr key={idx} className="border-b border-[#E5E7EB] last:border-0 hover:bg-[#F6F7F9]/50 transition-colors">
-                    <td className="py-4 px-6 font-semibold text-[#0A0A0C]">{row.feature}</td>
-                    <td className="py-4 px-6 text-center text-[#D4AF37] font-bold">{row.instant}</td>
-                    <td className="py-4 px-6 text-center text-[#4B5563]">{row.challenge}</td>
+                  <tr key={idx} className="border-b border-[#E5E7EB] last:border-0 hover:bg-white/50 transition-colors">
+                    <td className="py-4 px-5 sm:px-6 font-semibold text-[#0A0A0C]">{row.feature}</td>
+                    <td className="py-4 px-5 sm:px-6 text-center text-[#D4AF37] font-bold">{row.instant}</td>
+                    <td className="py-4 px-5 sm:px-6 text-center text-[#4B5563]">{row.challenge}</td>
                   </tr>
                 ))}
               </tbody>
@@ -249,13 +251,13 @@ export default function InstantPage() {
       </section>
 
       {/* ─────────────── FAQ (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-16 md:py-24 text-white" data-od-id="instant-faq">
+      <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-faq">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
               QUESTIONS & ANSWERS
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-white md:text-5xl">
+            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               Frequently Asked Questions
             </h2>
           </div>
@@ -266,12 +268,12 @@ export default function InstantPage() {
                 <AccordionItem
                   key={idx}
                   value={String(idx)}
-                  className="rounded-2xl border border-white/10 bg-[#12100A] px-6 transition-all data-[open]:border-primary/40"
+                  className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-primary/40"
                 >
-                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-white hover:text-primary hover:no-underline">
+                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-primary hover:no-underline">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm leading-relaxed text-white/60">
+                  <AccordionContent className="pb-4 text-sm leading-relaxed text-gray-500">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -282,7 +284,7 @@ export default function InstantPage() {
       </section>
 
       {/* ─────────────── Final CTA (LIGHT) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#F6F7F9] border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="instant-closing-cta">
+      <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="instant-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
             <Zap className="mx-auto text-[#D4AF37]" size={32} />

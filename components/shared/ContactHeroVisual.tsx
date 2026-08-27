@@ -24,18 +24,18 @@ export function ContactHeroVisual({
 }: ContactHeroVisualProps) {
   return (
     <div
-      className={cn("relative w-full select-none", className)}
+      className={cn("relative w-full select-none mb-8 sm:mb-6", className)}
       data-od-id="hero-contact-desk"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-[#12100A] shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
         {/* Top Browser / App Window Chrome */}
-        <div className="flex h-11 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
+        <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-white/10 bg-black/40 px-2.5 py-1 text-[11px] font-mono text-foreground/45">
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
               <Lock size={10} className="text-primary" />
               <span>app.ckcapital.co.uk/support/live-desk</span>
             </div>
@@ -52,17 +52,17 @@ export function ContactHeroVisual({
         {/* Dashboard Content */}
         <div className="p-5 sm:p-6 lg:p-7">
           {/* Header Support Row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
             <div>
               <div className="flex items-center gap-2">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
                   Global Support Node #CK-UK
                 </p>
                 <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
                   24/7 DEDICATED
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 &lt; 3 Min{" "}
                 <span className="text-xs font-semibold text-emerald-400">
                   Avg First Response
@@ -76,7 +76,7 @@ export function ContactHeroVisual({
                 <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
                   Active Queue
                 </p>
-                <p className="text-sm font-extrabold text-foreground">
+                <p className="text-sm font-extrabold text-[#0A0A0C]">
                   0 Waiting Traders
                 </p>
               </div>
@@ -109,10 +109,10 @@ export function ContactHeroVisual({
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <p className="text-xs font-bold text-foreground">Discord Server</p>
+                      <p className="text-xs font-bold text-[#0A0A0C]">Discord Server</p>
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                     </div>
-                    <p className="text-[10px] text-foreground/50">Direct trader community & staff</p>
+                    <p className="text-[10px] text-gray-500">Direct trader community & staff</p>
                   </div>
                 </div>
                 <span className="rounded bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary group-hover:bg-primary group-hover:text-black transition-colors">
@@ -121,25 +121,25 @@ export function ContactHeroVisual({
               </a>
 
               {/* Email Desk */}
-              <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] p-3.5 text-left">
+              <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 p-3.5 text-left">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-foreground/70">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-foreground">Direct Desk Email</p>
-                    <p className="text-[10px] text-foreground/50">support@ckcapital.co.uk</p>
+                    <p className="text-xs font-bold text-[#0A0A0C]">Direct Desk Email</p>
+                    <p className="text-[10px] text-gray-500">support@ckcapital.co.uk</p>
                   </div>
                 </div>
-                <span className="rounded border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-bold text-foreground/60">
+                <span className="rounded border border-gray-200 bg-white/5 px-2 py-0.5 text-[9px] font-bold text-gray-500">
                   AUTO-ROUTED
                 </span>
               </div>
             </div>
 
             {/* Simulated Live Support Dispatch Ping */}
-            <div className="rounded-xl border border-white/10 bg-black/40 p-3.5">
-              <div className="flex items-center justify-between text-[11px] text-foreground/50 border-b border-white/5 pb-2.5">
+            <div className="rounded-xl border border-gray-200 bg-white/70 p-3.5">
+              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-white/5 pb-2.5">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
                   <span className="font-semibold text-foreground/80">Support Lead Available</span>
@@ -164,8 +164,8 @@ export function ContactHeroVisual({
             </div>
 
             {/* Server Relay Latency Row */}
-            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-3.5 py-2.5 text-xs">
-              <div className="flex items-center gap-2 text-foreground/60">
+            <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 px-3.5 py-2.5 text-xs">
+              <div className="flex items-center gap-2 text-gray-500">
                 <Globe2 size={14} className="text-primary" />
                 <span className="text-[11px]">Primary Routing: London (12ms) · NY (24ms)</span>
               </div>
@@ -177,7 +177,7 @@ export function ContactHeroVisual({
         </div>
 
         {/* Bottom Recent Status Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-white/[0.03] px-5 py-3 text-[11px] text-foreground/50">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <ShieldCheck size={13} className="text-emerald-400 shrink-0" />
             <span className="font-semibold text-foreground/75">
@@ -199,15 +199,15 @@ export function ContactHeroVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-[#0D0C08] px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
+          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
             <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
               <Zap size={20} className="fill-primary text-primary" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/45">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
                 Support SLA
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-foreground">
+              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Instant Discord Support
               </p>
             </div>

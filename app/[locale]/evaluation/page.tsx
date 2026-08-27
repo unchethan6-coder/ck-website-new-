@@ -13,13 +13,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { getActivePromo, getChallengeConfig } from "@/lib/cms";
+import { getChallengeConfig } from "@/lib/cms";
 
 export const revalidate = 300;
 
 export default async function EvaluationPage() {
-  const [promo, challengeConfig, t, tFaq] = await Promise.all([
-    getActivePromo(),
+  const [challengeConfig, t, tFaq] = await Promise.all([
     getChallengeConfig(),
     getTranslations("evaluation"),
     getTranslations("faq"),
@@ -53,23 +52,23 @@ export default async function EvaluationPage() {
 
       {/* ─────────────── Interactive pricing table (LIGHT) ─────────────── */}
       <Suspense fallback={null}>
-        <ChallengeComparison config={challengeConfig} promoCode={promo?.code} />
+        <ChallengeComparison config={challengeConfig} />
       </Suspense>
 
       {/* ─────────────── Reset & Top-Up (DARK) ─────────────── */}
-      <section className="bg-[#0D0C08] py-16 md:py-24 text-white" data-od-id="evaluation-reset">
+      <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-reset">
         <Container>
-          <SectionReveal delay={0.05} className="rounded-2xl border border-white/10 bg-[#12100A] p-6 sm:p-10 shadow-xl">
+          <SectionReveal delay={0.05} className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-10 shadow-xl">
             <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
               <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center md:gap-6">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
                   <RefreshCw size={24} className="text-primary" />
                 </div>
                 <div className="max-w-md">
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-white md:text-2xl">
+                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
                     {t("resetTitle")}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
                     {t("resetDesc")}
                   </p>
                 </div>
@@ -90,7 +89,7 @@ export default async function EvaluationPage() {
       </section>
 
       {/* ─────────────── FAQ (LIGHT) ─────────────── */}
-      <section className="bg-[#F6F7F9] border-t border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-faq">
+      <section className="bg-white border-t border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-faq">
         <Container>
           <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
@@ -125,13 +124,13 @@ export default async function EvaluationPage() {
       </section>
 
       {/* ─────────────── Closing CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-[#0D0C08] border-t border-primary/20 py-20 md:py-28 text-white" data-od-id="evaluation-closing-cta">
+      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="evaluation-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Ready to begin your evaluation?
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/60">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
               Select your simulated account size, pass the evaluation targets, and trade with up to $1,200,000 in simulated capital.
             </p>
             <div className="mt-8">

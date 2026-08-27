@@ -180,26 +180,57 @@ export function SiteFooter() {
         </Container>
       </div>
 
-      {/* Compliance statement */}
+      {/* Compliance statement — re-branded FundingPips Full Legal, UK/Harpenden */}
       <div className="border-b border-foreground/[0.06] bg-foreground/[0.015]" data-od-id="footer-compliance">
         <Container>
           <div className="py-8 md:py-10">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/60 mb-3.5">
-              {t("disclaimerTitle")}
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/60 mb-6">
+              {t("disclaimerImportantTitle")}
             </h3>
-            <div className="space-y-3 text-xs leading-relaxed text-foreground/45 sm:text-[12.5px]">
-              <p>
-                <strong className="text-foreground/65 font-medium">{t("disclaimerSimulated")}</strong>
+            <div className="space-y-6 text-xs leading-relaxed text-foreground/45 sm:text-[12.5px]">
+              <p className="font-medium text-foreground/65">
+                <strong>{t("disclaimerSimulated")}</strong>
               </p>
-              <p>
-                {t("disclaimerAdvice")}
-              </p>
-              <p>
-                {t("disclaimerPerformance")}
-              </p>
-              <p>
-                {t("disclaimerJurisdiction")}
-              </p>
+
+              <div className="space-y-2">
+                <h4 className="text-[12.5px] font-bold text-foreground/70">{t("simulatedEnvTitle")}</h4>
+                <p>{t("simulatedEnvBody")}</p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="text-[12.5px] font-bold text-foreground/70">{t("noInvestmentTitle")}</h4>
+                <p>{t("noInvestmentIntro")}</p>
+                <ul className="list-disc space-y-1 pl-5">
+                  {(t.raw("noInvestmentBullets") as string[]).map((b: string) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <p>{t("participationBody")}</p>
+              <p>{t("operationalBody")}</p>
+              <p>{t("offerDisclaimerBody")}</p>
+              <p>{t("disclaimerAdvice")}</p>
+              <p>{t("disclaimerPerformance")}</p>
+
+              <div className="space-y-2">
+                <h4 className="text-[12.5px] font-bold text-foreground/70">{t("riskWarningTitle")}</h4>
+                <p>{t("riskWarningBody")}</p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="text-[12.5px] font-bold text-foreground/70">{t("corporateTitle")}</h4>
+                <p>{t("corporateBody")}</p>
+                <p>{t("corporateNote")}</p>
+                <p>{t("corporateRestrictions")}</p>
+              </div>
+
+              <div className="space-y-1">
+                <h4 className="text-[12.5px] font-bold text-foreground/70">{t("registeredAddressTitle")}</h4>
+                <p>{t("registeredAddressBody")}</p>
+              </div>
+
+              <p>{t("disclaimerJurisdiction")}</p>
             </div>
           </div>
         </Container>
