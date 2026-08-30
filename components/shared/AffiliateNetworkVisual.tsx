@@ -100,7 +100,7 @@ export function AffiliateNetworkVisual({
             {/* Referral Link Quick Box */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
                   Your Custom Partner Link
                 </p>
                 <span className="text-[11px] text-primary font-semibold">
@@ -110,7 +110,7 @@ export function AffiliateNetworkVisual({
               <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white/70 p-2 sm:p-2.5">
                 <div className="flex flex-1 items-center gap-2 px-2 overflow-hidden">
                   <Share2 size={14} className="text-primary shrink-0" />
-                  <span className="font-mono text-xs text-foreground/80 truncate">
+                  <span className="font-mono text-xs text-gray-700 truncate">
                     https://ckcapital.co.uk/ref/VIP-PRO
                   </span>
                 </div>
@@ -147,13 +147,13 @@ export function AffiliateNetworkVisual({
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-center">
                 <p className="text-[10px] uppercase font-bold text-gray-500">Avg Reward</p>
                 <p className="mt-1 font-mono text-base font-extrabold text-[#0A0A0C]">$129.70</p>
-                <p className="text-[9px] text-foreground/40 font-semibold">Per Order</p>
+                <p className="text-[9px] text-gray-500 font-semibold">Per Order</p>
               </div>
             </div>
 
             {/* Recent Referral Ledger Mock */}
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 space-y-2">
-              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-white/5 pb-2">
+              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-gray-200 pb-2">
                 <span className="font-bold uppercase tracking-wider text-[10px]">Recent Partner Activity</span>
                 <span className="text-[10px] text-emerald-400 font-bold">Auto-Credited</span>
               </div>
@@ -163,20 +163,20 @@ export function AffiliateNetworkVisual({
                     #84
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground/90 text-[11px]">$100K 2-Step Challenge</p>
-                    <p className="text-[9px] text-foreground/40">2 mins ago · Direct Link</p>
+                    <p className="font-semibold text-gray-900 text-[11px]">$100K 2-Step Challenge</p>
+                    <p className="text-[9px] text-gray-500">2 mins ago · Direct Link</p>
                   </div>
                 </div>
                 <span className="font-mono font-extrabold text-emerald-400 text-xs">+$74.85</span>
               </div>
-              <div className="flex items-center justify-between text-xs py-1 border-t border-white/5">
+              <div className="flex items-center justify-between text-xs py-1 border-t border-gray-200">
                 <div className="flex items-center gap-2">
-                  <div className="h-6 w-6 rounded bg-white/10 text-foreground/70 flex items-center justify-center font-mono text-[10px] font-bold">
+                  <div className="h-6 w-6 rounded bg-primary/15 text-primary flex items-center justify-center font-mono text-[10px] font-bold">
                     #79
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground/90 text-[11px]">$50K Instant Funding</p>
-                    <p className="text-[9px] text-foreground/40">14 mins ago · Sub-Affiliate Tier 2</p>
+                    <p className="font-semibold text-gray-900 text-[11px]">$50K Instant Funding</p>
+                    <p className="text-[9px] text-gray-500">14 mins ago · Sub-Affiliate Tier 2</p>
                   </div>
                 </div>
                 <span className="font-mono font-extrabold text-primary text-xs">+$48.50</span>
@@ -189,11 +189,11 @@ export function AffiliateNetworkVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Weekly Settlement:
             </span>
-            <span className="text-foreground/90 font-bold">Direct USDT (TRC20)</span>
-            <span className="text-foreground/40 hidden sm:inline">every Wednesday</span>
+            <span className="text-gray-900 font-bold">Direct USDT (TRC20)</span>
+            <span className="text-gray-500 hidden sm:inline">every Wednesday</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             UP TO 15% RECURRING

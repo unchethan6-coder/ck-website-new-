@@ -51,9 +51,7 @@ export default async function EvaluationPage() {
       <StatsStrip />
 
       {/* ─────────────── Interactive pricing table (LIGHT) ─────────────── */}
-      <Suspense fallback={null}>
-        <ChallengeComparison config={challengeConfig} />
-      </Suspense>
+      <ChallengeComparison config={challengeConfig} />
 
       {/* ─────────────── Reset & Top-Up (DARK) ─────────────── */}
       <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-reset">

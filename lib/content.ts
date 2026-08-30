@@ -127,11 +127,96 @@ export const CHALLENGE_TYPES: {
 
 export const ACCOUNT_SIZES = ["$5K", "$10K", "$25K", "$50K", "$100K", "$200K", "$300K"];
 
-export const CURRENCIES = [
-  { code: "USD", flag: "🇺🇸", symbol: "$", rate: 1 },
-  { code: "GBP", flag: "🇬🇧", symbol: "£", rate: 0.79 },
-  { code: "EUR", flag: "🇪🇺", symbol: "€", rate: 0.92 },
+export interface CurrencyOption {
+  code: string;
+  symbol: string;
+  flag: string;
+  rate: number;
+}
+
+export const CURRENCIES: CurrencyOption[] = [
+  { code: "USD", symbol: "$", flag: "🇺🇸", rate: 1 },
+  { code: "GBP", symbol: "£", flag: "🇬🇧", rate: 0.79 },
+  { code: "EUR", symbol: "€", flag: "🇪🇺", rate: 0.92 },
+  { code: "CAD", symbol: "C$", flag: "🇨🇦", rate: 1.36 },
+  { code: "AUD", symbol: "A$", flag: "🇦🇺", rate: 1.53 },
+  { code: "JPY", symbol: "¥", flag: "🇯🇵", rate: 147.5 },
+  { code: "CHF", symbol: "CHF", flag: "🇨🇭", rate: 0.88 },
 ];
+
+export interface PlanDetails {
+  orig: string;
+  disc: string;
+  p1: string;
+  p2: string;
+  dailyLoss: string;
+  maxLoss: string;
+  period: string;
+  minDays: string;
+  split1: string;
+  split2: string;
+  split3: string;
+  consistency: string;
+  fundedConsistency: string;
+}
+
+export interface FundingChallengeTypeItem {
+  id: string;
+  name: string;
+  desc: string;
+}
+
+export const FUNDING_CHALLENGE_TYPES: FundingChallengeTypeItem[] = [
+  { id: "standard", name: "Standard", desc: "Two-Phase Evaluation | Classic Growth" },
+  { id: "1step", name: "1 Step Standard", desc: "Single Phase | Faster Road to Funding" },
+  { id: "instant", name: "Instant Funding", desc: "Skip Evaluation | Direct Live Payouts" },
+  { id: "middleweight", name: "Middleweight", desc: "High Drawdown Buffer | Max Leverage" },
+];
+
+export const FUNDING_PLAN_RAW_DATA: Record<string, Record<string, PlanDetails | null>> = {
+  "5K": {
+    standard: { orig: "$64.00", disc: "$19.20", p1: "$500.00", p2: "$250.00", dailyLoss: "$200.00", maxLoss: "$400.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$64.00", disc: "$19.20", p1: "$500.00", p2: "$0.00", dailyLoss: "$200.00", maxLoss: "$300.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$160.00", disc: "$48.00", p1: "$0.00", p2: "$0.00", dailyLoss: "$150.00", maxLoss: "$250.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$64.00", disc: "$19.20", p1: "$400.00", p2: "$250.00", dailyLoss: "$200.00", maxLoss: "$600.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "10K": {
+    standard: { orig: "$193.33", disc: "$58.00", p1: "$1,000.00", p2: "$500.00", dailyLoss: "$400.00", maxLoss: "$800.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$193.33", disc: "$58.00", p1: "$1,000.00", p2: "$0.00", dailyLoss: "$400.00", maxLoss: "$600.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$260.00", disc: "$78.00", p1: "$0.00", p2: "$0.00", dailyLoss: "$300.00", maxLoss: "$500.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$193.33", disc: "$58.00", p1: "$800.00", p2: "$500.00", dailyLoss: "$400.00", maxLoss: "$1,200.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "25K": {
+    standard: { orig: "$228.00", disc: "$68.40", p1: "$2,000.00", p2: "$1,250.00", dailyLoss: "$1,000.00", maxLoss: "$2,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$228.00", disc: "$68.40", p1: "$2,000.00", p2: "$0.00", dailyLoss: "$1,000.00", maxLoss: "$1,500.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$463.33", disc: "$139.00", p1: "$0.00", p2: "$0.00", dailyLoss: "$750.00", maxLoss: "$1,250.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$228.00", disc: "$68.40", p1: "$2,000.00", p2: "$1,250.00", dailyLoss: "$1,000.00", maxLoss: "$3,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "50K": {
+    standard: { orig: "$360.80", disc: "$108.24", p1: "$5,000.00", p2: "$2,500.00", dailyLoss: "$2,000.00", maxLoss: "$4,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$360.80", disc: "$108.24", p1: "$5,000.00", p2: "$0.00", dailyLoss: "$2,000.00", maxLoss: "$3,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$915.00", disc: "$274.50", p1: "$0.00", p2: "$0.00", dailyLoss: "$1,500.00", maxLoss: "$2,500.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$360.80", disc: "$108.24", p1: "$4,000.00", p2: "$2,500.00", dailyLoss: "$2,000.00", maxLoss: "$6,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "100K": {
+    standard: { orig: "$763.33", disc: "$229.00", p1: "$10,000.00", p2: "$5,000.00", dailyLoss: "$4,000.00", maxLoss: "$8,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$763.33", disc: "$229.00", p1: "$10,000.00", p2: "$0.00", dailyLoss: "$4,000.00", maxLoss: "$6,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$1,830.00", disc: "$549.00", p1: "$0.00", p2: "$0.00", dailyLoss: "$3,000.00", maxLoss: "$5,000.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$763.33", disc: "$229.00", p1: "$8,000.00", p2: "$5,000.00", dailyLoss: "$4,000.00", maxLoss: "$12,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "200K": {
+    standard: { orig: "$2,115.00", disc: "$634.50", p1: "$20,000.00", p2: "$10,000.00", dailyLoss: "$8,000.00", maxLoss: "$16,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$2,115.00", disc: "$634.50", p1: "$20,000.00", p2: "$0.00", dailyLoss: "$8,000.00", maxLoss: "$12,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: { orig: "$3,660.00", disc: "$1,098.00", p1: "$0.00", p2: "$0.00", dailyLoss: "$6,000.00", maxLoss: "$10,000.00", period: "Unlimited", minDays: "1", split1: "Bi-Weekly 50%", split2: "-", split3: "-", consistency: "20%", fundedConsistency: "-" },
+    middleweight: { orig: "$2,115.00", disc: "$634.50", p1: "$16,000.00", p2: "$10,000.00", dailyLoss: "$8,000.00", maxLoss: "$24,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+  "300K": {
+    standard: { orig: "$3,281.67", disc: "$984.50", p1: "$30,000.00", p2: "$15,000.00", dailyLoss: "$12,000.00", maxLoss: "$24,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    "1step": { orig: "$3,281.67", disc: "$984.50", p1: "$30,000.00", p2: "$0.00", dailyLoss: "$12,000.00", maxLoss: "$18,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "-", fundedConsistency: "-" },
+    instant: null,
+    middleweight: { orig: "$3,281.67", disc: "$984.50", p1: "$24,000.00", p2: "$15,000.00", dailyLoss: "$12,000.00", maxLoss: "$36,000.00", period: "Unlimited", minDays: "1", split1: "50%", split2: "75%", split3: "100%", consistency: "30%", fundedConsistency: "25%" },
+  },
+};
 
 /**
  * Exact challenge data — ported verbatim from ck-website-2.vercel.app

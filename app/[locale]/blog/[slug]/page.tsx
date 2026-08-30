@@ -81,7 +81,7 @@ export default async function ArticlePage({
 
   return (
     <div className="min-h-screen bg-background" data-od-id="article-page">
-      {/* ─────────────── Hero (DARK) ─────────────── */}
+      {/* ─────────────── Hero Header (LIGHT) ─────────────── */}
       <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-gray-200 bg-white pt-28 md:pt-36 pb-14 md:pb-20 text-[#0A0A0C]" data-od-id="article-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />

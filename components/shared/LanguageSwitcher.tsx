@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Check, ChevronDown, Globe } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { LOCALES } from "@/i18n/locales";
 import { cn } from "@/lib/utils";
@@ -38,9 +38,11 @@ function promoteStoredLocale() {
 export function LanguageSwitcher({
   compact = false,
   dropUp = false,
+  className,
 }: {
   compact?: boolean;
   dropUp?: boolean;
+  className?: string;
 }) {
   const locale = useLocale() as keyof typeof LOCALES;
   const t = useTranslations("languageSwitcher");
@@ -101,7 +103,7 @@ export function LanguageSwitcher({
   const active = LOCALES[locale];
 
   return (
-    <div ref={ref} className="relative" data-od-id="language-switcher">
+    <div ref={ref} className="relative shrink-0" data-od-id="language-switcher">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
@@ -109,12 +111,17 @@ export function LanguageSwitcher({
         aria-expanded={open}
         aria-label={t("selectLanguage")}
         className={cn(
-          "inline-flex items-center justify-center gap-1.5 rounded-lg border border-foreground/15 text-[12.5px] font-semibold text-foreground/75 transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
-          compact ? "h-[34px] px-2.5" : "min-h-11 px-3.5"
+          "inline-flex items-center justify-center gap-1.5 rounded-lg border border-foreground/15 text-[11.5px] xl:text-[12.5px] font-semibold text-foreground/75 transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11 h-11 shrink-0",
+          compact ? "px-2 sm:px-2.5" : "px-2.5 xl:px-3",
+          className
         )}
       >
-        <Globe size={15} className="shrink-0 text-primary/80" aria-hidden="true" />
-        <span className="max-w-24 truncate">{active.label}</span>
+        <span className="text-sm leading-none shrink-0" aria-hidden="true">
+          {active.flag}
+        </span>
+        <span className={cn("truncate", compact ? "hidden sm:inline max-w-20" : "max-w-24")}>
+          {active.label}
+        </span>
         <ChevronDown
           size={14}
           className={cn("shrink-0 text-foreground/50 transition-transform", open && "rotate-180")}
@@ -139,13 +146,18 @@ export function LanguageSwitcher({
               aria-selected={code === locale}
               onClick={() => select(code)}
               className={cn(
-                "flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-[13px] font-medium transition-colors",
+                "flex w-full items-center justify-between gap-2.5 rounded-lg px-3 py-2 text-left text-[13px] font-medium transition-colors",
                 code === locale
                   ? "bg-primary/10 text-primary"
                   : "text-foreground/75 hover:bg-foreground/[0.06] hover:text-foreground"
               )}
             >
-              <span>{meta.label}</span>
+              <span className="flex items-center gap-2.5 min-w-0">
+                <span className="text-base leading-none shrink-0" aria-hidden="true">
+                  {meta.flag}
+                </span>
+                <span className="truncate">{meta.label}</span>
+              </span>
               {code === locale && <Check size={14} className="shrink-0 text-primary" aria-hidden="true" />}
             </button>
           ))}

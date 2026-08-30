@@ -124,7 +124,7 @@ export function Hero() {
             >
               <Link
                 href="/#start-challenge"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#FFC107] px-6 py-3.5 text-sm sm:text-base font-black text-[#0A0A0C] shadow-sm hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] active:scale-[0.98] transition-all duration-200 text-center"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl gold-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-[#0A0A0C] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center"
               >
                 <span>{t("startChallenge")}</span>
                 <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />

@@ -86,10 +86,10 @@ export function ContactHeroVisual({
           {/* Support Channels Grid */}
           <div className="mt-5 space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
                 Priority Communication Channels
               </p>
-              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-400">
+              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-500">
                 <Radio size={12} className="animate-pulse" /> 100% Operational
               </span>
             </div>
@@ -110,7 +110,7 @@ export function ContactHeroVisual({
                   <div>
                     <div className="flex items-center gap-1.5">
                       <p className="text-xs font-bold text-[#0A0A0C]">Discord Server</p>
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     </div>
                     <p className="text-[10px] text-gray-500">Direct trader community & staff</p>
                   </div>
@@ -123,7 +123,7 @@ export function ContactHeroVisual({
               {/* Email Desk */}
               <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 p-3.5 text-left">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-foreground/70">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 text-gray-700">
                     <Mail size={18} />
                   </div>
                   <div>
@@ -131,7 +131,7 @@ export function ContactHeroVisual({
                     <p className="text-[10px] text-gray-500">support@ckcapital.co.uk</p>
                   </div>
                 </div>
-                <span className="rounded border border-gray-200 bg-white/5 px-2 py-0.5 text-[9px] font-bold text-gray-500">
+                <span className="rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-[9px] font-bold text-gray-600">
                   AUTO-ROUTED
                 </span>
               </div>
@@ -139,12 +139,12 @@ export function ContactHeroVisual({
 
             {/* Simulated Live Support Dispatch Ping */}
             <div className="rounded-xl border border-gray-200 bg-white/70 p-3.5">
-              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-white/5 pb-2.5">
+              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-gray-200 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="font-semibold text-foreground/80">Support Lead Available</span>
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+                  <span className="font-semibold text-gray-900">Support Lead Available</span>
                 </div>
-                <span className="text-[10px] font-mono text-primary">London Desk (GMT)</span>
+                <span className="text-[10px] font-mono text-primary font-bold">London Desk (GMT)</span>
               </div>
               <div className="mt-2.5 flex items-start gap-3">
                 <img
@@ -153,10 +153,10 @@ export function ContactHeroVisual({
                   className="h-8 w-8 rounded-full border border-primary/40 object-cover shrink-0"
                 />
                 <div className="space-y-1">
-                  <p className="text-xs font-semibold text-foreground/90">
-                    Daniel &amp; Team · <span className="text-foreground/40 font-normal">Desk Staff</span>
+                  <p className="text-xs font-semibold text-gray-900">
+                    Daniel &amp; Team · <span className="text-gray-500 font-normal">Desk Staff</span>
                   </p>
-                  <p className="text-[11px] text-foreground/65 leading-relaxed">
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
                     &ldquo;Have a question about rules, instant funding setup, or profit withdrawals? Our UK support desk is live 24/7.&rdquo;
                   </p>
                 </div>
@@ -169,7 +169,7 @@ export function ContactHeroVisual({
                 <Globe2 size={14} className="text-primary" />
                 <span className="text-[11px]">Primary Routing: London (12ms) · NY (24ms)</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                 Ultra-Low Latency
               </span>
             </div>
@@ -180,10 +180,10 @@ export function ContactHeroVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <ShieldCheck size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Resolution Rate:
             </span>
-            <span className="text-foreground/90 font-bold">99.4% first-contact</span>
+            <span className="text-gray-900 font-bold">99.4% first-contact</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             ZERO BOT REPLIES

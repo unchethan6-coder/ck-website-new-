@@ -264,7 +264,7 @@ export function ClosingCta() {
                 data-od-id="closing-cta-primary"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#FFC107] px-8 text-[14px] font-black text-[#0A0A0C] shadow-[0_8px_22px_rgba(255,193,7,0.28)] transition-all hover:bg-[#E6AE06] hover:shadow-[0_10px_28px_rgba(255,193,7,0.35)]"
+                className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-xl gold-gradient-btn px-8 text-[14px] font-bold text-[#0A0A0C]"
               >
                 {t("primary")}{" "}
                 <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>
@@ -312,7 +312,7 @@ export function ClosingCta() {
                 </ol>
               </div>
               <div className="border-t border-gray-100 p-6">
-                <Link href="/trading-objectives" onClick={() => setDrawerOpen(false)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] px-6 py-3.5 text-sm font-black text-[#0A0A0C] transition-all hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0" data-od-id="roadmap-cta">{t("drawerCta")} <ArrowRight size={16} /></Link>
+                <Link href="/trading-objectives" onClick={() => setDrawerOpen(false)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl gold-gradient-btn px-6 py-3.5 text-sm font-bold text-[#0A0A0C] transition-all hover:-translate-y-0.5 active:translate-y-0" data-od-id="roadmap-cta">{t("drawerCta")} <ArrowRight size={16} /></Link>
                 <p className="mt-3 text-center text-[11px] leading-4 text-gray-400">{t("subtitleNew")}</p>
               </div>
             </motion.div>

@@ -90,10 +90,10 @@ export function InstantFundingVisual({
           {/* Instant Stepper Graphic */}
           <div className="mt-5 space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
                 Funding Acceleration Roadmap
               </p>
-              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-400">
+              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-500">
                 <Clock size={12} className="text-primary" /> 60s Account Activation
               </span>
             </div>
@@ -102,21 +102,21 @@ export function InstantFundingVisual({
             <div className="rounded-xl border border-gray-200 bg-white/70 p-4">
               <div className="grid grid-cols-3 gap-2 relative">
                 {/* Step 1: Skipped */}
-                <div className="rounded-lg border border-white/5 bg-gray-50 p-2.5 text-center relative overflow-hidden">
-                  <div className="absolute top-0 inset-x-0 h-0.5 bg-foreground/20" />
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-foreground/40 line-through">Phase 1</p>
-                  <p className="mt-1 text-[11px] font-extrabold text-gray-500">8% Target</p>
-                  <span className="mt-1.5 inline-block rounded bg-white/5 px-1.5 py-0.5 text-[8.5px] font-mono text-foreground/40">
+                <div className="rounded-lg border border-gray-200 bg-gray-50 p-2.5 text-center relative overflow-hidden">
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-gray-300" />
+                  <p className="text-[9px] font-bold uppercase tracking-wider text-gray-400 line-through">Phase 1</p>
+                  <p className="mt-1 text-[11px] font-extrabold text-gray-400">8% Target</p>
+                  <span className="mt-1.5 inline-block rounded bg-gray-100 px-1.5 py-0.5 text-[8.5px] font-mono text-gray-500">
                     SKIPPED
                   </span>
                 </div>
 
                 {/* Step 2: Skipped */}
-                <div className="rounded-lg border border-white/5 bg-gray-50 p-2.5 text-center relative overflow-hidden">
-                  <div className="absolute top-0 inset-x-0 h-0.5 bg-foreground/20" />
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-foreground/40 line-through">Phase 2</p>
-                  <p className="mt-1 text-[11px] font-extrabold text-gray-500">5% Target</p>
-                  <span className="mt-1.5 inline-block rounded bg-white/5 px-1.5 py-0.5 text-[8.5px] font-mono text-foreground/40">
+                <div className="rounded-lg border border-gray-200 bg-gray-50 p-2.5 text-center relative overflow-hidden">
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-gray-300" />
+                  <p className="text-[9px] font-bold uppercase tracking-wider text-gray-400 line-through">Phase 2</p>
+                  <p className="mt-1 text-[11px] font-extrabold text-gray-400">5% Target</p>
+                  <span className="mt-1.5 inline-block rounded bg-gray-100 px-1.5 py-0.5 text-[8.5px] font-mono text-gray-500">
                     SKIPPED
                   </span>
                 </div>
@@ -140,13 +140,13 @@ export function InstantFundingVisual({
                   <ShieldCheck size={16} className="text-primary" />
                   <span className="text-xs font-bold text-[#0A0A0C]">Profit Target</span>
                 </div>
-                <p className="mt-1.5 font-mono text-base font-extrabold text-emerald-400">NO TARGET</p>
+                <p className="mt-1.5 font-mono text-base font-extrabold text-emerald-500">NO TARGET</p>
                 <p className="text-[10px] text-gray-500">Keep your profits from trade #1</p>
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
                 <div className="flex items-center gap-2">
-                  <ShieldAlert size={16} className="text-secondary" />
+                  <ShieldAlert size={16} className="text-[#D99B00]" />
                   <span className="text-xs font-bold text-[#0A0A0C]">Max Loss Shield</span>
                 </div>
                 <p className="mt-1.5 font-mono text-base font-extrabold text-[#0A0A0C]">6% Static Max</p>
@@ -171,10 +171,10 @@ export function InstantFundingVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Live Trader Split:
             </span>
-            <span className="text-foreground/90 font-bold">Up to 100% Payouts</span>
+            <span className="text-gray-900 font-bold">Up to 100% Payouts</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             ZERO WAITING PERIOD

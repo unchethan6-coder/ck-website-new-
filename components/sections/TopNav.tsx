@@ -154,21 +154,28 @@ export function TopNav() {
     },
   ];
 
-  useLayoutEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
-    window.addEventListener("hashchange", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-      window.removeEventListener("hashchange", handleScroll);
     };
   }, []);
 
   useEffect(() => {
-    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    const onResize = () => window.innerWidth >= 1280 && setOpen(false);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
@@ -190,6 +197,7 @@ export function TopNav() {
   const companyTriggerRef = useRef<HTMLButtonElement>(null);
   const [programsCaretLeft, setProgramsCaretLeft] = useState<number | null>(null);
   const [companyCaretLeft, setCompanyCaretLeft] = useState<number | null>(null);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<"programs" | "company" | null>(null);
 
   const updateCaretPositions = useCallback(() => {
     if (!navRef.current) return;
@@ -208,32 +216,9 @@ export function TopNav() {
     }
   }, []);
 
-  useLayoutEffect(() => {
-    updateCaretPositions();
-    const timer = setTimeout(updateCaretPositions, 320);
-    return () => clearTimeout(timer);
-  }, [updateCaretPositions, pathname, scrolled]);
-
   useEffect(() => {
-    updateCaretPositions();
     window.addEventListener("resize", updateCaretPositions);
-    window.addEventListener("scroll", updateCaretPositions, { passive: true });
-
-    let resizeObserver: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== "undefined" && navRef.current) {
-      resizeObserver = new ResizeObserver(() => {
-        updateCaretPositions();
-      });
-      resizeObserver.observe(navRef.current);
-    }
-
-    return () => {
-      window.removeEventListener("resize", updateCaretPositions);
-      window.removeEventListener("scroll", updateCaretPositions);
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-    };
+    return () => window.removeEventListener("resize", updateCaretPositions);
   }, [updateCaretPositions]);
 
   const isProgramsActive =
@@ -250,6 +235,9 @@ export function TopNav() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
+    setActiveMegaMenu(null);
+    setOpen(false);
+    setMobileExpanded(null);
     if (href.includes("#")) {
       const [targetPath, hash] = href.split("#");
       const isTargetPage =
@@ -277,40 +265,30 @@ export function TopNav() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    setOpen(false);
   };
-
-  // Lock body scroll when mobile drawer is open
-  useEffect(() => {
-    if (open) {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = original;
-      };
-    }
-  }, [open]);
 
   return (
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
-          scrolled
-            ? open
-              ? "pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-auto"
-              : "pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
-            : "bg-[#070709] border-b border-white/[0.08]"
+          "sticky top-0 z-50 w-full transition-all duration-300 ease-out",
+          open
+            ? "bg-[#070709] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
+            : scrolled
+            ? "bg-transparent border-transparent pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
+            : "bg-[#070709] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
         )}
         data-od-id="top-nav"
       >
         <nav
           ref={navRef}
           className={cn(
-            "relative mx-auto max-w-7xl transition-all duration-300",
-            scrolled
+            "relative mx-auto max-w-7xl transition-all duration-300 ease-out",
+            open
+              ? "px-4 sm:px-6 lg:px-8 bg-[#070709] rounded-none border-transparent shadow-none"
+              : scrolled
               ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.12] bg-[#070709]/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
-              : "px-4 sm:px-6 lg:px-8"
+              : "px-4 sm:px-6 lg:px-8 bg-[#070709] rounded-none border-transparent shadow-none pointer-events-auto"
           )}
         >
           <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
@@ -327,12 +305,18 @@ export function TopNav() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center h-full flex-nowrap gap-0.5 xl:gap-1 shrink min-w-0" data-od-id="nav-links">
+            <div className="hidden xl:flex items-center h-full flex-nowrap gap-1 2xl:gap-1.5 shrink min-w-0" data-od-id="nav-links">
               
-              {/* 1. PROGRAMS MEGA MENU (Full-Width Maximized Spacing) */}
+              {/* 1. PROGRAMS MEGA MENU */}
               <div
-                className="group h-full flex items-center"
-                onMouseEnter={updateCaretPositions}
+                className="h-full flex items-center"
+                onMouseEnter={() => {
+                  updateCaretPositions();
+                  setActiveMegaMenu("programs");
+                }}
+                onMouseLeave={() => {
+                  setActiveMegaMenu((prev) => (prev === "programs" ? null : prev));
+                }}
               >
                 <Link
                   ref={programsTriggerRef}
@@ -349,14 +333,22 @@ export function TopNav() {
                   <span>{t("tradingObjectives" as any)}</span>
                   <ChevronDown
                     size={14}
-                    className="opacity-50 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#FFC107]"
+                    className={cn(
+                      "opacity-50 transition-transform duration-200",
+                      activeMegaMenu === "programs" ? "rotate-180 text-[#FFC107]" : ""
+                    )}
                   />
                 </Link>
 
                 {/* Dropdown Popover Spanning Full Nav Width */}
                 <div
                   data-od-id="desktop-dropdown-tradingObjectives"
-                  className="absolute top-full left-0 right-0 w-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
+                  className={cn(
+                    "absolute top-full left-0 right-0 w-full pt-2 transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']",
+                    activeMegaMenu === "programs"
+                      ? "opacity-100 visible pointer-events-auto"
+                      : "opacity-0 invisible pointer-events-none"
+                  )}
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
@@ -439,6 +431,8 @@ export function TopNav() {
 
                       <Link
                         href="/trading-objectives"
+                        data-od-id="desktop-featured-cta-tradingObjectives"
+                        onClick={(e) => handleNavClick(e, "/trading-objectives")}
                         className="inline-flex items-center gap-1.5 text-[12px] font-bold text-primary group-hover/featured:underline mt-4 pt-3 border-t border-white/[0.08]"
                       >
                         <span>{t("viewAllPrograms" as any)}</span>
@@ -453,6 +447,7 @@ export function TopNav() {
               <Link
                 href="/payouts"
                 data-od-id="desktop-nav-payouts"
+                onClick={(e) => handleNavClick(e, "/payouts")}
                 className={cn(
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/payouts"
@@ -465,31 +460,49 @@ export function TopNav() {
 
               {/* 3. COMPANY MEGA MENU (Full-Width Maximized Spacing) */}
               <div
-                className="group h-full flex items-center"
-                onMouseEnter={updateCaretPositions}
+                className="h-full flex items-center"
+                onMouseEnter={() => {
+                  updateCaretPositions();
+                  setActiveMegaMenu("company");
+                }}
+                onMouseLeave={() => {
+                  setActiveMegaMenu((prev) => (prev === "company" ? null : prev));
+                }}
               >
                 <button
                   ref={companyTriggerRef}
                   type="button"
                   data-od-id="desktop-nav-company"
+                  onClick={() => {
+                    updateCaretPositions();
+                    setActiveMegaMenu((prev) => (prev === "company" ? null : "company"));
+                  }}
                   className={cn(
                     "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors flex items-center gap-1",
                     isCompanyActive
                       ? "bg-primary/10 text-primary font-bold"
-                      : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04] group-hover:text-[#FFC107]"
+                      : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
                   )}
                 >
                   <span>{t("company" as any)}</span>
                   <ChevronDown
                     size={14}
-                    className="opacity-50 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#FFC107]"
+                    className={cn(
+                      "opacity-50 transition-transform duration-200",
+                      activeMegaMenu === "company" ? "rotate-180 text-[#FFC107]" : ""
+                    )}
                   />
                 </button>
 
                 {/* Dropdown Popover Spanning Full Nav Width */}
                 <div
                   data-od-id="desktop-dropdown-company"
-                  className="absolute top-full left-0 right-0 w-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
+                  className={cn(
+                    "absolute top-full left-0 right-0 w-full pt-2 transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']",
+                    activeMegaMenu === "company"
+                      ? "opacity-100 visible pointer-events-auto"
+                      : "opacity-0 invisible pointer-events-none"
+                  )}
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
@@ -509,6 +522,7 @@ export function TopNav() {
                             {col.items.map((item) => {
                               const IconComponent = item.icon;
                               const isExt = item.external || item.href.startsWith("http");
+                              const itemKey = item.titleKey === "aboutUs" ? "aboutUs" : item.titleKey === "payoutsProof" ? "payouts" : item.titleKey === "affiliateProgram" ? "affiliates" : item.titleKey === "support247" ? "contact" : "blog";
 
                               const content = (
                                 <>
@@ -535,6 +549,10 @@ export function TopNav() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     data-od-id={`desktop-subitem-${item.titleKey}`}
+                                    onClick={() => {
+                                      setActiveMegaMenu(null);
+                                      setOpen(false);
+                                    }}
                                     className="group/citem flex items-center gap-3 p-2.5 xl:p-3 rounded-xl hover:bg-white/[0.04] transition-colors"
                                   >
                                     {content}
@@ -546,7 +564,8 @@ export function TopNav() {
                                 <Link
                                   key={item.titleKey}
                                   href={item.href}
-                                  data-od-id={`desktop-subitem-${item.titleKey === "aboutUs" ? "aboutUs" : item.titleKey === "payoutsProof" ? "payouts" : item.titleKey === "affiliateProgram" ? "affiliates" : item.titleKey === "support247" ? "contact" : "blog"}`}
+                                  data-od-id={`desktop-subitem-${itemKey}`}
+                                  onClick={(e) => handleNavClick(e, item.href)}
                                   className="group/citem flex items-center gap-3 p-2.5 xl:p-3 rounded-xl hover:bg-white/[0.04] transition-colors"
                                 >
                                   {content}
@@ -586,6 +605,10 @@ export function TopNav() {
                         href="https://discord.gg/ckcapital"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => {
+                          setActiveMegaMenu(null);
+                          setOpen(false);
+                        }}
                         className="inline-flex items-center gap-1.5 text-[12px] font-bold text-primary group-hover/comm:underline mt-4 pt-3 border-t border-white/[0.08]"
                       >
                         <span>{t("joinDiscord" as any)}</span>
@@ -600,6 +623,7 @@ export function TopNav() {
               <Link
                 href="/affiliates"
                 data-od-id="desktop-nav-affiliates"
+                onClick={(e) => handleNavClick(e, "/affiliates")}
                 className={cn(
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/affiliates"
@@ -612,10 +636,14 @@ export function TopNav() {
 
               {/* 5. FAQ DIRECT LINK */}
               <a
-                href="https://intercom.help/ck-capital/en/"
+                href="https://discord.gg/ckcapital"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-od-id="desktop-nav-faq"
+                onClick={() => {
+                  setActiveMegaMenu(null);
+                  setOpen(false);
+                }}
                 className="whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
               >
                 {t("faq" as any)}
@@ -623,7 +651,7 @@ export function TopNav() {
             </div>
 
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center flex-nowrap gap-1.5 xl:gap-2 shrink-0">
+            <div className="hidden xl:flex items-center flex-nowrap gap-1.5 xl:gap-2 shrink-0">
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
@@ -649,14 +677,14 @@ export function TopNav() {
               <Link
                 href="/#start-challenge"
                 data-od-id="nav-cta"
-                className="whitespace-nowrap inline-flex items-center min-h-11 px-3 xl:px-4 rounded-lg bg-[#FFC107] text-[11.5px] xl:text-[12.5px] font-black text-black hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0 shadow-sm"
+                className="whitespace-nowrap inline-flex items-center min-h-11 px-3 xl:px-4 rounded-lg gold-gradient-btn text-[11.5px] xl:text-[12.5px] font-bold text-black hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0"
               >
                 {t("startChallenge" as any)}
               </Link>
             </div>
 
-            {/* Mobile Header Actions */}
-            <div className="lg:hidden flex items-center flex-nowrap gap-2 shrink-0">
+            {/* Mobile / Tablet Header Actions */}
+            <div className="xl:hidden flex items-center flex-nowrap gap-1.5 sm:gap-2 shrink-0">
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
@@ -668,7 +696,7 @@ export function TopNav() {
               </button>
               <Link
                 href="/#start-challenge"
-                className="hidden sm:inline-flex whitespace-nowrap items-center min-h-11 px-3 rounded-lg bg-primary text-[12px] font-bold text-primary-foreground hover:brightness-110 transition-all shrink-0"
+                className="hidden sm:inline-flex whitespace-nowrap items-center min-h-11 px-3 rounded-lg gold-gradient-btn text-[12px] font-bold text-black transition-all shrink-0"
               >
                 {t("startChallenge" as any)}
               </Link>
@@ -685,13 +713,22 @@ export function TopNav() {
             </div>
           </div>
 
-          {/* Mobile Drawer (Accordion) */}
+          {/* Mobile / Tablet Drawer (Floating Overlay - never pushes down page contents) */}
           {open && (
-            <div
-              className="lg:hidden border-t border-border pb-6 px-4 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain"
-              data-od-id="mobile-drawer"
-            >
-              <div className="flex flex-col gap-1 pt-3 pb-6">
+            <>
+              {/* Dimmed backdrop */}
+              <div
+                className="fixed inset-0 top-16 z-40 bg-black/75 backdrop-blur-sm xl:hidden"
+                onClick={() => setOpen(false)}
+                aria-hidden="true"
+              />
+
+              {/* Slide-down Drawer Panel */}
+              <div
+                className="absolute top-full left-0 right-0 z-50 w-full overflow-y-auto overscroll-contain bg-[#070709] border-b border-white/[0.12] shadow-[0_30px_70px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-4rem)] px-4 sm:px-6 py-4 xl:hidden animate-in fade-in-0 slide-in-from-top-1 duration-200"
+                data-od-id="mobile-drawer"
+              >
+                <div className="flex flex-col gap-1 pb-4">
                 <button
                   type="button"
                   onClick={() => {
@@ -886,26 +923,27 @@ export function TopNav() {
                 </a>
 
                 {/* Action Buttons in Mobile Drawer */}
-                <div className="pt-3 flex flex-col gap-2">
+                <div className="pt-4 flex flex-col gap-2.5">
                   <a
                     href="https://app.ckcapital.co.uk/signin"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-lg border border-primary text-sm font-semibold text-primary text-center hover:bg-primary/10 transition-colors"
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl border border-white/20 text-sm font-bold text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 transition-colors"
                   >
                     {t("signIn" as any)}
                   </a>
                   <Link
                     href="/#start-challenge"
                     onClick={() => setOpen(false)}
-                    className="px-4 py-2.5 rounded-lg bg-primary text-sm font-bold text-primary-foreground text-center hover:brightness-110 transition-all shadow-md shadow-primary/20"
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl gold-gradient-btn text-sm font-bold text-black transition-all shadow-md"
                   >
                     {t("startChallenge" as any)}
                   </Link>
                 </div>
               </div>
             </div>
-          )}
+          </>
+        )}
         </nav>
       </header>
       <GlobalSearchDialog isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

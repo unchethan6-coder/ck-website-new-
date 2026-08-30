@@ -86,21 +86,21 @@ export function BlogHeroVisual({
 
           {/* Featured Article Card Mock */}
           <div className="mt-5 space-y-4">
-            <div className="relative overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-primary/[0.08] via-black/40 to-black/60 p-4">
+            <div className="relative overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-[#1c160b] via-[#12100b] to-[#0A0A0C] p-4 shadow-md">
               <div className="flex items-center justify-between">
                 <span className="rounded-md border border-primary/30 bg-primary/15 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-primary">
                   Featured Strategy
                 </span>
-                <span className="text-[11px] text-foreground/40">5 Min Deep-Dive</span>
+                <span className="text-[11px] text-gray-400 font-medium">5 Min Deep-Dive</span>
               </div>
-              <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-[#0A0A0C] sm:text-lg flex items-center justify-between group">
+              <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-white sm:text-lg flex items-center justify-between group">
                 <span>Liquidity Sweeps &amp; Institutional Order Flow in Forex</span>
-                <ArrowUpRight size={16} className="text-primary shrink-0 opacity-75" />
+                <ArrowUpRight size={16} className="text-primary shrink-0 opacity-85" />
               </h4>
-              <p className="mt-1.5 text-xs text-gray-500 leading-relaxed line-clamp-2">
+              <p className="mt-1.5 text-xs text-gray-300 leading-relaxed line-clamp-2">
                 Learn how top prop traders protect risk on high-impact news days while capitalizing on session liquidity expansion.
               </p>
-              <div className="mt-3 flex items-center gap-4 text-[11px] text-gray-500 border-t border-white/5 pt-2.5">
+              <div className="mt-3 flex items-center gap-4 text-[11px] text-gray-400 border-t border-white/10 pt-2.5">
                 <span className="flex items-center gap-1">
                   <FileText size={12} className="text-primary" /> Risk Management
                 </span>
@@ -114,7 +114,7 @@ export function BlogHeroVisual({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Item 1 */}
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
-                <div className="flex items-center justify-between text-[10px] text-foreground/40">
+                <div className="flex items-center justify-between text-[10px] text-gray-500">
                   <span className="text-primary font-semibold">PSYCHOLOGY</span>
                   <span>4m read</span>
                 </div>
@@ -128,8 +128,8 @@ export function BlogHeroVisual({
 
               {/* Item 2 */}
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
-                <div className="flex items-center justify-between text-[10px] text-foreground/40">
-                  <span className="text-emerald-400 font-semibold">MACRO ECONOMICS</span>
+                <div className="flex items-center justify-between text-[10px] text-gray-500">
+                  <span className="text-emerald-500 font-semibold">MACRO ECONOMICS</span>
                   <span>6m read</span>
                 </div>
                 <p className="mt-1 text-xs font-bold text-[#0A0A0C] line-clamp-1">
@@ -147,10 +147,10 @@ export function BlogHeroVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-primary shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Curated by:
             </span>
-            <span className="text-foreground/90 font-bold">CK Senior Risk Analysts</span>
+            <span className="text-gray-900 font-bold">CK Senior Risk Analysts</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             VERIFIED ALPHA

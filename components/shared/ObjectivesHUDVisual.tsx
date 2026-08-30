@@ -89,7 +89,7 @@ export function ObjectivesHUDVisual({
           {/* Objectives Grid */}
           <div className="mt-5 space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
                 Core Trading Parameters
               </p>
               <span className="flex items-center gap-1 text-[11px] font-semibold text-gray-500">
@@ -116,7 +116,7 @@ export function ObjectivesHUDVisual({
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
                 <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">5% Max</p>
-                <p className="text-[9px] text-foreground/40 font-semibold">0.8% Utilized</p>
+                <p className="text-[9px] text-gray-500 font-semibold">0.8% Utilized</p>
               </div>
 
               {/* Rule 3 */}
@@ -126,7 +126,7 @@ export function ObjectivesHUDVisual({
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
                 <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">10% Max</p>
-                <p className="text-[9px] text-foreground/40 font-semibold">Static Shield</p>
+                <p className="text-[9px] text-gray-500 font-semibold">Static Shield</p>
               </div>
 
               {/* Rule 4 */}
@@ -146,7 +146,7 @@ export function ObjectivesHUDVisual({
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
                 <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">Allowed</p>
-                <p className="text-[9px] text-foreground/40 font-semibold">No Restrictions</p>
+                <p className="text-[9px] text-gray-500 font-semibold">No Restrictions</p>
               </div>
 
               {/* Rule 6 */}
@@ -156,13 +156,13 @@ export function ObjectivesHUDVisual({
                   <Check size={12} className="text-emerald-400 stroke-[3]" />
                 </div>
                 <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">Allowed</p>
-                <p className="text-[9px] text-foreground/40 font-semibold">Crypto &amp; FX</p>
+                <p className="text-[9px] text-gray-500 font-semibold">Crypto &amp; FX</p>
               </div>
             </div>
 
             {/* Compliance Verified Banner */}
             <div className="flex items-center justify-between rounded-xl border border-primary/30 bg-primary/10 px-3.5 py-2.5 text-xs">
-              <div className="flex items-center gap-2 text-foreground/80">
+              <div className="flex items-center gap-2 text-gray-900">
                 <ShieldCheck size={15} className="text-primary shrink-0" />
                 <span className="text-[11px] font-semibold">Real-Time Risk Engine Active · Zero IP or Strategy Bans</span>
               </div>
@@ -177,10 +177,10 @@ export function ObjectivesHUDVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Trading Objective Standard:
             </span>
-            <span className="text-foreground/90 font-bold">100% Rules Clarity</span>
+            <span className="text-gray-900 font-bold">100% Rules Clarity</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             NO TRICK CLAUSES

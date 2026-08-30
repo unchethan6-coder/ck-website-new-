@@ -91,10 +91,10 @@ export function EvaluationPathVisual({
             {/* Live Progress Bar */}
             <div className="rounded-xl border border-gray-200 bg-white/70 p-3.5 space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-foreground/80">Phase 1 Target Progress</span>
+                <span className="font-bold text-gray-900">Phase 1 Target Progress</span>
                 <span className="font-mono font-bold text-primary">80.0% ($6,400 / $8,000)</span>
               </div>
-              <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+              <div className="h-2 w-full overflow-hidden rounded-full bg-gray-100">
                 <div className="h-full rounded-full bg-gradient-to-r from-primary/80 to-primary w-[80%] shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
               </div>
               <div className="flex items-center justify-between text-[10px] text-gray-500">
@@ -118,8 +118,8 @@ export function EvaluationPathVisual({
               {/* Phase 2 */}
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-center relative overflow-hidden opacity-85">
                 <p className="text-[9.5px] font-bold uppercase text-gray-500">Phase 2</p>
-                <p className="mt-1 font-mono text-sm font-extrabold text-foreground/80">5% Goal</p>
-                <span className="mt-1.5 inline-block rounded bg-white/5 px-1.5 py-0.5 text-[8.5px] font-medium text-gray-500">
+                <p className="mt-1 font-mono text-sm font-extrabold text-gray-800">5% Goal</p>
+                <span className="mt-1.5 inline-block rounded bg-gray-100 px-1.5 py-0.5 text-[8.5px] font-medium text-gray-600">
                   NEXT STEP
                 </span>
               </div>
@@ -141,10 +141,10 @@ export function EvaluationPathVisual({
                   <span>Daily Loss Meter</span>
                   <span className="text-emerald-400 font-bold">1.2% / 5% Max</span>
                 </div>
-                <div className="mt-1.5 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+                <div className="mt-1.5 h-1.5 w-full rounded-full bg-gray-200 overflow-hidden">
                   <div className="h-full bg-emerald-400 w-[24%]" />
                 </div>
-                <p className="mt-1 text-[9.5px] text-foreground/40">Healthy safety cushion</p>
+                <p className="mt-1 text-[9.5px] text-gray-500 font-semibold">Healthy safety cushion</p>
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
@@ -152,10 +152,10 @@ export function EvaluationPathVisual({
                   <span>Max Drawdown</span>
                   <span className="text-emerald-400 font-bold">2.1% / 10% Max</span>
                 </div>
-                <div className="mt-1.5 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+                <div className="mt-1.5 h-1.5 w-full rounded-full bg-gray-200 overflow-hidden">
                   <div className="h-full bg-emerald-400 w-[21%]" />
                 </div>
-                <p className="mt-1 text-[9.5px] text-foreground/40">Static drawdown protected</p>
+                <p className="mt-1 text-[9.5px] text-gray-500 font-semibold">Static drawdown protected</p>
               </div>
             </div>
           </div>
@@ -165,10 +165,10 @@ export function EvaluationPathVisual({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-foreground/75">
+            <span className="font-semibold text-gray-700">
               Trading Time Limit:
             </span>
-            <span className="text-foreground/90 font-bold">Unlimited Days</span>
+            <span className="text-gray-900 font-bold">Unlimited Days</span>
           </div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
             PASS AT YOUR PACE

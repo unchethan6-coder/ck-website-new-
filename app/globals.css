@@ -10,6 +10,7 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-mono);
   --font-heading: var(--font-inter-tight);
+  --font-display: "Inter Display", var(--font-inter-tight), var(--font-inter), sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -685,5 +686,69 @@ html, body {
     border-color: rgba(255, 193, 7, 0.5);
     box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08), 0 0 16px rgba(255, 193, 7, 0.15);
   }
+
+  /* Gold Radiant Gradient Buttons */
+  .gold-pill-btn,
+  .gold-gradient-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(212, 159, 62) 0%, rgb(233, 190, 87) 28%, rgb(255, 244, 148) 50%, rgb(233, 190, 87) 72%, rgb(212, 159, 62) 100%);
+    background-size: 200% 100%;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 4px 14px rgba(212, 159, 62, 0.28);
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+    animation: gold-pill-shimmer 4s ease-in-out infinite;
+  }
+
+  .gold-pill-btn {
+    min-height: 48px;
+    padding: 12px 32px;
+    font-size: 0.9375rem;
+    border-radius: 9999px;
+  }
+
+  .gold-pill-btn:hover,
+  .gold-gradient-btn:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 6px 20px rgba(212, 159, 62, 0.36);
+  }
+
+  .gold-pill-btn:active,
+  .gold-gradient-btn:active {
+    transform: translateY(0) scale(0.99);
+    filter: brightness(0.96);
+  }
+
+  .gold-pill-btn:focus-visible,
+  .gold-gradient-btn:focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 3px;
+  }
+
+  .gold-card-highlight {
+    border-color: transparent !important;
+    background: linear-gradient(#fff9e8, #fff9e8) padding-box, linear-gradient(90deg, rgb(212, 159, 62), rgb(255, 244, 148), rgb(212, 159, 62)) border-box !important;
+    background-size: 100% 100%, 200% 100% !important;
+    animation: gold-card-shimmer 4s ease-in-out infinite;
+  }
+}
+
+@keyframes gold-pill-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gold-card-shimmer {
+  0%, 100% { background-position: 0 0, 0% 50%; }
+  50% { background-position: 0 0, 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-pill-btn, .gold-card-highlight { animation: none !important; }
 }
 

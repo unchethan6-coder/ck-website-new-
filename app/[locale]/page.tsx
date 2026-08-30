@@ -48,7 +48,13 @@ export default async function Home() {
     : undefined;
 
   const videoItems: VideoItem[] | undefined = videos.length
-    ? videos.map((v) => ({ id: v.youtubeVideoId, title: v.title }))
+    ? videos.map((v) => ({
+        id: v.youtubeVideoId,
+        title: v.title,
+        thumbnail: v.thumbnail?.url,
+        reward: v.reward,
+        desc: v.description,
+      }))
     : undefined;
 
   return (
@@ -63,9 +69,7 @@ export default async function Home() {
       <ProofShowcase payouts={payouts} summary={rewardsSummary} />
 
       {/* S4 — Challenge Selector (evals): Light */}
-      <Suspense fallback={null}>
-        <ChallengeComparison config={challengeConfig} />
-      </Suspense>
+      <ChallengeComparison config={challengeConfig} />
 
       {/* S5 — Trading Platforms: Light (was Jet Black) */}
       <TradingPlatforms />

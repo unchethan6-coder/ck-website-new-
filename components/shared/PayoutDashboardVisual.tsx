@@ -217,7 +217,7 @@ export function PayoutDashboardVisual({
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/75">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
                       Request Payout
                     </p>
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -244,7 +244,7 @@ export function PayoutDashboardVisual({
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           current.isCrypto
                             ? "bg-primary/20 text-primary"
-                            : "bg-white/10 text-foreground/70"
+                            : "bg-gray-100 text-gray-700"
                         )}
                       >
                         <Coins size={16} />
@@ -263,7 +263,7 @@ export function PayoutDashboardVisual({
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
-                      <div className="h-4 w-4 rounded-full border border-white/20" />
+                      <div className="h-4 w-4 rounded-full border border-gray-300" />
                     )}
                   </div>
 
@@ -282,7 +282,7 @@ export function PayoutDashboardVisual({
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           !current.isCrypto
                             ? "bg-primary/20 text-primary"
-                            : "bg-white/10 text-foreground/70"
+                            : "bg-gray-100 text-gray-700"
                         )}
                       >
                         <CreditCard size={16} />
@@ -301,7 +301,7 @@ export function PayoutDashboardVisual({
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
-                      <div className="h-4 w-4 rounded-full border border-white/20" />
+                      <div className="h-4 w-4 rounded-full border border-gray-300" />
                     )}
                   </div>
                 </div>
@@ -310,7 +310,7 @@ export function PayoutDashboardVisual({
                 <div className="rounded-xl border border-gray-200 bg-white/70 p-3.5">
                   <div className="flex items-center justify-between text-[11px] text-gray-500">
                     <span>Amount to Withdraw</span>
-                    <span className="font-semibold text-foreground/70">
+                    <span className="font-semibold text-gray-700">
                       Available: {current.profit}
                     </span>
                   </div>
@@ -320,7 +320,7 @@ export function PayoutDashboardVisual({
                       <span className="font-mono text-xl sm:text-2xl font-extrabold text-[#0A0A0C]">
                         {current.amount}
                       </span>
-                      <span className="text-xs font-bold text-foreground/40">USD</span>
+                      <span className="text-xs font-bold text-gray-500">USD</span>
                     </div>
                     <span className="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-[10px] font-bold text-primary">
                       MAX
@@ -373,13 +373,13 @@ export function PayoutDashboardVisual({
               className="flex items-center gap-2"
             >
               <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-              <span className="font-semibold text-foreground/75">
+              <span className="font-semibold text-gray-700">
                 Latest settlement:
               </span>
-              <span className="text-foreground/90 font-bold">
+              <span className="text-gray-900 font-bold">
                 {current.settlementAmount}
               </span>
-              <span className="text-foreground/40 hidden sm:inline">
+              <span className="text-gray-500 hidden sm:inline">
                 {current.settlementTime}
               </span>
             </motion.div>

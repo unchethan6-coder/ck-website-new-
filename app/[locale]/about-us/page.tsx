@@ -263,25 +263,25 @@ export default function AboutPage() {
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
                           <Star size={10} className="fill-primary text-primary" /> {t('founderRoleBadge')}
                         </span>
-                        <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] sm:text-2xl">
+                        <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-white sm:text-2xl">
                           Daniel Cheung
                         </h3>
-                        <p className="text-xs font-semibold text-primary/80">
+                        <p className="text-xs font-semibold text-primary/90">
                           {t('founderRole')}
                         </p>
                       </div>
                     </div>
 
                     {/* Philosophy Quote */}
-                    <div className="relative rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03] p-5">
-                      <Quote size={20} className="text-primary/40 mb-2" />
-                      <p className="text-sm leading-relaxed text-foreground/75 italic">
+                    <div className="relative rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5">
+                      <Quote size={20} className="text-primary/60 mb-2" />
+                      <p className="text-sm leading-relaxed text-white/90 italic">
                         &ldquo;{t('founderQuote')}&rdquo;
                       </p>
                     </div>
 
                     {/* Bio details */}
-                    <p className="text-xs leading-relaxed text-gray-500">
+                    <p className="text-xs leading-relaxed text-gray-300">
                       {t('founderBio')}
                     </p>
 

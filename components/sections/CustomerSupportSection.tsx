@@ -13,7 +13,7 @@ export function CustomerSupportSection() {
     <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="customer-support">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <SectionReveal>
+          <SectionReveal className="flex flex-col">
             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#D99B00]">
               <span className="h-2 w-2 rounded-full bg-[#FFC107]" />
               {t("available247")}
@@ -27,6 +27,24 @@ export function CustomerSupportSection() {
             <p className="mt-5 max-w-xl text-base font-medium leading-7 text-[#4B5563]">
               {t("customerDesc")}
             </p>
+
+            {/* Mobile Image (placed above buttons on mobile view, hidden on lg+) */}
+            <div className="relative mt-7 h-[260px] sm:h-[340px] overflow-hidden rounded-[24px] border border-foreground/10 bg-[#07070B] lg:hidden" data-od-id="customer-support-image-mobile">
+              <Image
+                src="/images/support/discord-community.jpg"
+                alt="CK Capital Discord community"
+                fill
+                sizes="100vw"
+                className="object-cover object-left-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">{t("supportBrand")}</p>
+                <span className="rounded-full border border-secondary/35 bg-background/70 px-3 py-1.5 text-xs font-semibold text-secondary">
+                  24/7
+                </span>
+              </div>
+            </div>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               <a
@@ -64,16 +82,17 @@ export function CustomerSupportSection() {
             </a>
           </SectionReveal>
 
-          <div className="relative h-[320px] overflow-hidden rounded-[28px] border border-foreground/10 bg-[#07070B] sm:h-[400px] lg:h-full lg:min-h-[400px]" data-od-id="customer-support-image">
+          {/* Desktop Image (visible on lg+) */}
+          <div className="relative hidden h-full min-h-[400px] overflow-hidden rounded-[28px] border border-foreground/10 bg-[#07070B] lg:block" data-od-id="customer-support-image">
             <Image
               src="/images/support/discord-community.jpg"
               alt="CK Capital Discord community"
               fill
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              sizes="55vw"
               className="object-cover object-left-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-7 sm:left-7 sm:right-7">
+            <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">{t("supportBrand")}</p>
               </div>

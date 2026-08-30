@@ -178,9 +178,6 @@ export function TraderReviews({
                 <WallMasonryCard card={card} index={i} />
               </div>
             ))}
-            <div className="w-[85vw] max-w-[320px] shrink-0 snap-center">
-              <StatCard />
-            </div>
           </div>
           <div className="mt-2 flex items-center justify-center gap-1.5">
             <span className="text-[11px] font-bold text-[#D99B00] uppercase tracking-wider">
@@ -206,7 +203,6 @@ export function TraderReviews({
                 const index = columnIndex + cardIndex * 3;
                 return <WallMasonryCard key={`${card.name}-${index}`} card={card} index={index} />;
               })}
-              {columnIndex === 1 && <StatCard />}
             </div>
           ))}
         </div>
@@ -367,52 +363,6 @@ function VideoCard({ video }: { video: VideoItem }) {
           </>
         )}
       </div>
-    </motion.article>
-  );
-}
-
-function StatCard() {
-  const t = useTranslations("reviews");
-  return (
-    <motion.article
-      variants={fadeUp}
-      className="rounded-xl border border-gray-200/90 bg-white p-5 card-hover-standard shadow-md"
-      data-od-id="trader-reviews-stat"
-    >
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
-        {t("avgProcessing")}
-      </p>
-      <p className="mt-4 font-[family-name:var(--font-inter-tight)] text-4xl font-black tracking-tight text-[#0A0A0C]">
-        ~12 hrs
-      </p>
-      <svg
-        viewBox="0 0 260 64"
-        preserveAspectRatio="none"
-        className="mt-4 block h-16 w-full"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="ckStatFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFC107" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#FFC107" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M0,48 L22,44 L44,50 L66,30 L88,36 L110,22 L132,34 L154,16 L176,28 L198,12 L220,24 L242,10 L260,18 L260,64 L0,64 Z"
-          fill="url(#ckStatFill)"
-        />
-        <path
-          d="M0,48 L22,44 L44,50 L66,30 L88,36 L110,22 L132,34 L154,16 L176,28 L198,12 L220,24 L242,10 L260,18"
-          fill="none"
-          stroke="#FFC107"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-        />
-        <circle cx="260" cy="18" r="3" fill="#FFC107" />
-      </svg>
-      <p className="mt-3 text-xs font-medium leading-5 text-gray-400">
-        {t("processingPending")}
-      </p>
     </motion.article>
   );
 }

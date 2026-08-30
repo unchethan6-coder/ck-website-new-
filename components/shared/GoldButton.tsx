@@ -21,7 +21,7 @@ export function GoldButton({
   };
 
   const variants = {
-    gold: "text-[#0A0A0C] bg-[#FFC107] hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    gold: "gold-gradient-btn text-[#0A0A0C] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     outline: "text-[#FFC107] border border-[#FFC107]/40 hover:border-[#FFC107] hover:bg-[#FFC107]/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     ghost: "text-white/70 hover:text-[#FFC107] hover:bg-white/5 active:scale-[0.98]",
   };

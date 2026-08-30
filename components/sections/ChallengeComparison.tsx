@@ -1,68 +1,22 @@
 "use client";
-import { useEffect, useMemo, useState, Fragment } from "react";
+
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { Check, ChevronDown, Crown, Eye, Info, LayoutGrid, Plus } from "lucide-react";
-import {
-  CHALLENGE_TYPES,
-  CHALLENGE_RULES,
-  CHALLENGE_PRICES,
-  CHALLENGE_SPLITS,
-  CURRENCIES,
-} from "@/lib/content";
-import type { ChallengeType } from "@/lib/content";
-import type { ChallengeConfig } from "@/lib/cms";
+import { ArrowRight, ChevronDown, Check, Percent } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import {
+  CURRENCIES,
+  FUNDING_CHALLENGE_TYPES,
+  FUNDING_PLAN_RAW_DATA,
+  type CurrencyOption,
+  type FundingChallengeTypeItem,
+  type PlanDetails,
+} from "@/lib/content";
+import type { ChallengeConfig } from "@/lib/cms";
 import { cn } from "@/lib/utils";
 
-/* ─────────────────────────────────────────────────────────── helpers */
-
-/** "$10K" → 10000, "$1,000" → 1000 */
-function parseMoney(s: string): number {
-  return parseFloat(s.replace(/[$,K]/g, "")) * (s.includes("K") ? 1e3 : 1);
-}
-
-function fmtMoney(v: number, sym = "$"): string {
-  const decimals = v % 1 !== 0 ? 2 : 0;
-  return `${sym}${v.toLocaleString("en-US", {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  })}`;
-}
-
-/** "$58.00" + USD rate → "£45.82" (or the value unchanged when not a $ string) */
-function toCurrency(raw: string, code: string): string {
-  if (!raw.startsWith("$")) return raw;
-  const c = CURRENCIES.find((x) => x.code === code) ?? CURRENCIES[0];
-  return fmtMoney(parseMoney(raw) * c.rate, c.symbol);
-}
-
-/** "$1,000" + size 10000 → "10%" */
-function toPercent(raw: string, sizeNum: number): string {
-  if (!raw.startsWith("$")) return raw;
-  return `${((parseMoney(raw) / sizeNum) * 100).toLocaleString("en-US", {
-    maximumFractionDigits: 1,
-  })}%`;
-}
-
-/* Fabricated illustrative "avg first reward" per account size — marketing
-   numbers requested by stakeholder; scale mirrors industry references. */
-const AVG_FIRST_REWARDS: Record<string, number> = {
-  "$5K": 389,
-  "$10K": 743,
-  "$25K": 1661,
-  "$50K": 2471,
-  "$100K": 5020,
-  "$200K": 9850,
-  "$300K": 14210,
-};
-
-const SIGNUP_URL = "https://app.ckcapital.co.uk/signup";
-
-type View = "cards" | "phases";
-
-/* ─────────────────────────────────────────────────────────── section */
+const accountSizes = ["5K", "10K", "25K", "50K", "100K", "200K", "300K"];
 
 export function ChallengeComparison({
   config,
@@ -70,733 +24,589 @@ export function ChallengeComparison({
   config?: ChallengeConfig | null;
 }) {
   const t = useTranslations("challenge");
-  const [activeType, setActiveType] = useState<ChallengeType>("standard");
-  const [currency, setCurrency] = useState("USD");
-  const [view, setView] = useState<View>("cards");
-  const [size, setSize] = useState("$10K");
-  const [numbersMode, setNumbersMode] = useState<"percent" | "currency">("percent");
-  const [showAllSizes, setShowAllSizes] = useState(false);
 
-  // CMS-overridable challenge data (falls back to the static content model)
-  const rules = config?.rules ?? CHALLENGE_RULES;
-  const prices = config?.prices ?? CHALLENGE_PRICES;
-  const splits = config?.splits ?? CHALLENGE_SPLITS;
+  const [selectedMarket, setSelectedMarket] = useState<"cfds" | "futures">("cfds");
+  const [selectedCurrency, setSelectedCurrency] = useState<string>("USD");
+  const [isCurrencyOpen, setIsCurrencyOpen] = useState<boolean>(false);
+  const [selectedType, setSelectedType] = useState<string>("standard");
+  const [selectedSize, setSelectedSize] = useState<string>("100K");
+  const [isPercentage, setIsPercentage] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<number>(1);
 
-  /* Preselect challenge type from URL (?type=), used by footer product links */
-  const searchParams = useSearchParams();
-  const urlType = searchParams.get("type");
+  const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
+  // Close dropdown on click outside
   useEffect(() => {
-    const validTypes: ChallengeType[] = ["standard", "middleweight", "one-step", "instant"];
-    if (urlType && (validTypes as string[]).includes(urlType)) {
-      setActiveType(urlType as ChallengeType);
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        currencyDropdownRef.current &&
+        !currencyDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsCurrencyOpen(false);
+      }
     }
-  }, [urlType]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  const sizes = useMemo(() => Object.keys(rules[activeType]), [rules, activeType]);
-  const cur = CURRENCIES.find((c) => c.code === currency) ?? CURRENCIES[0];
+  // Sync URL search params on client mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const searchParams = new URLSearchParams(window.location.search);
+    const rawType = searchParams.get("type") || searchParams.get("plan");
+    if (rawType) {
+      const normalizedType = rawType === "one-step" ? "1step" : rawType;
+      if (["standard", "1step", "instant", "middleweight"].includes(normalizedType)) {
+        setSelectedType(normalizedType);
+      }
+    }
 
-  const fmtPrice = (raw: string) =>
-    `${cur.symbol}${Math.round(parseMoney(raw) * cur.rate).toLocaleString("en-US")}`;
+    const rawSize = searchParams.get("size");
+    if (rawSize) {
+      const cleanSize = rawSize.replace("$", "").toUpperCase();
+      if (accountSizes.includes(cleanSize)) {
+        setSelectedSize(cleanSize);
+      }
+    }
 
-  const fmtAvg = (s: string) => {
-    const base = AVG_FIRST_REWARDS[s] ?? 0;
-    return `${cur.symbol}${Math.round(base * cur.rate).toLocaleString("en-US")}`;
+    const rawCurrency = searchParams.get("currency");
+    if (rawCurrency) {
+      const upperCur = rawCurrency.toUpperCase();
+      if (CURRENCIES.some((c) => c.code === upperCur)) {
+        setSelectedCurrency(upperCur);
+      }
+    }
+
+    const rawMarket = searchParams.get("market");
+    if (rawMarket === "futures" || rawMarket === "cfds") {
+      setSelectedMarket(rawMarket);
+    }
+  }, []);
+
+  // Data matrix from CMS or static fallback
+  const rawData: Record<string, Record<string, PlanDetails | null>> = useMemo(() => {
+    return config?.fundingPlans ?? FUNDING_PLAN_RAW_DATA;
+  }, [config]);
+
+  const currencies: CurrencyOption[] = useMemo(() => {
+    return config?.currencies ?? CURRENCIES;
+  }, [config]);
+
+  const challengeTypes: FundingChallengeTypeItem[] = FUNDING_CHALLENGE_TYPES;
+
+  const activePlan = useMemo(() => {
+    return rawData[selectedSize]?.[selectedType] || null;
+  }, [rawData, selectedSize, selectedType]);
+
+  const activeTypeName = useMemo(() => {
+    return challengeTypes.find((tItem) => tItem.id === selectedType)?.name || "";
+  }, [challengeTypes, selectedType]);
+
+  const currency = useMemo(() => {
+    return currencies.find((item) => item.code === selectedCurrency) ?? currencies[0];
+  }, [currencies, selectedCurrency]);
+
+  const formatMoney = (valStr?: string) => {
+    if (!valStr || !valStr.startsWith("$")) return valStr || "-";
+    const amount = parseFloat(valStr.replace(/[$,]/g, "")) * currency.rate;
+    return `${currency.symbol}${amount.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
   };
 
-  const activeSize = sizes.includes(size) ? size : sizes.includes("$10K") ? "$10K" : sizes[0];
-  const X = rules[activeType][activeSize];
-  const Y = prices[activeType][activeSize];
-  const split = splits[activeType];
-
-  const cell = (raw: string) => (raw === "$0" ? "—" : toCurrency(raw, currency));
-
-  /* Per-model column layout: instant = 1 col, 1-step = 2, rest = 3 */
-  const columns: {
-    key: string;
-    title: string;
-    subtitle: string;
-    target: string;
-    maxDaily: string;
-    maxLoss: string;
-    minDays: string;
-    period: string;
-    split: string;
-    consistency: string;
-  }[] = [];
-  const funded = {
-    key: "funded",
-    title: t("ckAccount"),
-    subtitle: t("fundedStage"),
-    target: "—",
-    maxDaily: X.maxDaily,
-    maxLoss: X.maxLoss,
-    minDays: "—",
-    period: activeType === "instant" ? t("unlimited") : "—",
-    split,
-    consistency: X.consistency,
+  const formatValue = (valStr?: string) => {
+    if (!valStr) return "-";
+    if (!isPercentage || !valStr.startsWith("$")) return valStr;
+    const numericVal = parseFloat(valStr.replace(/[$,]/g, ""));
+    if (numericVal === 0) return "0%";
+    const total = parseInt(selectedSize.replace("K", ""), 10) * 1000;
+    const pct = ((numericVal / total) * 100).toFixed(1).replace(/\.0$/, "");
+    return `${pct}%`;
   };
-  const phase1 = {
-    key: "p1",
-    title: t("phase1"),
-    subtitle: t("evaluationStage"),
-    target: X.phase1,
-    maxDaily: X.maxDaily,
-    maxLoss: X.maxLoss,
-    minDays: "1",
-    period: t("unlimited"),
-    split: "—",
-    consistency: X.consistency,
-  };
-  const phase2 = {
-    key: "p2",
-    title: t("phase2"),
-    subtitle: t("verificationStage"),
-    target: X.phase2,
-    maxDaily: X.maxDaily,
-    maxLoss: X.maxLoss,
-    minDays: "1",
-    period: t("unlimited"),
-    split: "—",
-    consistency: X.consistency,
-  };
-  if (activeType === "instant") columns.push(funded);
-  else if (activeType === "one-step") columns.push(phase1, funded);
-  else columns.push(phase1, phase2, funded);
 
-  const rows: { label: string; key: "target" | "maxDaily" | "maxLoss" | "minDays" | "period" | "split" | "consistency" }[] = [
-    { label: t("profitTarget"), key: "target" },
-    { label: t("maxDailyLoss"), key: "maxDaily" },
-    { label: t("maxLoss"), key: "maxLoss" },
-    { label: t("minTradingDays"), key: "minDays" },
-    { label: t("tradingPeriod"), key: "period" },
-    { label: t("rewardSplit"), key: "split" },
-    { label: t("consistencyRule"), key: "consistency" },
-  ];
+  const handleTypeSelect = (typeId: string) => {
+    setSelectedType(typeId);
+    if (!rawData[selectedSize]?.[typeId]) {
+      setSelectedSize("100K");
+    }
+  };
+
+  const calculateBoosterPrice = (discStr?: string) => {
+    if (!discStr || !discStr.startsWith("$")) return "-";
+    const numericVal = parseFloat(discStr.replace(/[$,]/g, "")) * 1.15 * currency.rate;
+    return `${currency.symbol}${numericVal.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
+  };
+
+  const signupUrl = useMemo(() => {
+    const params = new URLSearchParams({
+      market: selectedMarket,
+      plan: selectedType,
+      size: selectedSize,
+      currency: selectedCurrency,
+      option: selectedOption === 2 ? "booster" : "standard",
+    });
+    return `https://app.ckcapital.co.uk/signup?${params.toString()}`;
+  }, [selectedMarket, selectedType, selectedSize, selectedCurrency, selectedOption]);
 
   return (
     <section
       id="start-challenge"
-      className="relative scroll-mt-28 overflow-hidden bg-white py-16 text-[#0A0A0C] md:py-24"
+      className="relative scroll-mt-28 bg-white py-16 text-[#0A0A0C] md:py-24"
       data-od-id="challenge-comparison"
     >
       <Container>
-        {/* Title */}
-        <SectionReveal className="text-center mb-8 md:mb-10">
-          <h2
-            data-od-id="challenge-title"
-            className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] sm:text-4xl md:text-5xl"
-          >
-            {t("title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-[560px] text-[15px] leading-7 text-gray-500">
-            {t("subtitle")}
-          </p>
-        </SectionReveal>
-
-        {/* Challenge-type tabs */}
-        <SectionReveal delay={0.06}>
-          <div className="mb-5 flex justify-center pb-2 px-1">
-            <div className="flex flex-wrap justify-center gap-1 rounded-full border border-gray-200 bg-gray-50 p-1.5">
-              {CHALLENGE_TYPES.map((ct) => {
-                const active = activeType === ct.id;
-                return (
-                  <button
-                    key={ct.id}
-                    role="tab"
-                    aria-selected={active}
-                    onClick={() => setActiveType(ct.id)}
-                    data-od-id={`challenge-tab-${ct.id}`}
-                    className={cn(
-                      "whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-bold transition-all",
-                      active
-                        ? "bg-[#0A0A0C] text-white shadow-sm"
-                        : "text-gray-500 hover:text-gray-900"
-                    )}
-                  >
-                    {ct.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </SectionReveal>
-
-        {/* Universal-conditions strip — honest CK values */}
-        <div
-          className="mb-7 flex flex-wrap justify-center gap-2"
-          data-od-id="challenge-conditions"
-        >
-          {(t.raw("conditions") as string[]).map((c: string) => (
-            <span
-              key={c}
-              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-[12.5px] font-semibold text-gray-700 shadow-sm"
+        <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
+          {/* Header */}
+          <SectionReveal className="text-center">
+            <h2
+              data-od-id="challenge-title"
+              className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-4xl md:text-[46px] lg:text-[48px] font-bold md:leading-[1.15] tracking-tight text-[#0A0A0C] not-italic"
             >
-              <Check size={13} strokeWidth={3} className="shrink-0 text-[#D99B00]" />
-              {c}
-            </span>
-          ))}
-        </div>
+              {t("title") || "Choose your next challenge"}
+            </h2>
+            <p className="mt-2 text-sm md:text-base font-normal text-gray-500 max-w-xl mx-auto">
+              {t("subtitle") || "Select your preferred account size and evaluation model to begin."}
+            </p>
+          </SectionReveal>
 
-        {/* Toolbar — currency selector (left) + Phases toggle (right) */}
-        <SectionReveal delay={0.12}>
-          <div className="mb-5 flex items-center justify-between gap-3">
-            <div
-              className="relative inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 shadow-sm"
-              data-od-id="challenge-currency"
-            >
-              <span aria-hidden="true" className="text-base leading-none">
-                {cur.flag}
-              </span>
-              <select
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                aria-label="Currency"
-                className="appearance-none bg-transparent py-0.5 pl-0.5 pr-6 text-sm font-bold text-[#0A0A0C] focus:outline-none"
-              >
-                {CURRENCIES.map((c) => (
-                  <option key={c.code} value={c.code}>
-                    {c.code}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown
-                size={14}
-                className="pointer-events-none absolute right-2.5 text-gray-400"
-              />
-            </div>
-
-            {view === "cards" ? (
-              <button
-                type="button"
-                onClick={() => setView("phases")}
-                aria-pressed={false}
-                data-od-id="challenge-phases-toggle"
-                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-200 bg-white px-5 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-gray-300"
-              >
-                <Eye size={16} />
-                {t("phases")}
-              </button>
-            ) : (
-              <div className="flex items-center gap-2">
+          {/* Market & Currency Toolbar */}
+          <SectionReveal delay={0.06}>
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              {/* Market Switcher */}
+              <div className="flex bg-[#F5F5F5] p-1 rounded-full border border-[#D9D9D9] gap-1 shadow-inner">
                 <button
                   type="button"
-                  onClick={() => setView("cards")}
-                  data-od-id="challenge-cards-toggle"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-200 bg-white px-5 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-gray-300"
+                  onClick={() => setSelectedMarket("cfds")}
+                  className={cn(
+                    "px-6 py-2 rounded-full text-sm font-bold transition-all",
+                    selectedMarket === "cfds"
+                      ? "bg-white text-[#0A0A0C] border border-black/10 shadow-sm"
+                      : "text-gray-600 hover:text-black"
+                  )}
                 >
-                  <LayoutGrid size={15} />
-                  {t("cards")}
+                  {t("cfds") || "CFDs"}
                 </button>
-                <div className="inline-flex items-center rounded-full border border-gray-200 bg-white p-1 shadow-sm">
-                  {(["percent", "currency"] as const).map((m) => (
-                    <button
-                      key={m}
-                      type="button"
-                      onClick={() => setNumbersMode(m)}
-                      aria-pressed={numbersMode === m}
-                      className={cn(
-                        "flex h-8 w-9 items-center justify-center rounded-full text-sm font-bold transition-all",
-                        numbersMode === m
-                          ? "bg-[#0A0A0C] text-white"
-                          : "text-gray-400 hover:text-gray-700"
-                      )}
-                    >
-                      {m === "percent" ? "%" : "$"}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </SectionReveal>
-
-        {/* ─────────────── CARDS VIEW ─────────────── */}
-        {view === "cards" && (
-          <SectionReveal delay={0.16}>
-            <div
-              className={cn(
-                "gap-4",
-                showAllSizes
-                  ? "flex flex-wrap justify-center"
-                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
-              )}
-              data-od-id="challenge-cards"
-            >
-              {(showAllSizes ? sizes : sizes.slice(0, 5)).map((s) => {
-                const rule = rules[activeType][s];
-                const price = prices[activeType][s];
-                const popular = s === "$100K";
-                const sizeNum = parseMoney(s);
-                const showPhase1 = parseMoney(rule.phase1) > 0;
-                const showPhase2 = parseMoney(rule.phase2) > 0;
-                const hasPhases = showPhase1 || showPhase2;
-
-                return (
-                  <article
-                    key={s}
-                    data-od-id={`challenge-card-${s}`}
-                    className={cn(
-                      "relative flex flex-col rounded-2xl border p-5",
-                      showAllSizes && "w-full sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-4rem)/5)]",
-                      popular
-                        ? "border-[#0A0A0C] bg-[#0A0A0C] text-white shadow-[0_24px_48px_-20px_rgba(10,10,12,0.5)]"
-                        : "border-gray-200 bg-white text-[#0A0A0C] shadow-sm"
-                    )}
-                  >
-                    {popular ? (
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#FFC107] px-3.5 py-1 text-[10px] font-black tracking-[0.14em] text-[#0A0A0C]">
-                        {t("mostPopular")}
-                      </span>
-                    ) : null}
-
-                  {/* Header */}
-                  <div className="flex flex-nowrap items-start justify-between gap-x-2">
-                    <div className="min-w-0">
-                      <p
-                        className={cn(
-                          "text-[10px] font-bold uppercase tracking-[0.16em]",
-                          popular ? "text-white/45" : "text-gray-400"
-                        )}
-                      >
-                        {t("account")}
-                      </p>
-                      <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold leading-none">
-                        {s}
-                      </p>
-                    </div>
-                    <div className="shrink-0 text-right">
-                      <p
-                        className={cn(
-                          "text-[10px] font-bold uppercase tracking-[0.16em]",
-                          popular ? "text-white/45" : "text-gray-400"
-                        )}
-                      >
-                        {t("price")}
-                      </p>
-                      <p className="mt-1 flex flex-nowrap items-baseline justify-end gap-x-1">
-                          {parseMoney(price.oldPrice) > parseMoney(price.price) ? (
-                            <span
-                              className={cn(
-                                "whitespace-nowrap text-[11px] line-through tabular-nums",
-                                popular ? "text-white/35" : "text-gray-400"
-                              )}
-                            >
-                              {fmtPrice(price.oldPrice)}
-                            </span>
-                          ) : null}
-                          <span className="whitespace-nowrap text-lg font-extrabold tabular-nums lg:text-xl">
-                            {fmtPrice(price.price)}
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* CTA */}
-                    <a
-                      href={SIGNUP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 block"
-                      data-od-id={`challenge-cta-${s}`}
-                    >
-                      <span className="flex w-full items-center justify-center rounded-xl bg-[#FFC107] py-3 text-sm font-black text-[#0A0A0C] transition-all hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)]">
-                        {t("startNow")}
-                      </span>
-                    </a>
-
-                    {/* Rules */}
-                    <div
-                      className={cn(
-                        "mt-4 flex-1 rounded-xl border p-4",
-                        popular ? "border-white/10 bg-white/[0.05]" : "border-gray-100 bg-gray-50/80"
-                      )}
-                    >
-                      {/* Profit Target */}
-                      <div
-                        className={cn(
-                          "flex items-center justify-between gap-2 pb-2",
-                          hasPhases && "border-b",
-                          popular ? "border-white/10" : "border-gray-200/80"
-                        )}
-                      >
-                        <span
-                          className={cn(
-                            "flex items-center gap-1 text-[13px] font-bold",
-                            popular ? "text-white" : "text-gray-900"
-                          )}
-                        >
-                          {t("profitTarget")}
-                          <Info size={12} className="shrink-0 opacity-40" aria-hidden="true" />
-                        </span>
-                        {!hasPhases ? (
-                          <span
-                            className={cn(
-                              "text-sm font-bold tabular-nums",
-                              popular ? "text-white/70" : "text-gray-500"
-                            )}
-                          >
-                            —
-                          </span>
-                        ) : null}
-                      </div>
-                      {hasPhases ? (
-                        <div
-                          className={cn(
-                            "space-y-1.5 border-b pt-2 pb-3",
-                            popular ? "border-white/10" : "border-gray-200/80"
-                          )}
-                        >
-                          {showPhase1 ? (
-                            <SubRow
-                              dark={popular}
-                              label={t("phase1")}
-                              value={toPercent(rule.phase1, sizeNum)}
-                            />
-                          ) : null}
-                          {showPhase2 ? (
-                            <SubRow
-                              dark={popular}
-                              label={t("phase2")}
-                              value={toPercent(rule.phase2, sizeNum)}
-                            />
-                          ) : null}
-                          <SubRow dark={popular} label="Master" value="—" muted />
-                        </div>
-                      ) : null}
-
-                      <RuleRow dark={popular} label={t("maxLoss")} value={toPercent(rule.maxLoss, sizeNum)} />
-                      <RuleRow dark={popular} label={t("maxDailyLoss")} value={toPercent(rule.maxDaily, sizeNum)} />
-                      <RuleRow dark={popular} label={t("minTradingDays")} value="1" />
-                      <RuleRow dark={popular} label={t("rewardSplit")} value={split} last />
-                    </div>
-
-                    {/* Footer */}
-                    <p
-                      className={cn(
-                        "mt-4 text-center text-[11.5px] font-medium",
-                        popular ? "text-white/50" : "text-gray-400"
-                      )}
-                    >
-                      {t("avgFirstRewards", { amount: fmtAvg(s) })}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
-
-            {!showAllSizes && sizes.length > 5 ? (
-              <div className="mt-5 flex justify-center">
                 <button
                   type="button"
-                  onClick={() => setShowAllSizes(true)}
-                  data-od-id="challenge-reveal-sizes"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-dashed border-gray-300 bg-white px-5 text-sm font-bold text-gray-600 shadow-sm transition-colors hover:border-[#FFC107] hover:text-[#0A0A0C]"
+                  onClick={() => setSelectedMarket("futures")}
+                  className={cn(
+                    "px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all",
+                    selectedMarket === "futures"
+                      ? "bg-white text-[#0A0A0C] border border-black/10 shadow-sm"
+                      : "text-gray-600 hover:text-black"
+                  )}
                 >
-                  <Plus size={15} />
-                  {t("revealSizes")}
-                  <span className="font-semibold text-gray-400">
-                    ·&nbsp;&nbsp;{sizes.slice(5).join(" · ")}
+                  <span>{t("futures") || "Futures"}</span>
+                  <span className="bg-[#E11D48] text-white text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+                    {t("futuresDiscount") || "18% OFF"}
                   </span>
                 </button>
               </div>
-            ) : null}
-          </SectionReveal>
-        )}
 
-        {/* ─────────────── PHASES VIEW ─────────────── */}
-        {view === "phases" && (() => {
-          const sizeNum = parseMoney(activeSize);
-          const phaseCount = activeType === "instant" ? 0 : activeType === "one-step" ? 1 : 2;
-          const ruleVal = (raw: string) =>
-            raw === "$0"
-              ? "—"
-              : numbersMode === "percent"
-                ? toPercent(raw, sizeNum)
-                : toCurrency(raw, currency);
-          const phaseRows: { label: string; value: (p: number | "master") => string }[] = [
-            { label: t("profitTarget"), value: (p) => (p === "master" ? "—" : ruleVal(p === 1 ? X.phase1 : X.phase2)) },
-            { label: t("maxLoss"), value: () => ruleVal(X.maxLoss) },
-            { label: t("maxDailyLoss"), value: () => ruleVal(X.maxDaily) },
-            { label: t("minTradingDays"), value: (p) => (p === "master" ? "—" : t("day")) },
-          ];
-          const gridCols =
-            phaseCount > 0
-              ? { gridTemplateColumns: `minmax(120px, 26%) repeat(${phaseCount}, 1fr) minmax(170px, 24%)` }
-              : { gridTemplateColumns: "minmax(120px, 45%) 1fr" };
-
-          return (
-            <>
-              {/* Account size selector — centered pill group */}
-              <SectionReveal delay={0.16}>
-                <div className="mb-6 flex justify-center">
-                  <div className="flex flex-wrap justify-center gap-1 rounded-full border border-gray-200 bg-gray-50 p-1.5">
-                    {sizes.map((s) => {
-                      const active = s === activeSize;
-                      return (
-                        <button
-                          key={s}
-                          role="tab"
-                          aria-selected={active}
-                          onClick={() => setSize(s)}
-                          data-od-id={`size-pill-${s.toLowerCase()}`}
-                          className={cn(
-                            "whitespace-nowrap rounded-full px-5 py-2 text-sm font-bold transition-all",
-                            active
-                              ? "bg-[#0A0A0C] text-white shadow-sm"
-                              : "text-gray-500 hover:text-gray-900"
-                          )}
-                        >
-                          {s}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </SectionReveal>
-
-              {/* Phases table (desktop) */}
-              <SectionReveal delay={0.2}>
-                <div
-                  data-od-id="challenge-table"
-                  className="hidden overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:grid"
-                  style={{ ...gridCols, gridTemplateRows: "auto repeat(4, auto)" }}
+              {/* Currency Dropdown */}
+              <div className="relative z-30" ref={currencyDropdownRef}>
+                <button
+                  type="button"
+                  onClick={() => setIsCurrencyOpen((open) => !open)}
+                  aria-expanded={isCurrencyOpen}
+                  aria-haspopup="listbox"
+                  className="flex items-center gap-2 rounded-full border border-[#D9D9D9] bg-white px-4 py-2 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-[#E0B341]"
                 >
-                  {/* Header row */}
-                  <div className="border-r border-gray-100" aria-hidden="true" />
-                  {Array.from({ length: phaseCount }).map((_, i) => (
-                    <div key={i} className="flex flex-col items-center pb-5 pt-6">
-                      <div className="flex w-full items-center">
-                        {i > 0 ? (
-                          <span className="h-px flex-1 bg-gray-200" aria-hidden="true" />
-                        ) : (
-                          <span className="flex-1" aria-hidden="true" />
-                        )}
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gray-200 text-sm font-extrabold text-gray-600">
-                          {i + 1}
-                        </span>
-                        {i < phaseCount - 1 ? (
-                          <span className="h-px flex-1 bg-gray-200" aria-hidden="true" />
-                        ) : (
-                          <span className="flex-1" aria-hidden="true" />
-                        )}
-                      </div>
-                      <p className="mt-4 text-lg font-extrabold text-[#0A0A0C]">
-                        {i === 0 ? t("phase1") : t("phase2")}
-                      </p>
-                    </div>
-                  ))}
-                  {/* Master header cell (dark column) */}
-                  <div
+                  <span aria-hidden="true" className="text-base leading-none">{currency.flag}</span>
+                  <span>{currency.code}</span>
+                  <ChevronDown
                     className={cn(
-                      "flex flex-col items-center bg-[#0A0A0C] px-4 pb-5 pt-6 text-white",
-                      phaseCount === 0 && "my-3 mr-3 rounded-xl"
+                      "h-4 w-4 text-gray-500 transition-transform duration-200",
+                      isCurrencyOpen ? "rotate-180" : ""
+                    )}
+                  />
+                </button>
+
+                {isCurrencyOpen && (
+                  <div
+                    role="listbox"
+                    aria-label="Choose currency"
+                    className="absolute right-0 top-full mt-2 min-w-40 overflow-hidden rounded-xl border border-[#D9D9D9] bg-white p-1.5 shadow-[0_12px_30px_rgba(0,0,0,0.16)] animate-in fade-in zoom-in-95 duration-150"
+                  >
+                    {currencies.map((item) => (
+                      <button
+                        key={item.code}
+                        type="button"
+                        role="option"
+                        aria-selected={selectedCurrency === item.code}
+                        onClick={() => {
+                          setSelectedCurrency(item.code);
+                          setIsCurrencyOpen(false);
+                        }}
+                        className={cn(
+                          "flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-[#F5F5F5]",
+                          selectedCurrency === item.code ? "bg-[#FFF9E8] text-[#B98916]" : ""
+                        )}
+                      >
+                        <span aria-hidden="true">{item.flag}</span>
+                        <span>{item.code}</span>
+                        <span className="text-xs text-gray-400 font-normal">({item.symbol})</span>
+                        {selectedCurrency === item.code && (
+                          <Check className="ml-auto h-4 w-4 text-[#B98916]" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* Challenge Types Row */}
+          <SectionReveal delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {challengeTypes.map((tItem) => {
+                const isSelected = selectedType === tItem.id;
+                return (
+                  <div
+                    key={tItem.id}
+                    onClick={() => handleTypeSelect(tItem.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        handleTypeSelect(tItem.id);
+                      }
+                    }}
+                    className={cn(
+                      "rounded-xl p-4 cursor-pointer transition-all duration-200 border text-left",
+                      isSelected
+                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-[0_0_16px_rgba(224,179,65,0.25)] ring-1 ring-[#E0B341]"
+                        : "border-[#D9D9D9] bg-white hover:bg-[#F9FAFB] hover:border-gray-300"
                     )}
                   >
-                    <p className="text-sm font-semibold text-white/55">{t("funded")}</p>
-                    <span className="mt-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFC107]">
-                      <Crown size={20} className="text-[#0A0A0C]" fill="#0A0A0C" />
-                    </span>
-                    <p className="mt-4 text-lg font-extrabold">Master</p>
+                    <h3 className="text-sm font-bold text-[#0A0A0C] mb-1">
+                      {tItem.name}
+                    </h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      {tItem.desc}
+                    </p>
                   </div>
+                );
+              })}
+            </div>
+          </SectionReveal>
 
-                  {/* Value rows */}
-                  {phaseRows.map((r, ri) => (
-                    <Fragment key={r.label}>
-                      <div
-                        className={cn(
-                          "flex items-center border-t border-gray-100 px-5 py-5",
-                          ri === 0 && "border-t-0"
-                        )}
-                      >
-                        <span className="flex items-center gap-1.5 text-[15px] font-semibold text-gray-400">
-                          {r.label}
-                          <Info size={13} className="shrink-0 opacity-50" aria-hidden="true" />
-                        </span>
-                      </div>
-                      {Array.from({ length: phaseCount }).map((_, i) => (
-                        <div
-                          key={i}
-                          className={cn(
-                            "flex items-center justify-center border-t border-gray-100 px-3 py-5 text-center text-[15px] font-bold text-[#0A0A0C]",
-                            ri === 0 && "border-t-0"
-                          )}
-                        >
-                          {r.value(i + 1)}
-                        </div>
-                      ))}
-                      <div
-                        className={cn(
-                          "flex items-center justify-center bg-[#0A0A0C] px-3 py-5 text-center text-[15px] font-bold text-white",
-                          ri === 0 && "border-t-0"
-                        )}
-                      >
-                        {r.value("master")}
-                      </div>
-                    </Fragment>
-                  ))}
-                </div>
+          {/* Account Sizes Row */}
+          <SectionReveal delay={0.14}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+              {accountSizes.map((size) => {
+                const data = rawData[size]?.[selectedType];
+                const isSelected = size === selectedSize;
+                const isDisabled = !data;
 
-                {/* Phases table (mobile: stacked) */}
-                <div className="grid gap-3 md:hidden" data-od-id="challenge-table-mobile">
-                  {(phaseCount > 0
-                    ? [
-                        ...Array.from({ length: phaseCount }).map((_, i) => ({
-                          key: `p${i + 1}`,
-                          subtitle: i === 0 ? t("evaluationStage") : t("verificationStage"),
-                          title: i === 0 ? t("phase1") : t("phase2"),
-                          dark: false,
-                        })),
-                        { key: "funded", subtitle: t("funded"), title: "Master", dark: true },
-                      ]
-                    : [{ key: "funded", subtitle: t("funded"), title: "Master", dark: true }]
-                  ).map((col) => (
-                    <div
-                      key={col.key}
-                      className={cn(
-                        "rounded-2xl border p-4",
-                        col.dark
-                          ? "border-[#0A0A0C] bg-[#0A0A0C] text-white"
-                          : "border-gray-200 bg-gray-50/60 text-[#0A0A0C]"
-                      )}
-                    >
-                      <p
-                        className={cn(
-                          "text-[11px] font-bold uppercase tracking-[0.14em]",
-                          col.dark ? "text-white/50" : "text-gray-400"
-                        )}
-                      >
-                        {col.subtitle}
-                      </p>
-                      <p className="mt-0.5 text-lg font-extrabold">{col.title}</p>
-                      <div className="mt-3 space-y-2.5 border-t pt-3 border-gray-200/80">
-                        {phaseRows.map((r) => (
-                          <div
-                            key={r.label}
-                            className="flex items-center justify-between gap-3 text-[13px]"
-                          >
-                            <span className={col.dark ? "text-white/55" : "text-gray-500"}>
-                              {r.label}
-                            </span>
-                            <span className="font-bold tabular-nums">
-                              {r.value(col.key === "funded" ? "master" : col.key === "p2" ? 2 : 1)}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                return (
+                  <div
+                    key={size}
+                    onClick={() => !isDisabled && setSelectedSize(size)}
+                    role="button"
+                    aria-disabled={isDisabled}
+                    tabIndex={isDisabled ? -1 : 0}
+                    onKeyDown={(e) => {
+                      if (!isDisabled && (e.key === "Enter" || e.key === " ")) {
+                        setSelectedSize(size);
+                      }
+                    }}
+                    data-od-id={`challenge-card-${size}`}
+                    className={cn(
+                      "bg-white border rounded-xl p-3.5 min-h-28 text-left relative transition-all duration-200",
+                      isDisabled
+                        ? "opacity-30 cursor-not-allowed pointer-events-none border-[#D9D9D9]"
+                        : "cursor-pointer hover:bg-[#F9FAFB]",
+                      isSelected
+                        ? "gold-card-highlight ring-1 ring-[#E0B341] shadow-sm"
+                        : "border-[#D9D9D9]"
+                    )}
+                  >
+                    {size === "100K" && (
+                      <span className="absolute -top-2 right-2 bg-[#059669] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                        {t("popular") || "Popular"}
+                      </span>
+                    )}
+                    <div className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-0.5">
+                      {t("account") || "Account"}
                     </div>
-                  ))}
-                </div>
-              </SectionReveal>
+                    <div className="text-lg font-bold text-[#0A0A0C] mb-1.5">
+                      ${size}
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-xs font-bold text-[#0A0A0C]">
+                        {data ? formatMoney(data.disc) : "N/A"}
+                      </span>
+                      <span className="text-[10px] text-gray-400 line-through font-normal">
+                        {data ? formatMoney(data.orig) : ""}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </SectionReveal>
 
-              {/* Bottom bar — outside the table */}
-              <div className="mt-8 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
-                <div className="flex flex-wrap items-baseline gap-x-8 gap-y-3">
-                  <div className="flex items-baseline gap-2.5">
-                    <span className="text-sm font-semibold text-gray-400">{t("account")}</span>
-                    <span className="font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold text-[#0A0A0C]">
-                      {activeSize}
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-2.5">
-                    <span className="text-sm font-semibold text-gray-400">{t("price")}</span>
-                    <span className="font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold text-[#0A0A0C] tabular-nums">
-                      {toCurrency(Y.price, currency)}
-                    </span>
-                    <span className="text-lg font-semibold text-gray-500 line-through tabular-nums">
-                      {toCurrency(Y.oldPrice, currency)}
-                    </span>
+          {/* Details & Checkout Grid */}
+          <SectionReveal delay={0.18}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+              {/* Rules Panel */}
+              <div
+                className="lg:col-span-7 bg-white border border-[#D9D9D9] rounded-2xl p-5 md:p-6 flex flex-col gap-5 shadow-sm"
+                data-od-id="challenge-table"
+              >
+                <div className="flex items-center justify-between pb-3.5 border-b border-[#D9D9D9]">
+                  <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
+                    <Percent className="w-4 h-4 text-[#E0B341]" />
+                    <span>{t("showPercentage") || "Show Percentage"}</span>
+                    <label className="relative inline-block w-9 h-5 cursor-pointer ml-1">
+                      <input
+                        type="checkbox"
+                        checked={isPercentage}
+                        onChange={(e) => setIsPercentage(e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <span className="absolute inset-0 bg-[#E5E5E5] peer-checked:bg-[#E0B341] rounded-full transition-all duration-300"></span>
+                      <span className="absolute bottom-[3px] left-[3px] bg-white w-3.5 h-3.5 rounded-full transition-transform duration-300 peer-checked:translate-x-4 shadow-sm"></span>
+                    </label>
                   </div>
                 </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* Column 1: Evaluation Rules */}
+                  <div>
+                    <h4 className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-3.5">
+                      {t("evaluationRules") || "Evaluation Rules"}
+                    </h4>
+                    <ul className="flex flex-col gap-3 text-xs">
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("phase1Target") || "Phase 1 Target"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{formatValue(activePlan?.p1)}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("phase2Target") || "Phase 2 Target"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{formatValue(activePlan?.p2)}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("maxDailyLoss") || "Max Daily Loss"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{formatValue(activePlan?.dailyLoss)}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("maxLoss") || "Max Loss"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{formatValue(activePlan?.maxLoss)}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("minTradingDays") || "Min. Trading Days"}</span>
+                        <span className="font-bold text-[#0A0A0C]">
+                          {activePlan?.minDays ? `${activePlan.minDays} ${t("day") || "Day"}` : "-"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between items-center">
+                        <span className="text-gray-600 font-normal">{t("consistencyRule") || "Consistency"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.consistency || "-"}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Column 2: Funded Account Rules */}
+                  <div>
+                    <h4 className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-3.5">
+                      {t("fundedAccountRules") || "Funded Account Rules"}
+                    </h4>
+                    <ul className="flex flex-col gap-3 text-xs">
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("tradingPeriod") || "Trading Period"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.period || "-"}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("profitSplit1") || "Profit Split (1–13 Days)"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.split1 || "-"}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("profitSplit2") || "Profit Split (14–30 Days)"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.split2 || "-"}</span>
+                      </li>
+                      <li className="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span className="text-gray-600 font-normal">{t("profitSplit3") || "Profit Split (31+ Days)"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.split3 || "-"}</span>
+                      </li>
+                      <li className="flex justify-between items-center">
+                        <span className="text-gray-600 font-normal">{t("fundedConsistency") || "Funded Consistency"}</span>
+                        <span className="font-bold text-[#0A0A0C]">{activePlan?.fundedConsistency || "-"}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Checkout Panel */}
+              <div className="lg:col-span-5 bg-white border border-[#D9D9D9] rounded-2xl p-6 flex flex-col gap-5 shadow-sm">
+                <div className="flex justify-between items-baseline">
+                  <div className="text-base font-bold text-[#0A0A0C]">
+                    {activeTypeName} ${selectedSize}
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-[#0A0A0C]">
+                      {selectedOption === 2
+                        ? calculateBoosterPrice(activePlan?.disc)
+                        : formatMoney(activePlan?.disc || "$0.00")}
+                    </div>
+                    <div className="text-xs text-gray-400 line-through font-normal">
+                      {formatMoney(activePlan?.orig)}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Radio Selection Options */}
+                <div className="flex flex-col gap-2.5">
+                  <div
+                    role="radio"
+                    aria-checked={selectedOption === 1}
+                    tabIndex={0}
+                    onClick={() => setSelectedOption(1)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") setSelectedOption(1);
+                    }}
+                    className={cn(
+                      "flex justify-between items-center px-3.5 py-2.5 rounded-xl cursor-pointer transition-all border",
+                      selectedOption === 1
+                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-sm"
+                        : "border-gray-200 bg-gray-50/80 hover:bg-gray-100/70"
+                    )}
+                  >
+                    <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
+                      <div
+                        className={cn(
+                          "w-4 h-4 rounded-full border flex items-center justify-center transition-colors",
+                          selectedOption === 1 ? "border-[#E0B341]" : "border-gray-400"
+                        )}
+                      >
+                        {selectedOption === 1 && (
+                          <div className="w-2 h-2 rounded-full bg-[#E0B341]"></div>
+                        )}
+                      </div>
+                      <span>{t("standardAccess") || "Standard Access"}</span>
+                    </div>
+                    <span className="text-xs font-bold text-[#0A0A0C]">
+                      {formatMoney(activePlan?.disc)}
+                    </span>
+                  </div>
+
+                  <div
+                    role="radio"
+                    aria-checked={selectedOption === 2}
+                    tabIndex={0}
+                    onClick={() => setSelectedOption(2)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") setSelectedOption(2);
+                    }}
+                    className={cn(
+                      "flex justify-between items-center px-3.5 py-2.5 rounded-xl cursor-pointer transition-all border",
+                      selectedOption === 2
+                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-sm"
+                        : "border-gray-200 bg-gray-50/80 hover:bg-gray-100/70"
+                    )}
+                  >
+                    <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
+                      <div
+                        className={cn(
+                          "w-4 h-4 rounded-full border flex items-center justify-center transition-colors",
+                          selectedOption === 2 ? "border-[#E0B341]" : "border-gray-400"
+                        )}
+                      >
+                        {selectedOption === 2 && (
+                          <div className="w-2 h-2 rounded-full bg-[#E0B341]"></div>
+                        )}
+                      </div>
+                      <span>{t("boosterPass") || "15% Booster Pass"}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm">
+                        {t("promo") || "PROMO"}
+                      </span>
+                      <span className="text-xs font-bold text-[#0A0A0C]">
+                        {calculateBoosterPrice(activePlan?.disc)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
                 <a
-                  href={SIGNUP_URL}
+                  href={signupUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-od-id="challenge-cta"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#FFC107] px-8 text-[15px] font-black text-[#0A0A0C] transition-all hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)] sm:w-auto"
+                  className="block w-full"
                 >
-                  {t("startNow")}
+                  <button type="button" className="gold-pill-btn w-full gap-2 font-bold">
+                    <span>{t("startChallenge") || "Start Challenge"}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </a>
-              </div>
-            </>
-          );
-        })()}
 
-        {/* Disclaimer */}
-        <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-5 text-gray-400">
-          {t("disclaimer")}
-        </p>
+                {/* Add-ons */}
+                <div className="flex flex-col gap-2">
+                  <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                    {t("addOnsAvailable") || "Add-Ons Available"}
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Lifetime Reward 90%", "Reward 95%", "Double Lev", "+4 more"].map(
+                      (addon) => (
+                        <span
+                          key={addon}
+                          className="bg-[#F5F5F5] border border-[#D9D9D9] text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-md"
+                        >
+                          {addon}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                {/* Payment Methods */}
+                <div className="flex flex-wrap justify-center items-center gap-2 pt-1 text-[11px] text-gray-500">
+                  {["VISA", "Mastercard", "G Pay", "Crypto"].map((pm) => (
+                    <span
+                      key={pm}
+                      className="border border-[#D9D9D9] rounded px-1.5 py-0.5 font-bold text-[10px] text-gray-700 bg-gray-50"
+                    >
+                      {pm}
+                    </span>
+                  ))}
+                  <span className="text-xs font-medium">+10 more</span>
+                </div>
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* Universal Conditions / Disclaimer */}
+          <SectionReveal delay={0.22}>
+            <div className="flex flex-wrap justify-center gap-2 pt-4">
+              {((t.raw("conditions") as string[]) || [
+                "Profit split up to 100%",
+                "Leverage 1:100",
+                "Payouts in ~12 hours",
+              ]).map((c: string) => (
+                <span
+                  key={c}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3.5 py-1.5 text-[12px] font-bold text-gray-700 shadow-sm"
+                >
+                  <Check size={13} strokeWidth={3} className="shrink-0 text-[#D49F3E]" />
+                  {c}
+                </span>
+              ))}
+            </div>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-xs leading-5 text-gray-400">
+              {t("disclaimer")}
+            </p>
+          </SectionReveal>
+        </div>
       </Container>
     </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────── rows */
-
-function SubRow({
-  label,
-  value,
-  dark,
-  muted,
-}: {
-  label: string;
-  value: string;
-  dark: boolean;
-  muted?: boolean;
-}) {
-  return (
-    <div className="flex items-center justify-between gap-2">
-      <span className={cn("text-[12px]", dark ? "text-white/50" : "text-gray-400")}>
-        {label}
-      </span>
-      <span
-        className={cn(
-          "text-[13px] font-bold tabular-nums",
-          muted ? (dark ? "text-white/40" : "text-gray-500") : dark ? "text-white" : "text-gray-900"
-        )}
-      >
-        {value}
-      </span>
-    </div>
-  );
-}
-
-function RuleRow({
-  label,
-  value,
-  dark,
-  last,
-}: {
-  label: string;
-  value: string;
-  dark: boolean;
-  last?: boolean;
-}) {
-  return (
-    <div
-      className={cn(
-        "flex items-center justify-between gap-2 py-2.5",
-        !last && "border-b",
-        dark ? "border-white/10" : "border-gray-200/80"
-      )}
-    >
-      <span
-        className={cn(
-          "flex items-center gap-1 text-[13px] font-bold",
-          dark ? "text-white" : "text-gray-900"
-        )}
-      >
-        {label}
-        <Info size={12} className="shrink-0 opacity-40" aria-hidden="true" />
-      </span>
-      <span
-        className={cn(
-          "text-right text-[13px] font-bold tabular-nums",
-          dark ? "text-white" : "text-gray-900"
-        )}
-      >
-        {value}
-      </span>
-    </div>
   );
 }

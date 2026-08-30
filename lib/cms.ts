@@ -4,7 +4,7 @@
 // content type, callers fall back to their static defaults.
 
 import { SITE_META } from "@/lib/content";
-import type { ChallengeType } from "@/lib/content";
+import type { ChallengeType, CurrencyOption, PlanDetails } from "@/lib/content";
 
 export const CMS_BRAND_SLUG = "ck-capital";
 export const CMS_FIRM_SLUG = "ck-capital";
@@ -228,7 +228,6 @@ export async function getVideoReviews(): Promise<CmsVideoReview[]> {
   params.set("filters[firmSlug][$eq]", CMS_FIRM_SLUG);
   params.set("pagination[pageSize]", "50");
   params.set("sort", "createdAt:desc");
-  params.set("populate[thumbnail]", "true");
   const res = await cmsFetch<any>(`video-reviews?${params.toString()}`);
   if (!res?.data) return [];
   return res.data
@@ -484,6 +483,8 @@ export interface ChallengeConfig {
   splits: Record<ChallengeType, string>;
   access: string[];
   sizes: string[];
+  fundingPlans?: Record<string, Record<string, PlanDetails | null>>;
+  currencies?: CurrencyOption[];
 }
 
 /**
@@ -530,22 +531,39 @@ function staticSizes(): string[] {
   return content.ACCOUNT_SIZES;
 }
 
+function staticFundingPlans(): Record<string, Record<string, PlanDetails | null>> {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const content = require("@/lib/content");
+  return content.FUNDING_PLAN_RAW_DATA;
+}
+
+function staticCurrencies(): CurrencyOption[] {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const content = require("@/lib/content");
+  return content.CURRENCIES;
+}
+
 export function normalizeChallengeConfig(cfg: Record<string, unknown>): ChallengeConfig {
   const rules = staticRules();
   const prices = staticPrices();
   const splits = staticSplits();
+  const fundingPlans = staticFundingPlans();
+  const currencies = staticCurrencies();
 
   const cRules = (cfg.rules ?? {}) as Record<string, Record<string, ChallengeSizeRule>>;
   const cPrices = (cfg.prices ?? {}) as Record<string, Record<string, ChallengePrice>>;
   const cSplits = (cfg.splits ?? {}) as Record<string, string>;
   const cAccess = Array.isArray(cfg.access) ? cfg.access : null;
   const cSizes = Array.isArray(cfg.sizes) ? cfg.sizes : null;
+  const cFundingPlans = (cfg.fundingPlans ?? {}) as Record<string, Record<string, PlanDetails | null>>;
+  const cCurrencies = Array.isArray(cfg.currencies) ? (cfg.currencies as CurrencyOption[]) : null;
 
   const types = Object.keys(rules) as ChallengeType[];
 
   const outRules = { ...rules };
   const outPrices = { ...prices };
   const outSplits = { ...splits };
+  const outFundingPlans = { ...fundingPlans };
 
   for (const t of types) {
     if (cRules[t]) {
@@ -559,11 +577,22 @@ export function normalizeChallengeConfig(cfg: Record<string, unknown>): Challeng
     }
   }
 
+  if (cFundingPlans && Object.keys(cFundingPlans).length > 0) {
+    for (const sizeKey of Object.keys(cFundingPlans)) {
+      outFundingPlans[sizeKey] = {
+        ...outFundingPlans[sizeKey],
+        ...cFundingPlans[sizeKey],
+      };
+    }
+  }
+
   return {
     rules: outRules,
     prices: outPrices,
     splits: outSplits,
     access: cAccess?.length ? cAccess : staticAccess(),
     sizes: cSizes?.length ? cSizes : staticSizes(),
+    fundingPlans: outFundingPlans,
+    currencies: cCurrencies?.length ? cCurrencies : currencies,
   };
 }

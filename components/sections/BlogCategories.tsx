@@ -97,8 +97,8 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
           </p>
         </SectionReveal>
 
-        {/* Featured panel — lightened (was dark bg-[#0A0A0C]) */}
-        <SectionReveal delay={0.08} className="mt-8 sm:mt-10">
+        {/* Featured slideshow panel — visible on sm+ (hidden on mobile) */}
+        <SectionReveal delay={0.08} className="mt-8 sm:mt-10 hidden sm:block">
           <div
             className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[20px] border border-gray-200 bg-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.12)]"
             data-od-id="blog-featured"
@@ -148,8 +148,8 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
           </div>
         </SectionReveal>
 
-        {/* Category selector cards — lightened (was dark overlay) */}
-        <div className="relative z-10 mx-auto -mt-[52px] grid max-w-[980px] grid-cols-1 gap-3 px-2 sm:-mt-[68px] sm:grid-cols-3 sm:gap-4">
+        {/* Category selector cards — 1st full width on mobile (230px), 2nd & 3rd half width in one row (190px), 3 equal columns on desktop */}
+        <div className="relative z-10 mx-auto mt-8 grid max-w-[980px] grid-cols-2 gap-3.5 px-2 sm:-mt-[68px] sm:grid-cols-3 sm:gap-4">
           {CATEGORIES.map((cat, i) => {
             const article = latestByCategory[cat.key];
             const cardCover = article?.coverImage?.url ?? FALLBACK_IMAGES[cat.key];
@@ -162,7 +162,10 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                 aria-pressed={isActive}
                 data-od-id={`blog-cat-${cat.key}`}
                 className={cn(
-                  "group relative h-[148px] w-full overflow-hidden rounded-2xl border bg-white text-left shadow-[0_12px_28px_-16px_rgba(15,23,42,0.12)] transition-all sm:h-[164px]",
+                  "group relative w-full overflow-hidden rounded-2xl border bg-white text-left shadow-[0_12px_28px_-16px_rgba(15,23,42,0.12)] transition-all",
+                  i === 0
+                    ? "col-span-2 h-[230px] sm:h-[164px] sm:col-span-1"
+                    : "col-span-1 h-[190px] sm:h-[164px]",
                   isActive
                     ? "border-[#FFC107] ring-2 ring-[#FFC107] ring-offset-2 ring-offset-white"
                     : "border-gray-200 hover:border-gray-300 hover:shadow-md"
@@ -173,14 +176,14 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                   alt={t(cat.labelKey)}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="312px"
+                  sizes="(max-width: 640px) 100vw, 312px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-4 pr-[88px] sm:p-4 sm:pr-20">
-                  <p className="font-[family-name:var(--font-inter-tight)] text-[13.5px] font-bold leading-none text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 pr-4 sm:pr-20">
+                  <p className="font-[family-name:var(--font-inter-tight)] text-[13px] sm:text-[13.5px] font-bold leading-none text-white">
                     {t(cat.labelKey)}
                   </p>
-                  <p className="mt-1.5 line-clamp-2 text-[11.5px] font-medium leading-[1.45] text-white/75">
+                  <p className="mt-1.5 line-clamp-2 text-[11px] sm:text-[11.5px] font-medium leading-[1.4] text-white/80">
                     {article ? article.title : t("comingSoon")}
                   </p>
                 </div>
@@ -189,8 +192,8 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
           })}
         </div>
 
-        {/* Slide indicators — tiny centered dashes like reference */}
-        <div className="mt-6 flex items-center justify-center gap-2">
+        {/* Slide indicators — visible on sm+ */}
+        <div className="mt-6 hidden sm:flex items-center justify-center gap-2">
           {CATEGORIES.map((cat, i) => (
             <button
               key={cat.key}

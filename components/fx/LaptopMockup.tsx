@@ -104,7 +104,7 @@ function BrandMark() {
         <polyline points="11 18 5 12 11 6" />
         <polyline points="19 18 13 12 19 6" />
       </svg>
-      <span className="text-[11px] font-black tracking-wider text-[#0A0A0C]">
+      <span className="text-[11px] font-black tracking-wider text-white">
         CK CAPITAL
       </span>
     </div>
@@ -276,7 +276,7 @@ export function LaptopMockup() {
                   {SIDEBAR_ITEMS.map((item) => (
                     <div
                       key={item.label}
-                      className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-gray-500 transition-colors hover:text-[#0A0A0C]"
+                      className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-gray-400 transition-colors hover:text-white hover:bg-white/[0.08] cursor-pointer"
                     >
                       <item.icon size={13} />
                       <span className="text-[10.5px]">{item.label}</span>

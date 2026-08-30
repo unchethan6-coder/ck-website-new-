@@ -76,7 +76,7 @@ export function FaqAccordion() {
             <p className="text-sm text-gray-500 mb-5">
               {t("supportAvailable")}
             </p>
-            <a href="https://intercom.help/ck-capital/en/" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
               <GoldButton size="md" data-od-id="faq-support-cta">
                 {t("chatSupport")}
               </GoldButton>
