@@ -696,7 +696,7 @@ export function TopNav() {
               </button>
               <Link
                 href="/#start-challenge"
-                className="hidden sm:inline-flex whitespace-nowrap items-center min-h-11 px-3 rounded-lg gold-gradient-btn text-[12px] font-bold text-black transition-all shrink-0"
+          className={cn("whitespace-nowrap items-center min-h-11 px-3 rounded-lg gold-gradient-btn text-[12px] font-bold text-black transition-all shrink-0", scrolled ? "hidden" : "hidden sm:inline-flex")}
               >
                 {t("startChallenge" as any)}
               </Link>
