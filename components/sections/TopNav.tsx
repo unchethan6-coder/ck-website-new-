@@ -147,7 +147,7 @@ export function TopNav() {
           icon: HelpCircle,
           titleKey: "helpCenter",
           descKey: "helpCenterDesc",
-          href: "https://intercom.help/ck-capital/en/",
+          href: "https://intercom.help/ck-capital/",
           external: true,
         },
       ],
@@ -292,16 +292,26 @@ export function TopNav() {
           )}
         >
           <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
-            <Link href="/" className="shrink-0 pr-1 lg:pr-2 whitespace-nowrap flex items-center gap-2" data-od-id="nav-logo">
-              <div className="flex items-center text-[#FFC107]">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC107" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="11 18 5 12 11 6" />
-                  <polyline points="19 18 13 12 19 6" />
-                </svg>
-              </div>
-              <span className="text-[14.5px] lg:text-[15.5px] xl:text-[16px] font-black tracking-[0.08em] text-white">
-                CK CAPITAL
-              </span>
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === "/" || pathname === "" || pathname === "/en" || pathname === "/es" || pathname === "/pt") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  window.scrollTo({ top: 0, behavior: "instant" });
+                }
+              }}
+              className="shrink-0 pr-1 lg:pr-2 whitespace-nowrap flex items-center gap-2 cursor-pointer"
+              data-od-id="nav-logo"
+            >
+              <img
+                src="/images/brand/CKLogo.png"
+                alt="CK Capital"
+                width={696}
+                height={100}
+                className="h-6 sm:h-7 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -602,7 +612,7 @@ export function TopNav() {
                       </div>
 
                       <a
-                        href="https://discord.gg/ckcapital"
+                        href="https://discord.com/invite/hGSVx9CmS2"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {
@@ -636,7 +646,7 @@ export function TopNav() {
 
               {/* 5. FAQ DIRECT LINK */}
               <a
-                href="https://discord.gg/ckcapital"
+                href="https://intercom.help/ck-capital/"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-od-id="desktop-nav-faq"
@@ -689,26 +699,20 @@ export function TopNav() {
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 data-od-id="mobile-search-trigger"
-                className="inline-flex min-h-11 min-w-11 h-11 w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
+                className="inline-flex min-h-10 min-w-10 h-10 w-10 sm:min-h-11 sm:min-w-11 sm:h-11 sm:w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
                 aria-label={tSearch("searchAria")}
               >
-                <Search size={17} className="text-primary" />
+                <Search size={16} className="text-primary" />
               </button>
-              <Link
-                href="/#start-challenge"
-          className={cn("whitespace-nowrap items-center min-h-11 px-3 rounded-lg gold-gradient-btn text-[12px] font-bold text-black transition-all shrink-0", scrolled ? "hidden" : "hidden sm:inline-flex")}
-              >
-                {t("startChallenge" as any)}
-              </Link>
               <LanguageSwitcher compact />
               <button
-                className="inline-flex min-h-11 min-w-11 h-11 w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
+                className="inline-flex min-h-10 min-w-10 h-10 w-10 sm:min-h-11 sm:min-w-11 sm:h-11 sm:w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
                 onClick={() => setOpen(!open)}
                 aria-label={t("menu" as any)}
                 aria-expanded={open}
                 data-od-id="mobile-menu-trigger"
               >
-                {open ? <X size={19} /> : <Menu size={19} />}
+                {open ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
           </div>
@@ -911,7 +915,7 @@ export function TopNav() {
 
                 {/* Direct Link: FAQ */}
                 <a
-                  href="https://intercom.help/ck-capital/en/"
+                  href="https://intercom.help/ck-capital/"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id="mobile-nav-faq"

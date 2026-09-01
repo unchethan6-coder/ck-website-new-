@@ -51,7 +51,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
                   <Sparkles size={12} /> Insights &amp; Market Analysis
                 </span>
               </motion.div>
@@ -70,7 +70,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]"
               >
                 Expert trading tips, systematic market analysis, risk management strategies, and success stories from our global analyst community.
               </motion.p>
@@ -88,14 +88,14 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 </a>
                 <a
                   href="/#start-challenge"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   Start Evaluation <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
-                <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-primary" /> Curated Content</span>
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+                <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-[#854D0E]" /> Curated Content</span>
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Risk & Strategy Guides</span>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
         </div>
       </section>
 
-      {/* ─────────────── Blog Feed (LIGHT) ─────────────── */}
+      {/* ─────────────── Blog Feed ─────────────── */}
       <section id="blog-feed" className="scroll-mt-24 bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="blog-feed">
         <Container>
           {articles.length === 0 ? (
@@ -123,8 +123,8 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
               transition={{ duration: 0.5 }}
               className="mx-auto max-w-xl rounded-2xl border border-[#E5E7EB] bg-white px-6 py-16 text-center shadow-sm sm:py-20"
             >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/10">
-                <FileText size={24} className="text-[#D4AF37]" />
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50">
+                <FileText size={24} className="text-[#0A0A0C]" />
               </div>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] md:text-2xl">
                 Articles Coming Soon
@@ -149,8 +149,8 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       className={cn(
                         "rounded-full border px-4 py-2 text-xs font-bold transition-all",
                         isActive
-                          ? "border-[#D4AF37] bg-[#D4AF37] text-[#0A0A0C] font-extrabold shadow-sm"
-                          : "border-[#E5E7EB] bg-white text-[#4B5563] hover:border-[#D4AF37]/50 hover:text-[#0A0A0C]"
+                          ? "border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] font-extrabold shadow-sm"
+                          : "border-[#E5E7EB] bg-white text-[#4B5563] hover:border-gray-300 hover:text-[#0A0A0C]"
                       )}
                     >
                       {cat.label}
@@ -174,10 +174,10 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                     >
                       <div className="relative">
                         <div className="mb-5 flex flex-wrap items-center gap-3">
-                          <span className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#0A0A0C]">
+                          <span className="rounded-full bg-[#FFC107] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#0A0A0C]">
                             Featured
                           </span>
-                          <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#B89628]">
+                          <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
                             {featured.category}
                           </span>
                         </div>
@@ -190,19 +190,19 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[#E5E7EB] pt-5">
                           <div className="flex flex-wrap items-center gap-4">
                             <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
-                              <Calendar size={12} className="text-[#D4AF37]" />
+                              <Calendar size={12} className="text-[#6B7280]" />
                               {formatDate(featured.publishedAt)}
                             </span>
                             {featured.author && (
                               <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
-                                <User size={12} className="text-[#D4AF37]" />
+                                <User size={12} className="text-[#6B7280]" />
                                 {featured.author}
                               </span>
                             )}
                           </div>
                           <Link
                             href={`/blog/${featured.slug}`}
-                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#D4AF37] hover:underline"
+                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0A0A0C] hover:text-[#854D0E] underline"
                           >
                             Read More <ArrowRight size={14} />
                           </Link>
@@ -235,11 +235,11 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       ) : null}
                       <div className="flex flex-1 flex-col p-6">
                         <div className="mb-4 flex items-center gap-3">
-                          <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#B89628]">
+                          <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
                             {post.category}
                           </span>
                         </div>
-                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#D4AF37]">
+                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#854D0E]">
                           {post.title}
                         </h2>
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-[#4B5563]">
@@ -247,12 +247,12 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                         </p>
                         <div className="mt-5 flex items-center justify-between border-t border-[#E5E7EB] pt-4">
                           <span className="flex items-center gap-1.5 text-[11px] text-[#6B7280]">
-                            <Calendar size={11} className="text-[#D4AF37]" />
+                            <Calendar size={11} className="text-[#6B7280]" />
                             {formatDate(post.publishedAt)}
                           </span>
                           <Link
                             href={`/blog/${post.slug}`}
-                            className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF37] hover:underline"
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0A0A0C] hover:text-[#854D0E] underline"
                           >
                             Read <ArrowRight size={12} />
                           </Link>
@@ -273,14 +273,14 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
         </Container>
       </section>
 
-      {/* ─────────────── Closing CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="blog-closing-cta">
+      {/* ─────────────── Closing CTA ─────────────── */}
+      <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="blog-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
             <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Apply Your Knowledge Today
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
               Put proven market analysis into action with a simulated evaluation account on MT5 or TradeLocker.
             </p>
             <div className="mt-8">

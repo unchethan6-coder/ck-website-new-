@@ -29,22 +29,22 @@ export function BlogHeroVisual({
       data-od-id="hero-blog-intel"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
         {/* Top Browser / App Window Chrome */}
         <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
-              <Lock size={10} className="text-primary" />
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
+              <Lock size={10} className="text-[#854D0E]" />
               <span>app.ckcapital.co.uk/research/intelligence</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#854D0E]">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FFC107]" />
               Daily Alpha Dossier
             </span>
           </div>
@@ -56,25 +56,25 @@ export function BlogHeroVisual({
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
             <div>
               <div className="flex items-center gap-2">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                   Institutional Research Guild
                 </p>
-                <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
+                <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
                   EDITION #48
                 </span>
               </div>
               <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 Market Blueprint{" "}
-                <span className="text-xs font-semibold text-primary">
+                <span className="text-xs font-semibold text-[#854D0E]">
                   Weekly Playbook
                 </span>
               </p>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl border border-primary/25 bg-primary/10 px-3.5 py-2">
-              <BarChart3 size={15} className="text-primary shrink-0" />
+            <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2">
+              <BarChart3 size={15} className="text-[#854D0E] shrink-0" />
               <div className="text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[#854D0E]">
                   Win Rate Alpha
                 </p>
                 <p className="text-sm font-extrabold text-[#0A0A0C]">
@@ -86,23 +86,23 @@ export function BlogHeroVisual({
 
           {/* Featured Article Card Mock */}
           <div className="mt-5 space-y-4">
-            <div className="relative overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-[#1c160b] via-[#12100b] to-[#0A0A0C] p-4 shadow-md">
+            <div className="relative overflow-hidden rounded-xl border border-gray-800 bg-[#0A0A0C] bg-gradient-to-br from-[#1c160b] via-[#12100b] to-[#0A0A0C] p-4 shadow-md">
               <div className="flex items-center justify-between">
-                <span className="rounded-md border border-primary/30 bg-primary/15 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-primary">
+                <span className="rounded-md border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#FFC107]">
                   Featured Strategy
                 </span>
                 <span className="text-[11px] text-gray-400 font-medium">5 Min Deep-Dive</span>
               </div>
               <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-white sm:text-lg flex items-center justify-between group">
                 <span>Liquidity Sweeps &amp; Institutional Order Flow in Forex</span>
-                <ArrowUpRight size={16} className="text-primary shrink-0 opacity-85" />
+                <ArrowUpRight size={16} className="text-[#FFC107] shrink-0 opacity-85" />
               </h4>
               <p className="mt-1.5 text-xs text-gray-300 leading-relaxed line-clamp-2">
                 Learn how top prop traders protect risk on high-impact news days while capitalizing on session liquidity expansion.
               </p>
               <div className="mt-3 flex items-center gap-4 text-[11px] text-gray-400 border-t border-white/10 pt-2.5">
                 <span className="flex items-center gap-1">
-                  <FileText size={12} className="text-primary" /> Risk Management
+                  <FileText size={12} className="text-[#FFC107]" /> Risk Management
                 </span>
                 <span className="flex items-center gap-1">
                   <TrendingUp size={12} className="text-emerald-400" /> High-Impact Edge
@@ -114,28 +114,28 @@ export function BlogHeroVisual({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Item 1 */}
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
-                <div className="flex items-center justify-between text-[10px] text-gray-500">
-                  <span className="text-primary font-semibold">PSYCHOLOGY</span>
+                <div className="flex items-center justify-between text-[10px] text-[#6B7280]">
+                  <span className="text-[#854D0E] font-bold">PSYCHOLOGY</span>
                   <span>4m read</span>
                 </div>
                 <p className="mt-1 text-xs font-bold text-[#0A0A0C] line-clamp-1">
                   Overcoming Tilt in Prop Firm Evaluations
                 </p>
-                <p className="mt-1 text-[10px] text-gray-500">
+                <p className="mt-1 text-[10px] text-[#6B7280]">
                   Daily drawdown discipline &amp; size management
                 </p>
               </div>
 
               {/* Item 2 */}
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-left">
-                <div className="flex items-center justify-between text-[10px] text-gray-500">
-                  <span className="text-emerald-500 font-semibold">MACRO ECONOMICS</span>
+                <div className="flex items-center justify-between text-[10px] text-[#6B7280]">
+                  <span className="text-emerald-700 font-bold">MACRO ECONOMICS</span>
                   <span>6m read</span>
                 </div>
                 <p className="mt-1 text-xs font-bold text-[#0A0A0C] line-clamp-1">
                   Federal Reserve Rate Cut Playbook for 2026
                 </p>
-                <p className="mt-1 text-[10px] text-gray-500">
+                <p className="mt-1 text-[10px] text-[#6B7280]">
                   Gold (XAU/USD) &amp; Dollar index correlation
                 </p>
               </div>
@@ -144,15 +144,15 @@ export function BlogHeroVisual({
         </div>
 
         {/* Bottom Recent Status Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280]">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={13} className="text-primary shrink-0" />
-            <span className="font-semibold text-gray-700">
+            <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+            <span className="font-semibold text-[#0A0A0C]">
               Curated by:
             </span>
-            <span className="text-gray-900 font-bold">CK Senior Risk Analysts</span>
+            <span className="text-[#0A0A0C] font-bold">CK Senior Risk Analysts</span>
           </div>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
             VERIFIED ALPHA
           </span>
         </div>
@@ -166,12 +166,12 @@ export function BlogHeroVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
-              <BookOpen size={20} className="text-primary" />
+          <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
+              <BookOpen size={20} className="text-[#854D0E]" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Research Guild
               </p>
               <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">

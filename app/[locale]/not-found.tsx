@@ -48,7 +48,7 @@ export default async function NotFound() {
           </Link>
           <span className="text-foreground/20">·</span>
           <a
-            href="https://intercom.help/ck-capital/en/"
+            href="https://intercom.help/ck-capital/"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors hover:text-primary"

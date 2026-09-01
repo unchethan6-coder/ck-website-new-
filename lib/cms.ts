@@ -117,6 +117,8 @@ export const ARTICLE_CATEGORIES: { label: string; value: ArticleCategory | "all"
 
 function mapArticle(raw: any): CmsArticle | null {
   if (!raw || typeof raw !== "object") return null;
+  // Strictly ensure article belongs to CK Capital brand
+  if (raw.brand?.slug && raw.brand.slug !== CMS_BRAND_SLUG) return null;
   return {
     id: raw.id,
     documentId: raw.documentId,
@@ -124,7 +126,7 @@ function mapArticle(raw: any): CmsArticle | null {
     slug: raw.slug,
     excerpt: raw.excerpt ?? null,
     coverImage: toMedia(raw.cover_image),
-    author: raw.author ?? "CK Capital",
+    author: raw.author ?? "CK Capital Editorial",
     category: raw.category ?? "news",
     isFeatured: Boolean(raw.is_featured),
     seoTitle: raw.seo_title ?? null,
@@ -145,6 +147,7 @@ export async function getArticles(opts: GetArticlesOptions = {}): Promise<CmsArt
   if (opts.category && opts.category !== "all") params.set("filters[category][$eq]", opts.category);
   params.set("sort", "publishedAt:desc");
   params.set("populate[cover_image]", "true");
+  params.set("populate[brand]", "true");
   const res = await cmsFetch<any>(`articles?${params.toString()}`);
   if (!res?.data) return [];
   const articles = res.data
@@ -156,8 +159,10 @@ export async function getArticles(opts: GetArticlesOptions = {}): Promise<CmsArt
 export async function getArticleBySlug(slug: string): Promise<CmsArticle | null> {
   const params = new URLSearchParams();
   params.set("filters[slug][$eq]", slug);
+  params.set("filters[brand][slug][$eq]", CMS_BRAND_SLUG);
   params.set("populate[cover_image]", "true");
   params.set("populate[seo_image]", "true");
+  params.set("populate[brand]", "true");
   const res = await cmsFetch<any>(`articles?${params.toString()}`);
   const raw = res?.data?.[0];
   return raw ? mapArticle(raw) : null;

@@ -123,12 +123,12 @@ export default function AboutPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-background" data-od-id="about-page">
+      <div className="min-h-screen bg-white" data-od-id="about-page">
 
         {/* ─────────────── Hero (Landing Page Parity) ─────────────── */}
         <section
           ref={sectionRef}
-          className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200"
+          className="relative isolate -mt-[72px] md:-mt-[76px] flex min-h-[calc(100dvh-44px)] flex-col overflow-hidden border-b border-gray-200 bg-white"
           data-od-id="about-hero"
         >
           {/* Parallax Radial Glows */}
@@ -160,10 +160,10 @@ export default function AboutPage() {
                   variants={heroFadeDown}
                   initial="hidden"
                   animate="show"
-                  className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.18em] text-primary"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.18em] text-[#854D0E]"
                   data-od-id="about-hero-eyebrow"
                 >
-                  <Sparkles size={12} className="text-primary" />
+                  <Sparkles size={12} className="text-[#854D0E]" />
                   {t('badge')}
                 </motion.div>
 
@@ -184,7 +184,7 @@ export default function AboutPage() {
                   initial="hidden"
                   animate="show"
                   custom={0.18}
-                  className="mt-6 max-w-xl text-[15px] leading-relaxed text-foreground/65 sm:text-base"
+                  className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#4B5563] sm:text-base"
                 >
                   {t('storyDesc')}
                 </motion.p>
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   </a>
                   <Link
                     href="/trading-objectives"
-                    className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-foreground/75 transition hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] transition hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     data-od-id="about-hero-secondary"
                   >
                     {t('exploreObjectives')} <ArrowRight size={15} />
@@ -220,16 +220,16 @@ export default function AboutPage() {
                   initial="hidden"
                   animate="show"
                   custom={0.38}
-                  className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-foreground/40"
+                  className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#6B7280]"
                 >
                   <span className="inline-flex items-center gap-2">
                     <ShieldCheck size={14} className="text-secondary" /> {t('badgeSimulated')}
                   </span>
                   <span className="inline-flex items-center gap-2">
-                    <BadgeCheck size={14} className="text-primary" /> {t('badgeVerifiedUk')}
+                    <BadgeCheck size={14} className="text-[#854D0E]" /> {t('badgeVerifiedUk')}
                   </span>
                   <span className="inline-flex items-center gap-2">
-                    <Users size={14} className="text-primary/70" /> {t('badgeGlobalTraders')}
+                    <Users size={14} className="text-[#6B7280]" /> {t('badgeGlobalTraders')}
                   </span>
                 </motion.div>
               </div>
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 {/* Background ambient glow */}
                 <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
 
-                <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-[#1c160b]/95 via-[#0e0c07]/95 to-[#0b0a07] p-6 shadow-[0_0_50px_rgba(212,175,55,0.12)] backdrop-blur-xl sm:p-8">
+                <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-[#0b0a07] bg-gradient-to-br from-[#1c160b]/95 via-[#0e0c07]/95 to-[#0b0a07] p-6 shadow-[0_0_50px_rgba(212,175,55,0.12)] backdrop-blur-xl sm:p-8">
                   {/* Gold accent line */}
                   <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -303,7 +303,7 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
-        {/* ─────────────── Four-Pillar Stats Band (LIGHT) ─────────────── */}
+        {/* ─────────────── Four-Pillar Stats Band ─────────────── */}
         <section className="bg-white border-b border-[#E5E7EB] py-12 md:py-16 text-[#0A0A0C]" data-od-id="about-stats-strip">
           <Container>
             <div
@@ -314,7 +314,7 @@ export default function AboutPage() {
                   key={metric.label}
                   className="min-h-36 px-4 py-7 first:pl-0 md:px-7 md:first:pl-0"
                 >
-                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-[#D4AF37] md:text-4xl">
+                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-4xl">
                     {metric.stat}
                   </p>
                   <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#4B5563]">
@@ -329,17 +329,17 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ─────────────── Mission & Vision (DARK) ─────────────── */}
+        {/* ─────────────── Mission & Vision ─────────────── */}
         <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-mission-vision">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
                 {t('missionVisionHeadingEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('missionVisionHeadingTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
                 {t('missionVisionHeadingSubtitle')}
               </p>
             </SectionReveal>
@@ -352,7 +352,7 @@ export default function AboutPage() {
                 return (
                   <div
                     key={item.title}
-                    className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-[#181309] to-[#0c0a06] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_12px_40px_rgba(212,175,55,0.12)] sm:p-10"
+                    className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-[#0c0a06] bg-gradient-to-br from-[#181309] to-[#0c0a06] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_12px_40px_rgba(212,175,55,0.12)] sm:p-10"
                     data-od-id={`about-${item.title.toLowerCase().replace(' ', '-')}`}
                   >
                     <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-primary/[0.06] blur-2xl transition duration-500 group-hover:bg-primary/[0.12]" />
@@ -364,10 +364,10 @@ export default function AboutPage() {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                       {item.eyebrow}
                     </span>
-                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-[#0A0A0C]">
+                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-7 text-gray-500">
+                    <p className="mt-4 text-sm leading-7 text-gray-300">
                       {item.description}
                     </p>
                   </div>
@@ -377,11 +377,11 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ─────────────── Philosophy & Culture (LIGHT) ─────────────── */}
+        {/* ─────────────── Philosophy & Culture ─────────────── */}
         <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-pillars">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
                 {t('cultureEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
@@ -400,10 +400,10 @@ export default function AboutPage() {
                 return (
                   <div
                     key={pillar.title}
-                    className="rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40 hover:shadow-md"
+                    className="rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md"
                   >
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10">
-                      <Icon size={20} className="text-[#B89628]" />
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
+                      <Icon size={20} />
                     </div>
                     <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
                       {pillar.title}
@@ -418,17 +418,17 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ─────────────── Core Values (DARK) ─────────────── */}
+        {/* ─────────────── Core Values ─────────────── */}
         <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-values">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
                 {t('valuesEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('valuesTitle')}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
                 {t('valuesSubtitle')}
               </p>
             </SectionReveal>
@@ -441,16 +441,16 @@ export default function AboutPage() {
                 return (
                   <div
                     key={item.title}
-                    className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white"
+                    className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 shadow-sm"
                     data-od-id={`about-value-${item.title.toLowerCase()}`}
                   >
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 transition-colors group-hover:bg-primary/20">
-                      <Icon size={20} className="text-primary" />
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
+                      <Icon size={20} />
                     </div>
                     <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-[#0A0A0C]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                    <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
                       {item.description}
                     </p>
                   </div>
@@ -460,13 +460,12 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        {/* ─────────────── Closing CTA (LIGHT) ─────────────── */}
-        <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="about-cta">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.08),_transparent_65%)]" />
+        {/* ─────────────── Closing CTA ─────────────── */}
+        <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-cta">
           <Container className="relative text-center">
             <SectionReveal>
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-                <BadgeCheck size={30} className="text-[#B89628]" />
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] shadow-md">
+                <BadgeCheck size={30} />
               </div>
               <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('ctaTitle')}
@@ -486,13 +485,13 @@ export default function AboutPage() {
                   </GoldButton>
                 </a>
                 <a
-                  href="https://discord.gg/ckcapital"
+                  href="https://discord.com/invite/hGSVx9CmS2"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id="about-cta-secondary"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-black/10 bg-white px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:border-[#D4AF37]/50 hover:bg-white"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-[#0A0A0C] shadow-sm transition-all hover:bg-gray-50"
                 >
-                  <MessageCircle size={16} className="text-[#B89628]" />
+                  <MessageCircle size={16} className="text-[#0A0A0C]" />
                   {t('ctaDiscord')}
                 </a>
               </div>

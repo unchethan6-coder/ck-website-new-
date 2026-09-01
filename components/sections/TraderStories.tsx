@@ -195,7 +195,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
       {/* Discord Community CTA */}
       <div className="mx-auto mt-10 flex max-w-7xl justify-center px-4 sm:px-6 lg:px-8">
         <a
-          href="https://discord.gg/ckcapital"
+          href="https://discord.com/invite/hGSVx9CmS2"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-12 items-center justify-center rounded-xl bg-[#FFC107] px-8 text-[15px] font-black text-[#0A0A0C] transition-all hover:bg-[#E6AE06] hover:shadow-[0_0_20px_rgba(255,193,7,0.28)]"

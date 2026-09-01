@@ -32,13 +32,13 @@ export function FaqAccordion() {
     <section id="faqs" className="bg-white text-[#0A0A0C] py-16 md:py-24" data-od-id="faq">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
-          <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
+          <p className="text-xs text-[#854D0E] uppercase tracking-widest font-bold mb-3">
             {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-3 text-gray-500 font-medium max-w-xl mx-auto">
+          <p className="mt-3 text-[#4B5563] font-medium max-w-xl mx-auto">
             {t("subtitle")}
           </p>
         </SectionReveal>
@@ -50,12 +50,12 @@ export function FaqAccordion() {
                 <AccordionItem
                   key={key}
                   value={String(i)}
-                  className="rounded-2xl border border-gray-200 bg-white px-6 shadow-sm data-[open]:border-primary/30 data-[open]:bg-[#FFFBEB] transition-all"
+                  className="rounded-2xl border border-gray-200 bg-white px-6 shadow-sm transition-all hover:border-gray-300"
                 >
-                  <AccordionTrigger className="text-left text-sm font-bold text-[#0A0A0C] hover:text-primary hover:no-underline py-4">
+                  <AccordionTrigger className="text-left text-sm font-bold text-[#0A0A0C] hover:text-[#854D0E] hover:no-underline py-4">
                     {t(`items.${key}.q` as any)}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm font-medium text-gray-500 pb-4 leading-relaxed">
+                  <AccordionContent className="text-sm font-medium text-[#4B5563] pb-4 leading-relaxed">
                     {t(`items.${key}.a` as any)}
                   </AccordionContent>
                 </AccordionItem>
@@ -76,7 +76,7 @@ export function FaqAccordion() {
             <p className="text-sm text-gray-500 mb-5">
               {t("supportAvailable")}
             </p>
-            <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.com/invite/hGSVx9CmS2" target="_blank" rel="noopener noreferrer">
               <GoldButton size="md" data-od-id="faq-support-cta">
                 {t("chatSupport")}
               </GoldButton>

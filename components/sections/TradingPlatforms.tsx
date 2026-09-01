@@ -37,13 +37,13 @@ export function TradingPlatforms() {
     >
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
-          <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
+          <p className="text-xs text-[#854D0E] uppercase tracking-widest font-bold mb-3">
             {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
-          <p className="mt-3 text-gray-500 max-w-xl mx-auto">
+          <p className="mt-3 text-[#4B5563] max-w-xl mx-auto">
             {t("subtitle")}
           </p>
         </SectionReveal>
@@ -54,11 +54,11 @@ export function TradingPlatforms() {
           {platforms.map((p) => (
             <div
               key={p.id}
-              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] card-hover-standard flex flex-col gap-5 transition-transform duration-200 hover:-translate-y-1"
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm flex flex-col gap-5 transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md"
               data-od-id={`platform-${p.id}`}
             >
               <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0">
+                <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-gray-200">
                   <img
                     src={p.logo}
                     alt={`${p.name} logo`}
@@ -69,16 +69,16 @@ export function TradingPlatforms() {
                   <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C]">
                     {p.name}
                   </h3>
-                  <p className="text-xs text-gray-400">{p.fullName}</p>
+                  <p className="text-xs font-medium text-[#6B7280]">{p.fullName}</p>
                 </div>
               </div>
 
-              <p className="text-sm text-gray-500 leading-relaxed">{p.description}</p>
+              <p className="text-sm text-[#4B5563] leading-relaxed">{p.description}</p>
 
-              <ul className="grid grid-cols-2 gap-1.5 text-xs text-gray-600">
+              <ul className="grid grid-cols-2 gap-1.5 text-xs text-[#4B5563]">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-center gap-1.5">
-                    <Check size={11} className="text-emerald-400 shrink-0" /> {f}
+                    <Check size={11} className="text-emerald-600 shrink-0" /> {f}
                   </li>
                 ))}
               </ul>

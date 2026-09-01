@@ -14,7 +14,7 @@ function RiskSection({ num, title, children }: { num: string; title: string; chi
   return (
     <section className="mt-10 border-t border-[#E5E7EB] pt-8">
       <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
-        <span className="text-[#D4AF37]">{num}.</span> {title}
+        <span className="text-[#854D0E]">{num}.</span> {title}
       </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#4B5563]">
         {children}
@@ -39,7 +39,7 @@ export default async function RiskDisclosurePage() {
   return (
     <div className="min-h-screen bg-background" data-od-id="risk-page">
 
-      {/* ─────────────── Hero (DARK) ─────────────── */}
+      {/* ─────────────── Hero ─────────────── */}
       <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-gray-200 bg-white pt-28 md:pt-36 pb-14 md:pb-20 text-[#0A0A0C]" data-od-id="risk-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
@@ -47,9 +47,9 @@ export default async function RiskDisclosurePage() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#854D0E]">
               {t("badgeLegal")}
-              <span className="text-primary/40">·</span>
+              <span className="text-amber-400">·</span>
               {t("riskBadge")}
             </span>
             <h1
@@ -62,14 +62,14 @@ export default async function RiskDisclosurePage() {
         </Container>
       </section>
 
-      {/* ─────────────── Document (LIGHT) ─────────────── */}
+      {/* ─────────────── Document ─────────────── */}
       <section className="bg-white py-12 md:py-20 text-[#111827]" data-od-id="risk-document">
         <Container className="max-w-4xl">
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-8 sm:p-12 shadow-sm text-[15px] leading-relaxed text-[#4B5563]">
             {/* Warning callout */}
-            <div className="flex items-start gap-3 rounded-xl border border-red-500/40 bg-red-500/10 p-5">
-              <TriangleAlert size={20} className="mt-0.5 shrink-0 text-red-400" />
-              <p className="font-bold text-red-200">
+            <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-5">
+              <TriangleAlert size={20} className="mt-0.5 shrink-0 text-red-600" />
+              <p className="font-bold text-red-900 leading-relaxed">
                 WARNING: Trading financial instruments involves substantial financial
                 risk. You could lose more than your initial investment. Prop trading with
                 leverage is extremely risky and not suitable for all investors.

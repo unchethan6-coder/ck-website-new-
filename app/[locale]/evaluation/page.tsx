@@ -53,20 +53,20 @@ export default async function EvaluationPage() {
       {/* ─────────────── Interactive pricing table (LIGHT) ─────────────── */}
       <ChallengeComparison config={challengeConfig} />
 
-      {/* ─────────────── Reset & Top-Up (DARK) ─────────────── */}
+      {/* ─────────────── Reset & Top-Up ─────────────── */}
       <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-reset">
         <Container>
-          <SectionReveal delay={0.05} className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-10 shadow-xl">
+          <SectionReveal delay={0.05} className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-10 shadow-sm">
             <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
               <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center md:gap-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
-                  <RefreshCw size={24} className="text-primary" />
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
+                  <RefreshCw size={24} />
                 </div>
                 <div className="max-w-md">
                   <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
                     {t("resetTitle")}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
                     {t("resetDesc")}
                   </p>
                 </div>
@@ -86,11 +86,11 @@ export default async function EvaluationPage() {
         </Container>
       </section>
 
-      {/* ─────────────── FAQ (LIGHT) ─────────────── */}
+      {/* ─────────────── FAQ ─────────────── */}
       <section className="bg-white border-t border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-faq">
         <Container>
           <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               {t("faqEyebrow")}
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -105,9 +105,9 @@ export default async function EvaluationPage() {
                   <AccordionItem
                     key={i}
                     value={String(i)}
-                    className="rounded-2xl border border-[#E5E7EB] bg-white px-6 shadow-sm transition-all data-[open]:border-[#D4AF37]/50"
+                    className="rounded-2xl border border-[#E5E7EB] bg-white px-6 shadow-sm transition-all hover:border-gray-300"
                   >
-                    <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-[#D4AF37] hover:no-underline">
+                    <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-[#854D0E] hover:no-underline">
                       {item.q}
                     </AccordionTrigger>
                     <AccordionContent className="pb-4 text-sm leading-relaxed text-[#4B5563]">
@@ -121,14 +121,14 @@ export default async function EvaluationPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Closing CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="evaluation-closing-cta">
+      {/* ─────────────── Closing CTA ─────────────── */}
+      <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="evaluation-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
             <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Ready to begin your evaluation?
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
               Select your simulated account size, pass the evaluation targets, and trade with up to $1,200,000 in simulated capital.
             </p>
             <div className="mt-8">

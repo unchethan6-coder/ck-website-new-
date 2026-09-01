@@ -111,8 +111,8 @@ export function LanguageSwitcher({
         aria-expanded={open}
         aria-label={t("selectLanguage")}
         className={cn(
-          "inline-flex items-center justify-center gap-1.5 rounded-lg border border-foreground/15 text-[11.5px] xl:text-[12.5px] font-semibold text-foreground/75 transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11 h-11 shrink-0",
-          compact ? "px-2 sm:px-2.5" : "px-2.5 xl:px-3",
+          "inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-lg border border-foreground/15 text-[11.5px] xl:text-[12.5px] font-semibold text-foreground/75 transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0",
+          compact ? "min-h-10 h-10 sm:min-h-11 sm:h-11 px-2 sm:px-2.5" : "min-h-11 h-11 px-2.5 xl:px-3",
           className
         )}
       >

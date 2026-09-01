@@ -1,0 +1,1750 @@
+{
+  "/en": {
+    "totalChecked": 739,
+    "issuesCount": 0,
+    "lowContrastCount": 4,
+    "yellowCount": 5,
+    "criticalIssues": [],
+    "lowContrastSample": [
+      {
+        "tag": "SPAN",
+        "text": "POPULAR",
+        "color": "rgb(255, 255, 255)",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "bg": "rgb(5, 150, 105)",
+        "bgTag": "SPAN",
+        "bgClass": "absolute -top-2 right-2 bg-[#059669] text-white text-[9px] f",
+        "contrast": 3.77,
+        "reqContrast": 4.5,
+        "fontSize": "9px",
+        "fontWeight": "700",
+        "className": "absolute -top-2 right-2 bg-[#059669] text-white text-[9px] font-bold px-1.5 py-0"
+      },
+      {
+        "tag": "SPAN",
+        "text": "PROMO",
+        "color": "rgb(255, 255, 255)",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "bg": "rgb(5, 150, 105)",
+        "bgTag": "SPAN",
+        "bgClass": "bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 ",
+        "contrast": 3.77,
+        "reqContrast": 4.5,
+        "fontSize": "10px",
+        "fontWeight": "700",
+        "className": "bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Stage 2",
+        "color": "rgb(156, 163, 175)",
+        "rgb": {
+          "r": 156,
+          "g": 163,
+          "b": 175,
+          "a": 1
+        },
+        "bg": "rgb(255, 255, 255)",
+        "bgTag": "SECTION",
+        "bgClass": "relative overflow-hidden bg-white py-16 text-[#0A0A0C] md:py",
+        "contrast": 2.54,
+        "reqContrast": 4.5,
+        "fontSize": "11px",
+        "fontWeight": "600",
+        "className": "text-[11px] font-semibold tracking-wide"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Stage 3",
+        "color": "rgb(156, 163, 175)",
+        "rgb": {
+          "r": 156,
+          "g": 163,
+          "b": 175,
+          "a": 1
+        },
+        "bg": "rgb(255, 255, 255)",
+        "bgTag": "SECTION",
+        "bgClass": "relative overflow-hidden bg-white py-16 text-[#0A0A0C] md:py",
+        "contrast": 2.54,
+        "reqContrast": 4.5,
+        "fontSize": "11px",
+        "fontWeight": "600",
+        "className": "text-[11px] font-semibold tracking-wide"
+      }
+    ],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "Live",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(10, 10, 12)",
+        "bgTag": "MAIN",
+        "bgClass": "flex flex-1 flex-col overflow-hidden bg-[#0A0A0C] p-3 sm:p-3",
+        "contrast": 12.14,
+        "reqContrast": 4.5,
+        "fontSize": "8px",
+        "fontWeight": "900",
+        "className": "inline-flex items-center gap-1.5 rounded-full border border-[#FFC107]/40 bg-[#FF"
+      }
+    ]
+  },
+  "/en/evaluation": {
+    "totalChecked": 319,
+    "issuesCount": 0,
+    "lowContrastCount": 2,
+    "yellowCount": 6,
+    "criticalIssues": [],
+    "lowContrastSample": [
+      {
+        "tag": "SPAN",
+        "text": "POPULAR",
+        "color": "rgb(255, 255, 255)",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "bg": "rgb(5, 150, 105)",
+        "bgTag": "SPAN",
+        "bgClass": "absolute -top-2 right-2 bg-[#059669] text-white text-[9px] f",
+        "contrast": 3.77,
+        "reqContrast": 4.5,
+        "fontSize": "9px",
+        "fontWeight": "700",
+        "className": "absolute -top-2 right-2 bg-[#059669] text-white text-[9px] font-bold px-1.5 py-0"
+      },
+      {
+        "tag": "SPAN",
+        "text": "PROMO",
+        "color": "rgb(255, 255, 255)",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "bg": "rgb(5, 150, 105)",
+        "bgTag": "SPAN",
+        "bgClass": "bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 ",
+        "contrast": 3.77,
+        "reqContrast": 4.5,
+        "fontSize": "10px",
+        "fontWeight": "700",
+        "className": "bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm"
+      }
+    ],
+    "yellowSample": [
+      {
+        "tag": "A",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/instant": {
+    "totalChecked": 351,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 6,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "A",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/payouts": {
+    "totalChecked": 413,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 5,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "A",
+        "text": "Payouts",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/trading-objectives": {
+    "totalChecked": 546,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 6,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "A",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Objectives",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/faq": {
+    "totalChecked": 70,
+    "issuesCount": 0,
+    "lowContrastCount": 3,
+    "yellowCount": 0,
+    "criticalIssues": [],
+    "lowContrastSample": [
+      {
+        "tag": "A",
+        "text": "CK Capital Help Center",
+        "color": "rgb(146, 155, 165)",
+        "rgb": {
+          "r": 146,
+          "g": 155,
+          "b": 165,
+          "a": 1
+        },
+        "bg": "rgb(255, 255, 255)",
+        "bgTag": "FOOTER",
+        "bgClass": "mt-24 shrink-0 bg-footer-bg px-0 py-12 text-left text-base t",
+        "contrast": 2.82,
+        "reqContrast": 4.5,
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "className": "no-underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "CK Capital Help Center",
+        "color": "rgb(146, 155, 165)",
+        "rgb": {
+          "r": 146,
+          "g": 155,
+          "b": 165,
+          "a": 1
+        },
+        "bg": "rgb(255, 255, 255)",
+        "bgTag": "FOOTER",
+        "bgClass": "mt-24 shrink-0 bg-footer-bg px-0 py-12 text-left text-base t",
+        "contrast": 2.82,
+        "reqContrast": 4.5,
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "className": ""
+      },
+      {
+        "tag": "A",
+        "text": "We run on Fin",
+        "color": "rgb(146, 155, 165)",
+        "rgb": {
+          "r": 146,
+          "g": 155,
+          "b": 165,
+          "a": 1
+        },
+        "bg": "rgb(255, 255, 255)",
+        "bgTag": "FOOTER",
+        "bgClass": "mt-24 shrink-0 bg-footer-bg px-0 py-12 text-left text-base t",
+        "contrast": 2.82,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "className": "pl-2 align-middle no-underline"
+      }
+    ],
+    "yellowSample": []
+  },
+  "/en/about-us": {
+    "totalChecked": 210,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 9,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "BUTTON",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "FOUNDER & TRADER",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(11, 10, 7)",
+        "bgTag": "DIV",
+        "bgClass": "relative overflow-hidden rounded-3xl border border-primary/3",
+        "contrast": 12.15,
+        "reqContrast": 4.5,
+        "fontSize": "10px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primar"
+      },
+      {
+        "tag": "SPAN",
+        "text": "PURPOSE",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(12, 10, 6)",
+        "bgTag": "DIV",
+        "bgClass": "group relative overflow-hidden rounded-2xl border border-pri",
+        "contrast": 12.13,
+        "reqContrast": 4.5,
+        "fontSize": "10px",
+        "fontWeight": "700",
+        "className": "text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
+      },
+      {
+        "tag": "SPAN",
+        "text": "FUTURE",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(12, 10, 6)",
+        "bgTag": "DIV",
+        "bgClass": "group relative overflow-hidden rounded-2xl border border-pri",
+        "contrast": 12.13,
+        "reqContrast": 4.5,
+        "fontSize": "10px",
+        "fontWeight": "700",
+        "className": "text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
+      }
+    ]
+  },
+  "/en/affiliates": {
+    "totalChecked": 312,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 5,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "A",
+        "text": "Affiliates",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/blog": {
+    "totalChecked": 407,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 7,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "BUTTON",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "FEATURED STRATEGY",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(10, 10, 12)",
+        "bgTag": "DIV",
+        "bgClass": "relative overflow-hidden rounded-xl border border-gray-800 b",
+        "contrast": 12.14,
+        "reqContrast": 4.5,
+        "fontSize": "9.5px",
+        "fontWeight": "700",
+        "className": "rounded-md border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[9.5px] f"
+      }
+    ]
+  },
+  "/en/contact": {
+    "totalChecked": 202,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 6,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "BUTTON",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] tran"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Company",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "NAV",
+        "bgClass": "relative mx-auto max-w-7xl transition-all duration-300 ease-",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      },
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/privacy-policy": {
+    "totalChecked": 194,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 4,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/terms-conditions": {
+    "totalChecked": 187,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 4,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/cookie-policy": {
+    "totalChecked": 171,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 4,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/risk-disclosure": {
+    "totalChecked": 244,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 4,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  },
+  "/en/return-policy": {
+    "totalChecked": 167,
+    "issuesCount": 0,
+    "lowContrastCount": 0,
+    "yellowCount": 4,
+    "criticalIssues": [],
+    "lowContrastSample": [],
+    "yellowSample": [
+      {
+        "tag": "SPAN",
+        "text": "SUMMER SALE:",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "className": "text-[#FFC107]"
+      },
+      {
+        "tag": "SPAN",
+        "text": "USE CODE: 10KFOR39",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center rounded border border-[#FFC107]/40 bg-[#FFC107]/10 px-2"
+      },
+      {
+        "tag": "A",
+        "text": "CLAIM 70% OFF\n→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": "inline-flex items-center gap-1 font-bold text-[#FFC107] hover:underline"
+      },
+      {
+        "tag": "SPAN",
+        "text": "→",
+        "color": "rgb(255, 193, 7)",
+        "rgb": {
+          "r": 255,
+          "g": 193,
+          "b": 7,
+          "a": 1
+        },
+        "bg": "rgb(7, 7, 9)",
+        "bgTag": "DIV",
+        "bgClass": "relative z-30 flex items-center justify-center bg-[#070709] ",
+        "contrast": 12.35,
+        "reqContrast": 4.5,
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "className": ""
+      }
+    ]
+  }
+}

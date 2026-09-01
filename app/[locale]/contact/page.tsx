@@ -17,7 +17,7 @@ export default function ContactPage() {
       icon: MessageCircle,
       title: t('discordTitle'),
       description: t('discordDesc'),
-      action: { label: t('discordBtn'), href: 'https://discord.gg/ckcapital' },
+      action: { label: t('discordBtn'), href: 'https://discord.com/invite/hGSVx9CmS2' },
     },
     {
       icon: MapPin,
@@ -53,8 +53,8 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                  <Sparkles size={12} /> {t('badge')}
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+                  <Sparkles size={12} className="text-[#854D0E]" /> {t('badge')}
                 </span>
               </motion.div>
 
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]"
               >
                 {t('subtitle')}
               </motion.p>
@@ -83,22 +83,22 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: 0.36 }}
                 className="mt-9 flex flex-wrap items-center gap-4"
               >
-                <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.com/invite/hGSVx9CmS2" target="_blank" rel="noopener noreferrer">
                   <GoldButton size="lg">
                     Join Discord Server <ArrowRight size={16} />
                   </GoldButton>
                 </a>
                 <a
                   href="#contact-cards"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   View Details <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> 24/7 Dedicated Support</span>
-                <span className="inline-flex items-center gap-2"><Mail size={14} className="text-primary" /> Fast Response Times</span>
+                <span className="inline-flex items-center gap-2"><Mail size={14} className="text-[#854D0E]" /> Fast Response Times</span>
               </div>
             </div>
 
@@ -115,11 +115,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ─────────────── Contact cards (LIGHT) ─────────────── */}
+      {/* ─────────────── Contact cards ─────────────── */}
       <section id="contact-cards" className="scroll-mt-24 bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="contact-cards">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               CHANNELS & HOURS
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -133,12 +133,12 @@ export default function ContactPage() {
               return (
                 <div
                   key={card.title}
-                  className="group flex flex-col justify-between rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                  className="group flex flex-col justify-between rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:border-gray-300"
                   data-od-id={`contact-card-${i + 1}`}
                 >
                   <div>
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 transition-colors group-hover:bg-[#D4AF37]/20">
-                      <Icon size={20} className="text-[#D4AF37]" />
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
+                      <Icon size={20} />
                     </div>
                     <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
                       {card.title}
@@ -152,7 +152,7 @@ export default function ContactPage() {
                       href={card.action.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#D4AF37] hover:text-[#0A0A0C] transition-colors"
+                      className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#0A0A0C] hover:text-[#854D0E] underline transition-colors"
                     >
                       {card.action.label} <ArrowRight size={13} />
                     </a>
@@ -164,19 +164,19 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Discord Community CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="contact-discord-cta">
+      {/* ─────────────── Discord Community CTA ─────────────── */}
+      <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="contact-discord-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <MessageCircle className="mx-auto text-primary" size={32} />
+            <MessageCircle className="mx-auto text-[#854D0E]" size={32} />
             <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Connect with 10,000+ Analysts
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
               Join our global Discord trader community for market discussions, announcement drops, support ticketing, and weekly giveaways.
             </p>
             <div className="mt-8">
-              <a href="https://discord.gg/ckcapital" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.com/invite/hGSVx9CmS2" target="_blank" rel="noopener noreferrer">
                 <GoldButton size="lg">
                   Join Discord Community <ArrowRight size={16} />
                 </GoldButton>

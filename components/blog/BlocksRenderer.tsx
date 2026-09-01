@@ -11,7 +11,7 @@ function InlineText({ node }: { node: any }): JSX.Element {
   const text = node.text ?? "";
   if (node.code) {
     return (
-      <code className="rounded bg-foreground/10 px-1.5 py-0.5 font-mono text-[0.9em] text-primary">
+      <code className="rounded bg-gray-100 px-1.5 py-0.5 font-mono text-[0.9em] text-[#0A0A0C]">
         {text}
       </code>
     );
@@ -35,7 +35,7 @@ function Inline({ node, index }: { node: any; index: number }): JSX.Element {
         href={node.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-[#F7D774]"
+        className="text-[#0A0A0C] font-semibold underline underline-offset-4 transition-colors hover:text-[#854D0E]"
       >
         {Array.isArray(node.children) && node.children.map((c: any, i: number) => <Inline key={i} node={c} index={i} />)}
       </a>
@@ -54,18 +54,18 @@ function Block({ block, index }: { block: any; index: number }): JSX.Element | n
     case "heading": {
       const level = block.level ?? 2;
       const cls =
-        "font-[family-name:var(--font-inter-tight)] font-extrabold text-foreground tracking-tight";
+        "font-[family-name:var(--font-inter-tight)] font-extrabold text-[#0A0A0C] tracking-tight";
       if (level === 1) return <h1 key={key} className={`${cls} text-2xl sm:text-3xl mt-2`}>{children}</h1>;
       if (level === 2) return <h2 key={key} className={`${cls} text-xl sm:text-2xl mt-6`}>{children}</h2>;
       if (level === 3) return <h3 key={key} className={`${cls} text-lg sm:text-xl mt-5`}>{children}</h3>;
       return <h4 key={key} className={`${cls} text-base sm:text-lg mt-4`}>{children}</h4>;
     }
     case "paragraph":
-      return <p key={key} className="text-[15px] leading-relaxed text-foreground/70">{children}</p>;
+      return <p key={key} className="text-[15px] leading-relaxed text-[#4B5563]">{children}</p>;
     case "list": {
       const items = Array.isArray(block.children)
         ? block.children.map((li: any, i: number) => (
-            <li key={i} className="text-[15px] leading-relaxed text-foreground/70">
+            <li key={i} className="text-[15px] leading-relaxed text-[#4B5563]">
               {Array.isArray(li.children) && li.children.map((c: any, j: number) => <Inline key={j} node={c} index={j} />)}
             </li>
           ))
@@ -80,7 +80,7 @@ function Block({ block, index }: { block: any; index: number }): JSX.Element | n
       return (
         <blockquote
           key={key}
-          className="rounded-r-xl border-l-4 border-primary/50 bg-foreground/[0.03] py-4 pl-5 pr-4 text-[15px] italic leading-relaxed text-foreground/80"
+          className="rounded-r-xl border-l-4 border-[#854D0E] bg-gray-50 py-4 pl-5 pr-4 text-[15px] italic leading-relaxed text-[#374151]"
         >
           {children}
         </blockquote>

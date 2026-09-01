@@ -158,7 +158,7 @@ export default async function LocaleLayout({
         locale === "ar" ? notoKufiArabic.variable : ""
       } h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <TopNav />
           <AnnouncementBar banners={bannerTexts} />

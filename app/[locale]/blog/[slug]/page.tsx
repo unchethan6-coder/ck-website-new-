@@ -90,23 +90,23 @@ export default async function ArticlePage({
         <Container className="relative z-10">
           <Link
             href="/blog"
-            className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 transition-colors hover:text-primary"
+            className="mb-8 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#4B5563] transition-colors hover:text-[#0A0A0C]"
           >
             <ChevronLeft size={16} />
             Back to Blog
           </Link>
           <div className="max-w-3xl">
             <div className="mb-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+              <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
                 {article.category}
               </span>
-              <span className="flex items-center gap-1.5 text-[12px] text-gray-500">
-                <Calendar size={12} className="text-primary" />
+              <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
+                <Calendar size={12} className="text-[#6B7280]" />
                 {formatDate(article.publishedAt)}
               </span>
               {article.author && (
-                <span className="flex items-center gap-1.5 text-[12px] text-gray-500">
-                  <User size={12} className="text-primary" />
+                <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
+                  <User size={12} className="text-[#6B7280]" />
                   {article.author}
                 </span>
               )}
@@ -118,7 +118,7 @@ export default async function ArticlePage({
               {article.title}
             </h1>
             {article.excerpt && (
-              <p className="mt-5 text-[16px] leading-relaxed text-gray-500">
+              <p className="mt-5 text-[16px] leading-relaxed text-[#4B5563]">
                 {article.excerpt}
               </p>
             )}
@@ -126,7 +126,7 @@ export default async function ArticlePage({
         </Container>
       </section>
 
-      {/* ─────────────── Article Canvas (LIGHT) ─────────────── */}
+      {/* ─────────────── Article Canvas ─────────────── */}
       <section className="bg-white border-b border-[#E5E7EB] py-12 md:py-20 text-[#111827]" data-od-id="article-body">
         <Container className="max-w-4xl">
           <div className="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-6 sm:p-10 md:p-12 shadow-sm">
@@ -144,20 +144,20 @@ export default async function ArticlePage({
               </div>
             )}
 
-            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#D4AF37] hover:prose-a:underline">
+            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#0A0A0C] prose-a:font-semibold hover:prose-a:text-[#854D0E] prose-a:underline">
               <BlocksRenderer blocks={article.body} />
             </article>
           </div>
         </Container>
       </section>
 
-      {/* ─────────────── Closing CTA (DARK) ─────────────── */}
-      <section className="relative overflow-hidden bg-white border-t border-primary/20 py-20 md:py-28 text-[#0A0A0C]" data-od-id="article-closing-cta">
+      {/* ─────────────── Closing CTA ─────────────── */}
+      <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="article-closing-cta">
         <Container className="relative text-center">
           <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
             Start Trading with CK Capital
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-500">
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
             Take your trading strategy to the next level with our simulated evaluation accounts.
           </p>
           <div className="mt-8">

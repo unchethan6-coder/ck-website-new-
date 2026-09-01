@@ -40,22 +40,22 @@ export function AffiliateNetworkVisual({
       data-od-id="hero-affiliate-portal"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
         {/* Top Browser / App Window Chrome */}
         <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
-              <Lock size={10} className="text-primary" />
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
+              <Lock size={10} className="text-[#854D0E]" />
               <span>app.ckcapital.co.uk/partners/vip-portal</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-              <Flame size={11} className="text-primary fill-primary" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#854D0E]">
+              <Flame size={11} className="text-[#854D0E] fill-[#854D0E]" />
               Tier 3 VIP Partner
             </span>
           </div>
@@ -67,25 +67,25 @@ export function AffiliateNetworkVisual({
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
             <div>
               <div className="flex items-center gap-2">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                   Partner ID #AFF-VIP99
                 </p>
-                <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
+                <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
                   15% COMMISSION
                 </span>
               </div>
               <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 $18,420.00{" "}
-                <span className="text-xs font-semibold text-emerald-400">
+                <span className="text-xs font-semibold text-emerald-600">
                   +$3,450 This Month
                 </span>
               </p>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl border border-primary/25 bg-primary/10 px-3.5 py-2">
-              <Users size={15} className="text-primary shrink-0" />
+            <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2">
+              <Users size={15} className="text-[#854D0E] shrink-0" />
               <div className="text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[#854D0E]">
                   Active Network
                 </p>
                 <p className="text-sm font-extrabold text-[#0A0A0C]">
@@ -100,28 +100,28 @@ export function AffiliateNetworkVisual({
             {/* Referral Link Quick Box */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0A0A0C]">
                   Your Custom Partner Link
                 </p>
-                <span className="text-[11px] text-primary font-semibold">
+                <span className="text-[11px] text-[#854D0E] font-semibold">
                   Cookie Life: 60 Days
                 </span>
               </div>
-              <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white/70 p-2 sm:p-2.5">
+              <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-2 sm:p-2.5 shadow-sm">
                 <div className="flex flex-1 items-center gap-2 px-2 overflow-hidden">
-                  <Share2 size={14} className="text-primary shrink-0" />
-                  <span className="font-mono text-xs text-gray-700 truncate">
+                  <Share2 size={14} className="text-[#854D0E] shrink-0" />
+                  <span className="font-mono text-xs text-[#0A0A0C] truncate">
                     https://ckcapital.co.uk/ref/VIP-PRO
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/15 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/25 transition-colors shrink-0"
+                  className="flex items-center gap-1.5 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-[#854D0E] hover:bg-amber-100 transition-colors shrink-0"
                 >
                   {copied ? (
                     <>
-                      <Check size={13} className="text-emerald-400" /> Copied
+                      <Check size={13} className="text-emerald-600" /> Copied
                     </>
                   ) : (
                     <>
@@ -135,67 +135,67 @@ export function AffiliateNetworkVisual({
             {/* Performance Stats Row */}
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-center">
-                <p className="text-[10px] uppercase font-bold text-gray-500">Clicks</p>
+                <p className="text-[10px] uppercase font-bold text-[#6B7280]">Clicks</p>
                 <p className="mt-1 font-mono text-base font-extrabold text-[#0A0A0C]">3,892</p>
-                <p className="text-[9px] text-emerald-400 font-semibold">+18.2%</p>
+                <p className="text-[9px] text-emerald-700 font-semibold">+18.2%</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-center">
-                <p className="text-[10px] uppercase font-bold text-gray-500">Conversion</p>
+                <p className="text-[10px] uppercase font-bold text-[#6B7280]">Conversion</p>
                 <p className="mt-1 font-mono text-base font-extrabold text-[#0A0A0C]">9.4%</p>
-                <p className="text-[9px] text-primary font-semibold">High Alpha</p>
+                <p className="text-[9px] text-[#854D0E] font-semibold">High Alpha</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 text-center">
-                <p className="text-[10px] uppercase font-bold text-gray-500">Avg Reward</p>
+                <p className="text-[10px] uppercase font-bold text-[#6B7280]">Avg Reward</p>
                 <p className="mt-1 font-mono text-base font-extrabold text-[#0A0A0C]">$129.70</p>
-                <p className="text-[9px] text-gray-500 font-semibold">Per Order</p>
+                <p className="text-[9px] text-[#6B7280] font-semibold">Per Order</p>
               </div>
             </div>
 
             {/* Recent Referral Ledger Mock */}
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-3 space-y-2">
-              <div className="flex items-center justify-between text-[11px] text-gray-500 border-b border-gray-200 pb-2">
+              <div className="flex items-center justify-between text-[11px] text-[#6B7280] border-b border-gray-200 pb-2">
                 <span className="font-bold uppercase tracking-wider text-[10px]">Recent Partner Activity</span>
-                <span className="text-[10px] text-emerald-400 font-bold">Auto-Credited</span>
+                <span className="text-[10px] text-emerald-700 font-bold">Auto-Credited</span>
               </div>
               <div className="flex items-center justify-between text-xs py-1">
                 <div className="flex items-center gap-2">
-                  <div className="h-6 w-6 rounded bg-primary/20 text-primary flex items-center justify-center font-mono text-[10px] font-bold">
+                  <div className="h-6 w-6 rounded bg-amber-100 text-[#854D0E] flex items-center justify-center font-mono text-[10px] font-bold">
                     #84
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 text-[11px]">$100K 2-Step Challenge</p>
-                    <p className="text-[9px] text-gray-500">2 mins ago · Direct Link</p>
+                    <p className="font-semibold text-[#0A0A0C] text-[11px]">$100K 2-Step Challenge</p>
+                    <p className="text-[9px] text-[#6B7280]">2 mins ago · Direct Link</p>
                   </div>
                 </div>
-                <span className="font-mono font-extrabold text-emerald-400 text-xs">+$74.85</span>
+                <span className="font-mono font-extrabold text-emerald-700 text-xs">+$74.85</span>
               </div>
               <div className="flex items-center justify-between text-xs py-1 border-t border-gray-200">
                 <div className="flex items-center gap-2">
-                  <div className="h-6 w-6 rounded bg-primary/15 text-primary flex items-center justify-center font-mono text-[10px] font-bold">
+                  <div className="h-6 w-6 rounded bg-amber-100 text-[#854D0E] flex items-center justify-center font-mono text-[10px] font-bold">
                     #79
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 text-[11px]">$50K Instant Funding</p>
-                    <p className="text-[9px] text-gray-500">14 mins ago · Sub-Affiliate Tier 2</p>
+                    <p className="font-semibold text-[#0A0A0C] text-[11px]">$50K Instant Funding</p>
+                    <p className="text-[9px] text-[#6B7280]">14 mins ago · Sub-Affiliate Tier 2</p>
                   </div>
                 </div>
-                <span className="font-mono font-extrabold text-primary text-xs">+$48.50</span>
+                <span className="font-mono font-extrabold text-[#854D0E] text-xs">+$48.50</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Recent Settlement Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280]">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-            <span className="font-semibold text-gray-700">
+            <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+            <span className="font-semibold text-[#0A0A0C]">
               Weekly Settlement:
             </span>
-            <span className="text-gray-900 font-bold">Direct USDT (TRC20)</span>
-            <span className="text-gray-500 hidden sm:inline">every Wednesday</span>
+            <span className="text-[#0A0A0C] font-bold">Direct USDT (TRC20)</span>
+            <span className="text-[#6B7280] hidden sm:inline">every Wednesday</span>
           </div>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
             UP TO 15% RECURRING
           </span>
         </div>
@@ -209,12 +209,12 @@ export function AffiliateNetworkVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
-              <Zap size={20} className="fill-primary text-primary" />
+          <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
+              <Zap size={20} className="fill-[#854D0E] text-[#854D0E]" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Top Payout Tier
               </p>
               <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">

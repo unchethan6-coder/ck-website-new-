@@ -80,8 +80,8 @@ export default function EvaluationIntro({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                  <Sparkles size={12} className="text-primary" />
+                <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+                  <Sparkles size={12} className="text-[#854D0E]" />
                   {t("badge")}
                 </span>
               </motion.div>
@@ -100,7 +100,7 @@ export default function EvaluationIntro({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]"
               >
                 {t("subtitle")}
               </motion.p>
@@ -123,7 +123,7 @@ export default function EvaluationIntro({
                 <a
                   href="#start-challenge"
                   data-od-id="evaluation-hero-cta-secondary"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] hover:text-[#854D0E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   {t("compareBtn")} <ArrowRight size={15} />
                 </a>
@@ -138,9 +138,9 @@ export default function EvaluationIntro({
                 {featList.map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-2 text-[12px] font-medium text-gray-500"
+                    className="flex items-center gap-2 text-[12px] font-medium text-[#4B5563]"
                   >
-                    <Check size={13} className="shrink-0 text-primary" strokeWidth={3} />
+                    <Check size={13} className="shrink-0 text-emerald-600" strokeWidth={3} />
                     {f}
                   </li>
                 ))}
@@ -160,11 +160,11 @@ export default function EvaluationIntro({
         </div>
       </section>
 
-      {/* ─────────────── Your Path to Success (LIGHT) ─────────────── */}
+      {/* ─────────────── Your Path to Success ─────────────── */}
       <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="evaluation-steps">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               {t("pathEyebrow")}
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -181,14 +181,14 @@ export default function EvaluationIntro({
               return (
                 <div
                   key={item.step}
-                  className="group relative rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                  className="group relative rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:border-gray-300"
                   data-od-id={`evaluation-step-${i + 1}`}
                 >
                   <div className="mb-5 flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 transition-colors group-hover:bg-[#D4AF37]/20">
-                      <Icon size={20} className="text-[#D4AF37]" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
+                      <Icon size={20} />
                     </div>
-                    <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#E5E7EB]">
+                    <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-gray-300">
                       {item.step}
                     </span>
                   </div>

@@ -66,11 +66,7 @@ function SectionHeading({
 }) {
   return (
     <div className="mx-auto max-w-3xl text-center" data-od-id={id}>
-      <p
-        className={`mb-3 text-xs font-black uppercase tracking-[0.22em] ${
-          dark ? "text-[#D99B00]" : "text-[#D99B00]"
-        }`}
-      >
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#854D0E]">
         {eyebrow}
       </p>
       <h2
@@ -81,11 +77,7 @@ function SectionHeading({
         {title}
       </h2>
       {children ? (
-        <p
-          className={`mx-auto mt-4 max-w-2xl text-sm sm:text-base font-medium leading-relaxed ${
-            dark ? "text-[#4B5563]" : "text-[#4B5563]"
-          }`}
-        >
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
           {children}
         </p>
       ) : null}
@@ -104,7 +96,7 @@ function PlatformCell({
     platform === "both"
       ? "text-gray-900 font-bold"
       : platform === id
-      ? "text-[#8A5A00] font-black"
+      ? "text-[#0A0A0C] font-black"
       : "text-gray-400";
   return (
     <span className={cn("whitespace-nowrap font-mono text-xs", className)}>
@@ -173,7 +165,7 @@ function PhaseCard({
         "flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5",
         accent
           ? "border-[#FFC107] ring-2 ring-[#FFC107]/30 shadow-[0_12px_28px_-8px_rgba(255,193,7,0.2)]"
-          : "border-gray-200 hover:border-[#FFC107]/60 hover:shadow-md",
+          : "border-gray-200 hover:border-gray-300 hover:shadow-md",
         className
       )}
       data-od-id={`phase-card-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
@@ -192,7 +184,7 @@ function PhaseCard({
               "flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border font-bold shadow-sm",
               accent
                 ? "border-[#FFC107]/40 bg-[#FFC107] text-[#0A0A0C]"
-                : "border-gray-200 bg-white text-[#8A5A00]"
+                : "border-gray-200 bg-gray-50 text-[#0A0A0C]"
             )}
           >
             {badge}
@@ -202,12 +194,12 @@ function PhaseCard({
               {title}
             </h4>
             {subtitle ? (
-              <p className="mt-0.5 text-xs font-semibold text-gray-600">{subtitle}</p>
+              <p className="mt-0.5 text-xs font-semibold text-[#6B7280]">{subtitle}</p>
             ) : null}
           </div>
         </div>
         {accent && (
-          <span className="shrink-0 rounded-full bg-[#FFC107]/25 px-2.5 py-1 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#7A4E00]">
+          <span className="shrink-0 rounded-full bg-amber-100 px-2.5 py-1 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#854D0E]">
             Target Destination
           </span>
         )}
@@ -226,13 +218,13 @@ function PhaseCard({
               <span
                 className={cn(
                   "block text-xs sm:text-sm font-black leading-tight",
-                  row.muted ? "text-gray-500 font-medium" : "text-[#0A0A0C]"
+                  row.muted ? "text-[#6B7280] font-medium" : "text-[#0A0A0C]"
                 )}
               >
                 {row.value}
               </span>
               {row.sub ? (
-                <span className="mt-0.5 block font-mono text-xs font-black text-[#8A5A00]">
+                <span className="mt-0.5 block font-mono text-xs font-bold text-[#1E293B]">
                   {row.sub}
                 </span>
               ) : null}
@@ -370,11 +362,11 @@ function Step2Detail({
         accent
         footer={
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-black text-[#7A4E00]">
-              <Sparkles size={16} className="shrink-0 text-[#8A5A00]" />
+            <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
+              <Sparkles size={16} className="shrink-0 text-[#854D0E]" />
               {t("phaseCards.qaFooter")}
             </p>
-            <span className="font-mono text-xs font-bold text-gray-600">
+            <span className="font-mono text-xs font-semibold text-[#6B7280]">
               Reward Cycle: Bi-weekly payouts
             </span>
           </div>
@@ -398,10 +390,10 @@ function Step2Detail({
             key={cardTitle}
             className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
           >
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8A5A00]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#854D0E]">
               {cardTitle}
             </p>
-            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-gray-700">
+            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
               {copy}
             </p>
           </div>
@@ -454,8 +446,8 @@ function Step1Detail({
           rows={rows}
           accent
           footer={
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-black text-[#7A4E00]">
-              <Sparkles size={16} className="shrink-0 text-[#8A5A00]" />
+            <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
+              <Sparkles size={16} className="shrink-0 text-[#854D0E]" />
               Progress immediately to Qualified Analyst upon target completion
             </p>
           }
@@ -465,13 +457,13 @@ function Step1Detail({
           data-od-id="objectives-1step-list"
         >
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFC107]/25 px-3 py-1 text-[10.5px] font-black uppercase tracking-wider text-[#7A4E00]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider text-[#854D0E]">
               Accelerated Path
             </span>
             <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
               {t("phaseCards.afterEvalTitle")}
             </h4>
-            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-gray-700">
+            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
               {t("phaseCards.afterEvalDesc")}
             </p>
             <ul className="mt-6 space-y-3.5">
@@ -481,7 +473,7 @@ function Step1Detail({
                 "Up to 100% simulated profit payouts upon funding",
               ].map((bullet) => (
                 <li key={bullet} className="flex items-start gap-2.5 text-xs sm:text-[13.5px] font-bold text-[#0A0A0C]">
-                  <CheckCircle2 size={16} className="shrink-0 text-[#8A5A00] mt-0.5" />
+                  <CheckCircle2 size={16} className="shrink-0 text-emerald-600 mt-0.5" />
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -544,14 +536,14 @@ function InstantDetail({
           rows={rows}
           accent
           footer={
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-black text-[#7A4E00]">
-              <Sparkles size={16} className="shrink-0 text-[#8A5A00]" />
+            <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
+              <Sparkles size={16} className="shrink-0 text-[#854D0E]" />
               Instant simulated capital allocation with bi-weekly payout cycles
             </p>
           }
         />
         <div
-          className="flex flex-col justify-between rounded-2xl border border-[#FFC107]/40 bg-[#FFFDF5] p-6 sm:p-7 shadow-sm"
+          className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm"
           data-od-id="objectives-instant-panel"
         >
           <div>
@@ -561,7 +553,7 @@ function InstantDetail({
             <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
               {t("phaseCards.beforeStartTitle")}
             </h4>
-            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-gray-700">
+            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
               {t("phaseCards.beforeStartDesc")}
             </p>
             <ul className="mt-6 space-y-3.5">
@@ -571,13 +563,13 @@ function InstantDetail({
                 "Eligible for regular simulated reward disbursements",
               ].map((bullet) => (
                 <li key={bullet} className="flex items-start gap-2.5 text-xs sm:text-[13.5px] font-bold text-[#0A0A0C]">
-                  <CheckCircle2 size={16} className="shrink-0 text-[#8A5A00] mt-0.5" />
+                  <CheckCircle2 size={16} className="shrink-0 text-emerald-600 mt-0.5" />
                   <span>{bullet}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="mt-6 border-t border-[#FFC107]/20 pt-4 text-xs sm:text-sm font-bold text-gray-800">
+          <p className="mt-6 border-t border-gray-100 pt-4 text-xs sm:text-sm font-bold text-gray-800">
             {!size
               ? t("step2SelectPrompt")
               : offered
@@ -687,7 +679,7 @@ function CompareModels({
             >
               <div className="flex items-center justify-between border-b border-gray-100 pb-3">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-wider text-[#8A5A00]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#854D0E]">
                     Evaluation Model
                   </span>
                   <h4 className="font-[family-name:var(--font-inter-tight)] text-lg font-black text-[#0A0A0C]">
@@ -747,7 +739,7 @@ function CompareModels({
                   className={cn(
                     "flex items-center gap-2 px-6 py-5",
                     i === activeIndex
-                      ? "bg-[#FFFDF5] text-[#7A4E00] font-black border-x border-[#FFC107]/40"
+                      ? "bg-[#FFFDF5] text-[#854D0E] font-black border-x border-[#FFC107]/40"
                       : "text-[#0A0A0C]"
                   )}
                 >
@@ -833,9 +825,9 @@ function ObjectiveFaq() {
             <AccordionItem
               key={i}
               value={String(i)}
-              className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-[#FFC107]/50 data-[open]:bg-white"
+              className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-gray-300 data-[open]:bg-white shadow-sm"
             >
-              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-[#0A0A0C] hover:text-[#FFC107] hover:no-underline">
+              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-[#0A0A0C] hover:text-[#854D0E] hover:no-underline">
                 {item.q}
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-sm sm:text-[14.5px] font-medium leading-relaxed text-[#4B5563]">
@@ -1025,7 +1017,7 @@ export function TradingObjectivesPageClient({
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <div
-                className="inline-flex items-center gap-2 rounded-full border border-[#FFC107]/40 bg-[#FFC107]/15 px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]"
                 data-od-id="objectives-hero-eyebrow"
               >
                 <Sparkles size={13} /> {t("heroBadge")}
@@ -1045,30 +1037,30 @@ export function TradingObjectivesPageClient({
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a href="#evaluation-selector" data-od-id="objectives-hero-primary">
-                  <GoldButton size="lg" className="px-8 shadow-[0_0_24px_rgba(255,193,7,0.35)]">
+                  <GoldButton size="lg" className="px-8">
                     {t("chooseEvaluation")} <ArrowRight size={16} />
                   </GoldButton>
                 </a>
                 <a
                   href="#the-journey"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 text-sm font-bold text-[#0A0A0C] hover:border-[#FFC107]/40 hover:bg-[#FFF8E1] hover:text-[#8A5A00] transition-all duration-200 shadow-sm"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 text-sm font-bold text-[#0A0A0C] hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 shadow-sm"
                   data-od-id="objectives-hero-secondary"
                 >
                   Explore Roadmap <ArrowRight size={15} />
                 </a>
               </div>
 
-              <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-[0.16em] text-gray-500">
+              <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 <span className="inline-flex items-center gap-2">
-                  <ShieldCheck size={16} className="text-[#FFC107]" />
+                  <ShieldCheck size={16} className="text-secondary" />
                   {t("badgeSimulated")}
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Target size={16} className="text-[#FFC107]" />
+                  <Target size={16} className="text-[#854D0E]" />
                   {t("badgeProgression")}
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Infinity size={16} className="text-[#FFC107]" />
+                  <Infinity size={16} className="text-[#0A0A0C]" />
                   Zero Time Pressure
                 </span>
               </div>
@@ -1085,7 +1077,7 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S2. THE PROGRESSION JOURNEY (DARK)                          */}
+      {/* S2. THE PROGRESSION JOURNEY                                 */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="the-journey"
@@ -1107,14 +1099,14 @@ export function TradingObjectivesPageClient({
               {rawProgression.map((item, i) => (
                 <div
                   key={item.step}
-                  className="relative flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-7 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1"
+                  className="relative flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-1"
                 >
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 font-mono text-sm font-black text-[#FFC107]">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 font-mono text-sm font-bold text-[#0A0A0C]">
                         0{i + 1}
                       </span>
-                      <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+                      <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#6B7280]">
                         {item.step}
                       </span>
                     </div>
@@ -1131,17 +1123,17 @@ export function TradingObjectivesPageClient({
             </div>
 
             {/* QA Benefits Strip */}
-            <div className="mt-10 rounded-2xl border border-[#FFC107]/40 bg-white p-6 sm:p-8">
+            <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 sm:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
                     {t("qaBenefitsTitle")}
                   </p>
-                  <p className="mt-1 text-xs sm:text-sm text-gray-500 font-medium">
+                  <p className="mt-1 text-xs sm:text-sm text-[#4B5563] font-medium">
                     Verified benefits unlocked once you complete evaluation criteria
                   </p>
                 </div>
-                <span className="self-start md:self-auto rounded-full bg-[#FFC107]/20 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#FFC107]">
+                <span className="self-start md:self-auto rounded-full bg-[#FFC107] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#0A0A0C]">
                   Target Destination
                 </span>
               </div>
@@ -1150,9 +1142,9 @@ export function TradingObjectivesPageClient({
                 {qaBenefits.map((benefit) => (
                   <span
                     key={benefit}
-                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-[#0A0A0C]"
+                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs sm:text-sm font-bold text-[#0A0A0C] shadow-sm"
                   >
-                    <Check size={14} className="text-[#FFC107]" strokeWidth={3} />
+                    <Check size={14} className="text-emerald-600" strokeWidth={3} />
                     {benefit}
                   </span>
                 ))}
@@ -1240,7 +1232,7 @@ export function TradingObjectivesPageClient({
                 data-od-id="selector-evaltype"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.16em] text-[#8A5A00]">
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#854D0E]">
                     2-Step Mode:
                   </span>
                   <span className="text-xs sm:text-sm text-gray-700 font-semibold">
@@ -1275,11 +1267,11 @@ export function TradingObjectivesPageClient({
             {/* Account Size Selector Pills */}
             <div className="mt-8">
               <div className="flex items-center justify-between mb-3.5">
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#8A5A00]">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#854D0E]">
                   Select Account Size
                 </span>
                 {size && (
-                  <span className="text-xs sm:text-sm font-bold text-gray-600">
+                  <span className="text-xs sm:text-sm font-bold text-[#6B7280]">
                     Active Capital: <strong className="text-[#0A0A0C] font-black">{size}</strong>
                   </span>
                 )}
@@ -1303,14 +1295,14 @@ export function TradingObjectivesPageClient({
                         "group relative flex min-w-0 flex-col items-center justify-center rounded-xl border py-3.5 px-3 text-center transition-all duration-200 hover:-translate-y-0.5",
                         isSelected
                           ? "border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] shadow-md ring-2 ring-[#FFC107]/30 font-black"
-                          : "border-gray-200 bg-white text-gray-900 hover:border-[#FFC107]/60 hover:shadow-sm font-bold"
+                          : "border-gray-200 bg-white text-gray-900 hover:border-gray-300 hover:shadow-sm font-bold"
                       )}
                       data-od-id={`selector-size-${s.replace(/[^a-z0-9]/gi, "").toLowerCase()}`}
                     >
                       <span
                         className={cn(
-                          "text-[10px] font-black uppercase tracking-wider",
-                          isSelected ? "text-[#0A0A0C]/80" : "text-gray-500"
+                          "text-[10px] font-bold uppercase tracking-wider",
+                          isSelected ? "text-[#0A0A0C]/80" : "text-[#6B7280]"
                         )}
                       >
                         {t("accountLabel")}
@@ -1331,10 +1323,10 @@ export function TradingObjectivesPageClient({
             {/* Platform Selection Strip */}
             <div className="mt-8">
               <div className="flex items-center justify-between mb-3.5">
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#8A5A00]">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#854D0E]">
                   Select Platform Preference
                 </span>
-                <span className="text-xs font-bold text-gray-500">
+                <span className="text-xs font-bold text-[#6B7280]">
                   {t("bothPlatformsNote")}
                 </span>
               </div>
@@ -1357,7 +1349,7 @@ export function TradingObjectivesPageClient({
                         "relative flex items-center gap-4 rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 hover:-translate-y-0.5 bg-white",
                         active
                           ? "border-[#FFC107] ring-2 ring-[#FFC107]/30 shadow-sm"
-                          : "border-gray-200 hover:border-[#FFC107]/50"
+                          : "border-gray-200 hover:border-gray-300"
                       )}
                       data-od-id={`selector-platform-${p.id}`}
                     >
@@ -1372,7 +1364,7 @@ export function TradingObjectivesPageClient({
                         <span className="block font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
                           {p.label}
                         </span>
-                        <span className="text-xs sm:text-sm font-medium text-gray-600">
+                        <span className="text-xs sm:text-sm font-medium text-[#4B5563]">
                           {p.desc}
                         </span>
                       </div>
@@ -1451,7 +1443,7 @@ export function TradingObjectivesPageClient({
                     </div>
                     <div className="flex justify-between font-semibold text-gray-700">
                       <span>Profit Split</span>
-                      <span className="font-black text-[#8A5A00]">
+                      <span className="font-black text-[#0A0A0C]">
                         {CHALLENGE_SPLITS[typeParam] || "Up to 100%"}
                       </span>
                     </div>
@@ -1486,7 +1478,7 @@ export function TradingObjectivesPageClient({
                         70% OFF
                       </span>
                     </div>
-                    <p className="mt-1.5 text-xs font-black text-[#8A5A00]">
+                    <p className="mt-1.5 text-xs font-medium text-[#6B7280]">
                       One-time fee · Zero monthly subscriptions
                     </p>
                   </div>
@@ -1507,7 +1499,7 @@ export function TradingObjectivesPageClient({
                       />
                     </a>
 
-                    <p className="text-center text-xs font-medium text-gray-600">
+                    <p className="text-center text-xs font-medium text-[#6B7280]">
                       ⚡ Instant MT5 & TradeLocker credentials sent via email
                     </p>
                   </div>
@@ -1530,7 +1522,7 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S5. KEY TRADING BENEFITS & CONDITIONS (DARK BENTO)          */}
+      {/* S5. KEY TRADING BENEFITS & CONDITIONS                       */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="unlimited-trading-period"
@@ -1549,11 +1541,11 @@ export function TradingObjectivesPageClient({
 
           <div className="mx-auto mt-14 max-w-5xl grid gap-6 md:grid-cols-2">
             {/* Card 1: Unlimited Trading Period */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-1">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Infinity size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
                 {t("unlimitedEyebrow")}
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1565,11 +1557,11 @@ export function TradingObjectivesPageClient({
             </div>
 
             {/* Card 2: Reset & Top-Up */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-1">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <RefreshCw size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
                 {t("resetEyebrow")}
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1580,18 +1572,18 @@ export function TradingObjectivesPageClient({
               </p>
               <a
                 href="/terms-conditions"
-                className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFC107] hover:underline"
+                className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A0A0C] hover:text-[#854D0E] underline"
               >
                 {t("viewTerms")} <ArrowRight size={13} />
               </a>
             </div>
 
             {/* Card 3: News Trading & Weekend Holding */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-1">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Zap size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
                 TRADING FREEDOM
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1603,11 +1595,11 @@ export function TradingObjectivesPageClient({
             </div>
 
             {/* Card 4: Verified Fast Payouts */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-md transition-all duration-200 hover:border-[#FFC107]/50 hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#FFC107]/40 bg-[#FFC107]/15 text-[#FFC107]">
+            <div className="rounded-2xl border border-gray-200 bg-white p-7 sm:p-8 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-1">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Coins size={24} />
               </div>
-              <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
                 REWARD DISBURSEMENT
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1622,7 +1614,7 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S6. UNDERSTAND OBJECTIVES GLOSSARY (LIGHT)                   */}
+      {/* S6. UNDERSTAND OBJECTIVES GLOSSARY                           */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="understand-objectives"
@@ -1645,17 +1637,17 @@ export function TradingObjectivesPageClient({
                 <div
                   key={item.title}
                   className={cn(
-                    "rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#FFC107]/60",
+                    "rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md",
                     i === 0 && "lg:col-span-2"
                   )}
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#8A5A00]/20 bg-[#FFF3CD] text-[#7A4E00]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                     <Component size={20} />
                   </div>
                   <h3 className="mt-6 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-gray-700">
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-[#4B5563]">
                     {item.desc}
                   </p>
                 </div>
@@ -1666,7 +1658,7 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S7. FAQ (DARK)                                              */}
+      {/* S7. FAQ                                                     */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
         id="objectives-faq"
@@ -1677,15 +1669,15 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S8. FINAL CLOSING CTA (LIGHT)                               */}
+      {/* S8. FINAL CLOSING CTA                                       */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden bg-white py-20 md:py-28 text-[#111827]"
+        className="relative overflow-hidden bg-white py-20 md:py-28 text-[#0A0A0C]"
         data-od-id="objectives-final-cta"
       >
         <Container className="relative text-center">
           <SectionReveal>
-            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FFC107] bg-[#FFF3CD] text-[#7A4E00] shadow-md">
+            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] shadow-md">
               <Target size={28} />
             </div>
 
@@ -1693,7 +1685,7 @@ export function TradingObjectivesPageClient({
               {t("finalCtaTitle")}
             </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base font-medium leading-relaxed text-gray-700">
+            <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
               {t("finalCtaDesc")}
             </p>
 
@@ -1702,15 +1694,15 @@ export function TradingObjectivesPageClient({
                 href={`https://app.ckcapital.co.uk/signup`}
                 data-od-id="objectives-final-cta-primary"
               >
-                <GoldButton size="lg" className="px-8 shadow-lg shadow-[#FFC107]/25">
+                <GoldButton size="lg" className="px-8 shadow-md">
                   {t("finalCtaBtn")} <ArrowRight size={16} />
                 </GoldButton>
               </a>
               <a
-                href="https://discord.gg/ckcapital"
+                href="https://discord.com/invite/hGSVx9CmS2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 text-sm font-bold text-[#0A0A0C] shadow-sm hover:border-[#FFC107] hover:bg-[#FFFDF5] transition-all duration-200"
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 text-sm font-bold text-[#0A0A0C] shadow-sm hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
               >
                 Join Trader Discord <ArrowUpRight size={15} />
               </a>
@@ -1720,32 +1712,32 @@ export function TradingObjectivesPageClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────── */}
-      {/* S9. LEGAL / REGULATORY DISCLAIMER (DARK)                    */}
+      {/* S9. LEGAL / REGULATORY DISCLAIMER                           */}
       {/* ──────────────────────────────────────────────────────────── */}
       <section
-        className="border-t border-gray-200 bg-white py-10 text-gray-500"
+        className="border-t border-gray-200 bg-white py-10 text-[#4B5563]"
         data-od-id="objectives-legal"
       >
         <Container>
           <div className="flex items-start gap-4">
-            <ShieldCheck className="mt-1 shrink-0 text-[#FFC107]" size={20} />
+            <ShieldCheck className="mt-1 shrink-0 text-[#6B7280]" size={20} />
             <div>
               <p className="text-xs font-black uppercase tracking-[0.16em] text-[#0A0A0C]">
                 {t("legalEyebrow")}
               </p>
-              <p className="mt-2.5 max-w-4xl text-xs sm:text-sm font-medium leading-relaxed text-gray-500">
+              <p className="mt-2.5 max-w-4xl text-xs sm:text-sm font-medium leading-relaxed text-[#6B7280]">
                 {t("legalDesc")}
               </p>
-              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-[#D99B00]">
+              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
                 <a
                   href="/terms-conditions"
-                  className="hover:text-[#0A0A0C] transition-colors"
+                  className="hover:text-[#854D0E] underline transition-colors"
                 >
                   {t("viewTermsConditions")} <ArrowRight size={13} className="inline" />
                 </a>
                 <a
                   href="/risk-disclosure"
-                  className="hover:text-[#0A0A0C] transition-colors"
+                  className="hover:text-[#854D0E] underline transition-colors"
                 >
                   {t("viewDisclaimer")} <ArrowRight size={13} className="inline" />
                 </a>

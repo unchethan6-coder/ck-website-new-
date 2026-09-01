@@ -693,7 +693,7 @@ html, body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #111111;
+    color: #0A0A0C !important;
     font-weight: 700;
     border: none;
     cursor: pointer;

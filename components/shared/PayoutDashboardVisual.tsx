@@ -148,22 +148,22 @@ export function PayoutDashboardVisual({
       data-od-id="hero-payout-window"
     >
       {/* Main Dashboard Window Container */}
-      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
         {/* Top Browser / App Window Chrome */}
         <div className="flex h-11 items-center justify-between border-b border-gray-200 bg-gray-50 px-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2.5 py-1 text-[11px] font-mono text-gray-500">
-              <Lock size={10} className="text-primary" />
+            <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
+              <Lock size={10} className="text-[#854D0E]" />
               <span>app.ckcapital.co.uk/dashboard/payouts</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-600" />
               Live Settlement Feed
             </span>
           </div>
@@ -184,26 +184,26 @@ export function PayoutDashboardVisual({
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-5">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">{current.countryFlag}</span>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">
+                    <span className="text-sm text-[#0A0A0C]">{current.countryFlag}</span>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                       Simulated Account #{current.accountId}
                     </p>
-                    <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[9px] font-bold text-primary">
+                    <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
                       {current.accountTier}
                     </span>
                   </div>
                   <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                     {current.profit}{" "}
-                    <span className="text-xs font-semibold text-emerald-400">
+                    <span className="text-xs font-semibold text-emerald-600">
                       {current.profitPct}
                     </span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 rounded-xl border border-primary/25 bg-primary/10 px-3.5 py-2">
-                  <Sparkles size={15} className="text-primary shrink-0" />
+                <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2">
+                  <Sparkles size={15} className="text-[#854D0E] shrink-0" />
                   <div className="text-left">
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-[#854D0E]">
                       Profit Split
                     </p>
                     <p className="text-sm font-extrabold text-[#0A0A0C]">
@@ -217,13 +217,13 @@ export function PayoutDashboardVisual({
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-800">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0A0A0C]">
                       Request Payout
                     </p>
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-ping" />
                   </div>
-                  <span className="flex items-center gap-1 text-[11px] font-semibold text-gray-500">
-                    <Clock size={12} className="text-primary" /> ~12 Hours Processing
+                  <span className="flex items-center gap-1 text-[11px] font-semibold text-[#6B7280]">
+                    <Clock size={12} className="text-[#854D0E]" /> ~12 Hours Processing
                   </span>
                 </div>
 
@@ -234,7 +234,7 @@ export function PayoutDashboardVisual({
                     className={cn(
                       "flex items-center justify-between rounded-xl p-3 text-left transition-all",
                       current.isCrypto
-                        ? "border border-primary/50 bg-primary/10"
+                        ? "border border-[#FFC107] bg-amber-50/50 ring-1 ring-[#FFC107]/40"
                         : "border border-gray-200 bg-gray-50 opacity-70"
                     )}
                   >
@@ -243,7 +243,7 @@ export function PayoutDashboardVisual({
                         className={cn(
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           current.isCrypto
-                            ? "bg-primary/20 text-primary"
+                            ? "bg-amber-100 text-[#854D0E]"
                             : "bg-gray-100 text-gray-700"
                         )}
                       >
@@ -253,13 +253,13 @@ export function PayoutDashboardVisual({
                         <p className="text-xs font-bold text-[#0A0A0C]">
                           {current.isCrypto ? current.method : "USDT / Crypto"}
                         </p>
-                        <p className="text-[10px] text-gray-500">
+                        <p className="text-[10px] text-[#6B7280]">
                           {current.isCrypto ? current.methodSub : "TRC20 / ERC20"}
                         </p>
                       </div>
                     </div>
                     {current.isCrypto ? (
-                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-primary text-black">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#FFC107] text-[#0A0A0C]">
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
@@ -272,7 +272,7 @@ export function PayoutDashboardVisual({
                     className={cn(
                       "flex items-center justify-between rounded-xl p-3 text-left transition-all",
                       !current.isCrypto
-                        ? "border border-primary/50 bg-primary/10"
+                        ? "border border-[#FFC107] bg-amber-50/50 ring-1 ring-[#FFC107]/40"
                         : "border border-gray-200 bg-gray-50 opacity-70"
                     )}
                   >
@@ -281,7 +281,7 @@ export function PayoutDashboardVisual({
                         className={cn(
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           !current.isCrypto
-                            ? "bg-primary/20 text-primary"
+                            ? "bg-amber-100 text-[#854D0E]"
                             : "bg-gray-100 text-gray-700"
                         )}
                       >
@@ -291,13 +291,13 @@ export function PayoutDashboardVisual({
                         <p className="text-xs font-bold text-[#0A0A0C]">
                           {!current.isCrypto ? current.method : "Bank Transfer"}
                         </p>
-                        <p className="text-[10px] text-gray-500">
+                        <p className="text-[10px] text-[#6B7280]">
                           {!current.isCrypto ? current.methodSub : "Direct Wire / Rise"}
                         </p>
                       </div>
                     </div>
                     {!current.isCrypto ? (
-                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-primary text-black">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#FFC107] text-[#0A0A0C]">
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
@@ -307,22 +307,22 @@ export function PayoutDashboardVisual({
                 </div>
 
                 {/* Payout Amount Field Mock */}
-                <div className="rounded-xl border border-gray-200 bg-white/70 p-3.5">
-                  <div className="flex items-center justify-between text-[11px] text-gray-500">
+                <div className="rounded-xl border border-gray-200 bg-white p-3.5 shadow-sm">
+                  <div className="flex items-center justify-between text-[11px] text-[#6B7280]">
                     <span>Amount to Withdraw</span>
-                    <span className="font-semibold text-gray-700">
+                    <span className="font-semibold text-[#0A0A0C]">
                       Available: {current.profit}
                     </span>
                   </div>
                   <div className="mt-2 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <DollarSign size={20} className="text-primary font-bold" />
+                      <DollarSign size={20} className="text-[#0A0A0C] font-bold" />
                       <span className="font-mono text-xl sm:text-2xl font-extrabold text-[#0A0A0C]">
                         {current.amount}
                       </span>
-                      <span className="text-xs font-bold text-gray-500">USD</span>
+                      <span className="text-xs font-bold text-[#6B7280]">USD</span>
                     </div>
-                    <span className="rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-[10px] font-bold text-primary">
+                    <span className="rounded-md border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-[#854D0E]">
                       MAX
                     </span>
                   </div>
@@ -330,13 +330,13 @@ export function PayoutDashboardVisual({
 
                 {/* Wallet Address Field Mock */}
                 <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 px-3.5 py-2.5 text-xs">
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <ShieldCheck size={14} className="text-emerald-400" />
+                  <div className="flex items-center gap-2 text-[#4B5563]">
+                    <ShieldCheck size={14} className="text-emerald-600" />
                     <span className="font-mono text-[11px]">
                       {current.address}
                     </span>
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
                     Auto-Confirmed
                   </span>
                 </div>
@@ -349,7 +349,7 @@ export function PayoutDashboardVisual({
                     rel="noopener noreferrer"
                     className="btn-gold-standard group relative flex w-full items-center justify-center gap-2 py-3.5 text-xs sm:text-sm"
                   >
-                    <Zap size={16} className="fill-black" />
+                    <Zap size={16} className="fill-[#0A0A0C]" />
                     <span>Submit Payout Request</span>
                     <span className="ml-1 rounded bg-black/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wider">
                       {current.speedText}
@@ -362,7 +362,7 @@ export function PayoutDashboardVisual({
         </div>
 
         {/* Bottom Recent Settlements Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-gray-500">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.settlementAmount}
@@ -372,22 +372,22 @@ export function PayoutDashboardVisual({
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-              <span className="font-semibold text-gray-700">
+              <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+              <span className="font-semibold text-[#0A0A0C]">
                 Latest settlement:
               </span>
-              <span className="text-gray-900 font-bold">
+              <span className="text-[#0A0A0C] font-bold">
                 {current.settlementAmount}
               </span>
-              <span className="text-gray-500 hidden sm:inline">
+              <span className="text-[#6B7280] hidden sm:inline">
                 {current.settlementTime}
               </span>
             </motion.div>
           </AnimatePresence>
 
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
               100% PROFIT RETAINED
             </span>
           </div>
@@ -402,12 +402,12 @@ export function PayoutDashboardVisual({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
-          <div className="flex items-center gap-3.5 rounded-2xl border border-primary/30 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
-              <Zap size={20} className="fill-primary text-primary" />
+          <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
+              <Zap size={20} className="fill-[#854D0E] text-[#854D0E]" />
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Speed Guarantee
               </p>
               <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">

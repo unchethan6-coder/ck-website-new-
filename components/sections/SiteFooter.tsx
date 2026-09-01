@@ -4,9 +4,10 @@ import { useTranslations } from "next-intl";
 import { Check, Globe } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { GoldButton } from "@/components/shared/GoldButton";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
   const t = useTranslations("footer");
@@ -31,7 +32,7 @@ export function SiteFooter() {
         { label: t("evaluation"), href: "/evaluation" },
         { label: t("instantFunding"), href: "/instant" },
         { label: t("tradingObjectives"), href: "/trading-objectives" },
-        { label: tNav("faq"), href: "https://intercom.help/ck-capital/en/" },
+        { label: tNav("faq"), href: "https://intercom.help/ck-capital/" },
       ],
     },
     {
@@ -138,9 +139,32 @@ export function SiteFooter() {
       {/* Directory */}
       <div className="border-b border-foreground/[0.06]" data-od-id="footer-directory">
         <Container>
+          <div className="pt-10 pb-4">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === "/" || pathname === "" || pathname === "/en" || pathname === "/es" || pathname === "/pt") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  window.scrollTo({ top: 0, behavior: "instant" });
+                }
+              }}
+              className="inline-block cursor-pointer"
+              data-od-id="footer-logo"
+            >
+              <img
+                src="/images/brand/CKLogo.png"
+                alt="CK Capital"
+                width={696}
+                height={100}
+                className="h-7 sm:h-8 w-auto object-contain"
+              />
+            </Link>
+          </div>
           <nav
             aria-label="Footer directory"
-            className="grid gap-8 py-10 sm:grid-cols-2 md:gap-10 md:py-12 lg:grid-cols-4"
+            className="grid gap-8 pb-10 sm:grid-cols-2 md:gap-10 md:pb-12 lg:grid-cols-4"
           >
             {directoryColumns.map((column) => (
               <div key={column.title}>

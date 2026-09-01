@@ -25,13 +25,11 @@ export function ChallengeComparison({
 }) {
   const t = useTranslations("challenge");
 
-  const [selectedMarket, setSelectedMarket] = useState<"cfds" | "futures">("cfds");
   const [selectedCurrency, setSelectedCurrency] = useState<string>("USD");
   const [isCurrencyOpen, setIsCurrencyOpen] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useState<string>("standard");
   const [selectedSize, setSelectedSize] = useState<string>("100K");
   const [isPercentage, setIsPercentage] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<number>(1);
 
   const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -75,11 +73,6 @@ export function ChallengeComparison({
       if (CURRENCIES.some((c) => c.code === upperCur)) {
         setSelectedCurrency(upperCur);
       }
-    }
-
-    const rawMarket = searchParams.get("market");
-    if (rawMarket === "futures" || rawMarket === "cfds") {
-      setSelectedMarket(rawMarket);
     }
   }, []);
 
@@ -132,25 +125,14 @@ export function ChallengeComparison({
     }
   };
 
-  const calculateBoosterPrice = (discStr?: string) => {
-    if (!discStr || !discStr.startsWith("$")) return "-";
-    const numericVal = parseFloat(discStr.replace(/[$,]/g, "")) * 1.15 * currency.rate;
-    return `${currency.symbol}${numericVal.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}`;
-  };
-
   const signupUrl = useMemo(() => {
     const params = new URLSearchParams({
-      market: selectedMarket,
       plan: selectedType,
       size: selectedSize,
       currency: selectedCurrency,
-      option: selectedOption === 2 ? "booster" : "standard",
     });
     return `https://app.ckcapital.co.uk/signup?${params.toString()}`;
-  }, [selectedMarket, selectedType, selectedSize, selectedCurrency, selectedOption]);
+  }, [selectedType, selectedSize, selectedCurrency]);
 
   return (
     <section
@@ -173,40 +155,9 @@ export function ChallengeComparison({
             </p>
           </SectionReveal>
 
-          {/* Market & Currency Toolbar */}
+          {/* Currency Toolbar */}
           <SectionReveal delay={0.06}>
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              {/* Market Switcher */}
-              <div className="flex bg-[#F5F5F5] p-1 rounded-full border border-[#D9D9D9] gap-1 shadow-inner">
-                <button
-                  type="button"
-                  onClick={() => setSelectedMarket("cfds")}
-                  className={cn(
-                    "px-6 py-2 rounded-full text-sm font-bold transition-all",
-                    selectedMarket === "cfds"
-                      ? "bg-white text-[#0A0A0C] border border-black/10 shadow-sm"
-                      : "text-gray-600 hover:text-black"
-                  )}
-                >
-                  {t("cfds") || "CFDs"}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedMarket("futures")}
-                  className={cn(
-                    "px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all",
-                    selectedMarket === "futures"
-                      ? "bg-white text-[#0A0A0C] border border-black/10 shadow-sm"
-                      : "text-gray-600 hover:text-black"
-                  )}
-                >
-                  <span>{t("futures") || "Futures"}</span>
-                  <span className="bg-[#E11D48] text-white text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm">
-                    {t("futuresDiscount") || "18% OFF"}
-                  </span>
-                </button>
-              </div>
-
+            <div className="flex justify-end items-center">
               {/* Currency Dropdown */}
               <div className="relative z-30" ref={currencyDropdownRef}>
                 <button
@@ -445,140 +396,89 @@ export function ChallengeComparison({
               </div>
 
               {/* Checkout Panel */}
-              <div className="lg:col-span-5 bg-white border border-[#D9D9D9] rounded-2xl p-6 flex flex-col gap-5 shadow-sm">
-                <div className="flex justify-between items-baseline">
-                  <div className="text-base font-bold text-[#0A0A0C]">
-                    {activeTypeName} ${selectedSize}
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-[#0A0A0C]">
-                      {selectedOption === 2
-                        ? calculateBoosterPrice(activePlan?.disc)
-                        : formatMoney(activePlan?.disc || "$0.00")}
-                    </div>
-                    <div className="text-xs text-gray-400 line-through font-normal">
-                      {formatMoney(activePlan?.orig)}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Radio Selection Options */}
-                <div className="flex flex-col gap-2.5">
-                  <div
-                    role="radio"
-                    aria-checked={selectedOption === 1}
-                    tabIndex={0}
-                    onClick={() => setSelectedOption(1)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") setSelectedOption(1);
-                    }}
-                    className={cn(
-                      "flex justify-between items-center px-3.5 py-2.5 rounded-xl cursor-pointer transition-all border",
-                      selectedOption === 1
-                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-sm"
-                        : "border-gray-200 bg-gray-50/80 hover:bg-gray-100/70"
-                    )}
-                  >
-                    <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
-                      <div
-                        className={cn(
-                          "w-4 h-4 rounded-full border flex items-center justify-center transition-colors",
-                          selectedOption === 1 ? "border-[#E0B341]" : "border-gray-400"
-                        )}
-                      >
-                        {selectedOption === 1 && (
-                          <div className="w-2 h-2 rounded-full bg-[#E0B341]"></div>
-                        )}
-                      </div>
-                      <span>{t("standardAccess") || "Standard Access"}</span>
-                    </div>
-                    <span className="text-xs font-bold text-[#0A0A0C]">
-                      {formatMoney(activePlan?.disc)}
-                    </span>
-                  </div>
-
-                  <div
-                    role="radio"
-                    aria-checked={selectedOption === 2}
-                    tabIndex={0}
-                    onClick={() => setSelectedOption(2)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") setSelectedOption(2);
-                    }}
-                    className={cn(
-                      "flex justify-between items-center px-3.5 py-2.5 rounded-xl cursor-pointer transition-all border",
-                      selectedOption === 2
-                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-sm"
-                        : "border-gray-200 bg-gray-50/80 hover:bg-gray-100/70"
-                    )}
-                  >
-                    <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
-                      <div
-                        className={cn(
-                          "w-4 h-4 rounded-full border flex items-center justify-center transition-colors",
-                          selectedOption === 2 ? "border-[#E0B341]" : "border-gray-400"
-                        )}
-                      >
-                        {selectedOption === 2 && (
-                          <div className="w-2 h-2 rounded-full bg-[#E0B341]"></div>
-                        )}
-                      </div>
-                      <span>{t("boosterPass") || "15% Booster Pass"}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="bg-[#059669] text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm">
-                        {t("promo") || "PROMO"}
+              <div className="lg:col-span-5 bg-white border border-[#D9D9D9] rounded-2xl p-6 flex flex-col justify-between gap-5 shadow-sm">
+                <div>
+                  <div className="flex justify-between items-baseline pb-4 border-b border-gray-100">
+                    <div>
+                      <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                        Selected Plan
                       </span>
-                      <span className="text-xs font-bold text-[#0A0A0C]">
-                        {calculateBoosterPrice(activePlan?.disc)}
-                      </span>
+                      <div className="text-lg font-extrabold text-[#0A0A0C] mt-0.5">
+                        {activeTypeName} ${selectedSize}
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl sm:text-3xl font-extrabold text-[#0A0A0C]">
+                        {formatMoney(activePlan?.disc || "$0.00")}
+                      </div>
+                      <div className="text-xs text-gray-400 line-through font-normal">
+                        {formatMoney(activePlan?.orig)}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Feature Highlights */}
+                  <div className="mt-4 space-y-2">
+                    <div className="flex items-center justify-between text-xs text-gray-600 py-1 border-b border-gray-50">
+                      <span>Access Level</span>
+                      <span className="font-bold text-[#0A0A0C]">Direct Evaluation Access</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-gray-600 py-1 border-b border-gray-50">
+                      <span>Scaling Ceiling</span>
+                      <span className="font-bold text-[#0A0A0C]">Up to $1,200,000</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-gray-600 py-1">
+                      <span>Fee Refundability</span>
+                      <span className="font-bold text-emerald-600">100% Refundable</span>
                     </div>
                   </div>
                 </div>
 
-                {/* CTA Button */}
-                <a
-                  href={signupUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
-                  <button type="button" className="gold-pill-btn w-full gap-2 font-bold">
-                    <span>{t("startChallenge") || "Start Challenge"}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </a>
+                <div className="space-y-4">
+                  {/* CTA Button */}
+                  <a
+                    href={signupUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full"
+                  >
+                    <button type="button" className="gold-pill-btn w-full gap-2 font-bold">
+                      <span>{t("startChallenge") || "Start Challenge"}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </a>
 
-                {/* Add-ons */}
-                <div className="flex flex-col gap-2">
-                  <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
-                    {t("addOnsAvailable") || "Add-Ons Available"}
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["Lifetime Reward 90%", "Reward 95%", "Double Lev", "+4 more"].map(
-                      (addon) => (
-                        <span
-                          key={addon}
-                          className="bg-[#F5F5F5] border border-[#D9D9D9] text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-md"
-                        >
-                          {addon}
-                        </span>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                {/* Payment Methods */}
-                <div className="flex flex-wrap justify-center items-center gap-2 pt-1 text-[11px] text-gray-500">
-                  {["VISA", "Mastercard", "G Pay", "Crypto"].map((pm) => (
-                    <span
-                      key={pm}
-                      className="border border-[#D9D9D9] rounded px-1.5 py-0.5 font-bold text-[10px] text-gray-700 bg-gray-50"
-                    >
-                      {pm}
+                  {/* Add-ons */}
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                      {t("addOnsAvailable") || "Add-Ons Available"}
                     </span>
-                  ))}
-                  <span className="text-xs font-medium">+10 more</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {["Lifetime Reward 90%", "Reward 95%", "Double Lev", "+4 more"].map(
+                        (addon) => (
+                          <span
+                            key={addon}
+                            className="bg-[#F5F5F5] border border-[#D9D9D9] text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-md"
+                          >
+                            {addon}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Payment Methods */}
+                  <div className="flex flex-wrap justify-center items-center gap-2 pt-1 text-[11px] text-gray-500">
+                    {["VISA", "Mastercard", "G Pay", "Crypto"].map((pm) => (
+                      <span
+                        key={pm}
+                        className="border border-[#D9D9D9] rounded px-1.5 py-0.5 font-bold text-[10px] text-gray-700 bg-gray-50"
+                      >
+                        {pm}
+                      </span>
+                    ))}
+                    <span className="text-xs font-medium">+10 more</span>
+                  </div>
                 </div>
               </div>
             </div>

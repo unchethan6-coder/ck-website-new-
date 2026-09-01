@@ -43,7 +43,7 @@ export function HowItWorks() {
     >
       <Container>
         <SectionReveal className="text-center mb-12 md:mb-16">
-          <p className="text-xs text-[#D99B00] uppercase tracking-[0.2em] font-black mb-3">
+          <p className="text-xs text-[#854D0E] uppercase tracking-[0.2em] font-bold mb-3">
             {t("badge")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
@@ -71,14 +71,14 @@ export function HowItWorks() {
                 className="relative flex items-start gap-5 sm:gap-8"
                 data-od-id={`how-step-${i + 1}`}
               >
-                <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-2xl border border-gray-200/90 bg-white shadow-md">
+                <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-2xl border border-gray-200/90 bg-white shadow-sm">
                   <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
                   <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#FFC107] ring-4 ring-white" />
                 </div>
                 <div className="pt-1.5 flex-1 min-w-0">
-                  <span className="text-[11px] font-black uppercase tracking-[0.18em] text-[#D99B00]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
                     {step.phase}
                   </span>
                   <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C] tracking-tight">
@@ -94,7 +94,7 @@ export function HowItWorks() {
 
           {/* Feature Highlights Strip & CTA */}
           <div
-            className="mt-14 overflow-hidden rounded-2xl border border-gray-200/90 bg-white p-6 sm:p-7 shadow-md"
+            className="mt-14 overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm"
             data-od-id="how-it-works-features"
           >
             <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-2.5 text-center">
@@ -114,7 +114,7 @@ export function HowItWorks() {
 
             <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
               <p className="text-sm font-bold text-[#0A0A0C]">
-                {t("readyFunded")} <span className="text-[#D99B00] font-black">{t("startJourney")}</span>
+                {t("readyFunded")} <span className="text-[#854D0E] font-black">{t("startJourney")}</span>
               </p>
               <a
                 href="/#start-challenge"

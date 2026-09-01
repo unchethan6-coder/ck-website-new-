@@ -30,7 +30,7 @@ export function SupportSection() {
             title={t("discordTitle")}
             description={t("discordDesc")}
             action={t("discordAction")}
-            href="https://discord.gg/ckcapital"
+            href="https://discord.com/invite/hGSVx9CmS2"
           />
 
           <SupportCard

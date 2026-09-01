@@ -218,18 +218,25 @@ function BrowserWindow({
     <div className="relative w-full" data-od-id="proof-browser">
       {/* Browser chrome + body */}
       <div className="flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_32px_80px_-32px_rgba(15,23,42,0.25)]">
-        <div className="flex h-11 shrink-0 items-center gap-2 border-b border-gray-200 bg-gray-100 px-4">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#F87171]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#FBBF24]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#34D399]" />
-          <div className="mx-auto flex h-6 w-[58%] items-center justify-center gap-1.5 rounded-md border border-gray-200 bg-white px-3 text-[10px] tracking-wide text-gray-400">
-            <Lock size={9} />
-            app.ckcapital.co.uk/rewards
+        <div className="flex h-10 sm:h-11 shrink-0 items-center justify-between border-b border-gray-200 bg-gray-100 px-3 sm:px-4">
+          {/* Left traffic dots */}
+          <div className="flex items-center gap-1.5 shrink-0 w-7 sm:w-10">
+            <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#F87171]" />
+            <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#FBBF24]" />
+            <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#34D399]" />
           </div>
-          <span className="w-14 shrink-0" />
+
+          {/* Centered URL pill */}
+          <div className="mx-1.5 flex h-6 sm:h-6.5 flex-1 max-w-[240px] sm:max-w-[300px] items-center justify-center gap-1 sm:gap-1.5 rounded-md border border-gray-200 bg-white px-2 sm:px-2.5 text-[9.5px] sm:text-[11px] font-mono tracking-tight text-gray-500 min-w-0 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+            <Lock size={9} className="shrink-0 text-gray-400" />
+            <span className="whitespace-nowrap truncate">app.ckcapital.co.uk/rewards</span>
+          </div>
+
+          {/* Symmetrical right spacer */}
+          <div className="w-7 sm:w-10 shrink-0" aria-hidden="true" />
         </div>
 
-        <div className="relative flex-1 p-5 sm:p-7">
+        <div className="relative flex-1 p-5 pb-16 sm:p-7 sm:pb-7">
           <div className="sm:ml-auto sm:max-w-[320px]">
             <p className="text-sm font-bold text-gray-900">
               {t("readyReward")}
@@ -281,19 +288,21 @@ function BrowserWindow({
         </div>
       </div>
 
-      {/* Overlapping total rewards card — lifted to balance top/bottom padding */}
+      {/* Overlapping total rewards card — responsive positioning & no collision */}
       <div
-        className="absolute -bottom-6 left-2 z-20 w-[min(82%,390px)] sm:left-5 lg:-left-8"
+        className="absolute -bottom-6 left-3 right-3 sm:right-auto sm:left-4 sm:w-[340px] lg:-left-8 lg:w-[370px] z-20"
         data-od-id="proof-total-card"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-white p-6 shadow-2xl sm:p-7">
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">
-            {t("totalPayouts")}
-          </p>
-          <p className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-none tracking-tight text-[#0A0A0C] sm:text-[44px]">
-            {formatMoney(total ?? 1200000)}
-          </p>
-          <GoldGem className="pointer-events-none absolute -right-2 top-4 h-24 w-24 opacity-90 sm:h-28 sm:w-28" />
+        <div className="relative overflow-hidden rounded-2xl border border-[#FFC107]/40 bg-white/95 backdrop-blur-md p-4 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.22)]">
+          <div className="relative z-10 pr-14 sm:pr-16">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+              {t("totalPayouts")}
+            </p>
+            <p className="mt-1.5 font-[family-name:var(--font-inter-tight)] text-2xl xs:text-3xl sm:text-[34px] font-extrabold leading-none tracking-tight text-[#0A0A0C] tabular-nums">
+              {formatMoney(total ?? 1200000)}
+            </p>
+          </div>
+          <GoldGem className="pointer-events-none absolute -right-2 top-1/2 -translate-y-1/2 h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 opacity-80" />
         </div>
       </div>
     </div>

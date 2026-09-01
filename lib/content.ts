@@ -14,7 +14,7 @@ export const NAV_LINKS = [
   { label: "Payouts", href: "/payouts" },
   { label: "About Us", href: "/about-us" },
   { label: "Affiliates", href: "/affiliates" },
-  { label: "FAQ", href: "https://intercom.help/ck-capital/en/" },
+  { label: "FAQ", href: "https://intercom.help/ck-capital/" },
 ];
 
 export const PRICING_PLANS = [
@@ -500,7 +500,7 @@ export const COMMUNITY_CARDS = [
     title: "Join the conversation",
     description: "Connect with 65,000+ traders in our Discord community. Share ideas, strategies, and celebrate payouts.",
     cta: "Join Discord",
-    href: "https://discord.gg/ckcapital",
+    href: "https://discord.com/invite/hGSVx9CmS2",
     external: true,
     icon: "message-circle",
     gradient: "from-[#5865F2]/20 to-transparent",

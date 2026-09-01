@@ -37,7 +37,7 @@ const MAILTO = "service@ckcapital.co.uk";
 const EmailLink = (
   <a
     href={`mailto:${MAILTO}`}
-    className="font-semibold text-[#D4AF37] underline decoration-[#D4AF37]/40 underline-offset-4 transition-colors hover:text-[#0A0A0C]"
+    className="font-semibold text-[#0A0A0C] underline decoration-[#854D0E]/40 underline-offset-4 transition-colors hover:text-[#854D0E]"
   >
     {MAILTO}
   </a>
@@ -49,7 +49,7 @@ export default async function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background" data-od-id="privacy-page">
 
-      {/* ─────────────── Hero (DARK) ─────────────── */}
+      {/* ─────────────── Hero ─────────────── */}
       <section className="relative isolate -mt-[72px] md:-mt-[76px] overflow-hidden border-b border-gray-200 bg-white pt-28 md:pt-36 pb-14 md:pb-20 text-[#0A0A0C]" data-od-id="privacy-hero">
         <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <div className="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[140%] h-[80%] rounded-full opacity-70 fx-hero-glow-1" />
@@ -57,9 +57,9 @@ export default async function PrivacyPolicyPage() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-primary">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#854D0E]">
               {t("badgeLegal")}
-              <span className="text-primary/40">·</span>
+              <span className="text-amber-400">·</span>
               {t("privacyBadge")}
             </span>
             <h1

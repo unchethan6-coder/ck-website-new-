@@ -100,36 +100,36 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
         {/* Featured slideshow panel — visible on sm+ (hidden on mobile) */}
         <SectionReveal delay={0.08} className="mt-8 sm:mt-10 hidden sm:block">
           <div
-            className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[20px] border border-gray-200 bg-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.12)]"
+            className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[20px] border border-gray-800 bg-[#0A0A0C] shadow-lg"
             data-od-id="blog-featured"
           >
-            {/* Fixed heights to match reference (not tall aspect) */}
+            {/* Fixed heights to match reference */}
             <div className="relative h-[360px] sm:h-[420px] lg:h-[480px]">
               <Image
                 key={active.key}
                 src={cover}
                 alt={activeArticle?.title ?? t(active.labelKey)}
                 fill
-                className="object-cover"
+                className="object-cover opacity-60"
                 sizes="(max-width: 1100px) 100vw, 1100px"
                 priority={false}
               />
-              {/* Subtle overlay — photo stays crisp, text gets contrast via scrim */}
-              <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+              {/* High contrast overlay — photo stays textured, text gets crystal clear readability */}
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
 
               {/* Centered content — white on photo via contrast scrim */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/85 sm:text-xs">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 sm:text-xs">
                   {t(active.labelKey)}
                 </p>
-                <h3 className="max-w-3xl text-balance font-[family-name:var(--font-inter-tight)] text-[22px] font-bold leading-[1.15] text-white sm:text-[28px] md:text-[30px] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
+                <h3 className="max-w-3xl text-balance font-[family-name:var(--font-inter-tight)] text-[22px] font-bold leading-[1.15] text-white sm:text-[28px] md:text-[30px] [text-shadow:0_2px_8px_rgba(0,0,0,0.8)]">
                   {activeArticle ? activeArticle.title : t("comingSoon")}
                 </h3>
                 {activeArticle ? (
                   <Link
                     href={`/blog/${activeArticle.slug}`}
-                    className="mt-2 inline-flex min-h-[38px] items-center justify-center rounded-full border border-white/70 bg-white/10 px-5 text-[13px] font-semibold text-white backdrop-blur-[6px] transition-colors hover:border-white hover:bg-white hover:text-[#0A0A0C]"
+                    className="mt-2 inline-flex min-h-[38px] items-center justify-center rounded-full border border-white/80 bg-white/15 px-5 text-[13px] font-semibold text-white backdrop-blur-[6px] transition-colors hover:border-white hover:bg-white hover:text-[#0A0A0C]"
                     data-od-id="blog-featured-cta"
                   >
                     {t("readLatest")}
@@ -137,7 +137,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                 ) : (
                   <Link
                     href="/blog"
-                    className="mt-2 inline-flex min-h-[38px] items-center justify-center rounded-full border border-white/70 bg-white/10 px-5 text-[13px] font-semibold text-white backdrop-blur-[6px] transition-colors hover:border-white hover:bg-white hover:text-[#0A0A0C]"
+                    className="mt-2 inline-flex min-h-[38px] items-center justify-center rounded-full border border-white/80 bg-white/15 px-5 text-[13px] font-semibold text-white backdrop-blur-[6px] transition-colors hover:border-white hover:bg-white hover:text-[#0A0A0C]"
                     data-od-id="blog-featured-cta"
                   >
                     {t("visitBlog")}
@@ -162,7 +162,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                 aria-pressed={isActive}
                 data-od-id={`blog-cat-${cat.key}`}
                 className={cn(
-                  "group relative w-full overflow-hidden rounded-2xl border bg-white text-left shadow-[0_12px_28px_-16px_rgba(15,23,42,0.12)] transition-all",
+                  "group relative w-full overflow-hidden rounded-2xl border bg-[#0A0A0C] text-white text-left shadow-[0_12px_28px_-16px_rgba(15,23,42,0.12)] transition-all",
                   i === 0
                     ? "col-span-2 h-[230px] sm:h-[164px] sm:col-span-1"
                     : "col-span-1 h-[190px] sm:h-[164px]",

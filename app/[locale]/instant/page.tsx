@@ -8,6 +8,7 @@ import { GoldButton } from '@/components/shared/GoldButton'
 import { Aurora } from '@/components/fx/Aurora'
 import { SectionReveal } from '@/components/shared/SectionReveal'
 import { InstantFundingVisual } from '@/components/shared/InstantFundingVisual'
+import { InstantVsChallengeComparison } from '@/components/sections/InstantVsChallengeComparison'
 import {
   Accordion,
   AccordionContent,
@@ -22,27 +23,19 @@ export default function InstantPage() {
   const benefits = [
     { title: 'No Evaluation', description: 'Skip the multi-phase challenge. Access your simulated account in minutes.' },
     { title: 'Immediate Access', description: 'Start executing trading strategies right away with zero waiting periods.' },
-    { title: 'Flexible Funding', description: 'Choose account sizes from $5K up to $50K with instant account setup.' },
+    { title: 'Flexible Funding', description: 'Choose account sizes from $5K up to $200K with instant account setup.' },
     { title: 'Generous Rules', description: 'Balanced profit parameters and realistic loss limits designed for long-term consistency.' },
     { title: 'Lower Consistency', description: 'Only 20% consistency requirement to build your simulated track record quickly.' },
     { title: 'Up to 100% Profit Split', description: 'Eligible Qualified Analysts keep up to 100% of eligible simulated profits.' },
   ]
 
   const pricing = [
-    { amount: '$5K', price: '$20' },
-    { amount: '$10K', price: '$40' },
-    { amount: '$25K', price: '$100' },
-    { amount: '$50K', price: '$200' },
-    { amount: '$100K', price: 'Custom' },
-  ]
-
-  const comparison = [
-    { feature: 'Evaluation Required', instant: 'No Phase 1/2', challenge: '1 or 2 Steps' },
-    { feature: 'Time to Trade', instant: 'Immediate', challenge: 'After Evaluation' },
-    { feature: 'Max Daily Loss', instant: '3%', challenge: '4%' },
-    { feature: 'Max Overall Loss', instant: '5%', challenge: '8%' },
-    { feature: 'Consistency', instant: '20%', challenge: 'Rule-based' },
-    { feature: 'Simulated Profit Share', instant: 'Up to 100%', challenge: 'Up to 100%' },
+    { amount: '$5K', price: '$48', orig: '$160', urlCode: '29' },
+    { amount: '$10K', price: '$78', orig: '$260', urlCode: '30' },
+    { amount: '$25K', price: '$139', orig: '$463', urlCode: '31' },
+    { amount: '$50K', price: '$274.50', orig: '$915', urlCode: '32' },
+    { amount: '$100K', price: '$549', orig: '$1,830', urlCode: '33' },
+    { amount: '$200K', price: '$1,098', orig: '$3,660', urlCode: '34' },
   ]
 
   const instantFaqs = [
@@ -86,8 +79,8 @@ export default function InstantPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                  <Sparkles size={12} /> {t('badge')}
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+                  <Sparkles size={12} className="text-[#854D0E]" /> {t('badge')}
                 </span>
               </motion.div>
 
@@ -105,7 +98,7 @@ export default function InstantPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.24 }}
-                className="mt-5 max-w-xl text-[14px] leading-relaxed text-gray-500 sm:text-[15px]"
+                className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]"
               >
                 {t('subtitle')}
               </motion.p>
@@ -123,14 +116,14 @@ export default function InstantPage() {
                 </a>
                 <a
                   href="#instant-comparison"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-500 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors"
                 >
                   {t('comparisonTitle')} <ArrowRight size={15} />
                 </a>
               </motion.div>
 
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
-                <span className="inline-flex items-center gap-2"><Zap size={14} className="text-primary" /> Instant Activation</span>
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+                <span className="inline-flex items-center gap-2"><Zap size={14} className="text-[#854D0E]" /> Instant Activation</span>
                 <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Direct Simulated Funding</span>
               </div>
             </div>
@@ -148,11 +141,11 @@ export default function InstantPage() {
         </div>
       </section>
 
-      {/* ─────────────── Benefits Grid (LIGHT) ─────────────── */}
+      {/* ─────────────── Benefits Grid ─────────────── */}
       <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-benefits">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               PROGRAM ADVANTAGES
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -164,9 +157,9 @@ export default function InstantPage() {
             {benefits.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                className="flex flex-col items-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:border-gray-300"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                   <Zap size={20} />
                 </div>
                 <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C] mb-2">{item.title}</h3>
@@ -177,11 +170,11 @@ export default function InstantPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Instant Pricing (DARK) ─────────────── */}
+      {/* ─────────────── Instant Pricing ─────────────── */}
       <section id="instant-pricing" className="scroll-mt-24 bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-pricing">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               ACCOUNT TIERS
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -189,25 +182,28 @@ export default function InstantPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {pricing.map((item, idx) => (
               <div
                 key={idx}
-                className={`flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 text-center shadow-lg hover:border-primary/40 transition-all hover:-translate-y-1 ${
-                  idx === 4 ? "col-span-2 md:col-span-1" : ""
-                }`}
+                className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 text-center shadow-sm hover:border-[#E0B341] hover:shadow-md transition-all hover:-translate-y-1"
               >
                 <div>
-                  <p className="font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold text-primary mb-1.5 sm:mb-2">{item.amount}</p>
-                  <p className="text-gray-500 text-xs sm:text-sm mb-5 sm:mb-6">From {item.price}</p>
+                  <p className="font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] mb-1">
+                    {item.amount}
+                  </p>
+                  <div className="flex items-baseline justify-center gap-1.5 mb-4">
+                    <span className="text-sm sm:text-base font-extrabold text-[#0A0A0C]">{item.price}</span>
+                    <span className="text-xs text-gray-400 line-through font-normal">{item.orig}</span>
+                  </div>
                 </div>
                 <a
-                  href="https://app.ckcapital.co.uk/signup"
+                  href={`https://app.ckcapital.co.uk/signup?plan=instant&size=${item.amount.replace('$', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-primary/40 bg-primary/10 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:bg-primary/20 transition-colors"
+                  className="inline-flex items-center justify-center gap-1 rounded-lg border border-gray-300 bg-white py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0A0A0C] hover:bg-[#FDF8EE] hover:border-[#E0B341] transition-colors"
                 >
-                  {t('getStarted')} <ArrowRight size={13} />
+                  {t('getStarted')} <ArrowRight size={12} />
                 </a>
               </div>
             ))}
@@ -215,46 +211,14 @@ export default function InstantPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Comparison Table (LIGHT) ─────────────── */}
-      <section id="instant-comparison" className="scroll-mt-24 bg-white border-y border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-comparison">
-        <Container>
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
-              HEAD-TO-HEAD
-            </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
-              {t('comparisonTitle')}
-            </h2>
-          </div>
+      {/* ─────────────── Comparison Table ─────────────── */}
+      <InstantVsChallengeComparison />
 
-          <div className="mx-auto max-w-4xl overflow-x-auto rounded-2xl border border-[#E5E7EB] bg-white shadow-sm scrollbar-thin">
-            <table className="w-full text-sm min-w-[500px]">
-              <thead>
-                <tr className="border-b border-[#E5E7EB] bg-white text-[11px] font-bold uppercase tracking-[0.16em]">
-                  <th className="text-left py-4 px-5 sm:px-6 text-[#6B7280] font-semibold">{t('feature')}</th>
-                  <th className="text-center py-4 px-5 sm:px-6 text-[#D4AF37] font-bold">{t('instantCol')}</th>
-                  <th className="text-center py-4 px-5 sm:px-6 text-[#0A0A0C] font-semibold">{t('challengeCol')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.map((row, idx) => (
-                  <tr key={idx} className="border-b border-[#E5E7EB] last:border-0 hover:bg-white/50 transition-colors">
-                    <td className="py-4 px-5 sm:px-6 font-semibold text-[#0A0A0C]">{row.feature}</td>
-                    <td className="py-4 px-5 sm:px-6 text-center text-[#D4AF37] font-bold">{row.instant}</td>
-                    <td className="py-4 px-5 sm:px-6 text-center text-[#4B5563]">{row.challenge}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─────────────── FAQ (DARK) ─────────────── */}
+      {/* ─────────────── FAQ ─────────────── */}
       <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-faq">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
               QUESTIONS & ANSWERS
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -268,12 +232,12 @@ export default function InstantPage() {
                 <AccordionItem
                   key={idx}
                   value={String(idx)}
-                  className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-primary/40"
+                  className="rounded-2xl border border-gray-200 bg-white px-6 transition-all hover:border-gray-300"
                 >
-                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-primary hover:no-underline">
+                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-[#854D0E] hover:no-underline">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm leading-relaxed text-gray-500">
+                  <AccordionContent className="pb-4 text-sm leading-relaxed text-[#4B5563]">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -283,11 +247,11 @@ export default function InstantPage() {
         </Container>
       </section>
 
-      {/* ─────────────── Final CTA (LIGHT) ─────────────── */}
-      <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#111827]" data-od-id="instant-closing-cta">
+      {/* ─────────────── Final CTA ─────────────── */}
+      <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="instant-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <Zap className="mx-auto text-[#D4AF37]" size={32} />
+            <Zap className="mx-auto text-[#854D0E]" size={32} />
             <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">
               Ready for Instant Simulated Funding?
             </h2>

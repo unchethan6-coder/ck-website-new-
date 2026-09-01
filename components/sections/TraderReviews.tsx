@@ -33,10 +33,10 @@ const SOURCE_STYLE: Record<
 > = {
   trustpilot: {
     card: "border-gray-200/90 bg-white shadow-md",
-    tint: "text-[#00B67A]",
-    chip: "text-[#00B67A]",
-    avatar: "border-[#00B67A]/40",
-    avatarBg: "bg-[#00B67A]/10 text-[#00B67A]",
+    tint: "text-[#047857]",
+    chip: "text-[#047857]",
+    avatar: "border-emerald-200",
+    avatarBg: "bg-emerald-50 text-[#047857]",
     cta: "View on Trustpilot",
   },
   x: {
@@ -49,10 +49,10 @@ const SOURCE_STYLE: Record<
   },
   reddit: {
     card: "border-gray-200/90 bg-white shadow-md",
-    tint: "text-[#D99B00]",
-    chip: "text-[#D99B00]",
-    avatar: "border-[#FFC107]/50",
-    avatarBg: "bg-[#FFF3CD] text-[#0A0A0C]",
+    tint: "text-[#854D0E]",
+    chip: "text-[#854D0E]",
+    avatar: "border-amber-200",
+    avatarBg: "bg-amber-50 text-[#854D0E]",
     cta: "View on Reddit",
   },
 };
@@ -141,7 +141,7 @@ export function TraderReviews({
     <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="trader-reviews">
       <Container>
         <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-[#D99B00]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
             {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
@@ -180,7 +180,7 @@ export function TraderReviews({
             ))}
           </div>
           <div className="mt-2 flex items-center justify-center gap-1.5">
-            <span className="text-[11px] font-bold text-[#D99B00] uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-[#6B7280] uppercase tracking-wider">
               ← Swipe to explore reviews →
             </span>
           </div>

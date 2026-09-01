@@ -61,16 +61,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
                   <BarChart2 size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Up to 100%
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
                     Profit Split
                   </span>
                 </div>
@@ -80,16 +80,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
                   <Coins size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Up to $1.2M
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
                     Funding Accounts
                   </span>
                 </div>
@@ -99,16 +99,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200/90 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08),0_0_16px_rgba(255,193,7,0.14)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#FFF3CD] text-[#D99B00] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
                   <Zap size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
                     Flexible
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-gray-500">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
                     Payouts
                   </span>
                 </div>

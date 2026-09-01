@@ -12,7 +12,7 @@ export async function generateMetadata({
   const resolved = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
   return pageSeo({
     title: "Instant Funding Accounts",
-    description: "Start trading simulated funded accounts immediately without an evaluation process. Account sizes from $5K to $50K with up to 100% profit splits.",
+    description: "Start trading simulated funded accounts immediately without an evaluation process. Account sizes from $5K to $200K with up to 100% profit splits.",
     path: "/instant",
     locale: resolved,
   });

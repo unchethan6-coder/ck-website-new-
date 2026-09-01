@@ -763,14 +763,30 @@
   "instant": {
     "badge": "NEWLY LAUNCHED",
     "title": "No Challenge. Start Instantly.",
-    "subtitle": "Skip the evaluation process and get funded immediately. Start trading right away with accounts from $5K to $50K.",
+    "subtitle": "Skip the evaluation process and get funded immediately. Start trading right away with accounts from $5K to $200K.",
     "whyTitle": "Why Choose Instant Funding?",
     "pricesTitle": "Instant Funding Prices",
     "comparisonTitle": "Instant vs Challenge",
     "feature": "Feature",
     "instantCol": "Instant Funding",
     "challengeCol": "1-Step Challenge",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "headToHead": {
+      "eyebrow": "HEAD-TO-HEAD BREAKDOWN",
+      "title": "Instant vs Challenge",
+      "subtitle": "Compare simulated capital pathways side-by-side to choose the exact risk model and setup speed that fits your strategy.",
+      "viewAll": "Side-by-Side Matrix",
+      "viewInstant": "Instant Funding",
+      "viewChallenge": "Evaluation Challenge",
+      "instantBadge": "ZERO EVALUATION",
+      "instantTagline": "Immediate access without evaluation phases",
+      "instantIdealFor": "Experienced traders seeking instant simulated allocation and immediate bi-weekly rewards without passing multi-stage profit targets.",
+      "challengeBadge": "MAX SCALE POTENTIAL",
+      "challengeTagline": "Multi-phase evaluation for maximum capital",
+      "challengeIdealFor": "Disciplined traders who want larger simulated balances up to $1.2M and higher drawdown room at lower entry fees.",
+      "instantCta": "Get Instant Account",
+      "challengeCta": "Explore Challenges"
+    }
   },
   "legal": {
     "badgeLegal": "Legal",
