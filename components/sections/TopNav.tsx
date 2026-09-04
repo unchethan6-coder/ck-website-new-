@@ -303,7 +303,7 @@ export function TopNav() {
             open
               ? "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none"
               : scrolled
-              ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B]/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
+              ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B] shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
               : "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
           )}
         >
@@ -375,7 +375,7 @@ export function TopNav() {
                     style={programsCaretLeft !== null ? { left: `${programsCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#030C1B]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030C1B] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Funding Models & Rules (Matching Company Format) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {programColumns.map((col, cIdx) => (
@@ -437,7 +437,7 @@ export function TopNav() {
                         </div>
 
                         {/* Text Details */}
-                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9.5px] font-extrabold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm mb-1.5">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9.5px] font-extrabold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 mb-1.5">
                           {t("featuredEvalBadge" as any)}
                         </span>
                         <div className="font-bold text-white text-[14.5px] leading-tight mt-0.5">
@@ -529,7 +529,7 @@ export function TopNav() {
                     style={companyCaretLeft !== null ? { left: `${companyCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#030C1B]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030C1B] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Company & Connect (Spacious Grid) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {companyColumns.map((col, cIdx) => (
@@ -609,7 +609,7 @@ export function TopNav() {
                         </div>
 
                         {/* Text Details */}
-                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9.5px] font-extrabold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm mb-1.5">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9.5px] font-extrabold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 mb-1.5">
                           {t("featuredCommunityBadge" as any)}
                         </span>
                         <div className="font-bold text-white text-[14.5px] leading-tight mt-0.5">
