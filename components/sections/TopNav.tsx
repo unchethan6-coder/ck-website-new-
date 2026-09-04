@@ -284,35 +284,27 @@ export function TopNav() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full pointer-events-none"
+        className={cn(
+          "sticky top-0 z-50 w-full transition-all duration-300 ease-out",
+          open
+            ? "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
+            : scrolled
+            ? "bg-transparent border-transparent pt-2.5 sm:pt-3.5 px-3 sm:px-6 lg:px-8 pointer-events-none"
+            : "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
+        )}
         data-od-id="top-nav"
       >
-        {/* Layer A: Full-width Edge-to-Edge Static Top Bar */}
-        <div
-          className={cn(
-            "absolute inset-x-0 top-0 h-16 bg-[#030C1B] border-b border-white/[0.08] transition-opacity duration-200 ease-out pointer-events-auto",
-            scrolled && !open ? "opacity-0 pointer-events-none" : "opacity-100"
-          )}
-        />
-
-        {/* Inner Centered Container */}
-        <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-          {/* Layer B: Floating Pill Capsule Background Shell (100% GPU Compositor) */}
-          <div
-            className={cn(
-              "pointer-events-none absolute inset-x-3 sm:inset-x-6 lg:inset-x-8 top-1.5 h-[52px] rounded-full border border-white/[0.14] bg-[#030C1B]/90 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(0,0,0,0.85),inset_0_1px_1px_0_rgba(255,255,255,0.15),0_0_24px_-2px_rgba(1,162,239,0.08)] transition-all duration-200 ease-out transform-gpu",
-              scrolled && !open
-                ? "opacity-100 translate-y-0 scale-100"
-                : "opacity-0 -translate-y-2 scale-[0.98]"
-            )}
-          />
-
-          {/* Interactive Nav Bar */}
+        <div className="relative mx-auto max-w-7xl">
+          {/* Interactive Nav Bar: Smoothly transitions between edge-to-edge top bar and floating pill capsule */}
           <nav
             ref={navRef}
             className={cn(
-              "pointer-events-auto relative flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full px-2 sm:px-4 lg:px-5",
-              scrolled && !open ? "backdrop-blur-xl" : ""
+              "relative flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 transition-all duration-300 ease-out",
+              open
+                ? "h-16 w-full px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
+                : scrolled
+                ? "pointer-events-auto h-14 sm:h-[58px] w-full px-3 sm:px-5 lg:px-6 rounded-full border border-white/[0.14] bg-[#030C1B]/90 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(0,0,0,0.85),inset_0_1px_1px_0_rgba(255,255,255,0.15),0_0_24px_-2px_rgba(1,162,239,0.08)]"
+                : "h-16 w-full px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
             )}
           >
             <Link
