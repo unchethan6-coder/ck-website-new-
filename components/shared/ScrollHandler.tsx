@@ -39,6 +39,17 @@ export function ScrollHandler() {
     } else {
       // No specific ID -> always scroll to 0
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      const raf = requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      });
+      const timeout = setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }, 50);
+
+      return () => {
+        cancelAnimationFrame(raf);
+        clearTimeout(timeout);
+      };
     }
   }, [pathname]);
 

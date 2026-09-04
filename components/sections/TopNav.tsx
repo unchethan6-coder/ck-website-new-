@@ -277,6 +277,8 @@ export function TopNav() {
         if (window.location.hash) {
           window.history.replaceState(null, "", window.location.pathname);
         }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       }
     }
   };
@@ -289,24 +291,23 @@ export function TopNav() {
           open
             ? "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
             : scrolled
-            ? "bg-transparent border-transparent pt-2.5 sm:pt-3.5 px-3 sm:px-6 lg:px-8 pointer-events-none"
+            ? "bg-transparent border-transparent pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
             : "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
         )}
         data-od-id="top-nav"
       >
-        <div className="relative mx-auto max-w-7xl">
-          {/* Interactive Nav Bar: Smoothly transitions between edge-to-edge top bar and floating pill capsule */}
-          <nav
-            ref={navRef}
-            className={cn(
-              "relative flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 transition-all duration-300 ease-out",
-              open
-                ? "h-16 w-full px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
-                : scrolled
-                ? "pointer-events-auto h-14 sm:h-[58px] w-full px-3 sm:px-5 lg:px-6 rounded-full border border-white/[0.14] bg-[#030C1B]/90 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(0,0,0,0.85),inset_0_1px_1px_0_rgba(255,255,255,0.15),0_0_24px_-2px_rgba(1,162,239,0.08)]"
-                : "h-16 w-full px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
-            )}
-          >
+        <nav
+          ref={navRef}
+          className={cn(
+            "relative mx-auto max-w-7xl transition-all duration-300 ease-out",
+            open
+              ? "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none"
+              : scrolled
+              ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B]/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
+              : "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
+          )}
+        >
+          <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
             <Link
               href="/"
               onClick={(e) => handleNavClick(e, "/")}
@@ -724,6 +725,7 @@ export function TopNav() {
                 {open ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
+          </div>
 
           {/* Mobile / Tablet Drawer (Floating Overlay - never pushes down page contents) */}
           {open && (
@@ -958,7 +960,6 @@ export function TopNav() {
           </>
         )}
         </nav>
-        </div>
       </header>
       <GlobalSearchDialog isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
