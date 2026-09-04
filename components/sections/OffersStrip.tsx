@@ -76,7 +76,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
               <a
                 href="#start-challenge"
                 data-od-id="offers-cta"
-                className="btn-gold-standard group shrink-0 self-stretch sm:self-start md:self-center inline-flex items-center justify-center gap-2 rounded-xl text-[13px] tracking-[0.12em] uppercase px-6 py-3 w-full sm:w-auto text-center"
+                className="btn-brand-standard group shrink-0 self-stretch sm:self-start md:self-center inline-flex items-center justify-center gap-2 rounded-xl text-[13px] tracking-[0.12em] uppercase px-6 py-3 w-full sm:w-auto text-center"
               >
                 {promo?.ctaLabel ?? t("useCode", { code })}
                 <ArrowRight

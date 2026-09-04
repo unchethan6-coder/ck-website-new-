@@ -14,8 +14,8 @@ export function CustomerSupportSection() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <SectionReveal className="flex flex-col">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#854D0E]">
-              <span className="h-2 w-2 rounded-full bg-[#854D0E]" />
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+              <span className="h-2 w-2 rounded-full bg-[#2563EB]" />
               {t("available247")}
             </div>
             <h2
@@ -75,7 +75,7 @@ export function CustomerSupportSection() {
 
             <a
               href="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0A0A0C] transition-colors hover:text-[#854D0E] underline"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0A0A0C] transition-colors hover:text-[#2563EB] underline"
               data-od-id="customer-support-contacts"
             >
               {t("showAll")} <ArrowUpRight size={15} />

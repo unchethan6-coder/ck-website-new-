@@ -165,7 +165,7 @@ export function ChallengeComparison({
                   onClick={() => setIsCurrencyOpen((open) => !open)}
                   aria-expanded={isCurrencyOpen}
                   aria-haspopup="listbox"
-                  className="flex items-center gap-2 rounded-full border border-[#D9D9D9] bg-white px-4 py-2 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-[#E0B341]"
+                  className="flex items-center gap-2 rounded-full border border-[#D9D9D9] bg-white px-4 py-2 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-[#367CDB]"
                 >
                   <span aria-hidden="true" className="text-base leading-none">{currency.flag}</span>
                   <span>{currency.code}</span>
@@ -195,14 +195,14 @@ export function ChallengeComparison({
                         }}
                         className={cn(
                           "flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-[#F5F5F5]",
-                          selectedCurrency === item.code ? "bg-[#FFF9E8] text-[#B98916]" : ""
+                          selectedCurrency === item.code ? "bg-[#EBF5FF] text-[#367CDB]" : ""
                         )}
                       >
                         <span aria-hidden="true">{item.flag}</span>
                         <span>{item.code}</span>
                         <span className="text-xs text-gray-400 font-normal">({item.symbol})</span>
                         {selectedCurrency === item.code && (
-                          <Check className="ml-auto h-4 w-4 text-[#B98916]" />
+                          <Check className="ml-auto h-4 w-4 text-[#367CDB]" />
                         )}
                       </button>
                     ))}
@@ -231,7 +231,7 @@ export function ChallengeComparison({
                     className={cn(
                       "rounded-xl p-4 cursor-pointer transition-all duration-200 border text-left",
                       isSelected
-                        ? "border-[#E0B341] bg-[#FFF9E8] shadow-[0_0_16px_rgba(224,179,65,0.25)] ring-1 ring-[#E0B341]"
+                        ? "border-[#367CDB] bg-[#EBF5FF]/60 shadow-[0_0_16px_rgba(54,124,219,0.2)] ring-1 ring-[#367CDB]"
                         : "border-[#D9D9D9] bg-white hover:bg-[#F9FAFB] hover:border-gray-300"
                     )}
                   >
@@ -274,12 +274,12 @@ export function ChallengeComparison({
                         ? "opacity-30 cursor-not-allowed pointer-events-none border-[#D9D9D9]"
                         : "cursor-pointer hover:bg-[#F9FAFB]",
                       isSelected
-                        ? "gold-card-highlight ring-1 ring-[#E0B341] shadow-sm"
+                        ? "border-[#367CDB] bg-[#EBF5FF]/50 ring-2 ring-[#01A2EF] shadow-md"
                         : "border-[#D9D9D9]"
                     )}
                   >
                     {size === "100K" && (
-                      <span className="absolute -top-2 right-2 bg-[#059669] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                      <span className="absolute -top-2 right-2 bg-[#01A2EF] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
                         {t("popular") || "Popular"}
                       </span>
                     )}
@@ -313,7 +313,7 @@ export function ChallengeComparison({
               >
                 <div className="flex items-center justify-between pb-3.5 border-b border-[#D9D9D9]">
                   <div className="flex items-center gap-2.5 text-xs font-semibold text-[#0A0A0C]">
-                    <Percent className="w-4 h-4 text-[#E0B341]" />
+                    <Percent className="w-4 h-4 text-[#367CDB]" />
                     <span>{t("showPercentage") || "Show Percentage"}</span>
                     <label className="relative inline-block w-9 h-5 cursor-pointer ml-1">
                       <input
@@ -322,7 +322,7 @@ export function ChallengeComparison({
                         onChange={(e) => setIsPercentage(e.target.checked)}
                         className="sr-only peer"
                       />
-                      <span className="absolute inset-0 bg-[#E5E5E5] peer-checked:bg-[#E0B341] rounded-full transition-all duration-300"></span>
+                      <span className="absolute inset-0 bg-[#E5E5E5] peer-checked:bg-[#367CDB] rounded-full transition-all duration-300"></span>
                       <span className="absolute bottom-[3px] left-[3px] bg-white w-3.5 h-3.5 rounded-full transition-transform duration-300 peer-checked:translate-x-4 shadow-sm"></span>
                     </label>
                   </div>
@@ -442,7 +442,7 @@ export function ChallengeComparison({
                     rel="noopener noreferrer"
                     className="block w-full"
                   >
-                    <button type="button" className="gold-pill-btn w-full gap-2 font-bold">
+                    <button type="button" className="brand-pill-btn w-full gap-2 font-bold text-white shadow-lg hover:shadow-cyan-500/25">
                       <span>{t("startChallenge") || "Start Challenge"}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
@@ -496,7 +496,7 @@ export function ChallengeComparison({
                   key={c}
                   className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3.5 py-1.5 text-[12px] font-bold text-gray-700 shadow-sm"
                 >
-                  <Check size={13} strokeWidth={3} className="shrink-0 text-[#D49F3E]" />
+                  <Check size={13} strokeWidth={3} className="shrink-0 text-[#01A2EF]" />
                   {c}
                 </span>
               ))}

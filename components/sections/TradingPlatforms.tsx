@@ -37,7 +37,7 @@ export function TradingPlatforms() {
     >
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
-          <p className="text-xs text-[#854D0E] uppercase tracking-widest font-bold mb-3">
+          <p className="text-xs text-[#2563EB] uppercase tracking-widest font-bold mb-3">
             {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">

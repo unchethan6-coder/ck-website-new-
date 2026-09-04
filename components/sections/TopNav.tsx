@@ -235,18 +235,26 @@ export function TopNav() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    setActiveMegaMenu(null);
+    // Close menus smoothly so click events register cleanly
     setOpen(false);
     setMobileExpanded(null);
+    setActiveMegaMenu(null);
+
+    if (!href || href.startsWith("http") || href.startsWith("mailto:")) {
+      return;
+    }
+
     if (href.includes("#")) {
       const [targetPath, hash] = href.split("#");
-      const isTargetPage =
-        pathname === targetPath ||
-        (targetPath === "/trading-objectives" &&
-          pathname.includes("/trading-objectives")) ||
-        (targetPath === "" && (pathname === "/" || pathname === ""));
+      const normTarget = targetPath === "" ? "/" : targetPath;
+      const normCurrent = pathname === "" ? "/" : pathname;
 
-      if (isTargetPage) {
+      const isTargetPage =
+        normCurrent === normTarget ||
+        (normTarget === "/trading-objectives" &&
+          normCurrent.startsWith("/trading-objectives"));
+
+      if (isTargetPage && hash) {
         e.preventDefault();
         const el = document.getElementById(hash);
         if (el) {
@@ -258,50 +266,58 @@ export function TopNav() {
           );
         }
       }
-    } else if (
-      href === "/trading-objectives" &&
-      pathname.includes("/trading-objectives")
-    ) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // No specific target ID -> ALWAYS SCROLL TO 0
+      const normTarget = href === "" ? "/" : href;
+      const normCurrent = pathname === "" ? "/" : pathname;
+
+      if (normCurrent === normTarget) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        if (window.location.hash) {
+          window.history.replaceState(null, "", window.location.pathname);
+        }
+      }
     }
   };
 
   return (
     <>
       <header
-        className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300 ease-out",
-          open
-            ? "bg-[#070709] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
-            : scrolled
-            ? "bg-transparent border-transparent pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
-            : "bg-[#070709] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
-        )}
+        className="sticky top-0 z-50 w-full pointer-events-none"
         data-od-id="top-nav"
       >
-        <nav
-          ref={navRef}
+        {/* Layer A: Full-width Edge-to-Edge Static Top Bar */}
+        <div
           className={cn(
-            "relative mx-auto max-w-7xl transition-all duration-300 ease-out",
-            open
-              ? "px-4 sm:px-6 lg:px-8 bg-[#070709] rounded-none border-transparent shadow-none"
-              : scrolled
-              ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.12] bg-[#070709]/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
-              : "px-4 sm:px-6 lg:px-8 bg-[#070709] rounded-none border-transparent shadow-none pointer-events-auto"
+            "absolute inset-x-0 top-0 h-16 bg-[#030C1B] border-b border-white/[0.08] transition-opacity duration-200 ease-out pointer-events-auto",
+            scrolled && !open ? "opacity-0 pointer-events-none" : "opacity-100"
           )}
-        >
-          <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
+        />
+
+        {/* Inner Centered Container */}
+        <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          {/* Layer B: Floating Pill Capsule Background Shell (100% GPU Compositor) */}
+          <div
+            className={cn(
+              "pointer-events-none absolute inset-x-3 sm:inset-x-6 lg:inset-x-8 top-1.5 h-[52px] rounded-full border border-white/[0.14] bg-[#030C1B]/90 backdrop-blur-xl shadow-[0_20px_45px_-12px_rgba(0,0,0,0.85),inset_0_1px_1px_0_rgba(255,255,255,0.15),0_0_24px_-2px_rgba(1,162,239,0.08)] transition-all duration-200 ease-out transform-gpu",
+              scrolled && !open
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 -translate-y-2 scale-[0.98]"
+            )}
+          />
+
+          {/* Interactive Nav Bar */}
+          <nav
+            ref={navRef}
+            className={cn(
+              "pointer-events-auto relative flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full px-2 sm:px-4 lg:px-5",
+              scrolled && !open ? "backdrop-blur-xl" : ""
+            )}
+          >
             <Link
               href="/"
-              onClick={(e) => {
-                if (pathname === "/" || pathname === "" || pathname === "/en" || pathname === "/es" || pathname === "/pt") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  window.scrollTo({ top: 0, behavior: "instant" });
-                }
-              }}
+              onClick={(e) => handleNavClick(e, "/")}
               className="shrink-0 pr-1 lg:pr-2 whitespace-nowrap flex items-center gap-2 cursor-pointer"
               data-od-id="nav-logo"
             >
@@ -337,7 +353,7 @@ export function TopNav() {
                     "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors flex items-center gap-1",
                     isProgramsActive
                       ? "bg-primary/10 text-primary font-bold"
-                      : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
+                      : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
                   )}
                 >
                   <span>{t("tradingObjectives" as any)}</span>
@@ -345,7 +361,7 @@ export function TopNav() {
                     size={14}
                     className={cn(
                       "opacity-50 transition-transform duration-200",
-                      activeMegaMenu === "programs" ? "rotate-180 text-[#FFC107]" : ""
+                      activeMegaMenu === "programs" ? "rotate-180 text-[#01A2EF]" : ""
                     )}
                   />
                 </Link>
@@ -362,11 +378,11 @@ export function TopNav() {
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
-                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]"
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030C1B]"
                     style={programsCaretLeft !== null ? { left: `${programsCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#0D0C08]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030C1B]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Funding Models & Rules (Matching Company Format) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {programColumns.map((col, cIdx) => (
@@ -462,7 +478,7 @@ export function TopNav() {
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/payouts"
                     ? "bg-primary/10 text-primary font-bold"
-                    : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
+                    : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
                 )}
               >
                 {t("payouts" as any)}
@@ -491,7 +507,7 @@ export function TopNav() {
                     "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors flex items-center gap-1",
                     isCompanyActive
                       ? "bg-primary/10 text-primary font-bold"
-                      : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
+                      : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
                   )}
                 >
                   <span>{t("company" as any)}</span>
@@ -499,7 +515,7 @@ export function TopNav() {
                     size={14}
                     className={cn(
                       "opacity-50 transition-transform duration-200",
-                      activeMegaMenu === "company" ? "rotate-180 text-[#FFC107]" : ""
+                      activeMegaMenu === "company" ? "rotate-180 text-[#01A2EF]" : ""
                     )}
                   />
                 </button>
@@ -516,11 +532,11 @@ export function TopNav() {
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
-                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#0D0C08]"
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030C1B]"
                     style={companyCaretLeft !== null ? { left: `${companyCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#0D0C08]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030C1B]/98 backdrop-blur-2xl border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Company & Connect (Spacious Grid) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {companyColumns.map((col, cIdx) => (
@@ -638,7 +654,7 @@ export function TopNav() {
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/affiliates"
                     ? "bg-primary/10 text-primary font-bold"
-                    : "text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
+                    : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
                 )}
               >
                 {t("affiliates" as any)}
@@ -654,7 +670,7 @@ export function TopNav() {
                   setActiveMegaMenu(null);
                   setOpen(false);
                 }}
-                className="whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors text-white/75 hover:text-[#FFC107] hover:bg-white/[0.04]"
+                className="whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
               >
                 {t("faq" as any)}
               </a>
@@ -665,11 +681,11 @@ export function TopNav() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center justify-center gap-1.5 min-h-11 h-11 w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#FFC107]/40 hover:bg-white/[0.06] transition-all text-xs shrink-0"
+                className="flex items-center justify-center gap-1.5 h-10 min-h-10 w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#01A2EF]/40 hover:bg-white/[0.06] transition-colors text-xs shrink-0"
                 aria-label={tSearch("searchAria")}
                 data-od-id="nav-search-trigger"
               >
-                <Search size={14} className="text-[#FFC107] opacity-90 shrink-0" />
+                <Search size={14} className="text-[#01A2EF] opacity-90 shrink-0" />
                 <span className="hidden xl:inline text-[11.5px]">{tSearch("buttonLabel")}</span>
                 <kbd className="hidden 2xl:inline-flex items-center rounded border border-white/20 bg-white/[0.08] px-1.5 py-0.5 font-mono text-[9px] text-white/50">
                   ⌘K
@@ -680,14 +696,15 @@ export function TopNav() {
                 href="https://app.ckcapital.co.uk/signin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap inline-flex items-center min-h-11 px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
+                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-[#01A2EF]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
               >
                 {t("signIn" as any)}
               </a>
               <Link
                 href="/#start-challenge"
                 data-od-id="nav-cta"
-                className="whitespace-nowrap inline-flex items-center min-h-11 px-3 xl:px-4 rounded-lg gold-gradient-btn text-[11.5px] xl:text-[12.5px] font-bold text-black hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0"
+                onClick={(e) => handleNavClick(e, "/#start-challenge")}
+                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-3 xl:px-4 rounded-lg brand-gradient-btn text-[11.5px] xl:text-[12.5px] font-bold text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0"
               >
                 {t("startChallenge" as any)}
               </Link>
@@ -699,14 +716,14 @@ export function TopNav() {
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 data-od-id="mobile-search-trigger"
-                className="inline-flex min-h-10 min-w-10 h-10 w-10 sm:min-h-11 sm:min-w-11 sm:h-11 sm:w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
+                className="inline-flex items-center justify-center h-10 w-10 min-h-10 min-w-10 text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10 transition-colors"
                 aria-label={tSearch("searchAria")}
               >
                 <Search size={16} className="text-primary" />
               </button>
               <LanguageSwitcher compact />
               <button
-                className="inline-flex min-h-10 min-w-10 h-10 w-10 sm:min-h-11 sm:min-w-11 sm:h-11 sm:w-11 items-center justify-center text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10"
+                className="inline-flex items-center justify-center h-10 w-10 min-h-10 min-w-10 text-foreground/80 hover:text-foreground rounded-lg border border-foreground/10 shrink-0 active:bg-white/10 transition-colors"
                 onClick={() => setOpen(!open)}
                 aria-label={t("menu" as any)}
                 aria-expanded={open}
@@ -715,7 +732,6 @@ export function TopNav() {
                 {open ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
-          </div>
 
           {/* Mobile / Tablet Drawer (Floating Overlay - never pushes down page contents) */}
           {open && (
@@ -729,7 +745,7 @@ export function TopNav() {
 
               {/* Slide-down Drawer Panel */}
               <div
-                className="absolute top-full left-0 right-0 z-50 w-full overflow-y-auto overscroll-contain bg-[#070709] border-b border-white/[0.12] shadow-[0_30px_70px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-4rem)] px-4 sm:px-6 py-4 xl:hidden animate-in fade-in-0 slide-in-from-top-1 duration-200"
+                className="absolute top-full left-0 right-0 z-50 w-full overflow-y-auto overscroll-contain bg-[#030C1B] border-b border-white/[0.12] shadow-[0_30px_70px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-4rem)] px-4 sm:px-6 py-4 xl:hidden animate-in fade-in-0 slide-in-from-top-1 duration-200"
                 data-od-id="mobile-drawer"
               >
                 <div className="flex flex-col gap-1 pb-4">
@@ -821,7 +837,7 @@ export function TopNav() {
                 <Link
                   href="/payouts"
                   data-od-id="mobile-nav-payouts"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleNavClick(e, "/payouts")}
                   className={cn(
                     "flex items-center justify-between min-h-11 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
                     pathname === "/payouts"
@@ -880,7 +896,7 @@ export function TopNav() {
                             key={item.titleKey}
                             href={item.href}
                             data-od-id={`mobile-subitem-${itemKey}`}
-                            onClick={() => setOpen(false)}
+                            onClick={(e) => handleNavClick(e, item.href)}
                             className={cn(
                               "flex items-center justify-between py-2 px-3 text-sm rounded-lg transition-colors",
                               pathname === item.href
@@ -901,7 +917,7 @@ export function TopNav() {
                 <Link
                   href="/affiliates"
                   data-od-id="mobile-nav-affiliates"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleNavClick(e, "/affiliates")}
                   className={cn(
                     "flex items-center justify-between min-h-11 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
                     pathname === "/affiliates"
@@ -932,14 +948,15 @@ export function TopNav() {
                     href="https://app.ckcapital.co.uk/signin"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl border border-white/20 text-sm font-bold text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 transition-colors"
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl border border-white/20 text-sm font-bold text-white hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-[#01A2EF]/10 transition-colors"
                   >
                     {t("signIn" as any)}
                   </a>
                   <Link
                     href="/#start-challenge"
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl gold-gradient-btn text-sm font-bold text-black transition-all shadow-md"
+                    data-od-id="mobile-nav-cta"
+                    onClick={(e) => handleNavClick(e, "/#start-challenge")}
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl brand-gradient-btn text-sm font-bold text-white transition-all shadow-md"
                   >
                     {t("startChallenge" as any)}
                   </Link>
@@ -949,6 +966,7 @@ export function TopNav() {
           </>
         )}
         </nav>
+        </div>
       </header>
       <GlobalSearchDialog isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>

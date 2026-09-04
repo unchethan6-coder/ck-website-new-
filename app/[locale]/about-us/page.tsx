@@ -160,10 +160,10 @@ export default function AboutPage() {
                   variants={heroFadeDown}
                   initial="hidden"
                   animate="show"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.18em] text-[#854D0E]"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/10 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.18em] text-[#2563EB]"
                   data-od-id="about-hero-eyebrow"
                 >
-                  <Sparkles size={12} className="text-[#854D0E]" />
+                  <Sparkles size={12} className="text-[#2563EB]" />
                   {t('badge')}
                 </motion.div>
 
@@ -220,13 +220,12 @@ export default function AboutPage() {
                   initial="hidden"
                   animate="show"
                   custom={0.38}
-                  className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#6B7280]"
-                >
+                  className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                   <span className="inline-flex items-center gap-2">
-                    <ShieldCheck size={14} className="text-secondary" /> {t('badgeSimulated')}
+                    <ShieldCheck size={14} className="text-[#01A2EF]" /> {t('badgeSimulated')}
                   </span>
                   <span className="inline-flex items-center gap-2">
-                    <BadgeCheck size={14} className="text-[#854D0E]" /> {t('badgeVerifiedUk')}
+                    <BadgeCheck size={14} className="text-[#2563EB]" /> {t('badgeVerifiedUk')}
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Users size={14} className="text-[#6B7280]" /> {t('badgeGlobalTraders')}
@@ -244,29 +243,29 @@ export default function AboutPage() {
                 {/* Background ambient glow */}
                 <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
 
-                <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-[#0b0a07] bg-gradient-to-br from-[#1c160b]/95 via-[#0e0c07]/95 to-[#0b0a07] p-6 shadow-[0_0_50px_rgba(212,175,55,0.12)] backdrop-blur-xl sm:p-8">
-                  {/* Gold accent line */}
-                  <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+                <div className="relative overflow-hidden rounded-3xl border border-[#1E293B] bg-[#030C1B] bg-gradient-to-br from-[#061B33]/95 via-[#030C1B]/95 to-[#01060F] p-6 shadow-xl backdrop-blur-xl sm:p-8">
+                  {/* Cyan accent line */}
+                  <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#01A2EF] to-transparent" />
 
                   <div className="flex flex-col gap-6">
                     <div className="flex items-center gap-4 sm:gap-5">
                       <div className="relative">
-                        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-primary to-secondary opacity-60 blur-sm" />
+                        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[#367CDB] to-[#01A2EF] opacity-60 blur-sm" />
                         <img
                           src="/images/about/dan.jpg"
                           alt="Daniel Cheung — Founder of CK Capital"
-                          className="relative h-20 w-20 shrink-0 rounded-2xl border-2 border-primary/60 object-cover shadow-lg sm:h-24 sm:w-24"
+                          className="relative h-20 w-20 shrink-0 rounded-2xl border-2 border-[#367CDB]/60 object-cover shadow-lg sm:h-24 sm:w-24"
                           data-od-id="about-founder-photo"
                         />
                       </div>
                       <div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
-                          <Star size={10} className="fill-primary text-primary" /> {t('founderRoleBadge')}
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-[#01A2EF]/30 bg-[#01A2EF]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#01A2EF]">
+                          <Star size={10} className="fill-[#01A2EF] text-[#01A2EF]" /> {t('founderRoleBadge')}
                         </span>
                         <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-white sm:text-2xl">
                           Daniel Cheung
                         </h3>
-                        <p className="text-xs font-semibold text-primary/90">
+                        <p className="text-xs font-semibold text-[#01A2EF]">
                           {t('founderRole')}
                         </p>
                       </div>
@@ -274,7 +273,7 @@ export default function AboutPage() {
 
                     {/* Philosophy Quote */}
                     <div className="relative rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5">
-                      <Quote size={20} className="text-primary/60 mb-2" />
+                      <Quote size={20} className="text-[#01A2EF]/60 mb-2" />
                       <p className="text-sm leading-relaxed text-white/90 italic">
                         &ldquo;{t('founderQuote')}&rdquo;
                       </p>
@@ -333,7 +332,7 @@ export default function AboutPage() {
         <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-mission-vision">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
                 {t('missionVisionHeadingEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
@@ -352,16 +351,16 @@ export default function AboutPage() {
                 return (
                   <div
                     key={item.title}
-                    className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-[#0c0a06] bg-gradient-to-br from-[#181309] to-[#0c0a06] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_12px_40px_rgba(212,175,55,0.12)] sm:p-10"
+                    className="group relative overflow-hidden rounded-2xl border border-[#1E293B] bg-[#030C1B] bg-gradient-to-br from-[#061B33] to-[#030C1B] p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[#367CDB]/40 sm:p-10"
                     data-od-id={`about-${item.title.toLowerCase().replace(' ', '-')}`}
                   >
-                    <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-primary/[0.06] blur-2xl transition duration-500 group-hover:bg-primary/[0.12]" />
+                    <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#01A2EF]/10 blur-2xl transition duration-500 group-hover:bg-[#01A2EF]/20" />
 
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 transition-colors group-hover:bg-primary/20">
-                      <Icon size={24} className="text-primary" />
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#367CDB]/30 bg-[#367CDB]/10 transition-colors group-hover:bg-[#367CDB]/20">
+                      <Icon size={24} className="text-[#01A2EF]" />
                     </div>
 
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#01A2EF]">
                       {item.eyebrow}
                     </span>
                     <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-white">
@@ -381,7 +380,7 @@ export default function AboutPage() {
         <section className="bg-white border-y border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-pillars">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
                 {t('cultureEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
@@ -422,7 +421,7 @@ export default function AboutPage() {
         <section className="bg-white py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-values">
           <Container>
             <SectionReveal className="mx-auto max-w-2xl text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
                 {t('valuesEyebrow')}
               </p>
               <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
@@ -464,7 +463,7 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="about-cta">
           <Container className="relative text-center">
             <SectionReveal>
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#FFC107] bg-[#FFC107] text-[#0A0A0C] shadow-md">
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#367CDB] bg-[#367CDB] text-white shadow-md">
                 <BadgeCheck size={30} />
               </div>
               <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">

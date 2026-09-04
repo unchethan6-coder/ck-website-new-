@@ -11,6 +11,7 @@ import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { getActiveBanners } from "@/lib/cms";
 import { routing } from "@/i18n/routing";
 import { getLocaleMeta } from "@/i18n/locales";
+import { ScrollHandler } from "@/components/shared/ScrollHandler";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -160,6 +161,7 @@ export default async function LocaleLayout({
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <ScrollHandler />
           <TopNav />
           <AnnouncementBar banners={bannerTexts} />
           <main className="flex-1">{children}</main>

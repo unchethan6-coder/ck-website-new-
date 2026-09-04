@@ -36,7 +36,7 @@ export function ContactHeroVisual({
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
-              <Lock size={10} className="text-[#854D0E]" />
+              <Lock size={10} className="text-[#2563EB]" />
               <span>app.ckcapital.co.uk/support/live-desk</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function ContactHeroVisual({
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                   Global Support Node #CK-UK
                 </p>
-                <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
+                <span className="rounded bg-blue-50 px-1.5 py-0.5 text-[9px] font-bold text-[#2563EB] border border-blue-200">
                   24/7 DEDICATED
                 </span>
               </div>
@@ -70,10 +70,10 @@ export function ContactHeroVisual({
               </p>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2">
-              <Headphones size={15} className="text-[#854D0E] shrink-0" />
+            <div className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3.5 py-2">
+              <Headphones size={15} className="text-[#2563EB] shrink-0" />
               <div className="text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-[#854D0E]">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[#2563EB]">
                   Active Queue
                 </p>
                 <p className="text-sm font-extrabold text-[#0A0A0C]">
@@ -101,10 +101,10 @@ export function ContactHeroVisual({
                 href="https://discord.com/invite/hGSVx9CmS2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-amber-300 bg-amber-50/50 p-3.5 text-[#0A0A0C] text-left transition-colors hover:border-amber-400 hover:bg-amber-100/60 shadow-sm"
+                className="group flex items-center justify-between rounded-xl border border-blue-300 bg-blue-50/50 p-3.5 text-[#0A0A0C] text-left transition-colors hover:border-blue-400 hover:bg-blue-100/60 shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100 text-[#854D0E]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-[#2563EB]">
                     <MessageCircle size={18} />
                   </div>
                   <div>
@@ -115,7 +115,7 @@ export function ContactHeroVisual({
                     <p className="text-[10px] text-[#6B7280]">Direct trader community &amp; staff</p>
                   </div>
                 </div>
-                <span className="rounded bg-[#FFC107] px-2 py-0.5 text-[9px] font-bold text-[#0A0A0C] group-hover:bg-amber-400 transition-colors">
+                <span className="rounded bg-[#367CDB] px-2 py-0.5 text-[9px] font-bold text-white group-hover:bg-[#2563EB] transition-colors">
                   JOIN
                 </span>
               </a>
@@ -144,7 +144,7 @@ export function ContactHeroVisual({
                   <span className="h-2 w-2 rounded-full bg-emerald-600 animate-ping" />
                   <span className="font-semibold text-[#0A0A0C]">Support Lead Available</span>
                 </div>
-                <span className="text-[10px] font-mono text-[#854D0E] font-bold">London Desk (GMT)</span>
+                <span className="text-[10px] font-mono text-[#2563EB] font-bold">London Desk (GMT)</span>
               </div>
               <div className="mt-2.5 flex items-start gap-3">
                 <img
@@ -166,7 +166,7 @@ export function ContactHeroVisual({
             {/* Server Relay Latency Row */}
             <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 px-3.5 py-2.5 text-xs">
               <div className="flex items-center gap-2 text-[#6B7280]">
-                <Globe2 size={14} className="text-[#854D0E]" />
+                <Globe2 size={14} className="text-[#2563EB]" />
                 <span className="text-[11px]">Primary Routing: London (12ms) · NY (24ms)</span>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
@@ -185,7 +185,7 @@ export function ContactHeroVisual({
             </span>
             <span className="text-[#0A0A0C] font-bold">99.4% first-contact</span>
           </div>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
             ZERO BOT REPLIES
           </span>
         </div>
@@ -200,8 +200,8 @@ export function ContactHeroVisual({
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
           <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
-              <Zap size={20} className="fill-[#854D0E] text-[#854D0E]" />
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB] border border-blue-200">
+              <Zap size={20} className="fill-[#2563EB] text-[#2563EB]" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">

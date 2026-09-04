@@ -11,9 +11,17 @@ export function Hero() {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-white text-[#111827] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
+      className="relative isolate overflow-hidden bg-[#030C1B] text-[#F8FAFC] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
       data-od-id="hero"
     >
+      {/* Background Aurora & Dots Grid */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="fx-aurora-a absolute inset-0" />
+        <div className="fx-aurora-b absolute inset-0" />
+        <div className="fx-aurora-core absolute inset-0" />
+        <div className="fx-aurora-dots absolute inset-0 opacity-40" />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Copy & Actions */}
@@ -22,10 +30,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full mb-3 sm:mb-4"
+              className="inline-flex items-center gap-2 rounded-full mb-3 sm:mb-4 px-3 py-1 bg-white/[0.04] border border-white/10"
             >
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FFC107]" />
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#4B5563]">
+              <span className="h-2 w-2 rounded-full bg-[#01A2EF] shadow-[0_0_8px_#01A2EF]" />
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#94A3B8]">
                 {t("badge")}
               </span>
             </motion.div>
@@ -34,23 +42,23 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase leading-[1.08] tracking-tight text-[#0A0A0C]"
+              className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase leading-[1.08] tracking-tight text-white"
             >
               {t("headlineLine1")}
               <br />
-              <span className="text-[#0A0A0C]">{t("headlineLine2")}</span>
+              <span className="text-white">{t("headlineLine2")}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="mt-3.5 sm:mt-4 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563] max-w-lg"
+              className="mt-3.5 sm:mt-4 text-sm sm:text-base font-medium leading-relaxed text-[#94A3B8] max-w-lg"
             >
               {t("subcopy")}
             </motion.p>
 
-            {/* 3 Key Feature Chips (Pill Shaped with Standardized Hover Lift & Glow) */}
+            {/* 3 Key Feature Chips */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -61,16 +69,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
                   <BarChart2 size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Up to 100%
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
                     Profit Split
                   </span>
                 </div>
@@ -80,16 +88,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
                   <Coins size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Up to $1.2M
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
                     Funding Accounts
                   </span>
                 </div>
@@ -99,16 +107,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-50 text-[#854D0E] group-hover:bg-[#FFC107] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
                   <Zap size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-[#0A0A0C]">
+                  <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Flexible
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#6B7280]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
                     Payouts
                   </span>
                 </div>
@@ -124,7 +132,7 @@ export function Hero() {
             >
               <Link
                 href="/#start-challenge"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl gold-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-[#0A0A0C] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center shadow-lg hover:shadow-cyan-500/25"
               >
                 <span>{t("startChallenge")}</span>
                 <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -132,9 +140,9 @@ export function Hero() {
 
               <a
                 href="#how-it-works"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-gray-300 bg-white/80 px-4 py-3 text-sm sm:text-base font-extrabold text-[#0A0A0C] hover:border-[#D4AF37]/50 hover:bg-[#FFF8E1] hover:text-black active:translate-y-0 active:scale-[0.98] transition-colors duration-200 shadow-sm text-center"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-4 py-3 text-sm sm:text-base font-extrabold text-white hover:border-[#01A2EF] hover:bg-white/[0.08] hover:text-white active:translate-y-0 active:scale-[0.98] transition-all duration-200 shadow-sm text-center"
               >
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#0A0A0C] text-[#0A0A0C] group-hover:border-black group-hover:bg-black group-hover:text-[#FFC107] transition-all duration-200 shrink-0">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white/80 text-white group-hover:border-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-all duration-200 shrink-0">
                   <Play size={11} className="ml-0.5 fill-current" />
                 </div>
                 <span>{t("exploreObjectives")}</span>
@@ -142,7 +150,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Laptop Dashboard Visual — isolated so CTA hover never paints under it */}
+          {/* Right Column: 3D Laptop Dashboard Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

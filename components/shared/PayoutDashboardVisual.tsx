@@ -156,7 +156,7 @@ export function PayoutDashboardVisual({
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
-              <Lock size={10} className="text-[#854D0E]" />
+              <Lock size={10} className="text-[#2563EB]" />
               <span>app.ckcapital.co.uk/dashboard/payouts</span>
             </div>
           </div>
@@ -188,7 +188,7 @@ export function PayoutDashboardVisual({
                     <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                       Simulated Account #{current.accountId}
                     </p>
-                    <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
+                    <span className="rounded bg-blue-50 px-1.5 py-0.5 text-[9px] font-bold text-[#2563EB] border border-blue-200">
                       {current.accountTier}
                     </span>
                   </div>
@@ -200,10 +200,10 @@ export function PayoutDashboardVisual({
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2">
-                  <Sparkles size={15} className="text-[#854D0E] shrink-0" />
+                <div className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3.5 py-2">
+                  <Sparkles size={15} className="text-[#2563EB] shrink-0" />
                   <div className="text-left">
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-[#854D0E]">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-[#2563EB]">
                       Profit Split
                     </p>
                     <p className="text-sm font-extrabold text-[#0A0A0C]">
@@ -223,7 +223,7 @@ export function PayoutDashboardVisual({
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-ping" />
                   </div>
                   <span className="flex items-center gap-1 text-[11px] font-semibold text-[#6B7280]">
-                    <Clock size={12} className="text-[#854D0E]" /> ~12 Hours Processing
+                    <Clock size={12} className="text-[#2563EB]" /> ~12 Hours Processing
                   </span>
                 </div>
 
@@ -234,7 +234,7 @@ export function PayoutDashboardVisual({
                     className={cn(
                       "flex items-center justify-between rounded-xl p-3 text-left transition-all",
                       current.isCrypto
-                        ? "border border-[#FFC107] bg-amber-50/50 ring-1 ring-[#FFC107]/40"
+                        ? "border border-[#367CDB] bg-blue-50/50 ring-1 ring-[#367CDB]/40"
                         : "border border-gray-200 bg-gray-50 opacity-70"
                     )}
                   >
@@ -243,7 +243,7 @@ export function PayoutDashboardVisual({
                         className={cn(
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           current.isCrypto
-                            ? "bg-amber-100 text-[#854D0E]"
+                            ? "bg-blue-100 text-[#2563EB]"
                             : "bg-gray-100 text-gray-700"
                         )}
                       >
@@ -259,7 +259,7 @@ export function PayoutDashboardVisual({
                       </div>
                     </div>
                     {current.isCrypto ? (
-                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#FFC107] text-[#0A0A0C]">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#367CDB] text-white">
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
@@ -272,7 +272,7 @@ export function PayoutDashboardVisual({
                     className={cn(
                       "flex items-center justify-between rounded-xl p-3 text-left transition-all",
                       !current.isCrypto
-                        ? "border border-[#FFC107] bg-amber-50/50 ring-1 ring-[#FFC107]/40"
+                        ? "border border-[#367CDB] bg-blue-50/50 ring-1 ring-[#367CDB]/40"
                         : "border border-gray-200 bg-gray-50 opacity-70"
                     )}
                   >
@@ -281,7 +281,7 @@ export function PayoutDashboardVisual({
                         className={cn(
                           "flex h-8 w-8 items-center justify-center rounded-lg",
                           !current.isCrypto
-                            ? "bg-amber-100 text-[#854D0E]"
+                            ? "bg-blue-100 text-[#2563EB]"
                             : "bg-gray-100 text-gray-700"
                         )}
                       >
@@ -297,7 +297,7 @@ export function PayoutDashboardVisual({
                       </div>
                     </div>
                     {!current.isCrypto ? (
-                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#FFC107] text-[#0A0A0C]">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#367CDB] text-white">
                         <Check size={10} strokeWidth={3} />
                       </div>
                     ) : (
@@ -322,7 +322,7 @@ export function PayoutDashboardVisual({
                       </span>
                       <span className="text-xs font-bold text-[#6B7280]">USD</span>
                     </div>
-                    <span className="rounded-md border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-[#854D0E]">
+                    <span className="rounded-md border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-bold text-[#2563EB]">
                       MAX
                     </span>
                   </div>
@@ -347,9 +347,9 @@ export function PayoutDashboardVisual({
                     href="https://app.ckcapital.co.uk/signup"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-gold-standard group relative flex w-full items-center justify-center gap-2 py-3.5 text-xs sm:text-sm"
+                    className="btn-brand-standard group relative flex w-full items-center justify-center gap-2 py-3.5 text-xs sm:text-sm font-bold"
                   >
-                    <Zap size={16} className="fill-[#0A0A0C]" />
+                    <Zap size={16} className="fill-white" />
                     <span>Submit Payout Request</span>
                     <span className="ml-1 rounded bg-black/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wider">
                       {current.speedText}
@@ -387,7 +387,7 @@ export function PayoutDashboardVisual({
 
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
               100% PROFIT RETAINED
             </span>
           </div>
@@ -403,8 +403,8 @@ export function PayoutDashboardVisual({
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
           <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
-              <Zap size={20} className="fill-[#854D0E] text-[#854D0E]" />
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB] border border-blue-200">
+              <Zap size={20} className="fill-[#2563EB] text-[#2563EB]" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">

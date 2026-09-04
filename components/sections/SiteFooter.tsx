@@ -23,6 +23,52 @@ export function SiteFooter() {
     setEmail("");
   }
 
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (!href || href.startsWith("http") || href.startsWith("mailto:")) {
+      return;
+    }
+
+    if (href.includes("#")) {
+      const [targetPath, hash] = href.split("#");
+      const normTarget = targetPath === "" ? "/" : targetPath;
+      const normCurrent = pathname === "" ? "/" : pathname;
+
+      const isTargetPage =
+        normCurrent === normTarget ||
+        (normTarget === "/trading-objectives" &&
+          normCurrent.startsWith("/trading-objectives"));
+
+      if (isTargetPage && hash) {
+        e.preventDefault();
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.history.replaceState(
+            null,
+            "",
+            `${window.location.pathname}#${hash}`
+          );
+        }
+      }
+    } else {
+      const normTarget = href === "" ? "/" : href;
+      const normCurrent = pathname === "" ? "/" : pathname;
+
+      if (normCurrent === normTarget) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        if (window.location.hash) {
+          window.history.replaceState(null, "", window.location.pathname);
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    }
+  };
+
   const year = new Date().getFullYear();
 
   const directoryColumns = [
@@ -113,7 +159,7 @@ export function SiteFooter() {
                     if (status !== "idle") setStatus("idle");
                   }}
                   placeholder={t("emailPlaceholder")}
-                  className="h-11 w-full rounded-xl border border-white/10 bg-[#12100A] px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-primary focus:ring-2 focus:ring-primary/30"
+                  className="h-11 w-full rounded-xl border border-white/10 bg-[#071326] px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-primary focus:ring-2 focus:ring-primary/30"
                   aria-invalid={status === "error"}
                 />
                 <GoldButton
@@ -142,14 +188,7 @@ export function SiteFooter() {
           <div className="pt-10 pb-4">
             <Link
               href="/"
-              onClick={(e) => {
-                if (pathname === "/" || pathname === "" || pathname === "/en" || pathname === "/es" || pathname === "/pt") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  window.scrollTo({ top: 0, behavior: "instant" });
-                }
-              }}
+              onClick={(e) => handleLinkClick(e, "/")}
               className="inline-block cursor-pointer"
               data-od-id="footer-logo"
             >
@@ -191,7 +230,11 @@ export function SiteFooter() {
                     }
                     return (
                       <li key={link.label}>
-                        <Link href={link.href as never} className={linkClassName}>
+                        <Link
+                          href={link.href as never}
+                          onClick={(e) => handleLinkClick(e, link.href)}
+                          className={linkClassName}
+                        >
                           {link.label}
                         </Link>
                       </li>
@@ -295,6 +338,7 @@ export function SiteFooter() {
                 <span key={link.label}>
                   <Link
                     href={link.href as never}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-xs text-foreground/40 transition-colors hover:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     {link.label}

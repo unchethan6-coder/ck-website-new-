@@ -75,8 +75,8 @@ export function EvaluationPrograms() {
           {/* Left Column: Heading, Info, and CTA */}
           <div className="lg:col-span-3">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-2 w-2 rounded-full bg-[#FFC107]" />
-              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#4B5563]">
+              <span className="h-2 w-2 rounded-full bg-[#01A2EF]" />
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#2563EB]">
                 {t("eyebrow")}
               </span>
             </div>
@@ -92,7 +92,7 @@ export function EvaluationPrograms() {
             <div className="mt-6 sm:mt-8">
               <Link
                 href="/trading-objectives"
-                className="group inline-flex items-center gap-2 rounded-xl bg-[#0A0A0C] px-5 py-3 text-xs sm:text-sm font-extrabold text-white shadow-sm hover:bg-[#1E1E24] hover:text-[#FFC107] hover:border-[#FFC107]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200"
+                className="group inline-flex items-center gap-2 rounded-xl bg-[#030C1B] px-5 py-3 text-xs sm:text-sm font-extrabold text-white shadow-sm hover:bg-[#071328] hover:text-[#01A2EF] hover:border-[#367CDB]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200"
               >
                 <span>{t("compareBtn")}</span>
                 <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -112,19 +112,19 @@ export function EvaluationPrograms() {
                   data-od-id={`challenge-card-${challenge.id}`}
                   className={`group relative flex flex-col rounded-2xl bg-white p-5 cursor-pointer transition-all duration-200 hover:-translate-y-1 ${
                     challenge.popular
-                      ? "border-2 border-[#FFC107] shadow-md shadow-[#FFC107]/15 hover:shadow-[0_16px_32px_-8px_rgba(255,193,7,0.28)] hover:border-[#FFC107]"
-                      : "border border-gray-200/90 shadow-sm hover:border-[#FFC107]/60 hover:shadow-[0_14px_28px_-8px_rgba(0,0,0,0.08),0_0_18px_rgba(255,193,7,0.15)]"
+                      ? "border-2 border-[#367CDB] shadow-md shadow-[#367CDB]/15 hover:shadow-[0_16px_32px_-8px_rgba(54,124,219,0.28)] hover:border-[#367CDB]"
+                      : "border border-gray-200/90 shadow-sm hover:border-[#367CDB]/60 hover:shadow-[0_14px_28px_-8px_rgba(0,0,0,0.08),0_0_18px_rgba(54,124,219,0.15)]"
                   }`}
                 >
                   {/* Floating Most Popular Badge */}
                   {challenge.popular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#FFC107] px-3.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#0A0A0C] shadow-sm whitespace-nowrap">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF] px-3.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-sm whitespace-nowrap">
                       {t("mostPopular")}
                     </div>
                   )}
 
                   {/* Card Header */}
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-black tracking-tight text-[#0A0A0C] mb-5 group-hover:text-[#B89628] transition-colors">
+                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-black tracking-tight text-[#0A0A0C] mb-5 group-hover:text-[#2563EB] transition-colors">
                     {challenge.name}
                   </h3>
 
@@ -163,12 +163,12 @@ export function EvaluationPrograms() {
                           {challenge.discountedPrice}
                         </span>
                       </div>
-                      <span className="rounded bg-[#FFC107] px-2 py-0.5 text-[10px] font-black text-[#0A0A0C] shadow-sm">
+                      <span className="rounded bg-blue-50 border border-blue-200 px-2 py-0.5 text-[10px] font-black text-[#2563EB] shadow-sm">
                         {challenge.discountBadge}
                       </span>
                     </div>
 
-                    <div className="mt-3 flex items-center justify-between rounded-xl bg-gray-100/80 px-3 py-2 text-xs font-bold text-[#0A0A0C] group-hover:bg-[#FFC107] group-hover:text-black transition-colors">
+                    <div className="mt-3 flex items-center justify-between rounded-xl bg-gray-100/80 px-3 py-2 text-xs font-bold text-[#0A0A0C] group-hover:bg-[#367CDB] group-hover:text-white transition-colors">
                       <span>Start Challenge</span>
                       <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
                     </div>

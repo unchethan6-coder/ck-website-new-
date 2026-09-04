@@ -36,9 +36,9 @@ export default async function TermsPage() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#854D0E]">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#2563EB]">
               {t("badgeLegal")}
-              <span className="text-amber-400">·</span>
+              <span className="text-blue-400">·</span>
               {t("termsBadge")}
             </span>
             <h1

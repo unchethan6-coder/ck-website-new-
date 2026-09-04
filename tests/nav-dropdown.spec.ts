@@ -414,7 +414,7 @@ test.describe("TopNav Mega Menu & Navigation QAQC", () => {
 
         const nav = page.locator('[data-od-id="top-nav"] nav');
         await expect(nav).toBeVisible();
-        await expect(nav).toHaveClass(/bg-\[#070709\]\/95/);
+        await expect(nav).toHaveClass(/backdrop-blur-xl/);
       }
     });
   });

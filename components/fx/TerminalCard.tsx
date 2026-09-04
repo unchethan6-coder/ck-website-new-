@@ -27,8 +27,8 @@ const TERMINAL_SETS: TermLine[][] = [
     { prefix: "└", text: "Searching 128 combinations...", color: "#50b050" },
     { prefix: "●", text: "Bash(deploy.py --live)", color: "#c0c0c0" },
     { prefix: "└", text: "Strategy deployed to sim account", color: "#50b050" },
-    { prefix: "*", text: "Optimizing... (6s · ↑3.8k · esc)", color: "#e0a030" },
-    { prefix: ">", text: "bypass permissions on", color: "#e0a030" },
+    { prefix: "*", text: "Optimizing... (6s · ↑3.8k · esc)", color: "#01A2EF" },
+    { prefix: ">", text: "bypass permissions on", color: "#01A2EF" },
   ],
   [
     { prefix: "*", text: "Resumed session", color: "#e05050" },
@@ -47,8 +47,8 @@ const TERMINAL_SETS: TermLine[][] = [
     { prefix: "└", text: "Window: 20 → 25", color: "#808080" },
     { prefix: "●", text: "Bash(walk_forward.py)", color: "#c0c0c0" },
     { prefix: "└", text: "OOS PF 1.9 · Win 52%", color: "#50b050" },
-    { prefix: "*", text: "Re-running... (3s · ↑12.1k · esc)", color: "#e0a030" },
-    { prefix: ">", text: "auto mode on", color: "#e0a030" },
+    { prefix: "*", text: "Re-running... (3s · ↑12.1k · esc)", color: "#01A2EF" },
+    { prefix: ">", text: "auto mode on", color: "#01A2EF" },
   ],
 ];
 
@@ -91,15 +91,15 @@ export function TerminalCard({ className }: { className?: string }) {
     <div
       ref={ref}
       className={cn(
-        "rounded-xl overflow-hidden border border-foreground/10 bg-[#0d0b06] font-mono text-[11px] leading-[1.7]",
+        "rounded-xl overflow-hidden border border-white/10 bg-[#071326] font-mono text-[11px] leading-[1.7]",
         className
       )}
     >
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-foreground/[0.04] border-b border-foreground/[0.06]">
+      <div className="flex items-center gap-1.5 px-3 py-2 bg-white/[0.04] border-b border-white/[0.06]">
         <div className="w-2 h-2 rounded-full bg-red-500/70" />
         <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
         <div className="w-2 h-2 rounded-full bg-green-500/70" />
-        <span className="ml-2 text-[9px] text-foreground/30">~/strategies – zsh</span>
+        <span className="ml-2 text-[9px] text-white/40">~/strategies – zsh</span>
       </div>
       <div className="p-3 min-h-[300px]">
         {lines.map((l, i) => (
@@ -114,10 +114,10 @@ export function TerminalCard({ className }: { className?: string }) {
             <span className="mr-1.5">{l.prefix}</span>
             {l.text}
             {i === shown - 1 && !staticMode && (
-              <span className="term-caret text-[#F7D774]">▊</span>
+              <span className="term-caret text-[#01A2EF]">▊</span>
             )}
             {i === lines.length - 1 && i < shown && (
-              <span className="term-spark text-[#F7D774]"> ✦</span>
+              <span className="term-spark text-[#01A2EF]"> ✦</span>
             )}
           </div>
         ))}

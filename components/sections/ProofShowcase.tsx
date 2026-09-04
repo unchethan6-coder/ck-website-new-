@@ -87,7 +87,7 @@ export function ProofShowcase({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 60% at 50% 38%, rgba(255,248,225,0.6) 0%, rgba(255,243,205,0.35) 45%, transparent 75%)",
+            "radial-gradient(ellipse 55% 60% at 50% 38%, rgba(54,124,219,0.06) 0%, rgba(1,162,239,0.03) 45%, transparent 75%)",
         }}
       />
       <Container>
@@ -96,28 +96,28 @@ export function ProofShowcase({
             className="relative overflow-hidden rounded-[28px] border border-gray-200 shadow-[0_24px_60px_-24px_rgba(15,23,42,0.12)]"
             style={{
               background:
-                "linear-gradient(180deg, #FFFFFF 0%, #FEFDF8 55%, #FBF5E6 100%)",
+                "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #EEF4FB 100%)",
             }}
             data-od-id="proof-showcase-panel"
           >
-            {/* Concentric rings + soft gold atmosphere */}
+            {/* Concentric rings + soft sapphire atmosphere */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute left-[30%] top-[58%] h-[1060px] w-[1060px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#FFC107]/10" />
-              <div className="absolute left-[30%] top-[58%] h-[840px] w-[840px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#FFC107]/15" />
-              <div className="absolute left-[30%] top-[58%] h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#FFC107]/20" />
-              <div className="absolute left-[30%] top-[58%] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#FFC107]/15" />
+              <div className="absolute left-[30%] top-[58%] h-[1060px] w-[1060px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/10" />
+              <div className="absolute left-[30%] top-[58%] h-[840px] w-[840px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/15" />
+              <div className="absolute left-[30%] top-[58%] h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/20" />
+              <div className="absolute left-[30%] top-[58%] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/15" />
               <div
                 className="absolute -bottom-[34%] left-[4%] h-[72%] w-[64%] rounded-full opacity-70 blur-3xl"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(255,193,7,0.14) 0%, rgba(255,224,130,0.10) 45%, transparent 72%)",
+                    "radial-gradient(circle, rgba(54,124,219,0.12) 0%, rgba(1,162,239,0.08) 45%, transparent 72%)",
                 }}
               />
               <div
                 className="absolute -top-[24%] right-[4%] h-[52%] w-[46%] rounded-full opacity-60 blur-3xl"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(255,243,205,0.55) 0%, rgba(255,248,225,0.35) 50%, transparent 75%)",
+                    "radial-gradient(circle, rgba(1,162,239,0.08) 0%, rgba(54,124,219,0.05) 50%, transparent 75%)",
                 }}
               />
             </div>
@@ -156,7 +156,7 @@ export function ProofShowcase({
                 >
                   <a
                     href="/evaluation"
-                    className="inline-flex min-h-12 items-center rounded-xl border border-gray-300 bg-white px-7 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#FFC107] hover:bg-[#FFF8E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC107]"
+                    className="inline-flex min-h-12 items-center rounded-xl border border-gray-300 bg-white px-7 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#367CDB] hover:bg-[#F0F7FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#367CDB]"
                   >
                     {t("viewEvaluations")}
                   </a>
@@ -290,19 +290,19 @@ function BrowserWindow({
 
       {/* Overlapping total rewards card — responsive positioning & no collision */}
       <div
-        className="absolute -bottom-6 left-3 right-3 sm:right-auto sm:left-4 sm:w-[340px] lg:-left-8 lg:w-[370px] z-20"
+        className="absolute -bottom-6 left-4 right-4 sm:right-auto sm:left-6 sm:w-[350px] lg:-left-6 lg:w-[370px] z-20"
         data-od-id="proof-total-card"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-[#FFC107]/40 bg-white/95 backdrop-blur-md p-4 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.22)]">
-          <div className="relative z-10 pr-14 sm:pr-16">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+        <div className="relative overflow-hidden rounded-2xl border border-[#367CDB]/30 bg-white/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.18)]">
+          <div className="relative z-10 pr-16 sm:pr-20">
+            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
               {t("totalPayouts")}
             </p>
-            <p className="mt-1.5 font-[family-name:var(--font-inter-tight)] text-2xl xs:text-3xl sm:text-[34px] font-extrabold leading-none tracking-tight text-[#0A0A0C] tabular-nums">
+            <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl xs:text-3xl sm:text-[32px] font-black leading-none tracking-tight text-[#0A0A0C] tabular-nums">
               {formatMoney(total ?? 1200000)}
             </p>
           </div>
-          <GoldGem className="pointer-events-none absolute -right-2 top-1/2 -translate-y-1/2 h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 opacity-80" />
+          <GoldGem className="pointer-events-none absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 h-14 w-14 sm:h-16 sm:w-16 lg:h-18 lg:w-18 opacity-90 drop-shadow-[0_4px_12px_rgba(1,162,239,0.25)]" />
         </div>
       </div>
     </div>
@@ -310,7 +310,7 @@ function BrowserWindow({
 }
 
 /* ------------------------------------------------------------------ */
-/* Angular gold gem — decorative, drawn from registered gold values    */
+/* Angular sapphire gem — decorative, drawn from brand blue values    */
 /* ------------------------------------------------------------------ */
 
 function GoldGem({ className }: { className?: string }) {
@@ -323,16 +323,16 @@ function GoldGem({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="gem-hi" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#FFE082" />
-          <stop offset="1%" stopColor="#FFC107" />
+          <stop offset="0%" stopColor="#01A2EF" />
+          <stop offset="1%" stopColor="#367CDB" />
         </linearGradient>
         <linearGradient id="gem-mid" x1="0" y1="0" x2="0.8" y2="1">
-          <stop offset="0%" stopColor="#FFC107" />
-          <stop offset="1%" stopColor="#E6AE06" />
+          <stop offset="0%" stopColor="#367CDB" />
+          <stop offset="1%" stopColor="#1D4ED8" />
         </linearGradient>
         <linearGradient id="gem-lo" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#E6AE06" />
-          <stop offset="1%" stopColor="#FFC107" />
+          <stop offset="0%" stopColor="#1D4ED8" />
+          <stop offset="1%" stopColor="#367CDB" />
         </linearGradient>
       </defs>
       <polygon points="22,14 50,4 78,14 64,38 36,38" fill="url(#gem-hi)" />

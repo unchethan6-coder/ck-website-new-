@@ -47,9 +47,9 @@ export default async function CookiePolicyPage() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#854D0E]">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#2563EB]">
               {t("badgeLegal")}
-              <span className="text-amber-400">·</span>
+              <span className="text-blue-400">·</span>
               {t("cookieBadge")}
             </span>
             <h1
@@ -136,7 +136,7 @@ export default async function CookiePolicyPage() {
                   href="https://youradchoices.com/control"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#0A0A0C] underline decoration-[#854D0E]/40 underline-offset-4 transition-colors hover:text-[#854D0E]"
+                  className="font-semibold text-[#0A0A0C] underline decoration-[#2563EB]/40 underline-offset-4 transition-colors hover:text-[#2563EB]"
                 >
                   https://youradchoices.com/control
                 </a>
@@ -161,7 +161,7 @@ export default async function CookiePolicyPage() {
                 For privacy-related questions or comments, email us at{' '}
                 <a
                   href="mailto:support@ckcapital.co.uk"
-                  className="font-semibold text-[#0A0A0C] underline decoration-[#854D0E]/40 underline-offset-4 transition-colors hover:text-[#854D0E]"
+                  className="font-semibold text-[#0A0A0C] underline decoration-[#2563EB]/40 underline-offset-4 transition-colors hover:text-[#2563EB]"
                 >
                   support@ckcapital.co.uk
                 </a>

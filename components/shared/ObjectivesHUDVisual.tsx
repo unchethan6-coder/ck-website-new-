@@ -39,7 +39,7 @@ export function ObjectivesHUDVisual({
             <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             <div className="ml-3 hidden sm:flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-mono text-[#6B7280]">
-              <Lock size={10} className="text-[#854D0E]" />
+              <Lock size={10} className="text-[#2563EB]" />
               <span>app.ckcapital.co.uk/matrix/risk-engine</span>
             </div>
           </div>
@@ -61,7 +61,7 @@ export function ObjectivesHUDVisual({
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                   Objectives HUD #CK-RULES
                 </p>
-                <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[9px] font-bold text-[#854D0E] border border-amber-200">
+                <span className="rounded bg-blue-50 px-1.5 py-0.5 text-[9px] font-bold text-[#2563EB] border border-blue-200">
                   100% COMPLIANT
                 </span>
               </div>
@@ -93,7 +93,7 @@ export function ObjectivesHUDVisual({
                 Core Trading Parameters
               </p>
               <span className="flex items-center gap-1 text-[11px] font-semibold text-[#6B7280]">
-                <Activity size={12} className="text-[#854D0E]" /> Live Compliance Sync
+                <Activity size={12} className="text-[#2563EB]" /> Live Compliance Sync
               </span>
             </div>
 
@@ -130,13 +130,13 @@ export function ObjectivesHUDVisual({
               </div>
 
               {/* Rule 4 */}
-              <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-left">
+              <div className="rounded-xl border border-blue-200 bg-blue-50 p-3 text-left">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] uppercase font-bold text-[#6B7280]">Min Trading Days</span>
                   <Check size={12} className="text-emerald-700 stroke-[3]" />
                 </div>
                 <p className="mt-1 font-mono text-sm font-extrabold text-[#0A0A0C]">0 Days</p>
-                <p className="text-[9px] text-[#854D0E] font-semibold">Pass in 1 Day</p>
+                <p className="text-[9px] text-[#2563EB] font-semibold">Pass in 1 Day</p>
               </div>
 
               {/* Rule 5 */}
@@ -161,12 +161,12 @@ export function ObjectivesHUDVisual({
             </div>
 
             {/* Compliance Verified Banner */}
-            <div className="flex items-center justify-between rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-xs">
+            <div className="flex items-center justify-between rounded-xl border border-blue-200 bg-blue-50 px-3.5 py-2.5 text-xs">
               <div className="flex items-center gap-2 text-[#0A0A0C]">
-                <ShieldCheck size={15} className="text-[#854D0E] shrink-0" />
+                <ShieldCheck size={15} className="text-[#2563EB] shrink-0" />
                 <span className="text-[11px] font-semibold">Real-Time Risk Engine Active · Zero IP or Strategy Bans</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#854D0E]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#2563EB]">
                 Verified
               </span>
             </div>
@@ -182,7 +182,7 @@ export function ObjectivesHUDVisual({
             </span>
             <span className="text-[#0A0A0C] font-bold">100% Rules Clarity</span>
           </div>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#854D0E]">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
             NO TRICK CLAUSES
           </span>
         </div>
@@ -197,8 +197,8 @@ export function ObjectivesHUDVisual({
           className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
         >
           <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-amber-50 text-[#854D0E] border border-amber-200">
-              <Sliders size={20} className="text-[#854D0E]" />
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB] border border-blue-200">
+              <Sliders size={20} className="text-[#2563EB]" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">

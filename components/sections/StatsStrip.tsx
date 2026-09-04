@@ -37,11 +37,11 @@ export function StatsStrip() {
 
   return (
     <section
-      className="relative z-20 border-y border-gray-200 bg-white py-8 sm:py-10"
+      className="relative z-20 border-y border-white/[0.08] bg-[#030C1B] py-8 sm:py-10"
       data-od-id="stats-strip"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-gray-200">
+        <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-white/[0.08]">
           {stats.map((stat, i) => (
             <div
               key={i}
@@ -49,14 +49,14 @@ export function StatsStrip() {
                 i === 4 ? "col-span-2 sm:col-span-1 justify-center sm:justify-start" : ""
               }`}
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#FFC107]/25 bg-[#FFC107]/10 text-[#FFC107] group-hover:border-[#FFC107]/60 group-hover:bg-[#FFC107]/20 group-hover:shadow-[0_0_15px_rgba(255,193,7,0.2)] transition-all duration-200">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#01A2EF]/25 bg-[#01A2EF]/10 text-[#01A2EF] group-hover:border-[#01A2EF]/60 group-hover:bg-[#01A2EF]/20 group-hover:shadow-[0_0_15px_rgba(1,162,239,0.25)] transition-all duration-200">
                 <stat.icon size={22} strokeWidth={1.75} />
               </div>
               <div className="text-left">
-                <div className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black tracking-tight text-[#0A0A0C] group-hover:text-[#FFC107] transition-colors duration-150">
+                <div className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#01A2EF] transition-colors duration-150">
                   <CountUp value={stat.value} />
                 </div>
-                <div className="text-[11.5px] sm:text-xs font-medium text-gray-500 leading-tight">
+                <div className="text-[11.5px] sm:text-xs font-medium text-[#94A3B8] leading-tight">
                   {stat.label}
                 </div>
               </div>

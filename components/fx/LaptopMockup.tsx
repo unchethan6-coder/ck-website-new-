@@ -96,7 +96,7 @@ function BrandMark() {
         height="15"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#FFC107"
+        stroke="#01A2EF"
         strokeWidth="4"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -123,9 +123,9 @@ function MetricCard({
   subTone?: "up" | "down" | "muted";
 }) {
   return (
-    <div className="rounded-lg border border-white/[0.06] bg-white p-2">
-      <span className="text-[9px] text-gray-500 block">{label}</span>
-      <div className="text-[12px] font-bold text-[#0A0A0C] mt-0.5 tabular-nums transition-colors duration-300 truncate">
+    <div className="rounded-lg border border-white/10 bg-[#0D1E38]/90 p-2">
+      <span className="text-[9px] text-gray-400 block">{label}</span>
+      <div className="text-[12px] font-bold text-white mt-0.5 tabular-nums transition-colors duration-300 truncate">
         {value}
       </div>
       {sub ? (
@@ -135,7 +135,7 @@ function MetricCard({
               ? "text-emerald-400"
               : subTone === "down"
                 ? "text-rose-400"
-                : "text-gray-500"
+                : "text-gray-400"
           }`}
         >
           {sub}
@@ -155,8 +155,8 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
       >
         <defs>
           <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFC107" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#FFC107" stopOpacity="0.0" />
+            <stop offset="0%" stopColor="#01A2EF" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#367CDB" stopOpacity="0.0" />
           </linearGradient>
         </defs>
 
@@ -178,7 +178,7 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           transition={{ duration: 1.6, ease: "easeInOut" }}
           d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32`}
           fill="none"
-          stroke="#FFC107"
+          stroke="#01A2EF"
           strokeWidth="2.2"
         />
 
@@ -187,7 +187,7 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           y1="20"
           x2="250"
           y2="110"
-          stroke="#FFC107"
+          stroke="#01A2EF"
           strokeDasharray="2 2"
           strokeWidth="1"
           opacity="0.6"
@@ -197,23 +197,23 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           cx="250"
           cy={liveData.lastY}
           r="3.5"
-          fill="#FFC107"
-          stroke="#000"
+          fill="#01A2EF"
+          stroke="#030C1B"
           strokeWidth="1.5"
           className="transition-all duration-300"
         />
       </svg>
 
       {/* Live tooltip card (tablet + laptop) */}
-      <div className="absolute top-1 right-10 hidden sm:block rounded border border-[#FFC107]/40 bg-[#1A1A20] px-2 py-1 shadow-lg text-center transition-all duration-300">
-        <div className="text-[9px] font-bold text-[#FFC107] tabular-nums">
+      <div className="absolute top-1 right-10 hidden sm:block rounded border border-[#01A2EF]/40 bg-[#071326] px-2 py-1 shadow-lg text-center transition-all duration-300">
+        <div className="text-[9px] font-bold text-[#01A2EF] tabular-nums">
           {new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
             minimumFractionDigits: 2,
           }).format(liveData.balance)}
         </div>
-        <div className="text-[7.5px] text-gray-500">May 14</div>
+        <div className="text-[7.5px] text-gray-400">May 14</div>
       </div>
     </div>
   );
@@ -250,7 +250,7 @@ export function LaptopMockup() {
         }}
       >
         {/* Device Chassis — phone bezel <sm, tablet bezel sm-lg, laptop bezel lg+ */}
-        <div className="relative overflow-hidden rounded-[44px] sm:rounded-[30px] lg:rounded-[20px] border-[10px] sm:border-[14px] lg:border-[11px] border-[#18181B] bg-[#09090B] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25),0_0_30px_rgba(255,193,7,0.12)] w-full">
+        <div className="relative overflow-hidden rounded-[44px] sm:rounded-[30px] lg:rounded-[20px] border-[10px] sm:border-[14px] lg:border-[11px] border-[#18181B] bg-[#09090B] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4),0_0_30px_rgba(1,162,239,0.2)] w-full">
           {/* Top Bezel Camera Dot (tablet + laptop) */}
           <div className="absolute left-1/2 top-1.5 -translate-x-1/2 hidden sm:flex items-center justify-center">
             <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
@@ -260,16 +260,16 @@ export function LaptopMockup() {
           <div className="absolute left-1/2 top-[7px] -translate-x-1/2 sm:hidden z-10 h-[12px] w-[58px] rounded-full bg-black" />
 
           {/* Screen Content - Dashboard UI (phone 9:19, tablet 4:3, laptop 16:9) */}
-          <div className="mt-2 sm:mt-3 lg:mt-2.5 flex aspect-[9/19] sm:aspect-[4/3] lg:aspect-[16/9] w-full text-[#0A0A0C]">
+          <div className="mt-2 sm:mt-3 lg:mt-2.5 flex aspect-[9/19] sm:aspect-[4/3] lg:aspect-[16/9] w-full text-white">
             {/* Sidebar (laptop only) */}
-            <aside className="hidden lg:flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#0D0D10] p-3">
+            <aside className="hidden lg:flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#071326] p-3">
               <div>
                 <div className="mb-4 flex items-center gap-1.5 px-1">
                   <BrandMark />
                 </div>
 
                 <nav className="space-y-1 text-[11px]">
-                  <div className="flex items-center gap-2 rounded-lg bg-[#FFC107] px-2.5 py-1.5 font-black text-black shadow-sm">
+                  <div className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#367CDB] to-[#01A2EF] px-2.5 py-1.5 font-bold text-white shadow-sm">
                     <LayoutDashboard size={13} />
                     <span>Overview</span>
                   </div>
@@ -287,7 +287,7 @@ export function LaptopMockup() {
             </aside>
 
             {/* Main Content View */}
-            <main className="flex flex-1 flex-col overflow-hidden bg-[#0A0A0C] p-3 sm:p-3.5">
+            <main className="flex flex-1 flex-col overflow-hidden bg-[#030C1B] p-3 sm:p-3.5">
               {/* Status Bar (phone) */}
               <div className="flex sm:hidden items-center justify-between text-[8px] font-semibold text-gray-500 px-1 mb-1.5">
                 <span>9:41</span>
@@ -306,8 +306,8 @@ export function LaptopMockup() {
               {/* Top Bar (phone + tablet) */}
               <div className="flex lg:hidden items-center justify-between mb-2">
                 <BrandMark />
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#FFC107]/40 bg-[#FFC107]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#FFC107]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFC107]" />
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#01A2EF]/40 bg-[#01A2EF]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#01A2EF]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#01A2EF]" />
                   Live
                 </span>
               </div>
@@ -333,10 +333,10 @@ export function LaptopMockup() {
               {/* Middle Section: Live Chart & Trading Objectives */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 flex-1 min-h-0 mb-2">
                 {/* Account Growth Chart */}
-                <div className="sm:col-span-7 lg:col-span-8 flex flex-col rounded-lg border border-white/[0.06] bg-white p-2.5">
+                <div className="sm:col-span-7 lg:col-span-8 flex flex-col rounded-lg border border-white/10 bg-[#071326]/80 p-2.5">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-bold text-[#0A0A0C]">Account Growth</span>
-                    <span className="hidden sm:flex items-center gap-1 text-[8.5px] text-gray-500 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
+                    <span className="text-[10px] font-bold text-white">Account Growth</span>
+                    <span className="hidden sm:flex items-center gap-1 text-[8.5px] text-gray-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
                       Last 30 Days <ChevronDown size={9} />
                     </span>
                   </div>
@@ -356,14 +356,14 @@ export function LaptopMockup() {
                 </div>
 
                 {/* Trading Objectives */}
-                <div className="sm:col-span-5 lg:col-span-4 flex flex-col justify-start rounded-lg border border-white/[0.06] bg-white p-2.5">
-                  <div className="text-[10px] font-bold text-[#0A0A0C] mb-2">Trading Objectives</div>
+                <div className="sm:col-span-5 lg:col-span-4 flex flex-col justify-start rounded-lg border border-white/10 bg-[#071326]/80 p-2.5">
+                  <div className="text-[10px] font-bold text-white mb-2">Trading Objectives</div>
 
                   <div className="space-y-2.5 text-[8.5px]">
                     <div>
-                      <div className="flex items-center justify-between text-white/80 mb-0.5">
+                      <div className="flex items-center justify-between text-gray-300 mb-0.5">
                         <span>Profit Target</span>
-                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
+                        <span className="flex items-center gap-0.5 text-white font-bold">
                           $10,000 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -372,16 +372,16 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "100%" }}
                           transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-                          className="h-full rounded-full bg-[#FFC107]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$10,000 (100%)</span>
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between text-white/80 mb-0.5">
+                      <div className="flex items-center justify-between text-gray-300 mb-0.5">
                         <span>Max Daily Loss</span>
-                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
+                        <span className="flex items-center gap-0.5 text-white font-bold">
                           $2,500 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -390,16 +390,16 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "49%" }}
                           transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
-                          className="h-full rounded-full bg-[#FFC107]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$1,240 (49%)</span>
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between text-white/80 mb-0.5">
+                      <div className="flex items-center justify-between text-gray-300 mb-0.5">
                         <span>Max Loss</span>
-                        <span className="flex items-center gap-0.5 text-[#0A0A0C] font-bold">
+                        <span className="flex items-center gap-0.5 text-white font-bold">
                           $5,000 <Check size={9} className="text-emerald-400" />
                         </span>
                       </div>
@@ -408,7 +408,7 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "63%" }}
                           transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
-                          className="h-full rounded-full bg-[#FFC107]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$3,180 (63%)</span>

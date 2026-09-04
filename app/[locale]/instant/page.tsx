@@ -79,8 +79,8 @@ export default function InstantPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#854D0E]/30 bg-[#854D0E]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
-                  <Sparkles size={12} className="text-[#854D0E]" /> {t('badge')}
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                  <Sparkles size={12} className="text-[#2563EB]" /> {t('badge')}
                 </span>
               </motion.div>
 
@@ -123,8 +123,8 @@ export default function InstantPage() {
               </motion.div>
 
               <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
-                <span className="inline-flex items-center gap-2"><Zap size={14} className="text-[#854D0E]" /> Instant Activation</span>
-                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> Direct Simulated Funding</span>
+                <span className="inline-flex items-center gap-2"><Zap size={14} className="text-[#2563EB]" /> Instant Activation</span>
+                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-[#01A2EF]" /> Direct Simulated Funding</span>
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export default function InstantPage() {
       <section className="bg-white border-b border-[#E5E7EB] py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-benefits">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
               PROGRAM ADVANTAGES
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -174,7 +174,7 @@ export default function InstantPage() {
       <section id="instant-pricing" className="scroll-mt-24 bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-pricing">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
               ACCOUNT TIERS
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -186,7 +186,7 @@ export default function InstantPage() {
             {pricing.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 text-center shadow-sm hover:border-[#E0B341] hover:shadow-md transition-all hover:-translate-y-1"
+                className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 text-center shadow-sm hover:border-[#367CDB] hover:shadow-md transition-all hover:-translate-y-1"
               >
                 <div>
                   <p className="font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] mb-1">
@@ -201,7 +201,7 @@ export default function InstantPage() {
                   href={`https://app.ckcapital.co.uk/signup?plan=instant&size=${item.amount.replace('$', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1 rounded-lg border border-gray-300 bg-white py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0A0A0C] hover:bg-[#FDF8EE] hover:border-[#E0B341] transition-colors"
+                  className="inline-flex items-center justify-center gap-1 rounded-lg border border-gray-300 bg-white py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0A0A0C] hover:bg-blue-50 hover:border-[#367CDB] transition-colors"
                 >
                   {t('getStarted')} <ArrowRight size={12} />
                 </a>
@@ -218,7 +218,7 @@ export default function InstantPage() {
       <section className="bg-white py-16 md:py-24 text-[#0A0A0C]" data-od-id="instant-faq">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#854D0E]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
               QUESTIONS & ANSWERS
             </p>
             <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
@@ -234,7 +234,7 @@ export default function InstantPage() {
                   value={String(idx)}
                   className="rounded-2xl border border-gray-200 bg-white px-6 transition-all hover:border-gray-300"
                 >
-                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-[#854D0E] hover:no-underline">
+                  <AccordionTrigger className="py-4 text-left text-sm font-semibold text-[#0A0A0C] hover:text-[#2563EB] hover:no-underline">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm leading-relaxed text-[#4B5563]">
@@ -251,7 +251,7 @@ export default function InstantPage() {
       <section className="relative overflow-hidden bg-white border-t border-[#E5E7EB] py-20 md:py-28 text-[#0A0A0C]" data-od-id="instant-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <Zap className="mx-auto text-[#854D0E]" size={32} />
+            <Zap className="mx-auto text-[#2563EB]" size={32} />
             <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">
               Ready for Instant Simulated Funding?
             </h2>

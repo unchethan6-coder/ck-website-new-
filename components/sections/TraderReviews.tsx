@@ -49,10 +49,10 @@ const SOURCE_STYLE: Record<
   },
   reddit: {
     card: "border-gray-200/90 bg-white shadow-md",
-    tint: "text-[#854D0E]",
-    chip: "text-[#854D0E]",
-    avatar: "border-amber-200",
-    avatarBg: "bg-amber-50 text-[#854D0E]",
+    tint: "text-[#2563EB]",
+    chip: "text-[#2563EB]",
+    avatar: "border-blue-200",
+    avatarBg: "bg-blue-50 text-[#2563EB]",
     cta: "View on Reddit",
   },
 };
@@ -141,7 +141,7 @@ export function TraderReviews({
     <section className="bg-white text-[#111827] py-16 md:py-24" data-od-id="trader-reviews">
       <Container>
         <SectionReveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#854D0E]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
             {t("eyebrow")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
@@ -155,7 +155,7 @@ export function TraderReviews({
             href="https://www.trustpilot.com/review/ckcapital.co.uk"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold-standard mt-7 inline-flex h-12 items-center gap-2 px-7 text-xs uppercase tracking-[0.14em]"
+            className="btn-brand-standard mt-7 inline-flex h-12 items-center gap-2 px-7 text-xs uppercase tracking-[0.14em]"
             data-od-id="trader-reviews-cta"
           >
             {t("readOnTrustpilot")} <ArrowUpRight size={15} />

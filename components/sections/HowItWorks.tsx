@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
 import { fadeUp, stagger } from "@/components/fx/reveal";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Infinity, Coins } from "lucide-react";
 
 export function HowItWorks() {
   const t = useTranslations("howItWorks");
@@ -28,11 +28,11 @@ export function HowItWorks() {
     },
   ];
 
-  const features = [
-    t("noConsistency"),
-    t("newsAllowed"),
-    t("noTimePressure"),
-    t("profitSplit"),
+  const featureItems = [
+    { label: t("noConsistency"), icon: ShieldCheck },
+    { label: t("newsAllowed"), icon: Zap },
+    { label: t("noTimePressure"), icon: Infinity },
+    { label: t("profitSplit"), icon: Coins },
   ];
 
   return (
@@ -43,7 +43,7 @@ export function HowItWorks() {
     >
       <Container>
         <SectionReveal className="text-center mb-12 md:mb-16">
-          <p className="text-xs text-[#854D0E] uppercase tracking-[0.2em] font-bold mb-3">
+          <p className="text-xs text-[#2563EB] uppercase tracking-[0.2em] font-bold mb-3">
             {t("badge")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
@@ -54,15 +54,12 @@ export function HowItWorks() {
           </p>
         </SectionReveal>
 
-        <div
-          className="relative mx-auto max-w-3xl"
-        >
           {/* Steps list with scoped connecting hairline */}
-          <div className="relative space-y-10 md:space-y-12">
-            {/* Connecting hairline: perfectly connects the 3 yellow node dots */}
+          <div className="relative mx-auto max-w-3xl space-y-10 md:space-y-12">
+            {/* Connecting hairline: perfectly connects the 3 node dots */}
             <div
               aria-hidden="true"
-              className="absolute left-[68px] top-[34px] bottom-[34px] w-[2px] -translate-x-1/2 bg-[#FFC107]/40 z-0"
+              className="absolute left-[68px] top-[34px] bottom-[34px] w-[2px] -translate-x-1/2 bg-[#367CDB]/30 z-0"
             />
             {steps.map((step, i) => (
               <motion.div
@@ -75,10 +72,10 @@ export function HowItWorks() {
                   <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
-                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#FFC107] ring-4 ring-white" />
+                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#01A2EF] ring-4 ring-white" />
                 </div>
                 <div className="pt-1.5 flex-1 min-w-0">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#854D0E]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
                     {step.phase}
                   </span>
                   <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C] tracking-tight">
@@ -92,41 +89,43 @@ export function HowItWorks() {
             ))}
           </div>
 
-          {/* Feature Highlights Strip & CTA */}
+          {/* Simple Centered Symbols & CTA */}
           <div
-            className="mt-14 overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm"
+            className="mx-auto max-w-3xl mt-12 pt-8 border-t border-gray-100/90 text-center"
             data-od-id="how-it-works-features"
           >
-            <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-2.5 text-center">
-              {features.map((feature, idx) => (
-                <div key={feature} className="flex items-center gap-2">
-                  {idx > 0 && (
-                    <span className="text-gray-400 text-xs hidden sm:inline" aria-hidden="true">
-                      •
-                    </span>
-                  )}
-                  <span className="text-[11px] sm:text-[12px] font-black uppercase tracking-[0.14em] text-[#0A0A0C]">
-                    {feature}
-                  </span>
+            {/* Symbols row: balanced 2-column grid on mobile, single horizontal line on desktop */}
+            <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3.5 md:flex md:flex-row md:flex-nowrap items-center justify-center max-w-[330px] min-[390px]:max-w-[360px] sm:max-w-none mx-auto">
+              {featureItems.map(({ label, icon: Icon }) => (
+                <div
+                  key={label}
+                  className="flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 text-[9.5px] min-[370px]:text-[10.5px] md:text-xs font-bold uppercase tracking-[0.03em] text-[#374151] whitespace-nowrap"
+                >
+                  <Icon size={14} className="text-[#01A2EF] shrink-0 stroke-[2.5]" />
+                  <span>{label}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-              <p className="text-sm font-bold text-[#0A0A0C]">
-                {t("readyFunded")} <span className="text-[#854D0E] font-black">{t("startJourney")}</span>
+            {/* Centered CTA: Prompt text + centered standard Brand Button */}
+            <div className="mt-8 flex flex-col items-center justify-center text-center">
+              <p className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
+                {t("readyFunded")}{" "}
+                <span className="text-[#2563EB]">{t("startJourney")}</span>
               </p>
-              <a
-                href="/#start-challenge"
-                className="btn-gold-standard inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.12em] shrink-0"
-                data-od-id="how-it-works-cta"
-              >
-                <span>{t("startChallenge")}</span>
-                <ArrowRight size={13} />
-              </a>
+
+              <div className="mt-4">
+                <a
+                  href="/#start-challenge"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3 text-sm font-bold text-white shadow-md hover:shadow-cyan-500/25 transition-all duration-200"
+                  data-od-id="how-it-works-cta"
+                >
+                  <span>{t("startChallenge")}</span>
+                  <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
       </Container>
     </section>
   );
