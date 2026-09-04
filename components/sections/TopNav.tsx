@@ -159,7 +159,8 @@ export function TopNav() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          const isScrolled = window.scrollY > 20;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
           ticking = false;
         });
         ticking = true;
@@ -167,7 +168,7 @@ export function TopNav() {
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
@@ -287,24 +288,24 @@ export function TopNav() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300 ease-out",
+          "sticky top-0 z-50 w-full transition-colors duration-300 ease-out",
           open
-            ? "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
+            ? "bg-[#030C1B] border-b border-white/[0.08] pointer-events-auto"
             : scrolled
-            ? "bg-transparent border-transparent pt-2.5 sm:pt-3 px-3 sm:px-4 lg:px-6 pointer-events-none"
-            : "bg-[#030C1B] border-b border-white/[0.08] pt-0 px-0 pointer-events-auto"
+            ? "bg-transparent border-b border-transparent pointer-events-none"
+            : "bg-[#030C1B] border-b border-white/[0.08] pointer-events-auto"
         )}
         data-od-id="top-nav"
       >
         <nav
           ref={navRef}
           className={cn(
-            "relative mx-auto max-w-7xl transition-all duration-300 ease-out",
+            "relative max-w-7xl transform-gpu transition-[transform,border-radius,box-shadow,border-color] duration-300 ease-out",
             open
-              ? "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none"
+              ? "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
               : scrolled
-              ? "pointer-events-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B] shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
-              : "px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border-transparent shadow-none pointer-events-auto"
+              ? "pointer-events-auto translate-y-2 sm:translate-y-2.5 mx-3 sm:mx-4 xl:mx-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B] shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
+              : "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
           )}
         >
           <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
