@@ -50,34 +50,34 @@ export default async function Home() {
       {/* S2 — Stats Strip: Light (was Jet Black) */}
       <StatsStrip />
 
-      {/* S3 — Challenge Selector: keep the primary decision close to the hero */}
-      <ChallengeComparison config={challengeConfig} />
-
-      {/* S4 — How It Works */}
-      <HowItWorks />
-
-      {/* S5 — Trading Platforms */}
-      <TradingPlatforms />
-
-      {/* S6 — Benefits */}
-      <FeatureStrip />
-
-      {/* S7 — Verified reward proof */}
+      {/* S3 — Trade with Peace of Mind (proof): Light + warm glow */}
       <ProofShowcase payouts={payouts} summary={rewardsSummary} />
 
-      {/* S8 — Trader Stories */}
+      {/* S4 — Challenge Selector (evals): Light */}
+      <ChallengeComparison config={challengeConfig} />
+
+      {/* S5 — Trading Platforms: Light (was Jet Black) */}
+      <TradingPlatforms />
+
+      {/* S6 — Feature Strip: Light (was Jet Black) */}
+      <FeatureStrip />
+
+      {/* S7 — Trader Stories: Light */}
       <TraderStories videos={videoItems} />
 
-      {/* S9 — Educational content */}
+      {/* S8 — Blog Categories: Light */}
       <BlogCategories articles={articles} />
 
-      {/* S10 — Support */}
+      {/* S9 — Customer Support: Light */}
       <CustomerSupportSection />
 
-      {/* S11 — FAQ */}
+      {/* S10 — How It Works (moved down — traders know this, keep for new users): Light */}
+      <HowItWorks />
+
+      {/* S11 — FAQ: Light (was Jet Black) */}
       <FaqAccordion />
 
-      {/* S12 — Closing CTA */}
+      {/* S12 — Closing CTA: Light + warm glow */}
       <ClosingCta />
     </main>
   );

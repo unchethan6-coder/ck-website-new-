@@ -2,10 +2,10 @@
   "announcement": {
     "badge": "SUMMER SALE",
     "discount": "70% OFF",
-    "allEvaluations": "SELECTED EVALUATIONS · TERMS APPLY",
+    "allEvaluations": "ALL EVALUATIONS",
     "codeLabel": "USE CODE",
     "expiresIn": "EXPIRES IN",
-    "claimOffer": "VIEW OFFER"
+    "claimOffer": "CLAIM 70% OFF"
   },
   "nav": {
     "programs": "Programs",
@@ -15,15 +15,15 @@
     "evaluation": "Evaluation",
     "evaluationDesc": "1-Step & 2-Step Challenges",
     "oneStepTitle": "1-Step Evaluation",
-    "oneStepDesc": "Single-stage objective and a faster path to a simulated funded account.",
-    "oneStepPrice": "From $19.20",
+    "oneStepDesc": "Single-stage objective, fast-track to funded trader.",
+    "oneStepPrice": "From $32",
     "twoStepTitle": "2-Step Evaluation",
     "twoStepDesc": "Traditional two-phase verification with max profit split.",
-    "twoStepPrice": "From $19.20",
+    "twoStepPrice": "From $49",
     "instantFunding": "Instant Funding",
     "instantTitle": "Instant Funding",
     "instantDesc": "Direct simulated capital with no evaluation phase.",
-    "instantPrice": "From $48",
+    "instantPrice": "From $55",
     "compareAllTitle": "Compare All Programs",
     "compareAllDesc": "Side-by-side comparison of drawdown, profit targets & fees",
     "tradingObjectivesTitle": "Trading Objectives",
@@ -54,10 +54,10 @@
     "menu": "Menu",
     "signIn": "Sign In",
     "startChallenge": "Start Challenge",
-    "featuredEvalBadge": "LIMITED OFFER · 70% OFF",
-    "featuredEvalTitle": "Trade Up to $300K Simulated Capital",
+    "featuredEvalBadge": "LIMITED OFFER · 75% OFF",
+    "featuredEvalTitle": "Trade Up to $300K Capital",
     "featuredEvalDesc": "Trade with institutional tools, tight spreads, and earn up to 100% profit split on simulated accounts.",
-    "featuredEvalCta": "View 70% Offer",
+    "featuredEvalCta": "Claim 75% Off",
     "featuredCommunityBadge": "TRADER COMMUNITY",
     "featuredCommunityTitle": "Join 20,000+ Active Traders",
     "featuredCommunityDesc": "Live trading breakdowns, payout proofs, and direct Discord VIP support.",
@@ -109,8 +109,8 @@
       "step3": {
         "step": "03",
         "phase": "Phase 3",
-        "title": "Simulated Funded Account",
-        "description": "Trade in CK Capital’s simulated environment and become eligible for performance rewards under the programme terms."
+        "title": "Funded Trader",
+        "description": "Get funded and trade with confidence. Keep up to 100% of your profits."
       }
     },
     "badge": "Process",
@@ -123,8 +123,8 @@
     "startChallenge": "Start Challenge"
   },
   "whyChooseUs": {
-    "title": "Everything you need to trade a simulated funded account",
-    "subtitle": "Built for serious traders who want clear rules, eligible performance rewards, and responsive support.",
+    "title": "Everything you need to trade funded",
+    "subtitle": "Built for serious traders who want real rules, real payouts, and real support.",
     "items": {
       "split": {
         "title": "Reward Split",
@@ -289,7 +289,7 @@
   },
   "proof": {
     "eyebrow": "VERIFIED PERFORMANCE",
-    "title": "Verified Trader Reward Records",
+    "title": "Real Traders. Real Rewards.",
     "subtitle": "No complicated processes. No hidden requirements. A clear path from evaluation to eligible simulated profit rewards.",
     "rewardsDistributed": "Payouts Total",
     "qualifiedAnalysts": "Active Traders",
@@ -302,7 +302,7 @@
     "benefitFlexible": "Flexible Reward Cycles",
     "benefitAllocation": "Up to $1.2M Allocation",
     "benefitNoHidden": "No Hidden Fees",
-    "benefitStarting": "Starting at $19.20",
+    "benefitStarting": "Starting at $58",
     "viewEvaluations": "Compare Plans",
     "readyReward": "Ready to request your reward?",
     "readyRewardDesc": "Open your CK Capital dashboard, click request, then complete the required details.",
@@ -405,32 +405,32 @@
   },
   "closingCta": {
     "eyebrow": "Your next trade could be funded",
-    "title": "Ready to prove your trading approach?",
-    "subtitle": "Pick a challenge, complete the objectives on your timetable, and become eligible for performance rewards in a simulated funded account.",
+    "title": "Ready to trade CK's capital?",
+    "subtitle": "Pick a challenge, pass the objectives on your timetable, and trade simulated accounts with up to 100% of the profits you keep.",
     "button": "Start Challenge",
     "titleNew": "Your skill is our capital",
-    "subtitleNew": "A structured path from proving your edge in simulation to an eligible performance reward account.",
+    "subtitleNew": "A structured path from proving your edge in sim to trading CK funded capital.",
     "stage1Label": "Stage 1",
     "stage1Title": "Prove your edge",
     "stage1Desc": "On Sim & grow with CK",
     "stage2Label": "Stage 2",
-    "stage2Title": "Scale simulated capital",
+    "stage2Title": "Scale CK capital",
     "stage2Desc": "Scale all the way to $1.2M.",
     "stage3Label": "Stage 3",
-    "stage3Title": "Unlock a Simulated Funded Account",
-    "stage3Desc": "Become eligible for performance rewards.",
+    "stage3Title": "Become CK Funded",
+    "stage3Desc": "Earn from funded capital.",
     "pill1": "Up to 100% Rewards",
     "pill2": "No Time Limits",
     "primary": "Start Challenge",
     "secondary": "Compare Plans",
-    "drawerTitle": "Your path to a simulated funded account",
-    "drawerDesc": "Three clear stages from evaluation to a simulated funded account. Each stage validates your approach before you scale.",
+    "drawerTitle": "Your path to CK Funded",
+    "drawerDesc": "Three clear stages from evaluation to funded. Each stage validates your edge before you scale with CK capital.",
     "drawerStage1Title": "Evaluation",
     "drawerStage1Desc": "Prove your edge in a timed or untimed sim. Hit the profit target without breaking the rules.",
     "drawerStage2Title": "Verification",
     "drawerStage2Desc": "Confirm consistency. Scale with tighter risk and unlock higher allocation.",
-    "drawerStage3Title": "Simulated Funded Account",
-    "drawerStage3Desc": "Trade in the simulated environment and become eligible for up to 100% performance rewards, subject to programme terms.",
+    "drawerStage3Title": "CK Funded",
+    "drawerStage3Desc": "Trade funded, keep up to 100% of the profits you generate. Payouts on demand.",
     "drawerCta": "Explore objectives",
     "drawerClose": "Close"
   },
@@ -1102,8 +1102,8 @@
     "getStarted": "Start Challenge"
   },
   "stories": {
-    "title": "Trader experiences and reward stories",
-    "subtitle": "Hear from traders who completed a CK Capital evaluation and received an eligible performance reward. Individual results vary.",
+    "title": "Real traders, real rewards, real impact",
+    "subtitle": "Hear it directly from traders who passed their challenge and received their reward. These are real stories from traders whose lives changed with each dollar they received.",
     "successStory": "SUCCESS STORY"
   },
   "insights": {

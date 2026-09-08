@@ -60,10 +60,10 @@ export function InstantFundingVisual({
             <div>
               <div className="flex items-center gap-2">
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
-                  Simulated Funded Account #CK-INSTANT
+                  Direct Live Account #CK-INSTANT
                 </p>
                 <span className="rounded bg-violet-50 px-1.5 py-0.5 text-[9px] font-bold text-[#7943E0] border border-violet-200">
-                  SIMULATED FUNDED
+                  100% DIRECT FUNDED
                 </span>
               </div>
               <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">

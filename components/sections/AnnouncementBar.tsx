@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
-import { SITE_META } from "@/lib/content";
 
 export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
   const [visible, setVisible] = useState(true);
@@ -19,10 +18,10 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
       <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 pr-7 sm:pr-8">
         <span className="text-sm">🎁</span>
         <span className="font-semibold text-white/95 tracking-wide">
-          <span className="text-[#894CEF]">{t("badge")}:</span> {SITE_META.promoDiscount} {t("allEvaluations")}
+          <span className="text-[#894CEF]">{t("badge")}:</span> {t("discount")} {t("allEvaluations")}!
         </span>
         <span className="inline-flex items-center rounded border border-[#894CEF]/40 bg-[#894CEF]/10 px-2 py-0.5 font-mono text-[11px] sm:text-xs font-bold text-[#894CEF]">
-          {t("codeLabel")}: {SITE_META.promoCode}
+          {t("codeLabel")}: 10KFOR19
         </span>
         <a
           href="/#start-challenge"
@@ -42,3 +41,4 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
     </div>
   );
 }
+

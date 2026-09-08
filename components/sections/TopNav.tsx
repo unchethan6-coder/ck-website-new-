@@ -766,8 +766,6 @@ export function TopNav() {
                   <button
                     type="button"
                     data-od-id="mobile-accordion-tradingObjectives"
-                    aria-expanded={mobileExpanded === "programs"}
-                    aria-controls="mobile-programs-panel"
                     onClick={() => setMobileExpanded(mobileExpanded === "programs" ? null : "programs")}
                     className={cn(
                       "flex items-center justify-between min-h-11 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors w-full",
@@ -783,7 +781,7 @@ export function TopNav() {
                     />
                   </button>
                   {mobileExpanded === "programs" && (
-                    <div id="mobile-programs-panel" className="flex flex-col pl-3 border-l-2 border-primary/20 ml-3 gap-1 py-1" data-od-id="mobile-dropdown-tradingObjectives">
+                    <div className="flex flex-col pl-3 border-l-2 border-primary/20 ml-3 gap-1 py-1" data-od-id="mobile-dropdown-tradingObjectives">
                       {programColumns.flatMap((col) => col.items).map((item) => {
                         const IconComponent = item.icon;
                         const itemKey =
@@ -851,8 +849,6 @@ export function TopNav() {
                   <button
                     type="button"
                     data-od-id="mobile-accordion-company"
-                    aria-expanded={mobileExpanded === "company"}
-                    aria-controls="mobile-company-panel"
                     onClick={() => setMobileExpanded(mobileExpanded === "company" ? null : "company")}
                     className={cn(
                       "flex items-center justify-between min-h-11 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors w-full",
@@ -868,7 +864,7 @@ export function TopNav() {
                     />
                   </button>
                   {mobileExpanded === "company" && (
-                    <div id="mobile-company-panel" className="flex flex-col pl-3 border-l-2 border-primary/20 ml-3 gap-1 py-1" data-od-id="mobile-dropdown-company">
+                    <div className="flex flex-col pl-3 border-l-2 border-primary/20 ml-3 gap-1 py-1" data-od-id="mobile-dropdown-company">
                       {companyColumns.flatMap((col) => col.items).map((item) => {
                         const isExt = item.external || item.href.startsWith("http");
                         const itemKey = item.titleKey === "aboutUs" ? "aboutUs" : item.titleKey === "payoutsProof" ? "payouts" : item.titleKey === "affiliateProgram" ? "affiliates" : item.titleKey === "support247" ? "contact" : item.titleKey === "blogTitle" ? "blog" : "faq";
