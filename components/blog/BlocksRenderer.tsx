@@ -35,7 +35,7 @@ function Inline({ node, index }: { node: any; index: number }): JSX.Element {
         href={node.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[#0A0A0C] font-semibold underline underline-offset-4 transition-colors hover:text-[#2563EB]"
+        className="text-[#0A0A0C] font-semibold underline underline-offset-4 transition-colors hover:text-[#7943E0]"
       >
         {Array.isArray(node.children) && node.children.map((c: any, i: number) => <Inline key={i} node={c} index={i} />)}
       </a>
@@ -80,7 +80,7 @@ function Block({ block, index }: { block: any; index: number }): JSX.Element | n
       return (
         <blockquote
           key={key}
-          className="rounded-r-xl border-l-4 border-[#367CDB] bg-gray-50 py-4 pl-5 pr-4 text-[15px] italic leading-relaxed text-[#374151]"
+          className="rounded-r-xl border-l-4 border-[#703AD7] bg-gray-50 py-4 pl-5 pr-4 text-[15px] italic leading-relaxed text-[#374151]"
         >
           {children}
         </blockquote>
@@ -89,7 +89,7 @@ function Block({ block, index }: { block: any; index: number }): JSX.Element | n
       return (
         <pre
           key={key}
-          className="overflow-x-auto rounded-xl border border-foreground/10 bg-[#030C1B] p-4 font-mono text-[13px] leading-relaxed text-[#e8e6e1]"
+          className="overflow-x-auto rounded-xl border border-foreground/10 bg-[#030A1C] p-4 font-mono text-[13px] leading-relaxed text-[#e8e6e1]"
         >
           {block.children?.map((c: any, i: number) => <span key={i}>{c.text ?? ""}</span>)}
         </pre>

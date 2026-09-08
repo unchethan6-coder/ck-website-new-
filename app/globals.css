@@ -53,9 +53,8 @@
 }
 
 /* ============================================================= */
-/* CK Capital — DARK theme (default). New Brand System:          */
-/* Deep Navy (#030C1B), Slate Steel (#405164),                  */
-/* Sapphire Blue (#367CDB), Bright Cyan (#01A2EF)                */
+/* CK Capital — dark violet theme sampled from the reference.    */
+/* Ink Navy (#030A1C), Slate (#525867), Violet (#894CEF).        */
 /* ============================================================= */
 :root,
 html.dark,
@@ -63,85 +62,88 @@ html.dark,
   color-scheme: dark;
 
   /* Brand colours */
-  --brand-rgb:             54 124 219;  /* #367CDB as rgb triplet */
-  --brand-cyan-rgb:        1 162 239;   /* #01A2EF as rgb triplet */
-  --background:            #030C1B;
-  --background-secondary:  #071326;
-  --foreground:            #F8FAFC;
+  --brand-rgb:             112 58 215;  /* #703AD7 as rgb triplet */
+  --brand-cyan-rgb:        137 76 239;  /* legacy name; #894CEF */
+  --background:            #030A1C;
+  --background-secondary:  #080E24;
+  --foreground:            #F2F2F3;
 
   /* Surfaces */
-  --card:                  #0A182F;
-  --card-foreground:       #F8FAFC;
-  --card-border:           rgba(64, 81, 100, 0.35);
-  --popover:               #0A182F;
-  --popover-foreground:    #F8FAFC;
-  --surface:               #071326;
+  --card:                  #0B1122;
+  --card-foreground:       #F2F2F3;
+  --card-border:           rgba(82, 88, 103, 0.35);
+  --popover:               #0B1122;
+  --popover-foreground:    #F2F2F3;
+  --surface:               #080E24;
 
-  /* Primary — Electric Sapphire Blue */
-  --primary:               #367CDB;
-  --primary-dark:          #2361B8;
+  /* Primary — deep violet */
+  --primary:               #703AD7;
+  --primary-dark:          #5733A0;
   --primary-foreground:    #FFFFFF;
 
-  /* Secondary / Accent — Bright Cyan Highlight */
-  --secondary:             #01A2EF;
+  /* Secondary / accent — electric violet highlight */
+  --secondary:             #894CEF;
   --secondary-foreground:  #FFFFFF;
-  --accent:                #01A2EF;
+  --accent:                #894CEF;
   --accent-foreground:     #FFFFFF;
 
   /* Muted / Slate */
-  --muted:                 rgba(64, 81, 100, 0.25);
-  --muted-foreground:      #94A3B8;
+  --muted:                 rgba(82, 88, 103, 0.25);
+  --muted-foreground:      #999BA3;
 
   /* Destructive */
   --destructive:           #EF4444;
   --destructive-foreground: #F8FAFC;
 
   /* Borders / inputs */
-  --border:                rgba(64, 81, 100, 0.35);
-  --input:                 rgba(64, 81, 100, 0.25);
-  --ring:                  #01A2EF;
+  --border:                rgba(82, 88, 103, 0.35);
+  --input:                 rgba(82, 88, 103, 0.25);
+  --ring:                  #894CEF;
 
   /* Nav pill */
-  --nav-bg:                #030C1B;
-  --nav-bg-scrolled:       #030C1B;
+  --nav-bg:                #030A1C;
+  --nav-bg-scrolled:       #030A1C;
 
   /* Charts */
-  --chart-1:               #367CDB;
-  --chart-2:               #01A2EF;
-  --chart-3:               #60A5FA;
-  --chart-4:               #405164;
-  --chart-5:               #94A3B8;
+  --chart-1:               #703AD7;
+  --chart-2:               #894CEF;
+  --chart-3:               #B395E4;
+  --chart-4:               #525867;
+  --chart-5:               #999BA3;
 
   /* Radius */
   --radius:                0.75rem;
 
   /* Brand helpers */
-  --ck-glass:              rgba(7, 19, 38, 0.75);
-  --ck-glass-strong:       rgba(7, 19, 38, 0.92);
-  --ck-ink:                #F8FAFC;
-  --ck-muted:              #94A3B8;
-  --ck-line:               rgba(64, 81, 100, 0.35);
-  --ck-trust:              #01A2EF;
-  --ck-surface:            #030C1B;
-  --ck-surface-2:          #071326;
-  --ck-brand-gradient:     linear-gradient(135deg, #367CDB 0%, #01A2EF 100%);
-  --ck-gold-gradient:      linear-gradient(135deg, #FFC107 0%, #FFE082 50%, #FFC107 100%);
+  --ck-glass:              rgba(8, 14, 36, 0.75);
+  --ck-glass-strong:       rgba(8, 14, 36, 0.92);
+  --ck-ink:                #F2F2F3;
+  --ck-muted:              #999BA3;
+  --ck-line:               rgba(82, 88, 103, 0.35);
+  --ck-trust:              #894CEF;
+  --ck-surface:            #030A1C;
+  --ck-surface-2:          #080E24;
+  --ck-brand-gradient:     linear-gradient(135deg, #703AD7 0%, #894CEF 100%);
+  --ck-gold-gradient:      linear-gradient(135deg, #703AD7 0%, #894CEF 58%, #B395E4 100%);
+  --ck-cta-gradient:       linear-gradient(90deg, rgb(212, 159, 62) 0%, rgb(233, 190, 87) 28%, rgb(255, 244, 148) 50%, rgb(233, 190, 87) 72%, rgb(212, 159, 62) 100%);
   --trustpilot:            #00b67a;
 
   /* Sidebar (dark, matches brand) */
-  --sidebar:               #030C1B;
-  --sidebar-foreground:    #F8FAFC;
-  --sidebar-primary:       #367CDB;
+  --sidebar:               #030A1C;
+  --sidebar-foreground:    #F2F2F3;
+  --sidebar-primary:       #703AD7;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent:        #01A2EF;
+  --sidebar-accent:        #894CEF;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border:        rgba(64, 81, 100, 0.35);
-  --sidebar-ring:          #01A2EF;
+  --sidebar-border:        rgba(82, 88, 103, 0.35);
+  --sidebar-ring:          #894CEF;
 }
 
-/* Body background — pure solid flat color, no gradients */
+/* Violet ambient glow from the reference, over the ink base. */
 body {
-  background-color: var(--background);
+  background:
+    radial-gradient(circle at 72% 20%, rgba(112, 58, 215, 0.18), transparent 34rem),
+    var(--background);
   overflow-x: clip;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
@@ -289,7 +291,7 @@ body {
   100% { background-position: 200% center; }
 }
 .shimmer-text {
-  background: linear-gradient(90deg, #367CDB, #01A2EF, #60A5FA, #01A2EF, #367CDB);
+  background: linear-gradient(90deg, #703AD7, #894CEF, #B395E4, #894CEF, #703AD7);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -382,7 +384,7 @@ body {
   transition: all 0.2s ease;
   min-height: 44px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #367CDB 0%, #01A2EF 100%);
+  background: var(--ck-cta-gradient);
   box-shadow: 0 10px 28px rgba(54, 124, 219, 0.35);
   font-size: 0.875rem;
 }
@@ -613,9 +615,9 @@ body {
 }
 
 /* ── Live chart — vibrant cyan line and sapphire fill ── */
-.fx-chart-line { stroke: #01A2EF; }
-.fx-chart-fill { stop-color: #367CDB; }
-.fx-chart-dot { fill: #01A2EF; }
+.fx-chart-line { stroke: #894CEF; }
+.fx-chart-fill { stop-color: #703AD7; }
+.fx-chart-dot { fill: #894CEF; }
 
 /* ── Mobile and Tablet Touch & Scroll Optimization ── */
 html, body {
@@ -667,7 +669,7 @@ html, body {
   /* Standardized Interactive Elements */
   .btn-gold-standard,
   .btn-brand-standard {
-    background-color: #367CDB;
+    background-color: #703AD7;
     color: #FFFFFF;
     font-weight: 800;
     border-radius: 0.75rem;
@@ -705,7 +707,7 @@ html, body {
     font-weight: 700;
     border: none;
     cursor: pointer;
-    background: linear-gradient(90deg, #367CDB 0%, #01A2EF 50%, #367CDB 100%);
+    background-image: var(--ck-cta-gradient) !important;
     background-size: 200% 100%;
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 4px 14px rgba(54, 124, 219, 0.35);
     transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
@@ -741,14 +743,14 @@ html, body {
   .brand-pill-btn:focus-visible,
   .gold-gradient-btn:focus-visible,
   .brand-gradient-btn:focus-visible {
-    outline: 2px solid #01A2EF;
+    outline: 2px solid #894CEF;
     outline-offset: 3px;
   }
 
   .gold-card-highlight,
   .brand-card-highlight {
     border-color: transparent !important;
-    background: linear-gradient(rgba(10, 24, 47, 0.9), rgba(10, 24, 47, 0.9)) padding-box, linear-gradient(90deg, #367CDB, #01A2EF, #367CDB) border-box !important;
+    background: linear-gradient(rgba(10, 24, 47, 0.9), rgba(10, 24, 47, 0.9)) padding-box, linear-gradient(90deg, #703AD7, #894CEF, #703AD7) border-box !important;
     background-size: 100% 100%, 200% 100% !important;
     box-shadow: 0 0 20px rgba(1, 162, 239, 0.25) !important;
     animation: brand-card-shimmer 4s ease-in-out infinite;
@@ -768,4 +770,3 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .gold-pill-btn, .brand-pill-btn, .gold-card-highlight, .brand-card-highlight { animation: none !important; }
 }
-

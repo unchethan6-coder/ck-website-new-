@@ -22,7 +22,7 @@ export function GoldButton({
 
   const variants = {
     gold: "brand-gradient-btn text-white font-bold hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] shadow-md hover:shadow-cyan-500/20",
-    outline: "text-foreground border border-white/20 bg-white/[0.04] hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-white/[0.08] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    outline: "text-foreground border border-white/20 bg-white/[0.04] hover:border-[#894CEF] hover:text-[#894CEF] hover:bg-white/[0.08] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     ghost: "text-foreground/85 hover:text-white hover:bg-white/10 active:scale-[0.98]",
   };
 

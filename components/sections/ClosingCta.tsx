@@ -9,7 +9,7 @@ import { Link } from "@/i18n/navigation";
 
 function fireConfetti() {
   if (typeof document === "undefined") return;
-  const colors = ["#01A2EF", "#367CDB", "#030C1B", "#F8FAFC", "#FFFFFF"];
+  const colors = ["#894CEF", "#703AD7", "#030A1C", "#F8FAFC", "#FFFFFF"];
   const container = document.createElement("div");
   container.style.position = "fixed";
   container.style.inset = "0";
@@ -101,9 +101,9 @@ export function ClosingCta() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mx-auto inline-flex items-center gap-1.5 rounded-full border border-[#01A2EF]/30 bg-[#F0F7FF] px-3 py-1 text-[11px] font-bold tracking-wide text-[#030C1B]"
+            className="mx-auto inline-flex items-center gap-1.5 rounded-full border border-[#894CEF]/30 bg-[#F0F7FF] px-3 py-1 text-[11px] font-bold tracking-wide text-[#030A1C]"
           >
-            <Zap size={12} className="fill-[#01A2EF] text-[#01A2EF]" /> {t("eyebrow")}
+            <Zap size={12} className="fill-[#894CEF] text-[#894CEF]" /> {t("eyebrow")}
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
@@ -134,7 +134,7 @@ export function ClosingCta() {
           <div className="relative flex items-start justify-between gap-2 pt-[1px]">
             <div className="absolute left-[18px] right-[18px] top-[18px] h-px bg-gray-200 md:left-[40px] md:right-[40px]" aria-hidden="true" />
             <motion.div
-              className="absolute left-[18px] top-[18px] h-0.5 bg-[#01A2EF] md:left-[40px]"
+              className="absolute left-[18px] top-[18px] h-0.5 bg-[#894CEF] md:left-[40px]"
               style={{ maxWidth: "calc(100% - 36px)" }}
               animate={{ width: active === 0 ? "0%" : active === 1 ? "50%" : "100%" }}
               transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -156,15 +156,15 @@ export function ClosingCta() {
                   transition={{ duration: 0.45, delay: 0.08 + i * 0.07 }}
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  className="relative z-10 flex flex-col items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01A2EF] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                  className="relative z-10 flex flex-col items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#894CEF] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                   <span className="relative grid h-9 w-9 place-items-center">
                     <span
                       className={
                         isActive
-                          ? "relative grid h-9 w-9 place-items-center rounded-full bg-[#0A0A0C] text-white shadow-[0_8px_20px_rgba(10,10,12,0.22)] ring-2 ring-[#01A2EF] ring-offset-2 ring-offset-white"
+                          ? "relative grid h-9 w-9 place-items-center rounded-full bg-[#0A0A0C] text-white shadow-[0_8px_20px_rgba(10,10,12,0.22)] ring-2 ring-[#894CEF] ring-offset-2 ring-offset-white"
                           : isPast
-                            ? "relative grid h-9 w-9 place-items-center rounded-full bg-[#01A2EF] text-[#030C1B] shadow-sm"
+                            ? "relative grid h-9 w-9 place-items-center rounded-full bg-[#894CEF] text-[#030A1C] shadow-sm"
                             : "relative grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-gray-400 shadow-sm"
                       }
                     >
@@ -203,7 +203,7 @@ export function ClosingCta() {
                 }
               >
                 {/* Top accent — instant, no delay */}
-                <div className={active === 2 ? "absolute left-0 right-0 top-0 h-1 bg-[#01A2EF]" : "absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"} />
+                <div className={active === 2 ? "absolute left-0 right-0 top-0 h-1 bg-[#894CEF]" : "absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#703AD7] to-[#894CEF]"} />
                 {/* Sheen — subtle, no delay */}
                 <motion.div
                   className="pointer-events-none absolute inset-0 opacity-0"
@@ -221,9 +221,9 @@ export function ClosingCta() {
                     initial={{ scale: 0.8, rotate: -8 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                    className={active === 2 ? "grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#01A2EF] ring-1 ring-white/15" : "grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#F0F7FF] text-[#030C1B] ring-1 ring-[#01A2EF]/30"}
+                    className={active === 2 ? "grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#894CEF] ring-1 ring-white/15" : "grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#F0F7FF] text-[#030A1C] ring-1 ring-[#894CEF]/30"}
                   >
-                    <Icon size={18} className={active === 2 ? "fill-[#01A2EF] text-[#01A2EF]" : ""} />
+                    <Icon size={18} className={active === 2 ? "fill-[#894CEF] text-[#894CEF]" : ""} />
                   </motion.span>
                   <div className="min-w-0">
                     <h3 className={active === 2 ? "font-[family-name:var(--font-inter-tight)] text-lg font-extrabold leading-tight text-white" : "font-[family-name:var(--font-inter-tight)] text-lg font-extrabold leading-tight text-[#0A0A0C]"}>
@@ -239,7 +239,7 @@ export function ClosingCta() {
                   {[0, 1, 2].map((i) => (
                     <motion.span
                       key={i}
-                      className={i === active ? "h-1.5 w-6 rounded-full bg-[#01A2EF]" : "h-1.5 w-1.5 rounded-full bg-gray-200"}
+                      className={i === active ? "h-1.5 w-6 rounded-full bg-[#894CEF]" : "h-1.5 w-1.5 rounded-full bg-gray-200"}
                       animate={{ scale: i === active ? 1 : 0.9, opacity: i === active ? 1 : 0.6 }}
                       transition={{ duration: 0.3 }}
                     />
@@ -294,7 +294,7 @@ export function ClosingCta() {
                   <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-extrabold tracking-tight text-[#0A0A0C]">{t("drawerTitle")}</h3>
                   <p className="mt-1 max-w-[32ch] text-sm leading-6 text-gray-500">{t("drawerDesc")}</p>
                 </div>
-                <button type="button" onClick={() => setDrawerOpen(false)} aria-label={t("drawerClose")} data-od-id="roadmap-close" className="ml-4 grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-[#0A0A0C] transition-colors hover:border-[#01A2EF] hover:bg-[#F0F7FF]"><X size={16} /></button>
+                <button type="button" onClick={() => setDrawerOpen(false)} aria-label={t("drawerClose")} data-od-id="roadmap-close" className="ml-4 grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-[#0A0A0C] transition-colors hover:border-[#894CEF] hover:bg-[#F0F7FF]"><X size={16} /></button>
               </div>
               <div className="flex-1 overflow-y-auto px-6 py-6">
                 <ol className="relative space-y-6 border-l border-gray-200 pl-6">

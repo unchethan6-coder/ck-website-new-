@@ -141,7 +141,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
                     <div className="absolute inset-0 z-20 flex flex-col justify-between p-4 sm:p-5 bg-black/65 backdrop-blur-md opacity-0 transition-all duration-300 group-hover:opacity-100">
                       {/* Top row: Badge & Branding */}
                       <div className="flex items-center justify-between gap-2">
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[10.5px] font-extrabold uppercase tracking-wider bg-[#01A2EF] text-[#030C1B] shadow-sm">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[10.5px] font-extrabold uppercase tracking-wider bg-[#894CEF] text-[#030A1C] shadow-sm">
                           {t("successStory")}
                         </span>
                         <span className="text-[10.5px] font-black tracking-[0.18em] text-white/90">
@@ -151,8 +151,8 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
 
                       {/* Center: Radiant Play Button */}
                       <div className="flex items-center justify-center my-auto">
-                        <span className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#01A2EF] text-[#030C1B] shadow-[0_0_24px_rgba(1,162,239,0.6)] transition-transform duration-300 group-hover:scale-110">
-                          <Play size={20} fill="#030C1B" stroke="none" className="ml-1" />
+                        <span className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#894CEF] text-[#030A1C] shadow-[0_0_24px_rgba(1,162,239,0.6)] transition-transform duration-300 group-hover:scale-110">
+                          <Play size={20} fill="#030A1C" stroke="none" className="ml-1" />
                         </span>
                       </div>
 
@@ -198,7 +198,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
           href="https://discord.com/invite/hGSVx9CmS2"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#367CDB] to-[#01A2EF] px-8 text-[15px] font-bold text-white shadow-[0_0_20px_rgba(1,162,239,0.3)] transition-all hover:opacity-95 hover:shadow-[0_0_28px_rgba(1,162,239,0.5)]"
+          className="brand-gradient-btn inline-flex h-12 items-center justify-center rounded-xl px-8 text-[15px] font-bold text-white shadow-lg transition-all hover:opacity-95"
         >
           Join Our Community
         </a>

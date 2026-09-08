@@ -95,7 +95,7 @@ export function LiveChart() {
         cy={points[points.length - 1]}
         r="4"
         className="fx-chart-dot"
-        stroke="#030C1B"
+        stroke="#030A1C"
         strokeWidth="2"
       >
         <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />

@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-[#030C1B] text-[#F8FAFC] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
+      className="relative isolate overflow-hidden bg-[#030A1C] text-[#F8FAFC] pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20"
       data-od-id="hero"
     >
       {/* Background Aurora & Dots Grid */}
@@ -32,8 +32,8 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full mb-3 sm:mb-4 px-3 py-1 bg-white/[0.04] border border-white/10"
             >
-              <span className="h-2 w-2 rounded-full bg-[#01A2EF] shadow-[0_0_8px_#01A2EF]" />
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#94A3B8]">
+              <span className="h-2 w-2 rounded-full bg-[#894CEF] shadow-[0_0_8px_#894CEF]" />
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#999BA3]">
                 {t("badge")}
               </span>
             </motion.div>
@@ -53,7 +53,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="mt-3.5 sm:mt-4 text-sm sm:text-base font-medium leading-relaxed text-[#94A3B8] max-w-lg"
+              className="mt-3.5 sm:mt-4 text-sm sm:text-base font-medium leading-relaxed text-[#999BA3] max-w-lg"
             >
               {t("subcopy")}
             </motion.p>
@@ -69,16 +69,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <BarChart2 size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Up to 100%
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
                     Profit Split
                   </span>
                 </div>
@@ -88,16 +88,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <Coins size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Up to $1.2M
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
                     Funding Accounts
                   </span>
                 </div>
@@ -107,16 +107,16 @@ export function Hero() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#071326]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#01A2EF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
+                className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#01A2EF]/15 text-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <Zap size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
                     Flexible
                   </span>
-                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#94A3B8]">
+                  <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
                     Payouts
                   </span>
                 </div>
@@ -140,9 +140,9 @@ export function Hero() {
 
               <a
                 href="#how-it-works"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-4 py-3 text-sm sm:text-base font-extrabold text-white hover:border-[#01A2EF] hover:bg-white/[0.08] hover:text-white active:translate-y-0 active:scale-[0.98] transition-all duration-200 shadow-sm text-center"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-4 py-3 text-sm sm:text-base font-extrabold text-white hover:border-[#894CEF] hover:bg-white/[0.08] hover:text-white active:translate-y-0 active:scale-[0.98] transition-all duration-200 shadow-sm text-center"
               >
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white/80 text-white group-hover:border-[#01A2EF] group-hover:bg-[#01A2EF] group-hover:text-black transition-all duration-200 shrink-0">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white/80 text-white group-hover:border-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-all duration-200 shrink-0">
                   <Play size={11} className="ml-0.5 fill-current" />
                 </div>
                 <span>{t("exploreObjectives")}</span>

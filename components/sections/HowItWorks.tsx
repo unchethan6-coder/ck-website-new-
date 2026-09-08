@@ -43,7 +43,7 @@ export function HowItWorks() {
     >
       <Container>
         <SectionReveal className="text-center mb-12 md:mb-16">
-          <p className="text-xs text-[#2563EB] uppercase tracking-[0.2em] font-bold mb-3">
+          <p className="text-xs text-[#7943E0] uppercase tracking-[0.2em] font-bold mb-3">
             {t("badge")}
           </p>
           <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
@@ -59,7 +59,7 @@ export function HowItWorks() {
             {/* Connecting hairline: perfectly connects the 3 node dots */}
             <div
               aria-hidden="true"
-              className="absolute left-[68px] top-[34px] bottom-[34px] w-[2px] -translate-x-1/2 bg-[#367CDB]/30 z-0"
+              className="absolute left-[68px] top-[34px] bottom-[34px] w-[2px] -translate-x-1/2 bg-[#703AD7]/30 z-0"
             />
             {steps.map((step, i) => (
               <motion.div
@@ -72,10 +72,10 @@ export function HowItWorks() {
                   <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
-                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#01A2EF] ring-4 ring-white" />
+                  <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#894CEF] ring-4 ring-white" />
                 </div>
                 <div className="pt-1.5 flex-1 min-w-0">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
                     {step.phase}
                   </span>
                   <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C] tracking-tight">
@@ -101,7 +101,7 @@ export function HowItWorks() {
                   key={label}
                   className="flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 text-[9.5px] min-[370px]:text-[10.5px] md:text-xs font-bold uppercase tracking-[0.03em] text-[#374151] whitespace-nowrap"
                 >
-                  <Icon size={14} className="text-[#01A2EF] shrink-0 stroke-[2.5]" />
+                  <Icon size={14} className="text-[#894CEF] shrink-0 stroke-[2.5]" />
                   <span>{label}</span>
                 </div>
               ))}
@@ -111,7 +111,7 @@ export function HowItWorks() {
             <div className="mt-8 flex flex-col items-center justify-center text-center">
               <p className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
                 {t("readyFunded")}{" "}
-                <span className="text-[#2563EB]">{t("startJourney")}</span>
+                <span className="text-[#7943E0]">{t("startJourney")}</span>
               </p>
 
               <div className="mt-4">

@@ -102,10 +102,10 @@ export function ProofShowcase({
           >
             {/* Concentric rings + soft sapphire atmosphere */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute left-[30%] top-[58%] h-[1060px] w-[1060px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/10" />
-              <div className="absolute left-[30%] top-[58%] h-[840px] w-[840px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/15" />
-              <div className="absolute left-[30%] top-[58%] h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/20" />
-              <div className="absolute left-[30%] top-[58%] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#367CDB]/15" />
+              <div className="absolute left-[30%] top-[58%] h-[1060px] w-[1060px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#703AD7]/10" />
+              <div className="absolute left-[30%] top-[58%] h-[840px] w-[840px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#703AD7]/15" />
+              <div className="absolute left-[30%] top-[58%] h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#703AD7]/20" />
+              <div className="absolute left-[30%] top-[58%] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#703AD7]/15" />
               <div
                 className="absolute -bottom-[34%] left-[4%] h-[72%] w-[64%] rounded-full opacity-70 blur-3xl"
                 style={{
@@ -156,7 +156,7 @@ export function ProofShowcase({
                 >
                   <a
                     href="/evaluation"
-                    className="inline-flex min-h-12 items-center rounded-xl border border-gray-300 bg-white px-7 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#367CDB] hover:bg-[#F0F7FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#367CDB]"
+                    className="inline-flex min-h-12 items-center rounded-xl border border-gray-300 bg-white px-7 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#703AD7] hover:bg-[#F0F7FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#703AD7]"
                   >
                     {t("viewEvaluations")}
                   </a>
@@ -293,9 +293,9 @@ function BrowserWindow({
         className="absolute -bottom-6 left-4 right-4 sm:right-auto sm:left-6 sm:w-[350px] lg:-left-6 lg:w-[370px] z-20"
         data-od-id="proof-total-card"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-[#367CDB]/30 bg-white/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.18)]">
+        <div className="relative overflow-hidden rounded-2xl border border-[#703AD7]/30 bg-white/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.18)]">
           <div className="relative z-10 pr-16 sm:pr-20">
-            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
               {t("totalPayouts")}
             </p>
             <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl xs:text-3xl sm:text-[32px] font-black leading-none tracking-tight text-[#0A0A0C] tabular-nums">
@@ -323,16 +323,16 @@ function GoldGem({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="gem-hi" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#01A2EF" />
-          <stop offset="1%" stopColor="#367CDB" />
+          <stop offset="0%" stopColor="#894CEF" />
+          <stop offset="1%" stopColor="#703AD7" />
         </linearGradient>
         <linearGradient id="gem-mid" x1="0" y1="0" x2="0.8" y2="1">
-          <stop offset="0%" stopColor="#367CDB" />
+          <stop offset="0%" stopColor="#703AD7" />
           <stop offset="1%" stopColor="#1D4ED8" />
         </linearGradient>
         <linearGradient id="gem-lo" x1="1" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#1D4ED8" />
-          <stop offset="1%" stopColor="#367CDB" />
+          <stop offset="1%" stopColor="#703AD7" />
         </linearGradient>
       </defs>
       <polygon points="22,14 50,4 78,14 64,38 36,38" fill="url(#gem-hi)" />

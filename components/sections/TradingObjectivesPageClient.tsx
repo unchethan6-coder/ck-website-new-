@@ -66,7 +66,7 @@ function SectionHeading({
 }) {
   return (
     <div className="mx-auto max-w-3xl text-center" data-od-id={id}>
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#2563EB]">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#7943E0]">
         {eyebrow}
       </p>
       <h2
@@ -164,7 +164,7 @@ function PhaseCard({
       className={cn(
         "flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5",
         accent
-          ? "border-[#01A2EF] ring-2 ring-[#01A2EF]/30 shadow-[0_12px_28px_-8px_rgba(1,162,239,0.2)]"
+          ? "border-[#894CEF] ring-2 ring-[#894CEF]/30 shadow-[0_12px_28px_-8px_rgba(1,162,239,0.2)]"
           : "border-gray-200 hover:border-gray-300 hover:shadow-md",
         className
       )}
@@ -174,7 +174,7 @@ function PhaseCard({
         className={cn(
           "flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3.5 sm:px-7 sm:py-5",
           accent
-            ? "border-[#01A2EF]/20 bg-[#F0F7FF]"
+            ? "border-[#894CEF]/20 bg-[#F0F7FF]"
             : "border-gray-100 bg-[#FAFAFA]"
         )}
       >
@@ -183,7 +183,7 @@ function PhaseCard({
             className={cn(
               "flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border font-bold shadow-sm",
               accent
-                ? "border-[#01A2EF]/40 bg-[#01A2EF] text-[#030C1B]"
+                ? "border-[#894CEF]/40 bg-[#894CEF] text-[#030A1C]"
                 : "border-gray-200 bg-gray-50 text-[#0A0A0C]"
             )}
           >
@@ -199,7 +199,7 @@ function PhaseCard({
           </div>
         </div>
         {accent && (
-          <span className="shrink-0 rounded-full bg-blue-100 px-2.5 py-1 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#2563EB]">
+          <span className="shrink-0 rounded-full bg-violet-100 px-2.5 py-1 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#7943E0]">
             Target Destination
           </span>
         )}
@@ -363,7 +363,7 @@ function Step2Detail({
         footer={
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
-              <Sparkles size={16} className="shrink-0 text-[#2563EB]" />
+              <Sparkles size={16} className="shrink-0 text-[#7943E0]" />
               {t("phaseCards.qaFooter")}
             </p>
             <span className="font-mono text-xs font-semibold text-[#6B7280]">
@@ -390,7 +390,7 @@ function Step2Detail({
             key={cardTitle}
             className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#7943E0]">
               {cardTitle}
             </p>
             <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
@@ -447,7 +447,7 @@ function Step1Detail({
           accent
           footer={
             <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
-              <Sparkles size={16} className="shrink-0 text-[#2563EB]" />
+              <Sparkles size={16} className="shrink-0 text-[#7943E0]" />
               Progress immediately to Qualified Analyst upon target completion
             </p>
           }
@@ -457,7 +457,7 @@ function Step1Detail({
           data-od-id="objectives-1step-list"
         >
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider text-[#2563EB]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-100 px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider text-[#7943E0]">
               Accelerated Path
             </span>
             <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
@@ -537,7 +537,7 @@ function InstantDetail({
           accent
           footer={
             <p className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
-              <Sparkles size={16} className="shrink-0 text-[#2563EB]" />
+              <Sparkles size={16} className="shrink-0 text-[#7943E0]" />
               Instant simulated capital allocation with bi-weekly payout cycles
             </p>
           }
@@ -547,7 +547,7 @@ function InstantDetail({
           data-od-id="objectives-instant-panel"
         >
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#01A2EF] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#030C1B]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#894CEF] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#030A1C]">
               Direct Funding
             </span>
             <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
@@ -616,10 +616,10 @@ function CompareModels({
     {
       id: "1step",
       badge: "Fast Track",
-      badgeClass: "bg-blue-50 text-[#2563EB] border border-blue-200/80",
+      badgeClass: "bg-violet-50 text-[#7943E0] border border-violet-200/80",
       title: "1-Step Evaluation",
       description: "A streamlined single-phase challenge designed for traders seeking the fastest path to verified funding.",
-      icon: <Zap size={22} className="text-[#01A2EF]" />,
+      icon: <Zap size={22} className="text-[#894CEF]" />,
       targetLabel: "Profit Target",
       targetValue: "10%",
       dailyLoss: "4% Daily",
@@ -638,11 +638,11 @@ function CompareModels({
     {
       id: "2step",
       badge: "⭐ Most Popular",
-      badgeClass: "bg-[#01A2EF] text-[#030C1B] font-black",
+      badgeClass: "bg-[#894CEF] text-[#030A1C] font-black",
       isPopular: true,
       title: "2-Step Standard",
       description: "Our flagship two-phase evaluation offering our largest 8% static drawdown buffer and classic risk structure.",
-      icon: <Target size={22} className="text-[#2563EB]" />,
+      icon: <Target size={22} className="text-[#7943E0]" />,
       targetLabel: "Phase 1 / Phase 2",
       targetValue: "10% / 5%",
       dailyLoss: "4% Daily",
@@ -706,16 +706,16 @@ function CompareModels({
               className={cn(
                 "relative flex flex-col justify-between rounded-3xl border bg-white p-6 sm:p-7 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-1",
                 isSelected
-                  ? "border-[#01A2EF] ring-2 ring-[#01A2EF]/30 shadow-lg shadow-[#01A2EF]/10"
+                  ? "border-[#894CEF] ring-2 ring-[#894CEF]/30 shadow-lg shadow-[#894CEF]/10"
                   : m.isPopular
-                  ? "border-blue-200 hover:border-blue-300"
+                  ? "border-violet-200 hover:border-violet-300"
                   : "border-gray-200 hover:border-gray-300"
               )}
             >
               {/* Popular Pill */}
               {m.isPopular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF] px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-md">
+                  <span className="rounded-full bg-gradient-to-r from-[#703AD7] to-[#894CEF] px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-md">
                     ⭐ Most Popular
                   </span>
                 </div>
@@ -738,7 +738,7 @@ function CompareModels({
                     </span>
                   )}
                   {isSelected && (
-                    <span className="rounded-full bg-[#01A2EF] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#030C1B]">
+                    <span className="rounded-full bg-[#894CEF] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#030A1C]">
                       Active
                     </span>
                   )}
@@ -766,7 +766,7 @@ function CompareModels({
                     <span className="text-[10px] font-bold uppercase text-gray-500">
                       Profit Split
                     </span>
-                    <p className="font-extrabold text-[#2563EB] text-sm mt-0.5">
+                    <p className="font-extrabold text-[#7943E0] text-sm mt-0.5">
                       {m.profitSplit}
                     </p>
                   </div>
@@ -796,7 +796,7 @@ function CompareModels({
                   <ul className="space-y-2 text-xs font-medium text-gray-700">
                     {m.features.map((f) => (
                       <li key={f} className="flex items-center gap-2">
-                        <Check size={14} className="text-[#01A2EF] shrink-0 stroke-[2.5]" />
+                        <Check size={14} className="text-[#894CEF] shrink-0 stroke-[2.5]" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -813,8 +813,8 @@ function CompareModels({
                   className={cn(
                     "inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 px-4 text-sm font-black transition-all duration-200 cursor-pointer",
                     isSelected || m.isPopular
-                      ? "bg-gradient-to-r from-[#367CDB] to-[#01A2EF] text-white shadow-md hover:opacity-95 hover:shadow-[0_0_20px_rgba(1,162,239,0.3)] hover:-translate-y-0.5"
-                      : "border-2 border-gray-200 bg-white text-[#0A0A0C] hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-[#F0F7FF] hover:-translate-y-0.5"
+                      ? "brand-gradient-btn text-white shadow-md hover:opacity-95 hover:-translate-y-0.5"
+                      : "border-2 border-gray-200 bg-white text-[#0A0A0C] hover:border-[#894CEF] hover:text-[#894CEF] hover:bg-[#F0F7FF] hover:-translate-y-0.5"
                   )}
                 >
                   <span>{m.ctaText}</span>
@@ -851,7 +851,7 @@ function ObjectiveFaq() {
               value={String(i)}
               className="rounded-2xl border border-gray-200 bg-white px-6 transition-all data-[open]:border-gray-300 data-[open]:bg-white shadow-sm"
             >
-              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-[#0A0A0C] hover:text-[#2563EB] hover:no-underline">
+              <AccordionTrigger className="py-5 text-left text-sm sm:text-base font-bold text-[#0A0A0C] hover:text-[#7943E0] hover:no-underline">
                 {item.q}
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-sm sm:text-[14.5px] font-medium leading-relaxed text-[#4B5563]">
@@ -1041,7 +1041,7 @@ export function TradingObjectivesPageClient({
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <div
-                className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#7943E0]/30 bg-[#7943E0]/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]"
                 data-od-id="objectives-hero-eyebrow"
               >
                 <Sparkles size={13} /> {t("heroBadge")}
@@ -1080,7 +1080,7 @@ export function TradingObjectivesPageClient({
                   {t("badgeSimulated")}
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Target size={16} className="text-[#2563EB]" />
+                  <Target size={16} className="text-[#7943E0]" />
                   {t("badgeProgression")}
                 </span>
                 <span className="inline-flex items-center gap-2">
@@ -1150,14 +1150,14 @@ export function TradingObjectivesPageClient({
             <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 sm:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                     {t("qaBenefitsTitle")}
                   </p>
                   <p className="mt-1 text-xs sm:text-sm text-[#4B5563] font-medium">
                     Verified benefits unlocked once you complete evaluation criteria
                   </p>
                 </div>
-                <span className="self-start md:self-auto rounded-full bg-[#01A2EF] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#030C1B]">
+                <span className="self-start md:self-auto rounded-full bg-[#894CEF] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#030A1C]">
                   Target Destination
                 </span>
               </div>
@@ -1216,8 +1216,8 @@ export function TradingObjectivesPageClient({
                     className={cn(
                       "group relative flex flex-col justify-between rounded-2xl border p-5 sm:p-6 text-left transition-all duration-200 hover:-translate-y-0.5",
                       isSelected
-                        ? "border-[#01A2EF] bg-white shadow-md ring-2 ring-[#01A2EF]/30"
-                        : "border-gray-200 bg-white hover:border-[#01A2EF]/60"
+                        ? "border-[#894CEF] bg-white shadow-md ring-2 ring-[#894CEF]/30"
+                        : "border-gray-200 bg-white hover:border-[#894CEF]/60"
                     )}
                     data-od-id={`selector-path-${tab.id}`}
                   >
@@ -1234,8 +1234,8 @@ export function TradingObjectivesPageClient({
                         className={cn(
                           "rounded-full px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider",
                           isSelected
-                            ? "bg-[#01A2EF] text-[#030C1B]"
-                            : "bg-gray-200 text-gray-800 group-hover:bg-[#01A2EF]/30 group-hover:text-[#030C1B]"
+                            ? "bg-[#894CEF] text-[#030A1C]"
+                            : "bg-gray-200 text-gray-800 group-hover:bg-[#894CEF]/30 group-hover:text-[#030A1C]"
                         )}
                       >
                         {tab.badge}
@@ -1256,7 +1256,7 @@ export function TradingObjectivesPageClient({
                 data-od-id="selector-evaltype"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#2563EB]">
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#7943E0]">
                     2-Step Mode:
                   </span>
                   <span className="text-xs sm:text-sm text-gray-700 font-semibold">
@@ -1275,7 +1275,7 @@ export function TradingObjectivesPageClient({
                         className={cn(
                           "rounded-lg px-4 py-2 text-xs font-black uppercase tracking-wider transition-all duration-150",
                           isSelected
-                            ? "bg-[#01A2EF] text-[#030C1B] shadow-sm font-black ring-1 ring-[#01A2EF]/40"
+                            ? "bg-[#894CEF] text-[#030A1C] shadow-sm font-black ring-1 ring-[#894CEF]/40"
                             : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         )}
                         data-od-id={`selector-evaltype-${tItem.id}`}
@@ -1291,7 +1291,7 @@ export function TradingObjectivesPageClient({
             {/* Account Size Selector Pills */}
             <div className="mt-8">
               <div className="flex items-center justify-between mb-3.5">
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#7943E0]">
                   Select Account Size
                 </span>
                 {size && (
@@ -1318,7 +1318,7 @@ export function TradingObjectivesPageClient({
                       className={cn(
                         "group relative flex min-w-0 flex-col items-center justify-center rounded-xl border py-3.5 px-3 text-center transition-all duration-200 hover:-translate-y-0.5",
                         isSelected
-                          ? "border-[#01A2EF] bg-[#01A2EF] text-[#030C1B] shadow-md ring-2 ring-[#01A2EF]/30 font-black"
+                          ? "border-[#894CEF] bg-[#894CEF] text-[#030A1C] shadow-md ring-2 ring-[#894CEF]/30 font-black"
                           : "border-gray-200 bg-white text-gray-900 hover:border-gray-300 hover:shadow-sm font-bold"
                       )}
                       data-od-id={`selector-size-${s.replace(/[^a-z0-9]/gi, "").toLowerCase()}`}
@@ -1326,7 +1326,7 @@ export function TradingObjectivesPageClient({
                       <span
                         className={cn(
                           "text-[10px] font-bold uppercase tracking-wider",
-                          isSelected ? "text-[#030C1B]/80" : "text-[#6B7280]"
+                          isSelected ? "text-[#030A1C]/80" : "text-[#6B7280]"
                         )}
                       >
                         {t("accountLabel")}
@@ -1347,7 +1347,7 @@ export function TradingObjectivesPageClient({
             {/* Platform Selection Strip */}
             <div className="mt-8">
               <div className="flex items-center justify-between mb-3.5">
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#7943E0]">
                   Select Platform Preference
                 </span>
                 <span className="text-xs font-bold text-[#6B7280]">
@@ -1372,7 +1372,7 @@ export function TradingObjectivesPageClient({
                       className={cn(
                         "relative flex items-center gap-4 rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 hover:-translate-y-0.5 bg-white",
                         active
-                          ? "border-[#01A2EF] ring-2 ring-[#01A2EF]/30 shadow-sm"
+                          ? "border-[#894CEF] ring-2 ring-[#894CEF]/30 shadow-sm"
                           : "border-gray-200 hover:border-gray-300"
                       )}
                       data-od-id={`selector-platform-${p.id}`}
@@ -1396,7 +1396,7 @@ export function TradingObjectivesPageClient({
                         className={cn(
                           "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition",
                           active
-                            ? "border-[#01A2EF] bg-[#01A2EF] text-[#030C1B]"
+                            ? "border-[#894CEF] bg-[#894CEF] text-[#030A1C]"
                             : "border-gray-300 text-transparent"
                         )}
                       >
@@ -1437,11 +1437,11 @@ export function TradingObjectivesPageClient({
               {/* Right Column: Sticky Action & Order Summary Box */}
               <div className="lg:col-span-4 lg:sticky lg:top-24">
                 <div
-                  className="rounded-2xl border-2 border-[#01A2EF] bg-white p-6 sm:p-7 shadow-xl shadow-[#01A2EF]/15"
+                  className="rounded-2xl border-2 border-[#894CEF] bg-white p-6 sm:p-7 shadow-xl shadow-[#894CEF]/15"
                   data-od-id="objectives-order-summary"
                 >
                   <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                    <span className="rounded-md bg-[#01A2EF] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#030C1B]">
+                    <span className="rounded-md bg-[#894CEF] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#030A1C]">
                       Selected Plan
                     </span>
                     <span className="font-mono text-xs font-black text-gray-700">
@@ -1498,7 +1498,7 @@ export function TradingObjectivesPageClient({
                       <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C]">
                         {activePrice}
                       </span>
-                      <span className="rounded bg-[#01A2EF] px-2 py-0.5 text-[10.5px] font-black text-[#030C1B]">
+                      <span className="rounded bg-[#894CEF] px-2 py-0.5 text-[10.5px] font-black text-[#030A1C]">
                         70% OFF
                       </span>
                     </div>
@@ -1513,7 +1513,7 @@ export function TradingObjectivesPageClient({
                       href={`https://app.ckcapital.co.uk/signup`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#367CDB] to-[#01A2EF] py-4 px-4 text-sm font-bold text-white shadow-md hover:opacity-95 hover:shadow-[0_0_24px_rgba(1,162,239,0.35)] transition-all duration-200"
+                      className="brand-gradient-btn group flex w-full items-center justify-center gap-2 rounded-xl py-4 px-4 text-sm font-bold text-white shadow-md hover:opacity-95 transition-all duration-200"
                       data-od-id="summary-direct-checkout"
                     >
                       <span>Start {size || "$100K"} Challenge</span>
@@ -1574,7 +1574,7 @@ export function TradingObjectivesPageClient({
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Infinity size={24} />
               </div>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 {t("unlimitedEyebrow")}
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1590,7 +1590,7 @@ export function TradingObjectivesPageClient({
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <RefreshCw size={24} />
               </div>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 {t("resetEyebrow")}
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1601,7 +1601,7 @@ export function TradingObjectivesPageClient({
               </p>
               <a
                 href="/terms-conditions"
-                className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A0A0C] hover:text-[#2563EB] underline"
+                className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A0A0C] hover:text-[#7943E0] underline"
               >
                 {t("viewTerms")} <ArrowRight size={13} />
               </a>
@@ -1612,7 +1612,7 @@ export function TradingObjectivesPageClient({
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Zap size={24} />
               </div>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 TRADING FREEDOM
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1628,7 +1628,7 @@ export function TradingObjectivesPageClient({
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                 <Coins size={24} />
               </div>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 REWARD DISBURSEMENT
               </p>
               <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
@@ -1706,7 +1706,7 @@ export function TradingObjectivesPageClient({
       >
         <Container className="relative text-center">
           <SectionReveal>
-            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#01A2EF] bg-[#01A2EF] text-[#030C1B] shadow-md">
+            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#894CEF] bg-[#894CEF] text-[#030A1C] shadow-md">
               <Target size={28} />
             </div>
 
@@ -1760,13 +1760,13 @@ export function TradingObjectivesPageClient({
               <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-[#0A0A0C]">
                 <a
                   href="/terms-conditions"
-                  className="hover:text-[#2563EB] underline transition-colors"
+                  className="hover:text-[#7943E0] underline transition-colors"
                 >
                   {t("viewTermsConditions")} <ArrowRight size={13} className="inline" />
                 </a>
                 <a
                   href="/risk-disclosure"
-                  className="hover:text-[#2563EB] underline transition-colors"
+                  className="hover:text-[#7943E0] underline transition-colors"
                 >
                   {t("viewDisclaimer")} <ArrowRight size={13} className="inline" />
                 </a>

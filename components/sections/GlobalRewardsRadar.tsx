@@ -348,12 +348,12 @@ export function GlobalRewardsRadar({
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* ─────────────────── LEFT: NATURAL EARTH WORLD TERMINAL (col-span-7 / 8) ─────────────────── */}
-      <div className="lg:col-span-7 xl:col-span-8 relative flex flex-col justify-between rounded-3xl border border-gray-200 bg-[#030C1B] text-white p-5 sm:p-7 shadow-[0_24px_50px_-15px_rgba(10,10,12,0.4)] overflow-hidden min-h-[480px] sm:min-h-[540px]">
+      <div className="lg:col-span-7 xl:col-span-8 relative flex flex-col justify-between rounded-3xl border border-gray-200 bg-[#030A1C] text-white p-5 sm:p-7 shadow-[0_24px_50px_-15px_rgba(10,10,12,0.4)] overflow-hidden min-h-[480px] sm:min-h-[540px]">
         {/* Subtle Background Radial Radar Rings */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-[#367CDB]/20 animate-[spin_120s_linear_infinite]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-[#703AD7]/20 animate-[spin_120s_linear_infinite]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-white/10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-[#01A2EF]/20" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-[#894CEF]/20" />
           <div
             className="absolute inset-0 opacity-20"
             style={{
@@ -377,7 +377,7 @@ export function GlobalRewardsRadar({
           </div>
           <div className="flex items-center gap-3 text-[11px] font-mono text-white/60">
             <span className="hidden sm:inline">DATASET: NATURAL EARTH 110M</span>
-            <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[#01A2EF] font-bold">
+            <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[#894CEF] font-bold">
               140+ COUNTRIES
             </span>
           </div>
@@ -397,9 +397,9 @@ export function GlobalRewardsRadar({
               </pattern>
               {/* Flow arc gradient */}
               <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#01A2EF" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#894CEF" stopOpacity="0.9" />
                 <stop offset="50%" stopColor="#FFFFFF" stopOpacity="1" />
-                <stop offset="100%" stopColor="#367CDB" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#703AD7" stopOpacity="0.4" />
               </linearGradient>
               {/* Glow filter */}
               <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
@@ -493,7 +493,7 @@ export function GlobalRewardsRadar({
                         cy={hub.y}
                         r="18"
                         fill="none"
-                        stroke="#01A2EF"
+                        stroke="#894CEF"
                         strokeWidth="1.5"
                         opacity="0.9"
                         className="animate-[radar-ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
@@ -503,7 +503,7 @@ export function GlobalRewardsRadar({
                         cy={hub.y}
                         r="30"
                         fill="none"
-                        stroke="#367CDB"
+                        stroke="#703AD7"
                         strokeWidth="0.8"
                         opacity="0.4"
                         className="animate-[radar-ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.6s]"
@@ -516,8 +516,8 @@ export function GlobalRewardsRadar({
                     cx={hub.x}
                     cy={hub.y}
                     r={isSelected ? 9.5 : 4.5}
-                    fill={isSelected ? "#01A2EF" : "rgba(255,255,255,0.18)"}
-                    stroke={isSelected ? "#FFFFFF" : "#367CDB"}
+                    fill={isSelected ? "#894CEF" : "rgba(255,255,255,0.18)"}
+                    stroke={isSelected ? "#FFFFFF" : "#703AD7"}
                     strokeWidth={isSelected ? "2" : "0.8"}
                     filter={isSelected ? "url(#glow)" : undefined}
                     className="transition-all duration-300"
@@ -528,7 +528,7 @@ export function GlobalRewardsRadar({
                     cx={hub.x}
                     cy={hub.y}
                     r={isSelected ? 4 : 2}
-                    fill={isSelected ? "#030C1B" : "#FFFFFF"}
+                    fill={isSelected ? "#030A1C" : "#FFFFFF"}
                     className="transition-all duration-300"
                   />
 
@@ -542,7 +542,7 @@ export function GlobalRewardsRadar({
                         height="18"
                         rx="9"
                         fill="rgba(3,12,27,0.94)"
-                        stroke="#01A2EF"
+                        stroke="#894CEF"
                         strokeWidth="1"
                       />
                       <text
@@ -567,7 +567,7 @@ export function GlobalRewardsRadar({
         {/* Radar Footer Telemetry Bar */}
         <div className="relative z-10 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-[11px] text-white/70 font-mono">
           <span className="flex items-center gap-2">
-            <Activity size={13} className="text-[#01A2EF]" />
+            <Activity size={13} className="text-[#894CEF]" />
             REAL-TIME PROP CLEARING NETWORK
           </span>
           <span className="text-white/50 hidden sm:inline">
@@ -590,7 +590,7 @@ export function GlobalRewardsRadar({
             {/* Top Identity Header */}
             <div>
               <div className="flex items-center justify-between gap-2 pb-3 border-b border-gray-100">
-                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2563EB]">
+                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#7943E0]">
                   <Sparkles size={13} />
                   <span>REGIONAL HUB #{activeHub.rank}</span>
                 </div>
@@ -620,7 +620,7 @@ export function GlobalRewardsRadar({
             <div className="grid grid-cols-2 gap-2.5">
               <div className="rounded-2xl border border-gray-100 bg-[#F8FAFC] p-3">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
-                  <TrendingUp size={11} className="text-[#2563EB]" />
+                  <TrendingUp size={11} className="text-[#7943E0]" />
                   Total Volume
                 </span>
                 <p className="mt-1 text-lg sm:text-xl font-extrabold text-[#0A0A0C]">
@@ -640,7 +640,7 @@ export function GlobalRewardsRadar({
 
               <div className="rounded-2xl border border-gray-100 bg-gray-50/70 p-3">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
-                  <Clock size={11} className="text-blue-600" />
+                  <Clock size={11} className="text-violet-600" />
                   Direct SLA
                 </span>
                 <p className="mt-1 text-base sm:text-lg font-bold text-[#0A0A0C]">
@@ -650,7 +650,7 @@ export function GlobalRewardsRadar({
 
               <div className="rounded-2xl border border-gray-100 bg-[#F8FAFC] p-3">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
-                  <Activity size={11} className="text-[#2563EB]" />
+                  <Activity size={11} className="text-[#7943E0]" />
                   Top Asset
                 </span>
                 <p className="mt-1 text-xs font-extrabold text-[#0A0A0C] line-clamp-1">
@@ -667,7 +667,7 @@ export function GlobalRewardsRadar({
             <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
               Select Regional Hub
             </span>
-            <span className="text-[10px] font-semibold text-[#2563EB]">
+            <span className="text-[10px] font-semibold text-[#7943E0]">
               12 Published Hubs
             </span>
           </div>
@@ -682,7 +682,7 @@ export function GlobalRewardsRadar({
                   onClick={() => handleSelectCountry(h.code)}
                   className={`flex flex-col items-center justify-center p-2 rounded-xl border text-center transition-all ${
                     isSelected
-                      ? "border-[#01A2EF] bg-blue-50/80 shadow-sm ring-1 ring-[#01A2EF] text-[#0A0A0C]"
+                      ? "border-[#894CEF] bg-violet-50/80 shadow-sm ring-1 ring-[#894CEF] text-[#0A0A0C]"
                       : "border-gray-100 bg-gray-50/60 hover:bg-gray-100 text-gray-700"
                   }`}
                 >

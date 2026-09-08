@@ -167,7 +167,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                     ? "col-span-2 h-[230px] sm:h-[164px] sm:col-span-1"
                     : "col-span-1 h-[190px] sm:h-[164px]",
                   isActive
-                    ? "border-[#01A2EF] ring-2 ring-[#01A2EF] ring-offset-2 ring-offset-white"
+                    ? "border-[#894CEF] ring-2 ring-[#894CEF] ring-offset-2 ring-offset-white"
                     : "border-gray-200 hover:border-gray-300 hover:shadow-md"
                 )}
               >

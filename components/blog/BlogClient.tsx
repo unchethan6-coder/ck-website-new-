@@ -51,7 +51,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#7943E0]/30 bg-[#7943E0]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
                   <Sparkles size={12} /> Insights &amp; Market Analysis
                 </span>
               </motion.div>
@@ -95,8 +95,8 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
               </motion.div>
 
               <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
-                <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-[#2563EB]" /> Curated Content</span>
-                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-[#01A2EF]" /> Risk & Strategy Guides</span>
+                <span className="inline-flex items-center gap-2"><Newspaper size={14} className="text-[#7943E0]" /> Curated Content</span>
+                <span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-[#894CEF]" /> Risk & Strategy Guides</span>
               </div>
             </div>
 
@@ -149,7 +149,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       className={cn(
                         "rounded-full border px-4 py-2 text-xs font-bold transition-all",
                         isActive
-                          ? "border-[#367CDB] bg-[#367CDB] text-white font-extrabold shadow-sm"
+                          ? "border-[#703AD7] bg-[#703AD7] text-white font-extrabold shadow-sm"
                           : "border-[#E5E7EB] bg-white text-[#4B5563] hover:border-gray-300 hover:text-[#0A0A0C]"
                       )}
                     >
@@ -174,10 +174,10 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                     >
                       <div className="relative">
                         <div className="mb-5 flex flex-wrap items-center gap-3">
-                          <span className="rounded-full bg-[#367CDB] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
+                          <span className="rounded-full bg-[#703AD7] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
                             Featured
                           </span>
-                          <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
+                          <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#7943E0]">
                             {featured.category}
                           </span>
                         </div>
@@ -202,7 +202,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                           </div>
                           <Link
                             href={`/blog/${featured.slug}`}
-                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0A0A0C] hover:text-[#2563EB] underline"
+                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0A0A0C] hover:text-[#7943E0] underline"
                           >
                             Read More <ArrowRight size={14} />
                           </Link>
@@ -235,11 +235,11 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                       ) : null}
                       <div className="flex flex-1 flex-col p-6">
                         <div className="mb-4 flex items-center gap-3">
-                          <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
+                          <span className="rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#7943E0]">
                             {post.category}
                           </span>
                         </div>
-                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#2563EB]">
+                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#7943E0]">
                           {post.title}
                         </h2>
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-[#4B5563]">
@@ -252,7 +252,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                           </span>
                           <Link
                             href={`/blog/${post.slug}`}
-                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0A0A0C] hover:text-[#2563EB] underline"
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0A0A0C] hover:text-[#7943E0] underline"
                           >
                             Read <ArrowRight size={12} />
                           </Link>

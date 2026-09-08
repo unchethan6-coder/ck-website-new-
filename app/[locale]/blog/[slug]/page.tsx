@@ -97,7 +97,7 @@ export default async function ArticlePage({
           </Link>
           <div className="max-w-3xl">
             <div className="mb-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">
+              <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#7943E0]">
                 {article.category}
               </span>
               <span className="flex items-center gap-1.5 text-[12px] text-[#6B7280]">
@@ -144,7 +144,7 @@ export default async function ArticlePage({
               </div>
             )}
 
-            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#0A0A0C] prose-a:font-semibold hover:prose-a:text-[#2563EB] prose-a:underline">
+            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#0A0A0C] prose-a:font-semibold hover:prose-a:text-[#7943E0] prose-a:underline">
               <BlocksRenderer blocks={article.body} />
             </article>
           </div>

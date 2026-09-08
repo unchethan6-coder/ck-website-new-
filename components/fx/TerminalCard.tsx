@@ -27,8 +27,8 @@ const TERMINAL_SETS: TermLine[][] = [
     { prefix: "└", text: "Searching 128 combinations...", color: "#50b050" },
     { prefix: "●", text: "Bash(deploy.py --live)", color: "#c0c0c0" },
     { prefix: "└", text: "Strategy deployed to sim account", color: "#50b050" },
-    { prefix: "*", text: "Optimizing... (6s · ↑3.8k · esc)", color: "#01A2EF" },
-    { prefix: ">", text: "bypass permissions on", color: "#01A2EF" },
+    { prefix: "*", text: "Optimizing... (6s · ↑3.8k · esc)", color: "#894CEF" },
+    { prefix: ">", text: "bypass permissions on", color: "#894CEF" },
   ],
   [
     { prefix: "*", text: "Resumed session", color: "#e05050" },
@@ -47,8 +47,8 @@ const TERMINAL_SETS: TermLine[][] = [
     { prefix: "└", text: "Window: 20 → 25", color: "#808080" },
     { prefix: "●", text: "Bash(walk_forward.py)", color: "#c0c0c0" },
     { prefix: "└", text: "OOS PF 1.9 · Win 52%", color: "#50b050" },
-    { prefix: "*", text: "Re-running... (3s · ↑12.1k · esc)", color: "#01A2EF" },
-    { prefix: ">", text: "auto mode on", color: "#01A2EF" },
+    { prefix: "*", text: "Re-running... (3s · ↑12.1k · esc)", color: "#894CEF" },
+    { prefix: ">", text: "auto mode on", color: "#894CEF" },
   ],
 ];
 
@@ -91,7 +91,7 @@ export function TerminalCard({ className }: { className?: string }) {
     <div
       ref={ref}
       className={cn(
-        "rounded-xl overflow-hidden border border-white/10 bg-[#071326] font-mono text-[11px] leading-[1.7]",
+        "rounded-xl overflow-hidden border border-white/10 bg-[#080E24] font-mono text-[11px] leading-[1.7]",
         className
       )}
     >
@@ -114,10 +114,10 @@ export function TerminalCard({ className }: { className?: string }) {
             <span className="mr-1.5">{l.prefix}</span>
             {l.text}
             {i === shown - 1 && !staticMode && (
-              <span className="term-caret text-[#01A2EF]">▊</span>
+              <span className="term-caret text-[#894CEF]">▊</span>
             )}
             {i === lines.length - 1 && i < shown && (
-              <span className="term-spark text-[#01A2EF]"> ✦</span>
+              <span className="term-spark text-[#894CEF]"> ✦</span>
             )}
           </div>
         ))}

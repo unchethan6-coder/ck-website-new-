@@ -100,7 +100,7 @@ function SupportCard({
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#367CDB] hover:bg-blue-50/50 hover:text-[#2563EB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 text-sm font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#703AD7] hover:bg-violet-50/50 hover:text-[#7943E0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         data-od-id={`${id}-cta`}
       >
         {action}
@@ -112,7 +112,7 @@ function SupportCard({
 
 function CommunityVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#030C1B]">
+    <div className="absolute inset-0 overflow-hidden bg-[#030A1C]">
       <Image
         src={DISCORD_COMMUNITY_IMG}
         alt="CK Capital Discord community"

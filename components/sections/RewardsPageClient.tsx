@@ -85,7 +85,7 @@ function SectionHeading({
 }) {
   return (
     <div className="mx-auto max-w-2xl text-center" data-od-id={id}>
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#2563EB]">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#7943E0]">
         {eyebrow}
       </p>
       <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
@@ -136,7 +136,7 @@ function CertificateCard({
           </div>
           <div className="flex items-center justify-between border-t border-gray-100 pt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
             <span>{date || "Date not published"}</span>
-            <span className="inline-flex items-center gap-1 font-bold text-[#0A0A0C] group-hover:text-[#2563EB] transition-colors">View certificate <ArrowRight size={12} /></span>
+            <span className="inline-flex items-center gap-1 font-bold text-[#0A0A0C] group-hover:text-[#7943E0] transition-colors">View certificate <ArrowRight size={12} /></span>
           </div>
         </div>
       </button>
@@ -271,14 +271,14 @@ export function RewardsPageClient({
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-20 sm:px-6 md:pb-10 md:pt-24 lg:px-8">
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
-              <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/[0.08] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2563EB]" data-od-id="rewards-hero-eyebrow"><Sparkles size={12} /> {t("badge")}</motion.div>
+              <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-[#7943E0]/30 bg-[#7943E0]/[0.08] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]" data-od-id="rewards-hero-eyebrow"><Sparkles size={12} /> {t("badge")}</motion.div>
               <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="rewards-hero-title">{t("heroTitlePrefix")} <span className="shimmer-text">{t("heroTitleShimmer")}</span></motion.h1>
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.24 }} className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]">{t("desc")}</motion.p>
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.36 }} className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="#reward-certificates" data-od-id="rewards-hero-primary"><GoldButton size="lg">{t("viewRewards")} <ArrowRight size={16} /></GoldButton></a>
                 <a href="/#start-challenge" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#4B5563] hover:text-[#0A0A0C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" data-od-id="rewards-hero-secondary">{tChallenge("startNow")} <ArrowRight size={15} /></a>
               </motion.div>
-              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]"><span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> {t("verifiedText")}</span><span className="inline-flex items-center gap-2"><FileCheck2 size={14} className="text-[#2563EB]" /> {t("certificateProof")}</span></div>
+              <div className="mt-14 flex flex-wrap gap-x-7 gap-y-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]"><span className="inline-flex items-center gap-2"><ShieldCheck size={14} className="text-secondary" /> {t("verifiedText")}</span><span className="inline-flex items-center gap-2"><FileCheck2 size={14} className="text-[#7943E0]" /> {t("certificateProof")}</span></div>
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -314,7 +314,7 @@ export function RewardsPageClient({
           <SectionHeading id="reward-certificates-heading" eyebrow={t("provenEyebrow")} title={t("provenTitle")} dark>{t("provenSubtitle")}</SectionHeading>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2" role="toolbar" aria-label="Filter rewards" data-od-id="reward-filters">
             {(["all", "latest", "highest", "country"] as Filter[]).map((value) => (
-              <button key={value} type="button" onClick={() => handleFilterChange(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-[#01A2EF] bg-[#01A2EF] text-[#030C1B] font-extrabold shadow-sm" : "border-gray-200 bg-white text-[#4B5563] hover:border-gray-300 hover:text-[#0A0A0C]"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>
+              <button key={value} type="button" onClick={() => handleFilterChange(value)} aria-pressed={filter === value} className={`min-h-11 rounded-lg border px-4 text-[11px] font-bold uppercase tracking-[0.14em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${filter === value ? "border-[#894CEF] bg-[#894CEF] text-[#030A1C] font-extrabold shadow-sm" : "border-gray-200 bg-white text-[#4B5563] hover:border-gray-300 hover:text-[#0A0A0C]"}`} data-od-id={`reward-filter-${value}`}>{value.charAt(0).toUpperCase() + value.slice(1)}</button>
             ))}
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2" aria-label="Optional reward amount filter">
@@ -325,12 +325,12 @@ export function RewardsPageClient({
           </div>
           {selectedCountryCode && (
             <div className="mt-4 flex items-center justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#01A2EF] bg-blue-50 px-3.5 py-1 text-xs font-bold text-[#2563EB] shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#894CEF] bg-violet-50 px-3.5 py-1 text-xs font-bold text-[#7943E0] shadow-sm">
                 <span>Filtering by Country: <strong>{selectedCountryCode}</strong></span>
                 <button
                   type="button"
                   onClick={() => setSelectedCountryCode(null)}
-                  className="rounded-full hover:bg-blue-200/60 p-0.5 transition-colors"
+                  className="rounded-full hover:bg-violet-200/60 p-0.5 transition-colors"
                   aria-label="Clear country filter"
                 >
                   <X size={13} />
@@ -367,7 +367,7 @@ export function RewardsPageClient({
             ["NEWS TRADING", "More Trading Flexibility", "Trade around news events where permitted under the rules of your selected account."],
           ].map(([value, title, copy]) => (
             <div key={title} className="min-h-56 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-gray-300 hover:shadow-md transition-all">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB]">{value}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#7943E0]">{value}</p>
               <h3 className="mt-10 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#4B5563]">{copy}</p>
             </div>
@@ -447,13 +447,13 @@ export function RewardsPageClient({
       {/* ─────────────── Final CTA ─────────────── */}
       <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-cta">
         <Container className="relative text-center">
-          <Trophy className="mx-auto text-[#2563EB]" size={30} strokeWidth={1.4} />
+          <Trophy className="mx-auto text-[#7943E0]" size={30} strokeWidth={1.4} />
           <h2 className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">{t("readySubtitle")}</p>
           <div className="mx-auto mt-9 grid max-w-2xl gap-3 text-left sm:grid-cols-3">
             {[["1 STEP", "One-stage evaluation.", "/evaluation?type=one-step&size=$100K#start-challenge"], ["2 STEP", "Evaluation + Verification.", "/evaluation?type=standard&size=$100K#start-challenge"], ["INSTANT", "Alternative account structure subject to its applicable rules.", "/instant"]].map(([label, copy, href]) => (
               <a key={label} href={href} className="rounded-xl border border-gray-200 bg-white p-4 transition hover:border-gray-300 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                <p className="text-xs font-bold tracking-[0.16em] text-[#2563EB]">{label}</p>
+                <p className="text-xs font-bold tracking-[0.16em] text-[#7943E0]">{label}</p>
                 <p className="mt-2 text-xs leading-5 text-[#4B5563]">{copy}</p>
               </a>
             ))}
@@ -473,8 +473,8 @@ export function RewardsPageClient({
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#4B5563]">{t("importantInfo")}</p>
               <p className="mt-3 max-w-4xl text-xs leading-6 text-[#6B7280]">{t("legalDisclaimer")}</p>
               <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-[#0A0A0C]">
-                <a href="/terms-conditions" className="hover:text-[#2563EB] underline transition-colors">{t("viewTerms")} <ExternalLink size={12} className="inline" /></a>
-                <a href="/risk-disclosure" className="hover:text-[#2563EB] underline transition-colors">{t("viewRisk")} <ExternalLink size={12} className="inline" /></a>
+                <a href="/terms-conditions" className="hover:text-[#7943E0] underline transition-colors">{t("viewTerms")} <ExternalLink size={12} className="inline" /></a>
+                <a href="/risk-disclosure" className="hover:text-[#7943E0] underline transition-colors">{t("viewRisk")} <ExternalLink size={12} className="inline" /></a>
               </div>
             </div>
           </div>

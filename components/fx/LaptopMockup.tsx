@@ -96,7 +96,7 @@ function BrandMark() {
         height="15"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#01A2EF"
+        stroke="#894CEF"
         strokeWidth="4"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -155,8 +155,8 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
       >
         <defs>
           <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#01A2EF" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#367CDB" stopOpacity="0.0" />
+            <stop offset="0%" stopColor="#894CEF" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#703AD7" stopOpacity="0.0" />
           </linearGradient>
         </defs>
 
@@ -178,7 +178,7 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           transition={{ duration: 1.6, ease: "easeInOut" }}
           d={`M 0 95 C 30 92, 50 82, 70 85 C 90 88, 110 72, 130 68 C 150 64, 170 78, 190 70 C 210 62, 230 65, 250 ${liveData.lastY} C 270 52, 290 38, 320 32`}
           fill="none"
-          stroke="#01A2EF"
+          stroke="#894CEF"
           strokeWidth="2.2"
         />
 
@@ -187,7 +187,7 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           y1="20"
           x2="250"
           y2="110"
-          stroke="#01A2EF"
+          stroke="#894CEF"
           strokeDasharray="2 2"
           strokeWidth="1"
           opacity="0.6"
@@ -197,16 +197,16 @@ function GrowthChart({ liveData }: { liveData: ReturnType<typeof useLiveDashboar
           cx="250"
           cy={liveData.lastY}
           r="3.5"
-          fill="#01A2EF"
-          stroke="#030C1B"
+          fill="#894CEF"
+          stroke="#030A1C"
           strokeWidth="1.5"
           className="transition-all duration-300"
         />
       </svg>
 
       {/* Live tooltip card (tablet + laptop) */}
-      <div className="absolute top-1 right-10 hidden sm:block rounded border border-[#01A2EF]/40 bg-[#071326] px-2 py-1 shadow-lg text-center transition-all duration-300">
-        <div className="text-[9px] font-bold text-[#01A2EF] tabular-nums">
+      <div className="absolute top-1 right-10 hidden sm:block rounded border border-[#894CEF]/40 bg-[#080E24] px-2 py-1 shadow-lg text-center transition-all duration-300">
+        <div className="text-[9px] font-bold text-[#894CEF] tabular-nums">
           {new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
@@ -262,14 +262,14 @@ export function LaptopMockup() {
           {/* Screen Content - Dashboard UI (phone 9:19, tablet 4:3, laptop 16:9) */}
           <div className="mt-2 sm:mt-3 lg:mt-2.5 flex aspect-[9/19] sm:aspect-[4/3] lg:aspect-[16/9] w-full text-white">
             {/* Sidebar (laptop only) */}
-            <aside className="hidden lg:flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#071326] p-3">
+            <aside className="hidden lg:flex w-[148px] shrink-0 flex-col justify-between border-r border-white/[0.07] bg-[#080E24] p-3">
               <div>
                 <div className="mb-4 flex items-center gap-1.5 px-1">
                   <BrandMark />
                 </div>
 
                 <nav className="space-y-1 text-[11px]">
-                  <div className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#367CDB] to-[#01A2EF] px-2.5 py-1.5 font-bold text-white shadow-sm">
+                  <div className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#703AD7] to-[#894CEF] px-2.5 py-1.5 font-bold text-white shadow-sm">
                     <LayoutDashboard size={13} />
                     <span>Overview</span>
                   </div>
@@ -287,7 +287,7 @@ export function LaptopMockup() {
             </aside>
 
             {/* Main Content View */}
-            <main className="flex flex-1 flex-col overflow-hidden bg-[#030C1B] p-3 sm:p-3.5">
+            <main className="flex flex-1 flex-col overflow-hidden bg-[#030A1C] p-3 sm:p-3.5">
               {/* Status Bar (phone) */}
               <div className="flex sm:hidden items-center justify-between text-[8px] font-semibold text-gray-500 px-1 mb-1.5">
                 <span>9:41</span>
@@ -306,8 +306,8 @@ export function LaptopMockup() {
               {/* Top Bar (phone + tablet) */}
               <div className="flex lg:hidden items-center justify-between mb-2">
                 <BrandMark />
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#01A2EF]/40 bg-[#01A2EF]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#01A2EF]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#01A2EF]" />
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#894CEF]/40 bg-[#894CEF]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#894CEF]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#894CEF]" />
                   Live
                 </span>
               </div>
@@ -333,7 +333,7 @@ export function LaptopMockup() {
               {/* Middle Section: Live Chart & Trading Objectives */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 flex-1 min-h-0 mb-2">
                 {/* Account Growth Chart */}
-                <div className="sm:col-span-7 lg:col-span-8 flex flex-col rounded-lg border border-white/10 bg-[#071326]/80 p-2.5">
+                <div className="sm:col-span-7 lg:col-span-8 flex flex-col rounded-lg border border-white/10 bg-[#080E24]/80 p-2.5">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-bold text-white">Account Growth</span>
                     <span className="hidden sm:flex items-center gap-1 text-[8.5px] text-gray-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
@@ -356,7 +356,7 @@ export function LaptopMockup() {
                 </div>
 
                 {/* Trading Objectives */}
-                <div className="sm:col-span-5 lg:col-span-4 flex flex-col justify-start rounded-lg border border-white/10 bg-[#071326]/80 p-2.5">
+                <div className="sm:col-span-5 lg:col-span-4 flex flex-col justify-start rounded-lg border border-white/10 bg-[#080E24]/80 p-2.5">
                   <div className="text-[10px] font-bold text-white mb-2">Trading Objectives</div>
 
                   <div className="space-y-2.5 text-[8.5px]">
@@ -372,7 +372,7 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "100%" }}
                           transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#703AD7] to-[#894CEF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$10,000 (100%)</span>
@@ -390,7 +390,7 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "49%" }}
                           transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#703AD7] to-[#894CEF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$1,240 (49%)</span>
@@ -408,7 +408,7 @@ export function LaptopMockup() {
                           initial={{ width: 0 }}
                           animate={{ width: "63%" }}
                           transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-[#367CDB] to-[#01A2EF]"
+                          className="h-full rounded-full bg-gradient-to-r from-[#703AD7] to-[#894CEF]"
                         />
                       </div>
                       <span className="text-[7px] text-gray-400 text-right hidden sm:block mt-0.5">$3,180 (63%)</span>

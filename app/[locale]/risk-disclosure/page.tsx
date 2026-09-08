@@ -14,7 +14,7 @@ function RiskSection({ num, title, children }: { num: string; title: string; chi
   return (
     <section className="mt-10 border-t border-[#E5E7EB] pt-8">
       <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
-        <span className="text-[#2563EB]">{num}.</span> {title}
+        <span className="text-[#7943E0]">{num}.</span> {title}
       </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#4B5563]">
         {children}
@@ -47,9 +47,9 @@ export default async function RiskDisclosurePage() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#2563EB]">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#7943E0]">
               {t("badgeLegal")}
-              <span className="text-blue-400">·</span>
+              <span className="text-violet-400">·</span>
               {t("riskBadge")}
             </span>
             <h1

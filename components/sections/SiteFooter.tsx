@@ -159,7 +159,7 @@ export function SiteFooter() {
                     if (status !== "idle") setStatus("idle");
                   }}
                   placeholder={t("emailPlaceholder")}
-                  className="h-11 w-full rounded-xl border border-white/10 bg-[#071326] px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-primary focus:ring-2 focus:ring-primary/30"
+                  className="h-11 w-full rounded-xl border border-white/10 bg-[#080E24] px-4 text-sm text-foreground outline-none placeholder:text-foreground/35 focus:border-primary focus:ring-2 focus:ring-primary/30"
                   aria-invalid={status === "error"}
                 />
                 <GoldButton

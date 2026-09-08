@@ -251,7 +251,7 @@ export function InstrumentsShowcase() {
             <div className="flex-1 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 flex flex-col">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-[10px] font-bold text-white">N</div>
+                  <div className="w-7 h-7 rounded-full bg-violet-600 flex items-center justify-center text-[10px] font-bold text-white">N</div>
                   <span className="text-sm font-bold text-foreground">NQ</span>
                 </div>
                 <div className="text-right">

@@ -290,10 +290,10 @@ export function TopNav() {
         className={cn(
           "sticky top-0 z-50 w-full transition-colors duration-300 ease-out",
           open
-            ? "bg-[#030C1B] border-b border-white/[0.08] pointer-events-auto"
+            ? "bg-[#030A1C] border-b border-white/[0.08] pointer-events-auto"
             : scrolled
             ? "bg-transparent border-b border-transparent pointer-events-none"
-            : "bg-[#030C1B] border-b border-white/[0.08] pointer-events-auto"
+            : "bg-[#030A1C] border-b border-white/[0.08] pointer-events-auto"
         )}
         data-od-id="top-nav"
       >
@@ -302,10 +302,10 @@ export function TopNav() {
           className={cn(
             "relative max-w-7xl transform-gpu transition-[transform,border-radius,box-shadow,border-color] duration-300 ease-out",
             open
-              ? "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
+              ? "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030A1C] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
               : scrolled
-              ? "pointer-events-auto translate-y-2 sm:translate-y-2.5 mx-3 sm:mx-4 xl:mx-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030C1B] shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
-              : "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030C1B] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
+              ? "pointer-events-auto translate-y-2 sm:translate-y-2.5 mx-3 sm:mx-4 xl:mx-auto rounded-2xl sm:rounded-[22px] border border-white/[0.14] bg-[#030A1C] shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-4 sm:px-6 lg:px-8"
+              : "mx-auto px-4 sm:px-6 lg:px-8 bg-[#030A1C] rounded-none border border-transparent shadow-none pointer-events-auto translate-y-0"
           )}
         >
           <div className="flex items-center justify-between flex-nowrap gap-1 lg:gap-1.5 xl:gap-3 h-16 w-full">
@@ -347,7 +347,7 @@ export function TopNav() {
                     "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors flex items-center gap-1",
                     isProgramsActive
                       ? "bg-primary/10 text-primary font-bold"
-                      : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
+                      : "text-white/75 hover:text-[#894CEF] hover:bg-white/[0.04]"
                   )}
                 >
                   <span>{t("tradingObjectives" as any)}</span>
@@ -355,7 +355,7 @@ export function TopNav() {
                     size={14}
                     className={cn(
                       "opacity-50 transition-transform duration-200",
-                      activeMegaMenu === "programs" ? "rotate-180 text-[#01A2EF]" : ""
+                      activeMegaMenu === "programs" ? "rotate-180 text-[#894CEF]" : ""
                     )}
                   />
                 </Link>
@@ -372,11 +372,11 @@ export function TopNav() {
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
-                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030C1B]"
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030A1C]"
                     style={programsCaretLeft !== null ? { left: `${programsCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#030C1B] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030A1C] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Funding Models & Rules (Matching Company Format) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {programColumns.map((col, cIdx) => (
@@ -472,7 +472,7 @@ export function TopNav() {
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/payouts"
                     ? "bg-primary/10 text-primary font-bold"
-                    : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
+                    : "text-white/75 hover:text-[#894CEF] hover:bg-white/[0.04]"
                 )}
               >
                 {t("payouts" as any)}
@@ -501,7 +501,7 @@ export function TopNav() {
                     "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors flex items-center gap-1",
                     isCompanyActive
                       ? "bg-primary/10 text-primary font-bold"
-                      : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
+                      : "text-white/75 hover:text-[#894CEF] hover:bg-white/[0.04]"
                   )}
                 >
                   <span>{t("company" as any)}</span>
@@ -509,7 +509,7 @@ export function TopNav() {
                     size={14}
                     className={cn(
                       "opacity-50 transition-transform duration-200",
-                      activeMegaMenu === "company" ? "rotate-180 text-[#01A2EF]" : ""
+                      activeMegaMenu === "company" ? "rotate-180 text-[#894CEF]" : ""
                     )}
                   />
                 </button>
@@ -526,11 +526,11 @@ export function TopNav() {
                 >
                   {/* Pointer Caret dynamically centered above trigger */}
                   <div
-                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030C1B]"
+                    className="absolute top-1 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-b-8 border-b-white/[0.12] before:content-[''] before:absolute before:top-[1px] before:-left-[7px] before:w-0 before:h-0 before:border-x-[7px] before:border-x-transparent before:border-b-[7px] before:border-b-[#030A1C]"
                     style={companyCaretLeft !== null ? { left: `${companyCaretLeft}px` } : undefined}
                   />
 
-                  <div className="w-full bg-[#030C1B] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
+                  <div className="w-full bg-[#030A1C] border border-white/[0.12] rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex overflow-hidden">
                     {/* Left 2 Columns: Company & Connect (Spacious Grid) */}
                     <div className="flex-1 pt-9 pb-7 px-7 xl:pt-10 xl:pb-8 xl:px-9 grid grid-cols-2 gap-6 xl:gap-8">
                       {companyColumns.map((col, cIdx) => (
@@ -648,7 +648,7 @@ export function TopNav() {
                   "whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors",
                   pathname === "/affiliates"
                     ? "bg-primary/10 text-primary font-bold"
-                    : "text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
+                    : "text-white/75 hover:text-[#894CEF] hover:bg-white/[0.04]"
                 )}
               >
                 {t("affiliates" as any)}
@@ -664,7 +664,7 @@ export function TopNav() {
                   setActiveMegaMenu(null);
                   setOpen(false);
                 }}
-                className="whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors text-white/75 hover:text-[#01A2EF] hover:bg-white/[0.04]"
+                className="whitespace-nowrap px-2 xl:px-3 py-1.5 rounded-lg text-[12px] xl:text-[13px] font-semibold transition-colors text-white/75 hover:text-[#894CEF] hover:bg-white/[0.04]"
               >
                 {t("faq" as any)}
               </a>
@@ -675,11 +675,11 @@ export function TopNav() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center justify-center gap-1.5 h-10 min-h-10 w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#01A2EF]/40 hover:bg-white/[0.06] transition-colors text-xs shrink-0"
+                className="flex items-center justify-center gap-1.5 h-10 min-h-10 w-8 xl:w-auto px-0 xl:px-2.5 rounded-lg border border-white/15 bg-white/[0.03] text-white/60 hover:text-white hover:border-[#894CEF]/40 hover:bg-white/[0.06] transition-colors text-xs shrink-0"
                 aria-label={tSearch("searchAria")}
                 data-od-id="nav-search-trigger"
               >
-                <Search size={14} className="text-[#01A2EF] opacity-90 shrink-0" />
+                <Search size={14} className="text-[#894CEF] opacity-90 shrink-0" />
                 <span className="hidden xl:inline text-[11.5px]">{tSearch("buttonLabel")}</span>
                 <kbd className="hidden 2xl:inline-flex items-center rounded border border-white/20 bg-white/[0.08] px-1.5 py-0.5 font-mono text-[9px] text-white/50">
                   ⌘K
@@ -690,7 +690,7 @@ export function TopNav() {
                 href="https://app.ckcapital.co.uk/signin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-[#01A2EF]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
+                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-2.5 xl:px-3.5 rounded-lg border border-white/20 text-[11.5px] xl:text-[12.5px] font-bold text-white hover:border-[#894CEF] hover:text-[#894CEF] hover:bg-[#894CEF]/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
               >
                 {t("signIn" as any)}
               </a>
@@ -740,7 +740,7 @@ export function TopNav() {
 
               {/* Slide-down Drawer Panel */}
               <div
-                className="absolute top-full left-0 right-0 z-50 w-full overflow-y-auto overscroll-contain bg-[#030C1B] border-b border-white/[0.12] shadow-[0_30px_70px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-4rem)] px-4 sm:px-6 py-4 xl:hidden animate-in fade-in-0 slide-in-from-top-1 duration-200"
+                className="absolute top-full left-0 right-0 z-50 w-full overflow-y-auto overscroll-contain bg-[#030A1C] border-b border-white/[0.12] shadow-[0_30px_70px_rgba(0,0,0,0.95)] max-h-[calc(100dvh-4rem)] px-4 sm:px-6 py-4 xl:hidden animate-in fade-in-0 slide-in-from-top-1 duration-200"
                 data-od-id="mobile-drawer"
               >
                 <div className="flex flex-col gap-1 pb-4">
@@ -943,7 +943,7 @@ export function TopNav() {
                     href="https://app.ckcapital.co.uk/signin"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl border border-white/20 text-sm font-bold text-white hover:border-[#01A2EF] hover:text-[#01A2EF] hover:bg-[#01A2EF]/10 transition-colors"
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl border border-white/20 text-sm font-bold text-white hover:border-[#894CEF] hover:text-[#894CEF] hover:bg-[#894CEF]/10 transition-colors"
                   >
                     {t("signIn" as any)}
                   </a>

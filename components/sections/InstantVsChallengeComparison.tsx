@@ -119,8 +119,8 @@ export function InstantVsChallengeComparison() {
       <Container>
         {/* Section Header */}
         <SectionReveal className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#2563EB]">
-            <Scale size={12} className="text-[#2563EB]" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
+            <Scale size={12} className="text-[#7943E0]" />
             HEAD-TO-HEAD
           </span>
           <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold tracking-tight text-[#0A0A0C] sm:text-3xl md:text-4xl">
@@ -152,7 +152,7 @@ export function InstantVsChallengeComparison() {
               className={cn(
                 "rounded-lg px-3 py-1.5 text-xs font-bold transition-all",
                 mobileTab === "instant"
-                  ? "bg-[#01A2EF] text-[#030C1B] font-extrabold shadow-sm"
+                  ? "bg-[#894CEF] text-[#030A1C] font-extrabold shadow-sm"
                   : "text-[#6B7280] hover:text-[#0A0A0C]"
               )}
             >
@@ -179,18 +179,18 @@ export function InstantVsChallengeComparison() {
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
             {/* Column 1 Header: Instant Funding */}
             {(mobileTab === "compare" || mobileTab === "instant") && (
-              <div className="bg-blue-50/40 p-4 sm:p-5 md:p-6 border-b border-gray-200 flex flex-col justify-between">
+              <div className="bg-violet-50/40 p-4 sm:p-5 md:p-6 border-b border-gray-200 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-blue-100 text-[#2563EB]">
-                        <Zap size={15} className="fill-[#2563EB]" />
+                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-violet-100 text-[#7943E0]">
+                        <Zap size={15} className="fill-[#7943E0]" />
                       </div>
                       <span className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
                         Instant Funding
                       </span>
                     </div>
-                    <span className="rounded-full bg-[#01A2EF] px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#030C1B]">
+                    <span className="rounded-full bg-[#894CEF] px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#030A1C]">
                       0 Phase Direct
                     </span>
                   </div>
@@ -198,7 +198,7 @@ export function InstantVsChallengeComparison() {
                     Immediate simulated allocation with bi-weekly reward eligibility.
                   </p>
                 </div>
-                <div className="mt-3.5 pt-3 border-t border-blue-200/60 flex items-center justify-between gap-3">
+                <div className="mt-3.5 pt-3 border-t border-violet-200/60 flex items-center justify-between gap-3">
                   <span className="font-mono text-xs font-bold text-[#0A0A0C]">
                     $5K – $200K Direct
                   </span>
@@ -264,8 +264,8 @@ export function InstantVsChallengeComparison() {
                       {metric.label}
                     </span>
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="rounded-xl bg-blue-50/70 border border-blue-200/80 p-2 flex items-center justify-between">
-                        <span className="text-[10px] font-extrabold text-[#2563EB]">⚡ Instant</span>
+                      <div className="rounded-xl bg-violet-50/70 border border-violet-200/80 p-2 flex items-center justify-between">
+                        <span className="text-[10px] font-extrabold text-[#7943E0]">⚡ Instant</span>
                         <span className="font-mono font-extrabold text-[#0A0A0C]">{metric.instantValue}</span>
                       </div>
                       <div className="rounded-xl bg-gray-50 border border-gray-200 p-2 flex items-center justify-between">
@@ -275,12 +275,12 @@ export function InstantVsChallengeComparison() {
                     </div>
                   </div>
                 ) : mobileTab === "instant" ? (
-                  <div className="p-3 md:hidden flex items-center justify-between bg-blue-50/20">
+                  <div className="p-3 md:hidden flex items-center justify-between bg-violet-50/20">
                     <span className="text-xs font-bold text-[#0A0A0C]">{metric.label}</span>
                     <div className="flex items-center gap-1.5">
                       <span className="font-mono text-xs font-extrabold text-[#0A0A0C]">{metric.instantValue}</span>
                       {metric.instantBadge && (
-                        <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] font-bold text-[#2563EB]">
+                        <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[9px] font-bold text-[#7943E0]">
                           {metric.instantBadge}
                         </span>
                       )}
@@ -303,7 +303,7 @@ export function InstantVsChallengeComparison() {
                 {/* Desktop View: 2-column side-by-side table row (>= md) */}
                 <div className="hidden md:grid md:grid-cols-2 divide-x divide-gray-100">
                   {/* Left Column (Instant) */}
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3 bg-blue-50/10">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3 bg-violet-50/10">
                     <span className="text-xs font-bold text-[#0A0A0C]">
                       {metric.label}
                     </span>
@@ -312,7 +312,7 @@ export function InstantVsChallengeComparison() {
                         {metric.instantValue}
                       </span>
                       {metric.instantBadge && (
-                        <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] font-bold text-[#2563EB]">
+                        <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[9px] font-bold text-[#7943E0]">
                           {metric.instantBadge}
                         </span>
                       )}
@@ -389,7 +389,7 @@ export function InstantVsChallengeComparison() {
             <button
               type="button"
               onClick={() => setExpanded(!expanded)}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2563EB] hover:text-[#0A0A0C] transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-blue-50"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#7943E0] hover:text-[#0A0A0C] transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-violet-50"
             >
               <span>{expanded ? "Hide Detailed Rules" : "+ View All Detailed Rules (News, Weekend, SLA, Split)"}</span>
               <ChevronDown

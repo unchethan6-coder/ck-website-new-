@@ -42,7 +42,7 @@ export function FeatureStrip() {
 
   return (
     <section
-      className="relative z-20 border-y border-white/[0.08] bg-[#030C1B] py-10 sm:py-12"
+      className="relative z-20 border-y border-white/[0.08] bg-[#030A1C] py-10 sm:py-12"
       data-od-id="feature-strip"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -54,14 +54,14 @@ export function FeatureStrip() {
                 idx === 4 ? "sm:col-span-1" : ""
               }`}
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#01A2EF]/25 bg-[#01A2EF]/10 text-[#01A2EF] group-hover:border-[#01A2EF]/60 group-hover:bg-[#01A2EF]/20 group-hover:shadow-[0_0_15px_rgba(1,162,239,0.25)] transition-all duration-200">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#894CEF]/25 bg-[#894CEF]/10 text-[#894CEF] group-hover:border-[#894CEF]/60 group-hover:bg-[#894CEF]/20 group-hover:shadow-[0_0_15px_rgba(1,162,239,0.25)] transition-all duration-200">
                 <item.icon size={22} strokeWidth={1.75} />
               </div>
               <div className="text-left">
-                <h4 className="font-[family-name:var(--font-inter-tight)] text-[14px] font-black text-white group-hover:text-[#01A2EF] transition-colors duration-150">
+                <h4 className="font-[family-name:var(--font-inter-tight)] text-[14px] font-black text-white group-hover:text-[#894CEF] transition-colors duration-150">
                   {item.title}
                 </h4>
-                <p className="mt-1 text-[11.5px] leading-relaxed text-[#94A3B8]">
+                <p className="mt-1 text-[11.5px] leading-relaxed text-[#999BA3]">
                   {item.description}
                 </p>
               </div>
