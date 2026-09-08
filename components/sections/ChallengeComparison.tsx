@@ -191,7 +191,7 @@ export function ChallengeComparison({
             >
               {t("title") || "Choose your next challenge"}
             </h2>
-            <p className={cn("mx-auto mt-2 max-w-xl text-sm font-normal md:text-base", viewMode === "cards" ? "text-white/50" : "text-gray-500")}>
+            <p className={cn("mx-auto mt-2 max-w-xl text-sm font-normal md:text-base", viewMode === "cards" ? "text-[#AEB8CB]" : "text-gray-600")}>
               {t("subtitle") || "Select your preferred account size and evaluation model to begin."}
             </p>
           </SectionReveal>
@@ -364,14 +364,14 @@ export function ChallengeComparison({
                       ${size}
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/45">Today</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#AEB8CB]">Today</span>
                       <span className="text-base font-extrabold text-emerald-400 sm:text-xs">
                         {data ? formatMoney(data.disc) : "N/A"}
                       </span>
                       {data && (
-                        <span className="text-[10px] font-normal text-gray-400">
+                        <span className="block whitespace-nowrap text-[10px] font-normal text-[#AEB8CB]">
                           was <span className="line-through">{formatMoney(data.orig)}</span>
-                          {discountPercent(data) > 0 && <span className="ml-1.5 font-bold text-amber-300">Save {discountPercent(data)}%</span>}
+                          {discountPercent(data) > 0 && <span className="ml-1.5 inline-block font-bold text-amber-300">Save {discountPercent(data)}%</span>}
                         </span>
                       )}
                     </div>
@@ -384,11 +384,11 @@ export function ChallengeComparison({
           {viewMode === "cards" && activePlan && (
             <div className="sticky bottom-3 z-40 mx-1 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
               <div className="min-w-0">
-                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/45">Selected plan</p>
+                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-[#AEB8CB]">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
                 <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
               </div>
-              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-white">
+              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-white">
                 Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>

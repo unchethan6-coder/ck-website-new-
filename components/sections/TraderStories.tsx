@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play, X } from "lucide-react";
 import { FALLBACK_VIDEOS, VIDEO_META, type VideoItem } from "@/components/sections/Testimonials";
 
 /**
@@ -13,6 +13,7 @@ import { FALLBACK_VIDEOS, VIDEO_META, type VideoItem } from "@/components/sectio
 export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem[] }) {
   const t = useTranslations("stories");
   const [playing, setPlaying] = useState<string | null>(null);
+  const [isUserPaused, setIsUserPaused] = useState(false);
   const rowRef = useRef<HTMLDivElement>(null);
   const posRef = useRef(0);
   const isPausedRef = useRef(false);
@@ -36,6 +37,12 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
   useEffect(() => {
     const row = rowRef.current;
     if (!row) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches) {
+      isPausedRef.current = true;
+      setIsUserPaused(true);
+      return;
+    }
     let raf: number;
 
     const tick = () => {
@@ -99,18 +106,21 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
           isPausedRef.current = true;
         }}
         onMouseLeave={() => {
-          isPausedRef.current = false;
+          isPausedRef.current = isUserPaused;
         }}
       >
         <div className="overflow-hidden">
           <div ref={rowRef} className="flex w-max gap-4 px-4 sm:px-6 lg:px-8 will-change-transform">
             {repeatedItems.map((v, i) => {
               const key = `${v.id}-${i}`;
+              const isAccessibleOriginal = i < items.length;
               return (
                 <article
                   key={key}
                   role="button"
-                  tabIndex={0}
+                  tabIndex={isAccessibleOriginal ? 0 : -1}
+                  aria-hidden={isAccessibleOriginal ? undefined : true}
+                  aria-label={isAccessibleOriginal ? `Play trader story: ${v.title}` : undefined}
                   onClick={() => setPlaying(v.id)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
@@ -119,7 +129,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
                     }
                   }}
                   className="group relative w-[85vw] max-w-[320px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-gray-200/80 bg-[#0A0A0C] shadow-[0_20px_44px_-20px_rgba(10,10,12,0.35)] sm:w-[360px] md:w-[420px]"
-                  data-od-id={`story-card-${v.id}`}
+                  data-od-id={`story-card-${v.id}-${i}`}
                 >
                   <div className="relative aspect-video w-full overflow-hidden">
                     {/* Thumbnail Image */}
@@ -189,6 +199,20 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
           className="absolute right-4 top-1/2 z-30 flex h-11 w-11 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-gray-100 bg-white text-[#0A0A0C] shadow-[0_10px_28px_rgba(10,10,12,0.18)] transition-transform hover:scale-105 active:scale-95 sm:right-8"
         >
           <ChevronRight size={20} />
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            const nextPaused = !isUserPaused;
+            setIsUserPaused(nextPaused);
+            isPausedRef.current = nextPaused;
+          }}
+          aria-label={isUserPaused ? "Play story carousel" : "Pause story carousel"}
+          aria-pressed={isUserPaused}
+          className="absolute -top-11 right-4 z-30 flex h-10 min-w-10 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs font-bold text-[#0A0A0C] shadow-sm transition-colors hover:border-[#894CEF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#894CEF] sm:right-8"
+        >
+          {isUserPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+          <span className="hidden sm:inline">{isUserPaused ? "Play" : "Pause"}</span>
         </button>
       </div>
 

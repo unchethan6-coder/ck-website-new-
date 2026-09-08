@@ -169,7 +169,7 @@ export interface FundingChallengeTypeItem {
 export const FUNDING_CHALLENGE_TYPES: FundingChallengeTypeItem[] = [
   { id: "standard", name: "Standard", desc: "Two-Phase Evaluation | Classic Growth" },
   { id: "1step", name: "1 Step Standard", desc: "Single Phase | Faster Road to Funding" },
-  { id: "instant", name: "Instant Funding", desc: "Skip Evaluation | Direct Live Payouts" },
+  { id: "instant", name: "Instant Funding", desc: "Skip Evaluation | Eligible Performance Rewards" },
   { id: "middleweight", name: "Middleweight", desc: "High Drawdown Buffer | Max Leverage" },
 ];
 
