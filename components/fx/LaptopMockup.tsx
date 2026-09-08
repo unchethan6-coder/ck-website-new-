@@ -308,7 +308,13 @@ export function LaptopMockup() {
                 <BrandMark />
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#894CEF]/40 bg-[#894CEF]/10 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[#894CEF]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#894CEF]" />
-                  Live
+                  Illustrative
+                </span>
+              </div>
+
+              <div className="mb-2 hidden justify-end lg:flex">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#894CEF]/35 bg-[#894CEF]/10 px-2 py-1 text-[7.5px] font-bold uppercase tracking-[0.12em] text-[#B395E4]">
+                  Illustrative simulation
                 </span>
               </div>
 

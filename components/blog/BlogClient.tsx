@@ -286,7 +286,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
             <div className="mt-8">
               <a href="/#start-challenge">
                 <GoldButton size="lg">
-                  Start Your Challenge <ArrowRight size={16} />
+                  Start Challenge <ArrowRight size={16} />
                 </GoldButton>
               </a>
             </div>

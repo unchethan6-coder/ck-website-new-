@@ -51,11 +51,11 @@ export function CustomerSupportSection() {
                 href="https://discord.com/invite/hGSVx9CmS2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-bold text-[#0A0A0C] shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="brand-gradient-btn inline-flex min-h-12 items-center justify-between gap-3 rounded-xl px-4 text-sm font-bold text-white shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 data-od-id="customer-support-discord"
               >
                 <span className="flex items-center gap-2">
-                  <MessageCircle size={17} className="text-[#0A0A0C]" />
+                  <MessageCircle size={17} />
                   {t("discordBtn")}
                 </span>
                 <ArrowUpRight size={16} />
@@ -72,6 +72,10 @@ export function CustomerSupportSection() {
                 <ArrowUpRight size={16} />
               </a>
             </div>
+
+            <p className="mt-3 text-xs font-medium text-[#6B7280]">
+              Typical reply time: under 2 minutes · Pre-purchase and account questions welcome.
+            </p>
 
             <a
               href="/contact"

@@ -50,7 +50,11 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
     return map;
   }, [articles]);
 
-  const active = CATEGORIES[activeIdx];
+  const availableCategories = useMemo(
+    () => CATEGORIES.filter((category) => latestByCategory[category.key]),
+    [latestByCategory]
+  );
+  const active = availableCategories[activeIdx] ?? availableCategories[0] ?? CATEGORIES[0];
   const activeArticle = latestByCategory[active.key];
   const cover = activeArticle?.coverImage?.url ?? FALLBACK_IMAGES[active.key];
 
@@ -64,16 +68,20 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       if (hoveredRef.current || pausedRef.current) return;
-      setActiveIdx((i) => (i + 1) % CATEGORIES.length);
+      if (availableCategories.length > 1) {
+        setActiveIdx((i) => (i + 1) % availableCategories.length);
+      }
     }, 3500);
     return () => window.clearInterval(id);
-  }, []);
+  }, [availableCategories.length]);
 
   const selectIdx = (i: number) => {
     setActiveIdx(i);
     setPausedByClick(true);
     window.setTimeout(() => setPausedByClick(false), 5000);
   };
+
+  if (availableCategories.length === 0) return null;
 
   return (
     <section
@@ -150,7 +158,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
 
         {/* Category selector cards — 1st full width on mobile (230px), 2nd & 3rd half width in one row (190px), 3 equal columns on desktop */}
         <div className="relative z-10 mx-auto mt-8 grid max-w-[980px] grid-cols-2 gap-3.5 px-2 sm:-mt-[68px] sm:grid-cols-3 sm:gap-4">
-          {CATEGORIES.map((cat, i) => {
+          {availableCategories.map((cat, i) => {
             const article = latestByCategory[cat.key];
             const cardCover = article?.coverImage?.url ?? FALLBACK_IMAGES[cat.key];
             const isActive = i === activeIdx;
@@ -194,7 +202,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
 
         {/* Slide indicators — visible on sm+ */}
         <div className="mt-6 hidden sm:flex items-center justify-center gap-2">
-          {CATEGORIES.map((cat, i) => (
+          {availableCategories.map((cat, i) => (
             <button
               key={cat.key}
               type="button"

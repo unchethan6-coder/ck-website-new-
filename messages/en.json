@@ -77,8 +77,8 @@
     "headlineHighlight": "$100K.",
     "headlineLine2": "Keep up to 100%.",
     "subcopy": "Prove your skills in a simulated environment on MT5 & TradeLocker. No time limits, news trading allowed, transparent rules, and no hidden fees.",
-    "startChallenge": "Start Your Challenge",
-    "exploreObjectives": "See how it works"
+    "startChallenge": "Start Challenge",
+    "exploreObjectives": "Compare Plans"
   },
   "stats": {
     "payoutTime": "Average Payout Time",
@@ -303,7 +303,7 @@
     "benefitAllocation": "Up to $1.2M Allocation",
     "benefitNoHidden": "No Hidden Fees",
     "benefitStarting": "Starting at $58",
-    "viewEvaluations": "View Evaluations",
+    "viewEvaluations": "Compare Plans",
     "readyReward": "Ready to request your reward?",
     "readyRewardDesc": "Open your CK Capital dashboard, click request, then complete the required details.",
     "trader": "Trader",
@@ -407,7 +407,7 @@
     "eyebrow": "Your next trade could be funded",
     "title": "Ready to trade CK's capital?",
     "subtitle": "Pick a challenge, pass the objectives on your timetable, and trade simulated accounts with up to 100% of the profits you keep.",
-    "button": "Start Your Challenge",
+    "button": "Start Challenge",
     "titleNew": "Your skill is our capital",
     "subtitleNew": "A structured path from proving your edge in sim to trading CK funded capital.",
     "stage1Label": "Stage 1",
@@ -421,8 +421,8 @@
     "stage3Desc": "Earn from funded capital.",
     "pill1": "Up to 100% Rewards",
     "pill2": "No Time Limits",
-    "primary": "Get Started",
-    "secondary": "See roadmap",
+    "primary": "Start Challenge",
+    "secondary": "Compare Plans",
     "drawerTitle": "Your path to CK Funded",
     "drawerDesc": "Three clear stages from evaluation to funded. Each stage validates your edge before you scale with CK capital.",
     "drawerStage1Title": "Evaluation",
@@ -587,7 +587,7 @@
     "title": "Share CK Capital. Earn up to 25%.",
     "subtitle": "Turn your audience, community and content into an additional revenue stream with the CK Capital Affiliate Program. Refer customers to CK Capital and earn commission on qualified referrals.",
     "becomeAffiliate": "BECOME A CK AFFILIATE",
-    "seeHowItWorks": "See how it works",
+    "seeHowItWorks": "Compare Plans",
     "commissionHighlight": "Affiliate Commission",
     "minPayoutHighlight": "Minimum Payout",
     "globalHighlight": "Affiliate Opportunity",
@@ -770,7 +770,7 @@
     "feature": "Feature",
     "instantCol": "Instant Funding",
     "challengeCol": "1-Step Challenge",
-    "getStarted": "Get Started",
+    "getStarted": "Start Challenge",
     "headToHead": {
       "eyebrow": "HEAD-TO-HEAD BREAKDOWN",
       "title": "Instant vs Challenge",
@@ -1099,7 +1099,7 @@
     "startChallenge": "Start Challenge",
     "signIn": "Sign In",
     "learnMore": "Learn More",
-    "getStarted": "Get Started"
+    "getStarted": "Start Challenge"
   },
   "stories": {
     "title": "Real traders, real rewards, real impact",

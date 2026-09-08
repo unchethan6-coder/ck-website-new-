@@ -109,6 +109,14 @@ export function ChallengeComparison({
     })}`;
   };
 
+  const discountPercent = (plan?: PlanDetails | null) => {
+    if (!plan) return 0;
+    const original = Number(plan.orig.replace(/[$,]/g, ""));
+    const current = Number(plan.disc.replace(/[$,]/g, ""));
+    if (!original || current >= original) return 0;
+    return Math.round((1 - current / original) * 100);
+  };
+
   const formatValue = (valStr?: string, accountSize = selectedSize) => {
     if (!valStr) return "-";
     if (!isPercentage || !valStr.startsWith("$")) return valStr;
@@ -356,18 +364,35 @@ export function ChallengeComparison({
                       ${size}
                     </div>
                     <div className="flex flex-col gap-0.5">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/45">Today</span>
                       <span className="text-base font-extrabold text-emerald-400 sm:text-xs">
                         {data ? formatMoney(data.disc) : "N/A"}
                       </span>
-                      <span className="text-[10px] text-gray-400 line-through font-normal">
-                        {data ? formatMoney(data.orig) : ""}
-                      </span>
+                      {data && (
+                        <span className="text-[10px] font-normal text-gray-400">
+                          was <span className="line-through">{formatMoney(data.orig)}</span>
+                          {discountPercent(data) > 0 && <span className="ml-1.5 font-bold text-amber-300">Save {discountPercent(data)}%</span>}
+                        </span>
+                      )}
                     </div>
                   </div>
                 );
               })}
             </div>
           </SectionReveal>
+
+          {viewMode === "cards" && activePlan && (
+            <div className="sticky bottom-3 z-40 mx-1 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
+              <div className="min-w-0">
+                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/45">Selected plan</p>
+                <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
+                <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
+              </div>
+              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-white">
+                Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
+              </a>
+            </div>
+          )}
 
           {/* Details & Checkout Grid */}
           <SectionReveal delay={0.18} className={viewMode === "cards" ? "" : "hidden"}>
@@ -588,8 +613,14 @@ export function ChallengeComparison({
                           {size === "100K" && <span className="absolute right-2 top-2 rounded-full bg-[#894CEF] px-1.5 py-0.5 text-[8px] font-bold uppercase text-white">Popular</span>}
                           <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500">Account</span>
                           <strong className="mt-0.5 block text-lg text-[#0A0A0C]">${size}</strong>
-                          <span className="mt-2 block text-xs font-extrabold text-[#7943E0]">{plan ? formatMoney(plan.disc) : "N/A"}</span>
-                          {plan && <span className="block text-[9px] text-gray-400 line-through">{formatMoney(plan.orig)}</span>}
+                          <span className="mt-1.5 block text-[8px] font-bold uppercase tracking-wider text-gray-400">Today</span>
+                          <span className="block text-xs font-extrabold text-[#7943E0]">{plan ? formatMoney(plan.disc) : "N/A"}</span>
+                          {plan && (
+                            <span className="block text-[9px] text-gray-400">
+                              was <span className="line-through">{formatMoney(plan.orig)}</span>
+                              {discountPercent(plan) > 0 && <span className="ml-1 font-bold text-[#9A6B14]">Save {discountPercent(plan)}%</span>}
+                            </span>
+                          )}
                         </button>
                       );
                     })}

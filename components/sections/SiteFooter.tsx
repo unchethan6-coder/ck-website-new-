@@ -251,10 +251,15 @@ export function SiteFooter() {
       <div className="border-b border-foreground/[0.06] bg-foreground/[0.015]" data-od-id="footer-compliance">
         <Container>
           <div className="py-8 md:py-10">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/60 mb-6">
-              {t("disclaimerImportantTitle")}
-            </h3>
-            <div className="space-y-6 text-xs leading-relaxed text-foreground/45 sm:text-[12.5px]">
+            <p className="max-w-4xl text-xs font-medium leading-relaxed text-foreground/65 sm:text-[12.5px]">
+              {t("disclaimerSimulated")}
+            </p>
+            <details className="group mt-4 rounded-xl border border-foreground/[0.08] bg-foreground/[0.02]">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
+                {t("disclaimerImportantTitle")}
+                <span aria-hidden="true" className="text-lg leading-none text-primary transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <div className="space-y-6 border-t border-foreground/[0.08] px-4 py-5 text-xs leading-relaxed text-foreground/45 sm:text-[12.5px]">
               <p className="font-medium text-foreground/65">
                 <strong>{t("disclaimerSimulated")}</strong>
               </p>
@@ -298,7 +303,8 @@ export function SiteFooter() {
               </div>
 
               <p>{t("disclaimerJurisdiction")}</p>
-            </div>
+              </div>
+            </details>
           </div>
         </Container>
       </div>
