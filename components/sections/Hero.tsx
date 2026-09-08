@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { ArrowRight, Play, BarChart2, Coins, Zap } from "lucide-react";
-import { LaptopMockup } from "@/components/fx/LaptopMockup";
 import { Link } from "@/i18n/navigation";
 
 export function Hero() {
@@ -150,14 +150,30 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Laptop Dashboard Visual */}
+          {/* Right Column: CK mascot artwork */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative isolate z-0 mt-8 sm:mt-10 lg:mt-0 flex w-full max-w-full justify-center lg:col-span-7 xl:col-span-7 lg:justify-end overflow-visible"
+            className="relative isolate z-0 mt-6 flex min-h-[340px] w-full max-w-full items-center justify-center overflow-visible sm:mt-8 sm:min-h-[470px] lg:col-span-7 lg:mt-0 lg:min-h-[610px] lg:justify-end xl:col-span-7"
           >
-            <LaptopMockup />
+            <div
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 -z-10 h-[72%] w-[76%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8B3DFF]/20 blur-[70px] sm:bg-[#8B3DFF]/18 sm:blur-[95px] lg:left-[58%] lg:h-[68%] lg:w-[72%] lg:blur-[120px]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-[8%] left-1/2 -z-10 h-[18%] w-[64%] -translate-x-1/2 rounded-full bg-[#B35CFF]/18 blur-[55px] lg:left-[58%]"
+            />
+            <Image
+              src="/images/ck-purple-raccoon.png"
+              alt="CK Capital futuristic raccoon mascot holding the CK emblem"
+              width={1930}
+              height={1930}
+              priority
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 58vw"
+              className="relative h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_34px_rgba(139,76,239,0.28)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
+            />
           </motion.div>
         </div>
       </div>
