@@ -174,15 +174,6 @@ export function Hero() {
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 58vw"
               className="relative h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_34px_rgba(139,76,239,0.28)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
             />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-1 -left-8 -right-8 z-10 h-[34%] sm:h-[30%] lg:-right-12 lg:left-0 lg:h-[28%]"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(3,10,28,0) 0%, rgba(20,12,55,0.42) 38%, rgba(7,9,32,0.88) 70%, #030A1C 100%)",
-                filter: "drop-shadow(0 -22px 34px rgba(139,61,255,0.12))",
-              }}
-            />
           </motion.div>
         </div>
       </div>
