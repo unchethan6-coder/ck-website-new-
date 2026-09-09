@@ -614,6 +614,157 @@ body {
   contain-intrinsic-size: auto 640px;
 }
 
+/* Homepage-only visual system: one continuous navy/purple experience. */
+.home-purple-theme {
+  --home-bg: #030a1c;
+  --home-section: #070b1d;
+  --home-surface: #0b1328;
+  --home-surface-raised: #121d37;
+  --home-text: #f8fafc;
+  --home-muted: #aeb8cb;
+  --home-border: #26324a;
+  background: var(--home-bg);
+  color: var(--home-text);
+}
+
+.home-purple-theme :where(h1, h2, h3, h4) {
+  font-family: var(--font-inter-tight), var(--font-inter), sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.home-purple-theme > section {
+  border-color: rgba(139, 92, 246, 0.16) !important;
+}
+
+.home-purple-theme > :is(
+  [data-od-id="proof-showcase"],
+  [data-od-id="trading-platforms"],
+  [data-od-id="trader-stories"],
+  [data-od-id="customer-support"],
+  [data-od-id="how-it-works"],
+  [data-od-id="faq"],
+  [data-od-id="closing-cta"]
+) {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(124, 58, 237, 0.14), transparent 34%),
+    linear-gradient(180deg, var(--home-section) 0%, var(--home-bg) 100%) !important;
+  color: var(--home-text) !important;
+}
+
+.home-purple-theme :is(
+  [data-od-id="proof-showcase"],
+  [data-od-id="challenge-comparison"],
+  [data-od-id="trading-platforms"],
+  [data-od-id="trader-stories"],
+  [data-od-id="customer-support"],
+  [data-od-id="how-it-works"],
+  [data-od-id="faq"],
+  [data-od-id="closing-cta"]
+) :is([class*="bg-white"], [class*="bg-[#F7F7F9]"], [class*="bg-[#F0F7FF]"], [class*="bg-gray-50"]) {
+  background-color: var(--home-surface) !important;
+}
+
+.home-purple-theme :is(
+  [data-od-id="proof-showcase"],
+  [data-od-id="challenge-comparison"],
+  [data-od-id="trading-platforms"],
+  [data-od-id="trader-stories"],
+  [data-od-id="customer-support"],
+  [data-od-id="how-it-works"],
+  [data-od-id="faq"],
+  [data-od-id="closing-cta"]
+) :is([class*="text-[#0A0A0C]"], [class*="text-[#111827]"], [class*="text-gray-900"], [class*="text-black"]) {
+  color: var(--home-text) !important;
+}
+
+.home-purple-theme :is(
+  [data-od-id="proof-showcase"],
+  [data-od-id="challenge-comparison"],
+  [data-od-id="trading-platforms"],
+  [data-od-id="trader-stories"],
+  [data-od-id="customer-support"],
+  [data-od-id="how-it-works"],
+  [data-od-id="faq"],
+  [data-od-id="closing-cta"]
+) :is([class*="text-[#4B5563]"], [class*="text-[#6B7280]"], [class*="text-gray-400"], [class*="text-gray-500"], [class*="text-gray-600"]) {
+  color: var(--home-muted) !important;
+}
+
+.home-purple-theme :is(
+  [data-od-id="proof-showcase"],
+  [data-od-id="challenge-comparison"],
+  [data-od-id="trading-platforms"],
+  [data-od-id="trader-stories"],
+  [data-od-id="customer-support"],
+  [data-od-id="how-it-works"],
+  [data-od-id="faq"],
+  [data-od-id="closing-cta"]
+) [class*="border-gray-"] {
+  border-color: var(--home-border) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.18), transparent 38%),
+    var(--home-bg) !important;
+  color: var(--home-text) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] :is(
+  [class*="bg-[#F8F8FA]"],
+  [class*="bg-[#F2F0F8]"],
+  [class*="bg-violet-50"]
+) {
+  background-color: var(--home-surface-raised) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] [class*="bg-violet-50"] {
+  background-color: rgba(124, 58, 237, 0.24) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] .overflow-x-auto > .grid {
+  background: #070b1d !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] .overflow-x-auto > .grid > * {
+  background: var(--home-surface) !important;
+  color: var(--home-text) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] .overflow-x-auto > .grid > [class*="ring-[#894CEF]"] {
+  background: rgba(124, 58, 237, 0.24) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] table tr:nth-child(even) {
+  background: rgba(139, 92, 246, 0.045) !important;
+}
+
+.home-purple-theme [data-od-id="challenge-comparison"] table th,
+.home-purple-theme [data-od-id="challenge-comparison"] table td {
+  border-color: var(--home-border) !important;
+}
+
+.home-purple-theme [data-od-id="proof-showcase-panel"] {
+  background:
+    radial-gradient(circle at 24% 42%, rgba(124, 58, 237, 0.16), transparent 38%),
+    linear-gradient(145deg, var(--home-surface-raised) 0%, var(--home-surface) 52%, #070b1d 100%) !important;
+  border-color: rgba(139, 92, 246, 0.28) !important;
+  box-shadow: 0 30px 80px -38px rgba(124, 58, 237, 0.6) !important;
+}
+
+.home-purple-theme [data-od-id^="closing-step-"] > span:last-child {
+  color: var(--home-muted) !important;
+}
+
+.home-purple-theme [data-od-id^="closing-step-"][aria-current="true"] > span:last-child {
+  color: var(--home-text) !important;
+}
+
+.home-purple-theme :where(a, button, summary):focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+
 /* ── Live chart — vibrant cyan line and sapphire fill ── */
 .fx-chart-line { stroke: #894CEF; }
 .fx-chart-fill { stop-color: #703AD7; }

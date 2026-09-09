@@ -43,7 +43,7 @@ export default async function Home() {
     : undefined;
 
   return (
-    <main className="min-h-screen">
+    <main className="home-purple-theme min-h-screen">
       {/* S1 — Hero: Light */}
       <Hero />
 
