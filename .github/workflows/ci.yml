@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, staging]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Typecheck & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ""
+      - name: Typecheck Playwright config/tests
+        run: npx tsc --noEmit -p tsconfig.json
+      - run: npx playwright test --list
+
+  smoke-staging:
+    name: Smoke test staging
+    runs-on: ubuntu-latest
+    needs: checks
+    if: github.ref == 'refs/heads/staging'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Wait for staging deployment to be ready
+        env:
+          STAGING_URL: ${{ secrets.STAGING_URL }}
+          STAGING_BASIC_AUTH: ${{ secrets.STAGING_BASIC_AUTH }}
+        run: |
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -u "$STAGING_BASIC_AUTH" "$STAGING_URL")
+            if [ "$code" = "200" ]; then echo "staging ready ($code)"; exit 0; fi
+            echo "waiting for staging... ($code)"
+            sleep 10
+          done
+          echo "staging not ready after 300s"; exit 1
+      - name: Run smoke tests
+        env:
+          STAGING_URL: ${{ secrets.STAGING_URL }}
+          STAGING_BASIC_AUTH: ${{ secrets.STAGING_BASIC_AUTH }}
+          PLAYWRIGHT_BASE_URL: ${{ secrets.STAGING_URL }}
+        run: npx playwright test

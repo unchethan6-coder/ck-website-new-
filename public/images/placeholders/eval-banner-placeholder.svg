@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" width="100%" height="100%" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="evalBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141310" />
+      <stop offset="50%" stop-color="#0A0A0C" />
+      <stop offset="100%" stop-color="#060608" />
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="evalCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E1D18" />
+      <stop offset="100%" stop-color="#101014" />
+    </linearGradient>
+
+    <!-- Gold Gradient -->
+    <linearGradient id="evalGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#FFC107" />
+      <stop offset="100%" stop-color="#E6AE06" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="evalGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.04" />
+    </pattern>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="420" height="180" fill="url(#evalBgGrad)" />
+  <rect width="420" height="180" fill="url(#evalGrid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="120" cy="70" r="90" fill="#FFC107" opacity="0.06" />
+
+  <!-- Background Chart Line -->
+  <path d="M 10 160 C 60 155, 90 125, 140 110 C 190 95, 220 120, 270 75 C 310 45, 360 65, 410 40" fill="none" stroke="#FFC107" stroke-width="1.8" stroke-opacity="0.35" />
+
+  <!-- Main Left Card: Funded Trader Spec Card (with 20px border margins) -->
+  <g transform="translate(20, 18)">
+    <rect width="232" height="144" rx="12" fill="url(#evalCardGrad)" stroke="#FFC107" stroke-opacity="0.35" stroke-width="1.2" />
+
+    <!-- Top Header -->
+    <g transform="translate(12, 11)">
+      <path d="M 5 11 L 1 7 L 5 3" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 10 11 L 6 7 L 10 3" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="18" y="9" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="9" font-weight="900" letter-spacing="1">CK CAPITAL</text>
+      
+      <rect x="146" y="-1" width="56" height="15" rx="7" fill="#FFC107" fill-opacity="0.15" stroke="#FFC107" stroke-width="0.8" />
+      <text x="152" y="10" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="800">1-2 STEP</text>
+    </g>
+
+    <line x1="12" y1="35" x2="220" y2="35" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+
+    <!-- Balance & Split -->
+    <g transform="translate(12, 48)">
+      <text x="0" y="0" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="600">Funded Account Target</text>
+      <text x="0" y="20" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter Tight', sans-serif" font-size="19" font-weight="900" letter-spacing="-0.5">$100,000</text>
+      <rect x="98" y="7" width="48" height="15" rx="4" fill="#10B981" fill-opacity="0.15" />
+      <text x="103" y="18" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="800">+100% Split</text>
+    </g>
+
+    <!-- Progress Bar -->
+    <g transform="translate(12, 88)">
+      <text x="0" y="0" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="700">Evaluation Phase Passed</text>
+      <text x="178" y="0" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="800">100%</text>
+      <rect x="0" y="6" width="202" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.08" />
+      <rect x="0" y="6" width="202" height="4" rx="2" fill="url(#evalGoldGrad)" />
+    </g>
+
+    <!-- Badges Row -->
+    <g transform="translate(12, 118)">
+      <text x="0" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">⚡ Fast Payouts</text>
+      <text x="70" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">🛡️ No Limits</text>
+      <text x="142" y="5" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">📈 Up to $1.2M</text>
+    </g>
+  </g>
+
+  <!-- Right Top Card: 75% OFF Badge -->
+  <g transform="translate(262, 18)">
+    <rect width="138" height="67" rx="12" fill="url(#evalCardGrad)" stroke="#FFC107" stroke-opacity="0.35" stroke-width="1.2" />
+    <g transform="translate(10, 14)">
+      <rect x="0" y="0" width="48" height="15" rx="4" fill="#FFC107" />
+      <text x="5" y="11" fill="#0A0A0C" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="900">75% OFF</text>
+      
+      <text x="0" y="27" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7.5" font-weight="800">ALL CHALLENGES</text>
+      <text x="0" y="40" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="600">Code: <tspan fill="#FFC107" font-weight="800">10KFOR39</tspan></text>
+    </g>
+  </g>
+
+  <!-- Right Bottom Card: Scaling Plan -->
+  <g transform="translate(262, 95)">
+    <rect width="138" height="67" rx="12" fill="url(#evalCardGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" />
+    <g transform="translate(10, 14)">
+      <text x="0" y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="800">🛡️ Scaling Plan</text>
+      <text x="0" y="13" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="500">Scale up to $1.2M</text>
+      <line x1="0" y1="23" x2="118" y2="23" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1" />
+      <text x="0" y="37" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="700">✓ Bi-Weekly Payouts</text>
+    </g>
+  </g>
+</svg>

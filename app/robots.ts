@@ -1,26 +1,15 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/admin',
-          '/api',
-          '/private',
-          '/*.json$',
-          '/*?*sort=',
-          '/*?*filter=',
-        ],
-      },
-      {
-        userAgent: 'AdsBot-Google',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: 'https://ckcapital.co.uk/sitemap.xml',
-    host: 'https://ckcapital.co.uk',
-  }
+    sitemap: `${SITE_URL}/sitemap.xml`,
+  };
 }

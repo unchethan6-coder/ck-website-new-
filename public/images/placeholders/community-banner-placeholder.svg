@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" width="100%" height="100%" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="commBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12141C" />
+      <stop offset="50%" stop-color="#0B0C10" />
+      <stop offset="100%" stop-color="#08090C" />
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="commCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B1D28" />
+      <stop offset="100%" stop-color="#11121A" />
+    </linearGradient>
+
+    <!-- Dot Pattern -->
+    <pattern id="commDotGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.75" fill="#5865F2" fill-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="420" height="180" fill="url(#commBg)" />
+  <rect width="420" height="180" fill="url(#commDotGrid)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="210" cy="90" r="110" fill="#5865F2" opacity="0.07" />
+
+  <!-- Main Left Card: Discord Channels (with generous 20px padding from border) -->
+  <g transform="translate(20, 18)">
+    <!-- Shell -->
+    <rect width="232" height="144" rx="12" fill="url(#commCardGrad)" stroke="#5865F2" stroke-opacity="0.3" stroke-width="1.2" />
+
+    <!-- Server Header -->
+    <g transform="translate(10, 10)">
+      <!-- Server Icon -->
+      <rect width="20" height="20" rx="5" fill="#5865F2" />
+      <path d="M 7 14 L 4 10 L 7 6" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 13 14 L 10 10 L 13 6" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+
+      <text x="26" y="10" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="9" font-weight="900">CK TRADING HUB</text>
+      <text x="26" y="19" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="600">discord.com/invite/hGSVx9CmS2</text>
+
+      <!-- VIP Badge -->
+      <rect x="156" y="2" width="46" height="15" rx="7.5" fill="#FFC107" fill-opacity="0.18" stroke="#FFC107" stroke-width="0.8" />
+      <text x="162" y="12" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="800">👑 VIP</text>
+    </g>
+
+    <line x1="10" y1="36" x2="222" y2="36" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+
+    <!-- Channel 1: Announcements -->
+    <g transform="translate(10, 44)">
+      <rect width="212" height="23" rx="5" fill="#FFFFFF" fill-opacity="0.03" />
+      <text x="8" y="15" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="700">📢 #announcements</text>
+      <rect x="166" y="5" width="38" height="13" rx="3" fill="#FFC107" />
+      <text x="170" y="14" fill="#0A0A0C" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="900">75% OFF</text>
+    </g>
+
+    <!-- Channel 2: Daily Signals (Active) -->
+    <g transform="translate(10, 72)">
+      <rect width="212" height="23" rx="5" fill="#5865F2" fill-opacity="0.18" stroke="#5865F2" stroke-opacity="0.35" stroke-width="1" />
+      <text x="8" y="15" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="800">📈 #daily-breakdowns</text>
+      <circle cx="200" cy="11.5" r="3" fill="#10B981" />
+    </g>
+
+    <!-- Channel 3: Payout Proofs -->
+    <g transform="translate(10, 100)">
+      <rect width="212" height="23" rx="5" fill="#FFFFFF" fill-opacity="0.03" />
+      <text x="8" y="15" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="600">💰 #payout-proof</text>
+      <text x="154" y="15" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="700">+$15M Paid</text>
+    </g>
+  </g>
+
+  <!-- Right Top Card: Members Stats -->
+  <g transform="translate(262, 18)">
+    <rect width="138" height="67" rx="12" fill="url(#commCardGrad)" stroke="#5865F2" stroke-opacity="0.3" stroke-width="1.2" />
+    <g transform="translate(10, 13)">
+      <text x="0" y="0" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="800" letter-spacing="0.5">TRADER NETWORK</text>
+      <text x="0" y="20" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter Tight', sans-serif" font-size="17" font-weight="900" letter-spacing="-0.5">25,000+</text>
+      
+      <g transform="translate(0, 32)">
+        <circle cx="3" cy="3" r="2.5" fill="#10B981" />
+        <text x="9" y="6" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="7" font-weight="700">4,210 Online</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Bottom Card: Verified Role -->
+  <g transform="translate(262, 95)">
+    <rect width="138" height="67" rx="12" fill="url(#commCardGrad)" stroke="#FFC107" stroke-opacity="0.35" stroke-width="1.2" />
+    <g transform="translate(10, 13)">
+      <rect x="0" y="0" width="82" height="14" rx="4" fill="#FFC107" fill-opacity="0.15" stroke="#FFC107" stroke-width="0.8" />
+      <text x="5" y="10" fill="#FFC107" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="800">★ VERIFIED TRADER</text>
+      
+      <text x="0" y="26" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="8" font-weight="800">VIP Live Rooms</text>
+      <text x="0" y="37" fill="#9CA3AF" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="6.5" font-weight="500">Instant Access on Join</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">CK Capital community placeholder</title>
+  <desc id="desc">Abstract placeholder artwork for the CK Capital trader community.</desc>
+  <rect width="1200" height="700" fill="#0b0a0f"/>
+  <circle cx="930" cy="130" r="250" fill="#12100a" stroke="#14b8a6" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="930" cy="130" r="180" fill="none" stroke="#d4af37" stroke-opacity=".3" stroke-width="2"/>
+  <g fill="#12100a" stroke="#f4f6f8" stroke-opacity=".12">
+    <rect x="70" y="76" width="370" height="58" rx="12"/>
+    <rect x="92" y="150" width="348" height="58" rx="12"/>
+    <rect x="70" y="224" width="370" height="58" rx="12"/>
+    <rect x="104" y="298" width="336" height="58" rx="12"/>
+    <rect x="70" y="372" width="370" height="58" rx="12"/>
+  </g>
+  <g fill="#9aa2ad" font-family="Arial, sans-serif" font-size="23" font-weight="700">
+    <text x="100" y="112">Trader support</text>
+    <text x="122" y="186">Trading ideas</text>
+    <text x="100" y="260">Strategy talk</text>
+    <text x="134" y="334">Trade of the day</text>
+    <text x="100" y="408">Reward stories</text>
+  </g>
+  <g fill="#d4af37">
+    <circle cx="84" cy="105" r="5"/><circle cx="106" cy="179" r="5"/><circle cx="84" cy="253" r="5"/><circle cx="118" cy="327" r="5"/><circle cx="84" cy="401" r="5"/>
+  </g>
+  <path d="M500 540 C650 470 760 590 900 505 S1080 470 1170 540" fill="none" stroke="#14b8a6" stroke-opacity=".5" stroke-width="3"/>
+  <g fill="#12100a" stroke="#d4af37" stroke-opacity=".5" stroke-width="2">
+    <circle cx="550" cy="555" r="42"/><circle cx="650" cy="535" r="42"/><circle cx="750" cy="555" r="42"/><circle cx="850" cy="530" r="42"/>
+  </g>
+  <text x="70" y="625" fill="#d4af37" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">CK CAPITAL COMMUNITY</text>
+</svg>
