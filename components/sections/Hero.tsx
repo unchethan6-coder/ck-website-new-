@@ -155,7 +155,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative isolate z-0 mt-6 flex min-h-[340px] w-full max-w-full items-center justify-center overflow-visible sm:mt-8 sm:min-h-[470px] lg:col-span-7 lg:mt-0 lg:min-h-[610px] lg:justify-end xl:col-span-7"
+            className="relative isolate z-0 mt-6 -mb-14 flex min-h-[340px] w-full max-w-full items-end justify-center overflow-visible sm:-mb-16 sm:mt-8 sm:min-h-[470px] md:-mb-20 lg:col-span-7 lg:mt-0 lg:min-h-[610px] lg:justify-end xl:col-span-7"
           >
             <div
               aria-hidden="true"
@@ -172,7 +172,12 @@ export function Hero() {
               height={1930}
               priority
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 58vw"
-              className="relative h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_34px_rgba(139,76,239,0.28)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
+              className="hero-mascot relative h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_34px_rgba(139,76,239,0.28)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
+            />
+            {/* Bottom fade: blends the artwork's hard edge into the section background */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[38%] bg-gradient-to-t from-[#030A1C] via-[#030A1C]/85 to-transparent"
             />
           </motion.div>
         </div>
