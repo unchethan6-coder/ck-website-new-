@@ -117,7 +117,7 @@ export function HowItWorks() {
               <div className="mt-4">
                 <a
                   href="/#start-challenge"
-                  className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3 text-sm font-bold text-white shadow-md hover:shadow-cyan-500/25 transition-all duration-200"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3 text-sm font-bold text-[#1A1030] shadow-md hover:shadow-cyan-500/25 transition-all duration-200"
                   data-od-id="how-it-works-cta"
                 >
                   <span>{t("startChallenge")}</span>

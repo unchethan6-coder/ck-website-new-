@@ -813,7 +813,7 @@ function CompareModels({
                   className={cn(
                     "inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 px-4 text-sm font-black transition-all duration-200 cursor-pointer",
                     isSelected || m.isPopular
-                      ? "brand-gradient-btn text-white shadow-md hover:opacity-95 hover:-translate-y-0.5"
+                      ? "brand-gradient-btn text-[#1A1030] shadow-md hover:opacity-95 hover:-translate-y-0.5"
                       : "border-2 border-gray-200 bg-white text-[#0A0A0C] hover:border-[#894CEF] hover:text-[#894CEF] hover:bg-[#F0F7FF] hover:-translate-y-0.5"
                   )}
                 >
@@ -1513,7 +1513,7 @@ export function TradingObjectivesPageClient({
                       href={`https://app.ckcapital.co.uk/signup`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="brand-gradient-btn group flex w-full items-center justify-center gap-2 rounded-xl py-4 px-4 text-sm font-bold text-white shadow-md hover:opacity-95 transition-all duration-200"
+                      className="brand-gradient-btn group flex w-full items-center justify-center gap-2 rounded-xl py-4 px-4 text-sm font-bold text-[#1A1030] shadow-md hover:opacity-95 transition-all duration-200"
                       data-od-id="summary-direct-checkout"
                     >
                       <span>Start {size || "$100K"} Challenge</span>

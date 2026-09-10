@@ -29,7 +29,7 @@ export default async function NotFound() {
 
         <Link
           href="/"
-          className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-black transition-all duration-200 hover:brightness-110"
+          className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:brightness-110"
           style={{
             background: "var(--ck-gold-gradient)",
             boxShadow: "0 0 20px rgba(212,175,55,0.3)",

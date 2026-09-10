@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "badge": "OFERTA DE VERÃO",
+    "badge": "OFERTA POR TEMPO LIMITADO",
     "discount": "70% DE DESCONTO",
     "allEvaluations": "TODAS AS AVALIAÇÕES",
     "codeLabel": "USE O CÓDIGO",
@@ -747,7 +747,7 @@
     "hoursDesc": "Segunda a Sexta: 8h às 20h GMT. Suporte comunitário 24/7."
   },
   "evaluation": {
-    "badge": "Oferta de Verão · 70% Off em Avaliações",
+    "badge": "Oferta Limitada · 70% Off em Avaliações",
     "title": "Avaliações de Trading feitas para traders sérios.",
     "subtitle": "Mostre suas habilidades em ambiente simulado e desbloqueie contas de até $1.2M.",
     "claimOffer": "Garantir 70% OFF",

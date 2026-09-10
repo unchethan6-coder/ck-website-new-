@@ -72,7 +72,7 @@ function CommissionCalculator() {
           <div className="mt-6 rounded-lg border border-[#E5E7EB] bg-white p-4 text-sm text-[#4B5563] shadow-sm"><p className="font-semibold text-[#0A0A0C]">Example</p><p className="mt-2 text-xs sm:text-sm leading-6">{referrals} qualified referrals<br />× ${orderValue} average qualifying purchase<br />× {rate === null ? "current tier rate" : `${rate * 100}% affiliate commission`}<br />= <strong className="text-[#0A0A0C] font-bold">{money(monthly)} Estimated Commission</strong></p></div>
         </div>
       </div>
-      <p className="border-t border-[#E5E7EB] bg-white/50 px-6 py-4 text-xs leading-6 text-[#6B7280] md:px-8">{t("calculatorDisclaimer")}</p>
+      <p className="border-t border-[#E5E7EB] bg-white/[0.04] px-6 py-4 text-xs leading-6 text-[#6B7280] md:px-8">{t("calculatorDisclaimer")}</p>
     </SectionReveal>
   );
 }

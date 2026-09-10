@@ -217,7 +217,7 @@ function BrowserWindow({
   return (
     <div className="relative w-full" data-od-id="proof-browser">
       {/* Browser chrome + body */}
-      <div className="flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_32px_80px_-32px_rgba(15,23,42,0.25)]">
+      <div className="flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white pb-24 sm:pb-20 shadow-[0_32px_80px_-32px_rgba(15,23,42,0.25)]">
         <div className="flex h-10 sm:h-11 shrink-0 items-center justify-between border-b border-gray-200 bg-gray-100 px-3 sm:px-4">
           {/* Left traffic dots */}
           <div className="flex items-center gap-1.5 shrink-0 w-7 sm:w-10">
@@ -293,7 +293,7 @@ function BrowserWindow({
         className="absolute -bottom-6 left-4 right-4 sm:right-auto sm:left-6 sm:w-[350px] lg:-left-6 lg:w-[370px] z-20"
         data-od-id="proof-total-card"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-[#703AD7]/30 bg-white/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.18)]">
+        <div className="relative overflow-hidden rounded-2xl border border-[#703AD7]/30 bg-[#0b1328]/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(3,10,28,0.6)]">
           <div className="relative z-10 pr-16 sm:pr-20">
             <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
               {t("totalPayouts")}

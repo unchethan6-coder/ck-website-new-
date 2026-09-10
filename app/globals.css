@@ -854,13 +854,13 @@ html, body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF !important;
-    font-weight: 700;
+    color: #1A1030 !important;
+    font-weight: 800;
     border: none;
     cursor: pointer;
     background-image: var(--ck-cta-gradient) !important;
     background-size: 200% 100%;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 4px 14px rgba(54, 124, 219, 0.35);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 4px 14px rgba(212, 159, 62, 0.35);
     transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
     animation: brand-pill-shimmer 4s ease-in-out infinite;
   }
@@ -879,7 +879,7 @@ html, body {
   .brand-gradient-btn:hover {
     filter: brightness(1.1);
     transform: translateY(-1px);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 6px 20px rgba(1, 162, 239, 0.45);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 6px 20px rgba(212, 159, 62, 0.45);
   }
 
   .gold-pill-btn:active,
@@ -921,3 +921,127 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .gold-pill-btn, .brand-pill-btn, .gold-card-highlight, .brand-card-highlight { animation: none !important; }
 }
+
+/* =====================================================================
+   Site-wide dark visual system.
+   Inner pages were authored with light utility classes (bg-white,
+   text-[#0A0A0C], border-gray-200 …). Rather than rewriting every
+   component, map those exact class tokens onto the dark purple tokens
+   the homepage already uses, so every page reads as one product.
+   Only whole-class matches ([class~=…]) are used, so translucent
+   variants such as bg-white/10 are left untouched.
+   ===================================================================== */
+:root {
+  --site-bg: #030a1c;
+  --site-section: #070b1d;
+  --site-surface: #0b1328;
+  --site-surface-raised: #121d37;
+  --site-text: #f8fafc;
+  --site-muted: #aeb8cb;
+  --site-border: #26324a;
+}
+
+body { background-color: var(--site-bg); color: var(--site-text); }
+
+/* Surfaces */
+:is([class~="bg-white"], [class~="md:bg-white"], [class~="lg:bg-white"],
+    [class~="bg-[#F8FAFC]"], [class~="bg-[#F8F8FA]"], [class~="bg-[#F7F7F9]"], [class~="bg-[#F2F0F8]"],
+    [class~="bg-[#FAFAFA]"], [class~="bg-[#F9FAFB]"], [class~="bg-[#FFFFFF]"], [class~="bg-[#fff]"]) {
+  background-color: var(--site-surface) !important;
+}
+:is([class~="bg-gray-50"], [class~="bg-gray-100"], [class~="bg-[#F0F7FF]"], [class~="bg-[#F3F4F6]"],
+    [class~="bg-violet-50"], [class~="bg-purple-50"], [class~="bg-indigo-50"], [class~="bg-slate-50"], [class~="bg-slate-100"]) {
+  background-color: var(--site-surface-raised) !important;
+}
+:is([class~="bg-gray-200"], [class~="bg-gray-300"], [class~="bg-[#E5E7EB]"]) {
+  background-color: var(--site-border) !important;
+}
+:is([class~="hover:bg-gray-50"], [class~="hover:bg-gray-100"], [class~="hover:bg-[#F0F7FF]"], [class~="hover:bg-white"]):hover {
+  background-color: var(--site-surface-raised) !important;
+}
+[class~="hover:bg-gray-200"]:hover { background-color: var(--site-border) !important; }
+
+/* Page-level light backgrounds → continuous dark scene */
+main > :is(section, div)[class~="bg-white"],
+main > :is(section, div)[class~="bg-gray-50"],
+main > :is(section, div)[class~="bg-[#F8FAFC]"] {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(124, 58, 237, 0.12), transparent 34%),
+    linear-gradient(180deg, var(--site-section) 0%, var(--site-bg) 100%) !important;
+}
+
+/* Text */
+:is([class~="text-[#0A0A0C]"], [class~="text-[#111827]"], [class~="text-[#030A1C]"], [class~="text-[#1E293B]"],
+    [class~="text-gray-900"], [class~="text-gray-800"],
+    [class~="hover:text-[#0A0A0C]"]:hover, [class~="group-hover:text-black"]) {
+  color: var(--site-text) !important;
+}
+:is([class~="text-[#4B5563]"], [class~="text-[#6B7280]"], [class~="text-[#374151]"],
+    [class~="text-gray-700"], [class~="text-gray-600"], [class~="text-gray-500"]) {
+  color: var(--site-muted) !important;
+}
+[class~="text-gray-400"] { color: #8b93a7 !important; }
+[class~="hover:text-white"]:hover { color: var(--site-text) !important; }
+
+/* Borders & dividers */
+:is([class~="border-gray-100"], [class~="border-gray-200"], [class~="border-gray-300"],
+    [class~="border-[#E5E7EB]"], [class~="border-[#D9D9D9]"], [class~="border-[#0A0A0C]"],
+    [class~="divide-gray-100"] > :not([hidden]) ~ :not([hidden]),
+    [class~="divide-gray-200"] > :not([hidden]) ~ :not([hidden]),
+    [class~="divide-[#E5E7EB]"] > :not([hidden]) ~ :not([hidden])) {
+  border-color: var(--site-border) !important;
+}
+:is([class~="hover:border-gray-300"], [class~="hover:border-gray-400"]):hover {
+  border-color: rgba(137, 76, 239, 0.45) !important;
+}
+[class~="border-white"] { border-color: var(--site-border) !important; }
+
+/* Shadows tuned for dark surfaces */
+:is([class~="shadow-sm"], [class~="shadow-md"], [class~="shadow-lg"], [class~="shadow-xl"]) {
+  --tw-shadow-color: rgba(3, 10, 28, 0.6);
+}
+
+/* Tables authored for light */
+main table th, main table td { border-color: var(--site-border) !important; }
+main table tr:nth-child(even) { background: rgba(139, 92, 246, 0.045); }
+
+/* Form fields authored for light */
+main :is(input, textarea, select)[class~="bg-white"],
+main :is(input, textarea, select)[class~="bg-gray-50"] {
+  background-color: var(--site-surface-raised) !important;
+  color: var(--site-text) !important;
+}
+main :is(input, textarea)::placeholder { color: #7b849a; }
+
+/* Headings share the homepage display face everywhere */
+main :where(h1, h2, h3, h4) {
+  font-family: var(--font-inter-tight), var(--font-inter), sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Accessible focus rings */
+:where(a, button, summary, [role="tab"], [role="button"]):focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+/* Light tints (pastel chips / callouts) → translucent dark equivalents */
+[class*="bg-gray-50/"], [class*="bg-gray-100/"], [class*="bg-gray-200/"] {
+  background-color: rgba(18, 29, 55, 0.7) !important;
+}
+:is([class~="bg-violet-50"], [class~="bg-violet-100"], [class*="bg-violet-50/"], [class*="bg-violet-100/"]) {
+  background-color: rgba(124, 58, 237, 0.16) !important;
+}
+:is([class~="bg-emerald-50"], [class~="bg-emerald-100"], [class*="bg-emerald-50/"]) {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+}
+:is([class~="bg-red-50"], [class~="bg-rose-50"]) { background-color: rgba(239, 68, 68, 0.12) !important; }
+:is([class~="bg-amber-50"], [class~="bg-yellow-50"]) { background-color: rgba(245, 158, 11, 0.12) !important; }
+:is([class~="text-emerald-700"], [class~="text-emerald-800"], [class~="text-green-700"]) { color: #34d399 !important; }
+:is([class~="text-red-900"], [class~="text-red-700"]) { color: #fca5a5 !important; }
+:is([class~="border-emerald-200"], [class~="border-emerald-100"]) { border-color: rgba(16, 185, 129, 0.35) !important; }
+:is([class~="border-violet-100"], [class~="border-violet-200"]) { border-color: rgba(137, 76, 239, 0.35) !important; }
+:is([class~="border-red-200"], [class~="border-red-100"]) { border-color: rgba(239, 68, 68, 0.35) !important; }
+/* Text that was tinted for light pastel chips */
+:is([class~="text-emerald-600"]) { color: #6ee7b7 !important; }
+[class~="ring-offset-white"] { --tw-ring-offset-color: var(--site-surface) !important; }

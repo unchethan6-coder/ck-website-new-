@@ -39,7 +39,7 @@ export function CustomerSupportSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">{t("supportBrand")}</p>
+                <p className="rounded-full border border-white/15 bg-black/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm">{t("supportBrand")}</p>
                 <span className="rounded-full border border-white/20 bg-black/70 px-3 py-1.5 text-xs font-semibold text-white">
                   24/7
                 </span>
@@ -51,7 +51,7 @@ export function CustomerSupportSection() {
                 href="https://discord.com/invite/hGSVx9CmS2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brand-gradient-btn inline-flex min-h-12 items-center justify-between gap-3 rounded-xl px-4 text-sm font-bold text-white shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="brand-gradient-btn inline-flex min-h-12 items-center justify-between gap-3 rounded-xl px-4 text-sm font-bold text-[#1A1030] shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 data-od-id="customer-support-discord"
               >
                 <span className="flex items-center gap-2">
@@ -98,7 +98,7 @@ export function CustomerSupportSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
             <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">{t("supportBrand")}</p>
+                <p className="rounded-full border border-secondary/35 bg-background/80 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-secondary backdrop-blur-sm">{t("supportBrand")}</p>
               </div>
               <span className="rounded-full border border-secondary/35 bg-background/70 px-3 py-1.5 text-xs font-semibold text-secondary">
                 24/7

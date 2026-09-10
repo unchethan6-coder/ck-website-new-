@@ -704,7 +704,7 @@ export function GlobalRewardsRadar({
           <button
             type="button"
             onClick={handleFilterClick}
-            className="brand-pill-btn w-full justify-center gap-2 font-bold py-3 text-xs sm:text-sm text-white"
+            className="brand-pill-btn w-full justify-center gap-2 font-bold py-3 text-xs sm:text-sm text-[#1A1030]"
           >
             <span>Filter {activeHub.name} Records</span>
             <ArrowRight size={14} />

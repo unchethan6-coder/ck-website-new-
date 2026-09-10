@@ -46,7 +46,7 @@ export function FeatureStrip() {
       data-od-id="feature-strip"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8 lg:divide-x lg:divide-white/[0.08]">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 lg:divide-x lg:divide-white/[0.08] items-start">
           {features.map((item, idx) => (
             <div
               key={item.title}

@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "badge": "SOMMER-ANGEBOT",
+    "badge": "ZEITLICH BEGRENZTES ANGEBOT",
     "discount": "70% RABATT",
     "allEvaluations": "ALLE EVALUIERUNGEN",
     "codeLabel": "CODE NUTZEN",
@@ -777,7 +777,7 @@
     "hoursDesc": "Montag - Freitag: 8:00 - 20:00 Uhr GMT. 24/7 Community-Support."
   },
   "evaluation": {
-    "badge": "Sommer-Sale · 70% Rabatt auf alle Evaluierungen",
+    "badge": "Limitiertes Angebot · 70% Rabatt auf alle Evaluierungen",
     "title": "Trading-Evaluierungen für ambitionierte Trader.",
     "subtitle": "Beweise deine Fähigkeiten und schalte geförderte Konten bis zu $1.2M frei.",
     "claimOffer": "70% Rabatt Sichern",

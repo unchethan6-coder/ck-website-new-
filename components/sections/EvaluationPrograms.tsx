@@ -168,7 +168,7 @@ export function EvaluationPrograms() {
                       </span>
                     </div>
 
-                    <div className="brand-gradient-btn mt-3 flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-white transition-colors">
+                    <div className="brand-gradient-btn mt-3 flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-[#1A1030] transition-colors">
                       <span>Start Challenge</span>
                       <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
                     </div>

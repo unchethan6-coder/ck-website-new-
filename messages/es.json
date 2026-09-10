@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "badge": "OFERTA DE VERANO",
+    "badge": "OFERTA POR TIEMPO LIMITADO",
     "discount": "70% DE DESCUENTO",
     "allEvaluations": "TODAS LAS EVALUACIONES",
     "codeLabel": "USA EL CÓDIGO",
@@ -747,7 +747,7 @@
     "hoursDesc": "Lunes a Viernes: 8am - 8pm GMT. Soporte comunitario 24/7."
   },
   "evaluation": {
-    "badge": "Oferta de Verano · 70% Dto en Evaluaciones",
+    "badge": "Oferta Limitada · 70% Dto en Evaluaciones",
     "title": "Evaluaciones de Trading para traders serios.",
     "subtitle": "Demuestra tus habilidades en entorno simulado y desbloquea cuentas fondeadas de hasta $1.2M.",
     "claimOffer": "Reclamar 70% DTO",

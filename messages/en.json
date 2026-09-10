@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "badge": "SUMMER SALE",
+    "badge": "LIMITED TIME SALE",
     "discount": "70% OFF",
     "allEvaluations": "ALL EVALUATIONS",
     "codeLabel": "USE CODE",
@@ -746,7 +746,7 @@
     "hoursDesc": "Monday - Friday: 8am - 8pm GMT. 24/7 Community Support."
   },
   "evaluation": {
-    "badge": "Summer Sale · 70% Off All Evaluations",
+    "badge": "Limited Time · 70% Off All Evaluations",
     "title": "Trading Evaluations built for serious traders.",
     "subtitle": "Prove your skills in a simulated environment, unlock funded accounts up to $1.2M, and keep up to 100% of your profits. Transparent rules, no hidden fees, no time limits.",
     "claimOffer": "Claim 70% OFF",
@@ -1082,7 +1082,7 @@
     "economicCalendarDesc": "Built-in high impact news calendar.",
     "advancedPlatform": "Advanced Platform",
     "advancedPlatformDesc": "Trade on industry-leading platforms.",
-    "education": "Education & Resources",
+    "education": "Free Education",
     "educationDesc": "Improve your skills with our free resources."
   },
   "trustStats": {

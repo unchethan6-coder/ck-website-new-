@@ -87,7 +87,6 @@ export function SiteFooter() {
         { label: "MetaTrader 5 (MT5)", href: "/#platforms" },
         { label: "TradeLocker", href: "/#platforms" },
         { label: t("payouts"), href: "/payouts" },
-        { label: t("affiliates"), href: "/affiliates" },
       ],
     },
     {

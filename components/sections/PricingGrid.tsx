@@ -61,7 +61,7 @@ export function PricingGrid() {
                 "relative flex flex-col rounded-2xl border p-5 card-hover-standard transition-transform duration-200 hover:-translate-y-1",
                 plan.popular
                   ? "border-primary bg-white shadow-xl"
-                  : "border-gray-200 bg-white/50"
+                  : "border-gray-200 bg-white/[0.04]"
               )}
             >
               {plan.popular && (

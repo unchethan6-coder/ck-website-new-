@@ -698,7 +698,7 @@ export function TopNav() {
                 href="/#start-challenge"
                 data-od-id="nav-cta"
                 onClick={(e) => handleNavClick(e, "/#start-challenge")}
-                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-3 xl:px-4 rounded-lg brand-gradient-btn text-[11.5px] xl:text-[12.5px] font-bold text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0"
+                className="whitespace-nowrap inline-flex items-center h-10 min-h-10 px-3 xl:px-4 rounded-lg brand-gradient-btn text-[11.5px] xl:text-[12.5px] font-bold text-[#1A1030] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 shrink-0"
               >
                 {t("startChallenge" as any)}
               </Link>
@@ -951,7 +951,7 @@ export function TopNav() {
                     href="/#start-challenge"
                     data-od-id="mobile-nav-cta"
                     onClick={(e) => handleNavClick(e, "/#start-challenge")}
-                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl brand-gradient-btn text-sm font-bold text-white transition-all shadow-md"
+                    className="flex items-center justify-center min-h-11 px-4 py-2.5 rounded-xl brand-gradient-btn text-sm font-bold text-[#1A1030] transition-all shadow-md"
                   >
                     {t("startChallenge" as any)}
                   </Link>

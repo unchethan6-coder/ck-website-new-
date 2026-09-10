@@ -198,7 +198,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
           href="https://discord.com/invite/hGSVx9CmS2"
           target="_blank"
           rel="noopener noreferrer"
-          className="brand-gradient-btn inline-flex h-12 items-center justify-center rounded-xl px-8 text-[15px] font-bold text-white shadow-lg transition-all hover:opacity-95"
+          className="brand-gradient-btn inline-flex h-12 items-center justify-center rounded-xl px-8 text-[15px] font-bold text-[#1A1030] shadow-lg transition-all hover:opacity-95"
         >
           Join Our Community
         </a>

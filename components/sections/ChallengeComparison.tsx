@@ -34,6 +34,13 @@ export function ChallengeComparison({
 
   const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
+  // On small screens the account-size cards are a horizontal scroller; keep the selected card visible.
+  useEffect(() => {
+    if (typeof window === "undefined" || window.innerWidth >= 640) return;
+    const el = document.querySelector<HTMLElement>(`[data-od-id="challenge-card-${selectedSize}"]`);
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, [selectedSize, selectedType]);
+
   // Close dropdown on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -388,7 +395,7 @@ export function ChallengeComparison({
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
                 <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
               </div>
-              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-white">
+              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-[#1A1030]">
                 Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>
@@ -533,7 +540,7 @@ export function ChallengeComparison({
                     rel="noopener noreferrer"
                     className="block w-full"
                   >
-                    <button type="button" className="brand-pill-btn w-full gap-2 font-bold text-white shadow-lg hover:shadow-cyan-500/25">
+                    <button type="button" className="brand-pill-btn w-full gap-2 font-bold text-[#1A1030] shadow-lg hover:shadow-cyan-500/25">
                       <span>{t("startChallenge") || "Start Challenge"}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
@@ -652,7 +659,7 @@ export function ChallengeComparison({
                       return (
                         <div key={`cta-${size}`} className={cn("rounded-b-xl border-x border-b border-[#D9D9D9] bg-white p-2.5 shadow-sm", selectedSize === size && "bg-violet-50")}>
                           {plan ? (
-                            <a href={signupUrlForSize(size)} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn flex min-h-9 items-center justify-center rounded-lg px-2 text-[10px] font-bold text-white shadow-sm transition-transform hover:-translate-y-0.5">
+                            <a href={signupUrlForSize(size)} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn flex min-h-9 items-center justify-center rounded-lg px-2 text-[10px] font-bold text-[#1A1030] shadow-sm transition-transform hover:-translate-y-0.5">
                               {t("startChallenge") || "Get plan"}
                             </a>
                           ) : (

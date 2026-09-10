@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "badge": "OFFRE D'ÉTÉ",
+    "badge": "OFFRE À DURÉE LIMITÉE",
     "discount": "70% DE RÉDUCTION",
     "allEvaluations": "TOUTES LES ÉVALUATIONS",
     "codeLabel": "UTILISER LE CODE",
@@ -777,7 +777,7 @@
     "hoursDesc": "Du lundi au vendredi : 8h00 - 20h00 GMT. Support communautaire 24/7."
   },
   "evaluation": {
-    "badge": "Vente d'Été · 70% de Réduction sur les Évaluations",
+    "badge": "Offre Limitée · 70% de Réduction sur les Évaluations",
     "title": "Des évaluations de trading taillées pour les experts.",
     "subtitle": "Prouvez vos compétences et débloquez des comptes financés jusqu'à 1.2M$.",
     "claimOffer": "Profiter de 70% OFF",

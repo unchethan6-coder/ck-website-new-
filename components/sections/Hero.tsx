@@ -95,10 +95,10 @@ export function Hero() {
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
-                    Up to $1.2M
+                    Scale to $1.2M
                   </span>
                   <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
-                    Funding Accounts
+                    Simulated Allocation
                   </span>
                 </div>
               </motion.div>
@@ -132,7 +132,7 @@ export function Hero() {
             >
               <Link
                 href="/#start-challenge"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center shadow-lg hover:shadow-cyan-500/25"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-[#1A1030] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center shadow-lg hover:shadow-cyan-500/25"
               >
                 <span>{t("startChallenge")}</span>
                 <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
