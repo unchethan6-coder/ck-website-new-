@@ -521,13 +521,9 @@ export function ChallengeComparison({
                       <span>Access Level</span>
                       <span className="font-bold text-white">Direct Evaluation Access</span>
                     </div>
-                    <div className="flex items-center justify-between border-b border-white/10 py-1 text-xs text-white/55">
+                    <div className="flex items-center justify-between py-1 text-xs text-white/55">
                       <span>Scaling Ceiling</span>
                       <span className="font-bold text-white">Up to $1,200,000</span>
-                    </div>
-                    <div className="flex items-center justify-between py-1 text-xs text-white/55">
-                      <span>Fee Refundability</span>
-                      <span className="font-bold text-emerald-600">100% Refundable</span>
                     </div>
                   </div>
                 </div>
