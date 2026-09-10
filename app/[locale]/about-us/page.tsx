@@ -172,7 +172,7 @@ export default function AboutPage() {
                   initial="hidden"
                   animate="show"
                   custom={0.08}
-                  className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(36px,6vw,44px)] font-extrabold leading-[1.03] tracking-[-0.02em] text-[#0A0A0C] sm:text-[50px] md:text-[58px] lg:text-[52px] xl:text-[64px]"
+                  className="mt-6 font-[family-name:var(--font-jakarta)] text-[clamp(36px,6vw,44px)] font-extrabold leading-[1.03] tracking-[-0.02em] text-[#0A0A0C] sm:text-[50px] md:text-[58px] lg:text-[52px] xl:text-[64px]"
                   data-od-id="about-hero-title"
                 >
                   {t('heroTitlePrefix')}{' '}
@@ -262,7 +262,7 @@ export default function AboutPage() {
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-[#894CEF]/30 bg-[#894CEF]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#894CEF]">
                           <Star size={10} className="fill-[#894CEF] text-[#894CEF]" /> {t('founderRoleBadge')}
                         </span>
-                        <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-white sm:text-2xl">
+                        <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-xl font-extrabold text-white sm:text-2xl">
                           Daniel Cheung
                         </h3>
                         <p className="text-xs font-semibold text-[#894CEF]">
@@ -313,7 +313,7 @@ export default function AboutPage() {
                   key={metric.label}
                   className="min-h-36 px-4 py-7 first:pl-0 md:px-7 md:first:pl-0"
                 >
-                  <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-4xl">
+                  <p className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-4xl">
                     {metric.stat}
                   </p>
                   <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#4B5563]">
@@ -335,7 +335,7 @@ export default function AboutPage() {
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
                 {t('missionVisionHeadingEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
+              <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('missionVisionHeadingTitle')}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
@@ -363,7 +363,7 @@ export default function AboutPage() {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#894CEF]">
                       {item.eyebrow}
                     </span>
-                    <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-white">
+                    <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-white">
                       {item.title}
                     </h3>
                     <p className="mt-4 text-sm leading-7 text-gray-300">
@@ -383,7 +383,7 @@ export default function AboutPage() {
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
                 {t('cultureEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
+              <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('cultureTitle')}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
@@ -404,7 +404,7 @@ export default function AboutPage() {
                     <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                       <Icon size={20} />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
+                    <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-bold text-[#0A0A0C]">
                       {pillar.title}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-[#4B5563]">
@@ -424,7 +424,7 @@ export default function AboutPage() {
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
                 {t('valuesEyebrow')}
               </p>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
+              <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('valuesTitle')}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">
@@ -446,7 +446,7 @@ export default function AboutPage() {
                     <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                       <Icon size={20} />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-[#0A0A0C]">
+                    <h3 className="font-[family-name:var(--font-jakarta)] text-base font-bold text-[#0A0A0C]">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
@@ -466,7 +466,7 @@ export default function AboutPage() {
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#703AD7] bg-[#703AD7] text-white shadow-md">
                 <BadgeCheck size={30} />
               </div>
-              <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
+              <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
                 {t('ctaTitle')}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#4B5563] sm:text-base">

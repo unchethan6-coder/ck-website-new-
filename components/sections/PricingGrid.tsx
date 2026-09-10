@@ -22,7 +22,7 @@ export function PricingGrid() {
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             Pricing
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             Start your evaluation journey
           </h2>
           <p className="mt-3 text-gray-500 max-w-xl mx-auto">
@@ -76,7 +76,7 @@ export function PricingGrid() {
                 </span>
               )}
 
-              <h3 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C]">
+              <h3 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C]">
                 {plan.accountSize}
               </h3>
               <p className="text-sm text-gray-500 mt-0.5">{plan.type}</p>

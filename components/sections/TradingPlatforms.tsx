@@ -40,7 +40,7 @@ export function TradingPlatforms() {
           <p className="text-xs text-[#7943E0] uppercase tracking-widest font-bold mb-3">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
           <p className="mt-3 text-[#4B5563] max-w-xl mx-auto">
@@ -66,7 +66,7 @@ export function TradingPlatforms() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C]">
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-xl font-extrabold text-[#0A0A0C]">
                     {p.name}
                   </h3>
                   <p className="text-xs font-medium text-[#6B7280]">{p.fullName}</p>

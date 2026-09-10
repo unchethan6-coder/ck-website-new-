@@ -192,7 +192,7 @@ export function PayoutDashboardVisual({
                       {current.accountTier}
                     </span>
                   </div>
-                  <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
+                  <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                     {current.profit}{" "}
                     <span className="text-xs font-semibold text-emerald-600">
                       {current.profitPct}
@@ -410,7 +410,7 @@ export function PayoutDashboardVisual({
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Speed Guarantee
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
+              <p className="font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Average 12-Hour Settlement
               </p>
             </div>

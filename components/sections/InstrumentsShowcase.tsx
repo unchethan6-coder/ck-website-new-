@@ -195,7 +195,7 @@ export function InstrumentsShowcase() {
     <section className="py-14 md:py-24" data-od-id="instruments">
       <Container>
         <SectionReveal className="text-center mb-10 md:mb-14">
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-5xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-foreground md:text-5xl">
             {t("title")}
           </h2>
         </SectionReveal>
@@ -206,7 +206,7 @@ export function InstrumentsShowcase() {
           <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("cfdsTitle")}</h3>
+            <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-foreground mb-3">{t("cfdsTitle")}</h3>
             <p className="text-sm text-foreground/50 leading-relaxed mb-6 max-w-md">
               {t("cfdsDesc")}
             </p>
@@ -225,7 +225,7 @@ export function InstrumentsShowcase() {
                     </div>
                     <span className="text-[9px] text-foreground/30 font-mono">{inst.type}</span>
                   </div>
-                  <p className="font-[family-name:var(--font-inter-tight)] text-lg font-extrabold text-foreground">
+                  <p className="font-[family-name:var(--font-jakarta)] text-lg font-extrabold text-foreground">
                     <TickerPrice base={inst.base} decimals={inst.decimals} prefix={inst.prefix} />
                   </p>
                   <p className={`text-xs font-mono font-bold ${inst.up ? "text-emerald-400" : "text-red-400"}`}>
@@ -244,7 +244,7 @@ export function InstrumentsShowcase() {
           <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-3">{t("futuresTitle")}</h3>
+            <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-foreground mb-3">{t("futuresTitle")}</h3>
             <p className="text-sm text-foreground/50 leading-relaxed mb-6 max-w-md">
               {t("futuresDesc")}
             </p>
@@ -255,7 +255,7 @@ export function InstrumentsShowcase() {
                   <span className="text-sm font-bold text-foreground">NQ</span>
                 </div>
                 <div className="text-right">
-                  <p className="font-[family-name:var(--font-inter-tight)] text-lg font-extrabold text-foreground">24,179.01</p>
+                  <p className="font-[family-name:var(--font-jakarta)] text-lg font-extrabold text-foreground">24,179.01</p>
                   <p className="text-xs font-mono text-emerald-400">+1.37%</p>
                 </div>
               </div>
@@ -276,7 +276,7 @@ export function InstrumentsShowcase() {
           <div
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col"
           >
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-4">
+            <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-foreground mb-4">
               {t("algoTitle")}
             </h3>
             <LoopingTerminal />
@@ -286,14 +286,14 @@ export function InstrumentsShowcase() {
             className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8 flex flex-col gap-4"
           >
             <div>
-              <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground mb-2">
+              <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-foreground mb-2">
                 {t("trustTitle")}
               </h3>
               <p className="text-sm text-foreground/50 leading-relaxed mb-4">
                 {t("trustSubtitle")}
               </p>
               <div className="flex items-end gap-3">
-                <span className="font-[family-name:var(--font-inter-tight)] text-5xl font-extrabold text-foreground">4.8</span>
+                <span className="font-[family-name:var(--font-jakarta)] text-5xl font-extrabold text-foreground">4.8</span>
                 <span className="text-lg text-foreground/40 mb-1">/5</span>
                 <div className="ml-2 flex flex-col gap-0.5">
                   <div className="flex gap-0.5">

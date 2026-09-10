@@ -123,7 +123,7 @@ export function InstantVsChallengeComparison() {
             <Scale size={12} className="text-[#7943E0]" />
             HEAD-TO-HEAD
           </span>
-          <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold tracking-tight text-[#0A0A0C] sm:text-3xl md:text-4xl">
+          <h2 className="mt-3 font-[family-name:var(--font-jakarta)] text-2xl font-extrabold tracking-tight text-[#0A0A0C] sm:text-3xl md:text-4xl">
             Instant vs Challenge
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-[#4B5563]">
@@ -186,7 +186,7 @@ export function InstantVsChallengeComparison() {
                       <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-violet-100 text-[#7943E0]">
                         <Zap size={15} className="fill-[#7943E0]" />
                       </div>
-                      <span className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
+                      <span className="font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black text-[#0A0A0C]">
                         Instant Funding
                       </span>
                     </div>
@@ -224,7 +224,7 @@ export function InstantVsChallengeComparison() {
                       <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-gray-200/80 text-[#0A0A0C]">
                         <Target size={15} />
                       </div>
-                      <span className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
+                      <span className="font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black text-[#0A0A0C]">
                         Evaluation Challenge
                       </span>
                     </div>

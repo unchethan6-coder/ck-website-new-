@@ -91,7 +91,7 @@ function SupportCard({
         </div>
       </div>
 
-      <h2 className="mt-4 max-w-none font-[family-name:var(--font-inter-tight)] text-[clamp(1.75rem,2.8vw,2.75rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0C]">
+      <h2 className="mt-4 max-w-none font-[family-name:var(--font-jakarta)] text-[clamp(1.75rem,2.8vw,2.75rem)] font-black leading-[1.05] tracking-tight text-[#0A0A0C]">
         {title}
       </h2>
       <p className="mt-5 max-w-xl text-base font-medium leading-7 text-[#4B5563]">{description}</p>

@@ -60,7 +60,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="blog-hero-title"
               >
                 CK Capital <span className="shimmer-text">Blog</span>
@@ -126,7 +126,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
               <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50">
                 <FileText size={24} className="text-[#0A0A0C]" />
               </div>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] md:text-2xl">
+              <h2 className="font-[family-name:var(--font-jakarta)] text-xl font-extrabold text-[#0A0A0C] md:text-2xl">
                 Articles Coming Soon
               </h2>
               <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#4B5563]">
@@ -181,7 +181,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                             {featured.category}
                           </span>
                         </div>
-                        <h2 className="max-w-2xl font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold leading-tight text-[#0A0A0C] md:text-3xl">
+                        <h2 className="max-w-2xl font-[family-name:var(--font-jakarta)] text-2xl font-extrabold leading-tight text-[#0A0A0C] md:text-3xl">
                           {featured.title}
                         </h2>
                         <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#4B5563]">
@@ -239,7 +239,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
                             {post.category}
                           </span>
                         </div>
-                        <h2 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#7943E0]">
+                        <h2 className="font-[family-name:var(--font-jakarta)] text-lg font-bold leading-snug text-[#0A0A0C] transition-colors group-hover:text-[#7943E0]">
                           {post.title}
                         </h2>
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-[#4B5563]">
@@ -277,7 +277,7 @@ export default function BlogClient({ articles }: { articles: CmsArticle[] }) {
       <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="blog-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Apply Your Knowledge Today
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">

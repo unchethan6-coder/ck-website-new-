@@ -35,7 +35,7 @@ export function FaqAccordion() {
           <p className="text-xs text-[#7943E0] uppercase tracking-widest font-bold mb-3">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
           <p className="mt-3 text-[#4B5563] font-medium max-w-xl mx-auto">
@@ -70,7 +70,7 @@ export function FaqAccordion() {
                 <MessageCircle size={20} className="text-primary" />
               </div>
             </div>
-            <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-extrabold text-[#0A0A0C] mb-2">
+            <h3 className="font-[family-name:var(--font-jakarta)] text-xl font-extrabold text-[#0A0A0C] mb-2">
               {t("stillQuestions")}
             </h3>
             <p className="text-sm text-gray-500 mb-5">

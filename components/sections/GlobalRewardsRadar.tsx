@@ -552,7 +552,7 @@ export function GlobalRewardsRadar({
                         fill="#FFFFFF"
                         fontSize="9"
                         fontWeight="bold"
-                        fontFamily="var(--font-inter-tight), sans-serif"
+                        fontFamily="var(--font-jakarta), sans-serif"
                       >
                         {hub.flag} {hub.shortName}
                       </text>
@@ -606,7 +606,7 @@ export function GlobalRewardsRadar({
                   {activeHub.flag}
                 </span>
                 <div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-[#0A0A0C] leading-tight">
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-[#0A0A0C] leading-tight">
                     {activeHub.name}
                   </h3>
                   <p className="text-xs font-semibold text-gray-500 mt-0.5">

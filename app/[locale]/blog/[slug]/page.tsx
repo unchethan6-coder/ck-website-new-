@@ -112,7 +112,7 @@ export default async function ArticlePage({
               )}
             </div>
             <h1
-              className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
+              className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
               data-od-id="article-title"
             >
               {article.title}
@@ -144,7 +144,7 @@ export default async function ArticlePage({
               </div>
             )}
 
-            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-inter-tight)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#0A0A0C] prose-a:font-semibold hover:prose-a:text-[#7943E0] prose-a:underline">
+            <article className="prose prose-gray max-w-none prose-headings:font-[family-name:var(--font-jakarta)] prose-headings:font-bold prose-headings:text-[#0A0A0C] prose-p:text-[#4B5563] prose-p:leading-relaxed prose-a:text-[#0A0A0C] prose-a:font-semibold hover:prose-a:text-[#7943E0] prose-a:underline">
               <BlocksRenderer blocks={article.body} />
             </article>
           </div>
@@ -154,7 +154,7 @@ export default async function ArticlePage({
       {/* ─────────────── Closing CTA ─────────────── */}
       <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="article-closing-cta">
         <Container className="relative text-center">
-          <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
+          <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
             Start Trading with CK Capital
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">

@@ -65,7 +65,7 @@ export function EvaluationPathVisual({
                   $100K 2-STEP
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
+              <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 +$6,400.00{" "}
                 <span className="text-xs font-semibold text-emerald-600">
                   of $8,000 Target
@@ -192,7 +192,7 @@ export function EvaluationPathVisual({
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Evaluation Pathway
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
+              <p className="font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 No Minimum or Max Days
               </p>
             </div>

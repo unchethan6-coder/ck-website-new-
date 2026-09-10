@@ -46,7 +46,7 @@ export function HowItWorks() {
           <p className="text-xs text-[#7943E0] uppercase tracking-[0.2em] font-bold mb-3">
             {t("badge")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
           <p className="mt-3 text-[#4B5563] font-medium max-w-xl mx-auto">
@@ -69,7 +69,7 @@ export function HowItWorks() {
                 data-od-id={`how-step-${i + 1}`}
               >
                 <div className="relative z-10 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-2xl border border-gray-200/90 bg-white shadow-sm">
-                  <span className="font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C] tabular-nums">
+                  <span className="font-[family-name:var(--font-jakarta)] text-2xl font-black text-[#0A0A0C] tabular-nums">
                     0{i + 1}
                   </span>
                   <span className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#894CEF] ring-4 ring-white" />
@@ -78,7 +78,7 @@ export function HowItWorks() {
                   <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
                     {step.phase}
                   </span>
-                  <h3 className="mt-1 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C] tracking-tight">
+                  <h3 className="mt-1 font-[family-name:var(--font-jakarta)] text-xl font-black text-[#0A0A0C] tracking-tight">
                     {step.title}
                   </h3>
                   <p className="mt-2 max-w-lg text-sm font-medium text-[#4B5563] leading-relaxed">
@@ -109,7 +109,7 @@ export function HowItWorks() {
 
             {/* Centered CTA: Prompt text + centered standard Brand Button */}
             <div className="mt-8 flex flex-col items-center justify-center text-center">
-              <p className="font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
+              <p className="font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black text-[#0A0A0C]">
                 {t("readyFunded")}{" "}
                 <span className="text-[#7943E0]">{t("startJourney")}</span>
               </p>

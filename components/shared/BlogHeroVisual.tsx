@@ -63,7 +63,7 @@ export function BlogHeroVisual({
                   EDITION #48
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
+              <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 Market Blueprint{" "}
                 <span className="text-xs font-semibold text-[#7943E0]">
                   Weekly Playbook
@@ -93,7 +93,7 @@ export function BlogHeroVisual({
                 </span>
                 <span className="text-[11px] text-gray-400 font-medium">5 Min Deep-Dive</span>
               </div>
-              <h4 className="mt-2.5 font-[family-name:var(--font-inter-tight)] text-base font-extrabold text-white sm:text-lg flex items-center justify-between group">
+              <h4 className="mt-2.5 font-[family-name:var(--font-jakarta)] text-base font-extrabold text-white sm:text-lg flex items-center justify-between group">
                 <span>Liquidity Sweeps &amp; Institutional Order Flow in Forex</span>
                 <ArrowUpRight size={16} className="text-[#894CEF] shrink-0 opacity-85" />
               </h4>
@@ -174,7 +174,7 @@ export function BlogHeroVisual({
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Research Guild
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
+              <p className="font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Institutional-Grade Insights
               </p>
             </div>

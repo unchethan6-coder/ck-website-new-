@@ -28,7 +28,7 @@ function SectionHeading({ eyebrow, title, children, id, dark = false }: { eyebro
   return (
     <SectionReveal className="mx-auto max-w-3xl text-center" data-od-id={id}>
       <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">{eyebrow}</p>
-      <h2 className={`font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] md:text-5xl ${dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"}`}>{title}</h2>
+      <h2 className={`font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.04em] md:text-5xl ${dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"}`}>{title}</h2>
       {children ? <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#4B5563]">{children}</p> : null}
     </SectionReveal>
   );
@@ -68,7 +68,7 @@ function CommissionCalculator() {
           </div>
         </div>
         <div className="flex flex-col justify-between rounded-xl border border-gray-200 bg-gray-50/50 p-6 md:p-8">
-          <div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">{t("estimatedMonthly")}</p><p className="mt-3 font-[family-name:var(--font-inter-tight)] text-4xl sm:text-5xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">{money(monthly)}</p><p className="mt-2 text-xs text-[#6B7280]">Estimated based on the selected inputs.</p><div className="mt-6 border-t border-[#E5E7EB] pt-4"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6B7280]">{t("estimatedAnnual")}</p><p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-[#0A0A0C]">{money(yearly)}</p></div></div>
+          <div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">{t("estimatedMonthly")}</p><p className="mt-3 font-[family-name:var(--font-jakarta)] text-4xl sm:text-5xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">{money(monthly)}</p><p className="mt-2 text-xs text-[#6B7280]">Estimated based on the selected inputs.</p><div className="mt-6 border-t border-[#E5E7EB] pt-4"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6B7280]">{t("estimatedAnnual")}</p><p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-[#0A0A0C]">{money(yearly)}</p></div></div>
           <div className="mt-6 rounded-lg border border-[#E5E7EB] bg-white p-4 text-sm text-[#4B5563] shadow-sm"><p className="font-semibold text-[#0A0A0C]">Example</p><p className="mt-2 text-xs sm:text-sm leading-6">{referrals} qualified referrals<br />× ${orderValue} average qualifying purchase<br />× {rate === null ? "current tier rate" : `${rate * 100}% affiliate commission`}<br />= <strong className="text-[#0A0A0C] font-bold">{money(monthly)} Estimated Commission</strong></p></div>
         </div>
       </div>
@@ -102,7 +102,7 @@ export function AffiliatePageClient() {
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#7943E0]/30 bg-[#7943E0]/10 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]"><Sparkles size={12} /> {t("badge")}</div>
-              <h1 className="mt-6 font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="affiliates-hero-title">{t("title")}</h1>
+              <h1 className="mt-6 font-[family-name:var(--font-jakarta)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="affiliates-hero-title">{t("title")}</h1>
               <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]">{t("subtitle")}</p>
               <div className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="/contact" data-od-id="affiliates-hero-cta"><GoldButton size="lg">{t("becomeAffiliate")} <ArrowRight size={16} /></GoldButton></a>
@@ -122,7 +122,7 @@ export function AffiliatePageClient() {
           <div className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0">
             {[["UP TO 25%", t("commissionHighlight")], ["$250", t("minPayoutHighlight")], ["GLOBAL", t("globalHighlight")], ["PERFORMANCE-BASED", t("tiersHighlight")]].map(([value, label]) => (
               <div key={label} className="min-h-32 px-4 py-7 first:pl-0 md:px-7">
-                <p className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-3xl">{value}</p>
+                <p className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-3xl">{value}</p>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#4B5563]">{label}</p>
               </div>
             ))}
@@ -138,7 +138,7 @@ export function AffiliatePageClient() {
             {[["01", t("step1Title"), t("step1Desc")], ["02", t("step2Title"), t("step2Desc")], ["03", t("step3Title"), t("step3Desc")], ["04", t("step4Title"), t("step4Desc")]].map(([number, title, copy]) => (
               <div key={number} className="grid gap-4 py-7 md:grid-cols-[72px_0.65fr_1.35fr] md:items-center md:gap-8">
                 <span className="font-mono text-sm font-bold text-[#1E293B]">{number}</span>
-                <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
+                <h3 className="font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
                 <p className="text-sm leading-6 text-[#4B5563]">{copy}</p>
               </div>
             ))}
@@ -158,7 +158,7 @@ export function AffiliatePageClient() {
             {benefits.map((item) => (
               <article key={item.title} className="rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-sm transition-all hover:border-gray-300 hover:shadow-md">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#7943E0]">{item.value}</p>
-                <h3 className="mt-8 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{item.title}</h3>
+                <h3 className="mt-8 font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#4B5563]">{item.desc}</p>
               </article>
             ))}
@@ -182,7 +182,7 @@ export function AffiliatePageClient() {
             <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#7943E0]">{t("channelsEyebrow")}</p>
-                <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-2xl md:text-3xl font-extrabold text-[#0A0A0C]">{t("channelsTitle")}</h2>
+                <h2 className="mt-3 font-[family-name:var(--font-jakarta)] text-2xl md:text-3xl font-extrabold text-[#0A0A0C]">{t("channelsTitle")}</h2>
               </div>
               <div>
                 <p className="text-sm leading-7 text-[#4B5563]">{t("channelsDesc")}</p>
@@ -206,7 +206,7 @@ export function AffiliatePageClient() {
               <ShieldCheck className="mt-1 shrink-0 text-[#7943E0]" size={26} />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">{t("complianceEyebrow")}</p>
-                <h2 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-bold text-[#0A0A0C]">{t("complianceTitle")}</h2>
+                <h2 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-bold text-[#0A0A0C]">{t("complianceTitle")}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#4B5563]">{t("complianceDesc")}</p>
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[#E5E7EB] pt-5">
                   <p className="text-xs text-[#6B7280]">{t("payoutsDesc")}</p>
@@ -224,7 +224,7 @@ export function AffiliatePageClient() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#7943E0]">{t("communityEyebrow")}</p>
-              <h2 className="mt-3 font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">{t("communityTitle")}</h2>
+              <h2 className="mt-3 font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">{t("communityTitle")}</h2>
               <p className="mt-5 text-sm leading-7 text-[#4B5563]">{t("communityDesc")}</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -244,7 +244,7 @@ export function AffiliatePageClient() {
         <Container className="relative text-center">
           <SectionReveal>
             <HandCoins className="mx-auto text-[#7943E0]" size={32} />
-            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">{t("readySubtitle")}</p>
             <div className="mx-auto mt-9 grid max-w-3xl gap-3 sm:grid-cols-4">
               {ctaStats.map((item) => (

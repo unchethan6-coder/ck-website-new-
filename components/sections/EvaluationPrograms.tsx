@@ -81,7 +81,7 @@ export function EvaluationPrograms() {
               </span>
             </div>
 
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl sm:text-4xl font-black tracking-tight text-[#0A0A0C] leading-tight">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl sm:text-4xl font-black tracking-tight text-[#0A0A0C] leading-tight">
               {t("title")}
             </h2>
 
@@ -124,7 +124,7 @@ export function EvaluationPrograms() {
                   )}
 
                   {/* Card Header */}
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-black tracking-tight text-[#0A0A0C] mb-5 group-hover:text-[#7943E0] transition-colors">
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-black tracking-tight text-[#0A0A0C] mb-5 group-hover:text-[#7943E0] transition-colors">
                     {challenge.name}
                   </h3>
 
@@ -159,7 +159,7 @@ export function EvaluationPrograms() {
                         <span className="text-xs text-gray-400 line-through whitespace-nowrap">
                           {challenge.originalPrice}
                         </span>
-                        <span className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
+                        <span className="font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
                           {challenge.discountedPrice}
                         </span>
                       </div>

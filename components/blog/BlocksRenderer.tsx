@@ -54,7 +54,7 @@ function Block({ block, index }: { block: any; index: number }): JSX.Element | n
     case "heading": {
       const level = block.level ?? 2;
       const cls =
-        "font-[family-name:var(--font-inter-tight)] font-extrabold text-[#0A0A0C] tracking-tight";
+        "font-[family-name:var(--font-jakarta)] font-extrabold text-[#0A0A0C] tracking-tight";
       if (level === 1) return <h1 key={key} className={`${cls} text-2xl sm:text-3xl mt-2`}>{children}</h1>;
       if (level === 2) return <h2 key={key} className={`${cls} text-xl sm:text-2xl mt-6`}>{children}</h2>;
       if (level === 3) return <h3 key={key} className={`${cls} text-lg sm:text-xl mt-5`}>{children}</h3>;

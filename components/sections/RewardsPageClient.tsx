@@ -88,7 +88,7 @@ function SectionHeading({
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#7943E0]">
         {eyebrow}
       </p>
-      <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
+      <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.03em] text-[#0A0A0C] md:text-5xl">
         {title}
       </h2>
       {children ? <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4B5563]">{children}</p> : null}
@@ -129,7 +129,7 @@ function CertificateCard({
         <div className="space-y-3 p-4">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm font-bold text-[#0A0A0C]">{payout.title || "Trader"}</p>
+              <p className="font-[family-name:var(--font-jakarta)] text-sm font-bold text-[#0A0A0C]">{payout.title || "Trader"}</p>
               <p className="mt-1 flex items-center gap-2 text-xs text-[#6B7280]"><span className="rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[9px] font-bold text-[#4B5563]">{payout.countryCode || "--"}</span>{payout.countryName || "Country not published"}</p>
             </div>
             <p className="shrink-0 text-lg font-extrabold tracking-[-0.03em] text-[#0A0A0C]">{amount || "—"}</p>
@@ -272,7 +272,7 @@ export function RewardsPageClient({
           <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
             <div className="lg:col-span-7 xl:col-span-6 min-w-0">
               <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-[#7943E0]/30 bg-[#7943E0]/[0.08] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]" data-od-id="rewards-hero-eyebrow"><Sparkles size={12} /> {t("badge")}</motion.div>
-              <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="rewards-hero-title">{t("heroTitlePrefix")} <span className="shimmer-text">{t("heroTitleShimmer")}</span></motion.h1>
+              <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]" data-od-id="rewards-hero-title">{t("heroTitlePrefix")} <span className="shimmer-text">{t("heroTitleShimmer")}</span></motion.h1>
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.24 }} className="mt-5 max-w-xl text-[14px] leading-relaxed text-[#4B5563] sm:text-[15px]">{t("desc")}</motion.p>
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.36 }} className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="#reward-certificates" data-od-id="rewards-hero-primary"><GoldButton size="lg">{t("viewRewards")} <ArrowRight size={16} /></GoldButton></a>
@@ -299,7 +299,7 @@ export function RewardsPageClient({
           <div className="grid grid-cols-2 divide-x divide-y divide-[#E5E7EB] border-y border-[#E5E7EB] md:grid-cols-4 md:divide-y-0">
             {highlights.map((metric) => (
               <div key={metric.label} className="min-h-36 px-4 py-7 first:pl-0 md:px-7 md:first:pl-0">
-                <p className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-4xl">{metric.value ?? <Unavailable />}</p>
+                <p className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-4xl">{metric.value ?? <Unavailable />}</p>
                 <p className="mt-2 max-w-[12rem] text-xs font-semibold uppercase tracking-[0.12em] text-[#4B5563]">{metric.label}</p>
                 <p className="mt-3 text-[10px] text-[#6B7280]">{metric.note}</p>
               </div>
@@ -368,7 +368,7 @@ export function RewardsPageClient({
           ].map(([value, title, copy]) => (
             <div key={title} className="min-h-56 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-gray-300 hover:shadow-md transition-all">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#7943E0]">{value}</p>
-              <h3 className="mt-10 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
+              <h3 className="mt-10 font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C]">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#4B5563]">{copy}</p>
             </div>
           ))}</div>
@@ -388,7 +388,7 @@ export function RewardsPageClient({
           ].map(([number, title, copy]) => (
             <div key={number} className="group grid grid-cols-[52px_1fr] gap-5 border-b border-[#E5E7EB] py-6 first:border-t md:grid-cols-[80px_0.8fr_1.2fr] md:items-center md:gap-8">
               <span className="font-mono text-sm font-bold text-[#1E293B]">{number}</span>
-              <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">{title}</h3>
+              <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-bold text-[#0A0A0C]">{title}</h3>
               <p className="col-start-2 text-sm leading-6 text-[#4B5563] md:col-start-auto">{copy}</p>
             </div>
           ))}</div>
@@ -448,7 +448,7 @@ export function RewardsPageClient({
       <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="reward-cta">
         <Container className="relative text-center">
           <Trophy className="mx-auto text-[#7943E0]" size={30} strokeWidth={1.4} />
-          <h2 className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
+          <h2 className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">{t("readyTitle")}</h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">{t("readySubtitle")}</p>
           <div className="mx-auto mt-9 grid max-w-2xl gap-3 text-left sm:grid-cols-3">
             {[["1 STEP", "One-stage evaluation.", "/evaluation?type=one-step&size=$100K#start-challenge"], ["2 STEP", "Evaluation + Verification.", "/evaluation?type=standard&size=$100K#start-challenge"], ["INSTANT", "Alternative account structure subject to its applicable rules.", "/instant"]].map(([label, copy, href]) => (

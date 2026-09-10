@@ -53,7 +53,7 @@ export function StatsStrip() {
                 <stat.icon size={22} strokeWidth={1.75} />
               </div>
               <div className="text-left">
-                <div className="font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#894CEF] transition-colors duration-150">
+                <div className="font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#894CEF] transition-colors duration-150">
                   <CountUp value={stat.value} />
                 </div>
                 <div className="text-[11.5px] sm:text-xs font-medium text-[#999BA3] leading-tight">

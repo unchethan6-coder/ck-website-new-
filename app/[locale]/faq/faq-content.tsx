@@ -95,7 +95,7 @@ export function FaqContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
+              className="mt-5 font-[family-name:var(--font-jakarta)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-foreground md:text-5xl lg:text-[52px]"
               data-od-id="faq-hero-title"
             >
               {t('title')}
@@ -148,7 +148,7 @@ export function FaqContent() {
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
                 <MessageCircle size={28} className="text-primary" />
               </div>
-              <h2 className="font-[family-name:var(--font-inter-tight)] text-2xl font-extrabold text-foreground md:text-3xl">
+              <h2 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-foreground md:text-3xl">
                 {t('stillQuestions')}
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-foreground/55">

@@ -62,7 +62,7 @@ export function ContactHeroVisual({
                   24/7 DEDICATED
                 </span>
               </div>
-              <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
+              <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0A0A0C]">
                 &lt; 3 Min{" "}
                 <span className="text-xs font-semibold text-emerald-600">
                   Avg First Response
@@ -207,7 +207,7 @@ export function ContactHeroVisual({
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
                 Support SLA
               </p>
-              <p className="font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
+              <p className="font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-extrabold text-[#0A0A0C]">
                 Instant Discord Support
               </p>
             </div>

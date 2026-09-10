@@ -144,7 +144,7 @@ export function TraderReviews({
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
             {t("eyebrow")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-black text-[#0A0A0C] md:text-4xl">
             {t("title")}
           </h2>
           <p className="mt-4 text-sm font-medium leading-7 text-[#4B5563]">

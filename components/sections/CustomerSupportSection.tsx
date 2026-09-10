@@ -19,7 +19,7 @@ export function CustomerSupportSection() {
               {t("available247")}
             </div>
             <h2
-              className="mt-4 max-w-[15ch] font-[family-name:var(--font-inter-tight)] text-3xl font-black leading-[1.02] tracking-tight text-[#0A0A0C] sm:text-4xl"
+              className="mt-4 max-w-[15ch] font-[family-name:var(--font-jakarta)] text-3xl font-black leading-[1.02] tracking-tight text-[#0A0A0C] sm:text-4xl"
               data-od-id="customer-support-title"
             >
               {t("customerTitle")}

@@ -88,7 +88,7 @@ export default function InstantPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="instant-hero-title"
               >
                 {t('title')}
@@ -148,7 +148,7 @@ export default function InstantPage() {
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
               PROGRAM ADVANTAGES
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               {t('whyTitle')}
             </h2>
           </div>
@@ -162,7 +162,7 @@ export default function InstantPage() {
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                   <Zap size={20} />
                 </div>
-                <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C] mb-2">{item.title}</h3>
+                <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-bold text-[#0A0A0C] mb-2">{item.title}</h3>
                 <p className="text-[#4B5563] text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
@@ -177,7 +177,7 @@ export default function InstantPage() {
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
               ACCOUNT TIERS
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               {t('pricesTitle')}
             </h2>
           </div>
@@ -189,7 +189,7 @@ export default function InstantPage() {
                 className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 text-center shadow-sm hover:border-[#703AD7] hover:shadow-md transition-all hover:-translate-y-1"
               >
                 <div>
-                  <p className="font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] mb-1">
+                  <p className="font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] mb-1">
                     {item.amount}
                   </p>
                   <div className="flex items-baseline justify-center gap-1.5 mb-4">
@@ -221,7 +221,7 @@ export default function InstantPage() {
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
               QUESTIONS & ANSWERS
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               Frequently Asked Questions
             </h2>
           </div>
@@ -252,7 +252,7 @@ export default function InstantPage() {
         <Container className="relative text-center">
           <SectionReveal>
             <Zap className="mx-auto text-[#7943E0]" size={32} />
-            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.05em] text-[#0A0A0C] md:text-6xl">
               Ready for Instant Simulated Funding?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">

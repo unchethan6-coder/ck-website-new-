@@ -46,7 +46,7 @@ export function WhyChooseUs() {
           <p className="text-xs text-primary uppercase tracking-widest font-semibold mb-3">
             {t("advantages")}
           </p>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-foreground md:text-4xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-foreground md:text-4xl">
             {t("title")}
           </h2>
           <p className="mt-3 text-foreground/50 max-w-xl mx-auto">
@@ -69,7 +69,7 @@ export function WhyChooseUs() {
                 </p>
                 <CountUp
                   value="100%"
-                  className="font-[family-name:var(--font-inter-tight)] text-5xl md:text-6xl font-extrabold text-primary tabular-nums"
+                  className="font-[family-name:var(--font-jakarta)] text-5xl md:text-6xl font-extrabold text-primary tabular-nums"
                 />
                 <p className="mt-2 text-[13px] font-semibold text-foreground/60">
                   {t("items.split.title")}
@@ -133,7 +133,7 @@ export function WhyChooseUs() {
                   <Activity size={22} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-foreground">
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-bold text-foreground">
                     {t("items.conditions.title")}
                   </h3>
                   <p className="mt-0.5 text-[11px] font-mono text-foreground/40">
@@ -238,7 +238,7 @@ function BentoCard({
           {index}
         </span>
       </div>
-      <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-foreground mb-2">
+      <h3 className="font-[family-name:var(--font-jakarta)] text-base font-bold text-foreground mb-2">
         {title}
       </h3>
       <p className="text-sm text-foreground/50 leading-relaxed">{desc}</p>

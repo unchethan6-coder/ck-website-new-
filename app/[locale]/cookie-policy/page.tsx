@@ -12,7 +12,7 @@ export const metadata = pageSeo({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-10 border-t border-[#E5E7EB] pt-8">
-      <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
+      <h2 className="font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
         {title}
       </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#4B5563]">
@@ -25,7 +25,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="pt-2">
-      <h3 className="font-[family-name:var(--font-inter-tight)] text-base font-bold text-[#0A0A0C] md:text-lg">
+      <h3 className="font-[family-name:var(--font-jakarta)] text-base font-bold text-[#0A0A0C] md:text-lg">
         {title}
       </h3>
       <div className="mt-3 text-[#4B5563]">{children}</div>
@@ -53,7 +53,7 @@ export default async function CookiePolicyPage() {
               {t("cookieBadge")}
             </span>
             <h1
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
+              className="mt-5 font-[family-name:var(--font-jakarta)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
               data-od-id="cookie-hero-title"
             >
               {t("cookieTitle")}

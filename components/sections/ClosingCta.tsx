@@ -110,7 +110,7 @@ export function ClosingCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.06 }}
-            className="mt-4 font-[family-name:var(--font-inter-tight)] text-3xl font-black leading-[1.05] tracking-tight text-[#0A0A0C] sm:text-4xl md:text-[42px]"
+            className="mt-4 font-[family-name:var(--font-jakarta)] text-3xl font-black leading-[1.05] tracking-tight text-[#0A0A0C] sm:text-4xl md:text-[42px]"
           >
             {t("titleNew")}
           </motion.h2>
@@ -226,7 +226,7 @@ export function ClosingCta() {
                     <Icon size={18} className={active === 2 ? "fill-[#894CEF] text-[#894CEF]" : ""} />
                   </motion.span>
                   <div className="min-w-0">
-                    <h3 className={active === 2 ? "font-[family-name:var(--font-inter-tight)] text-lg font-extrabold leading-tight text-white" : "font-[family-name:var(--font-inter-tight)] text-lg font-extrabold leading-tight text-[#0A0A0C]"}>
+                    <h3 className={active === 2 ? "font-[family-name:var(--font-jakarta)] text-lg font-extrabold leading-tight text-white" : "font-[family-name:var(--font-jakarta)] text-lg font-extrabold leading-tight text-[#0A0A0C]"}>
                       {t(`${STAGES[active].key}Title`)}
                     </h3>
                     <p className={active === 2 ? "mt-1.5 text-sm leading-6 text-white/65" : "mt-1.5 text-sm leading-6 text-gray-500"}>
@@ -291,7 +291,7 @@ export function ClosingCta() {
             <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "spring", damping: 28, stiffness: 320 }} className="fixed right-0 top-0 z-50 flex h-full w-full max-w-[440px] flex-col overflow-hidden bg-white shadow-[-24px_0_60px_-20px_rgba(15,23,42,0.28)]" role="dialog" aria-modal="true" aria-label={t("drawerTitle")} data-od-id="roadmap-drawer">
               <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
                 <div>
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-extrabold tracking-tight text-[#0A0A0C]">{t("drawerTitle")}</h3>
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-extrabold tracking-tight text-[#0A0A0C]">{t("drawerTitle")}</h3>
                   <p className="mt-1 max-w-[32ch] text-sm leading-6 text-gray-500">{t("drawerDesc")}</p>
                 </div>
                 <button type="button" onClick={() => setDrawerOpen(false)} aria-label={t("drawerClose")} data-od-id="roadmap-close" className="ml-4 grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-[#0A0A0C] transition-colors hover:border-[#894CEF] hover:bg-[#F0F7FF]"><X size={16} /></button>

@@ -128,7 +128,7 @@ export function ProofShowcase({
                 className="flex flex-col justify-center p-8 sm:p-10 lg:py-16 lg:pl-10 lg:pr-4"
                 data-od-id="proof-showcase-copy"
               >
-                <h2 className="max-w-[440px] font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0A0A0C] sm:text-[44px]">
+                <h2 className="max-w-[440px] font-[family-name:var(--font-jakarta)] text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0A0A0C] sm:text-[44px]">
                   {t("titleLine1")}
                   <br />
                   {t("titleLine2")}
@@ -298,7 +298,7 @@ function BrowserWindow({
             <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
               {t("totalPayouts")}
             </p>
-            <p className="mt-1 font-[family-name:var(--font-inter-tight)] text-2xl xs:text-3xl sm:text-[32px] font-black leading-none tracking-tight text-[#0A0A0C] tabular-nums">
+            <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl xs:text-3xl sm:text-[32px] font-black leading-none tracking-tight text-[#0A0A0C] tabular-nums">
               {formatMoney(total ?? 1200000)}
             </p>
           </div>

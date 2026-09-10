@@ -62,7 +62,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-[clamp(38px,7vw,44px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A0A0C] sm:text-[52px] md:text-[60px] lg:text-[54px] xl:text-[68px]"
                 data-od-id="contact-hero-title"
               >
                 {t('title')}
@@ -122,7 +122,7 @@ export default function ContactPage() {
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
               CHANNELS & HOURS
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               Get in touch with our team
             </h2>
           </div>
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                       <Icon size={20} />
                     </div>
-                    <h3 className="font-[family-name:var(--font-inter-tight)] text-lg font-bold text-[#0A0A0C]">
+                    <h3 className="font-[family-name:var(--font-jakarta)] text-lg font-bold text-[#0A0A0C]">
                       {card.title}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-[#4B5563]">
@@ -169,7 +169,7 @@ export default function ContactPage() {
         <Container className="relative text-center">
           <SectionReveal>
             <MessageCircle className="mx-auto text-[#7943E0]" size={32} />
-            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Connect with 10,000+ Analysts
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">

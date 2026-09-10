@@ -19,7 +19,7 @@ export default async function NotFound() {
 
       <Container className="relative z-10 text-center">
         <div className="mb-8">
-          <span className="gradient-text-gold font-[family-name:var(--font-inter-tight)] text-[10rem] font-extrabold leading-none tracking-tighter sm:text-[12rem]">
+          <span className="gradient-text-gold font-[family-name:var(--font-jakarta)] text-[10rem] font-extrabold leading-none tracking-tighter sm:text-[12rem]">
             404
           </span>
         </div>

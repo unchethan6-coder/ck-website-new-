@@ -13,7 +13,7 @@ export const metadata = pageSeo({
 function RiskSection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <section className="mt-10 border-t border-[#E5E7EB] pt-8">
-      <h2 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
+      <h2 className="font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
         <span className="text-[#7943E0]">{num}.</span> {title}
       </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#4B5563]">
@@ -53,7 +53,7 @@ export default async function RiskDisclosurePage() {
               {t("riskBadge")}
             </span>
             <h1
-              className="mt-5 font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
+              className="mt-5 font-[family-name:var(--font-jakarta)] text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A0A0C] md:text-5xl"
               data-od-id="risk-hero-title"
             >
               {t("riskTitle")}

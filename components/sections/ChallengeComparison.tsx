@@ -192,7 +192,7 @@ export function ChallengeComparison({
             <h2
               data-od-id="challenge-title"
               className={cn(
-                "font-[family-name:var(--font-inter-tight)] text-3xl font-bold not-italic tracking-tight sm:text-4xl md:text-[46px] md:leading-[1.15] lg:text-[48px]",
+                "font-[family-name:var(--font-jakarta)] text-3xl font-bold not-italic tracking-tight sm:text-4xl md:text-[46px] md:leading-[1.15] lg:text-[48px]",
                 viewMode === "cards" ? "text-white" : "text-[#0A0A0C]"
               )}
             >

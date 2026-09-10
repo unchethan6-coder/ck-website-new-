@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight, Manrope, Sora, Noto_Kufi_Arabic } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Noto_Kufi_Arabic } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -20,24 +20,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+// Display face for prominent headings and card titles.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   weight: "variable",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: "variable",
-  display: "swap",
-});
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -155,7 +142,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${inter.variable} ${interTight.variable} ${manrope.variable} ${sora.variable} ${
+      className={`${inter.variable} ${jakarta.variable} ${
         locale === "ar" ? notoKufiArabic.variable : ""
       } h-full antialiased dark`}
     >

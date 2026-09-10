@@ -83,7 +83,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
       {/* Header */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.02em] text-[#0A0A0C] sm:text-4xl md:text-5xl">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.02em] text-[#0A0A0C] sm:text-4xl md:text-5xl">
             {t("title")}
           </h2>
           <p className="mt-4 text-[15px] leading-7 text-gray-500">

@@ -58,7 +58,7 @@ export function FeatureStrip() {
                 <item.icon size={22} strokeWidth={1.75} />
               </div>
               <div className="text-left">
-                <h4 className="font-[family-name:var(--font-inter-tight)] text-[14px] font-black text-white group-hover:text-[#894CEF] transition-colors duration-150">
+                <h4 className="font-[family-name:var(--font-jakarta)] text-[14px] font-black text-white group-hover:text-[#894CEF] transition-colors duration-150">
                   {item.title}
                 </h4>
                 <p className="mt-1 text-[11.5px] leading-relaxed text-[#999BA3]">

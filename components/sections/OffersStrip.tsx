@@ -24,7 +24,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
     <section className="py-12 md:py-16" data-od-id="offers">
       <Container>
         <SectionReveal>
-          <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl md:text-4xl font-extrabold text-[#0A0A0C] mb-3">
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl md:text-4xl font-extrabold text-[#0A0A0C] mb-3">
             {t("title")}
           </h2>
         </SectionReveal>
@@ -52,7 +52,7 @@ export function OffersStrip({ promo }: { promo?: PromoData | null }) {
                 </span>
 
                 {/* Headline — white + gold split */}
-                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-2xl sm:text-3xl md:text-[34px] font-extrabold leading-tight tracking-tight text-[#0A0A0C]">
+                <h3 className="mt-4 font-[family-name:var(--font-jakarta)] text-2xl sm:text-3xl md:text-[34px] font-extrabold leading-tight tracking-tight text-[#0A0A0C]">
                   {promo?.title ? (
                     headline
                   ) : (

@@ -70,7 +70,7 @@ function SectionHeading({
         {eyebrow}
       </p>
       <h2
-        className={`font-[family-name:var(--font-inter-tight)] text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-5xl ${
+        className={`font-[family-name:var(--font-jakarta)] text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-5xl ${
           dark ? "text-[#0A0A0C]" : "text-[#0A0A0C]"
         }`}
       >
@@ -190,7 +190,7 @@ function PhaseCard({
             {badge}
           </span>
           <div className="min-w-0">
-            <h4 className="truncate font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black leading-tight text-[#0A0A0C]">
+            <h4 className="truncate font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black leading-tight text-[#0A0A0C]">
               {title}
             </h4>
             {subtitle ? (
@@ -261,7 +261,7 @@ function Step2Detail({
     return (
       <div className="flex min-h-72 flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center shadow-sm">
         <AlertCircle className="mb-3 text-[#8A5A00]" size={36} />
-        <h4 className="font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
+        <h4 className="font-[family-name:var(--font-jakarta)] text-xl font-black text-[#0A0A0C]">
           2-Step Pro Specifications
         </h4>
         <p className="mt-2 max-w-md text-sm font-medium text-gray-600">
@@ -460,7 +460,7 @@ function Step1Detail({
             <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-100 px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider text-[#7943E0]">
               Accelerated Path
             </span>
-            <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
+            <h4 className="mt-4 font-[family-name:var(--font-jakarta)] text-xl font-black text-[#0A0A0C]">
               {t("phaseCards.afterEvalTitle")}
             </h4>
             <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
@@ -550,7 +550,7 @@ function InstantDetail({
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#894CEF] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#030A1C]">
               Direct Funding
             </span>
-            <h4 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
+            <h4 className="mt-4 font-[family-name:var(--font-jakarta)] text-xl font-black text-[#0A0A0C]">
               {t("phaseCards.beforeStartTitle")}
             </h4>
             <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#4B5563]">
@@ -745,7 +745,7 @@ function CompareModels({
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="mt-4 font-[family-name:var(--font-inter-tight)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
+                <h3 className="mt-4 font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black text-[#0A0A0C]">
                   {m.title}
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm font-medium text-[#4B5563] leading-relaxed">
@@ -1048,7 +1048,7 @@ export function TradingObjectivesPageClient({
               </div>
 
               <h1
-                className="mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-black uppercase leading-[1.04] tracking-tight text-[#0A0A0C] sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px]"
+                className="mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-black uppercase leading-[1.04] tracking-tight text-[#0A0A0C] sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px]"
                 data-od-id="objectives-hero-title"
               >
                 {t("heroTitlePrefix")}{" "}
@@ -1135,7 +1135,7 @@ export function TradingObjectivesPageClient({
                       </span>
                     </div>
 
-                    <h3 className="mt-6 font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C]">
+                    <h3 className="mt-6 font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C]">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-sm font-medium leading-relaxed text-[#4B5563]">
@@ -1224,7 +1224,7 @@ export function TradingObjectivesPageClient({
                     <div className="flex items-center justify-between">
                       <span
                         className={cn(
-                          "font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black uppercase tracking-wide",
+                          "font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black uppercase tracking-wide",
                           isSelected ? "text-[#0A0A0C]" : "text-gray-900"
                         )}
                       >
@@ -1333,7 +1333,7 @@ export function TradingObjectivesPageClient({
                       </span>
                       <span
                         className={cn(
-                          "mt-0.5 font-[family-name:var(--font-inter-tight)] text-sm sm:text-base font-black whitespace-nowrap text-[#0A0A0C]"
+                          "mt-0.5 font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-black whitespace-nowrap text-[#0A0A0C]"
                         )}
                       >
                         {s}
@@ -1385,7 +1385,7 @@ export function TradingObjectivesPageClient({
                         />
                       </span>
                       <div className="min-w-0 flex-1">
-                        <span className="block font-[family-name:var(--font-inter-tight)] text-base sm:text-lg font-black text-[#0A0A0C]">
+                        <span className="block font-[family-name:var(--font-jakarta)] text-base sm:text-lg font-black text-[#0A0A0C]">
                           {p.label}
                         </span>
                         <span className="text-xs sm:text-sm font-medium text-[#4B5563]">
@@ -1495,7 +1495,7 @@ export function TradingObjectivesPageClient({
                       <span className="text-sm font-bold text-gray-500 line-through">
                         {activeOldPrice}
                       </span>
-                      <span className="font-[family-name:var(--font-inter-tight)] text-3xl font-black text-[#0A0A0C]">
+                      <span className="font-[family-name:var(--font-jakarta)] text-3xl font-black text-[#0A0A0C]">
                         {activePrice}
                       </span>
                       <span className="rounded bg-[#894CEF] px-2 py-0.5 text-[10.5px] font-black text-[#030A1C]">
@@ -1577,7 +1577,7 @@ export function TradingObjectivesPageClient({
               <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 {t("unlimitedEyebrow")}
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
+              <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-black text-[#0A0A0C]">
                 {t("unlimitedTitle")}
               </h3>
               <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
@@ -1593,7 +1593,7 @@ export function TradingObjectivesPageClient({
               <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 {t("resetEyebrow")}
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
+              <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-black text-[#0A0A0C]">
                 {t("resetTitle")}
               </h3>
               <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
@@ -1615,7 +1615,7 @@ export function TradingObjectivesPageClient({
               <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 TRADING FREEDOM
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
+              <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-black text-[#0A0A0C]">
                 News Trading & Overnight Holding
               </h3>
               <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
@@ -1631,7 +1631,7 @@ export function TradingObjectivesPageClient({
               <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#7943E0]">
                 REWARD DISBURSEMENT
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-inter-tight)] text-2xl font-black text-[#0A0A0C]">
+              <h3 className="mt-2 font-[family-name:var(--font-jakarta)] text-2xl font-black text-[#0A0A0C]">
                 Fast Payouts in Crypto & Fiat
               </h3>
               <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-[#4B5563]">
@@ -1673,7 +1673,7 @@ export function TradingObjectivesPageClient({
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#0A0A0C]">
                     <Component size={20} />
                   </div>
-                  <h3 className="mt-6 font-[family-name:var(--font-inter-tight)] text-xl font-black text-[#0A0A0C]">
+                  <h3 className="mt-6 font-[family-name:var(--font-jakarta)] text-xl font-black text-[#0A0A0C]">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-sm font-medium leading-relaxed text-[#4B5563]">
@@ -1710,7 +1710,7 @@ export function TradingObjectivesPageClient({
               <Target size={28} />
             </div>
 
-            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-inter-tight)] text-3xl font-black uppercase tracking-tight text-[#0A0A0C] sm:text-4xl md:text-5xl">
+            <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-3xl font-black uppercase tracking-tight text-[#0A0A0C] sm:text-4xl md:text-5xl">
               {t("finalCtaTitle")}
             </h2>
 

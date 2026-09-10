@@ -95,7 +95,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
       <Container>
         {/* Header — centered, tight, matching ProofShowcase / ChallengeComparison / TraderStories */}
         <SectionReveal className="text-center">
-          <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold tracking-[-0.02em] text-[#0A0A0C] sm:text-4xl md:text-5xl">
+          <h2 className="mx-auto max-w-2xl font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-[-0.02em] text-[#0A0A0C] sm:text-4xl md:text-5xl">
             {t("title1")}
             <br />
             {t("title2")}
@@ -131,7 +131,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 sm:text-xs">
                   {t(active.labelKey)}
                 </p>
-                <h3 className="max-w-3xl text-balance font-[family-name:var(--font-inter-tight)] text-[22px] font-bold leading-[1.15] text-white sm:text-[28px] md:text-[30px] [text-shadow:0_2px_8px_rgba(0,0,0,0.8)]">
+                <h3 className="max-w-3xl text-balance font-[family-name:var(--font-jakarta)] text-[22px] font-bold leading-[1.15] text-white sm:text-[28px] md:text-[30px] [text-shadow:0_2px_8px_rgba(0,0,0,0.8)]">
                   {activeArticle ? activeArticle.title : t("comingSoon")}
                 </h3>
                 {activeArticle ? (
@@ -188,7 +188,7 @@ export function BlogCategories({ articles }: { articles: CmsArticle[] }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4 pr-4 sm:pr-20">
-                  <p className="font-[family-name:var(--font-inter-tight)] text-[13px] sm:text-[13.5px] font-bold leading-none text-white">
+                  <p className="font-[family-name:var(--font-jakarta)] text-[13px] sm:text-[13.5px] font-bold leading-none text-white">
                     {t(cat.labelKey)}
                   </p>
                   <p className="mt-1.5 line-clamp-2 text-[11px] sm:text-[11.5px] font-medium leading-[1.4] text-white/80">

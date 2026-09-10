@@ -63,7 +63,7 @@ export default async function EvaluationPage() {
                   <RefreshCw size={24} />
                 </div>
                 <div className="max-w-md">
-                  <h3 className="font-[family-name:var(--font-inter-tight)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
+                  <h3 className="font-[family-name:var(--font-jakarta)] text-xl font-bold text-[#0A0A0C] md:text-2xl">
                     {t("resetTitle")}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[#4B5563]">
@@ -93,7 +93,7 @@ export default async function EvaluationPage() {
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7943E0]">
               {t("faqEyebrow")}
             </p>
-            <h2 className="font-[family-name:var(--font-inter-tight)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
+            <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-[#0A0A0C] md:text-5xl">
               {t("faqTitle")}
             </h2>
           </SectionReveal>
@@ -125,7 +125,7 @@ export default async function EvaluationPage() {
       <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28 text-[#0A0A0C]" data-od-id="evaluation-closing-cta">
         <Container className="relative text-center">
           <SectionReveal>
-            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-inter-tight)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
               Ready to begin your evaluation?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
