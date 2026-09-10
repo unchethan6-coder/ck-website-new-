@@ -118,7 +118,7 @@ export function TraderStories({ videos = FALLBACK_VIDEOS }: { videos?: VideoItem
                       setPlaying(v.id);
                     }
                   }}
-                  className="group relative w-[85vw] max-w-[320px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-gray-200/80 bg-[#0A0A0C] shadow-[0_20px_44px_-20px_rgba(10,10,12,0.35)] sm:w-[360px] md:w-[420px]"
+                  className="group relative w-[85vw] max-w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-gray-200/80 bg-[#0A0A0C] shadow-[0_20px_44px_-20px_rgba(10,10,12,0.35)] sm:w-[360px]"
                   data-od-id={`story-card-${v.id}`}
                 >
                   <div className="relative aspect-video w-full overflow-hidden">
