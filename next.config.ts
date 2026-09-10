@@ -23,7 +23,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "localhost"],
-  output: "standalone",
+  // Standalone output is for the Docker/Coolify deployment; Vercel builds its own bundle.
+  output: process.env.VERCEL ? undefined : "standalone",
   poweredByHeader: false,
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
