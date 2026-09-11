@@ -925,14 +925,14 @@ export function TradingObjectivesPageClient({
       id: "mt5",
       label: t("platforms.mt5.label"),
       tagline: t("platforms.mt5.tagline"),
-      logo: "/images/logos/mt5.png",
+      logo: "/images/logos/tradelocker.jpeg",
       desc: t("platforms.mt5.desc"),
     },
     {
       id: "tradelocker",
       label: t("platforms.tradelocker.label"),
       tagline: t("platforms.tradelocker.tagline"),
-      logo: "/images/logos/tradelocker.jpeg",
+      logo: "/images/logos/mt5.png",
       desc: t("platforms.tradelocker.desc"),
     },
   ];
