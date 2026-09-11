@@ -17,7 +17,7 @@ export function TradingPlatforms() {
       fullName: "MetaTrader 5",
       description: t("mt5Desc"),
       features: (t.raw("mt5Features") as string[]) ?? ["Advanced charting", "Expert Advisors (EA)", "One-click trading", "20+ order types"],
-      logo: "/images/logos/mt5.png",
+      logo: "/images/logos/tradelocker.jpeg",
     },
     {
       id: "tradelocker",
@@ -25,7 +25,7 @@ export function TradingPlatforms() {
       fullName: "TradeLocker",
       description: t("tradelockerDesc"),
       features: (t.raw("tradelockerFeatures") as string[]) ?? ["Web & mobile native", "Real-time analytics", "Built-in risk tools", "Clean modern UI"],
-      logo: "/images/logos/tradelocker.jpeg",
+      logo: "/images/logos/mt5.png",
     },
   ];
 
