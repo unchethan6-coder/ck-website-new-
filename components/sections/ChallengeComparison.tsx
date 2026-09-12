@@ -19,6 +19,14 @@ import { cn } from "@/lib/utils";
 
 const accountSizes = ["5K", "10K", "25K", "50K", "100K", "200K", "300K"];
 
+/** Stagger variant for the horizontal card rows. The parent row drives the
+ *  timing: per-item whileInView would leave every card that starts outside
+ *  the viewport horizontally stuck at opacity 0 on phones. */
+const CAROUSEL_ITEM = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+} as const;
+
 /** Payment marks shown under the selected plan (assets: public/payments). */
 const PAYMENT_METHODS = [
   { name: "Visa", src: "/payments/visa.svg" },
@@ -302,16 +310,18 @@ export function ChallengeComparison({
 
           {/* Challenge Types Row */}
           <SectionReveal delay={0.1}>
-            <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-              {challengeTypes.map((tItem, tIdx) => {
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{ show: { transition: { staggerChildren: 0.06 } } }}
+              className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+              {challengeTypes.map((tItem) => {
                 const isSelected = selectedType === tItem.id;
                 return (
                   <motion.div
                     key={tItem.id}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.4, delay: tIdx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                    variants={CAROUSEL_ITEM}
                     onClick={() => handleTypeSelect(tItem.id)}
                     role="button"
                     tabIndex={0}
@@ -341,13 +351,18 @@ export function ChallengeComparison({
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </SectionReveal>
 
           {/* Account Sizes Row */}
           <SectionReveal delay={0.14} className={viewMode === "cards" ? "" : "hidden"}>
-            <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
-              {accountSizes.map((size, sIdx) => {
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{ show: { transition: { staggerChildren: 0.05 } } }}
+              className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
+              {accountSizes.map((size) => {
                 const data = rawData[size]?.[selectedType];
                 const isSelected = size === selectedSize;
                 const isDisabled = !data;
@@ -355,10 +370,7 @@ export function ChallengeComparison({
                 return (
                   <motion.div
                     key={size}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.4, delay: sIdx * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    variants={CAROUSEL_ITEM}
                     onClick={() => !isDisabled && setSelectedSize(size)}
                     role="button"
                     aria-disabled={isDisabled}
@@ -370,7 +382,7 @@ export function ChallengeComparison({
                     }}
                     data-od-id={`challenge-card-${size}`}
                     className={cn(
-                      "relative min-w-[78%] snap-center rounded-2xl border bg-[#171820] p-5 text-left transition-all duration-200 sm:min-h-28 sm:min-w-0 sm:rounded-xl sm:p-3.5",
+                      "relative min-w-[78%] snap-center rounded-2xl border bg-[#171820] p-5 pt-9 text-left sm:pt-3.5 transition-all duration-200 sm:min-h-28 sm:min-w-0 sm:rounded-xl sm:p-3.5",
                       isDisabled
                         ? "opacity-30 cursor-not-allowed pointer-events-none border-white/10"
                         : "cursor-pointer hover:bg-[#1D1E29]",
@@ -380,7 +392,7 @@ export function ChallengeComparison({
                     )}
                   >
                     {size === "100K" && (
-                      <span className="absolute -top-2 right-2 bg-[#894CEF] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                      <span className="absolute right-3 top-3 z-10 rounded-full bg-[#894CEF] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm sm:-top-2 sm:right-2 sm:px-1.5">
                         {t("popular") || "Popular"}
                       </span>
                     )}
@@ -405,7 +417,7 @@ export function ChallengeComparison({
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </SectionReveal>
 
           {viewMode === "cards" && activePlan && (
