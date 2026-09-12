@@ -1046,23 +1046,29 @@ main :where(h1, h2, h3, h4, h5, h6) {
 :is([class~="text-emerald-600"]) { color: #6ee7b7 !important; }
 [class~="ring-offset-white"] { --tw-ring-offset-color: var(--site-surface) !important; }
 
-/* Hero mascot: dissolve the artwork's edges into the scene on every side.
-   A radial mask softens the silhouette's baked-in glow boundary (top and
-   sides) and a linear mask carries the bottom into the section background,
-   so no straight cut-off is visible anywhere. */
+/* Hero mascot: the artwork is cropped hard at its left, right and bottom
+   edges (the arms and base run straight off the canvas), which showed as a
+   visible boundary against the hero background. These masks dissolve those
+   three edges; the top is left untouched so the ears stay intact. */
 .hero-mascot {
   --mascot-mask:
-    radial-gradient(118% 104% at 50% 46%,
-      #000 52%,
-      rgba(0, 0, 0, 0.92) 66%,
-      rgba(0, 0, 0, 0.6) 80%,
-      rgba(0, 0, 0, 0.22) 91%,
+    linear-gradient(to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 4%,
+      rgba(0, 0, 0, 0.7) 9%,
+      rgba(0, 0, 0, 0.94) 14%,
+      #000 19%,
+      #000 81%,
+      rgba(0, 0, 0, 0.94) 86%,
+      rgba(0, 0, 0, 0.7) 91%,
+      rgba(0, 0, 0, 0.25) 96%,
       transparent 100%),
     linear-gradient(to bottom,
       #000 0%,
       #000 58%,
-      rgba(0, 0, 0, 0.72) 78%,
-      rgba(0, 0, 0, 0.28) 91%,
+      rgba(0, 0, 0, 0.8) 75%,
+      rgba(0, 0, 0, 0.4) 88%,
+      rgba(0, 0, 0, 0.12) 95%,
       transparent 100%);
   -webkit-mask-image: var(--mascot-mask);
   mask-image: var(--mascot-mask);
