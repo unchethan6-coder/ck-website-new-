@@ -320,45 +320,19 @@ function BrowserWindow({
               {formatMoney(total ?? 1200000)}
             </p>
           </div>
-          <GoldGem className="pointer-events-none absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 h-14 w-14 sm:h-16 sm:w-16 lg:h-18 lg:w-18 opacity-90 drop-shadow-[0_4px_12px_rgba(1,162,239,0.25)]" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/ck-mascot-medal.png"
+            alt=""
+            aria-hidden="true"
+            width={320}
+            height={315}
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none absolute right-3 sm:right-4 top-1/2 h-16 w-16 -translate-y-1/2 object-contain drop-shadow-[0_4px_14px_rgba(137,76,239,0.35)] sm:h-[72px] sm:w-[72px] lg:h-20 lg:w-20"
+          />
         </div>
       </div>
     </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Angular sapphire gem — decorative, drawn from brand blue values    */
-/* ------------------------------------------------------------------ */
-
-function GoldGem({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 100 112"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="gem-hi" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#894CEF" />
-          <stop offset="1%" stopColor="#703AD7" />
-        </linearGradient>
-        <linearGradient id="gem-mid" x1="0" y1="0" x2="0.8" y2="1">
-          <stop offset="0%" stopColor="#703AD7" />
-          <stop offset="1%" stopColor="#1D4ED8" />
-        </linearGradient>
-        <linearGradient id="gem-lo" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1D4ED8" />
-          <stop offset="1%" stopColor="#703AD7" />
-        </linearGradient>
-      </defs>
-      <polygon points="22,14 50,4 78,14 64,38 36,38" fill="url(#gem-hi)" />
-      <polygon points="22,14 36,38 10,44" fill="url(#gem-lo)" opacity="0.85" />
-      <polygon points="78,14 64,38 90,44" fill="url(#gem-mid)" opacity="0.9" />
-      <polygon points="10,44 36,38 50,106" fill="url(#gem-mid)" opacity="0.8" />
-      <polygon points="90,44 64,38 50,106" fill="url(#gem-lo)" opacity="0.75" />
-      <polygon points="36,38 64,38 50,106" fill="url(#gem-hi)" />
-    </svg>
   );
 }
