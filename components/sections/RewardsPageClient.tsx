@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CountryFlag } from "@/components/shared/CountryFlag";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
@@ -130,7 +131,7 @@ function CertificateCard({
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="font-[family-name:var(--font-jakarta)] text-sm font-bold text-[#0A0A0C]">{payout.title || "Trader"}</p>
-              <p className="mt-1 flex items-center gap-2 text-xs text-[#6B7280]"><span className="rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[9px] font-bold text-[#4B5563]">{payout.countryCode || "--"}</span>{payout.countryName || "Country not published"}</p>
+              <p className="mt-1 flex items-center gap-2 text-xs text-[#6B7280]"><span className="inline-flex items-center gap-1.5 rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[9px] font-bold text-[#4B5563]"><CountryFlag code={payout.countryCode} name={payout.countryName} size={14} />{payout.countryCode || "--"}</span>{payout.countryName || "Country not published"}</p>
             </div>
             <p className="shrink-0 text-lg font-extrabold tracking-[-0.03em] text-[#0A0A0C]">{amount || "—"}</p>
           </div>

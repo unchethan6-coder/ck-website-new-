@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Lock, RefreshCw, Wallet, ShieldCheck, DollarSign } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import { CountryFlag } from "@/components/shared/CountryFlag";
 import type { CmsPayout, CmsRewardsSummary } from "@/lib/cms";
 
 /* ------------------------------------------------------------------ */
@@ -283,7 +284,8 @@ function BrowserWindow({
                     {formatDate(row.approvedAt)}
                   </span>
                   <span className="hidden sm:block">
-                    <span className="rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-gray-500">
+                    <span className="inline-flex items-center gap-1.5 rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-gray-500">
+                      <CountryFlag code={row.countryCode} name={row.countryName} size={14} />
                       {row.countryCode || "--"}
                     </span>
                   </span>

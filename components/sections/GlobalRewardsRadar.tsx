@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import { CountryFlag } from "@/components/shared/CountryFlag";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe2,
@@ -602,9 +603,7 @@ export function GlobalRewardsRadar({
 
               {/* Country Name & Flag */}
               <div className="mt-3 flex items-center gap-3">
-                <span className="text-4xl drop-shadow-sm select-none">
-                  {activeHub.flag}
-                </span>
+                <CountryFlag code={activeHub.code} name={activeHub.name} size={46} className="drop-shadow-sm" />
                 <div>
                   <h3 className="font-[family-name:var(--font-jakarta)] text-2xl font-extrabold text-[#0A0A0C] leading-tight">
                     {activeHub.name}
@@ -686,7 +685,7 @@ export function GlobalRewardsRadar({
                       : "border-gray-100 bg-gray-50/60 hover:bg-gray-100 text-gray-700"
                   }`}
                 >
-                  <span className="text-lg leading-none">{h.flag}</span>
+                  <CountryFlag code={h.code} name={h.name} size={22} className="leading-none" />
                   <span className="text-[11px] font-extrabold mt-1 truncate max-w-full">
                     {h.shortName}
                   </span>
