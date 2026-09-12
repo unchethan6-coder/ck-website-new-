@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Check, LayoutGrid, Percent, Table2 } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
@@ -198,7 +199,7 @@ export function ChallengeComparison({
             >
               {t("title") || "Choose your next challenge"}
             </h2>
-            <p className={cn("mx-auto mt-2 max-w-xl text-sm font-normal md:text-base", viewMode === "cards" ? "text-white/50" : "text-gray-500")}>
+            <p className={cn("mx-auto mt-2 max-w-xl text-sm font-normal md:text-base", viewMode === "cards" ? "text-white/70" : "text-gray-500")}>
               {t("subtitle") || "Select your preferred account size and evaluation model to begin."}
             </p>
           </SectionReveal>
@@ -292,11 +293,15 @@ export function ChallengeComparison({
           {/* Challenge Types Row */}
           <SectionReveal delay={0.1}>
             <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-              {challengeTypes.map((tItem) => {
+              {challengeTypes.map((tItem, tIdx) => {
                 const isSelected = selectedType === tItem.id;
                 return (
-                  <div
+                  <motion.div
                     key={tItem.id}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.4, delay: tIdx * 0.06, ease: [0.22, 1, 0.36, 1] }}
                     onClick={() => handleTypeSelect(tItem.id)}
                     role="button"
                     tabIndex={0}
@@ -306,7 +311,8 @@ export function ChallengeComparison({
                       }
                     }}
                     className={cn(
-                      "min-w-[84%] snap-center rounded-xl border p-4 text-left transition-all duration-200 cursor-pointer sm:min-w-0",
+                      "min-w-[84%] snap-center rounded-xl border p-4 text-left transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
+                      isSelected && "scale-[1.015]",
                       viewMode === "cards"
                         ? isSelected
                           ? "border-[#894CEF] bg-[#21184F] shadow-[0_0_18px_rgba(137,76,239,0.22)] ring-1 ring-[#894CEF]"
@@ -319,10 +325,10 @@ export function ChallengeComparison({
                     <h3 className={cn("mb-1 text-sm font-bold", viewMode === "cards" ? "text-white" : "text-[#0A0A0C]")}>
                       {tItem.name}
                     </h3>
-                    <p className={cn("text-xs leading-relaxed", viewMode === "cards" ? "text-white/50" : "text-gray-600")}>
+                    <p className={cn("text-xs leading-relaxed", viewMode === "cards" ? (isSelected ? "text-white/85" : "text-white/70") : "text-gray-600")}>
                       {tItem.desc}
                     </p>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -331,14 +337,18 @@ export function ChallengeComparison({
           {/* Account Sizes Row */}
           <SectionReveal delay={0.14} className={viewMode === "cards" ? "" : "hidden"}>
             <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
-              {accountSizes.map((size) => {
+              {accountSizes.map((size, sIdx) => {
                 const data = rawData[size]?.[selectedType];
                 const isSelected = size === selectedSize;
                 const isDisabled = !data;
 
                 return (
-                  <div
+                  <motion.div
                     key={size}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: sIdx * 0.05, ease: [0.22, 1, 0.36, 1] }}
                     onClick={() => !isDisabled && setSelectedSize(size)}
                     role="button"
                     aria-disabled={isDisabled}
@@ -364,25 +374,25 @@ export function ChallengeComparison({
                         {t("popular") || "Popular"}
                       </span>
                     )}
-                    <div className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/45">
+                    <div className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/65">
                       {t("account") || "Account"}
                     </div>
                     <div className="mb-2 text-2xl font-extrabold text-white sm:mb-1.5 sm:text-lg sm:font-bold">
                       ${size}
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/45">Today</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/65">Today</span>
                       <span className="text-base font-extrabold text-emerald-400 sm:text-xs">
                         {data ? formatMoney(data.disc) : "N/A"}
                       </span>
                       {data && (
-                        <span className="text-[10px] font-normal text-gray-400">
+                        <span className="text-[10px] font-normal text-white/60">
                           was <span className="line-through">{formatMoney(data.orig)}</span>
                           {discountPercent(data) > 0 && <span className="ml-1.5 font-bold text-amber-300">Save {discountPercent(data)}%</span>}
                         </span>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -391,7 +401,7 @@ export function ChallengeComparison({
           {viewMode === "cards" && activePlan && (
             <div className="sticky bottom-3 z-40 mx-1 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
               <div className="min-w-0">
-                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/45">Selected plan</p>
+                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/65">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
                 <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
               </div>
@@ -406,7 +416,7 @@ export function ChallengeComparison({
             <div className="grid grid-cols-1 gap-3 rounded-2xl border border-[#894CEF]/35 bg-gradient-to-br from-[#17113D] via-[#0B1024] to-[#080B18] p-3 shadow-[0_20px_60px_rgba(3,10,28,0.28)] lg:grid-cols-12">
               {/* Rules Panel */}
               <div
-                className="flex flex-col gap-5 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-white shadow-inner md:p-5 lg:col-span-8 [&_li]:!border-white/10 [&_li_span:first-child]:!text-white/55 [&_li_span:last-child]:!text-white"
+                className="flex flex-col gap-5 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-white shadow-inner md:p-5 lg:col-span-8 [&_li]:!border-white/10 [&_li_span:first-child]:!text-white/70 [&_li_span:last-child]:!text-white"
                 data-od-id="challenge-table"
               >
                 <div className="flex items-center justify-between border-b border-white/10 pb-3.5">
@@ -429,7 +439,7 @@ export function ChallengeComparison({
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {/* Column 1: Evaluation Rules */}
                   <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/45">
+                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("evaluationRules") || "Evaluation Rules"}
                     </h4>
                     <ul className="flex flex-col gap-3 text-xs">
@@ -464,7 +474,7 @@ export function ChallengeComparison({
 
                   {/* Column 2: Funded Account Rules */}
                   <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/45">
+                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("fundedAccountRules") || "Funded Account Rules"}
                     </h4>
                     <ul className="flex flex-col gap-3 text-xs">
@@ -498,7 +508,7 @@ export function ChallengeComparison({
                 <div>
                   <div className="flex justify-between items-baseline border-b border-white/10 pb-4">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-white/45">
+                      <span className="text-xs font-bold uppercase tracking-wider text-white/65">
                         Selected Plan
                       </span>
                       <div className="mt-0.5 text-lg font-extrabold text-white">
@@ -509,7 +519,7 @@ export function ChallengeComparison({
                       <div className="text-2xl font-extrabold text-emerald-400 sm:text-3xl">
                         {formatMoney(activePlan?.disc || "$0.00")}
                       </div>
-                      <div className="text-xs text-gray-400 line-through font-normal">
+                      <div className="text-xs text-white/55 line-through font-normal">
                         {formatMoney(activePlan?.orig)}
                       </div>
                     </div>
@@ -517,11 +527,11 @@ export function ChallengeComparison({
 
                   {/* Feature Highlights */}
                   <div className="mt-4 space-y-2">
-                    <div className="flex items-center justify-between border-b border-white/10 py-1 text-xs text-white/55">
+                    <div className="flex items-center justify-between border-b border-white/10 py-1 text-xs text-white/70">
                       <span>Access Level</span>
                       <span className="font-bold text-white">Direct Evaluation Access</span>
                     </div>
-                    <div className="flex items-center justify-between py-1 text-xs text-white/55">
+                    <div className="flex items-center justify-between py-1 text-xs text-white/70">
                       <span>Scaling Ceiling</span>
                       <span className="font-bold text-white">Up to $1,200,000</span>
                     </div>
@@ -544,7 +554,7 @@ export function ChallengeComparison({
 
                   {/* Add-ons */}
                   <div className="flex flex-col gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white/45">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("addOnsAvailable") || "Add-Ons Available"}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -562,7 +572,7 @@ export function ChallengeComparison({
                   </div>
 
                   {/* Payment Methods */}
-                  <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] text-white/45">
+                  <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] text-white/65">
                     {["VISA", "Mastercard", "G Pay", "Crypto"].map((pm) => (
                       <span
                         key={pm}
@@ -697,7 +707,7 @@ export function ChallengeComparison({
             )}>
               {t("oneTimePaymentNotice")}
             </p>
-            <p className={cn("mx-auto mt-2 max-w-2xl text-center text-xs leading-5", viewMode === "cards" ? "text-white/35" : "text-gray-400")}>
+            <p className={cn("mx-auto mt-2 max-w-2xl text-center text-xs leading-5", viewMode === "cards" ? "text-white/55" : "text-gray-500")}>
               {t("disclaimer")}
             </p>
           </SectionReveal>
