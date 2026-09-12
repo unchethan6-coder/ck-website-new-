@@ -199,13 +199,13 @@ export function Hero() {
               height={1930}
               priority
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 58vw"
-              className="hero-mascot relative ml-auto h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_34px_rgba(139,76,239,0.28)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
+              className="hero-mascot relative ml-auto h-auto w-full max-w-[390px] object-contain drop-shadow-[0_0_60px_rgba(139,76,239,0.22)] sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[790px]"
             />
             </motion.div>
             {/* Bottom fade: blends the artwork's hard edge into the section background */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[38%] bg-gradient-to-t from-[#030A1C] via-[#030A1C]/85 to-transparent"
+              className="pointer-events-none absolute -inset-x-[8%] bottom-0 z-10 h-[30%] bg-gradient-to-t from-[#030A1C] via-[#030A1C]/70 to-transparent"
             />
           </motion.div>
         </div>
