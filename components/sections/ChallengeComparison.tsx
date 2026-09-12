@@ -691,7 +691,13 @@ export function ChallengeComparison({
                 </span>
               ))}
             </div>
-            <p className={cn("mx-auto mt-4 max-w-2xl text-center text-xs leading-5", viewMode === "cards" ? "text-white/35" : "text-gray-400")}>
+            <p className={cn(
+              "mx-auto mt-4 max-w-2xl text-center text-[13px] font-semibold leading-5",
+              viewMode === "cards" ? "text-white/70" : "text-gray-600"
+            )}>
+              {t("oneTimePaymentNotice")}
+            </p>
+            <p className={cn("mx-auto mt-2 max-w-2xl text-center text-xs leading-5", viewMode === "cards" ? "text-white/35" : "text-gray-400")}>
               {t("disclaimer")}
             </p>
           </SectionReveal>

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { motion, useReducedMotion } from "framer-motion";
 import { Lock, RefreshCw, Wallet, ShieldCheck, DollarSign } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
@@ -72,7 +73,7 @@ export function ProofShowcase({
             new Date(b.approvedAt ?? 0).getTime() -
             new Date(a.approvedAt ?? 0).getTime()
         )
-        .slice(0, 4),
+        .slice(0, 48),
     [verified]
   );
 
@@ -201,13 +202,16 @@ function BrowserWindow({
   const t = useTranslations("proof");
   const [offset, setOffset] = useState(0);
   const baseList = rows.length >= 4 ? rows : SAMPLE_PROOF_ROWS;
+  const reduceMotion = useReducedMotion();
 
+  // Rolling feed: one row rotates in at a time so the panel reads as live.
   useEffect(() => {
+    if (reduceMotion || baseList.length <= 4) return;
     const timer = setInterval(() => {
       setOffset((prev) => (prev + 1) % baseList.length);
-    }, 7500);
+    }, 3200);
     return () => clearInterval(timer);
-  }, [baseList.length]);
+  }, [baseList.length, reduceMotion]);
 
   const activeRows = useMemo(() => {
     const combined = [...baseList.slice(offset), ...baseList.slice(0, offset)];
@@ -244,6 +248,15 @@ function BrowserWindow({
             <p className="mt-1.5 text-[11px] leading-5 text-gray-500">
               {t("readyRewardDesc")}
             </p>
+            <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+              <motion.span
+                aria-hidden="true"
+                animate={reduceMotion ? undefined : { opacity: [1, 0.25, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="h-1.5 w-1.5 rounded-full bg-emerald-500"
+              />
+              {baseList.length} {t("payoutsInFeed")}
+            </span>
           </div>
 
           <div className="mt-5 overflow-hidden rounded-lg border border-gray-200">
@@ -254,9 +267,12 @@ function BrowserWindow({
               <span className="text-right">{t("amount")}</span>
             </div>
             {activeRows.length ? (
-              activeRows.map((row) => (
-                <div
+              activeRows.map((row, i) => (
+                <motion.div
                   key={row.id}
+                  initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   className="grid grid-cols-[1.2fr_0.8fr] gap-3 border-b border-gray-100 bg-white px-4 py-3.5 text-xs last:border-0 sm:grid-cols-[1.2fr_0.9fr_0.6fr_0.8fr]"
                   data-od-id={`proof-table-row-${row.id}`}
                 >
@@ -277,7 +293,7 @@ function BrowserWindow({
                       row.currency ?? undefined
                     )}
                   </span>
-                </div>
+                </motion.div>
               ))
             ) : (
               <div className="px-4 py-12 text-center text-xs text-gray-400">

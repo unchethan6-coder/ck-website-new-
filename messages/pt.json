@@ -93,7 +93,7 @@
   },
   "howItWorks": {
     "title": "Como Funciona",
-    "subtitle": "Três passos claros desde sua primeira operação simulada até o recebimento de recompensas reais.",
+    "subtitle": "Quatro passos claros desde a sua primeira operação simulada até receber as recompensas.",
     "steps": {
       "step1": {
         "step": "01",
@@ -112,6 +112,12 @@
         "phase": "Fase 3",
         "title": "Trader Financiado",
         "description": "Receba sua conta simulada financiada, opere com total confiança e retire até 100% dos seus lucros simulados."
+      },
+      "step4": {
+        "step": "04",
+        "phase": "Fase 4",
+        "title": "Receba",
+        "description": "Solicite a sua recompensa no painel e receba rapidamente — traders elegíveis ficam com até 100% dos lucros simulados."
       }
     },
     "badge": "Processo",
@@ -224,7 +230,8 @@
     "cards": "Cartões",
     "funded": "Fondeado",
     "revealSizes": "Mostrar todos os tamanhos de conta",
-    "more": "+{count} mais"
+    "more": "+{count} mais",
+    "oneTimePaymentNotice": "Cada taxa de avaliação é um pagamento único — sem assinaturas, sem cobranças recorrentes e sem taxas ocultas."
   },
   "platforms": {
     "eyebrow": "Plataformas",
@@ -312,7 +319,8 @@
     "country": "País",
     "amount": "Montante",
     "verifiedPending": "Os registos verificados aparecerão aqui assim que forem publicados.",
-    "totalPayouts": "Total de Pagamentos"
+    "totalPayouts": "Total de Pagamentos",
+    "payoutsInFeed": "no feed"
   },
   "reviews": {
     "eyebrow": "Avaliações de traders",

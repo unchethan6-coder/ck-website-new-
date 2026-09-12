@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import { Users, Globe, DollarSign, ShieldCheck, Headphones } from "lucide-react";
 import { CountUp } from "@/components/fx/CountUp";
 
@@ -43,13 +44,17 @@ export function StatsStrip() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-white/[0.08]">
           {stats.map((stat, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className={`group flex items-center gap-3.5 px-3 sm:px-5 lg:justify-center cursor-default transition-transform duration-200 hover:-translate-y-0.5 ${
                 i === 4 ? "col-span-2 sm:col-span-1 justify-center sm:justify-start" : ""
               }`}
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#894CEF]/25 bg-[#894CEF]/10 text-[#894CEF] group-hover:border-[#894CEF]/60 group-hover:bg-[#894CEF]/20 group-hover:shadow-[0_0_15px_rgba(1,162,239,0.25)] transition-all duration-200">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#894CEF]/25 bg-[#894CEF]/10 text-[#894CEF] group-hover:border-[#894CEF]/60 group-hover:bg-[#894CEF]/20 group-hover:shadow-[0_0_15px_rgba(137,76,239,0.3)] transition-all duration-200">
                 <stat.icon size={22} strokeWidth={1.75} />
               </div>
               <div className="text-left">
@@ -60,7 +65,7 @@ export function StatsStrip() {
                   {stat.label}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

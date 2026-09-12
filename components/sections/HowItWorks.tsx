@@ -26,6 +26,11 @@ export function HowItWorks() {
       title: t("steps.step3.title"),
       description: t("steps.step3.description"),
     },
+    {
+      phase: t("steps.step4.phase"),
+      title: t("steps.step4.title"),
+      description: t("steps.step4.description"),
+    },
   ];
 
   const featureItems = [
