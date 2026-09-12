@@ -119,9 +119,12 @@ export function SiteFooter() {
   ];
 
   const paymentMethods = [
-    { name: "Stripe", src: "/icons/payments/stripe.svg" },
-    { name: "PayPal", src: "/icons/payments/paypal.svg" },
-    { name: "USDT", src: "/icons/payments/tether.svg" },
+    { name: "Visa", src: "/payments/visa.svg" },
+    { name: "Mastercard", src: "/payments/mastercard.svg" },
+    { name: "Apple Pay", src: "/payments/apple-pay.svg" },
+    { name: "Google Pay", src: "/payments/google-pay.svg" },
+    { name: "PayPal", src: "/payments/paypal.svg" },
+    { name: "Crypto", src: "/payments/crypto.svg" },
   ];
 
   return (
@@ -319,10 +322,10 @@ export function SiteFooter() {
               {paymentMethods.map((m) => (
                 <span
                   key={m.name}
-                  className="grid h-9 w-12 shrink-0 place-items-center overflow-hidden rounded-md border border-foreground/[0.08] bg-white/[0.04] p-2"
+                  className="grid h-9 w-14 shrink-0 place-items-center overflow-hidden rounded-md border border-foreground/[0.08] bg-white/[0.04] px-1.5"
                   title={m.name}
                 >
-                  <img src={m.src} alt={m.name} className="block h-5 w-5 max-h-full max-w-full object-contain" />
+                  <img src={m.src} alt={m.name} width={44} height={29} loading="lazy" decoding="async" className="block h-7 w-auto max-w-full object-contain" />
                 </span>
               ))}
             </div>

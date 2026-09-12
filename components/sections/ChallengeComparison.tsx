@@ -19,6 +19,16 @@ import { cn } from "@/lib/utils";
 
 const accountSizes = ["5K", "10K", "25K", "50K", "100K", "200K", "300K"];
 
+/** Payment marks shown under the selected plan (assets: public/payments). */
+const PAYMENT_METHODS = [
+  { name: "Visa", src: "/payments/visa.svg" },
+  { name: "Mastercard", src: "/payments/mastercard.svg" },
+  { name: "Apple Pay", src: "/payments/apple-pay.svg" },
+  { name: "Google Pay", src: "/payments/google-pay.svg" },
+  { name: "PayPal", src: "/payments/paypal.svg" },
+  { name: "Crypto", src: "/payments/crypto.svg" },
+] as const;
+
 export function ChallengeComparison({
   config,
 }: {
@@ -572,13 +582,15 @@ export function ChallengeComparison({
                   </div>
 
                   {/* Payment Methods */}
-                  <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] text-white/65">
-                    {["VISA", "Mastercard", "G Pay", "Crypto"].map((pm) => (
+                  <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1 text-[11px] text-white/65">
+                    {PAYMENT_METHODS.map((pm) => (
                       <span
-                        key={pm}
-                        className="rounded border border-white/10 bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-bold text-white/65"
+                        key={pm.name}
+                        title={pm.name}
+                        className="grid h-6 w-9 shrink-0 place-items-center overflow-hidden rounded border border-white/10 bg-white/[0.06]"
                       >
-                        {pm}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={pm.src} alt={pm.name} width={30} height={20} loading="lazy" decoding="async" className="h-5 w-auto object-contain" />
                       </span>
                     ))}
                     <span className="text-xs font-medium">+10 more</span>
