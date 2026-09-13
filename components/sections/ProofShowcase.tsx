@@ -245,14 +245,14 @@ function BrowserWindow({
         <div className="relative flex-1 p-5 pb-16 sm:p-7 sm:pb-7">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           {/* Sample reward certificate fills the space beside the copy */}
-          <div className="w-full max-w-[300px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-[#0B0620] shadow-sm sm:max-w-[280px]">
+          <div className="w-full max-w-[200px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-[#0B0620] shadow-sm sm:max-w-[190px]">
             <Image
               src="/images/payout-certificate.jpg"
               alt="Sample CK Capital reward certificate: $10,000 reward split on a 100K challenge"
               width={760}
               height={570}
               loading="lazy"
-              sizes="(max-width: 640px) 300px, 280px"
+              sizes="(max-width: 640px) 200px, 190px"
               className="h-auto w-full object-cover"
             />
           </div>
