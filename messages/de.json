@@ -809,7 +809,23 @@
     "feature": "Funktion",
     "instantCol": "Sofort-Finanzierung",
     "challengeCol": "1-Schritt Challenge",
-    "getStarted": "Jetzt Starten →"
+    "getStarted": "Jetzt Starten →",
+    "headToHead": {
+      "eyebrow": "DIREKTVERGLEICH",
+      "title": "Instant vs. Challenge",
+      "subtitle": "Vergleichen Sie die Wege zu simuliertem Kapital nebeneinander und wählen Sie das Risikomodell und Starttempo, das zu Ihrer Strategie passt.",
+      "viewAll": "Direkter Vergleich",
+      "viewInstant": "Instant Funding",
+      "viewChallenge": "Evaluation Challenge",
+      "instantBadge": "OHNE EVALUATION",
+      "instantTagline": "Sofortiger Zugang ohne Evaluationsphasen",
+      "instantIdealFor": "Erfahrene Trader, die sofortige simulierte Allokation und zweiwöchentliche Belohnungen wollen, ohne mehrstufige Gewinnziele zu erfüllen.",
+      "challengeBadge": "MAXIMALES SKALIERUNGSPOTENZIAL",
+      "challengeTagline": "Mehrstufige Evaluation für maximales Kapital",
+      "challengeIdealFor": "Disziplinierte Trader, die größere simulierte Guthaben bis 1,2 Mio. $ und mehr Drawdown-Spielraum zu niedrigeren Einstiegsgebühren wollen.",
+      "instantCta": "Instant-Konto sichern",
+      "challengeCta": "Challenges entdecken"
+    }
   },
   "legal": {
     "badgeLegal": "Rechtliches",

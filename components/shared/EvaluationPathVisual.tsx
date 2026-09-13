@@ -162,7 +162,7 @@ export function EvaluationPathVisual({
         </div>
 
         {/* Bottom Recent Settlement Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280]">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280] sm:pl-60">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
             <span className="font-semibold text-[#0A0A0C]">
@@ -182,7 +182,7 @@ export function EvaluationPathVisual({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="absolute -bottom-5 left-2 sm:-bottom-8 sm:-left-6 z-20"
+          className="absolute hidden sm:block sm:-bottom-8 sm:-left-6 z-20"
         >
           <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
             <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-violet-50 text-[#A98BFF] border border-violet-200">

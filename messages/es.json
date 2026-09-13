@@ -779,7 +779,23 @@
     "feature": "Característica",
     "instantCol": "Fondeo Instantáneo",
     "challengeCol": "Desafío de 1 Paso",
-    "getStarted": "Comenzar →"
+    "getStarted": "Comenzar →",
+    "headToHead": {
+      "eyebrow": "COMPARATIVA DIRECTA",
+      "title": "Instant vs Challenge",
+      "subtitle": "Compara las rutas de capital simulado en paralelo para elegir el modelo de riesgo y la velocidad de inicio que encajan con tu estrategia.",
+      "viewAll": "Comparativa lado a lado",
+      "viewInstant": "Instant Funding",
+      "viewChallenge": "Evaluation Challenge",
+      "instantBadge": "SIN EVALUACIÓN",
+      "instantTagline": "Acceso inmediato sin fases de evaluación",
+      "instantIdealFor": "Traders experimentados que buscan asignación simulada inmediata y recompensas quincenales sin superar objetivos de beneficio por fases.",
+      "challengeBadge": "MÁXIMO POTENCIAL DE ESCALA",
+      "challengeTagline": "Evaluación multifase para el máximo capital",
+      "challengeIdealFor": "Traders disciplinados que quieren saldos simulados mayores hasta 1,2 M$ y más margen de drawdown con cuotas de entrada más bajas.",
+      "instantCta": "Obtener cuenta Instant",
+      "challengeCta": "Explorar challenges"
+    }
   },
   "legal": {
     "badgeLegal": "Legal",

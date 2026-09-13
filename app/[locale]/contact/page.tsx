@@ -170,7 +170,7 @@ export default function ContactPage() {
           <SectionReveal>
             <MessageCircle className="mx-auto text-[#A98BFF]" size={32} />
             <h2 className="mx-auto mt-6 max-w-3xl font-[family-name:var(--font-jakarta)] text-4xl font-extrabold tracking-[-0.04em] text-[#0A0A0C] md:text-6xl">
-              Connect with 10,000+ Analysts
+              Connect with 20,000+ Traders
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#4B5563]">
               Join our global Discord trader community for market discussions, announcement drops, support ticketing, and weekly giveaways.
