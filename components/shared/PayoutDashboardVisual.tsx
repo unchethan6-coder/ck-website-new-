@@ -362,7 +362,7 @@ export function PayoutDashboardVisual({
         </div>
 
         {/* Bottom Recent Settlements Activity Pill */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280] sm:pl-60">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-3 text-[11px] text-[#6B7280]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.settlementAmount}
@@ -400,7 +400,7 @@ export function PayoutDashboardVisual({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="absolute hidden sm:block sm:-bottom-8 sm:-left-6 z-20"
+          className="relative z-20 mt-4 w-fit max-w-full -ml-1 sm:-ml-4"
         >
           <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl">
             <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-violet-50 text-[#A98BFF] border border-violet-200">
