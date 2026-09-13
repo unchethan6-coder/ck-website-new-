@@ -53,11 +53,22 @@ export function ChallengeComparison({
 
   const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
-  // On small screens the account-size cards are a horizontal scroller; keep the selected card visible.
+  // On small screens the account-size cards are a horizontal scroller. Bring the
+  // selected card to the gutter when the user switches — but not on first paint,
+  // which would leave the row mid-scrolled with a card sliced off each edge.
+  const didMountRef = useRef(false);
   useEffect(() => {
     if (typeof window === "undefined" || window.innerWidth >= 640) return;
     const el = document.querySelector<HTMLElement>(`[data-od-id="challenge-card-${selectedSize}"]`);
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    if (!el) return;
+    // Align to the gutter (never centred, which slices a card off each edge).
+    // Instant on first paint so the row doesn't visibly slide on load.
+    el.scrollIntoView({
+      behavior: didMountRef.current ? "smooth" : "auto",
+      block: "nearest",
+      inline: "start",
+    });
+    didMountRef.current = true;
   }, [selectedSize, selectedType]);
 
   // Close dropdown on click outside
@@ -315,7 +326,7 @@ export function ChallengeComparison({
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={{ show: { transition: { staggerChildren: 0.06 } } }}
-              className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+              className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-2 [mask-image:linear-gradient(to_right,transparent_0,#000_18px,#000_calc(100%-26px),transparent_100%)] sm:[mask-image:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:scroll-pl-0 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
               {challengeTypes.map((tItem) => {
                 const isSelected = selectedType === tItem.id;
                 return (
@@ -331,7 +342,7 @@ export function ChallengeComparison({
                       }
                     }}
                     className={cn(
-                      "min-w-[84%] snap-center rounded-xl border p-4 text-left transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
+                      "min-w-[80%] snap-start rounded-xl border p-4 text-left transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
                       isSelected && "scale-[1.015]",
                       viewMode === "cards"
                         ? isSelected
@@ -361,7 +372,7 @@ export function ChallengeComparison({
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={{ show: { transition: { staggerChildren: 0.05 } } }}
-              className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-3 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
+              className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-3 pt-1 [mask-image:linear-gradient(to_right,transparent_0,#000_18px,#000_calc(100%-26px),transparent_100%)] sm:[mask-image:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:scroll-pl-0 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
               {accountSizes.map((size) => {
                 const data = rawData[size]?.[selectedType];
                 const isSelected = size === selectedSize;
@@ -382,7 +393,7 @@ export function ChallengeComparison({
                     }}
                     data-od-id={`challenge-card-${size}`}
                     className={cn(
-                      "relative min-w-[78%] snap-center rounded-2xl border bg-[#171820] p-5 pt-9 text-left sm:pt-3.5 transition-all duration-200 sm:min-h-28 sm:min-w-0 sm:rounded-xl sm:p-3.5",
+                      "relative min-w-[74%] snap-start rounded-2xl border bg-[#171820] p-5 pt-9 text-left sm:pt-3.5 transition-all duration-200 sm:min-h-28 sm:min-w-0 sm:rounded-xl sm:p-3.5",
                       isDisabled
                         ? "opacity-30 cursor-not-allowed pointer-events-none border-white/10"
                         : "cursor-pointer hover:bg-[#1D1E29]",
