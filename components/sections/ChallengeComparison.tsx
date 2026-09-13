@@ -230,7 +230,7 @@ export function ChallengeComparison({
                   onClick={() => setViewMode("cards")}
                   aria-pressed={viewMode === "cards"}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-colors",
+                    "inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 py-1.5 sm:min-h-0 text-xs font-bold transition-colors",
                     viewMode === "cards" ? "bg-[#703AD7] text-white" : "text-gray-600 hover:bg-violet-50"
                   )}
                 >
@@ -241,7 +241,7 @@ export function ChallengeComparison({
                   onClick={() => setViewMode("table")}
                   aria-pressed={viewMode === "table"}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-colors",
+                    "inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 py-1.5 sm:min-h-0 text-xs font-bold transition-colors",
                     viewMode === "table" ? "bg-[#703AD7] text-white" : "text-gray-600 hover:bg-violet-50"
                   )}
                 >
@@ -286,14 +286,14 @@ export function ChallengeComparison({
                         }}
                         className={cn(
                           "flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-[#F5F5F5]",
-                          selectedCurrency === item.code ? "bg-[#EBF5FF] text-[#703AD7]" : ""
+                          selectedCurrency === item.code ? "bg-[#EBF5FF] text-[#A98BFF]" : ""
                         )}
                       >
                         <span aria-hidden="true">{item.flag}</span>
                         <span>{item.code}</span>
                         <span className="text-xs text-gray-400 font-normal">({item.symbol})</span>
                         {selectedCurrency === item.code && (
-                          <Check className="ml-auto h-4 w-4 text-[#703AD7]" />
+                          <Check className="ml-auto h-4 w-4 text-[#A98BFF]" />
                         )}
                       </button>
                     ))}
@@ -391,14 +391,14 @@ export function ChallengeComparison({
                         {t("popular") || "Popular"}
                       </span>
                     )}
-                    <div className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/65">
+                    <div className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/80">
                       {t("account") || "Account"}
                     </div>
                     <div className="mb-1.5 text-xl font-extrabold text-white sm:text-lg sm:font-bold">
                       ${size}
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/65">Today</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-white/80">Today</span>
                       <span className="text-sm font-extrabold text-emerald-400 sm:text-xs">
                         {data ? formatMoney(data.disc) : "N/A"}
                       </span>
@@ -418,7 +418,7 @@ export function ChallengeComparison({
           {viewMode === "cards" && activePlan && (
             <div className="sticky bottom-3 z-40 -mt-14 mb-2 flex items-center justify-between gap-3 rounded-2xl sm:mx-1 sm:mt-0 sm:mb-0 border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
               <div className="min-w-0">
-                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/65">Selected plan</p>
+                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/80">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
                 <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
               </div>
@@ -438,7 +438,7 @@ export function ChallengeComparison({
               >
                 <div className="flex items-center justify-between border-b border-white/10 pb-3.5">
                   <div className="flex items-center gap-2.5 text-xs font-semibold text-white">
-                    <Percent className="w-4 h-4 text-[#703AD7]" />
+                    <Percent className="w-4 h-4 text-[#A98BFF]" />
                     <span>{t("showPercentage") || "Show Percentage"}</span>
                     <label className="relative inline-block w-9 h-5 cursor-pointer ml-1">
                       <input
@@ -456,9 +456,9 @@ export function ChallengeComparison({
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {/* Column 1: Evaluation Rules */}
                   <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
+                    <h3 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("evaluationRules") || "Evaluation Rules"}
-                    </h4>
+                    </h3>
                     <ul className="flex flex-col gap-3 text-xs">
                       <li className="flex justify-between items-center border-b border-gray-100 pb-2">
                         <span className="text-gray-600 font-normal">{t("phase1Target") || "Phase 1 Target"}</span>
@@ -491,9 +491,9 @@ export function ChallengeComparison({
 
                   {/* Column 2: Funded Account Rules */}
                   <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                    <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
+                    <h3 className="mb-3.5 text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("fundedAccountRules") || "Funded Account Rules"}
-                    </h4>
+                    </h3>
                     <ul className="flex flex-col gap-3 text-xs">
                       <li className="flex justify-between items-center border-b border-gray-100 pb-2">
                         <span className="text-gray-600 font-normal">{t("tradingPeriod") || "Trading Period"}</span>
@@ -612,11 +612,11 @@ export function ChallengeComparison({
               <div className="overflow-hidden rounded-2xl border border-[#D9D9D9] bg-white shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D9D9D9] px-4 py-3.5 sm:px-5">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">{activeTypeName} comparison</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#A98BFF]">{activeTypeName} comparison</p>
                     <p className="mt-0.5 text-sm font-bold text-[#0A0A0C]">Compare every available account size</p>
                   </div>
                   <label className="flex cursor-pointer items-center gap-2 text-xs font-semibold text-[#0A0A0C]">
-                    <Percent className="h-4 w-4 text-[#703AD7]" />
+                    <Percent className="h-4 w-4 text-[#A98BFF]" />
                     <span>{t("showPercentage") || "Show Percentage"}</span>
                     <input type="checkbox" checked={isPercentage} onChange={(event) => setIsPercentage(event.target.checked)} className="peer sr-only" />
                     <span className="relative h-5 w-9 rounded-full bg-[#E5E5E5] transition-colors peer-checked:bg-[#703AD7] after:absolute after:bottom-[3px] after:left-[3px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-white after:shadow-sm after:transition-transform peer-checked:after:translate-x-4" />
@@ -646,7 +646,7 @@ export function ChallengeComparison({
                           <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500">Account</span>
                           <strong className="mt-0.5 block text-lg text-[#0A0A0C]">${size}</strong>
                           <span className="mt-1.5 block text-[8px] font-bold uppercase tracking-wider text-gray-400">Today</span>
-                          <span className="block text-xs font-extrabold text-[#7943E0]">{plan ? formatMoney(plan.disc) : "N/A"}</span>
+                          <span className="block text-xs font-extrabold text-[#A98BFF]">{plan ? formatMoney(plan.disc) : "N/A"}</span>
                           {plan && (
                             <span className="block text-[9px] text-gray-400">
                               was <span className="line-through">{formatMoney(plan.orig)}</span>
@@ -715,7 +715,7 @@ export function ChallengeComparison({
                     viewMode === "cards" ? "border-white/10 bg-white/[0.05] text-white/70" : "border-gray-200 bg-gray-50 text-gray-700"
                   )}
                 >
-                  <Check size={13} strokeWidth={3} className="shrink-0 text-[#894CEF]" />
+                  <Check size={13} strokeWidth={3} className="shrink-0 text-[#A98BFF]" />
                   {c}
                 </span>
               ))}

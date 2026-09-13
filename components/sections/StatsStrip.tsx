@@ -45,7 +45,7 @@ export function StatsStrip() {
                 className="h-14 w-14 shrink-0 object-contain transition-transform duration-200 group-hover:scale-110 sm:h-16 sm:w-16"
               />
               <div className="text-left">
-                <div className="font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#894CEF] transition-colors duration-150">
+                <div className="font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#A98BFF] transition-colors duration-150">
                   <CountUp value={stat.value} />
                 </div>
                 <div className="text-[11.5px] sm:text-xs font-medium text-[#999BA3] leading-tight">

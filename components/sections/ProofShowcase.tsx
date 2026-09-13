@@ -313,7 +313,7 @@ function BrowserWindow({
       >
         <div className="relative overflow-hidden rounded-2xl border border-[#703AD7]/30 bg-[#0b1328]/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_20px_50px_-15px_rgba(3,10,28,0.6)]">
           <div className="relative z-10 pr-16 sm:pr-20">
-            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#7943E0]">
+            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-[#A98BFF]">
               {t("totalPayouts")}
             </p>
             <p className="mt-1 font-[family-name:var(--font-jakarta)] text-2xl xs:text-3xl sm:text-[32px] font-black leading-none tracking-tight text-[#0A0A0C] tabular-nums">

@@ -90,7 +90,7 @@ export function Hero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#A98BFF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <BarChart2 size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
@@ -109,7 +109,7 @@ export function Hero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#A98BFF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <Coins size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
@@ -128,7 +128,7 @@ export function Hero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#080E24]/80 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 shadow-sm hover:border-[#894CEF]/40 hover:shadow-[0_0_16px_rgba(1,162,239,0.15)] transition-all duration-200 cursor-default"
               >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#894CEF]/15 text-[#A98BFF] group-hover:bg-[#894CEF] group-hover:text-black transition-colors duration-200">
                   <Zap size={15} strokeWidth={2.5} />
                 </div>
                 <div className="text-left leading-tight">
