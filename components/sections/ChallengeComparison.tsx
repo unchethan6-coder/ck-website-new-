@@ -53,23 +53,7 @@ export function ChallengeComparison({
 
   const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
-  // On small screens the account-size cards are a horizontal scroller. Bring the
-  // selected card to the gutter when the user switches — but not on first paint,
-  // which would leave the row mid-scrolled with a card sliced off each edge.
-  const didMountRef = useRef(false);
-  useEffect(() => {
-    if (typeof window === "undefined" || window.innerWidth >= 640) return;
-    const el = document.querySelector<HTMLElement>(`[data-od-id="challenge-card-${selectedSize}"]`);
-    if (!el) return;
-    // Align to the gutter (never centred, which slices a card off each edge).
-    // Instant on first paint so the row doesn't visibly slide on load.
-    el.scrollIntoView({
-      behavior: didMountRef.current ? "smooth" : "auto",
-      block: "nearest",
-      inline: "start",
-    });
-    didMountRef.current = true;
-  }, [selectedSize, selectedType]);
+
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -326,7 +310,7 @@ export function ChallengeComparison({
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={{ show: { transition: { staggerChildren: 0.06 } } }}
-              className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-2 [mask-image:linear-gradient(to_right,transparent_0,#000_18px,#000_calc(100%-26px),transparent_100%)] sm:[mask-image:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:scroll-pl-0 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+              className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4">
               {challengeTypes.map((tItem) => {
                 const isSelected = selectedType === tItem.id;
                 return (
@@ -342,7 +326,7 @@ export function ChallengeComparison({
                       }
                     }}
                     className={cn(
-                      "min-w-[80%] snap-start rounded-xl border p-4 text-left transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
+                      "rounded-xl border px-4 py-3 text-left sm:p-4 transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
                       isSelected && "scale-[1.015]",
                       viewMode === "cards"
                         ? isSelected
@@ -372,7 +356,7 @@ export function ChallengeComparison({
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={{ show: { transition: { staggerChildren: 0.05 } } }}
-              className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-3 pt-1 [mask-image:linear-gradient(to_right,transparent_0,#000_18px,#000_calc(100%-26px),transparent_100%)] sm:[mask-image:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-4 sm:scroll-pl-0 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-7">
+              className="grid grid-cols-2 gap-2.5 pb-16 sm:grid-cols-4 sm:gap-3 sm:pb-0 lg:grid-cols-7">
               {accountSizes.map((size) => {
                 const data = rawData[size]?.[selectedType];
                 const isSelected = size === selectedSize;
@@ -393,7 +377,7 @@ export function ChallengeComparison({
                     }}
                     data-od-id={`challenge-card-${size}`}
                     className={cn(
-                      "relative min-w-[74%] snap-start rounded-2xl border bg-[#171820] p-5 pt-9 text-left sm:pt-3.5 transition-all duration-200 sm:min-h-28 sm:min-w-0 sm:rounded-xl sm:p-3.5",
+                      "relative rounded-2xl border bg-[#171820] p-3.5 pt-7 text-left transition-all duration-200 sm:min-h-28 sm:rounded-xl sm:pt-3.5",
                       isDisabled
                         ? "opacity-30 cursor-not-allowed pointer-events-none border-white/10"
                         : "cursor-pointer hover:bg-[#1D1E29]",
@@ -403,19 +387,19 @@ export function ChallengeComparison({
                     )}
                   >
                     {size === "100K" && (
-                      <span className="absolute right-3 top-3 z-10 rounded-full bg-[#894CEF] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm sm:-top-2 sm:right-2 sm:px-1.5">
+                      <span className="absolute right-2 top-2 z-10 rounded-full bg-[#894CEF] px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white shadow-sm sm:-top-2 sm:text-[9px]">
                         {t("popular") || "Popular"}
                       </span>
                     )}
                     <div className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/65">
                       {t("account") || "Account"}
                     </div>
-                    <div className="mb-2 text-2xl font-extrabold text-white sm:mb-1.5 sm:text-lg sm:font-bold">
+                    <div className="mb-1.5 text-xl font-extrabold text-white sm:text-lg sm:font-bold">
                       ${size}
                     </div>
                     <div className="flex flex-col gap-0.5">
                       <span className="text-[9px] font-bold uppercase tracking-wider text-white/65">Today</span>
-                      <span className="text-base font-extrabold text-emerald-400 sm:text-xs">
+                      <span className="text-sm font-extrabold text-emerald-400 sm:text-xs">
                         {data ? formatMoney(data.disc) : "N/A"}
                       </span>
                       {data && (
@@ -432,7 +416,7 @@ export function ChallengeComparison({
           </SectionReveal>
 
           {viewMode === "cards" && activePlan && (
-            <div className="sticky bottom-3 z-40 mx-1 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
+            <div className="sticky bottom-3 z-40 -mt-14 mb-2 flex items-center justify-between gap-3 rounded-2xl sm:mx-1 sm:mt-0 sm:mb-0 border border-white/15 bg-[#080B18]/95 p-3 shadow-[0_14px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl lg:hidden">
               <div className="min-w-0">
                 <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/65">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
