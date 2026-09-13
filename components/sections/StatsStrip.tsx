@@ -2,38 +2,17 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { Users, Globe, DollarSign, ShieldCheck, Headphones } from "lucide-react";
 import { CountUp } from "@/components/fx/CountUp";
 
 export function StatsStrip() {
   const t = useTranslations("trustStats");
 
   const stats = [
-    {
-      icon: Users,
-      value: "20,000+",
-      label: t("activeTraders"),
-    },
-    {
-      icon: Globe,
-      value: t("worldwide"),
-      label: t("globalReach"),
-    },
-    {
-      icon: DollarSign,
-      value: "$1.2M+",
-      label: t("payoutsTotal"),
-    },
-    {
-      icon: ShieldCheck,
-      value: "100%",
-      label: t("secureTransparent"),
-    },
-    {
-      icon: Headphones,
-      value: "24/7",
-      label: t("traderSupport"),
-    },
+    { art: "/images/stats/traders.png", value: "20,000+", label: t("activeTraders") },
+    { art: "/images/stats/worldwide.png", value: t("worldwide"), label: t("globalReach") },
+    { art: "/images/stats/payouts.png", value: "$1.2M+", label: t("payoutsTotal") },
+    { art: "/images/stats/secure.png", value: "100%", label: t("secureTransparent") },
+    { art: "/images/stats/support.png", value: "24/7", label: t("traderSupport") },
   ];
 
   return (
@@ -54,9 +33,17 @@ export function StatsStrip() {
                 i === 4 ? "col-span-2 sm:col-span-1 justify-center sm:justify-start" : ""
               }`}
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#894CEF]/25 bg-[#894CEF]/10 text-[#894CEF] group-hover:border-[#894CEF]/60 group-hover:bg-[#894CEF]/20 group-hover:shadow-[0_0_15px_rgba(137,76,239,0.3)] transition-all duration-200">
-                <stat.icon size={22} strokeWidth={1.75} />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={stat.art}
+                alt=""
+                aria-hidden="true"
+                width={224}
+                height={200}
+                loading="lazy"
+                decoding="async"
+                className="h-14 w-14 shrink-0 object-contain transition-transform duration-200 group-hover:scale-110 sm:h-16 sm:w-16"
+              />
               <div className="text-left">
                 <div className="font-[family-name:var(--font-jakarta)] text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#894CEF] transition-colors duration-150">
                   <CountUp value={stat.value} />
