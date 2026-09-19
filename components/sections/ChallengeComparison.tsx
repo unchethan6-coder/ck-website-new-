@@ -19,6 +19,13 @@ import { cn } from "@/lib/utils";
 
 const accountSizes = ["5K", "10K", "25K", "50K", "100K", "200K", "300K"];
 
+/** Multi-account pricing: buying more than one evaluation discounts each one. */
+const QUANTITY_TIERS = [
+  { n: 1, off: 0, label: "1st account" },
+  { n: 2, off: 10, label: "2nd account" },
+  { n: 3, off: 15, label: "3rd account" },
+] as const;
+
 /** Stagger variant for the horizontal card rows. The parent row drives the
  *  timing: per-item whileInView would leave every card that starts outside
  *  the viewport horizontally stuck at opacity 0 on phones. */
@@ -50,6 +57,7 @@ export function ChallengeComparison({
   const [selectedSize, setSelectedSize] = useState<string>("100K");
   const [isPercentage, setIsPercentage] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
+  const [quantity, setQuantity] = useState<number>(1);
 
   const currencyDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -130,6 +138,20 @@ export function ChallengeComparison({
     })}`;
   };
 
+  const formatAmount = (value: number) =>
+    `${currency.symbol}${(value * currency.rate).toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
+
+  /** Per-account price for a quantity tier, before currency conversion. */
+  const tierPrice = (tier: number) => {
+    const base = parseFloat((activePlan?.disc || "$0").replace(/[$,]/g, ""));
+    if (!Number.isFinite(base)) return 0;
+    const off = QUANTITY_TIERS.find((q) => q.n === tier)?.off ?? 0;
+    return base * (1 - off / 100);
+  };
+
   const discountPercent = (plan?: PlanDetails | null) => {
     if (!plan) return 0;
     const original = Number(plan.orig.replace(/[$,]/g, ""));
@@ -160,9 +182,10 @@ export function ChallengeComparison({
       plan: selectedType,
       size: selectedSize,
       currency: selectedCurrency,
+      qty: String(quantity),
     });
     return `https://app.ckcapital.co.uk/signup?${params.toString()}`;
-  }, [selectedType, selectedSize, selectedCurrency]);
+  }, [selectedType, selectedSize, selectedCurrency, quantity]);
 
   const signupUrlForSize = (size: string) => {
     const params = new URLSearchParams({
@@ -416,7 +439,7 @@ export function ChallengeComparison({
               <div className="min-w-0">
                 <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/80">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
-                <p className="text-sm font-black text-emerald-400">{formatMoney(activePlan.disc)}</p>
+                <p className="text-sm font-black text-emerald-400">{formatAmount(tierPrice(quantity))}<span className="ml-1 text-[10px] font-bold text-white/65">{quantity > 1 ? `× ${quantity}` : ""}</span></p>
               </div>
               <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-[#1A1030]">
                 Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -530,7 +553,7 @@ export function ChallengeComparison({
                     </div>
                     <div className="text-right">
                       <div className="text-2xl font-extrabold text-emerald-400 sm:text-3xl">
-                        {formatMoney(activePlan?.disc || "$0.00")}
+                        {formatAmount(tierPrice(quantity))}
                       </div>
                       <div className="text-xs text-white/55 line-through font-normal">
                         {formatMoney(activePlan?.orig)}
@@ -548,6 +571,53 @@ export function ChallengeComparison({
                       <span>Scaling Ceiling</span>
                       <span className="font-bold text-white">Up to $1,200,000</span>
                     </div>
+                  </div>
+
+                  {/* Quantity — each additional account is discounted */}
+                  <div className="mt-4 border-t border-white/10 pt-4">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-white/65">
+                      {t("quantity") || "Quantity"}
+                    </span>
+                    <div className="mt-2 flex flex-col gap-1" role="radiogroup" aria-label="Number of accounts">
+                      {QUANTITY_TIERS.map((tier) => {
+                        const isActive = quantity === tier.n;
+                        return (
+                          <button
+                            key={tier.n}
+                            type="button"
+                            role="radio"
+                            aria-checked={isActive}
+                            onClick={() => setQuantity(tier.n)}
+                            className={cn(
+                              "flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left transition-colors",
+                              isActive ? "bg-white/[0.07]" : "hover:bg-white/[0.04]"
+                            )}
+                          >
+                            <Check
+                              size={14}
+                              strokeWidth={3}
+                              className={cn("shrink-0", isActive ? "text-emerald-400" : "text-white/30")}
+                            />
+                            <span className={cn("text-sm font-bold", isActive ? "text-white" : "text-white/55")}>
+                              {tier.label}
+                            </span>
+                            <span className="ml-auto flex items-center gap-2">
+                              {tier.off > 0 && (
+                                <span className="rounded bg-amber-400/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                                  {tier.off}% off
+                                </span>
+                              )}
+                              <span className={cn("text-sm font-bold tabular-nums", isActive ? "text-white" : "text-white/55")}>
+                                {formatAmount(tierPrice(tier.n))}
+                              </span>
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <p className="mt-2 text-[10px] leading-4 text-white/55">
+                      Discount applies per account when you buy more than one in the same order.
+                    </p>
                   </div>
                 </div>
 
