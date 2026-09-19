@@ -328,19 +328,15 @@ export function ChallengeComparison({
                     className={cn(
                       "rounded-xl border px-4 py-3 text-left sm:p-4 transition-all duration-300 ease-out cursor-pointer hover:-translate-y-0.5 sm:min-w-0",
                       isSelected && "scale-[1.015]",
-                      viewMode === "cards"
-                        ? isSelected
-                          ? "border-[#894CEF] bg-[#21184F] shadow-[0_0_18px_rgba(137,76,239,0.22)] ring-1 ring-[#894CEF]"
-                          : "border-white/10 bg-[#171820] hover:border-[#703AD7]/60 hover:bg-[#1D1E29]"
-                        : isSelected
-                          ? "border-[#703AD7] bg-[#EBF5FF]/60 shadow-[0_0_16px_rgba(112,58,215,0.2)] ring-1 ring-[#703AD7]"
-                          : "border-[#D9D9D9] bg-white hover:bg-[#F9FAFB] hover:border-gray-300"
+                      isSelected
+                        ? "border-[#894CEF] bg-[#21184F] shadow-[0_0_18px_rgba(137,76,239,0.22)] ring-1 ring-[#894CEF]"
+                        : "border-white/10 bg-[#171820] hover:border-[#703AD7]/60 hover:bg-[#1D1E29]"
                     )}
                   >
-                    <h3 className={cn("mb-1 text-sm font-bold", viewMode === "cards" ? "text-white" : "text-[#0A0A0C]")}>
+                    <h3 className="mb-1 text-sm font-bold text-white">
                       {tItem.name}
                     </h3>
-                    <p className={cn("text-xs leading-relaxed", viewMode === "cards" ? (isSelected ? "text-white/85" : "text-white/70") : "text-gray-600")}>
+                    <p className={cn("text-xs leading-relaxed", isSelected ? "text-white/85" : "text-white/70")}>
                       {tItem.desc}
                     </p>
                   </motion.div>
@@ -646,11 +642,11 @@ export function ChallengeComparison({
                           <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500">Account</span>
                           <strong className="mt-0.5 block text-lg text-[#0A0A0C]">${size}</strong>
                           <span className="mt-1.5 block text-[8px] font-bold uppercase tracking-wider text-gray-400">Today</span>
-                          <span className="block text-xs font-extrabold text-[#A98BFF]">{plan ? formatMoney(plan.disc) : "N/A"}</span>
+                          <span className="block text-xs font-extrabold text-white">{plan ? formatMoney(plan.disc) : "N/A"}</span>
                           {plan && (
                             <span className="block text-[9px] text-gray-400">
                               was <span className="line-through">{formatMoney(plan.orig)}</span>
-                              {discountPercent(plan) > 0 && <span className="ml-1 font-bold text-[#9A6B14]">Save {discountPercent(plan)}%</span>}
+                              {discountPercent(plan) > 0 && <span className="ml-1 font-bold text-amber-300">Save {discountPercent(plan)}%</span>}
                             </span>
                           )}
                         </button>
