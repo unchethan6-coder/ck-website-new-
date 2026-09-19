@@ -585,11 +585,11 @@ export function ChallengeComparison({
                   </div>
 
                   {/* Quantity — each additional account is discounted */}
-                  <div className="mt-4 border-t border-white/10 pt-4">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white/65">
+                  <div className="mt-3 border-t border-white/10 pt-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/65">
                       {t("quantity") || "Quantity"}
                     </span>
-                    <div className="mt-2 flex flex-col gap-1" aria-label="Number of accounts">
+                    <div className="mt-1.5 flex flex-col gap-0.5" aria-label="Number of accounts">
                       {QUANTITY_TIERS.map((tier) => {
                         const isActive = tier.n <= quantity;
                         return (
@@ -599,25 +599,25 @@ export function ChallengeComparison({
                             aria-pressed={isActive}
                             onClick={() => setQuantity(tier.n)}
                             className={cn(
-                              "flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left transition-colors",
+                              "flex min-h-9 w-full items-center gap-2 rounded-lg px-2 py-1 text-left transition-colors",
                               isActive ? "bg-white/[0.07]" : "hover:bg-white/[0.04]"
                             )}
                           >
                             <Check
-                              size={14}
+                              size={12}
                               strokeWidth={3}
                               className={cn("shrink-0", isActive ? "text-emerald-400" : "text-white/30")}
                             />
-                            <span className={cn("text-sm font-bold", isActive ? "text-white" : "text-white/55")}>
+                            <span className={cn("text-xs font-bold", isActive ? "text-white" : "text-white/55")}>
                               {tier.label}
                             </span>
                             <span className="ml-auto flex items-center gap-2">
                               {tier.off > 0 && (
-                                <span className="rounded bg-amber-400/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                                <span className="rounded bg-amber-400/15 px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-amber-300">
                                   {tier.off}% off
                                 </span>
                               )}
-                              <span className={cn("text-sm font-bold tabular-nums", isActive ? "text-white" : "text-white/55")}>
+                              <span className={cn("text-xs font-bold tabular-nums", isActive ? "text-white" : "text-white/55")}>
                                 {formatAmount(tierPrice(tier.n))}
                               </span>
                             </span>
@@ -625,7 +625,7 @@ export function ChallengeComparison({
                         );
                       })}
                     </div>
-                    <p className="mt-2 text-[10px] leading-4 text-white/55">
+                    <p className="mt-1.5 text-[9px] leading-[1.4] text-white/55">
                       Discount applies per account when you buy more than one in the same order.
                     </p>
                   </div>
