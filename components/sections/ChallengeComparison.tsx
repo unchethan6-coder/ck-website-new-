@@ -152,6 +152,10 @@ export function ChallengeComparison({
     return base * (1 - off / 100);
   };
 
+  /** Order total: every account up to the chosen quantity, each at its tier price. */
+  const orderTotal = (qty: number) =>
+    QUANTITY_TIERS.filter((q) => q.n <= qty).reduce((sum, q) => sum + tierPrice(q.n), 0);
+
   const discountPercent = (plan?: PlanDetails | null) => {
     if (!plan) return 0;
     const original = Number(plan.orig.replace(/[$,]/g, ""));
@@ -439,7 +443,7 @@ export function ChallengeComparison({
               <div className="min-w-0">
                 <p className="truncate text-[10px] font-bold uppercase tracking-wider text-white/80">Selected plan</p>
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
-                <p className="text-sm font-black text-emerald-400">{formatAmount(tierPrice(quantity))}<span className="ml-1 text-[10px] font-bold text-white/65">{quantity > 1 ? `× ${quantity}` : ""}</span></p>
+                <p className="text-sm font-black text-emerald-400">{formatAmount(orderTotal(quantity))}<span className="ml-1 text-[10px] font-bold text-white/65">{quantity > 1 ? `· ${quantity} accounts` : ""}</span></p>
               </div>
               <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-[#1A1030]">
                 Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -553,10 +557,17 @@ export function ChallengeComparison({
                     </div>
                     <div className="text-right">
                       <div className="text-2xl font-extrabold text-emerald-400 sm:text-3xl">
-                        {formatAmount(tierPrice(quantity))}
+                        {formatAmount(orderTotal(quantity))}
                       </div>
-                      <div className="text-xs text-white/55 line-through font-normal">
-                        {formatMoney(activePlan?.orig)}
+                      <div className="text-xs text-white/55 font-normal">
+                        <span className="line-through">
+                          {formatAmount(
+                            parseFloat((activePlan?.orig || "$0").replace(/[$,]/g, "")) * quantity
+                          )}
+                        </span>
+                        {quantity > 1 && (
+                          <span className="ml-1.5 font-bold text-white/80">{quantity} accounts</span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -578,15 +589,14 @@ export function ChallengeComparison({
                     <span className="text-[11px] font-bold uppercase tracking-wider text-white/65">
                       {t("quantity") || "Quantity"}
                     </span>
-                    <div className="mt-2 flex flex-col gap-1" role="radiogroup" aria-label="Number of accounts">
+                    <div className="mt-2 flex flex-col gap-1" aria-label="Number of accounts">
                       {QUANTITY_TIERS.map((tier) => {
-                        const isActive = quantity === tier.n;
+                        const isActive = tier.n <= quantity;
                         return (
                           <button
                             key={tier.n}
                             type="button"
-                            role="radio"
-                            aria-checked={isActive}
+                            aria-pressed={isActive}
                             onClick={() => setQuantity(tier.n)}
                             className={cn(
                               "flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left transition-colors",
@@ -622,18 +632,43 @@ export function ChallengeComparison({
                 </div>
 
                 <div className="space-y-4">
-                  {/* CTA Button */}
-                  <a
-                    href={signupUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full"
-                  >
-                    <button type="button" className="brand-pill-btn w-full gap-2 font-bold text-[#1A1030] shadow-lg hover:shadow-cyan-500/25">
-                      <span>{t("startChallenge") || "Start Challenge"}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </a>
+                  {/* Quantity stepper + CTA */}
+                  <div className="flex items-stretch gap-2.5">
+                    <div className="flex shrink-0 items-center rounded-full border border-[#E7C66B]/60 bg-white/[0.04]">
+                      <button
+                        type="button"
+                        aria-label="Decrease quantity"
+                        disabled={quantity <= 1}
+                        onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                        className="grid h-11 w-9 place-items-center rounded-l-full text-lg font-bold text-white/80 transition-colors hover:text-white disabled:cursor-not-allowed disabled:text-white/25"
+                      >
+                        −
+                      </button>
+                      <span aria-live="polite" className="w-6 text-center text-sm font-extrabold tabular-nums text-white">
+                        {quantity}
+                      </span>
+                      <button
+                        type="button"
+                        aria-label="Increase quantity"
+                        disabled={quantity >= QUANTITY_TIERS.length}
+                        onClick={() => setQuantity((q) => Math.min(QUANTITY_TIERS.length, q + 1))}
+                        className="grid h-11 w-9 place-items-center rounded-r-full text-lg font-bold text-white/80 transition-colors hover:text-white disabled:cursor-not-allowed disabled:text-white/25"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <a
+                      href={signupUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block min-w-0 flex-1"
+                    >
+                      <button type="button" className="brand-pill-btn w-full gap-2 font-bold text-[#1A1030] shadow-lg hover:shadow-cyan-500/25">
+                        <span>{t("startChallenge") || "Start Challenge"}</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </a>
+                  </div>
 
                   {/* Add-ons */}
                   <div className="flex flex-col gap-2">
