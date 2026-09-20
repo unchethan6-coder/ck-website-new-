@@ -232,7 +232,8 @@
     "revealSizes": "Mostrar todos los tamaños de cuenta",
     "more": "+{count} más",
     "oneTimePaymentNotice": "Cada tarifa de evaluación es un pago único: sin suscripciones, sin cargos recurrentes y sin comisiones ocultas.",
-    "quantity": "Cantidad"
+    "quantity": "Cantidad",
+    "showAmounts": "Mostrar importes en $"
   },
   "platforms": {
     "eyebrow": "Plataformas",

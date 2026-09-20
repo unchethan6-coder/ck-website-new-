@@ -236,7 +236,8 @@
     "revealSizes": "Alle Kontogrößen anzeigen",
     "more": "+{count} mehr",
     "oneTimePaymentNotice": "Jede Evaluierungsgebühr ist eine einmalige Zahlung – kein Abo, keine wiederkehrenden Kosten, keine versteckten Gebühren.",
-    "quantity": "Anzahl"
+    "quantity": "Anzahl",
+    "showAmounts": "Beträge in $ anzeigen"
   },
   "platforms": {
     "eyebrow": "Plattformen",

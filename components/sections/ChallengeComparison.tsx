@@ -55,7 +55,7 @@ export function ChallengeComparison({
   const [isCurrencyOpen, setIsCurrencyOpen] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useState<string>("standard");
   const [selectedSize, setSelectedSize] = useState<string>("100K");
-  const [isPercentage, setIsPercentage] = useState<boolean>(false);
+  const [isPercentage, setIsPercentage] = useState<boolean>(true);
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -462,12 +462,12 @@ export function ChallengeComparison({
                 <div className="flex items-center justify-between border-b border-white/10 pb-3.5">
                   <div className="flex items-center gap-2.5 text-xs font-semibold text-white">
                     <Percent className="w-4 h-4 text-[#A98BFF]" />
-                    <span>{t("showPercentage") || "Show Percentage"}</span>
+                    <span>{t("showAmounts") || "Show $ Amounts"}</span>
                     <label className="relative inline-block w-9 h-5 cursor-pointer ml-1">
                       <input
                         type="checkbox"
-                        checked={isPercentage}
-                        onChange={(e) => setIsPercentage(e.target.checked)}
+                        checked={!isPercentage}
+                        onChange={(e) => setIsPercentage(!e.target.checked)}
                         className="sr-only peer"
                       />
                       <span className="absolute inset-0 bg-[#E5E5E5] peer-checked:bg-[#703AD7] rounded-full transition-all duration-300"></span>
@@ -718,8 +718,8 @@ export function ChallengeComparison({
                   </div>
                   <label className="flex cursor-pointer items-center gap-2 text-xs font-semibold text-[#0A0A0C]">
                     <Percent className="h-4 w-4 text-[#A98BFF]" />
-                    <span>{t("showPercentage") || "Show Percentage"}</span>
-                    <input type="checkbox" checked={isPercentage} onChange={(event) => setIsPercentage(event.target.checked)} className="peer sr-only" />
+                    <span>{t("showAmounts") || "Show $ Amounts"}</span>
+                    <input type="checkbox" checked={!isPercentage} onChange={(event) => setIsPercentage(!event.target.checked)} className="peer sr-only" />
                     <span className="relative h-5 w-9 rounded-full bg-[#E5E5E5] transition-colors peer-checked:bg-[#703AD7] after:absolute after:bottom-[3px] after:left-[3px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-white after:shadow-sm after:transition-transform peer-checked:after:translate-x-4" />
                   </label>
                 </div>

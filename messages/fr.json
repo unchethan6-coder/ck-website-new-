@@ -236,7 +236,8 @@
     "revealSizes": "Afficher toutes les tailles de compte",
     "more": "+{count} de plus",
     "oneTimePaymentNotice": "Chaque frais d'évaluation est un paiement unique : aucun abonnement, aucun prélèvement récurrent, aucuns frais cachés.",
-    "quantity": "Quantité"
+    "quantity": "Quantité",
+    "showAmounts": "Afficher les montants en $"
   },
   "platforms": {
     "eyebrow": "Plateformes",

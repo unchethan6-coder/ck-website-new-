@@ -232,7 +232,8 @@
     "revealSizes": "Mostrar todos os tamanhos de conta",
     "more": "+{count} mais",
     "oneTimePaymentNotice": "Cada taxa de avaliação é um pagamento único — sem assinaturas, sem cobranças recorrentes e sem taxas ocultas.",
-    "quantity": "Quantidade"
+    "quantity": "Quantidade",
+    "showAmounts": "Mostrar valores em $"
   },
   "platforms": {
     "eyebrow": "Plataformas",
