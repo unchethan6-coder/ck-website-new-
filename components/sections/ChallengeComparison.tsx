@@ -502,7 +502,11 @@ export function ChallengeComparison({
                       <li className="flex justify-between items-center border-b border-gray-100 pb-2">
                         <span className="text-gray-600 font-normal">{t("minTradingDays") || "Min. Trading Days"}</span>
                         <span className="font-bold text-[#0A0A0C]">
-                          {activePlan?.minDays ? `${activePlan.minDays} ${t("day") || "Day"}` : "-"}
+                          {!activePlan?.minDays
+                            ? "-"
+                            : /^\d+$/.test(activePlan.minDays)
+                              ? `${activePlan.minDays} ${t("day") || "Day"}`
+                              : activePlan.minDays}
                         </span>
                       </li>
                       <li className="flex justify-between items-center">
