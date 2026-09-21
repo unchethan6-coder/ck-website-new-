@@ -84,7 +84,7 @@ export function ChallengeComparison({
     const rawType = searchParams.get("type") || searchParams.get("plan");
     if (rawType) {
       const normalizedType = rawType === "one-step" ? "1step" : rawType;
-      if (["standard", "1step", "instant", "middleweight"].includes(normalizedType)) {
+      if (["standard", "1step", "instant"].includes(normalizedType)) {
         setSelectedType(normalizedType);
       }
     }
@@ -208,7 +208,7 @@ export function ChallengeComparison({
     { label: t("phase2Target") || "Phase 2 Target", value: (plan, size) => formatValue(plan.p2, size) },
     { label: t("maxDailyLoss") || "Max Daily Loss", value: (plan, size) => formatValue(plan.dailyLoss, size) },
     { label: t("maxLoss") || "Max Loss", value: (plan, size) => formatValue(plan.maxLoss, size) },
-    { label: t("minTradingDays") || "Min. Trading Days", value: (plan) => `${plan.minDays} ${t("day") || "Day"}` },
+    { label: t("minTradingDays") || "Min. Trading Days", value: (plan) => (/^\d+$/.test(plan.minDays) ? `${plan.minDays} ${t("day") || "Day"}` : plan.minDays) },
     { label: t("consistencyRule") || "Consistency", value: (plan) => plan.consistency || "-" },
     { label: t("tradingPeriod") || "Trading Period", value: (plan) => plan.period || "-" },
     { label: t("profitSplit1") || "Profit Split (1–13 Days)", value: (plan) => plan.split1 || "-" },
@@ -676,7 +676,7 @@ export function ChallengeComparison({
                       {t("addOnsAvailable") || "Add-Ons Available"}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {["Lifetime Reward 90%", "Reward 95%", "Double Lev", "+4 more"].map(
+                      {["24 Hour Payout +25%", "No Consistency Score (2-Step) +70%"].map(
                         (addon) => (
                           <span
                             key={addon}
