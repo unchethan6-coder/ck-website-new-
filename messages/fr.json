@@ -928,7 +928,9 @@
     "termsBadge": "À Lire Attentivement",
     "termsTitle": "Conditions Générales",
     "riskBadge": "À Lire Avant de Trader",
-    "riskTitle": "Avertissement sur les Risques"
+    "riskTitle": "Avertissement sur les Risques",
+    "onThisPage": "Sur cette page",
+    "lastUpdated": "Dernière mise à jour : {date}"
   },
   "tradingObjectives": {
     "heroBadge": "CK CAPITAL TRADING OBJECTIVES",

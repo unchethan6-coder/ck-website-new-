@@ -928,7 +928,9 @@
     "termsBadge": "Bitte Sorgfältig Lesen",
     "termsTitle": "Allgemeine Geschäftsbedingungen",
     "riskBadge": "Vor dem Traden Lesen",
-    "riskTitle": "Risikohinweis-Erklärung"
+    "riskTitle": "Risikohinweis-Erklärung",
+    "onThisPage": "Auf dieser Seite",
+    "lastUpdated": "Zuletzt aktualisiert: {date}"
   },
   "tradingObjectives": {
     "heroBadge": "CK CAPITAL TRADING OBJECTIVES",

@@ -928,7 +928,9 @@
     "termsBadge": "يرجى القراءة بعناية",
     "termsTitle": "الشروط والأحكام",
     "riskBadge": "اقرأ قبل البدء بالتداول",
-    "riskTitle": "بيان الإفصاح عن المخاطر"
+    "riskTitle": "بيان الإفصاح عن المخاطر",
+    "onThisPage": "في هذه الصفحة",
+    "lastUpdated": "آخر تحديث: {date}"
   },
   "tradingObjectives": {
     "heroBadge": "CK CAPITAL TRADING OBJECTIVES",

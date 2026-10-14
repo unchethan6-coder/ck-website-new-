@@ -897,7 +897,9 @@
     "termsBadge": "Please Read Carefully",
     "termsTitle": "Terms & Conditions",
     "riskBadge": "Read Before You Trade",
-    "riskTitle": "Risk Disclosure Statement"
+    "riskTitle": "Risk Disclosure Statement",
+    "onThisPage": "On this page",
+    "lastUpdated": "Last updated: {date}"
   },
   "tradingObjectives": {
     "heroBadge": "CK CAPITAL TRADING OBJECTIVES",

@@ -928,7 +928,9 @@
     "termsBadge": "कृपया ध्यान से पढ़ें",
     "termsTitle": "नियम और शर्तें",
     "riskBadge": "ट्रेडिंग से पहले पढ़ें",
-    "riskTitle": "जोखिम प्रकटीकरण विवरण"
+    "riskTitle": "जोखिम प्रकटीकरण विवरण",
+    "onThisPage": "इस पेज पर",
+    "lastUpdated": "अंतिम अपडेट: {date}"
   },
   "tradingObjectives": {
     "heroBadge": "CK CAPITAL TRADING OBJECTIVES",

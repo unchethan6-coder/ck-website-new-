@@ -898,7 +898,9 @@
     "termsBadge": "Por Favor Lee Atentamente",
     "termsTitle": "Términos y Condiciones",
     "riskBadge": "Lee Antes de Operar",
-    "riskTitle": "Declaración de Riesgos"
+    "riskTitle": "Declaración de Riesgos",
+    "onThisPage": "En esta página",
+    "lastUpdated": "Última actualización: {date}"
   },
   "tradingObjectives": {
     "heroBadge": "OBJETIVOS DE TRADING DE CK CAPITAL",
