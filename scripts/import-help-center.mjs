@@ -31,8 +31,13 @@ async function pageProps(url) {
 /** "https://…/articles/13585985-what-is-ck-prop-firm" → "what-is-ck-prop-firm" */
 const slugOf = (url) => url.replace(/[?#].*$/, "").replace(/\/$/, "").split("/").pop().replace(/^\d+-/, "");
 
+/** Contact addresses in the articles that the site publishes differently. */
+const CONTACT_EMAIL = "admin@ckpropfirm.com";
+const rewriteEmail = (text) => text.replace(/[\w.+-]+@ckcapital\.co\.uk/gi, CONTACT_EMAIL);
+
 const ENTITIES = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'", "&nbsp;": " " };
-const decode = (s) => s.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (e) => ENTITIES[e]).replace(/​/g, "");
+const decode = (s) =>
+  rewriteEmail(s.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (e) => ENTITIES[e]).replace(/\u200b/g, ""));
 
 /** Inline HTML (b, i, a, br) → runs of { t, b?, i?, href?, br? }. */
 function inline(html) {
