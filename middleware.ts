@@ -62,8 +62,44 @@ function countryToLocale(country: string | null | undefined): string {
   return defaultLocale;
 }
 
+/**
+ * HTTP Basic Auth for the leads admin (/{locale}/admin/...).
+ * Credentials come from LEADS_ADMIN_USER (default "admin") and
+ * LEADS_ADMIN_PASSWORD. With no password set the admin does not exist.
+ */
+function guardAdmin(request: NextRequest): NextResponse | null {
+  const password = process.env.LEADS_ADMIN_PASSWORD;
+  if (!password) return new NextResponse("Not found", { status: 404 });
+  const user = process.env.LEADS_ADMIN_USER || "admin";
+  const header = request.headers.get("authorization") ?? "";
+  if (header.startsWith("Basic ")) {
+    try {
+      const [u, ...rest] = atob(header.slice(6)).split(":");
+      if (safeEqual(u, user) && safeEqual(rest.join(":"), password)) return null;
+    } catch {
+      /* malformed header: challenge again */
+    }
+  }
+  return new NextResponse("Authentication required", {
+    status: 401,
+    headers: { "WWW-Authenticate": 'Basic realm="CK leads", charset="UTF-8"', "Cache-Control": "no-store" },
+  });
+}
+
+/** Compares without exiting early, so timing does not reveal how much matched. */
+function safeEqual(a: string, b: string): boolean {
+  let diff = a.length ^ b.length;
+  for (let i = 0; i < Math.max(a.length, b.length); i++) diff |= (a.charCodeAt(i) || 0) ^ (b.charCodeAt(i) || 0);
+  return diff === 0;
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (/^\/[a-z]{2}\/admin(\/|$)/.test(pathname)) {
+    const denied = guardAdmin(request);
+    if (denied) return denied;
+  }
 
   // Prefixed paths (explicit user intent) go straight to next-intl.
   const hasPrefix = locales.some(

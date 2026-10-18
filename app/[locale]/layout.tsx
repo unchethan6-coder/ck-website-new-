@@ -14,6 +14,7 @@ import { getActiveBanners } from "@/lib/cms";
 import { routing } from "@/i18n/routing";
 import { getLocaleMeta } from "@/i18n/locales";
 import { ScrollHandler } from "@/components/shared/ScrollHandler";
+import { SiteChrome } from "@/components/shared/SiteChrome";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -151,12 +152,18 @@ export default async function LocaleLayout({
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollHandler />
-          <TopNav />
-          <AnnouncementBar banners={bannerTexts} />
+          <SiteChrome>
+            <TopNav />
+            <AnnouncementBar banners={bannerTexts} />
+          </SiteChrome>
           <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <SiteChrome>
+            <SiteFooter />
+          </SiteChrome>
           <CookieConsent />
-          <SupportWidget />
+          <SiteChrome>
+            <SupportWidget />
+          </SiteChrome>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
