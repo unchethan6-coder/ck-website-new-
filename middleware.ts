@@ -63,27 +63,37 @@ function countryToLocale(country: string | null | undefined): string {
 }
 
 /**
- * HTTP Basic Auth for the leads admin (/{locale}/admin/...).
- * Credentials come from LEADS_ADMIN_USER (default "admin") and
- * LEADS_ADMIN_PASSWORD. With no password set the admin does not exist.
+ * Access to the leads admin (/{locale}/admin/...) is by private link: open
+ * /en/admin/leads?key=<LEADS_ADMIN_KEY> once and a cookie keeps that browser
+ * signed in for 30 days. The key is taken out of the address bar straight
+ * away. Without the key or the cookie the admin answers 404, as it does when
+ * LEADS_ADMIN_KEY is not set.
  */
+const ADMIN_COOKIE = "ck-admin";
+
 function guardAdmin(request: NextRequest): NextResponse | null {
-  const password = process.env.LEADS_ADMIN_PASSWORD;
-  if (!password) return new NextResponse("Not found", { status: 404 });
-  const user = process.env.LEADS_ADMIN_USER || "admin";
-  const header = request.headers.get("authorization") ?? "";
-  if (header.startsWith("Basic ")) {
-    try {
-      const [u, ...rest] = atob(header.slice(6)).split(":");
-      if (safeEqual(u, user) && safeEqual(rest.join(":"), password)) return null;
-    } catch {
-      /* malformed header: challenge again */
-    }
+  const key = process.env.LEADS_ADMIN_KEY;
+  const notFound = () => new NextResponse("Not found", { status: 404, headers: { "Cache-Control": "no-store" } });
+  if (!key) return notFound();
+
+  const fromUrl = request.nextUrl.searchParams.get("key");
+  if (fromUrl !== null) {
+    if (!safeEqual(fromUrl, key)) return notFound();
+    const clean = request.nextUrl.clone();
+    clean.searchParams.delete("key");
+    const res = NextResponse.redirect(clean);
+    res.cookies.set(ADMIN_COOKIE, key, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+    });
+    return res;
   }
-  return new NextResponse("Authentication required", {
-    status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="CK leads", charset="UTF-8"', "Cache-Control": "no-store" },
-  });
+
+  const fromCookie = request.cookies.get(ADMIN_COOKIE)?.value;
+  return fromCookie && safeEqual(fromCookie, key) ? null : notFound();
 }
 
 /** Compares without exiting early, so timing does not reveal how much matched. */

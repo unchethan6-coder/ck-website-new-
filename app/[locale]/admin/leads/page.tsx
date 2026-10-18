@@ -5,7 +5,7 @@ import { isLeadStoreConfigured, listLeads } from "@/lib/leads/server";
 import { countryName } from "@/lib/leads/countries";
 
 /**
- * Leads from the 80% OFF page. Behind HTTP Basic Auth (see middleware.ts):
+ * Leads from the 80% OFF page. Reachable only through the private link (see middleware.ts):
  * the leads are read here on the server and never served by a public API.
  */
 

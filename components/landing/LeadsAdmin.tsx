@@ -266,7 +266,7 @@ export function LeadsAdmin({ leads, error }: { leads: Lead[]; error: string | nu
           </>
         )}
 
-        <p className="mt-8 text-center text-xs text-white/35">Private — visible only with the admin password. Do not share exports.</p>
+        <p className="mt-8 text-center text-xs text-white/35">Private — reachable only through the admin link. Do not share the link or exports.</p>
       </main>
     </div>
   );
