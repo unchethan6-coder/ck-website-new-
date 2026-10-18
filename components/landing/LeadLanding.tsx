@@ -179,9 +179,9 @@ export function LeadLanding({ defaultCountry, countries }: { defaultCountry: str
         </span>
       </header>
 
-      <main className="mx-auto grid w-full max-w-6xl gap-10 px-4 pt-10 pb-16 sm:px-6 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:items-start lg:gap-14 lg:pt-20 lg:pb-24">
+      <main className="mx-auto grid w-full max-w-6xl gap-10 px-4 pt-10 pb-16 sm:px-6 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:items-center lg:gap-14 lg:pt-16 lg:pb-24">
         {/* ─────────── Offer ─────────── */}
-        <section className="text-center lg:sticky lg:top-16 lg:pt-6 lg:text-left" aria-labelledby={`${ids}-headline`}>
+        <section className="text-center lg:text-left" aria-labelledby={`${ids}-headline`}>
           <p className="inline-flex items-center gap-2 rounded-full border border-[#A98BFF]/30 bg-[#703AD7]/15 px-3.5 py-1.5 text-[11px] font-bold tracking-[0.2em] text-[#C9B5FF] uppercase">
             <Sparkles size={13} aria-hidden /> CK PropFirm Exclusive Offer
           </p>
@@ -189,24 +189,25 @@ export function LeadLanding({ defaultCountry, countries }: { defaultCountry: str
           <div className="relative mt-6">
             <h1
               id={`${ids}-headline`}
-              className="font-[family-name:var(--font-jakarta)] text-[3.25rem] leading-[0.92] font-black tracking-[-0.035em] uppercase sm:text-7xl lg:text-[4.6rem] xl:text-[5.4rem]"
+              className="font-[family-name:var(--font-jakarta)] text-[3.25rem] leading-[0.92] font-black tracking-[-0.035em] uppercase sm:text-7xl lg:text-[4.5rem] lg:leading-[0.9] xl:text-[6rem]"
             >
+              {/* Desktop stacks GET / 80% OFF / ALL CHALLENGES so the offer line is the biggest and nothing overflows. */}
               <span className="block">
-                Get{" "}
+                <span className="lg:block lg:text-[0.58em] lg:leading-none">Get</span>{" "}
                 <span className="bg-gradient-to-b from-[#FFE7A3] via-[#F5C451] to-[#C98E1E] bg-clip-text text-transparent drop-shadow-[0_6px_30px_rgba(245,196,81,0.35)]">
                   80%
                 </span>{" "}
                 Off
               </span>
-              <span className="mt-2 block text-[0.62em] tracking-[-0.02em] text-white/95">All Challenges</span>
+              <span className="mt-2 block text-[0.62em] tracking-[-0.02em] text-white/95 lg:mt-3 lg:text-[0.58em]">All Challenges</span>
             </h1>
 
             {/* Offer badge */}
             <div
               aria-hidden
-              className="absolute -top-4 right-0 hidden h-28 w-28 rotate-12 flex-col items-center justify-center rounded-full border-2 border-[#F5C451]/70 bg-[#0B0F24] text-center shadow-[0_0_50px_rgba(245,196,81,0.35)] sm:flex lg:-top-10 lg:right-6"
+              className="absolute top-0 right-0 hidden h-24 w-24 rotate-12 flex-col items-center justify-center rounded-full border-2 border-[#F5C451]/70 bg-[#0B0F24] text-center shadow-[0_0_50px_rgba(245,196,81,0.35)] xl:flex"
             >
-              <span className="font-[family-name:var(--font-jakarta)] text-3xl leading-none font-black text-[#F5C451]">80%</span>
+              <span className="font-[family-name:var(--font-jakarta)] text-[1.7rem] leading-none font-black text-[#F5C451]">80%</span>
               <span className="mt-1 text-[11px] font-bold tracking-[0.2em] text-white/80">OFF</span>
             </div>
           </div>
