@@ -1110,26 +1110,16 @@ main :where(h1, h2, h3, h4, h5, h6) {
 }
 
 /* ── VIP 90% OFF hero artwork (components/sections/VipHeroArt.tsx) ── */
-.vip-rays {
-  background: repeating-conic-gradient(from 0deg, rgba(140, 185, 255, 0.24) 0deg 6deg, transparent 6deg 22deg);
-  mask-image: radial-gradient(circle, black 18%, transparent 68%);
-  animation: vip-spin 40s linear infinite;
+.vip-figure {
+  animation: vip-float 6s ease-in-out infinite;
+  /* The artwork is cropped at the waist; fade it out rather than cut it off. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 62%, transparent 96%);
 }
-.vip-core {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(130, 180, 255, 0.65) 22%, rgba(47, 107, 255, 0.25) 48%, transparent 70%);
-  filter: blur(18px);
-  animation: vip-pulse 3.2s ease-in-out infinite;
-}
-.vip-figure { animation: vip-float 6s ease-in-out infinite; }
 .vip-bolt { opacity: 0; }
 .vip-bolt-a { animation: vip-strike 5.5s steps(1, end) infinite; }
 .vip-bolt-b { animation: vip-strike 7s steps(1, end) 2.4s infinite; }
 
-@keyframes vip-spin { to { transform: rotate(360deg); } }
-@keyframes vip-pulse {
-  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
-}
 @keyframes vip-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -1144,6 +1134,6 @@ main :where(h1, h2, h3, h4, h5, h6) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vip-rays, .vip-core, .vip-figure, .vip-bolt-a, .vip-bolt-b { animation: none; }
+  .vip-figure, .vip-bolt-a, .vip-bolt-b { animation: none; }
   .vip-bolt { opacity: 0; }
 }
