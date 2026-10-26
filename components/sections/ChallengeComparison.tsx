@@ -46,8 +46,11 @@ const PAYMENT_METHODS = [
 
 export function ChallengeComparison({
   config,
+  fundingPlans,
 }: {
   config?: ChallengeConfig | null;
+  /** Overrides the plans (and their prices) from config; used by the VIP copy of the homepage. */
+  fundingPlans?: Record<string, Record<string, PlanDetails | null>> | null;
 }) {
   const t = useTranslations("challenge");
 
@@ -108,8 +111,8 @@ export function ChallengeComparison({
 
   // Data matrix from CMS or static fallback
   const rawData: Record<string, Record<string, PlanDetails | null>> = useMemo(() => {
-    return config?.fundingPlans ?? FUNDING_PLAN_RAW_DATA;
-  }, [config]);
+    return fundingPlans ?? config?.fundingPlans ?? FUNDING_PLAN_RAW_DATA;
+  }, [config, fundingPlans]);
 
   const currencies: CurrencyOption[] = useMemo(() => {
     return config?.currencies ?? CURRENCIES;

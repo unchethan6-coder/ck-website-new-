@@ -29,6 +29,7 @@ import { cn } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/shared/LanguageSwitcher";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
+import { useVipOffer } from "@/components/shared/useVipOffer";
 
 interface NavColumnItem {
   icon: React.ComponentType<{ size?: number; className?: string }>;
@@ -45,6 +46,7 @@ interface NavColumn {
 }
 
 export function TopNav() {
+  const { copy: vipCopy } = useVipOffer();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -459,7 +461,7 @@ export function TopNav() {
 
                         {/* Text Details */}
                         <span className="inline-block px-2.5 py-0.5 rounded-full text-[9.5px] font-extrabold uppercase tracking-wider bg-primary/20 text-[#A98BFF] border border-primary/30 mb-1.5">
-                          {t("featuredEvalBadge" as any)}
+                          {vipCopy(t("featuredEvalBadge" as any))}
                         </span>
                         <div className="font-bold text-white text-[14.5px] leading-tight mt-0.5">
                           {t("featuredEvalTitle" as any)}

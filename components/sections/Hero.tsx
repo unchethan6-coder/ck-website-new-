@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ArrowRight, Play, BarChart2, Coins, Zap } from "lucide-react";
-import { Link } from "@/i18n/navigation";
 import type { HeroVideo } from "@/lib/heroTakeover";
 
 /** Interactions a browser accepts as permission to play sound. */
@@ -234,13 +233,14 @@ export function Hero({ video = null }: { video?: HeroVideo | null }) {
               transition={{ duration: 0.5, delay: 0.32 }}
               className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             >
-              <Link
-                href="/#start-challenge"
+              {/* The challenge table is on this page (the homepage or its VIP copy), so scroll to it. */}
+              <a
+                href="#start-challenge"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3.5 text-sm sm:text-base font-bold text-[#1A1030] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200 text-center shadow-lg hover:shadow-cyan-500/25"
               >
                 <span>{t("startChallenge")}</span>
                 <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
+              </a>
 
               <a
                 href="#how-it-works"

@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
+import { useVipOffer } from "@/components/shared/useVipOffer";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 import { ArrowRight, ArrowUpRight, Layers, Rocket, Zap } from "lucide-react";
 
 export function HowItWorks() {
+  const { copy, challengeHref } = useVipOffer();
   const t = useTranslations("howItWorks");
 
   const steps = [
@@ -104,11 +106,11 @@ export function HowItWorks() {
               </Link>
 
               <a
-                href="/#start-challenge"
+                href={challengeHref}
                 className="group inline-flex items-center justify-center gap-2 rounded-xl brand-gradient-btn px-6 py-3.5 text-sm font-bold text-[#1A1030] shadow-md transition-all duration-200 hover:shadow-cyan-500/25"
                 data-od-id="how-it-works-cta"
               >
-                <span>{t("ctaFunded")}</span>
+                <span>{copy(t("ctaFunded"))}</span>
                 <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>

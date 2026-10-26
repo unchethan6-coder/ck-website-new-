@@ -161,7 +161,8 @@ export default async function LocaleLayout({
             <SiteFooter />
           </SiteChrome>
           <CookieConsent />
-          <SiteChrome>
+          {/* Its News tab carries the public offer, which would contradict the VIP copy's prices. */}
+          <SiteChrome hideOnVip>
             <SupportWidget />
           </SiteChrome>
           <script
