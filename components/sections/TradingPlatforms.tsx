@@ -84,7 +84,7 @@ export function TradingPlatforms() {
               </ul>
 
               <a
-                href="https://app.ckcapital.co.uk/signup"
+                href="https://my.ckpropfirm.com/auth/signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto self-stretch sm:self-start mt-auto pt-2"

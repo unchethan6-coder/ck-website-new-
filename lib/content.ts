@@ -494,7 +494,7 @@ export const COMMUNITY_CARDS = [
     title: "Track every metric",
     description: "Your personalised dashboard shows live stats, challenge progress, payout history, and performance milestones.",
     cta: "View Dashboard",
-    href: "https://app.ckcapital.co.uk/signin",
+    href: "https://my.ckpropfirm.com/auth/signin",
     external: true,
     icon: "bar-chart-2",
     gradient: "from-[#d4af37]/20 to-transparent",

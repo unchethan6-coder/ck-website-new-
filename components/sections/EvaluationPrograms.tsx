@@ -106,7 +106,7 @@ export function EvaluationPrograms() {
               {CHALLENGES.map((challenge) => (
                 <a
                   key={challenge.id}
-                  href="https://app.ckcapital.co.uk/signup"
+                  href="https://my.ckpropfirm.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id={`challenge-card-${challenge.id}`}

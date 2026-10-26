@@ -114,7 +114,7 @@ export function PricingGrid() {
                   </span>
                 </div>
                 <a
-                  href="https://app.ckcapital.co.uk/signup"
+                  href="https://my.ckpropfirm.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"

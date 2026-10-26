@@ -72,7 +72,7 @@ export default async function EvaluationPage() {
                 </div>
               </div>
               <a
-                href="https://app.ckcapital.co.uk/signup"
+                href="https://my.ckpropfirm.com/auth/signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="shrink-0"

@@ -112,7 +112,7 @@ export default function EvaluationIntro({
                 className="mt-8 flex flex-wrap items-center gap-4"
               >
                 <a
-                  href="https://app.ckcapital.co.uk/signup"
+                  href="https://my.ckpropfirm.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

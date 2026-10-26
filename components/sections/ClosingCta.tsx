@@ -64,7 +64,7 @@ export function ClosingCta() {
 
   const handlePrimary = () => {
     fireConfetti();
-    setTimeout(() => window.open("https://app.ckcapital.co.uk/signup", "_blank", "noopener,noreferrer"), 320);
+    setTimeout(() => window.open("https://my.ckpropfirm.com/auth/signup", "_blank", "noopener,noreferrer"), 320);
   };
 
   // 3D tilt for card

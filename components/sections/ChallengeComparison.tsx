@@ -191,7 +191,7 @@ export function ChallengeComparison({
       currency: selectedCurrency,
       qty: String(quantity),
     });
-    return `https://app.ckcapital.co.uk/signup?${params.toString()}`;
+    return `https://my.ckpropfirm.com/auth/signup?${params.toString()}`;
   }, [selectedType, selectedSize, selectedCurrency, quantity]);
 
   const signupUrlForSize = (size: string) => {
@@ -200,7 +200,7 @@ export function ChallengeComparison({
       size,
       currency: selectedCurrency,
     });
-    return `https://app.ckcapital.co.uk/signup?${params.toString()}`;
+    return `https://my.ckpropfirm.com/auth/signup?${params.toString()}`;
   };
 
   const comparisonRows: Array<{

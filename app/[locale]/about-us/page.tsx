@@ -197,7 +197,7 @@ export default function AboutPage() {
                   className="mt-9 flex flex-wrap items-center gap-4 sm:gap-5"
                 >
                   <a
-                    href="https://app.ckcapital.co.uk/signup"
+                    href="https://my.ckpropfirm.com/auth/signup"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-od-id="about-hero-primary"
@@ -474,7 +474,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
                 <a
-                  href="https://app.ckcapital.co.uk/signup"
+                  href="https://my.ckpropfirm.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-od-id="about-cta-primary"
