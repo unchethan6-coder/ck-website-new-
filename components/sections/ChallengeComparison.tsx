@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Check, LayoutGrid, Percent, Table2 } from "lucide-react";
+import { ArrowRight, ChevronDown, Check, Copy, LayoutGrid, Percent, Table2 } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionReveal } from "@/components/shared/SectionReveal";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@/lib/content";
 import type { ChallengeConfig } from "@/lib/cms";
 import { cn } from "@/lib/utils";
+import { copyText } from "@/components/offers/clipboard";
 
 const accountSizes = ["10K", "25K", "50K", "100K", "200K", "300K"];
 
@@ -47,10 +48,17 @@ const PAYMENT_METHODS = [
 export function ChallengeComparison({
   config,
   fundingPlans,
+  coupon,
 }: {
   config?: ChallengeConfig | null;
   /** Overrides the plans (and their prices) from config; used by the VIP copy of the homepage. */
   fundingPlans?: Record<string, Record<string, PlanDetails | null>> | null;
+  /**
+   * The VIP copy of the homepage: one account per order at the coupon price,
+   * so the quantity options give way to the code to copy, and every Start
+   * button copies it and opens checkout.
+   */
+  coupon?: { code: string; checkoutUrl: string } | null;
 }) {
   const t = useTranslations("challenge");
 
@@ -194,13 +202,24 @@ export function ChallengeComparison({
     return `https://my.ckpropfirm.com/auth/signup?${params.toString()}`;
   }, [selectedType, selectedSize, selectedCurrency, quantity]);
 
+  const ctaUrl = coupon ? coupon.checkoutUrl : signupUrl;
+
+  const [codeCopied, setCodeCopied] = useState(false);
+  const copyCoupon = useCallback(async () => {
+    if (!coupon) return;
+    if (await copyText(coupon.code)) {
+      setCodeCopied(true);
+      window.setTimeout(() => setCodeCopied(false), 2500);
+    }
+  }, [coupon]);
+
   const signupUrlForSize = (size: string) => {
     const params = new URLSearchParams({
       plan: selectedType,
       size,
       currency: selectedCurrency,
     });
-    return `https://my.ckpropfirm.com/auth/signup?${params.toString()}`;
+    return coupon ? coupon.checkoutUrl : `https://my.ckpropfirm.com/auth/signup?${params.toString()}`;
   };
 
   const comparisonRows: Array<{
@@ -448,7 +467,7 @@ export function ChallengeComparison({
                 <p className="truncate text-sm font-extrabold text-white">{activeTypeName} ${selectedSize}</p>
                 <p className="text-sm font-black text-emerald-400">{formatAmount(orderTotal(quantity))}<span className="ml-1 text-[10px] font-bold text-white/65">{quantity > 1 ? `· ${quantity} accounts` : ""}</span></p>
               </div>
-              <a href={signupUrl} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-[#1A1030]">
+              <a href={ctaUrl} onClick={copyCoupon} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl px-4 text-xs font-bold text-[#1A1030]">
                 Start challenge <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>
@@ -583,7 +602,10 @@ export function ChallengeComparison({
                     </div>
                   </div>
 
-                  {/* Quantity — each additional account is discounted */}
+                  {/* Quantity — each additional account is discounted (the VIP copy shows its coupon instead) */}
+                  {coupon ? (
+                    <CouponBox code={coupon.code} copied={codeCopied} onCopy={copyCoupon} />
+                  ) : (
                   <div className="mt-3 border-t border-white/10 pt-3">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-white/65">
                       {t("quantity") || "Quantity"}
@@ -628,11 +650,13 @@ export function ChallengeComparison({
                       Discount applies per account when you buy more than one in the same order.
                     </p>
                   </div>
+                  )}
                 </div>
 
                 <div className="space-y-4">
                   {/* Quantity stepper + CTA */}
                   <div className="flex items-stretch gap-2.5">
+                    {!coupon && (
                     <div className="flex shrink-0 items-center rounded-full border border-[#E7C66B]/60 bg-white/[0.04]">
                       <button
                         type="button"
@@ -656,8 +680,10 @@ export function ChallengeComparison({
                         +
                       </button>
                     </div>
+                    )}
                     <a
-                      href={signupUrl}
+                      href={ctaUrl}
+                      onClick={copyCoupon}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block min-w-0 flex-1"
@@ -784,7 +810,7 @@ export function ChallengeComparison({
                       return (
                         <div key={`cta-${size}`} className={cn("rounded-b-xl border-x border-b border-[#D9D9D9] bg-white p-2.5 shadow-sm", selectedSize === size && "bg-violet-50")}>
                           {plan ? (
-                            <a href={signupUrlForSize(size)} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn flex min-h-9 items-center justify-center rounded-lg px-2 text-[10px] font-bold text-[#1A1030] shadow-sm transition-transform hover:-translate-y-0.5">
+                            <a href={signupUrlForSize(size)} onClick={copyCoupon} target="_blank" rel="noopener noreferrer" className="brand-gradient-btn flex min-h-9 items-center justify-center rounded-lg px-2 text-[10px] font-bold text-[#1A1030] shadow-sm transition-transform hover:-translate-y-0.5">
                               {t("startChallenge") || "Get plan"}
                             </a>
                           ) : (
@@ -834,5 +860,28 @@ export function ChallengeComparison({
         </div>
       </Container>
     </section>
+  );
+}
+
+/** The VIP copy's coupon, in place of the quantity options. */
+function CouponBox({ code, copied, onCopy }: { code: string; copied: boolean; onCopy: () => void }) {
+  return (
+    <div className="mt-3 border-t border-white/10 pt-3" data-od-id="vip-coupon">
+      <span className="text-[10px] font-bold uppercase tracking-wider text-white/65">Coupon code</span>
+      <div className="mt-1.5 flex items-center gap-2 rounded-xl border-2 border-dashed border-[#F5C451]/60 bg-[#F5C451]/[0.07] p-2 pl-3.5">
+        <span className="min-w-0 flex-1 truncate font-mono text-xl font-black tracking-[0.14em] text-[#F5C451] select-all">{code}</span>
+        <button
+          type="button"
+          onClick={onCopy}
+          className="inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-lg bg-white/10 px-3 text-xs font-bold text-white transition-colors hover:bg-white/20"
+        >
+          {copied ? <Check size={14} className="text-emerald-300" aria-hidden /> : <Copy size={14} aria-hidden />}
+          <span aria-live="polite">{copied ? "Copied" : "Copy"}</span>
+        </button>
+      </div>
+      <p className="mt-1.5 text-[10px] leading-[1.4] text-white/55">
+        Apply <strong className="text-white/80">{code}</strong> at checkout for 90% off. Start Challenge copies it for you.
+      </p>
+    </div>
   );
 }

@@ -21,7 +21,7 @@ import {
 import type { VideoItem } from "@/components/sections/Testimonials";
 import { activeHeroVideo } from "@/lib/heroTakeover";
 import { FUNDING_PLAN_RAW_DATA } from "@/lib/content";
-import { discountPlans } from "@/lib/vipOffer";
+import { discountPlans, VIP_OFFER } from "@/lib/vipOffer";
 import { VipHeroArt } from "@/components/sections/VipHeroArt";
 
 /**
@@ -65,7 +65,7 @@ export async function HomePage({ vip = false }: { vip?: boolean }) {
       <StatsStrip />
 
       {/* S3 — Challenge Selector (evals) */}
-      <ChallengeComparison config={config} fundingPlans={vipPlans} />
+      <ChallengeComparison config={config} fundingPlans={vipPlans} coupon={vip ? { code: VIP_OFFER.code, checkoutUrl: VIP_OFFER.checkoutUrl } : null} />
 
       {/* S4 — Trade with Peace of Mind (proof): sits below the challenges */}
       <ProofShowcase payouts={payouts} summary={rewardsSummary} />

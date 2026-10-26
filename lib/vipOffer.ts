@@ -12,12 +12,10 @@ import type { PlanDetails } from "./content";
 export const VIP_OFFER = {
   slug: "vip-offer",
   discountPct: 90,
-  /**
-   * The checkout code that gives 90% off. Empty until CK supplies it: the
-   * announcement bar shows no code while this is empty, rather than a code
-   * that would charge the public price.
-   */
-  code: "",
+  /** The checkout code that gives 90% off, shown in the banner and the pricing card. */
+  code: "NEW90",
+  /** Where the VIP page's Start Challenge buttons go: the new-challenge checkout. */
+  checkoutUrl: "https://my.ckpropfirm.com/challenges/new",
   /** The public discount the shared copy is written around. */
   publicPct: 75,
 } as const;
