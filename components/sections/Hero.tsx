@@ -10,8 +10,12 @@ import type { HeroVideo } from "@/lib/heroTakeover";
 /** Interactions a browser accepts as permission to play sound. */
 const UNLOCK_EVENTS = ["pointerdown", "keydown", "touchend"] as const;
 
-/** With `video`, the hero plays it as a full background instead of showing the mascot. */
-export function Hero({ video = null }: { video?: HeroVideo | null }) {
+/**
+ * With `video`, the hero plays it as a full background instead of showing the
+ * mascot. With `aside`, that content takes the mascot's place (the VIP copy's
+ * 90% OFF artwork).
+ */
+export function Hero({ video = null, aside = null }: { video?: HeroVideo | null; aside?: React.ReactNode }) {
   const t = useTranslations("hero");
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -255,7 +259,9 @@ export function Hero({ video = null }: { video?: HeroVideo | null }) {
           </motion.div>
 
           {/* Right Column: CK mascot artwork, or room for the video to show through */}
-          {video ? (
+          {aside ? (
+            <div className="relative z-0 mt-4 flex w-full items-center justify-center lg:col-span-7 lg:mt-0 lg:min-h-[610px] lg:justify-end">{aside}</div>
+          ) : video ? (
             <div aria-hidden="true" className="hidden lg:col-span-7 lg:block lg:min-h-[610px]" />
           ) : (
           <motion.div
