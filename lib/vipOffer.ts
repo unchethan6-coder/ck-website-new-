@@ -20,6 +20,12 @@ export const VIP_OFFER = {
   code: "",
   /** The public discount the shared copy is written around. */
   publicPct: 75,
+  /**
+   * Accounts available at this price. The page says so, and shows a claimed
+   * count only from a real source (see app/api/vip-slots): it never makes up
+   * a number. CK must also enforce the cap at checkout.
+   */
+  slots: 1000,
 } as const;
 
 const VIP_PATH = new RegExp(`^/[a-z]{2}/${VIP_OFFER.slug}/?$`);

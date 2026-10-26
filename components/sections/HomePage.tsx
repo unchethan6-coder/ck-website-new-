@@ -22,6 +22,7 @@ import type { VideoItem } from "@/components/sections/Testimonials";
 import { activeHeroVideo } from "@/lib/heroTakeover";
 import { FUNDING_PLAN_RAW_DATA } from "@/lib/content";
 import { discountPlans } from "@/lib/vipOffer";
+import { VipOfferPanel } from "@/components/sections/VipOfferPanel";
 
 /**
  * The homepage. Also rendered, re-priced, by the private 90% OFF copy
@@ -58,7 +59,7 @@ export async function HomePage({ vip = false }: { vip?: boolean }) {
   return (
     <main className="home-purple-theme min-h-screen">
       {/* S1 — Hero: Light */}
-      <Hero video={activeHeroVideo()} />
+      <Hero video={vip ? null : activeHeroVideo()} aside={vip ? <VipOfferPanel /> : null} />
 
       {/* S2 — Stats Strip: Light (was Jet Black) */}
       <StatsStrip />
