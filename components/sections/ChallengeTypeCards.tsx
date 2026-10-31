@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { FUNDING_CHALLENGE_TYPES, FUNDING_PLAN_RAW_DATA, type PlanDetails } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 /**
- * "Choose your challenge": one card per funding model, each with its ship,
- * ahead of the pricing table. Every figure is read from the same plans the
- * table prices, so the cards cannot disagree with it (and the VIP copy's
- * cards show its 90% prices). Choosing a card selects that model in the
- * table and scrolls to it.
+ * "Explore Your Options": one card per funding model, each with its ship, in
+ * the style of FundedNext's plan row — a small "CFDs Plan" label, then cards
+ * with a one-line summary and three key points. No prices: the table below
+ * has those. On phones the row scrolls sideways, a card at a time.
+ *
+ * Every figure comes from the plans the pricing table uses, so the cards
+ * cannot disagree with it. Choosing a card selects that model in the table.
  */
 
 /** Which ship flies which model. */
@@ -29,13 +30,9 @@ const SHIPS: Record<string, { src: string; w: number; h: number; alt: string }> 
 /** Fired at the pricing table, which selects the model (see ChallengeComparison). */
 export const SELECT_CHALLENGE_EVENT = "ck:select-challenge";
 
-const SIZES = ["10K", "25K", "50K", "100K", "200K", "300K"];
 const num = (v?: string) => Number((v ?? "").replace(/[$,]/g, ""));
-const pct = (amount: string | undefined, size: string) => {
-  const n = num(amount);
-  if (!n) return null;
-  return `${+((n / (parseInt(size, 10) * 1000)) * 100).toFixed(1)}%`;
-};
+const pctOf = (amount: string, size: string) => `${+((num(amount) / (parseInt(size, 10) * 1000)) * 100).toFixed(1)}%`;
+const isPct = (v: string) => /^\d+(\.\d+)?%$/.test(v.trim());
 
 export function ChallengeTypeCards({
   plans = FUNDING_PLAN_RAW_DATA,
@@ -44,15 +41,24 @@ export function ChallengeTypeCards({
 }) {
   const t = useTranslations("challengeTypes");
 
-  const cards = FUNDING_CHALLENGE_TYPES.map((type) => {
-    const available = SIZES.map((size) => ({ size, plan: plans[size]?.[type.id] ?? null })).filter(
-      (x): x is { size: string; plan: PlanDetails } => x.plan !== null
-    );
+  const cards = FUNDING_CHALLENGE_TYPES.flatMap((type) => {
     // Rules are proportional to account size, so the smallest account speaks for all.
-    const ref = available[0];
-    const cheapest = available.reduce((a, b) => (num(b.plan.disc) < num(a.plan.disc) ? b : a), ref);
-    const phases = [ref.plan.p1, ref.plan.p2].filter((p) => num(p) > 0).length;
-    return { type, ref, cheapest, phases };
+    const size = Object.keys(plans).find((s) => plans[s]?.[type.id]);
+    const plan = size ? plans[size]?.[type.id] : null;
+    if (!size || !plan) return [];
+
+    const p1 = num(plan.p1) > 0 ? pctOf(plan.p1, size) : null;
+    const p2 = num(plan.p2) > 0 ? pctOf(plan.p2, size) : null;
+    const summary = p1 && p2 ? t("summaryTwo", { p1, p2 }) : p1 ? t("summaryOne", { p1 }) : t("summaryInstant");
+
+    const points: string[] = [];
+    if (!p1) points.push(t("pointSkip"));
+    else if (!p2) points.push(t("pointFastest"));
+    points.push(t("pointSplit", { split: plan.split1 }));
+    points.push(isPct(plan.fundedConsistency) ? t("pointConsistency", { pct: plan.fundedConsistency }) : t("pointNoConsistency"));
+    if (points.length < 3 && /unlimited/i.test(plan.period)) points.push(t("pointNoTimeLimit"));
+
+    return [{ type, summary, points: points.slice(0, 3) }];
   });
 
   const choose = (typeId: string) => {
@@ -61,81 +67,73 @@ export function ChallengeTypeCards({
 
   return (
     <section className="relative overflow-hidden bg-[#030A1C] py-16 sm:py-20" data-od-id="challenge-types">
-      <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 h-[28rem] w-[60rem] -translate-x-1/2 rounded-full bg-[#703AD7]/15 blur-[120px]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-black tracking-[0.2em] text-[#A98BFF] uppercase">{t("eyebrow")}</p>
-          <h2 className="mt-3 font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            {t("title")}
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-white/65 sm:text-base">{t("subtitle")}</p>
+          <h2 className="font-[family-name:var(--font-jakarta)] text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{t("title")}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-white/60 sm:text-base">{t("subtitle")}</p>
         </div>
 
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {cards.map(({ type, ref, cheapest, phases }) => {
-            const ship = SHIPS[type.id];
-            const facts: [string, string][] = [
-              [t("phases"), phases ? String(phases) : t("noEvaluation")],
-              [t("profitTarget"), phases ? [pct(ref.plan.p1, ref.size), pct(ref.plan.p2, ref.size)].filter(Boolean).join(" / ") : "—"],
-              [t("dailyLoss"), pct(ref.plan.dailyLoss, ref.size) ?? "—"],
-              [t("maxLoss"), pct(ref.plan.maxLoss, ref.size) ?? "—"],
-              [t("profitSplit"), ref.plan.split1],
-            ];
-            const saving = num(cheapest.plan.orig) > num(cheapest.plan.disc);
-            return (
-              <li key={type.id}>
-                <article
-                  className={cn(
-                    "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#0E1230] to-[#070A1C] p-5",
-                    "transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#894CEF]/60 hover:shadow-[0_24px_60px_-24px_rgba(137,76,239,0.75)]",
-                    "motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-                  )}
-                  data-od-id={`challenge-type-${type.id}`}
-                >
-                  {/* Ship */}
-                  <div className="relative -mx-2 flex h-40 items-center justify-center">
-                    <div aria-hidden className="absolute inset-x-6 bottom-3 h-10 rounded-full bg-[#8B3DFF]/35 blur-2xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-70" />
-                    <Image
-                      src={ship.src}
-                      alt={ship.alt}
-                      width={ship.w}
-                      height={ship.h}
-                      sizes="(max-width: 640px) 80vw, (max-width: 1280px) 40vw, 300px"
-                      className="relative h-full w-auto max-w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.04] motion-reduce:transition-none"
-                    />
-                  </div>
+        <div className="mt-10 xl:flex xl:items-start xl:gap-5">
+          {/* Market label, as FundedNext marks its CFD row */}
+          <p className="mb-4 flex items-center gap-3 text-xs font-semibold text-white/60 xl:mt-5 xl:mb-0 xl:w-28 xl:shrink-0">
+            {t("market")}
+            <span aria-hidden className="h-px w-8 bg-white/25 xl:flex-1" />
+          </p>
 
-                  <h3 className="mt-3 font-[family-name:var(--font-jakarta)] text-lg font-extrabold text-white">{type.name}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-white/60">{type.desc}</p>
+          {/* Sideways scroller on phones and tablets, a grid from desktop up */}
+          <ul
+            className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-3 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden"
+            aria-label={t("title")}
+          >
+            {cards.map(({ type, summary, points }) => {
+              const ship = SHIPS[type.id];
+              return (
+                <li key={type.id} className="w-[82%] max-w-[320px] shrink-0 snap-start sm:w-[46%] lg:w-auto lg:max-w-none">
+                  <article
+                    className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-[#16171D] to-[#0D0E12] p-5 transition-colors duration-300 hover:border-[#894CEF]/50"
+                    data-od-id={`challenge-type-${type.id}`}
+                  >
+                    {/* Ship, as the card's icon */}
+                    <div className="relative flex h-24 w-32 items-center justify-start">
+                      <div aria-hidden className="absolute inset-y-4 left-2 w-24 rounded-full bg-[#8B3DFF]/25 blur-2xl opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+                      <Image
+                        src={ship.src}
+                        alt={ship.alt}
+                        width={ship.w}
+                        height={ship.h}
+                        sizes="128px"
+                        loading="eager"
+                        className="relative h-full w-auto max-w-full object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105 motion-reduce:transition-none"
+                      />
+                    </div>
 
-                  <dl className="mt-4 space-y-1.5 border-t border-white/10 pt-4 text-[13px]">
-                    {facts.map(([label, value]) => (
-                      <div key={label} className="flex items-center justify-between gap-3">
-                        <dt className="text-white/55">{label}</dt>
-                        <dd className="font-semibold text-white tabular-nums">{value}</dd>
-                      </div>
-                    ))}
-                  </dl>
+                    <h3 className="mt-3 font-[family-name:var(--font-jakarta)] text-xl font-extrabold tracking-tight text-white">{type.name}</h3>
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">{summary}</p>
 
-                  <div className="mt-auto pt-5">
-                    <p className="text-xs text-white/55">
-                      {t("from")}{" "}
-                      <span className="font-[family-name:var(--font-jakarta)] text-2xl font-black text-emerald-400">{cheapest.plan.disc}</span>
-                      {saving && <span className="ml-1.5 text-white/40 line-through">{cheapest.plan.orig}</span>}
-                    </p>
-                    <a
-                      href="#start-challenge"
-                      onClick={() => choose(type.id)}
-                      className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.05] text-sm font-bold text-white transition-colors group-hover:border-transparent group-hover:bg-[#703AD7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
-                    >
-                      {t("choose")} <ArrowRight size={15} aria-hidden className="rtl:rotate-180" />
-                    </a>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
+                    <ul className="mt-4 space-y-2">
+                      {points.map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-[13px] leading-snug text-white/75">
+                          <ChevronRight size={15} aria-hidden className="mt-px shrink-0 text-emerald-400 rtl:rotate-180" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-auto pt-6">
+                      <a
+                        href="#start-challenge"
+                        onClick={() => choose(type.id)}
+                        className="inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-white/15 bg-white/[0.04] px-3.5 text-[13px] font-semibold text-white transition-colors hover:border-[#894CEF] hover:bg-[#703AD7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
+                      >
+                        {t("choose", { name: type.name })} <ArrowRight size={14} aria-hidden className="rtl:rotate-180" />
+                      </a>
+                    </div>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );
