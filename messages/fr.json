@@ -1463,5 +1463,18 @@
     "updated": "Mis à jour le {date}",
     "moreIn": "Plus dans {collection}",
     "englishOnly": "Les articles d’aide sont pour l’instant disponibles uniquement en anglais."
+  },
+  "challengeTypes": {
+    "eyebrow": "Modèles de financement",
+    "title": "Choisissez votre challenge",
+    "subtitle": "Quatre façons d’être financé. Choisissez celle qui correspond à votre trading, puis la taille de compte ci-dessous.",
+    "phases": "Phases",
+    "noEvaluation": "Sans évaluation",
+    "profitTarget": "Objectif de profit",
+    "dailyLoss": "Perte journalière max.",
+    "maxLoss": "Perte max.",
+    "profitSplit": "Partage des profits",
+    "from": "Dès",
+    "choose": "Choisir ce challenge"
   }
 }

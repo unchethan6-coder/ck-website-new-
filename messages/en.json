@@ -1382,5 +1382,18 @@
     "updated": "Updated {date}",
     "moreIn": "More in {collection}",
     "englishOnly": "Help articles are currently available in English only."
+  },
+  "challengeTypes": {
+    "eyebrow": "Funding models",
+    "title": "Choose your challenge",
+    "subtitle": "Four ways to get funded. Pick the one that fits how you trade, then choose your account size below.",
+    "phases": "Phases",
+    "noEvaluation": "No evaluation",
+    "profitTarget": "Profit target",
+    "dailyLoss": "Daily loss limit",
+    "maxLoss": "Max loss",
+    "profitSplit": "Profit split",
+    "from": "From",
+    "choose": "Choose this challenge"
   }
 }

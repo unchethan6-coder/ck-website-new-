@@ -1388,5 +1388,18 @@
     "updated": "Atualizado em {date}",
     "moreIn": "Mais em {collection}",
     "englishOnly": "Os artigos de ajuda estão disponíveis apenas em inglês no momento."
+  },
+  "challengeTypes": {
+    "eyebrow": "Modelos de financiamento",
+    "title": "Escolha o seu desafio",
+    "subtitle": "Quatro formas de ser financiado. Escolha a que combina com o seu jeito de operar e depois o tamanho da conta abaixo.",
+    "phases": "Fases",
+    "noEvaluation": "Sem avaliação",
+    "profitTarget": "Meta de lucro",
+    "dailyLoss": "Perda diária máx.",
+    "maxLoss": "Perda máx.",
+    "profitSplit": "Divisão de lucros",
+    "from": "A partir de",
+    "choose": "Escolher este desafio"
   }
 }

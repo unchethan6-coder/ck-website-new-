@@ -1383,5 +1383,18 @@
     "updated": "Actualizado el {date}",
     "moreIn": "Más en {collection}",
     "englishOnly": "Los artículos de ayuda solo están disponibles en inglés por ahora."
+  },
+  "challengeTypes": {
+    "eyebrow": "Modelos de fondeo",
+    "title": "Elige tu desafío",
+    "subtitle": "Cuatro formas de conseguir fondeo. Elige la que encaje con tu forma de operar y luego el tamaño de cuenta abajo.",
+    "phases": "Fases",
+    "noEvaluation": "Sin evaluación",
+    "profitTarget": "Objetivo de beneficio",
+    "dailyLoss": "Pérdida diaria máx.",
+    "maxLoss": "Pérdida máx.",
+    "profitSplit": "Reparto de beneficios",
+    "from": "Desde",
+    "choose": "Elegir este desafío"
   }
 }

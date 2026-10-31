@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Hero } from "@/components/sections/Hero";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 import { ChallengeComparison } from "@/components/sections/ChallengeComparison";
+import { ChallengeTypeCards } from "@/components/sections/ChallengeTypeCards";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { TradingPlatforms } from "@/components/sections/TradingPlatforms";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -63,6 +64,9 @@ export async function HomePage({ vip = false }: { vip?: boolean }) {
 
       {/* S2 — Stats Strip: Light (was Jet Black) */}
       <StatsStrip />
+
+      {/* S2b — The four funding models, each with its ship; picking one selects it in the table below */}
+      <ChallengeTypeCards plans={vipPlans ?? config?.fundingPlans ?? undefined} />
 
       {/* S3 — Challenge Selector (evals) */}
       <ChallengeComparison config={config} fundingPlans={vipPlans} coupon={vip ? { code: VIP_OFFER.code, checkoutUrl: VIP_OFFER.checkoutUrl } : null} />

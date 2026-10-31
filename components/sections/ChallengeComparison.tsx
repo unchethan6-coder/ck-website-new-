@@ -17,6 +17,7 @@ import {
 import type { ChallengeConfig } from "@/lib/cms";
 import { cn } from "@/lib/utils";
 import { copyText } from "@/components/offers/clipboard";
+import { SELECT_CHALLENGE_EVENT } from "@/components/sections/ChallengeTypeCards";
 
 const accountSizes = ["10K", "25K", "50K", "100K", "200K", "300K"];
 
@@ -88,6 +89,19 @@ export function ChallengeComparison({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // The challenge cards above the table pick a model here.
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (["standard", "1step", "pro", "instant"].includes(id)) {
+        setSelectedType(id);
+        setSelectedSize((size) => (rawDataRef.current[size]?.[id] ? size : "100K"));
+      }
+    };
+    window.addEventListener(SELECT_CHALLENGE_EVENT, onSelect);
+    return () => window.removeEventListener(SELECT_CHALLENGE_EVENT, onSelect);
+  }, []);
+
   // Sync URL search params on client mount
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -121,6 +135,10 @@ export function ChallengeComparison({
   const rawData: Record<string, Record<string, PlanDetails | null>> = useMemo(() => {
     return fundingPlans ?? config?.fundingPlans ?? FUNDING_PLAN_RAW_DATA;
   }, [config, fundingPlans]);
+
+  // Read by the card listener above, which is registered once.
+  const rawDataRef = useRef(rawData);
+  rawDataRef.current = rawData;
 
   const currencies: CurrencyOption[] = useMemo(() => {
     return config?.currencies ?? CURRENCIES;

@@ -1463,5 +1463,18 @@
     "updated": "Aktualisiert am {date}",
     "moreIn": "Mehr in {collection}",
     "englishOnly": "Hilfeartikel sind derzeit nur auf Englisch verfügbar."
+  },
+  "challengeTypes": {
+    "eyebrow": "Funding-Modelle",
+    "title": "Wähle deine Challenge",
+    "subtitle": "Vier Wege zum Funding. Wähle den, der zu deinem Trading passt, und dann unten deine Kontogröße.",
+    "phases": "Phasen",
+    "noEvaluation": "Keine Evaluierung",
+    "profitTarget": "Gewinnziel",
+    "dailyLoss": "Tägliches Verlustlimit",
+    "maxLoss": "Max. Verlust",
+    "profitSplit": "Gewinnbeteiligung",
+    "from": "Ab",
+    "choose": "Diese Challenge wählen"
   }
 }
