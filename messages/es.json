@@ -1397,10 +1397,7 @@
     "pointConsistency": "Regla de consistencia del {pct} en el pago",
     "pointNoConsistency": "Sin puntuación de consistencia",
     "pointNoTimeLimit": "Sin límite de tiempo para aprobar",
-    "choose": "Elegir {name}",
-    "summaryTwoSim": "Desafío de dos fases. Alcanza {p1} y luego {p2} de objetivo para optar a una cuenta fondeada simulada.",
-    "summaryOneSim": "Una sola fase. Alcanza {p1} de objetivo para optar a una cuenta fondeada simulada.",
-    "pointSplitSim": "Reparto del {split} sobre beneficios simulados"
+    "choose": "Elegir {name}"
   },
   "adLanding": {
     "badge": "Evaluaciones de trading simuladas",

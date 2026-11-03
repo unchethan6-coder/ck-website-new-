@@ -1402,10 +1402,7 @@
     "pointConsistency": "Regra de consistência de {pct} no saque",
     "pointNoConsistency": "Sem pontuação de consistência",
     "pointNoTimeLimit": "Sem prazo para ser aprovado",
-    "choose": "Escolher {name}",
-    "summaryTwoSim": "Desafio de duas fases. Atinja {p1} e depois {p2} de meta para se qualificar a uma conta financiada simulada.",
-    "summaryOneSim": "Fase única. Atinja {p1} de meta para se qualificar a uma conta financiada simulada.",
-    "pointSplitSim": "Divisão de {split} sobre lucros simulados"
+    "choose": "Escolher {name}"
   },
   "adLanding": {
     "badge": "Avaliações de trading simuladas",

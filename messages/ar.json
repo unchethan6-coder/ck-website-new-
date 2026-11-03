@@ -1477,10 +1477,7 @@
     "pointConsistency": "قاعدة اتساق {pct} عند السحب",
     "pointNoConsistency": "بدون درجة اتساق",
     "pointNoTimeLimit": "بدون حد زمني للنجاح",
-    "choose": "اختر {name}",
-    "summaryTwoSim": "تحدٍ من مرحلتين. حقق هدف ربح {p1} ثم {p2} للتأهل لحساب ممول محاكى.",
-    "summaryOneSim": "مرحلة واحدة. حقق هدف ربح {p1} للتأهل لحساب ممول محاكى.",
-    "pointSplitSim": "تقسيم مكافأة {split} على الأرباح المحاكاة"
+    "choose": "اختر {name}"
   },
   "adLanding": {
     "badge": "تقييمات تداول محاكاة",

@@ -1396,10 +1396,7 @@
     "pointConsistency": "{pct} consistency rule on payout",
     "pointNoConsistency": "No consistency score",
     "pointNoTimeLimit": "No time limit to pass",
-    "choose": "Choose {name}",
-    "summaryTwoSim": "Two phase challenge. Reach {p1} then {p2} profit target to qualify for a simulated funded account.",
-    "summaryOneSim": "Single phase. Reach {p1} profit target to qualify for a simulated funded account.",
-    "pointSplitSim": "{split} reward split on simulated profits"
+    "choose": "Choose {name}"
   },
   "adLanding": {
     "badge": "Simulated trading evaluations",

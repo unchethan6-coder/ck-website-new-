@@ -36,11 +36,8 @@ const isPct = (v: string) => /^\d+(\.\d+)?%$/.test(v.trim());
 
 export function ChallengeTypeCards({
   plans = FUNDING_PLAN_RAW_DATA,
-  simulated = false,
 }: {
   plans?: Record<string, Record<string, PlanDetails | null>>;
-  /** Spell out that accounts and profits are simulated (the ad landing page). */
-  simulated?: boolean;
 }) {
   const t = useTranslations("challengeTypes");
 
@@ -52,17 +49,12 @@ export function ChallengeTypeCards({
 
     const p1 = num(plan.p1) > 0 ? pctOf(plan.p1, size) : null;
     const p2 = num(plan.p2) > 0 ? pctOf(plan.p2, size) : null;
-    const summary =
-      p1 && p2
-        ? t(simulated ? "summaryTwoSim" : "summaryTwo", { p1, p2 })
-        : p1
-          ? t(simulated ? "summaryOneSim" : "summaryOne", { p1 })
-          : t("summaryInstant");
+    const summary = p1 && p2 ? t("summaryTwo", { p1, p2 }) : p1 ? t("summaryOne", { p1 }) : t("summaryInstant");
 
     const points: string[] = [];
     if (!p1) points.push(t("pointSkip"));
     else if (!p2) points.push(t("pointFastest"));
-    points.push(t(simulated ? "pointSplitSim" : "pointSplit", { split: plan.split1 }));
+    points.push(t("pointSplit", { split: plan.split1 }));
     points.push(isPct(plan.fundedConsistency) ? t("pointConsistency", { pct: plan.fundedConsistency }) : t("pointNoConsistency"));
     if (points.length < 3 && /unlimited/i.test(plan.period)) points.push(t("pointNoTimeLimit"));
 
