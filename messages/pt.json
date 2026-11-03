@@ -1402,6 +1402,35 @@
     "pointConsistency": "Regra de consistência de {pct} no saque",
     "pointNoConsistency": "Sem pontuação de consistência",
     "pointNoTimeLimit": "Sem prazo para ser aprovado",
-    "choose": "Escolher {name}"
+    "choose": "Escolher {name}",
+    "summaryTwoSim": "Desafio de duas fases. Atinja {p1} e depois {p2} de meta para se qualificar a uma conta financiada simulada.",
+    "summaryOneSim": "Fase única. Atinja {p1} de meta para se qualificar a uma conta financiada simulada.",
+    "pointSplitSim": "Divisão de {split} sobre lucros simulados"
+  },
+  "adLanding": {
+    "badge": "Avaliações de trading simuladas",
+    "headline1": "Prove a sua habilidade",
+    "headline2": "numa avaliação simulada.",
+    "chip1v": "MT5 e TradeLocker",
+    "chip1l": "Plataformas",
+    "chip2v": "Sem limite de tempo",
+    "chip2l": "No seu ritmo",
+    "chip3v": "Trading de notícias",
+    "chip3l": "Permitido",
+    "cond1": "Ambiente de trading simulado",
+    "cond2": "Alavancagem 1:100",
+    "cond3": "Taxa de avaliação única",
+    "cond4": "MT5 e TradeLocker",
+    "riskTitle": "Informações importantes sobre riscos",
+    "risk1": "Todas as contas da CK PropFirm, incluindo as financiadas, são simuladas. Não são negociados fundos reais nem investido dinheiro de clientes nos mercados.",
+    "risk2": "O trading envolve risco substancial. O desempenho num ambiente simulado não indica resultados futuros, e a maioria de quem faz uma avaliação não é aprovada.",
+    "risk3": "As recompensas são pagas apenas sobre desempenho simulado elegível, conforme os nossos Termos e Condições. Nada nesta página é aconselhamento de investimento.",
+    "riskLink": "Leia a divulgação de riscos completa",
+    "ctaTitle": "Conheça as regras antes de começar",
+    "ctaDesc": "Compare os modelos de avaliação e os seus objetivos e escolha o que combina com o seu jeito de operar.",
+    "ctaPrimary": "Iniciar desafio",
+    "ctaSecondary": "Objetivos de trading",
+    "metaTitle": "Avaliações de trading simuladas | CK PropFirm",
+    "metaDesc": "Faça uma avaliação de trading simulada em MT5 ou TradeLocker com objetivos claros e sem limite de tempo."
   }
 }

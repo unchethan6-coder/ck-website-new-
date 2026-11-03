@@ -1396,6 +1396,35 @@
     "pointConsistency": "{pct} consistency rule on payout",
     "pointNoConsistency": "No consistency score",
     "pointNoTimeLimit": "No time limit to pass",
-    "choose": "Choose {name}"
+    "choose": "Choose {name}",
+    "summaryTwoSim": "Two phase challenge. Reach {p1} then {p2} profit target to qualify for a simulated funded account.",
+    "summaryOneSim": "Single phase. Reach {p1} profit target to qualify for a simulated funded account.",
+    "pointSplitSim": "{split} reward split on simulated profits"
+  },
+  "adLanding": {
+    "badge": "Simulated trading evaluations",
+    "headline1": "Prove your trading skills",
+    "headline2": "in a simulated evaluation.",
+    "chip1v": "MT5 & TradeLocker",
+    "chip1l": "Trading platforms",
+    "chip2v": "No time limits",
+    "chip2l": "Trade at your pace",
+    "chip3v": "News trading",
+    "chip3l": "Allowed",
+    "cond1": "Simulated trading environment",
+    "cond2": "Leverage 1:100",
+    "cond3": "One-time evaluation fee",
+    "cond4": "MT5 & TradeLocker",
+    "riskTitle": "Important risk information",
+    "risk1": "All CK PropFirm accounts, including funded accounts, are simulated. No real funds are traded and no client money is invested in the markets.",
+    "risk2": "Trading involves substantial risk. Performance in a simulated environment is not indicative of future results, and most people who take an evaluation do not pass it.",
+    "risk3": "Rewards are paid only on eligible simulated performance, in line with our Terms and Conditions. Nothing on this page is investment advice.",
+    "riskLink": "Read the full risk disclosure",
+    "ctaTitle": "See the rules before you start",
+    "ctaDesc": "Compare the evaluation models and their objectives, then pick the one that fits how you trade.",
+    "ctaPrimary": "Start Challenge",
+    "ctaSecondary": "Trading objectives",
+    "metaTitle": "Simulated Trading Evaluations | CK PropFirm",
+    "metaDesc": "Take a simulated trading evaluation on MT5 or TradeLocker with clear objectives and no time limits."
   }
 }

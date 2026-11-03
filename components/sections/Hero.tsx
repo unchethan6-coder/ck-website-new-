@@ -10,12 +10,31 @@ import type { HeroVideo } from "@/lib/heroTakeover";
 /** Interactions a browser accepts as permission to play sound. */
 const UNLOCK_EVENTS = ["pointerdown", "keydown", "touchend"] as const;
 
+export interface HeroCopy {
+  badge: string;
+  headline: [string, string];
+  chips: [HeroChip, HeroChip, HeroChip];
+}
+interface HeroChip {
+  value: string;
+  label: string;
+}
+
 /**
  * With `video`, the hero plays it as a full background instead of showing the
  * mascot. With `aside`, that content takes the mascot's place (the VIP copy's
  * 90% OFF artwork).
  */
-export function Hero({ video = null, aside = null }: { video?: HeroVideo | null; aside?: React.ReactNode }) {
+export function Hero({
+  video = null,
+  aside = null,
+  copy = null,
+}: {
+  video?: HeroVideo | null;
+  aside?: React.ReactNode;
+  /** Replaces the badge, headline and chips (the ad landing page's reviewed wording). */
+  copy?: HeroCopy | null;
+}) {
   const t = useTranslations("hero");
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -141,7 +160,7 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
             >
               <span className="h-2 w-2 rounded-full bg-[#894CEF] shadow-[0_0_8px_#894CEF]" />
               <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#999BA3]">
-                {t("badge")}
+                {copy ? copy.badge : t("badge")}
               </span>
             </motion.div>
 
@@ -151,9 +170,9 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
               transition={{ duration: 0.6, delay: 0.08 }}
               className="font-[family-name:var(--font-jakarta)] text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase leading-[1.08] tracking-tight text-white"
             >
-              {t("headlineLine1")}
+              {copy ? copy.headline[0] : t("headlineLine1")}
               <br />
-              <span className="text-white">{t("headlineLine2")}</span>
+              <span className="text-white">{copy ? copy.headline[1] : t("headlineLine2")}</span>
             </motion.h1>
 
             <motion.p
@@ -183,10 +202,10 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
-                    80%
+                    {copy ? copy.chips[0].value : "80%"}
                   </span>
                   <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
-                    Profit Split
+                    {copy ? copy.chips[0].label : "Profit Split"}
                   </span>
                 </div>
               </motion.div>
@@ -202,10 +221,10 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
-                    Scale to $750K
+                    {copy ? copy.chips[1].value : "Scale to $750K"}
                   </span>
                   <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
-                    Simulated Allocation
+                    {copy ? copy.chips[1].label : "Simulated Allocation"}
                   </span>
                 </div>
               </motion.div>
@@ -221,10 +240,10 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block text-[11px] sm:text-[12px] font-extrabold text-white">
-                    Flexible
+                    {copy ? copy.chips[2].value : "Flexible"}
                   </span>
                   <span className="text-[9.5px] sm:text-[10px] font-medium text-[#999BA3]">
-                    Payouts
+                    {copy ? copy.chips[2].label : "Payouts"}
                   </span>
                 </div>
               </motion.div>
@@ -247,7 +266,7 @@ export function Hero({ video = null, aside = null }: { video?: HeroVideo | null;
               </a>
 
               <a
-                href="#how-it-works"
+                href={copy ? "#start-challenge" : "#how-it-works"}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/20 bg-white/[0.04] px-4 py-3 text-sm sm:text-base font-extrabold text-white hover:border-[#894CEF] hover:bg-white/[0.08] hover:text-white active:translate-y-0 active:scale-[0.98] transition-all duration-200 shadow-sm text-center"
               >
                 <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white/80 text-white group-hover:border-[#894CEF] group-hover:bg-[#894CEF] group-hover:text-black transition-all duration-200 shrink-0">

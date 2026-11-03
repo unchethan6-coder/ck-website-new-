@@ -1477,6 +1477,35 @@
     "pointConsistency": "{pct} Konsistenzregel bei Auszahlung",
     "pointNoConsistency": "Kein Konsistenz-Score",
     "pointNoTimeLimit": "Kein Zeitlimit zum Bestehen",
-    "choose": "{name} wählen"
+    "choose": "{name} wählen",
+    "summaryTwoSim": "Zweiphasige Challenge. Erreiche {p1} und dann {p2} Gewinnziel, um dich für ein simuliertes Funded-Konto zu qualifizieren.",
+    "summaryOneSim": "Eine Phase. Erreiche {p1} Gewinnziel, um dich für ein simuliertes Funded-Konto zu qualifizieren.",
+    "pointSplitSim": "{split} Beteiligung an simulierten Gewinnen"
+  },
+  "adLanding": {
+    "badge": "Simulierte Trading-Evaluierungen",
+    "headline1": "Beweise dein Trading-Können",
+    "headline2": "in einer simulierten Evaluierung.",
+    "chip1v": "MT5 & TradeLocker",
+    "chip1l": "Handelsplattformen",
+    "chip2v": "Kein Zeitlimit",
+    "chip2l": "In deinem Tempo",
+    "chip3v": "News-Trading",
+    "chip3l": "Erlaubt",
+    "cond1": "Simulierte Handelsumgebung",
+    "cond2": "Hebel 1:100",
+    "cond3": "Einmalige Evaluierungsgebühr",
+    "cond4": "MT5 & TradeLocker",
+    "riskTitle": "Wichtige Risikohinweise",
+    "risk1": "Alle CK PropFirm-Konten, auch Funded-Konten, sind simuliert. Es wird kein echtes Geld gehandelt und kein Kundengeld an den Märkten investiert.",
+    "risk2": "Trading ist mit erheblichen Risiken verbunden. Ergebnisse in einer simulierten Umgebung sind kein Hinweis auf künftige Ergebnisse, und die meisten Teilnehmer bestehen die Evaluierung nicht.",
+    "risk3": "Belohnungen werden nur auf berechtigte simulierte Ergebnisse gemäß unseren AGB gezahlt. Nichts auf dieser Seite ist eine Anlageberatung.",
+    "riskLink": "Vollständigen Risikohinweis lesen",
+    "ctaTitle": "Kenne die Regeln, bevor du startest",
+    "ctaDesc": "Vergleiche die Evaluierungsmodelle und ihre Ziele und wähle das passende für dein Trading.",
+    "ctaPrimary": "Challenge starten",
+    "ctaSecondary": "Trading-Ziele",
+    "metaTitle": "Simulierte Trading-Evaluierungen | CK PropFirm",
+    "metaDesc": "Mach eine simulierte Trading-Evaluierung auf MT5 oder TradeLocker mit klaren Zielen und ohne Zeitlimit."
   }
 }

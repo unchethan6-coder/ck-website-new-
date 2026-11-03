@@ -1477,6 +1477,35 @@
     "pointConsistency": "Règle de consistance de {pct} au retrait",
     "pointNoConsistency": "Aucun score de consistance",
     "pointNoTimeLimit": "Aucune limite de temps pour réussir",
-    "choose": "Choisir {name}"
+    "choose": "Choisir {name}",
+    "summaryTwoSim": "Challenge en deux phases. Atteignez {p1} puis {p2} d’objectif pour accéder à un compte financé simulé.",
+    "summaryOneSim": "Une seule phase. Atteignez {p1} d’objectif pour accéder à un compte financé simulé.",
+    "pointSplitSim": "Partage de {split} sur les profits simulés"
+  },
+  "adLanding": {
+    "badge": "Évaluations de trading simulées",
+    "headline1": "Prouvez vos compétences",
+    "headline2": "dans une évaluation simulée.",
+    "chip1v": "MT5 et TradeLocker",
+    "chip1l": "Plateformes",
+    "chip2v": "Sans limite de temps",
+    "chip2l": "À votre rythme",
+    "chip3v": "Trading des news",
+    "chip3l": "Autorisé",
+    "cond1": "Environnement de trading simulé",
+    "cond2": "Levier 1:100",
+    "cond3": "Frais d’évaluation uniques",
+    "cond4": "MT5 et TradeLocker",
+    "riskTitle": "Informations importantes sur les risques",
+    "risk1": "Tous les comptes CK PropFirm, y compris les comptes financés, sont simulés. Aucun fonds réel n’est négocié et aucun argent client n’est investi sur les marchés.",
+    "risk2": "Le trading comporte un risque important. Les performances en environnement simulé ne préjugent pas des résultats futurs, et la plupart des participants ne réussissent pas l’évaluation.",
+    "risk3": "Les récompenses ne sont versées que sur des performances simulées éligibles, conformément à nos Conditions générales. Rien sur cette page ne constitue un conseil en investissement.",
+    "riskLink": "Lire la divulgation complète des risques",
+    "ctaTitle": "Connaissez les règles avant de commencer",
+    "ctaDesc": "Comparez les modèles d’évaluation et leurs objectifs, puis choisissez celui qui correspond à votre trading.",
+    "ctaPrimary": "Commencer le challenge",
+    "ctaSecondary": "Objectifs de trading",
+    "metaTitle": "Évaluations de trading simulées | CK PropFirm",
+    "metaDesc": "Passez une évaluation de trading simulée sur MT5 ou TradeLocker, avec des objectifs clairs et sans limite de temps."
   }
 }

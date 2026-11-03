@@ -50,6 +50,7 @@ export function ChallengeComparison({
   config,
   fundingPlans,
   coupon,
+  conditions,
 }: {
   config?: ChallengeConfig | null;
   /** Overrides the plans (and their prices) from config; used by the VIP copy of the homepage. */
@@ -60,6 +61,8 @@ export function ChallengeComparison({
    * button copies it and opens checkout.
    */
   coupon?: { code: string; checkoutUrl: string } | null;
+  /** Replaces the condition pills under the table (the ad landing page leaves out payout promises). */
+  conditions?: string[] | null;
 }) {
   const t = useTranslations("challenge");
 
@@ -847,7 +850,7 @@ export function ChallengeComparison({
           {/* Universal Conditions / Disclaimer */}
           <SectionReveal delay={0.22}>
             <div className="flex flex-wrap justify-center gap-2 pt-4">
-              {((t.raw("conditions") as string[]) || [
+              {(conditions ?? (t.raw("conditions") as string[] | undefined) ?? [
                 "80% profit split",
                 "Flexible payout cycle",
                 "Leverage 1:100",
