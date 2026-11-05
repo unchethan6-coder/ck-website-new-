@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight, ShieldAlert } from "lucide-react";
 import { Hero } from "@/components/sections/Hero";
 import { ChallengeComparison } from "@/components/sections/ChallengeComparison";
-import { TradingPlatforms } from "@/components/sections/TradingPlatforms";
 import { CustomerSupportSection } from "@/components/sections/CustomerSupportSection";
 import { Link } from "@/i18n/navigation";
 import { getChallengeConfig } from "@/lib/cms";
@@ -14,7 +13,7 @@ import { getChallengeConfig } from "@/lib/cms";
  * guaranteed outcomes, show earnings, or hide that a product is simulated. So
  * this keeps the homepage's product sections and leaves out:
  *
- *   - the "Explore Your Options" challenge cards
+ *   - the "Explore Your Options" challenge cards and the platforms section
  *   - payout totals, live payout feeds and the payouts proof section
  *   - trader success stories and reward amounts
  *   - "Transforming traders into winners", "earn from funded capital" and
@@ -43,8 +42,6 @@ export async function AdLandingPage() {
       />
 
       <ChallengeComparison config={challengeConfig} conditions={[t("cond1"), t("cond3")]} hideScalingCeiling />
-
-      <TradingPlatforms correctLogos />
 
       <CustomerSupportSection />
 
