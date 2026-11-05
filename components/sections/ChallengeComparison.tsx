@@ -51,6 +51,7 @@ export function ChallengeComparison({
   fundingPlans,
   coupon,
   conditions,
+  hideScalingCeiling = false,
 }: {
   config?: ChallengeConfig | null;
   /** Overrides the plans (and their prices) from config; used by the VIP copy of the homepage. */
@@ -63,6 +64,8 @@ export function ChallengeComparison({
   coupon?: { code: string; checkoutUrl: string } | null;
   /** Replaces the condition pills under the table (the ad landing page leaves out payout promises). */
   conditions?: string[] | null;
+  /** Leaves out the "Scaling Ceiling: Up to $750,000" row (the ad landing page). */
+  hideScalingCeiling?: boolean;
 }) {
   const t = useTranslations("challenge");
 
@@ -617,10 +620,12 @@ export function ChallengeComparison({
                       <span>Access Level</span>
                       <span className="font-bold text-white">Direct Evaluation Access</span>
                     </div>
-                    <div className="flex items-center justify-between py-1 text-xs text-white/70">
-                      <span>Scaling Ceiling</span>
-                      <span className="font-bold text-white">Up to $750,000</span>
-                    </div>
+                    {!hideScalingCeiling && (
+                      <div className="flex items-center justify-between py-1 text-xs text-white/70">
+                        <span>Scaling Ceiling</span>
+                        <span className="font-bold text-white">Up to $750,000</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Quantity — each additional account is discounted (the VIP copy shows its coupon instead) */}

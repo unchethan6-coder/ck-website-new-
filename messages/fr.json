@@ -5,7 +5,8 @@
     "allEvaluations": "TOUTES LES ÉVALUATIONS",
     "codeLabel": "UTILISER LE CODE",
     "expiresIn": "EXPIRE DANS",
-    "claimOffer": "PROFITER DE 75% DE RÉDUCTION"
+    "claimOffer": "PROFITER DE 75% DE RÉDUCTION",
+    "endsOn": "Se termine le {date}"
   },
   "nav": {
     "evaluation": "Évaluation",
@@ -1483,16 +1484,14 @@
     "badge": "Évaluations de trading simulées",
     "headline1": "Prouvez vos compétences",
     "headline2": "dans une évaluation simulée.",
-    "chip1v": "MT5 et TradeLocker",
-    "chip1l": "Plateformes",
+    "chip1v": "Frais uniques",
+    "chip1l": "Sans abonnement",
     "chip2v": "Sans limite de temps",
     "chip2l": "À votre rythme",
     "chip3v": "Trading des news",
     "chip3l": "Autorisé",
     "cond1": "Environnement de trading simulé",
-    "cond2": "Levier 1:100",
     "cond3": "Frais d’évaluation uniques",
-    "cond4": "MT5 et TradeLocker",
     "riskTitle": "Informations importantes sur les risques",
     "risk1": "Tous les comptes CK PropFirm, y compris les comptes financés, sont simulés. Aucun fonds réel n’est négocié et aucun argent client n’est investi sur les marchés.",
     "risk2": "Le trading comporte un risque important. Les performances en environnement simulé ne préjugent pas des résultats futurs, et la plupart des participants ne réussissent pas l’évaluation.",
@@ -1503,6 +1502,10 @@
     "ctaPrimary": "Commencer le challenge",
     "ctaSecondary": "Objectifs de trading",
     "metaTitle": "Évaluations de trading simulées | CK PropFirm",
-    "metaDesc": "Passez une évaluation de trading simulée sur MT5 ou TradeLocker, avec des objectifs clairs et sans limite de temps."
+    "metaDesc": "Prouvez vos compétences de trading dans une évaluation simulée. Sans limite de temps, règles transparentes, aucun frais caché.",
+    "subcopy": "Sans limite de temps, règles transparentes, aucun frais caché.",
+    "featuredTitle": "Comptes d’évaluation simulés jusqu’à 300 000 $",
+    "featuredDesc": "Partage des profits de 80 % sur les comptes simulés.",
+    "navFrom": "Dès {price}"
   }
 }

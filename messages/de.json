@@ -5,7 +5,8 @@
     "allEvaluations": "ALLE EVALUIERUNGEN",
     "codeLabel": "CODE NUTZEN",
     "expiresIn": "ENDET IN",
-    "claimOffer": "75% RABATT SICHERN"
+    "claimOffer": "75% RABATT SICHERN",
+    "endsOn": "Endet am {date}"
   },
   "nav": {
     "evaluation": "Evaluierung",
@@ -1483,16 +1484,14 @@
     "badge": "Simulierte Trading-Evaluierungen",
     "headline1": "Beweise dein Trading-Können",
     "headline2": "in einer simulierten Evaluierung.",
-    "chip1v": "MT5 & TradeLocker",
-    "chip1l": "Handelsplattformen",
+    "chip1v": "Einmalige Gebühr",
+    "chip1l": "Kein Abo",
     "chip2v": "Kein Zeitlimit",
     "chip2l": "In deinem Tempo",
     "chip3v": "News-Trading",
     "chip3l": "Erlaubt",
     "cond1": "Simulierte Handelsumgebung",
-    "cond2": "Hebel 1:100",
     "cond3": "Einmalige Evaluierungsgebühr",
-    "cond4": "MT5 & TradeLocker",
     "riskTitle": "Wichtige Risikohinweise",
     "risk1": "Alle CK PropFirm-Konten, auch Funded-Konten, sind simuliert. Es wird kein echtes Geld gehandelt und kein Kundengeld an den Märkten investiert.",
     "risk2": "Trading ist mit erheblichen Risiken verbunden. Ergebnisse in einer simulierten Umgebung sind kein Hinweis auf künftige Ergebnisse, und die meisten Teilnehmer bestehen die Evaluierung nicht.",
@@ -1503,6 +1502,10 @@
     "ctaPrimary": "Challenge starten",
     "ctaSecondary": "Trading-Ziele",
     "metaTitle": "Simulierte Trading-Evaluierungen | CK PropFirm",
-    "metaDesc": "Mach eine simulierte Trading-Evaluierung auf MT5 oder TradeLocker mit klaren Zielen und ohne Zeitlimit."
+    "metaDesc": "Beweise dein Trading-Können in einer simulierten Evaluierung. Kein Zeitlimit, transparente Regeln, keine versteckten Gebühren.",
+    "subcopy": "Kein Zeitlimit, transparente Regeln, keine versteckten Gebühren.",
+    "featuredTitle": "Simulierte Evaluierungskonten bis $300K",
+    "featuredDesc": "80% Gewinnbeteiligung auf simulierten Konten.",
+    "navFrom": "Ab {price}"
   }
 }

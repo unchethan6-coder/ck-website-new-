@@ -5,7 +5,8 @@
     "allEvaluations": "TODAS LAS EVALUACIONES",
     "codeLabel": "USA EL CÓDIGO",
     "expiresIn": "TERMINA EN",
-    "claimOffer": "OBTENER 75% DTO"
+    "claimOffer": "OBTENER 75% DTO",
+    "endsOn": "Termina el {date}"
   },
   "nav": {
     "evaluation": "Evaluación",
@@ -1403,16 +1404,14 @@
     "badge": "Evaluaciones de trading simuladas",
     "headline1": "Demuestra tu habilidad",
     "headline2": "en una evaluación simulada.",
-    "chip1v": "MT5 y TradeLocker",
-    "chip1l": "Plataformas",
+    "chip1v": "Pago único",
+    "chip1l": "Sin suscripción",
     "chip2v": "Sin límite de tiempo",
     "chip2l": "A tu ritmo",
     "chip3v": "Trading de noticias",
     "chip3l": "Permitido",
     "cond1": "Entorno de trading simulado",
-    "cond2": "Apalancamiento 1:100",
     "cond3": "Pago único de evaluación",
-    "cond4": "MT5 y TradeLocker",
     "riskTitle": "Información importante sobre riesgos",
     "risk1": "Todas las cuentas de CK PropFirm, incluidas las fondeadas, son simuladas. No se opera con fondos reales ni se invierte dinero de clientes en los mercados.",
     "risk2": "El trading conlleva un riesgo considerable. El rendimiento en un entorno simulado no indica resultados futuros, y la mayoría de quienes hacen una evaluación no la superan.",
@@ -1423,6 +1422,10 @@
     "ctaPrimary": "Empezar desafío",
     "ctaSecondary": "Objetivos de trading",
     "metaTitle": "Evaluaciones de trading simuladas | CK PropFirm",
-    "metaDesc": "Haz una evaluación de trading simulada en MT5 o TradeLocker con objetivos claros y sin límite de tiempo."
+    "metaDesc": "Demuestra tu habilidad de trading en una evaluación simulada. Sin límite de tiempo, reglas transparentes y sin comisiones ocultas.",
+    "subcopy": "Sin límite de tiempo, reglas transparentes y sin comisiones ocultas.",
+    "featuredTitle": "Cuentas de evaluación simuladas de hasta $300K",
+    "featuredDesc": "Reparto de beneficios del 80% en cuentas simuladas.",
+    "navFrom": "Desde {price}"
   }
 }

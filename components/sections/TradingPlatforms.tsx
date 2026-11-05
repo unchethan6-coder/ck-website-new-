@@ -7,7 +7,12 @@ import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/components/fx/reveal";
 import { Check } from "lucide-react";
 
-export function TradingPlatforms() {
+/**
+ * `correctLogos`: the default wiring shows each platform with the other's
+ * logo. The ad landing page passes this to pair them correctly; the rest of
+ * the site is left as it is until that is fixed everywhere.
+ */
+export function TradingPlatforms({ correctLogos = false }: { correctLogos?: boolean } = {}) {
   const t = useTranslations("platforms");
 
   const platforms = [
@@ -17,7 +22,7 @@ export function TradingPlatforms() {
       fullName: "MetaTrader 5",
       description: t("mt5Desc"),
       features: (t.raw("mt5Features") as string[]) ?? ["Advanced charting", "Expert Advisors (EA)", "One-click trading", "20+ order types"],
-      logo: "/images/logos/tradelocker.jpeg",
+      logo: correctLogos ? "/images/logos/mt5.png" : "/images/logos/tradelocker.jpeg",
     },
     {
       id: "tradelocker",
@@ -25,7 +30,7 @@ export function TradingPlatforms() {
       fullName: "TradeLocker",
       description: t("tradelockerDesc"),
       features: (t.raw("tradelockerFeatures") as string[]) ?? ["Web & mobile native", "Real-time analytics", "Built-in risk tools", "Clean modern UI"],
-      logo: "/images/logos/mt5.png",
+      logo: correctLogos ? "/images/logos/tradelocker.jpeg" : "/images/logos/mt5.png",
     },
   ];
 

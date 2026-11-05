@@ -1,20 +1,33 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { useFormatter, useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { SITE_META } from "@/lib/content";
 import { VIP_OFFER } from "@/lib/vipOffer";
 import { useVipOffer } from "@/components/shared/useVipOffer";
+import { usePathname } from "next/navigation";
+import { AD_BANNER_ENDS_AT, isAdLandingPath } from "@/lib/adLanding";
 
 export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
   const [visible, setVisible] = useState(true);
   const t = useTranslations("announcement");
   const { vip, copy, challengeHref } = useVipOffer();
+  const format = useFormatter();
+  // On the ad landing page the offer carries an end date and the bar goes once it passes.
+  const endsAt = isAdLandingPath(usePathname()) && AD_BANNER_ENDS_AT ? new Date(AD_BANNER_ENDS_AT) : null;
+  const [expired, setExpired] = useState(false);
+  useEffect(() => {
+    if (!endsAt) return;
+    const check = () => setExpired(Date.now() >= endsAt.getTime());
+    check();
+    const id = window.setInterval(check, 60_000);
+    return () => window.clearInterval(id);
+  }, [endsAt?.getTime()]); // eslint-disable-line react-hooks/exhaustive-deps
   // The VIP copy shows its own code, and none at all until one is set.
   const code = vip ? VIP_OFFER.code : SITE_META.promoCode;
 
-  if (!visible) return null;
+  if (!visible || expired) return null;
 
   return (
     <div
@@ -29,6 +42,11 @@ export function AnnouncementBar({ banners }: { banners?: string[] } = {}) {
         {code && (
           <span className="inline-flex items-center rounded border border-[#894CEF]/40 bg-[#894CEF]/10 px-2 py-0.5 font-mono text-[11px] sm:text-xs font-bold text-[#A98BFF]">
             {t("codeLabel")}: {code}
+          </span>
+        )}
+        {endsAt && (
+          <span className="text-white/70">
+            {t("endsOn", { date: format.dateTime(endsAt, { dateStyle: "medium", timeZone: "UTC" }) })}
           </span>
         )}
         <a

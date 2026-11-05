@@ -33,6 +33,7 @@ export async function AdLandingPage() {
         copy={{
           badge: t("badge"),
           headline: [t("headline1"), t("headline2")],
+          subcopy: t("subcopy"),
           chips: [
             { value: t("chip1v"), label: t("chip1l") },
             { value: t("chip2v"), label: t("chip2l") },
@@ -41,9 +42,9 @@ export async function AdLandingPage() {
         }}
       />
 
-      <ChallengeComparison config={challengeConfig} conditions={[t("cond1"), t("cond2"), t("cond3"), t("cond4")]} />
+      <ChallengeComparison config={challengeConfig} conditions={[t("cond1"), t("cond3")]} hideScalingCeiling />
 
-      <TradingPlatforms />
+      <TradingPlatforms correctLogos />
 
       <CustomerSupportSection />
 

@@ -13,6 +13,7 @@ const UNLOCK_EVENTS = ["pointerdown", "keydown", "touchend"] as const;
 export interface HeroCopy {
   badge: string;
   headline: [string, string];
+  subcopy?: string;
   chips: [HeroChip, HeroChip, HeroChip];
 }
 interface HeroChip {
@@ -181,7 +182,7 @@ export function Hero({
               transition={{ duration: 0.5, delay: 0.16 }}
               className="mt-3.5 sm:mt-4 text-sm sm:text-base font-medium leading-relaxed text-[#999BA3] max-w-lg"
             >
-              {t("subcopy")}
+              {copy?.subcopy ?? t("subcopy")}
             </motion.p>
 
             {/* 3 Key Feature Chips */}
